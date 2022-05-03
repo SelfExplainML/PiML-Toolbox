@@ -64,10 +64,12 @@ exp.model_train()
 ```python
 exp.model_explain()
 ```
+<img src="https://github.com/SelfExplainML/PiML-Toolbox/blob/main/examples/results/model_explain.png">
 
 ```python
 exp.model_interpret()
 ```
+<img src="https://github.com/SelfExplainML/PiML-Toolbox/blob/main/examples/results/model_interpret.png">
 
 ### Stage 4. Diagnose and Compare
 ```python
@@ -79,4 +81,28 @@ exp.model_diagnose()
 exp.model_compare()
 ```
 <img src="https://github.com/SelfExplainML/PiML-Toolbox/blob/main/examples/results/model_compare.png">
+
+
+
+## Arbitrary Black-Box Modeling
+For example, train a complex LightGBM with depth 7 and register it to the experiment: 
+
+```python
+from lightgbm import LGBMRegressor
+pipeline = exp.make_pipeline(LGBMRegressor(max_depth=7))
+pipeline.fit() 
+exp.register(pipeline=pipeline, name='LGBM')
+```
+
+Then, compare it to inherently interpretable models (e.g. EBM and GAMI-Net): 
+```python
+exp.model_compare()
+```
+<img src="https://github.com/SelfExplainML/PiML-Toolbox/blob/main/examples/results/model_compare2.png">
+
+
+
+## Citations
+To be added ... 
+
 

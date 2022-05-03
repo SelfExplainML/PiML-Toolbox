@@ -49,7 +49,7 @@ exp.data_prepare()
 exp.eda()
 ```
 
-<img src="https://github.com/SelfExplainML/Aletheia/blob/master/examples/results/CoCircle_Local.png" width="480">
+<img src="https://github.com/SelfExplainML/PiML-Toolbox/blob/main/examples/results/data_eda.png" width="480">
 
 **Stage 2:**  Train intepretable models
 

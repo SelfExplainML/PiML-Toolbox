@@ -26,7 +26,7 @@ wget.download(url, 'PiML-0.1.0-cp37-cp37m-linux_x86_64.whl')
 
 ## Low-code Usage on Google Colab
 
-### **Stage 1:**  Initialize an experiment, Load and Prepare data
+### Stage 1:  Initialize an experiment, Load and Prepare data
 
 ```python
 from piml import Experiment
@@ -53,6 +53,30 @@ exp.eda()
 ```
 <img src="https://github.com/SelfExplainML/PiML-Toolbox/blob/main/examples/results/data_eda.png">
 
-**Stage 2:**  Train intepretable models
+### Stage 2:  Train intepretable models
+```python
+exp.model_train()
+```
+<img src="https://github.com/SelfExplainML/PiML-Toolbox/blob/main/examples/results/model_train.png">
 
+
+### Stage 3. Explain and Interpret
+```python
+exp.model_explain()
+```
+
+```python
+exp.model_interpret()
+```
+
+### Stage 4. Diagnose and Compare
+```python
+exp.model_diagnose()
+```
+<img src="https://github.com/SelfExplainML/PiML-Toolbox/blob/main/examples/results/model_diagnose.png">
+
+```python
+exp.model_compare()
+```
+<img src="https://github.com/SelfExplainML/PiML-Toolbox/blob/main/examples/results/model_compare.png">
 

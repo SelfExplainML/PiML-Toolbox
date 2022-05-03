@@ -10,6 +10,14 @@ PiML (Python Interpretable Machine Learning) is a new Python toolbox for IML mod
 - **Arbitrary black-box models**，e.g.
   1. LightGBM or XGBoost of varying depth
   2. RandomForest of varying depth
-  3. DNNs with softmax/tanh activations
+  3. Residual Deep Neural Networks
 
-More details to add ... 
+## Installation 
+
+```python
+!pip install wget
+import wget
+url = "https://github.com/SelfExplainML/PiML-Toolbox/releases/download/V0.1.0/PiML-0.1.0-cp37-cp37m-linux_x86_64.whl"
+wget.download(url, 'PiML-0.1.0-cp37-cp37m-linux_x86_64.whl')
+!pip install PiML-0.1.0-cp37-cp37m-linux_x86_64.whl
+```

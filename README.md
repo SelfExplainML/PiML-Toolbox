@@ -14,6 +14,8 @@ PiML (Python Interpretable Machine Learning) is a new Python toolbox for IML mod
 
 ## Installation 
 
+Run the following piece of sript to download and install PiML v0.1.0 to Google Colab: 
+
 ```python
 !pip install wget
 import wget
@@ -21,3 +23,34 @@ url = "https://github.com/SelfExplainML/PiML-Toolbox/releases/download/V0.1.0/Pi
 wget.download(url, 'PiML-0.1.0-cp37-cp37m-linux_x86_64.whl')
 !pip install PiML-0.1.0-cp37-cp37m-linux_x86_64.whl
 ```
+
+## Low-code Usage on Google Colab
+
+**Stage 1:**  Initialize an experiment, Load and Prepare data
+
+```python
+from piml import Experiment
+exp = Experiment(platform="colab")
+```
+
+```python
+exp.data_loader()
+```
+
+```python
+exp.data_summary()
+```
+
+```python
+exp.data_prepare()
+```
+
+```python
+exp.eda()
+```
+
+<img src="https://github.com/SelfExplainML/Aletheia/blob/master/examples/results/CoCircle_Local.png" width="480">
+
+**Stage 2:**  Train intepretable models
+
+

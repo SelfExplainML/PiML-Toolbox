@@ -10,7 +10,7 @@ PiML (Python Interpretable Machine Learning) is a new Python toolbox for IML mod
 - **Arbitrary black-box models**，e.g.
   1. LightGBM or XGBoost of varying depth
   2. RandomForest of varying depth
-  3. Residual Neural Networks
+  3. Residual Deep Neural Networks
 
 ## Installation 
 

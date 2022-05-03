@@ -26,7 +26,7 @@ wget.download(url, 'PiML-0.1.0-cp37-cp37m-linux_x86_64.whl')
 
 ## Low-code Usage on Google Colab
 
-**Stage 1:**  Initialize an experiment, Load and Prepare data
+### **Stage 1:**  Initialize an experiment, Load and Prepare data
 
 ```python
 from piml import Experiment

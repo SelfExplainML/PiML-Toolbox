@@ -36,19 +36,21 @@ exp = Experiment(platform="colab")
 ```python
 exp.data_loader()
 ```
+<img src="https://github.com/SelfExplainML/PiML-Toolbox/blob/main/examples/results/data_loader.png">
 
 ```python
 exp.data_summary()
 ```
+<img src="https://github.com/SelfExplainML/PiML-Toolbox/blob/main/examples/results/data_summary.png">
 
 ```python
 exp.data_prepare()
 ```
+<img src="https://github.com/SelfExplainML/PiML-Toolbox/blob/main/examples/results/data_prepare.png">
 
 ```python
 exp.eda()
 ```
-
 <img src="https://github.com/SelfExplainML/PiML-Toolbox/blob/main/examples/results/data_eda.png">
 
 **Stage 2:**  Train intepretable models

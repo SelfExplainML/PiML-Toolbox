@@ -112,9 +112,7 @@ exp.model_compare()
 
 
 ## Citations
-
-## Citations
-Agus Sudjianto, Aijun Zhang, Zebin Yang, Yu Su, Ningzhou Zeng and Vijay Nair. 2022. PiML: A Python Toolbox for Interpretable Machine Learning Model Development and Validation. To Appear. 
+<em>"PiML: A Python Toolbox for Interpretable Machine Learning Model Development and Validation" (Sudjianto, Zhang, Yang, Su, Zeng and Nair, 2022)</em>
 
 ```latex
 @article{sudjianto2022PiML,

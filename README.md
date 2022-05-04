@@ -72,7 +72,7 @@ exp.model_explain()
 <img src="https://github.com/SelfExplainML/PiML-Toolbox/blob/main/examples/results/model_explain.png">
 
 ```python
-exp.model_interpret()
+exp.model_interpret() 
 ```
 <img src="https://github.com/SelfExplainML/PiML-Toolbox/blob/main/examples/results/model_interpret.png">
 

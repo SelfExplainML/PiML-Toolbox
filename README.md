@@ -115,7 +115,7 @@ exp.model_compare()
 <em>"PiML: A Python Toolbox for Interpretable Machine Learning Model Development and Validation" (Sudjianto, Zhang*, Yang, Su, Zeng and Nair, 2022)</em>
 
 ```latex
-@article{sudjianto2022PiML,
+@article{sudjianto2022piml,
   title={PiML: A Python Toolbox for Interpretable Machine Learning Model Development and Validation},
   author={Sudjianto, Agus and Zhang*, Aijun and Yang, Zebin and Su, Yu and Zeng, Ningzhou and Nair Vijay},
   journal={To appear},

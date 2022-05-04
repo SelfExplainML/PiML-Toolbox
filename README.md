@@ -17,6 +17,8 @@ PiML (or π·ML, /ˈpaɪ·ˈem·ˈel/) is a new Python toolbox for Interpretable
 2. RandomForest of varying depth
 3. Residual Deep Neural Networks
 
+Try out using colab: https://colab.research.google.com/github/SelfExplainML/PiML-Toolbox/blob/main/PiML%20Low-code%20Example%20Run.ipynb
+
 ## Installation 
 
 Run the following piece of script to download and install PiML v0.1.0 to Google Colab: 

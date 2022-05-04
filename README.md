@@ -112,12 +112,12 @@ exp.model_compare()
 
 
 ## Citations
-<em>"PiML: A Python Toolbox for Interpretable Machine Learning Model Development and Validation" (Sudjianto, Zhang, Yang, Su, Zeng and Nair, 2022)</em>
+<em>"PiML: A Python Toolbox for Interpretable Machine Learning Model Development and Validation" (Sudjianto, Zhang*, Yang, Su, Zeng and Nair, 2022)</em>
 
 ```latex
 @article{sudjianto2022PiML,
   title={PiML: A Python Toolbox for Interpretable Machine Learning Model Development and Validation},
-  author={Sudjianto, Agus and Zhang, Aijun and Yang, Zebin and Su, Yu and Zeng, Ningzhou and Nair Vijay},
+  author={Sudjianto, Agus and Zhang*, Aijun and Yang, Zebin and Su, Yu and Zeng, Ningzhou and Nair Vijay},
   journal={To Appear},
   year={2022}
 }

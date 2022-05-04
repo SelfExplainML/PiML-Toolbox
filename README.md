@@ -19,7 +19,7 @@ PiML (or π·ML, /ˈpaɪ·ˈem·ˈel/) is a new Python toolbox for Interpretable
 
 ## Installation 
 
-Run the following piece of sript to download and install PiML v0.1.0 to Google Colab: 
+Run the following piece of script to download and install PiML v0.1.0 to Google Colab: 
 
 ```python
 !pip install wget

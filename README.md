@@ -18,8 +18,8 @@ PiML (or π·ML, /ˈpaɪ·ˈem·ˈel/) is a new Python toolbox for Interpretable
 3. Residual Deep Neural Networks
 
 <div class="devsite-table-wrapper"><table class="tfo-notebook-buttons" align="left">
-<img src="https://www.tensorflow.org/images/colab_logo_32px.png">Run in Google Colab</a></td>
 <td><a target="_blank" href="https://colab.research.google.com/github/SelfExplainML/PiML-Toolbox/blob/main/PiML%20Low-code%20Example%20Run.ipynb">
+<img src="https://www.tensorflow.org/images/colab_logo_32px.png">Run in Google Colab</a></td>
 </table></div>
 
 ## Installation 

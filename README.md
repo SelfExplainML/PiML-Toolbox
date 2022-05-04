@@ -118,7 +118,7 @@ exp.model_compare()
 @article{sudjianto2022PiML,
   title={PiML: A Python Toolbox for Interpretable Machine Learning Model Development and Validation},
   author={Sudjianto, Agus and Zhang*, Aijun and Yang, Zebin and Su, Yu and Zeng, Ningzhou and Nair Vijay},
-  journal={To Appear},
+  journal={To appear},
   year={2022}
 }
 ```

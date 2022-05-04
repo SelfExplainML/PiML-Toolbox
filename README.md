@@ -1,6 +1,6 @@
 <div align="center">
   
-<img src="https://github.com/SelfExplainML/PiML-Toolbox/blob/main/examples/results/LogoPiML.png" alt="drawing" width="220"/>
+<img src="https://github.com/SelfExplainML/PiML-Toolbox/blob/main/examples/results/LogoPiML.png" alt="drawing" width="314.15926"/>
 
 **A low-code interpretable machine learning toolbox in Python** 
 </div>

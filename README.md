@@ -1,5 +1,12 @@
 # PiML Toolbox
 
+<div align="center">
+  
+<img src="https://github.com/SelfExplainML/PiML-Toolbox/blob/main/examples/results/LogoPiML.png" alt="drawing"/>
+
+**A low-code interpretable machine learning library in Python** 
+</div>
+
 PiML (Python Interpretable Machine Learning) is a new Python toolbox for IML model development and validation. Through low-code automation and high-code programming, PiML supports various machine learning models in the following two categories:
 
 - **Inherently interpretable models**: 

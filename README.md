@@ -13,9 +13,9 @@ PiML (or π·ML, /ˈpaɪ·ˈem·ˈel/) is a new Python toolbox for Interpretable
 3. ReLU-DNN: Deep ReLU Networks using Aletheia Unwrapper (Sudjianto, et al. 2020)
 
 - **Arbitrary black-box models**，e.g.
-  1. LightGBM or XGBoost of varying depth
-  2. RandomForest of varying depth
-  3. Residual Deep Neural Networks
+1. LightGBM or XGBoost of varying depth
+2. RandomForest of varying depth
+3. Residual Deep Neural Networks
 
 ## Installation 
 

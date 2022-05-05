@@ -17,9 +17,13 @@ PiML (or π·ML, /ˈpaɪ·ˈem·ˈel/) is a new Python toolbox for Interpretable
 2. RandomForest of varying depth
 3. Residual Deep Neural Networks
 
-<div align="center">
-  <a style="text-laign: 'center'" target="_blank" href="https://colab.research.google.com/github/SelfExplainML/PiML-Toolbox/blob/main/PiML%20Low-code%20Example%20Run.ipynb"><img src="https://github.com/SelfExplainML/PiML-Toolbox/blob/main/examples/results/LogoColab.png" width="20"> Run Low-code in Google Colab</a>
-</div>
+## Low-code Examples 
+<img src="https://github.com/SelfExplainML/PiML-Toolbox/blob/main/examples/results/LogoColab.png" width="20"> Click ipynb links to run examples in Google Colab:
+1. BikeSharing data: <a style="text-laign: 'center'" target="_blank" href="https://colab.research.google.com/github/SelfExplainML/PiML-Toolbox/blob/main/examples/Example_BikeSharing.ipynb">ipynb</a> | <a style="text-laign: 'center'" target="_blank" href="https://github.com/SelfExplainML/PiML-Toolbox/blob/main/examples/Example_BikeSharing.html">html</a>  
+2. CaliforniaHousing data:
+3. TaiwanCredit data:
+
+Begin your own PiML journey with <a style="text-laign: 'center'" target="_blank" href="https://colab.research.google.com/github/SelfExplainML/PiML-Toolbox/blob/main/PiML%20Low-code%20Example%20Run.ipynb"><img src="https://github.com/SelfExplainML/PiML-Toolbox/blob/main/examples/results/LogoColab.png" width="20"> this example</a> in Google Colab. 
 
 ## Installation 
 

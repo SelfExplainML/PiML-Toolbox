@@ -18,12 +18,12 @@ PiML (or π·ML, /ˈpaɪ·ˈem·ˈel/) is a new Python toolbox for Interpretable
 3. Residual Deep Neural Networks
 
 ## Low-code Examples 
-<img src="https://github.com/SelfExplainML/PiML-Toolbox/blob/main/examples/results/LogoColab.png" width="20"> Click ipynb links to run examples in Google Colab:
-1. BikeSharing data: <a style="text-laign: 'center'" target="_blank" href="https://colab.research.google.com/github/SelfExplainML/PiML-Toolbox/blob/main/examples/Example_BikeSharing.ipynb">ipynb</a> | <a style="text-laign: 'center'" target="_blank" href="https://htmlpreview.github.io/?https://github.com/SelfExplainML/PiML-Toolbox/blob/main/examples/Example_BikeSharing.html">html</a>  
-2. CaliforniaHousing data:
-3. TaiwanCredit data:
+Click the ipynb links to run examples in Google Colab:  
+1. BikeSharing data: <a style="text-laign: 'center'" target="_blank" href="https://colab.research.google.com/github/SelfExplainML/PiML-Toolbox/blob/main/examples/Example_BikeSharing.ipynb"><img src="https://github.com/SelfExplainML/PiML-Toolbox/blob/main/examples/results/LogoColab.png" width="20">  ipynb</a> | <a style="text-laign: 'center'" target="_blank" href="https://github.com/SelfExplainML/PiML-Toolbox/blob/main/examples/Example_BikeSharing.html">html</a>  
+2. CaliforniaHousing data: <a style="text-laign: 'center'" target="_blank" href="https://colab.research.google.com/github/SelfExplainML/PiML-Toolbox/blob/main/examples/Example_BikeSharing.ipynb"><img src="https://github.com/SelfExplainML/PiML-Toolbox/blob/main/examples/results/LogoColab.png" width="20">  ipynb</a> | <a style="text-laign: 'center'" target="_blank" href="https://github.com/SelfExplainML/PiML-Toolbox/blob/main/examples/Example_CaliforniaHousing.html">html</a>  
+3. TaiwanCredit data: <a style="text-laign: 'center'" target="_blank" href="https://colab.research.google.com/github/SelfExplainML/PiML-Toolbox/blob/main/examples/Example_TaiwanCredit.ipynb"><img src="https://github.com/SelfExplainML/PiML-Toolbox/blob/main/examples/results/LogoColab.png" width="20">  ipynb</a> | <a style="text-laign: 'center'" target="_blank" href="https://github.com/SelfExplainML/PiML-Toolbox/blob/main/examples/Example_TaiwanCredit.html">html</a>  
 
-Begin your own PiML journey with <a style="text-laign: 'center'" target="_blank" href="https://colab.research.google.com/github/SelfExplainML/PiML-Toolbox/blob/main/PiML%20Low-code%20Example%20Run.ipynb">this pre-defined notebook</a> in Google Colab. 
+Begin your own PiML journey with <a style="text-laign: 'center'" target="_blank" href="https://colab.research.google.com/github/SelfExplainML/PiML-Toolbox/blob/main/PiML%20Low-code%20Example%20Run.ipynb">this demo notebook</a>. 
 
 ## Installation 
 

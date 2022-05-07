@@ -3,8 +3,13 @@
 <img src="https://github.com/SelfExplainML/PiML-Toolbox/blob/main/examples/results/LogoPiML.png" alt="drawing" width="314.15926"/>
 
 **A low-code interpretable machine learning toolbox in Python** 
+  
+<br>
+[Introduction](#Intro) | [Examples](#Example) | [Installation](#Install)
 </div>
 
+
+<a name="Intro"></a>  
 PiML (or π·ML, /ˈpaɪ·ˈem·ˈel/) is a new Python toolbox for Interpretable Machine Learning model development and validation. Through low-code automation and high-code programming, PiML supports various machine learning models in the following two categories:
 
 - **Inherently interpretable models**: 
@@ -17,7 +22,7 @@ PiML (or π·ML, /ˈpaɪ·ˈem·ˈel/) is a new Python toolbox for Interpretable
 2. RandomForest of varying depth
 3. Residual Deep Neural Networks
 
-## Low-code Examples 
+## Low-code Examples<a name="Example"></a>   
 Click the ipynb links to run examples in Google Colab:  
 1. BikeSharing data: <a style="text-laign: 'center'" target="_blank" href="https://colab.research.google.com/github/SelfExplainML/PiML-Toolbox/blob/main/examples/Example_BikeSharing.ipynb"><img src="https://github.com/SelfExplainML/PiML-Toolbox/blob/main/examples/results/LogoColab.png" width="20">  ipynb</a>  
 2. CaliforniaHousing data: <a style="text-laign: 'center'" target="_blank" href="https://colab.research.google.com/github/SelfExplainML/PiML-Toolbox/blob/main/examples/Example_CaliforniaHousing.ipynb"><img src="https://github.com/SelfExplainML/PiML-Toolbox/blob/main/examples/results/LogoColab.png" width="20">  ipynb</a>  
@@ -25,7 +30,7 @@ Click the ipynb links to run examples in Google Colab:
 
 Begin your own PiML journey with <a style="text-laign: 'center'" target="_blank" href="https://colab.research.google.com/github/SelfExplainML/PiML-Toolbox/blob/main/PiML%20Low-code%20Example%20Run.ipynb">this demo notebook</a>. 
 
-## Installation 
+## Installation<a name="Install"></a>  
 
 Run the following piece of script to download and install PiML v0.1.0 to Google Colab: 
 
@@ -37,7 +42,7 @@ wget.download(url, 'PiML-0.1.0-cp37-cp37m-linux_x86_64.whl')
 !pip install PiML-0.1.0-cp37-cp37m-linux_x86_64.whl
 ```
 
-## Low-code Usage on Google Colab
+## Low-code Usage on Google Colab<a name="Usage"></a>  
 
 ### Stage 1:  Initialize an experiment, Load and Prepare data
 
@@ -115,7 +120,7 @@ exp.model_compare()
 
 
 
-## Citations
+## Citations<a name="Cite"></a>  
 
 <details open>
   <summary><strong>PiML, ReLU-DNN Aletheia and GAMI-Net</strong></summary><hr/>

@@ -116,76 +116,84 @@ exp.model_compare()
 
 
 ## Citations
+
 <details open>
-<summary><strong>PiML, ReLU-DNN Aletheia and GAMI-Net</strong></summary><hr/>
-"PiML: A Python Toolbox for Interpretable Machine Learning Model Development and Validation" (A. Sudjianto, A. Zhang*, Z. Yang, Y. Su, N. Zeng and V. Nair, 2022)  
-```latex
-@article{sudjianto2022piml,
+  <summary><strong>PiML, ReLU-DNN Aletheia and GAMI-Net</strong></summary><hr/>
+
+  "PiML: A Python Toolbox for Interpretable Machine Learning Model Development and Validation" (A. Sudjianto, A. Zhang*, Z. Yang, Y. Su, N. Zeng and V. Nair, 2022)  
+
+  ```latex
+  @article{sudjianto2022piml,
   title={PiML: A Python Toolbox for Interpretable Machine Learning Model Development and Validation},
   author={Sudjianto, Agus and Zhang*, Aijun and Yang, Zebin and Su, Yu and Zeng, Ningzhou and Nair Vijay},
   journal={To appear},
   year={2022}
-}
-```
+  }
+  ```
   
-"Designing Inherently Interpretable Machine Learning Models" (A. Sudjianto and A. Zhang*, 2021)  <a href="https://arxiv.org/abs/2111.01743">arXiv link</a>  
-```latex
-@article{sudjianto2021designing,
+  "Designing Inherently Interpretable Machine Learning Models" (A. Sudjianto and A. Zhang*, 2021)  <a href="https://arxiv.org/abs/2111.01743">arXiv link</a>  
+  
+  ```latex
+  @article{sudjianto2021designing,
   title={Designing Inherently Interpretable Machine Learning Models},
   author={Sudjianto, Agus and Zhang, Aijun},
   journal={arXiv preprint arXiv:2111.01743},
   year={2021}
-}
-```
+  }
+  ```
 
-
-"Unwrapping The Black Box of Deep ReLU Networks: Interpretability, Diagnostics, and Simplification" (A. Sudjianto, W. Knauth, R. Singh, Z. Yang and A. Zhang*, 2020) <a href="https://arxiv.org/abs/2011.04041">arXiv link</a>  
-```latex
-@article{sudjianto2020unwrapping,
+  "Unwrapping The Black Box of Deep ReLU Networks: Interpretability, Diagnostics, and Simplification" (A. Sudjianto, W. Knauth, R. Singh, Z. Yang and A. Zhang*, 2020) <a href="https://arxiv.org/abs/2011.04041">arXiv link</a>  
+  
+  ```latex
+  @article{sudjianto2020unwrapping,
   title={Unwrapping the black box of deep ReLU networks: interpretability, diagnostics, and simplification},
   author={Sudjianto, Agus and Knauth, William and Singh, Rahul and Yang, Zebin and Zhang, Aijun},
   journal={arXiv preprint arXiv:2011.04041},
   year={2020}
-}
-```
-  
-"GAMI-Net: An Explainable Neural Network based on Generalized Additive Models with Structured Interactions" (Z. Yang, A. Zhang*, and A. Sudjianto, 2021) <a href="https://arxiv.org/abs/2003.07132">arXiv link</a>  
-```latex
-@article{yang2021gami,
+  }
+  ```
+
+  "GAMI-Net: An Explainable Neural Network based on Generalized Additive Models with Structured Interactions" (Z. Yang, A. Zhang*, and A. Sudjianto, 2021) <a href="https://arxiv.org/abs/2003.07132">arXiv link</a>  
+
+  ```latex
+  @article{yang2021gami,
   title={GAMI-Net: An explainable neural network based on generalized additive models with structured interactions},
   author={Yang, Zebin and Zhang, Aijun and Sudjianto, Agus},
   journal={Pattern Recognition},
   volume={120},
   pages={108192},
   year={2021}
-}
-```
+  }
+  ```
 </details>  
 
 
 <details>
-<summary><strong>EBM</strong></summary><hr/>
-"InterpretML: A Unified Framework for Machine Learning Interpretability" (H. Nori, S. Jenkins, P. Koch, and R. Caruana, 2019)  
-```latex
-@article{nori2019interpretml,
+  <summary><strong>EBM</strong></summary><hr/>
+  
+  "InterpretML: A Unified Framework for Machine Learning Interpretability" (H. Nori, S. Jenkins, P. Koch, and R. Caruana, 2019)  
+  
+  ```latex
+  @article{nori2019interpretml,
   title={InterpretML: A Unified Framework for Machine Learning Interpretability},
   author={Nori, Harsha and Jenkins, Samuel and Koch, Paul and Caruana, Rich},
   journal={arXiv preprint arXiv:1909.09223},
   year={2019}
-}
-```
+  }
+  ```
 
-"Accurate intelligible models with pairwise interactions" (Y. Lou, R. Caruana, J. Gehrke, and G. Hooker, 2013)   
-```latex
-@inproceedings{lou2013accurate,
+  "Accurate intelligible models with pairwise interactions" (Y. Lou, R. Caruana, J. Gehrke, and G. Hooker, 2013)   
+  
+  ```latex
+  @inproceedings{lou2013accurate,
   title={Accurate intelligible models with pairwise interactions},
   author={Lou, Yin and Caruana, Rich and Gehrke, Johannes and Hooker, Giles},
   booktitle={Proceedings of the 19th ACM SIGKDD international conference on Knowledge discovery and data mining},
   pages={623--631},
   year={2013},
   organization={ACM}
-}  
-```
+  }  
+  ```
 </details>
 
- 
+

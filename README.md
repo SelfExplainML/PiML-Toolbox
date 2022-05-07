@@ -127,13 +127,13 @@ exp.model_compare()
   ```latex
   @article{sudjianto2022piml,
   title={PiML: A Python Toolbox for Interpretable Machine Learning Model Development and Validation},
-  author={Sudjianto, Agus and Zhang*, Aijun and Yang, Zebin and Su, Yu and Zeng, Ningzhou and Nair Vijay},
+  author={Sudjianto, Agus and Zhang, Aijun and Yang, Zebin and Su, Yu and Zeng, Ningzhou and Nair Vijay},
   journal={To appear},
   year={2022}
   }
   ```
   
-  "Designing Inherently Interpretable Machine Learning Models" (A. Sudjianto and A. Zhang*, 2021)  <a href="https://arxiv.org/abs/2111.01743">arXiv link</a>  
+  "Designing Inherently Interpretable Machine Learning Models" (A. Sudjianto and A. Zhang, 2021)  <a href="https://arxiv.org/abs/2111.01743">arXiv link</a>  
   
   ```latex
   @article{sudjianto2021designing,
@@ -144,7 +144,7 @@ exp.model_compare()
   }
   ```
 
-  "Unwrapping The Black Box of Deep ReLU Networks: Interpretability, Diagnostics, and Simplification" (A. Sudjianto, W. Knauth, R. Singh, Z. Yang and A. Zhang*, 2020) <a href="https://arxiv.org/abs/2011.04041">arXiv link</a>  
+  "Unwrapping The Black Box of Deep ReLU Networks: Interpretability, Diagnostics, and Simplification" (A. Sudjianto, W. Knauth, R. Singh, Z. Yang and A. Zhang, 2020) <a href="https://arxiv.org/abs/2011.04041">arXiv link</a>  
   
   ```latex
   @article{sudjianto2020unwrapping,
@@ -155,7 +155,7 @@ exp.model_compare()
   }
   ```
 
-  "GAMI-Net: An Explainable Neural Network based on Generalized Additive Models with Structured Interactions" (Z. Yang, A. Zhang*, and A. Sudjianto, 2021) <a href="https://arxiv.org/abs/2003.07132">arXiv link</a>  
+  "GAMI-Net: An Explainable Neural Network based on Generalized Additive Models with Structured Interactions" (Z. Yang, A. Zhang, and A. Sudjianto, 2021) <a href="https://arxiv.org/abs/2003.07132">arXiv link</a>  
 
   ```latex
   @article{yang2021gami,

@@ -116,7 +116,10 @@ exp.model_compare()
 
 
 ## Citations
-<em>"PiML: A Python Toolbox for Interpretable Machine Learning Model Development and Validation" (Sudjianto, Zhang*, Yang, Su, Zeng and Nair, 2022)</em>
+<details open>
+  <summary><strong>PiML</strong></summary>
+  <hr/>
+<em>"PiML: A Python Toolbox for Interpretable Machine Learning Model Development and Validation" (A. Sudjianto, A. Zhang*, Z. Yang, Y. Su, N. Zeng and V. Nair, 2022)</em>
 
 ```latex
 @article{sudjianto2022piml,
@@ -126,25 +129,48 @@ exp.model_compare()
   year={2022}
 }
 ```
+  
+  <em>"Designing Inherently Interpretable Machine Learning Models" (A. Sudjianto and A. Zhang*, 2021)</em>
 
-<details open>
+```latex
+@article{sudjianto2021designing,
+  title={Designing Inherently Interpretable Machine Learning Models},
+  author={Sudjianto, Agus and Zhang, Aijun},
+  journal={arXiv preprint arXiv:2111.01743},
+  year={2021}
+}
+```
+<a href="https://arxiv.org/abs/2111.01743">Paper arXiv link</a>  
+
+
+  <em>"Unwrapping The Black Box of Deep ReLU Networks: Interpretability, Diagnostics, and Simplification" (A. Sudjianto, W. Knauth, R. Singh, Z. Yang and A. Zhang*, 2020)</em>
+
+```latex
+@article{sudjianto2020unwrapping,
+  title={Unwrapping the black box of deep ReLU networks: interpretability, diagnostics, and simplification},
+  author={Sudjianto, Agus and Knauth, William and Singh, Rahul and Yang, Zebin and Zhang, Aijun},
+  journal={arXiv preprint arXiv:2011.04041},
+  year={2020}
+}
+```
+<a href="https://arxiv.org/abs/2011.04041">Paper arXiv link</a>  
+  
+</details>  
+
+
+<details>
   <summary><strong>EBM</strong></summary>
   <hr/>
-  <details open>
-    <summary>
-      <em>"InterpretML: A Unified Framework for Machine Learning Interpretability" (H. Nori, S. Jenkins, P. Koch, and R.
-        Caruana 2019)</em>
-    </summary>
-    <br/>
-    <pre>
+  <em>"InterpretML: A Unified Framework for Machine Learning Interpretability" (H. Nori, S. Jenkins, P. Koch, and R. Caruana 2019)</em>
+
+```latex
 @article{nori2019interpretml,
   title={InterpretML: A Unified Framework for Machine Learning Interpretability},
   author={Nori, Harsha and Jenkins, Samuel and Koch, Paul and Caruana, Rich},
   journal={arXiv preprint arXiv:1909.09223},
   year={2019}
 }
-</pre>
-    <a href="https://arxiv.org/pdf/1909.09223.pdf">Paper link</a>
+```
   </details>
   <hr/>
 </details>

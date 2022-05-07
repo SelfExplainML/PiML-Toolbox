@@ -137,7 +137,7 @@ exp.model_compare()
   @article{sudjianto2021designing,
   title={Designing Inherently Interpretable Machine Learning Models},
   author={Sudjianto, Agus and Zhang, Aijun},
-  journal={arXiv preprint arXiv:2111.01743},
+  journal={arXiv preprint:2111.01743},
   year={2021}
   }
   ```
@@ -148,7 +148,7 @@ exp.model_compare()
   @article{sudjianto2020unwrapping,
   title={Unwrapping the black box of deep ReLU networks: interpretability, diagnostics, and simplification},
   author={Sudjianto, Agus and Knauth, William and Singh, Rahul and Yang, Zebin and Zhang, Aijun},
-  journal={arXiv preprint arXiv:2011.04041},
+  journal={arXiv preprint:2011.04041},
   year={2020}
   }
   ```
@@ -168,8 +168,8 @@ exp.model_compare()
 </details>  
 
 
-<details>
-  <summary><strong>EBM</strong></summary><hr/>
+<details open>
+  <summary><strong>EBM and GA2M</strong></summary><hr/>
   
   "InterpretML: A Unified Framework for Machine Learning Interpretability" (H. Nori, S. Jenkins, P. Koch, and R. Caruana, 2019)  
   
@@ -177,7 +177,7 @@ exp.model_compare()
   @article{nori2019interpretml,
   title={InterpretML: A Unified Framework for Machine Learning Interpretability},
   author={Nori, Harsha and Jenkins, Samuel and Koch, Paul and Caruana, Rich},
-  journal={arXiv preprint arXiv:1909.09223},
+  journal={arXiv preprint:1909.09223},
   year={2019}
   }
   ```
@@ -188,7 +188,7 @@ exp.model_compare()
   @inproceedings{lou2013accurate,
   title={Accurate intelligible models with pairwise interactions},
   author={Lou, Yin and Caruana, Rich and Gehrke, Johannes and Hooker, Giles},
-  booktitle={Proceedings of the 19th ACM SIGKDD international conference on Knowledge discovery and data mining},
+  booktitle={Proceedings of the 19th ACM SIGKDD International Conference on Knowledge Discovery and Data Mining},
   pages={623--631},
   year={2013},
   organization={ACM}

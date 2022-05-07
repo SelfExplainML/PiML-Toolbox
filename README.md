@@ -122,7 +122,7 @@ exp.model_compare()
 <details open>
   <summary><strong>PiML, ReLU-DNN Aletheia and GAMI-Net</strong></summary><hr/>
 
-  "PiML: A Python Toolbox for Interpretable Machine Learning Model Development and Validation" (A. Sudjianto, A. Zhang*, Z. Yang, Y. Su, N. Zeng and V. Nair, 2022)  
+  "PiML: A Python Toolbox for Interpretable Machine Learning Model Development and Validation" (A. Sudjianto, A. Zhang, Z. Yang, Y. Su, N. Zeng and V. Nair, 2022)  
 
   ```latex
   @article{sudjianto2022piml,

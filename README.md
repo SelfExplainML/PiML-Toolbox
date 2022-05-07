@@ -126,3 +126,36 @@ exp.model_compare()
   year={2022}
 }
 ```
+
+<details open>
+  <summary><strong>EBM</strong></summary>
+  <hr/>
+  <details open>
+    <summary>
+      <em>"InterpretML: A Unified Framework for Machine Learning Interpretability" (H. Nori, S. Jenkins, P. Koch, and R.
+        Caruana 2019)</em>
+    </summary>
+    <br/>
+    <pre>
+@article{nori2019interpretml,
+  title={InterpretML: A Unified Framework for Machine Learning Interpretability},
+  author={Nori, Harsha and Jenkins, Samuel and Koch, Paul and Caruana, Rich},
+  journal={arXiv preprint arXiv:1909.09223},
+  year={2019}
+}
+</pre>
+    <a href="https://arxiv.org/pdf/1909.09223.pdf">Paper link</a>
+  </details>
+  <hr/>
+</details>
+
+<em>"PiML: A Python Toolbox for Interpretable Machine Learning Model Development and Validation" (Sudjianto, Zhang*, Yang, Su, Zeng and Nair, 2022)</em>
+
+```latex
+@article{sudjianto2022piml,
+  title={PiML: A Python Toolbox for Interpretable Machine Learning Model Development and Validation},
+  author={Sudjianto, Agus and Zhang*, Aijun and Yang, Zebin and Su, Yu and Zeng, Ningzhou and Nair Vijay},
+  journal={To appear},
+  year={2022}
+}
+```

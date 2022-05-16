@@ -30,7 +30,7 @@ Begin your own PiML journey with <a style="text-laign: 'center'" target="_blank"
 ## Installation<a name="Install"></a>  
 
 ```python
-!pip install 
+!pip install PiML  
 ```
 
 ## Low-code Usage on Google Colab<a name="Usage"></a>  

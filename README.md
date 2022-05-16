@@ -29,14 +29,8 @@ Begin your own PiML journey with <a style="text-laign: 'center'" target="_blank"
 
 ## Installation<a name="Install"></a>  
 
-Run the following piece of script to download and install PiML v0.1.0 to Google Colab: 
-
 ```python
-!pip install wget
-import wget
-url = "https://github.com/SelfExplainML/PiML-Toolbox/releases/download/V0.1.0/PiML-0.1.0-cp37-cp37m-linux_x86_64.whl"
-wget.download(url, 'PiML-0.1.0-cp37-cp37m-linux_x86_64.whl')
-!pip install PiML-0.1.0-cp37-cp37m-linux_x86_64.whl
+!pip install 
 ```
 
 ## Low-code Usage on Google Colab<a name="Usage"></a>  

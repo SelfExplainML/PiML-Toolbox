@@ -5,7 +5,7 @@
 **A low-code interpretable machine learning toolbox in Python** 
 </div>
 
-[Examples](#Example) | [Installation](#Install) | [Usage](#Usage) | [Citations](#Cite)
+[Installation](#Install) | [Examples](#Example) |[Usage](#Usage) | [Citations](#Cite)
 
 PiML (or π·ML, /ˈpaɪ·ˈem·ˈel/) is a new Python toolbox for Interpretable Machine Learning model development and validation. Through low-code automation and high-code programming, PiML supports various machine learning models in the following two categories:
 
@@ -19,6 +19,12 @@ PiML (or π·ML, /ˈpaɪ·ˈem·ˈel/) is a new Python toolbox for Interpretable
 2. RandomForest of varying depth
 3. Residual Deep Neural Networks
 
+## Installation<a name="Install"></a>  
+
+```python
+pip install PiML  
+```
+
 ## Low-code Examples<a name="Example"></a>   
 Click the ipynb links to run examples in Google Colab:  
 1. BikeSharing data: <a style="text-laign: 'center'" target="_blank" href="https://colab.research.google.com/github/SelfExplainML/PiML-Toolbox/blob/main/examples/Example_BikeSharing.ipynb"><img src="https://github.com/SelfExplainML/PiML-Toolbox/blob/main/examples/results/LogoColab.png" width="20">  ipynb</a>  
@@ -27,11 +33,6 @@ Click the ipynb links to run examples in Google Colab:
 
 Begin your own PiML journey with <a style="text-laign: 'center'" target="_blank" href="https://colab.research.google.com/github/SelfExplainML/PiML-Toolbox/blob/main/PiML%20Low-code%20Example%20Run.ipynb">this demo notebook</a>. 
 
-## Installation<a name="Install"></a>  
-
-```python
-!pip install PiML  
-```
 
 ## Low-code Usage on Google Colab<a name="Usage"></a>  
 

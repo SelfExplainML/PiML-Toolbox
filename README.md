@@ -7,7 +7,7 @@
 
 [Installation](#Install) | [Examples](#Example) |[Usage](#Usage) | [Citations](#Cite)
 
-PiML (or π·ML, /ˈpaɪ·ˈem·ˈel/) is a new Python toolbox for Interpretable Machine Learning model development and validation. Through low-code automation and high-code programming, PiML supports various machine learning models in the following two categories:
+PiML (or π·ML, /ˈpaɪ·ˈem·ˈel/) is a new Python toolbox for Interpretable Machine Learning model development and validation. Through low-code automation and high-code programming, PiML supports various machine learning models including
 
 - **Inherently interpretable models**: 
 1. EBM: Explainable Boosting Machine (Nori, et al. 2019; Lou, et al. 2013)

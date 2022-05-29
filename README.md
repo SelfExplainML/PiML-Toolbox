@@ -5,19 +5,19 @@
 **A low-code interpretable machine learning toolbox in Python** 
 </div>
 
-[Installation](#Install) | [Examples](#Example) |[Usage](#Usage) | [Citations](#Cite)
+[Installation](#Install) | [Examples](#Example) | [Usage](#Usage) | [Citations](#Cite)
 
-PiML (or π·ML, /ˈpaɪ·ˈem·ˈel/) is a new Python toolbox for Interpretable Machine Learning model development and validation. Through low-code automation and high-code programming, PiML supports various machine learning models including
+PiML (or π·ML, /ˈpaɪ·ˈem·ˈel/) is a new Python toolbox for interpretable machine learning model development and validation. Through low-code automation and high-code programming, PiML supports various machine learning models including
 
 - **Inherently interpretable models**: 
 1. EBM: Explainable Boosting Machine (Nori, et al. 2019; Lou, et al. 2013)
 2. GAMI-Net: Generalized Additive Model with Structured Interactions (Yang, Zhang and Sudjianto, 2021)
-3. ReLU-DNN: Deep ReLU Networks using Aletheia Unwrapper (Sudjianto, et al. 2020)
+3. ReLU-DNN: Deep ReLU Networks using Aletheia Unwrapper and Sparsification (Sudjianto, et al. 2020)
 
-- **Arbitrary black-box models**，e.g.
-1. LightGBM or XGBoost of varying depth
-2. RandomForest of varying depth
-3. Residual Deep Neural Networks
+- **Arbitrary machine learning models**，e.g.
+1. Tree-ensembles: RF, GBM, XGBoost, LightGBM, ...
+2. DNNs: MLP, ResNet, CNN, Attention, ...
+3. Kernel methods: SVM, Gaussian Process, ...
 
 ## Installation<a name="Install"></a>  
 

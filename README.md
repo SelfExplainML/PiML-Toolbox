@@ -2,7 +2,7 @@
   
 <img src="https://github.com/SelfExplainML/PiML-Toolbox/blob/main/examples/results/LogoPiML.png" alt="drawing" width="314.15926"/>
 
-**A low-code interpretable machine learning toolbox in Python** 
+**An integrated Python toolbox for interpretable machine learning** 
 </div>
 
 [Installation](#Install) | [Examples](#Example) | [Usage](#Usage) | [Citations](#Cite)

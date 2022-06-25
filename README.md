@@ -3,6 +3,8 @@
 <img src="https://github.com/SelfExplainML/PiML-Toolbox/blob/main/examples/results/LogoPiML.png" alt="drawing" width="314.15926"/>
 
 **An integrated Python toolbox for interpretable machine learning** 
+  
+:loudspeaker: **V0.2.0 is released with high-code APIs. `pip install PiML`**
 </div>
 
 [Installation](#Install) | [Examples](#Example) | [Usage](#Usage) | [Citations](#Cite)

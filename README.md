@@ -40,6 +40,14 @@ Click the ipynb links to run examples in Google Colab:
 Begin your own PiML journey with <a style="text-laign: 'center'" target="_blank" href="https://colab.research.google.com/github/SelfExplainML/PiML-Toolbox/blob/main/PiML%20Low-code%20Example%20Run.ipynb">this demo notebook</a>. 
 
 
+## High-code Examples<a name="Example"></a>   
+The same examples can also be run by high-code APIs:  
+1. BikeSharing data: <a style="text-laign: 'center'" target="_blank" href="https://colab.research.google.com/github/SelfExplainML/PiML-Toolbox/blob/main/examples/Example_BikeSharing_HighCode.ipynb"><img src="https://github.com/SelfExplainML/PiML-Toolbox/blob/main/examples/results/LogoColab.png" width="20">  ipynb</a>  
+2. CaliforniaHousing data: <a style="text-laign: 'center'" target="_blank" href="https://colab.research.google.com/github/SelfExplainML/PiML-Toolbox/blob/main/examples/Example_CaliforniaHousing_HighCode.ipynb"><img src="https://github.com/SelfExplainML/PiML-Toolbox/blob/main/examples/results/LogoColab.png" width="20">  ipynb</a>  
+3. TaiwanCredit data: <a style="text-laign: 'center'" target="_blank" href="https://colab.research.google.com/github/SelfExplainML/PiML-Toolbox/blob/main/examples/Example_TaiwanCredit_HighCode.ipynb"><img src="https://github.com/SelfExplainML/PiML-Toolbox/blob/main/examples/results/LogoColab.png" width="20">  ipynb</a>   
+
+
+
 ## Low-code Usage on Google Colab<a name="Usage"></a>  
 
 ### Stage 1:  Initialize an experiment, Load and Prepare data

@@ -1,10 +1,9 @@
 ## Workshop Info and Materials
 
-## Upcoming
 
 ### 1. Machine Learning Model Validation for Critical or Regulated Applications
 
-June 29 - July 6, 2022: QU-ML Model Validation Workshop
+June 29 - July 6, 2022 | Online: QU-ML Model Validation Workshop
 
 URL: [https://github.com/SelfExplainML/PiML-Toolbox](https://github.com/SelfExplainML/PiML-Toolbox)
 
@@ -41,4 +40,8 @@ We are going to cover the above aspects — including hands on experience using 
   - Arbitrary black box vs. Inherently interpretable models
   - Performance, Robustness and Resilience
 
-## Past 
+### Machine Learning Model Validation Masterclass 
+
+May 9, 2022 | New York City: [RISK AMERICAS 2022 Model Validation Workshop](https://www.cefpro.com/forthcoming-events/risk-americas/#section-1643126595388-11-2)
+
+The focus of this workshop is to provide comprehensive approach for machine learning model validation with special emphasis on conceptual soundness and outcome analysis. The key elements includes: model explainability, model weakness identification, prediction reliability, model robustness under changing environment and fairness. The workshop will spend significant amount of time on inherently interpretable models due to their key role for high risk applications as well as model benchmarks. This is a hands on workshop where the participants will learn practical concepts along with exercise using Python in Google Colab. Low code python packages will be provided so that participants with minimum familiarity of Python will be able to follow without difficulty.

@@ -1,11 +1,11 @@
 ## Workshop Info and Materials
 
 <details open>
-  <summary><strong> Machine Learning Model Validation Masterclass, May 9, 2022 | New York City</strong></summary><br />
+  <summary><strong> Machine Learning Model Validation MasterClass, May 9, 2022 | New York City</strong></summary><br />
 
 **URL:** [RISK AMERICAS 2022 Model Validation Workshop](https://www.cefpro.com/forthcoming-events/risk-americas/#section-1643126595388-11-2)
 
-**Materials:** [Slides 1,2,3,4,5](#) 
+**Materials:** [Part1](https://github.com/SelfExplainML/PiML-Toolbox/blob/main/docs/Workshop/202205MasterClass-Part1%20Intro.pdf), [Part2](https://github.com/SelfExplainML/PiML-Toolbox/blob/main/docs/Workshop/202205MasterClass-Part2%20Ml-Algorithms-Explainability.pdf), [Part3](https://github.com/SelfExplainML/PiML-Toolbox/blob/main/docs/Workshop/202205MasterClass-Part3%20ReLU-DNN.pdf), [Part4](https://github.com/SelfExplainML/PiML-Toolbox/blob/main/docs/Workshop/202205MasterClass-Part4%20EBM%20and%20GAMI-Net.pdf), [Part5](https://github.com/SelfExplainML/PiML-Toolbox/blob/main/docs/Workshop/202205MasterClass-Part5%20Outcome%20Testing.pdf)
 
 The focus of this workshop is to provide comprehensive approach for machine learning model validation with special emphasis on conceptual soundness and outcome analysis. The key elements includes: model explainability, model weakness identification, prediction reliability, model robustness under changing environment and fairness. The workshop will spend significant amount of time on inherently interpretable models due to their key role for high risk applications as well as model benchmarks. This is a hands on workshop where the participants will learn practical concepts along with exercise using Python in Google Colab. Low code python packages will be provided so that participants with minimum familiarity of Python will be able to follow without difficulty.
   

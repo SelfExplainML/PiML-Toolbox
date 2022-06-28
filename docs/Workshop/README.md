@@ -51,6 +51,8 @@ The focus of this workshop is to provide comprehensive approach for machine lear
 
 **URL:** [QU-ML Model Validation Workshop](https://mlmodelvalidation.splashthat.com/)
 
+**Speakers:** Agus Sudjianto and Aijun Zhang
+
 **Slides:** to be shared.
 
 **Codes:** to be shared.

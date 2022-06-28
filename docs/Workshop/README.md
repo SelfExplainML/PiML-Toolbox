@@ -12,7 +12,7 @@ We are going to cover the above aspects—including hands on experience using Pi
 
 **Session 1: Machine Learning Interpretability**
 
-[Download Slides](./Workshop202206Part1_ML_Interpretability.pdf)
+[Download Slides and Jupyter Notebooks](#)
 
 - Post-hoc explainability tools for black box models
   - Local explainability: LIME and SHAP

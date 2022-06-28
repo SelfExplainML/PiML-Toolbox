@@ -1,5 +1,7 @@
 ## Workshop Info and Materials
 
+## Upcoming
+
 ### 1. Machine Learning Model Validation for Critical or Regulated Applications
 
 June 29 - July 6, 2022: QU-ML Model Validation Workshop
@@ -39,3 +41,4 @@ We are going to cover the above aspects — including hands on experience using 
   - Arbitrary black box vs. Inherently interpretable models
   - Performance, Robustness and Resilience
 
+## Past 

@@ -1,6 +1,6 @@
 ## Workshop Info and Materials
 
-### Machine Learning Model Validation for Critical or Regulated Applications
+### 1. Machine Learning Model Validation for Critical or Regulated Applications
 
 June 29 - July 6, 2022: QU-ML Model Validation Workshop
 
@@ -26,6 +26,8 @@ We are going to cover the above aspects—including hands on experience using Pi
   - Generalized Additive Model with structed Interactions (GAMI) Networks
 
 **Session 2: Machine Learning Model Diagnostics and Validation**
+
+[Slides](#) and [Jupyter Notebooks](#) will be available.
 
 - Model Diagnostics and Testing
   - Weak Spot Analysis through Error Slicing

@@ -1,13 +1,46 @@
 ## Workshop Info and Materials
 
+<details open>
+  <summary><strong> Machine Learning Model Validation Masterclass, May 9, 2022 | New York City</strong></summary>
 
+URL: [RISK AMERICAS 2022 Model Validation Workshop](https://www.cefpro.com/forthcoming-events/risk-americas/#section-1643126595388-11-2)
+
+The focus of this workshop is to provide comprehensive approach for machine learning model validation with special emphasis on conceptual soundness and outcome analysis. The key elements includes: model explainability, model weakness identification, prediction reliability, model robustness under changing environment and fairness. The workshop will spend significant amount of time on inherently interpretable models due to their key role for high risk applications as well as model benchmarks. This is a hands on workshop where the participants will learn practical concepts along with exercise using Python in Google Colab. Low code python packages will be provided so that participants with minimum familiarity of Python will be able to follow without difficulty.
+  
+**Session 1: Introduction and machine learning explainability**
+
+- Elements of machine learning validation: Conceptual soundness and outcome analysis
+- Introduction to key concepts: explainability, robustness, reliability and fairness
+- Post-hoc explainability tools
+  - Local explainability: LIME and SHAP 
+  - Global explainability: Variable Importance,  Partial Dependence and Accumulated Local Effects
+
+**Session 2: Designing inherently interpretable model**
+
+- Limitation of post-hoc explainability
+- Introduction to building inherently interpretable model
+  - Explainable boosting machine
+  - GAMI Neural Networks
+
+**Session 3: Deep ReLU networks as interpretable models**
+
+- Local partition and linear models
+- Model interpretation and diagnostics
+- Complexity control through regularization
+
+**Session 4: Outcome testing**
+
+- Identification of performance weakness through slicing
+- Reliability evaluation through conformal prediction
+- Robustness evaluation for covariate/distribution drift
+- Fairness testing
+
+</details>  
 
 <details open>
-  <summary><strong>Machine Learning Model Validation for Critical or Regulated Applications</strong></summary><hr/>
+  <summary><strong>Machine Learning Model Validation for Critical or Regulated Applications, June 29 - July 6, 2022 | Online</strong></summary> 
 
-June 29 - July 6, 2022 | Online: QU-ML Model Validation Workshop
-
-URL: [https://github.com/SelfExplainML/PiML-Toolbox](https://github.com/SelfExplainML/PiML-Toolbox)
+URL: [QU-ML Model Validation Workshop](https://mlmodelvalidation.splashthat.com/)
 
 [Slides](#) and [Jupyter Notebooks](#) will be available.
 
@@ -42,27 +75,3 @@ We are going to cover the above aspects — including hands on experience using 
 
 </details>  
 
-
-<details open>
-  <summary><strong> Machine Learning Model Validation Masterclass </strong></summary><hr/>
-
-May 9, 2022 | New York City: [RISK AMERICAS 2022 Model Validation Workshop](https://www.cefpro.com/forthcoming-events/risk-americas/#section-1643126595388-11-2)
-
-The focus of this workshop is to provide comprehensive approach for machine learning model validation with special emphasis on conceptual soundness and outcome analysis. The key elements includes: model explainability, model weakness identification, prediction reliability, model robustness under changing environment and fairness. The workshop will spend significant amount of time on inherently interpretable models due to their key role for high risk applications as well as model benchmarks. This is a hands on workshop where the participants will learn practical concepts along with exercise using Python in Google Colab. Low code python packages will be provided so that participants with minimum familiarity of Python will be able to follow without difficulty.
-  
-**Session 1: Introduction and machine learning explainability**
-
-- Elements of machine learning validation: Conceptual soundness and outcome analysis
-- Introduction to key concepts: explainability, robustness, reliability and fairness
-- Post-hoc explainability tools
-  - Local explainability: LIME and SHAP 
-  - Global explainability: Variable Importance,  Partial Dependence and Accumulated Local Effects
-
-**Session 2: Designing inherently interpretable model**
-
-- Limitation of post-hoc explainability
-- Introduction to building inherently interpretable model
-  - Explainable boosting machine
-  - GAMI Neural Networks
-
-</details>  

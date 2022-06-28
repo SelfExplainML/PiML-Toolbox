@@ -1,7 +1,7 @@
 ## Workshop Info and Materials
 
 <details open>
-  <summary><strong> Machine Learning Model Validation Masterclass, May 9, 2022 | New York City</strong></summary>
+  <summary><strong> Machine Learning Model Validation Masterclass, May 9, 2022 | New York City</strong></summary><br />
 
 URL: [RISK AMERICAS 2022 Model Validation Workshop](https://www.cefpro.com/forthcoming-events/risk-americas/#section-1643126595388-11-2)
 
@@ -38,7 +38,7 @@ The focus of this workshop is to provide comprehensive approach for machine lear
 </details>  
 
 <details open>
-  <summary><strong>Machine Learning Model Validation for Critical or Regulated Applications, June 29 - July 6, 2022 | Online</strong></summary> 
+  <summary><strong>Machine Learning Model Validation for Critical or Regulated Applications, June 29 - July 6, 2022 | Online</strong></summary><br /> 
 
 URL: [QU-ML Model Validation Workshop](https://mlmodelvalidation.splashthat.com/)
 

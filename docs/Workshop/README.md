@@ -3,7 +3,9 @@
 <details open>
   <summary><strong> Machine Learning Model Validation Masterclass, May 9, 2022 | New York City</strong></summary><br />
 
-URL: [RISK AMERICAS 2022 Model Validation Workshop](https://www.cefpro.com/forthcoming-events/risk-americas/#section-1643126595388-11-2)
+**URL:** [RISK AMERICAS 2022 Model Validation Workshop](https://www.cefpro.com/forthcoming-events/risk-americas/#section-1643126595388-11-2)
+
+**Materials:** [Slides 1,2,3,4,5](#) 
 
 The focus of this workshop is to provide comprehensive approach for machine learning model validation with special emphasis on conceptual soundness and outcome analysis. The key elements includes: model explainability, model weakness identification, prediction reliability, model robustness under changing environment and fairness. The workshop will spend significant amount of time on inherently interpretable models due to their key role for high risk applications as well as model benchmarks. This is a hands on workshop where the participants will learn practical concepts along with exercise using Python in Google Colab. Low code python packages will be provided so that participants with minimum familiarity of Python will be able to follow without difficulty.
   
@@ -40,9 +42,9 @@ The focus of this workshop is to provide comprehensive approach for machine lear
 <details open>
   <summary><strong>Machine Learning Model Validation for Critical or Regulated Applications, June 29 - July 6, 2022 | Online</strong></summary><br /> 
 
-URL: [QU-ML Model Validation Workshop](https://mlmodelvalidation.splashthat.com/)
+**URL:** [QU-ML Model Validation Workshop](https://mlmodelvalidation.splashthat.com/)
 
-[Slides](#) and [Jupyter Notebooks](#) will be available.
+**Materials:** [Slides](#) and [Jupyter Notebooks](#) will be available.
 
 Machine Learning (ML) has gained significant adoption in the industry; however, many concerns remained for their usage in highly regulated or critical applications. As with any models, understanding and testing the risk of ML are front and center in the discipline of model risk management. Given the data driven approach as well as the complexity of ML algorithms, we need to improve the sophistication of model design and validation to evaluate both their conceptual soundness as well as outcome. Key element for the conceptual soundness evaluation is model explainability/interpretability. Comprehensive Machine Learning model validation for real production require analysis beyond the standard model performance evaluation which must cover: identification of model weakness through residual slicing, identification of overfitting and underfitting regions, model robustness under noisy or corrupted inputs, prediction reliability such as evaluation of prediction uncertainty and resilience of model performance under input distribution drift. PiML (Python Interpretable Machine Learning) was created to address all the aforementioned needs in a single easy to use (low code) packages.
 

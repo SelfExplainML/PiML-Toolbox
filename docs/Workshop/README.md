@@ -12,7 +12,7 @@ We are going to cover the above aspects—including hands on experience using Pi
 
 **Session 1: Machine Learning Interpretability**
 
-[Download Slides and Jupyter Notebooks](#)
+[Slides](#) and [Jupyter Notebooks](#) will be available.
 
 - Post-hoc explainability tools for black box models
   - Local explainability: LIME and SHAP

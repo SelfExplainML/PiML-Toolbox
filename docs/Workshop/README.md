@@ -1,50 +1,5 @@
 ## Workshop Info and Materials
 
-<details open>
-  <summary><strong> Machine Learning Model Validation MasterClass, May 9, 2022 | New York City</strong></summary><br />
-
-**URL:** [RISK AMERICAS 2022 Model Validation Workshop](https://www.cefpro.com/forthcoming-events/risk-americas/#section-1643126595388-11-2)
-
-**Speakers:** Agus Sudjianto and Vijay Nair
-
-**Slides:** 
-  - [Part 1: Introduction](https://github.com/SelfExplainML/PiML-Toolbox/blob/main/docs/Workshop/202205MasterClass-Part1%20Intro.pdf)
-  - [Part 2: Machine Learning Algorithms and Explainability](https://github.com/SelfExplainML/PiML-Toolbox/blob/main/docs/Workshop/202205MasterClass-Part2%20Ml-Algorithms-Explainability.pdf)
-  - [Part 3: Unwrapping ReLU Deep Neural Networks](https://github.com/SelfExplainML/PiML-Toolbox/blob/main/docs/Workshop/202205MasterClass-Part3%20ReLU-DNN.pdf)
-  - [Part 4: Inherently Interpretable Models, EBM and GAMI-Net](https://github.com/SelfExplainML/PiML-Toolbox/blob/main/docs/Workshop/202205MasterClass-Part4%20EBM%20and%20GAMI-Net.pdf)
-  - [Part 5: Outcome Testing](https://github.com/SelfExplainML/PiML-Toolbox/blob/main/docs/Workshop/202205MasterClass-Part5%20Outcome%20Testing.pdf)
-
-The focus of this workshop is to provide comprehensive approach for machine learning model validation with special emphasis on conceptual soundness and outcome analysis. The key elements includes: model explainability, model weakness identification, prediction reliability, model robustness under changing environment and fairness. The workshop will spend significant amount of time on inherently interpretable models due to their key role for high risk applications as well as model benchmarks. This is a hands on workshop where the participants will learn practical concepts along with exercise using Python in Google Colab. Low code python packages will be provided so that participants with minimum familiarity of Python will be able to follow without difficulty.
-  
-**Session 1: Introduction and machine learning explainability**
-
-- Elements of machine learning validation: Conceptual soundness and outcome analysis
-- Introduction to key concepts: explainability, robustness, reliability and fairness
-- Post-hoc explainability tools
-  - Local explainability: LIME and SHAP 
-  - Global explainability: Variable Importance,  Partial Dependence and Accumulated Local Effects
-
-**Session 2: Designing inherently interpretable model**
-
-- Limitation of post-hoc explainability
-- Introduction to building inherently interpretable model
-  - Explainable boosting machine
-  - GAMI Neural Networks
-
-**Session 3: Deep ReLU networks as interpretable models**
-
-- Local partition and linear models
-- Model interpretation and diagnostics
-- Complexity control through regularization
-
-**Session 4: Outcome testing**
-
-- Identification of performance weakness through slicing
-- Reliability evaluation through conformal prediction
-- Robustness evaluation for covariate/distribution drift
-- Fairness testing
-
-</details>  
 
 <details open>
   <summary><strong>Machine Learning Model Validation for Critical or Regulated Applications, June 29 - July 6, 2022 | Online</strong></summary><br /> 
@@ -91,3 +46,50 @@ We are going to cover the above aspects — including hands on experience using 
 
 </details>  
 
+
+
+<details open>
+  <summary><strong> Machine Learning Model Validation MasterClass, May 9, 2022 | New York City</strong></summary><br />
+
+**URL:** [RISK AMERICAS 2022 Model Validation Workshop](https://www.cefpro.com/forthcoming-events/risk-americas/#section-1643126595388-11-2)
+
+**Speakers:** Agus Sudjianto and Vijay Nair
+
+**Slides:** 
+  - [Part 1: Introduction](https://github.com/SelfExplainML/PiML-Toolbox/blob/main/docs/Workshop/202205MasterClass-Part1%20Intro.pdf)
+  - [Part 2: Machine Learning Algorithms and Explainability](https://github.com/SelfExplainML/PiML-Toolbox/blob/main/docs/Workshop/202205MasterClass-Part2%20Ml-Algorithms-Explainability.pdf)
+  - [Part 3: Unwrapping ReLU Deep Neural Networks](https://github.com/SelfExplainML/PiML-Toolbox/blob/main/docs/Workshop/202205MasterClass-Part3%20ReLU-DNN.pdf)
+  - [Part 4: Inherently Interpretable Models, EBM and GAMI-Net](https://github.com/SelfExplainML/PiML-Toolbox/blob/main/docs/Workshop/202205MasterClass-Part4%20EBM%20and%20GAMI-Net.pdf)
+  - [Part 5: Outcome Testing](https://github.com/SelfExplainML/PiML-Toolbox/blob/main/docs/Workshop/202205MasterClass-Part5%20Outcome%20Testing.pdf)
+
+The focus of this workshop is to provide comprehensive approach for machine learning model validation with special emphasis on conceptual soundness and outcome analysis. The key elements includes: model explainability, model weakness identification, prediction reliability, model robustness under changing environment and fairness. The workshop will spend significant amount of time on inherently interpretable models due to their key role for high risk applications as well as model benchmarks. This is a hands on workshop where the participants will learn practical concepts along with exercise using Python in Google Colab. Low code python packages will be provided so that participants with minimum familiarity of Python will be able to follow without difficulty.
+  
+**Session 1: Introduction and machine learning explainability**
+
+- Elements of machine learning validation: Conceptual soundness and outcome analysis
+- Introduction to key concepts: explainability, robustness, reliability and fairness
+- Post-hoc explainability tools
+  - Local explainability: LIME and SHAP 
+  - Global explainability: Variable Importance,  Partial Dependence and Accumulated Local Effects
+
+**Session 2: Designing inherently interpretable model**
+
+- Limitation of post-hoc explainability
+- Introduction to building inherently interpretable model
+  - Explainable boosting machine
+  - GAMI Neural Networks
+
+**Session 3: Deep ReLU networks as interpretable models**
+
+- Local partition and linear models
+- Model interpretation and diagnostics
+- Complexity control through regularization
+
+**Session 4: Outcome testing**
+
+- Identification of performance weakness through slicing
+- Reliability evaluation through conformal prediction
+- Robustness evaluation for covariate/distribution drift
+- Fairness testing
+
+</details>  

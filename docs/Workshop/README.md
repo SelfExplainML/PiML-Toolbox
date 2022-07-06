@@ -10,7 +10,7 @@
 
 **Slides:** 
   - [Part 1: Machine Learning Interpretability](https://github.com/SelfExplainML/PiML-Toolbox/blob/main/docs/Workshop/202206Workshop-Part1%20ML%20Interpretability.pdf) 
-  - [Part 2: Model Diagnostics and Validation](#)
+  - [Part 2: Model Diagnostics and Validation](#) - to appear
 
 **Codes:** click the ipynb links to run examples in Google Colab
   - Part 1 - BikeSharing example: <a style="text-laign: 'center'" target="_blank" href="https://colab.research.google.com/github/SelfExplainML/PiML-Toolbox/blob/main/docs/Workshop/202206Workshop-Part1%20InterpretableML%20BikeSharing.ipynb"><img src="https://github.com/SelfExplainML/PiML-Toolbox/blob/main/examples/results/LogoColab.png" width="20">  ipynb</a> 

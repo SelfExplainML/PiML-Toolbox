@@ -51,7 +51,7 @@ We are going to cover the above aspects — including hands on experience using 
 </details>  
 
 
-<br /><br />
+<br /> 
 <details open>
   <summary><h3><strong> Machine Learning Model Validation MasterClass, May 9, 2022 | New York City</strong></h3></summary><br />
 

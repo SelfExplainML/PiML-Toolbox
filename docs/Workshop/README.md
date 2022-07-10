@@ -2,7 +2,7 @@
 
 
 <details open>
-  <summary><strong>Machine Learning Model Validation for Critical or Regulated Applications, June 29 - July 6, 2022 | Online</strong></summary><br /> 
+  <summary><h3><strong>Machine Learning Model Validation for Critical or Regulated Applications, June 29 - July 6, 2022 | Online</strong></h3></summary><br /> 
 
 **URL:** [QU-ML Model Validation Workshop](https://mlmodelvalidation.splashthat.com/)
 
@@ -51,9 +51,9 @@ We are going to cover the above aspects — including hands on experience using 
 </details>  
 
 
-
+<br /><br />
 <details open>
-  <summary><strong> Machine Learning Model Validation MasterClass, May 9, 2022 | New York City</strong></summary><br />
+  <summary><h3><strong> Machine Learning Model Validation MasterClass, May 9, 2022 | New York City</strong></h3></summary><br />
 
 **URL:** [RISK AMERICAS 2022 Model Validation Workshop](https://www.cefpro.com/forthcoming-events/risk-americas/#section-1643126595388-11-2)
 

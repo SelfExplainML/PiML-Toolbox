@@ -2,6 +2,22 @@
 
 
 <details open>
+  <summary><h3><strong>Machine Learning Model Diagnostics and Validation, July 22, 2022 </strong></h3></summary><br /> 
+  
+**Speakers:** Agus Sudjianto and Aijun Zhang
+
+**Demo Notebooks:** click the ipynb links to run Jupyter notebooks in Google Colab  
+
+  - CaliforniaHousing example: <a style="text-laign: 'center'" target="_blank" href="https://colab.research.google.com/github/SelfExplainML/PiML-Toolbox/blob/main/docs/Workshop/202206Workshop-Part2%20Model_Diagnostics_CaliforniaHousing.ipynb"><img src="https://github.com/SelfExplainML/PiML-Toolbox/blob/main/examples/results/LogoColab.png" width="20">  ipynb</a>  
+  - BikeSharing example: <a style="text-laign: 'center'" target="_blank" href="https://colab.research.google.com/github/SelfExplainML/PiML-Toolbox/blob/main/docs/Workshop/202206Workshop-Part2%20Model_Diagnostics_BikeSharing.ipynb"><img src="https://github.com/SelfExplainML/PiML-Toolbox/blob/main/examples/results/LogoColab.png" width="20">  ipynb</a>  
+  - TaiwanCredit example: <a style="text-laign: 'center'" target="_blank" href="https://colab.research.google.com/github/SelfExplainML/PiML-Toolbox/blob/main/docs/Workshop/202206Workshop-Part2%20Model_Diagnostics_TaiwanCredit.ipynb"><img src="https://github.com/SelfExplainML/PiML-Toolbox/blob/main/examples/results/LogoColab.png" width="20">  ipynb</a>  
+  
+</details>  
+
+
+<br /> 
+
+<details open>
   <summary><h3><strong>Machine Learning Model Validation for Critical or Regulated Applications, June 29 - July 6, 2022 | Online</strong></h3></summary><br /> 
 
 **URL:** [QU-ML Model Validation Workshop](https://mlmodelvalidation.splashthat.com/)

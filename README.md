@@ -16,7 +16,7 @@
 PiML (or π-ML, /ˈpaɪ·ˈem·ˈel/) is a new Python toolbox for interpretable machine learning model development and validation. Through low-code interface and high-code APIs, PiML supports various machine learning models including
 
 - **Inherently interpretable models**: 
-1. GLM: Linear/Logistic Regression with L1 or L2 Regularization
+1. GLM: Linear/Logistic Regression with L1 ∨ L2 Regularization
 1. GAM: Generalized Additive Models using B-splines
 1. Tree: Decision Trees for Classification and Regression
 1. EBM: Explainable Boosting Machine (Nori, et al. 2019; Lou, et al. 2013)

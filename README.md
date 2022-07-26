@@ -6,7 +6,11 @@
 
 `pip install PiML`
   
-:loudspeaker: **V0.2.0 is released with high-code APIs.** 
+:rocket: **July 26, 2022:**  V0.3.0 is released with classic statistical models.
+
+:rocket: **June 26, 2022:** V0.2.0 is released with high-code APIs.
+
+:loudspeaker: **May 4, 2022:**  **V0.1.0 is launched with low-code UI/UX.
 </div>
 
 PiML (or π-ML, /ˈpaɪ·ˈem·ˈel/) is a new Python toolbox for interpretable machine learning model development and validation. Through low-code interface and high-code APIs, PiML supports various machine learning models including

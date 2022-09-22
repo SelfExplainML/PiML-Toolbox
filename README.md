@@ -81,6 +81,11 @@ exp.data_prepare()
 <img src="https://github.com/SelfExplainML/PiML-Toolbox/blob/main/examples/results/data_prepare.png">
 
 ```python
+exp.feature_select()
+```
+<img src="https://github.com/SelfExplainML/PiML-Toolbox/blob/main/examples/results/feature_select.png">
+
+```python
 exp.eda()
 ```
 <img src="https://github.com/SelfExplainML/PiML-Toolbox/blob/main/examples/results/data_eda.png">

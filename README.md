@@ -32,7 +32,7 @@ PiML also works for arbitrary supervised ML models under regression and binary c
 1. **Explainability**: post-hoc global explainers (PFI, PDP, ALE) and local explainers (LIME, SHAP).
 1. **Fairness**: disparity test and segmented analysis by integrating the solas-ai package.
 1. **WeakSpot**: identification of weak regions with high residuals by slicing techniques.
-2. **Overfit**: identification of overfitting regions according ot train-test performance gap.
+2. **Overfit**: identification of overfitting regions according to train-test performance gap.
 3. **Reliability**: assessment of prediction uncertainty by split conformal prediction techniques.
 4. **Robustness**: evaluation of performance degradation under covariate noise perturbation.
 5. **Resilience**: evaluation of performance degradation under different out-of-distribution scenarios.

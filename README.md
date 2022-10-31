@@ -6,6 +6,8 @@
 
 `pip install PiML`
   
+:rocket: **October 31, 2022:**  V0.4.0 is released with enriched models and enhanced diagnostics.
+
 :rocket: **July 26, 2022:**  V0.3.0 is released with classic statistical models.
 
 :rocket: **June 26, 2022:** V0.2.0 is released with high-code APIs.

@@ -26,7 +26,7 @@ PiML (or π-ML, /ˈpaɪ·ˈem·ˈel/) is a new Python toolbox for interpretable 
 5. **GAMI-Net**: Generalized Additive Model with Structured Interactions (Yang, Zhang and Sudjianto, 2021)
 6. **ReLU-DNN**: Deep ReLU Networks using Aletheia Unwrapper and Sparsification (Sudjianto, et al. 2020)
 
-PiML also works for arbitrary supervised ML models under regression and binary classification settings. It supports a whole spectrum of outcome testing, including but not limited to, the following:
+PiML also works for arbitrary supervised ML models under regression and binary classification settings. It supports a whole spectrum of outcome testing, including but not limited to the following:
 
 1. **Accuracy**: popular metrics like MSE, MAE for regression tasks and ACC, AUC, Recall, Precision, F1-score for binary classification tasks. 
 1. **Explainability**: post-hoc global explainers (PFI, PDP, ALE) and local explainers (LIME, SHAP).

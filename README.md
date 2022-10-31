@@ -22,7 +22,7 @@ PiML (or π-ML, /ˈpaɪ·ˈem·ˈel/) is a new Python toolbox for interpretable 
 1. GAM: Generalized Additive Models using B-splines
 1. Tree: Decision Tree for Classification and Regression
 2. FIGS: Fast Interpretable Greedy-Tree Sums （Tan, et al. 2022)
-3. XGB2: Extreme Gradient Boosted Trees of Depth 2 (Chen and Guestrin, 2016; Lengerich, et al. 2022)
+3. XGB2: Extreme Gradient Boosted Trees of Depth 2 (Chen and Guestrin, 2016; Lengerich, et al. 2020)
 4. EBM: Explainable Boosting Machine (Nori, et al. 2019; Lou, et al. 2013)
 5. GAMI-Net: Generalized Additive Model with Structured Interactions (Yang, Zhang and Sudjianto, 2021)
 6. ReLU-DNN: Deep ReLU Networks using Aletheia Unwrapper and Sparsification (Sudjianto, et al. 2020)
@@ -197,16 +197,16 @@ exp.model_compare()
 
 
 <details open>
-  <summary><strong>EBM and GA2M</strong></summary><hr/>
+  <summary><strong>Other Interpretable ML Models</strong></summary><hr/>
   
-  "InterpretML: A Unified Framework for Machine Learning Interpretability" (H. Nori, S. Jenkins, P. Koch, and R. Caruana, 2019)  
+  "Fast Interpretable Greedy-Tree Sums (FIGS)" (Tan, Y.S., Singh, C., Nasseri, K., Agarwal, A. and Yu, B., 2022)  
   
   ```latex
-  @article{nori2019interpretml,
-  title={InterpretML: A Unified Framework for Machine Learning Interpretability},
-  author={Nori, Harsha and Jenkins, Samuel and Koch, Paul and Caruana, Rich},
-  journal={arXiv preprint:1909.09223},
-  year={2019}
+  @article{tan2022fast,
+  title={Fast interpretable greedy-tree sums (FIGS)},
+  author={Tan, Yan Shuo and Singh, Chandan and Nasseri, Keyan and Agarwal, Abhineet and Yu, Bin},
+  journal={arXiv preprint arXiv:2201.11931},
+  year={2022}
   }
   ```
 
@@ -222,6 +222,31 @@ exp.model_compare()
   organization={ACM}
   }  
   ```
+  
+  "Purifying Interaction Effects with the Functional ANOVA: An Efficient Algorithm for Recovering Identifiable Additive Models" (Lengerich, B., Tan, S., Chang, C.H., Hooker, G. and Caruana, R., 2020)  
+  
+  ```latex
+  @inproceedings{lengerich2020purifying,
+  title={Purifying interaction effects with the functional anova: An efficient algorithm for recovering identifiable additive models},
+  author={Lengerich, Benjamin and Tan, Sarah and Chang, Chun-Hao and Hooker, Giles and Caruana, Rich},
+  booktitle={International Conference on Artificial Intelligence and Statistics},
+  pages={2402--2412},
+  year={2020},
+  organization={PMLR}
+  }
+  ```
+  
+  
+  "InterpretML: A Unified Framework for Machine Learning Interpretability" (H. Nori, S. Jenkins, P. Koch, and R. Caruana, 2019)  
+  
+  ```latex
+  @article{nori2019interpretml,
+  title={InterpretML: A Unified Framework for Machine Learning Interpretability},
+  author={Nori, Harsha and Jenkins, Samuel and Koch, Paul and Caruana, Rich},
+  journal={arXiv preprint:1909.09223},
+  year={2019}
+  }
+  ```  
 </details>
 
 

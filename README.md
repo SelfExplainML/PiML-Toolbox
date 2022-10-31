@@ -28,13 +28,13 @@ PiML (or π-ML, /ˈpaɪ·ˈem·ˈel/) is a new Python toolbox for interpretable 
 
 PiML also works for arbitrary supervised ML models under regression and binary classification settings. It supports a whole spectrum of outcome testing, including but not limited to, the following:
 
-1. **Accuracy**：popular metrics like MSE, MAE for regression tasks and ACC, AUC, Recall, Precision, F1-score for binary classification tasks. 
-1. **Explainability**：post-hoc global explainers (PFI, PDP, ALE) and local explainers (LIME, SHAP)
-1. **Fairness**: disparity test and segmented analysis by integrating solas-ai package
-1. **WeakSpot**：identification of weak regions with high residuals by slicing techniques
+1. **Accuracy**: popular metrics like MSE, MAE for regression tasks and ACC, AUC, Recall, Precision, F1-score for binary classification tasks. 
+1. **Explainability**: post-hoc global explainers (PFI, PDP, ALE) and local explainers (LIME, SHAP)
+1. **Fairness**: disparity test and segmented analysis by integrating the solas-ai package
+1. **WeakSpot**: identification of weak regions with high residuals by slicing techniques
 1. **Reliability**: assessment of prediction uncertainty by split conformal prediction techniques 
-1. **Robustness**：evaluation of performance degradation under covariate noise perturbation
-1. **Resilience**：evaluation of performance degradation under different out-of-distribution scenarios
+1. **Robustness**: evaluation of performance degradation under covariate noise perturbation
+1. **Resilience**: evaluation of performance degradation under different out-of-distribution scenarios
 
 [Installation](#Install) | [Examples](#Example) | [Usage](#Usage) | [Citations](#Cite)
 

@@ -17,24 +17,24 @@
 
 PiML (or π-ML, /ˈpaɪ·ˈem·ˈel/) is a new Python toolbox for interpretable machine learning model development and validation. Through low-code interface and high-code APIs, PiML supports a growing list of inherently interpretable ML models:
 
-1. GLM: Linear/Logistic Regression with L1 ∨ L2 Regularization
-1. GAM: Generalized Additive Models using B-splines
-1. Tree: Decision Tree for Classification and Regression
-2. FIGS: Fast Interpretable Greedy-Tree Sums （Tan, et al. 2022)
-3. XGB2: Extreme Gradient Boosted Trees of Depth 2 (Chen and Guestrin, 2016; Lengerich, et al. 2020)
-4. EBM: Explainable Boosting Machine (Nori, et al. 2019; Lou, et al. 2013)
-5. GAMI-Net: Generalized Additive Model with Structured Interactions (Yang, Zhang and Sudjianto, 2021)
-6. ReLU-DNN: Deep ReLU Networks using Aletheia Unwrapper and Sparsification (Sudjianto, et al. 2020)
+1. **GLM**: Linear/Logistic Regression with L1 ∨ L2 Regularization
+1. **GAM**: Generalized Additive Models using B-splines
+1. **Tree**: Decision Tree for Classification and Regression
+2. **FIGS**: Fast Interpretable Greedy-Tree Sums （Tan, et al. 2022)
+3. **XGB2**: Extreme Gradient Boosted Trees of Depth 2 (Chen and Guestrin, 2016; Lengerich, et al. 2020)
+4. **EBM**: Explainable Boosting Machine (Nori, et al. 2019; Lou, et al. 2013)
+5. **GAMI-Net**: Generalized Additive Model with Structured Interactions (Yang, Zhang and Sudjianto, 2021)
+6. **ReLU-DNN**: Deep ReLU Networks using Aletheia Unwrapper and Sparsification (Sudjianto, et al. 2020)
 
 PiML also works for arbitrary supervised ML models under regression and binary classification settings. It supports a whole spectrum of outcome testing, including but not limited to, the following:
 
-1. Performance
-1. Explainability
-1. Fairness
-1. WeakSpot
-1. Reliability
-1. Robustness
-1. Resilience
+1. **Performance**：
+1. **Explainability**：
+1. **Fairness**：
+1. **WeakSpot**：
+1. **Reliability**:
+1. **Robustness**：
+1. **Resilience**：
 
 [Installation](#Install) | [Examples](#Example) | [Usage](#Usage) | [Citations](#Cite)
 

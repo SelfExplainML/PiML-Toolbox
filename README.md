@@ -15,9 +15,8 @@
 :loudspeaker: **May 4, 2022:**  V0.1.0 is launched with low-code UI/UX.
 </div>
 
-PiML (or π-ML, /ˈpaɪ·ˈem·ˈel/) is a new Python toolbox for interpretable machine learning model development and validation. Through low-code interface and high-code APIs, PiML supports various machine learning models including
+PiML (or π-ML, /ˈpaɪ·ˈem·ˈel/) is a new Python toolbox for interpretable machine learning model development and validation. Through low-code interface and high-code APIs, PiML supports a growing list of inherently interpretable ML models:
 
-- **Inherently interpretable models**: 
 1. GLM: Linear/Logistic Regression with L1 ∨ L2 Regularization
 1. GAM: Generalized Additive Models using B-splines
 1. Tree: Decision Tree for Classification and Regression
@@ -27,10 +26,15 @@ PiML (or π-ML, /ˈpaɪ·ˈem·ˈel/) is a new Python toolbox for interpretable 
 5. GAMI-Net: Generalized Additive Model with Structured Interactions (Yang, Zhang and Sudjianto, 2021)
 6. ReLU-DNN: Deep ReLU Networks using Aletheia Unwrapper and Sparsification (Sudjianto, et al. 2020)
 
-- **Arbitrary machine learning models**，e.g.
-1. Tree-ensembles: RF, GBM, XGBoost, LightGBM, ...
-2. DNNs: MLP, ResNet, CNN, Attention, ...
-3. Kernel methods: SVM, Gaussian Process, ...
+PiML also works for arbitrary supervised ML models under regression and binary classification settings. It supports a whole spectrum of outcome testing, including but not limited to, the following:
+
+1. Performance
+1. Explainability
+1. Fairness
+1. WeakSpot
+1. Reliability
+1. Robustness
+1. Resilience
 
 [Installation](#Install) | [Examples](#Example) | [Usage](#Usage) | [Citations](#Cite)
 

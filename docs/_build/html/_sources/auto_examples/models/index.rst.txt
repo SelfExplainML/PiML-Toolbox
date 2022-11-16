@@ -1,0 +1,44 @@
+
+
+.. _sphx_glr_auto_examples_models:
+
+.. _models_examples:
+
+Interpretable ML Models
+--------------------------------
+
+Examples concerning the :mod:`piml.models` module.
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbnails">
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="Generalized additive model (GAM)">
+
+.. only:: html
+
+  .. image:: /auto_examples/models/images/thumb/sphx_glr_plot_0_gam_thumb.png
+    :alt: Generalized additive model (GAM)
+
+  :ref:`sphx_glr_auto_examples_models_plot_0_gam.py`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Generalized additive model (GAM)</div>
+    </div>
+
+
+.. raw:: html
+
+    </div>
+
+
+.. toctree::
+   :hidden:
+
+   /auto_examples/models/plot_0_gam
+

@@ -1,0 +1,11 @@
+.. Places parent toc into the sidebar
+
+:parenttoc: True
+
+.. include:: ../includes/big_toc_css.rst
+
+=======================
+Model Comparison
+=======================
+
+Comparing different explanation methods and diagnostic results of multiple machine learning models.

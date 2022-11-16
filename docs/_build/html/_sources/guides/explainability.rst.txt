@@ -1,0 +1,36 @@
+.. Places parent toc into the sidebar
+
+:parenttoc: True
+
+.. include:: ../includes/big_toc_css.rst
+
+
+=================================
+Post-hoc Explainability
+=================================
+
+..
+	Comment off
+	
+	Global Explainers 
+	----------------------------------------------------------
+
+	.. toctree::
+	   :maxdepth: 2
+	  
+	   explain/PFI.rst
+	   explain/PDP.rst
+	   explain/ALE.rst
+
+
+
+
+	Local Explainers 
+	----------------------------------------------------------
+
+	.. toctree::
+	   :maxdepth: 2
+	   
+	   explain/LIME.rst
+	   explain/SHAP.rst
+	  

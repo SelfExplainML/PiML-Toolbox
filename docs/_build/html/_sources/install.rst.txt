@@ -1,0 +1,23 @@
+.. _installation-instructions:
+
+=======================
+Installing PiML
+=======================
+
+PiML currently supports various os platforms and python versions, including [py37, py38, py39] * [Win, Linux, and Macos].
+
+You can install piml directly on these environments by 
+
+.. prompt:: python $
+
+    pip install piml
+	
+	
+If you got the following error message:
+
+.. prompt:: cmd $
+
+	ERROR: Could not find a version that satisfies the requirement PiML
+	ERROR: No matching distribution found for PiML
+
+You may need to upgrade the version of pip.

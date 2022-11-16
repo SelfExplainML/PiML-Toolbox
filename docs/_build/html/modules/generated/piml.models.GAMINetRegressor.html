@@ -1,0 +1,946 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+
+  <meta charset="utf-8">
+  <meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+<meta property="og:title" content="piml.models.GAMINetRegressor" />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="modules/generated/piml.models.GAMINetRegressor.html" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  
+  <title>PiML Toolbox</title>
+  
+
+  
+  <link rel="shortcut icon" href="../../_static/favicon.ico"/>
+  
+
+  <link rel="stylesheet" href="../../_static/css/vendor/bootstrap.min.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/plot_directive.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/sg_gallery.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/sg_gallery-binder.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/sg_gallery-dataframe.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/sg_gallery-rendered-html.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+<script id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+<script src="../../_static/jquery.js"></script>
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="../../_static/doctools.js"></script>
+        <script src="../../_static/sphinx_highlight.js"></script>
+        <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+        <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.20.1/dist/embed-amd.js"></script>
+        <script>window.MathJax = {"tex": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true}, "options": {"ignoreHtmlClass": "tex2jax_ignore|mathjax_ignore|document", "processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+        <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
+    <script src="../../_static/js/theme.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav">
+
+  
+
+
+<nav id="navbar" class="sk-docs-navbar navbar navbar-expand-md navbar-light bg-light py-0">
+  <div class="container-fluid sk-docs-container px-0">
+      <a class="navbar-brand py-0" href="../../index.html">
+        <img
+          class="sk-brand-img"
+          src="../../_static/piml-logo.png"
+          alt="logo"/>
+      </a>
+    <button
+      id="sk-navbar-toggler"
+      class="navbar-toggler"
+      type="button"
+      data-toggle="collapse"
+      data-target="#navbarSupportedContent"
+      aria-controls="navbarSupportedContent"
+      aria-expanded="false"
+      aria-label="Toggle navigation"
+    >
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="sk-navbar-collapse collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item">
+          <a class="sk-nav-link nav-link" href="../../install.html">Install</a>
+        </li>
+        <li class="nav-item">
+          <a class="sk-nav-link nav-link" href="../../user_guide.html">User Guide</a>
+        </li>
+        <li class="nav-item">
+          <a class="sk-nav-link nav-link" href="../../auto_examples/index.html">Examples</a>
+        </li>
+        <li class="nav-item">
+          <a class="sk-nav-link nav-link" href="../classes.html">API</a>
+        </li>
+        <li class="nav-item">
+          <a class="sk-nav-link nav-link" href="../../faq.html">FAQ</a>
+        </li>      </ul>
+      <div id="searchbox" role="search">
+          <div class="searchformwrapper">
+          <form class="search" action="../../search.html" method="get">
+            <input class="sk-search-text-input" type="text" name="q" aria-labelledby="searchlabel" />
+            <input class="sk-search-text-btn" type="submit" value="Go" />
+          </form>
+          </div>
+      </div>
+    </div>
+  </div>
+</nav>
+  <div class="d-flex" id="sk-doc-wrapper">
+      <input type="checkbox" name="sk-toggle-checkbox" id="sk-toggle-checkbox">
+      <label id="sk-sidemenu-toggle" class="sk-btn-toggle-toc btn sk-btn-primary" for="sk-toggle-checkbox">Toggle Menu</label>
+      <div id="sk-sidebar-wrapper" class="border-right">
+        <div class="sk-sidebar-toc-wrapper">
+          <div class="sk-sidebar-toc-logo">
+            <a href="../../index.html">
+              <img
+                class="sk-brand-img"
+                src="../../_static/piml-logo.png"
+                alt="logo"/>
+            </a>
+          </div>
+          <!--div class="btn-group w-100 mb-2" role="group" aria-label="rellinks">
+              <a href="#" role="button" class="btn sk-btn-rellink py-1 disabled"">Prev</a>
+              <a href="#" role="button" class="btn sk-btn-rellink disabled py-1">Up</a>
+              <a href="#" role="button" class="btn sk-btn-rellink py-1 disabled"">Next</a>
+          </div-->
+              <div class="sk-sidebar-toc">
+                <ul>
+<li><a class="reference internal" href="#"><code class="xref py py-mod docutils literal notranslate"><span class="pre">piml.models</span></code>.GAMINetRegressor</a><ul>
+<li><a class="reference internal" href="#piml.models.GAMINetRegressor"><code class="docutils literal notranslate"><span class="pre">GAMINetRegressor</span></code></a><ul>
+<li><a class="reference internal" href="#piml.models.GAMINetRegressor.certify_mono"><code class="docutils literal notranslate"><span class="pre">GAMINetRegressor.certify_mono</span></code></a></li>
+<li><a class="reference internal" href="#piml.models.GAMINetRegressor.fine_tune_selected"><code class="docutils literal notranslate"><span class="pre">GAMINetRegressor.fine_tune_selected</span></code></a></li>
+<li><a class="reference internal" href="#piml.models.GAMINetRegressor.fit"><code class="docutils literal notranslate"><span class="pre">GAMINetRegressor.fit</span></code></a></li>
+<li><a class="reference internal" href="#piml.models.GAMINetRegressor.get_aggregate_output"><code class="docutils literal notranslate"><span class="pre">GAMINetRegressor.get_aggregate_output</span></code></a></li>
+<li><a class="reference internal" href="#piml.models.GAMINetRegressor.get_clarity_loss"><code class="docutils literal notranslate"><span class="pre">GAMINetRegressor.get_clarity_loss</span></code></a></li>
+<li><a class="reference internal" href="#piml.models.GAMINetRegressor.get_effect_importance"><code class="docutils literal notranslate"><span class="pre">GAMINetRegressor.get_effect_importance</span></code></a></li>
+<li><a class="reference internal" href="#piml.models.GAMINetRegressor.get_feature_importance"><code class="docutils literal notranslate"><span class="pre">GAMINetRegressor.get_feature_importance</span></code></a></li>
+<li><a class="reference internal" href="#piml.models.GAMINetRegressor.get_interaction_raw_output"><code class="docutils literal notranslate"><span class="pre">GAMINetRegressor.get_interaction_raw_output</span></code></a></li>
+<li><a class="reference internal" href="#piml.models.GAMINetRegressor.get_main_effect_raw_output"><code class="docutils literal notranslate"><span class="pre">GAMINetRegressor.get_main_effect_raw_output</span></code></a></li>
+<li><a class="reference internal" href="#piml.models.GAMINetRegressor.get_mono_loss"><code class="docutils literal notranslate"><span class="pre">GAMINetRegressor.get_mono_loss</span></code></a></li>
+<li><a class="reference internal" href="#piml.models.GAMINetRegressor.get_params"><code class="docutils literal notranslate"><span class="pre">GAMINetRegressor.get_params</span></code></a></li>
+<li><a class="reference internal" href="#piml.models.GAMINetRegressor.global_explain"><code class="docutils literal notranslate"><span class="pre">GAMINetRegressor.global_explain</span></code></a></li>
+<li><a class="reference internal" href="#piml.models.GAMINetRegressor.load"><code class="docutils literal notranslate"><span class="pre">GAMINetRegressor.load</span></code></a></li>
+<li><a class="reference internal" href="#piml.models.GAMINetRegressor.local_effect_explain"><code class="docutils literal notranslate"><span class="pre">GAMINetRegressor.local_effect_explain</span></code></a></li>
+<li><a class="reference internal" href="#piml.models.GAMINetRegressor.local_feature_explain"><code class="docutils literal notranslate"><span class="pre">GAMINetRegressor.local_feature_explain</span></code></a></li>
+<li><a class="reference internal" href="#piml.models.GAMINetRegressor.partial_derivatives"><code class="docutils literal notranslate"><span class="pre">GAMINetRegressor.partial_derivatives</span></code></a></li>
+<li><a class="reference internal" href="#piml.models.GAMINetRegressor.predict"><code class="docutils literal notranslate"><span class="pre">GAMINetRegressor.predict</span></code></a></li>
+<li><a class="reference internal" href="#piml.models.GAMINetRegressor.save"><code class="docutils literal notranslate"><span class="pre">GAMINetRegressor.save</span></code></a></li>
+<li><a class="reference internal" href="#piml.models.GAMINetRegressor.score"><code class="docutils literal notranslate"><span class="pre">GAMINetRegressor.score</span></code></a></li>
+<li><a class="reference internal" href="#piml.models.GAMINetRegressor.set_params"><code class="docutils literal notranslate"><span class="pre">GAMINetRegressor.set_params</span></code></a></li>
+<li><a class="reference internal" href="#piml.models.GAMINetRegressor.show_effect_importance"><code class="docutils literal notranslate"><span class="pre">GAMINetRegressor.show_effect_importance</span></code></a></li>
+<li><a class="reference internal" href="#piml.models.GAMINetRegressor.show_feature_importance"><code class="docutils literal notranslate"><span class="pre">GAMINetRegressor.show_feature_importance</span></code></a></li>
+<li><a class="reference internal" href="#piml.models.GAMINetRegressor.show_global_explain"><code class="docutils literal notranslate"><span class="pre">GAMINetRegressor.show_global_explain</span></code></a></li>
+<li><a class="reference internal" href="#piml.models.GAMINetRegressor.show_local_effect_explain"><code class="docutils literal notranslate"><span class="pre">GAMINetRegressor.show_local_effect_explain</span></code></a></li>
+<li><a class="reference internal" href="#piml.models.GAMINetRegressor.show_local_feature_explain"><code class="docutils literal notranslate"><span class="pre">GAMINetRegressor.show_local_feature_explain</span></code></a></li>
+<li><a class="reference internal" href="#piml.models.GAMINetRegressor.show_loss_trajectory"><code class="docutils literal notranslate"><span class="pre">GAMINetRegressor.show_loss_trajectory</span></code></a></li>
+<li><a class="reference internal" href="#piml.models.GAMINetRegressor.show_regularization_path"><code class="docutils literal notranslate"><span class="pre">GAMINetRegressor.show_regularization_path</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+              </div>
+        </div>
+      </div>
+      <div id="sk-page-content-wrapper">
+        <div class="sk-page-content container-fluid body px-md-3" role="main">
+          
+  <section id="piml-models-gaminetregressor">
+<h1><code class="xref py py-mod docutils literal notranslate"><span class="pre">piml.models</span></code>.GAMINetRegressor<a class="headerlink" href="#piml-models-gaminetregressor" title="Permalink to this heading">¶</a></h1>
+<dl class="py class">
+<dt class="sig sig-object py" id="piml.models.GAMINetRegressor">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">piml.models.</span></span><span class="sig-name descname"><span class="pre">GAMINetRegressor</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">feature_names</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">feature_types</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">interact_num</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">10</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">subnet_size_main_effect</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">(20,)</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">subnet_size_interaction</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">(20,</span> <span class="pre">20)</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">activation_func</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'ReLU'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">max_epochs</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">(1000,</span> <span class="pre">1000,</span> <span class="pre">1000)</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">learning_rates</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">(0.001,</span> <span class="pre">0.001,</span> <span class="pre">0.0001)</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">early_stop_thres</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">('auto',</span> <span class="pre">'auto',</span> <span class="pre">'auto')</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">batch_size</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1000</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">batch_size_inference</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">10000</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">max_iter_per_epoch</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">100</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">val_ratio</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.2</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">warm_start</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">gam_sample_size</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">5000</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mlp_sample_size</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1000</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">heredity</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">reg_clarity</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">loss_threshold</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.01</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">reg_mono</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mono_increasing_list</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">()</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mono_decreasing_list</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">()</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mono_sample_size</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1000</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">include_interaction_list</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">()</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">boundary_clip</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">normalize</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">verbose</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n_jobs</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">10</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">device</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'cpu'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">random_state</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#piml.models.GAMINetRegressor" title="Permalink to this definition">¶</a></dt>
+<dd><p class="rubric">Methods</p>
+<table class="autosummary longtable docutils align-default">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#piml.models.GAMINetRegressor.certify_mono" title="piml.models.GAMINetRegressor.certify_mono"><code class="xref py py-obj docutils literal notranslate"><span class="pre">certify_mono</span></code></a>([n_samples])</p></td>
+<td><p>Certify whether monotonicity constraint is satisfied.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#piml.models.GAMINetRegressor.fine_tune_selected" title="piml.models.GAMINetRegressor.fine_tune_selected"><code class="xref py py-obj docutils literal notranslate"><span class="pre">fine_tune_selected</span></code></a>(main_effect_list, ...[, ...])</p></td>
+<td><p>Fine-tuning with some selected effects (unselected would be pruned).</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#piml.models.GAMINetRegressor.fit" title="piml.models.GAMINetRegressor.fit"><code class="xref py py-obj docutils literal notranslate"><span class="pre">fit</span></code></a>(x, y[, sample_weight, feature_names, ...])</p></td>
+<td><p>Fit GAMINetRegressor model.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#piml.models.GAMINetRegressor.get_aggregate_output" title="piml.models.GAMINetRegressor.get_aggregate_output"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_aggregate_output</span></code></a>(x[, main_effect, ...])</p></td>
+<td><p>Returns numpy array of raw prediction.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#piml.models.GAMINetRegressor.get_clarity_loss" title="piml.models.GAMINetRegressor.get_clarity_loss"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_clarity_loss</span></code></a>(x[, sample_weight])</p></td>
+<td><p>Returns clarity loss of given samples.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#piml.models.GAMINetRegressor.get_effect_importance" title="piml.models.GAMINetRegressor.get_effect_importance"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_effect_importance</span></code></a>()</p></td>
+<td><p>Extract the effect importance.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#piml.models.GAMINetRegressor.get_feature_importance" title="piml.models.GAMINetRegressor.get_feature_importance"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_feature_importance</span></code></a>()</p></td>
+<td><p>Extract the feature importance.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#piml.models.GAMINetRegressor.get_interaction_raw_output" title="piml.models.GAMINetRegressor.get_interaction_raw_output"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_interaction_raw_output</span></code></a>(x)</p></td>
+<td><p>Returns numpy array of interactions' raw prediction.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#piml.models.GAMINetRegressor.get_main_effect_raw_output" title="piml.models.GAMINetRegressor.get_main_effect_raw_output"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_main_effect_raw_output</span></code></a>(x)</p></td>
+<td><p>Returns numpy array of main effects' raw prediction.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#piml.models.GAMINetRegressor.get_mono_loss" title="piml.models.GAMINetRegressor.get_mono_loss"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_mono_loss</span></code></a>(x[, sample_weight])</p></td>
+<td><p>Returns monotonicity loss of given samples.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#piml.models.GAMINetRegressor.get_params" title="piml.models.GAMINetRegressor.get_params"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_params</span></code></a>([deep])</p></td>
+<td><p>Get parameters for this estimator.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#piml.models.GAMINetRegressor.global_explain" title="piml.models.GAMINetRegressor.global_explain"><code class="xref py py-obj docutils literal notranslate"><span class="pre">global_explain</span></code></a>([main_grid_size, ...])</p></td>
+<td><p>Extract the fitted main effects and interactions.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#piml.models.GAMINetRegressor.load" title="piml.models.GAMINetRegressor.load"><code class="xref py py-obj docutils literal notranslate"><span class="pre">load</span></code></a>([folder, name])</p></td>
+<td><p>Load a model from local disk.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#piml.models.GAMINetRegressor.local_effect_explain" title="piml.models.GAMINetRegressor.local_effect_explain"><code class="xref py py-obj docutils literal notranslate"><span class="pre">local_effect_explain</span></code></a>(x[, y])</p></td>
+<td><p>Extract the main effects and interactions values of a given sample.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#piml.models.GAMINetRegressor.local_feature_explain" title="piml.models.GAMINetRegressor.local_feature_explain"><code class="xref py py-obj docutils literal notranslate"><span class="pre">local_feature_explain</span></code></a>(x[, y])</p></td>
+<td><p>Extract the main effects and interactions values of a given sample.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#piml.models.GAMINetRegressor.partial_derivatives" title="piml.models.GAMINetRegressor.partial_derivatives"><code class="xref py py-obj docutils literal notranslate"><span class="pre">partial_derivatives</span></code></a>(feature_name[, n_samples])</p></td>
+<td><p>Plot the first-order partial derivatives w.r.t.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#piml.models.GAMINetRegressor.predict" title="piml.models.GAMINetRegressor.predict"><code class="xref py py-obj docutils literal notranslate"><span class="pre">predict</span></code></a>(x[, main_effect, interaction])</p></td>
+<td><p>Returns numpy array of predicted values.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#piml.models.GAMINetRegressor.save" title="piml.models.GAMINetRegressor.save"><code class="xref py py-obj docutils literal notranslate"><span class="pre">save</span></code></a>([folder, name])</p></td>
+<td><p>Save a model to local disk.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#piml.models.GAMINetRegressor.score" title="piml.models.GAMINetRegressor.score"><code class="xref py py-obj docutils literal notranslate"><span class="pre">score</span></code></a>(X, y[, sample_weight])</p></td>
+<td><p>Return the coefficient of determination of the prediction.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#piml.models.GAMINetRegressor.set_params" title="piml.models.GAMINetRegressor.set_params"><code class="xref py py-obj docutils literal notranslate"><span class="pre">set_params</span></code></a>(**params)</p></td>
+<td><p>Set the parameters of this estimator.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#piml.models.GAMINetRegressor.show_effect_importance" title="piml.models.GAMINetRegressor.show_effect_importance"><code class="xref py py-obj docutils literal notranslate"><span class="pre">show_effect_importance</span></code></a>([xlabel_rotation])</p></td>
+<td><p>Visualize the effect importance.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#piml.models.GAMINetRegressor.show_feature_importance" title="piml.models.GAMINetRegressor.show_feature_importance"><code class="xref py py-obj docutils literal notranslate"><span class="pre">show_feature_importance</span></code></a>([xlabel_rotation])</p></td>
+<td><p>Visualize the feature importance.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#piml.models.GAMINetRegressor.show_global_explain" title="piml.models.GAMINetRegressor.show_global_explain"><code class="xref py py-obj docutils literal notranslate"><span class="pre">show_global_explain</span></code></a>([key, density, ...])</p></td>
+<td><p>Visualize the global explanation.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#piml.models.GAMINetRegressor.show_local_effect_explain" title="piml.models.GAMINetRegressor.show_local_effect_explain"><code class="xref py py-obj docutils literal notranslate"><span class="pre">show_local_effect_explain</span></code></a>(x[, y, ...])</p></td>
+<td><p>Visualize the local explanation.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#piml.models.GAMINetRegressor.show_local_feature_explain" title="piml.models.GAMINetRegressor.show_local_feature_explain"><code class="xref py py-obj docutils literal notranslate"><span class="pre">show_local_feature_explain</span></code></a>(x[, y, ...])</p></td>
+<td><p>Visualize the local explanation.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#piml.models.GAMINetRegressor.show_loss_trajectory" title="piml.models.GAMINetRegressor.show_loss_trajectory"><code class="xref py py-obj docutils literal notranslate"><span class="pre">show_loss_trajectory</span></code></a>()</p></td>
+<td><p>Visualize the loss trajectory.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#piml.models.GAMINetRegressor.show_regularization_path" title="piml.models.GAMINetRegressor.show_regularization_path"><code class="xref py py-obj docutils literal notranslate"><span class="pre">show_regularization_path</span></code></a>()</p></td>
+<td><p>Visualize the regularization path.</p></td>
+</tr>
+</tbody>
+</table>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 73%" />
+<col style="width: 27%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><strong>get_interaction_effect</strong></p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p><strong>get_main_effect</strong></p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p><strong>global_interpret</strong></p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p><strong>interpret_ei</strong></p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p><strong>interpret_fi</strong></p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p><strong>interpret_local_effect</strong></p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p><strong>interpret_local_fi</strong></p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p><strong>plot_ei</strong></p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p><strong>plot_ei_local</strong></p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p><strong>plot_fi</strong></p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p><strong>plot_fi_local</strong></p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p><strong>plot_interaction_effect</strong></p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p><strong>plot_main_effect</strong></p></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<dl class="py method">
+<dt class="sig sig-object py" id="piml.models.GAMINetRegressor.certify_mono">
+<span class="sig-name descname"><span class="pre">certify_mono</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">n_samples</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">10000</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#piml.models.GAMINetRegressor.certify_mono" title="Permalink to this definition">¶</a></dt>
+<dd><p>Certify whether monotonicity constraint is satisfied.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>n_samples</strong><span class="classifier">int</span></dt><dd><p>Size of random samples for certifying
+the monotonicity constraint, by default 10000.</p>
+</dd>
+<dt><strong>Returns</strong></dt><dd></dd>
+<dt><strong>——-</strong></dt><dd></dd>
+<dt><strong>mono_status</strong><span class="classifier">boolean</span></dt><dd><p>True means monotonicity constraint is satisfied.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="piml.models.GAMINetRegressor.fine_tune_selected">
+<span class="sig-name descname"><span class="pre">fine_tune_selected</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">main_effect_list</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">interaction_list</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">max_epochs</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1000</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">lr</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.001</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">early_stop_thres</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">5</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">verbose</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#piml.models.GAMINetRegressor.fine_tune_selected" title="Permalink to this definition">¶</a></dt>
+<dd><p>Fine-tuning with some selected effects (unselected would be pruned).</p>
+<p>All the network parameters are updated together.
+Clarity regularization would be triggered and only penalize
+interaction subnetworks.
+Monotonic regularization would be imposed if self.mono_decreasing_list
+or self.mono_increasing_list are not empty.
+After training, the mean and norm of each effect would be updated,
+and the subnetworks are also centered.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="piml.models.GAMINetRegressor.fit">
+<span class="sig-name descname"><span class="pre">fit</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sample_weight</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">feature_names</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">feature_types</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#piml.models.GAMINetRegressor.fit" title="Permalink to this definition">¶</a></dt>
+<dd><p>Fit GAMINetRegressor model.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>x</strong><span class="classifier">np.ndarray of shape (n_samples, n_features)</span></dt><dd><p>Data features.</p>
+</dd>
+<dt><strong>y</strong><span class="classifier">np.ndarray of shape (n_samples, )</span></dt><dd><p>Target response.</p>
+</dd>
+<dt><strong>sample_weight</strong><span class="classifier">np.ndarray of shape (n_samples, )</span></dt><dd><p>Sample weight.</p>
+</dd>
+</dl>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><dl class="simple">
+<dt><strong>self</strong><span class="classifier">object</span></dt><dd><p>Fitted Estimator.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="piml.models.GAMINetRegressor.get_aggregate_output">
+<span class="sig-name descname"><span class="pre">get_aggregate_output</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">main_effect</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">interaction</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#piml.models.GAMINetRegressor.get_aggregate_output" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns numpy array of raw prediction.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>x</strong><span class="classifier">np.ndarray of shape (n_samples, n_features)</span></dt><dd><p>Data features.</p>
+</dd>
+<dt><strong>main_effect</strong><span class="classifier">boolean</span></dt><dd><p>Whether to include main effects, default to True.</p>
+</dd>
+<dt><strong>interaction</strong><span class="classifier">boolean</span></dt><dd><p>Whether to include interactions, default to True.</p>
+</dd>
+<dt><strong>Returns</strong></dt><dd></dd>
+<dt><strong>——-</strong></dt><dd></dd>
+<dt><strong>pred</strong><span class="classifier">np.ndarray of shape (n_samples, 1)</span></dt><dd><p>numpy array of raw prediction.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="piml.models.GAMINetRegressor.get_clarity_loss">
+<span class="sig-name descname"><span class="pre">get_clarity_loss</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sample_weight</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#piml.models.GAMINetRegressor.get_clarity_loss" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns clarity loss of given samples.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>x</strong><span class="classifier">np.ndarray of shape (n_samples, n_features)</span></dt><dd><p>Data features</p>
+</dd>
+<dt><strong>sample_weight</strong><span class="classifier">np.ndarray of shape (n_samples, )</span></dt><dd><p>Sample weight.</p>
+</dd>
+<dt><strong>Returns</strong></dt><dd></dd>
+<dt><strong>——-</strong></dt><dd></dd>
+<dt><strong>clarity_loss</strong><span class="classifier">float</span></dt><dd><p>clarity loss</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="piml.models.GAMINetRegressor.get_effect_importance">
+<span class="sig-name descname"><span class="pre">get_effect_importance</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#piml.models.GAMINetRegressor.get_effect_importance" title="Permalink to this definition">¶</a></dt>
+<dd><p>Extract the effect importance.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="piml.models.GAMINetRegressor.get_feature_importance">
+<span class="sig-name descname"><span class="pre">get_feature_importance</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#piml.models.GAMINetRegressor.get_feature_importance" title="Permalink to this definition">¶</a></dt>
+<dd><p>Extract the feature importance.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="piml.models.GAMINetRegressor.get_interaction_raw_output">
+<span class="sig-name descname"><span class="pre">get_interaction_raw_output</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#piml.models.GAMINetRegressor.get_interaction_raw_output" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns numpy array of interactions’ raw prediction.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>x</strong><span class="classifier">np.ndarray of shape (n_samples, n_features)</span></dt><dd><p>Data features.</p>
+</dd>
+<dt><strong>Returns</strong></dt><dd></dd>
+<dt><strong>——-</strong></dt><dd></dd>
+<dt><strong>pred</strong><span class="classifier">np.ndarray of shape (n_samples, n_interactions)</span></dt><dd><p>numpy array of interactions’ raw prediction.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="piml.models.GAMINetRegressor.get_main_effect_raw_output">
+<span class="sig-name descname"><span class="pre">get_main_effect_raw_output</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#piml.models.GAMINetRegressor.get_main_effect_raw_output" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns numpy array of main effects’ raw prediction.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>x</strong><span class="classifier">np.ndarray of shape (n_samples, n_features)</span></dt><dd><p>Data features.</p>
+</dd>
+<dt><strong>Returns</strong></dt><dd></dd>
+<dt><strong>——-</strong></dt><dd></dd>
+<dt><strong>pred</strong><span class="classifier">np.ndarray of shape (n_samples, n_features)</span></dt><dd><p>numpy array of main effects’ raw prediction.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="piml.models.GAMINetRegressor.get_mono_loss">
+<span class="sig-name descname"><span class="pre">get_mono_loss</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sample_weight</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#piml.models.GAMINetRegressor.get_mono_loss" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns monotonicity loss of given samples.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>x</strong><span class="classifier">np.ndarray of shape (n_samples, n_features)</span></dt><dd><p>Data features</p>
+</dd>
+<dt><strong>sample_weight</strong><span class="classifier">np.ndarray of shape (n_samples, )</span></dt><dd><p>Sample weight, by default None.</p>
+</dd>
+<dt><strong>Returns</strong></dt><dd></dd>
+<dt><strong>——-</strong></dt><dd></dd>
+<dt><strong>mono_loss</strong><span class="classifier">float</span></dt><dd><p>monotonicity loss</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="piml.models.GAMINetRegressor.get_params">
+<span class="sig-name descname"><span class="pre">get_params</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">deep</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#piml.models.GAMINetRegressor.get_params" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get parameters for this estimator.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>deep</strong><span class="classifier">bool, default=True</span></dt><dd><p>If True, will return the parameters for this estimator and
+contained subobjects that are estimators.</p>
+</dd>
+</dl>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><dl class="simple">
+<dt><strong>params</strong><span class="classifier">dict</span></dt><dd><p>Parameter names mapped to their values.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="piml.models.GAMINetRegressor.global_explain">
+<span class="sig-name descname"><span class="pre">global_explain</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">main_grid_size</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">100</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">interact_grid_size</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">20</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#piml.models.GAMINetRegressor.global_explain" title="Permalink to this definition">¶</a></dt>
+<dd><p>Extract the fitted main effects and interactions.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>main_grid_size</strong><span class="classifier">int</span></dt><dd><p>The grid size of main effects, by default 100.</p>
+</dd>
+<dt><strong>interact_grid_size</strong><span class="classifier">int</span></dt><dd><p>The grid size of interactions, by default 20.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="piml.models.GAMINetRegressor.load">
+<span class="sig-name descname"><span class="pre">load</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">folder</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'./'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'demo'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#piml.models.GAMINetRegressor.load" title="Permalink to this definition">¶</a></dt>
+<dd><p>Load a model from local disk.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>folder</strong><span class="classifier">str</span></dt><dd><p>The path of folder, by default “./”.</p>
+</dd>
+<dt><strong>name</strong><span class="classifier">str</span></dt><dd><p>Name of the file, by default “demo”.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="piml.models.GAMINetRegressor.local_effect_explain">
+<span class="sig-name descname"><span class="pre">local_effect_explain</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#piml.models.GAMINetRegressor.local_effect_explain" title="Permalink to this definition">¶</a></dt>
+<dd><p>Extract the main effects and interactions values of a given sample.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>x</strong><span class="classifier">np.ndarray of shape (n_samples, n_features)</span></dt><dd><p>Data features.</p>
+</dd>
+<dt><strong>y</strong><span class="classifier">np.ndarray of shape (n_samples, )</span></dt><dd><p>Target response.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="piml.models.GAMINetRegressor.local_feature_explain">
+<span class="sig-name descname"><span class="pre">local_feature_explain</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#piml.models.GAMINetRegressor.local_feature_explain" title="Permalink to this definition">¶</a></dt>
+<dd><p>Extract the main effects and interactions values of a given sample.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>x</strong><span class="classifier">np.ndarray of shape (n_samples, n_features)</span></dt><dd><p>Data features.</p>
+</dd>
+<dt><strong>y</strong><span class="classifier">np.ndarray of shape (n_samples, )</span></dt><dd><p>Target response.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="piml.models.GAMINetRegressor.partial_derivatives">
+<span class="sig-name descname"><span class="pre">partial_derivatives</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">feature_name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n_samples</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">10000</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#piml.models.GAMINetRegressor.partial_derivatives" title="Permalink to this definition">¶</a></dt>
+<dd><p>Plot the first-order partial derivatives w.r.t. given feature index.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>feature_name</strong><span class="classifier">int</span></dt><dd><p>Feature name.</p>
+</dd>
+<dt><strong>n_samples</strong><span class="classifier">int</span></dt><dd><p>Size of random samples for ploting the derivatives,
+by default 10000.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="piml.models.GAMINetRegressor.predict">
+<span class="sig-name descname"><span class="pre">predict</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">main_effect</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">interaction</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#piml.models.GAMINetRegressor.predict" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns numpy array of predicted values.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>x</strong><span class="classifier">np.ndarray of shape (n_samples, n_features)</span></dt><dd><p>Data features.</p>
+</dd>
+<dt><strong>main_effect</strong><span class="classifier">boolean</span></dt><dd><p>Whether to include main effects, default to True.</p>
+</dd>
+<dt><strong>interaction</strong><span class="classifier">boolean</span></dt><dd><p>Whether to include interactions, default to True.</p>
+</dd>
+</dl>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><dl class="simple">
+<dt>pred: np.ndarray of shape (n_samples, )</dt><dd><p>numpy array of predicted values.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="piml.models.GAMINetRegressor.save">
+<span class="sig-name descname"><span class="pre">save</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">folder</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'./'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'demo'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#piml.models.GAMINetRegressor.save" title="Permalink to this definition">¶</a></dt>
+<dd><p>Save a model to local disk.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>folder</strong><span class="classifier">str</span></dt><dd><p>The path of folder, by default “./”.</p>
+</dd>
+<dt><strong>name</strong><span class="classifier">str</span></dt><dd><p>Name of the file, by default “demo”.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="piml.models.GAMINetRegressor.score">
+<span class="sig-name descname"><span class="pre">score</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">X</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sample_weight</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#piml.models.GAMINetRegressor.score" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the coefficient of determination of the prediction.</p>
+<p>The coefficient of determination <span class="math notranslate nohighlight">\(R^2\)</span> is defined as
+<span class="math notranslate nohighlight">\((1 - \frac{u}{v})\)</span>, where <span class="math notranslate nohighlight">\(u\)</span> is the residual
+sum of squares <code class="docutils literal notranslate"><span class="pre">((y_true</span> <span class="pre">-</span> <span class="pre">y_pred)**</span> <span class="pre">2).sum()</span></code> and <span class="math notranslate nohighlight">\(v\)</span>
+is the total sum of squares <code class="docutils literal notranslate"><span class="pre">((y_true</span> <span class="pre">-</span> <span class="pre">y_true.mean())</span> <span class="pre">**</span> <span class="pre">2).sum()</span></code>.
+The best possible score is 1.0 and it can be negative (because the
+model can be arbitrarily worse). A constant model that always predicts
+the expected value of <code class="docutils literal notranslate"><span class="pre">y</span></code>, disregarding the input features, would get
+a <span class="math notranslate nohighlight">\(R^2\)</span> score of 0.0.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>X</strong><span class="classifier">array-like of shape (n_samples, n_features)</span></dt><dd><p>Test samples. For some estimators this may be a precomputed
+kernel matrix or a list of generic objects instead with shape
+<code class="docutils literal notranslate"><span class="pre">(n_samples,</span> <span class="pre">n_samples_fitted)</span></code>, where <code class="docutils literal notranslate"><span class="pre">n_samples_fitted</span></code>
+is the number of samples used in the fitting for the estimator.</p>
+</dd>
+<dt><strong>y</strong><span class="classifier">array-like of shape (n_samples,) or (n_samples, n_outputs)</span></dt><dd><p>True values for <code class="docutils literal notranslate"><span class="pre">X</span></code>.</p>
+</dd>
+<dt><strong>sample_weight</strong><span class="classifier">array-like of shape (n_samples,), default=None</span></dt><dd><p>Sample weights.</p>
+</dd>
+</dl>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><dl class="simple">
+<dt><strong>score</strong><span class="classifier">float</span></dt><dd><p><span class="math notranslate nohighlight">\(R^2\)</span> of <code class="docutils literal notranslate"><span class="pre">self.predict(X)</span></code> wrt. <code class="docutils literal notranslate"><span class="pre">y</span></code>.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+<p class="rubric">Notes</p>
+<p>The <span class="math notranslate nohighlight">\(R^2\)</span> score used when calling <code class="docutils literal notranslate"><span class="pre">score</span></code> on a regressor uses
+<code class="docutils literal notranslate"><span class="pre">multioutput='uniform_average'</span></code> from version 0.23 to keep consistent
+with default value of <code class="xref py py-func docutils literal notranslate"><span class="pre">r2_score</span></code>.
+This influences the <code class="docutils literal notranslate"><span class="pre">score</span></code> method of all the multioutput
+regressors (except for
+<code class="xref py py-class docutils literal notranslate"><span class="pre">MultiOutputRegressor</span></code>).</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="piml.models.GAMINetRegressor.set_params">
+<span class="sig-name descname"><span class="pre">set_params</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">params</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#piml.models.GAMINetRegressor.set_params" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set the parameters of this estimator.</p>
+<p>The method works on simple estimators as well as on nested objects
+(such as <code class="xref py py-class docutils literal notranslate"><span class="pre">Pipeline</span></code>). The latter have
+parameters of the form <code class="docutils literal notranslate"><span class="pre">&lt;component&gt;__&lt;parameter&gt;</span></code> so that it’s
+possible to update each component of a nested object.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>**params</strong><span class="classifier">dict</span></dt><dd><p>Estimator parameters.</p>
+</dd>
+</dl>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><dl class="simple">
+<dt><strong>self</strong><span class="classifier">estimator instance</span></dt><dd><p>Estimator instance.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="piml.models.GAMINetRegressor.show_effect_importance">
+<span class="sig-name descname"><span class="pre">show_effect_importance</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">xlabel_rotation</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#piml.models.GAMINetRegressor.show_effect_importance" title="Permalink to this definition">¶</a></dt>
+<dd><p>Visualize the effect importance.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>xlabel_rotation</strong><span class="classifier">int</span></dt><dd><p>Rotation angle of x-axis labels, by default 0.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="piml.models.GAMINetRegressor.show_feature_importance">
+<span class="sig-name descname"><span class="pre">show_feature_importance</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">xlabel_rotation</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#piml.models.GAMINetRegressor.show_feature_importance" title="Permalink to this definition">¶</a></dt>
+<dd><p>Visualize the feature importance.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>xlabel_rotation</strong><span class="classifier">int</span></dt><dd><p>Rotation angle of x-axis labels, by default 0.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="piml.models.GAMINetRegressor.show_global_explain">
+<span class="sig-name descname"><span class="pre">show_global_explain</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">key</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">density</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">main_effect_num</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">interaction_num</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#piml.models.GAMINetRegressor.show_global_explain" title="Permalink to this definition">¶</a></dt>
+<dd><p>Visualize the global explanation.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>key</strong><span class="classifier">str or None</span></dt><dd><p>The name of the effect to be shown, by default None.
+As key=None, all the effects would be visualized.</p>
+</dd>
+<dt><strong>density</strong><span class="classifier">boolean</span></dt><dd><p>Whether to show the marginal density of each feature.</p>
+</dd>
+<dt><strong>main_effect_num</strong><span class="classifier">int or None</span></dt><dd><p>The number of top main effects to show, by default None,
+As main_effect_num=None, all main effects would be shown.</p>
+</dd>
+<dt><strong>interaction_num</strong><span class="classifier">int or None</span></dt><dd><p>The number of top interactions to show, by default None,
+As interaction_num=None, all main effects would be shown.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="piml.models.GAMINetRegressor.show_local_effect_explain">
+<span class="sig-name descname"><span class="pre">show_local_effect_explain</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">xlabel_rotation</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#piml.models.GAMINetRegressor.show_local_effect_explain" title="Permalink to this definition">¶</a></dt>
+<dd><p>Visualize the local explanation.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>x</strong><span class="classifier">np.ndarray of shape (n_samples, n_features)</span></dt><dd><p>Data features.</p>
+</dd>
+<dt><strong>y</strong><span class="classifier">np.ndarray of shape (n_samples, )</span></dt><dd><p>Target response.</p>
+</dd>
+<dt><strong>xlabel_rotation</strong><span class="classifier">int</span></dt><dd><p>Rotation angle of x-axis labels, by default 0.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="piml.models.GAMINetRegressor.show_local_feature_explain">
+<span class="sig-name descname"><span class="pre">show_local_feature_explain</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">xlabel_rotation</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#piml.models.GAMINetRegressor.show_local_feature_explain" title="Permalink to this definition">¶</a></dt>
+<dd><p>Visualize the local explanation.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>x</strong><span class="classifier">np.ndarray of shape (n_samples, n_features)</span></dt><dd><p>Data features.</p>
+</dd>
+<dt><strong>y</strong><span class="classifier">np.ndarray of shape (n_samples, )</span></dt><dd><p>Target response.</p>
+</dd>
+<dt><strong>xlabel_rotation</strong><span class="classifier">int</span></dt><dd><p>Rotation angle of x-axis labels, by default 0.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="piml.models.GAMINetRegressor.show_loss_trajectory">
+<span class="sig-name descname"><span class="pre">show_loss_trajectory</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#piml.models.GAMINetRegressor.show_loss_trajectory" title="Permalink to this definition">¶</a></dt>
+<dd><p>Visualize the loss trajectory.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="piml.models.GAMINetRegressor.show_regularization_path">
+<span class="sig-name descname"><span class="pre">show_regularization_path</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#piml.models.GAMINetRegressor.show_regularization_path" title="Permalink to this definition">¶</a></dt>
+<dd><p>Visualize the regularization path.</p>
+</dd></dl>
+
+</dd></dl>
+
+<div class="clearer"></div></section>
+
+
+        </div>
+      <div class="container">
+        <footer class="sk-content-footer">
+              &copy; Copyright 2022-, PiML-Toolbox authors.
+            <a href="../../_sources/modules/generated/piml.models.GAMINetRegressor.rst.txt" rel="nofollow">Show this page source</a>
+        </footer>
+      </div>
+    </div>
+  </div>
+
+
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(false);
+      });
+  </script>
+
+
+<!--script>
+    window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+    ga('create', 'UA-22606712-2', 'auto');
+    ga('set', 'anonymizeIp', true);
+    ga('send', 'pageview');
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script-->
+
+
+<script>
+$(document).ready(function() {
+    /* Add a [>>>] button on the top-right corner of code samples to hide
+     * the >>> and ... prompts and the output and thus make the code
+     * copyable. */
+    var div = $('.highlight-python .highlight,' +
+                '.highlight-python3 .highlight,' +
+                '.highlight-pycon .highlight,' +
+		'.highlight-default .highlight')
+    var pre = div.find('pre');
+
+    // get the styles from the current theme
+    pre.parent().parent().css('position', 'relative');
+    var hide_text = 'Hide prompts and outputs';
+    var show_text = 'Show prompts and outputs';
+
+    // create and add the button to all the code blocks that contain >>>
+    div.each(function(index) {
+        var jthis = $(this);
+        if (jthis.find('.gp').length > 0) {
+            var button = $('<span class="copybutton">&gt;&gt;&gt;</span>');
+            button.attr('title', hide_text);
+            button.data('hidden', 'false');
+            jthis.prepend(button);
+        }
+        // tracebacks (.gt) contain bare text elements that need to be
+        // wrapped in a span to work with .nextUntil() (see later)
+        jthis.find('pre:has(.gt)').contents().filter(function() {
+            return ((this.nodeType == 3) && (this.data.trim().length > 0));
+        }).wrap('<span>');
+    });
+
+    // define the behavior of the button when it's clicked
+    $('.copybutton').click(function(e){
+        e.preventDefault();
+        var button = $(this);
+        if (button.data('hidden') === 'false') {
+            // hide the code output
+            button.parent().find('.go, .gp, .gt').hide();
+            button.next('pre').find('.gt').nextUntil('.gp, .go').css('visibility', 'hidden');
+            button.css('text-decoration', 'line-through');
+            button.attr('title', show_text);
+            button.data('hidden', 'true');
+        } else {
+            // show the code output
+            button.parent().find('.go, .gp, .gt').show();
+            button.next('pre').find('.gt').nextUntil('.gp, .go').css('visibility', 'visible');
+            button.css('text-decoration', 'none');
+            button.attr('title', hide_text);
+            button.data('hidden', 'false');
+        }
+    });
+
+	/*** Add permalink buttons next to glossary terms ***/
+	$('dl.glossary > dt[id]').append(function() {
+		return ('<a class="headerlink" href="#' +
+			    this.getAttribute('id') +
+			    '" title="Permalink to this term">¶</a>');
+	});
+  /*** Hide navbar when scrolling down ***/
+  // Returns true when headerlink target matches hash in url
+  (function() {
+    hashTargetOnTop = function() {
+        var hash = window.location.hash;
+        if ( hash.length < 2 ) { return false; }
+
+        var target = document.getElementById( hash.slice(1) );
+        if ( target === null ) { return false; }
+
+        var top = target.getBoundingClientRect().top;
+        return (top < 2) && (top > -2);
+    };
+
+    // Hide navbar on load if hash target is on top
+    var navBar = document.getElementById("navbar");
+    var navBarToggler = document.getElementById("sk-navbar-toggler");
+    var navBarHeightHidden = "-" + navBar.getBoundingClientRect().height + "px";
+    var $window = $(window);
+
+    hideNavBar = function() {
+        navBar.style.top = navBarHeightHidden;
+    };
+
+    showNavBar = function() {
+        navBar.style.top = "0";
+    }
+
+    if (hashTargetOnTop()) {
+        hideNavBar()
+    }
+
+    var prevScrollpos = window.pageYOffset;
+    hideOnScroll = function(lastScrollTop) {
+        if (($window.width() < 768) && (navBarToggler.getAttribute("aria-expanded") === 'true')) {
+            return;
+        }
+        if (lastScrollTop > 2 && (prevScrollpos <= lastScrollTop) || hashTargetOnTop()){
+            hideNavBar()
+        } else {
+            showNavBar()
+        }
+        prevScrollpos = lastScrollTop;
+    };
+
+    /*** high performance scroll event listener***/
+    var raf = window.requestAnimationFrame ||
+        window.webkitRequestAnimationFrame ||
+        window.mozRequestAnimationFrame ||
+        window.msRequestAnimationFrame ||
+        window.oRequestAnimationFrame;
+    var lastScrollTop = $window.scrollTop();
+
+    if (raf) {
+        loop();
+    }
+
+    function loop() {
+        var scrollTop = $window.scrollTop();
+        if (lastScrollTop === scrollTop) {
+            raf(loop);
+            return;
+        } else {
+            lastScrollTop = scrollTop;
+            hideOnScroll(lastScrollTop);
+            raf(loop);
+        }
+    }
+  })();
+});
+
+</script>
+    
+
+</body>
+</html>

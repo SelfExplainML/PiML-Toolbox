@@ -1,0 +1,12 @@
+﻿:mod:`piml.models`.ReluDNNRegressor
+==========================================
+
+.. currentmodule:: piml.models
+
+.. autoclass:: ReluDNNRegressor
+
+.. include:: piml.models.ReluDNNRegressor.examples
+
+.. raw:: html
+
+    <div class="clearer"></div>

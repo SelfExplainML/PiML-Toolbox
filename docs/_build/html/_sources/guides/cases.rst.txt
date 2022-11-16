@@ -1,0 +1,19 @@
+.. Places parent toc into the sidebar
+
+:parenttoc: True
+
+.. include:: ../includes/big_toc_css.rst
+
+=======================
+Case Studies
+=======================
+
+This chapter includes multiple examples of PiML low-code experimentation. 
+
+.. toctree::
+    :maxdepth: 3
+
+    cases/Example_BikeSharing.ipynb
+    cases/Example_CaliforniaHousing.ipynb 
+    cases/Example_TaiwanCredit.ipynb
+    cases/Example_SolasSimu1_fairness.ipynb 

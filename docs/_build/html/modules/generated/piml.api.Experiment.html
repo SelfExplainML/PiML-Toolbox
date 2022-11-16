@@ -1,0 +1,1328 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+
+  <meta charset="utf-8">
+  <meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+<meta property="og:title" content="piml.api.Experiment" />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="modules/generated/piml.api.Experiment.html" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  
+  <title>PiML Toolbox</title>
+  
+
+  
+  <link rel="shortcut icon" href="../../_static/favicon.ico"/>
+  
+
+  <link rel="stylesheet" href="../../_static/css/vendor/bootstrap.min.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/plot_directive.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/sg_gallery.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/sg_gallery-binder.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/sg_gallery-dataframe.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/sg_gallery-rendered-html.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+<script id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+<script src="../../_static/jquery.js"></script>
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="../../_static/doctools.js"></script>
+        <script src="../../_static/sphinx_highlight.js"></script>
+        <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+        <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.20.1/dist/embed-amd.js"></script>
+    <script src="../../_static/js/theme.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav">
+
+  
+
+
+<nav id="navbar" class="sk-docs-navbar navbar navbar-expand-md navbar-light bg-light py-0">
+  <div class="container-fluid sk-docs-container px-0">
+      <a class="navbar-brand py-0" href="../../index.html">
+        <img
+          class="sk-brand-img"
+          src="../../_static/piml-logo.png"
+          alt="logo"/>
+      </a>
+    <button
+      id="sk-navbar-toggler"
+      class="navbar-toggler"
+      type="button"
+      data-toggle="collapse"
+      data-target="#navbarSupportedContent"
+      aria-controls="navbarSupportedContent"
+      aria-expanded="false"
+      aria-label="Toggle navigation"
+    >
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="sk-navbar-collapse collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item">
+          <a class="sk-nav-link nav-link" href="../../install.html">Install</a>
+        </li>
+        <li class="nav-item">
+          <a class="sk-nav-link nav-link" href="../../user_guide.html">User Guide</a>
+        </li>
+        <li class="nav-item">
+          <a class="sk-nav-link nav-link" href="../../auto_examples/index.html">Examples</a>
+        </li>
+        <li class="nav-item">
+          <a class="sk-nav-link nav-link" href="../classes.html">API</a>
+        </li>
+        <li class="nav-item">
+          <a class="sk-nav-link nav-link" href="../../faq.html">FAQ</a>
+        </li>      </ul>
+      <div id="searchbox" role="search">
+          <div class="searchformwrapper">
+          <form class="search" action="../../search.html" method="get">
+            <input class="sk-search-text-input" type="text" name="q" aria-labelledby="searchlabel" />
+            <input class="sk-search-text-btn" type="submit" value="Go" />
+          </form>
+          </div>
+      </div>
+    </div>
+  </div>
+</nav>
+  <div class="d-flex" id="sk-doc-wrapper">
+      <input type="checkbox" name="sk-toggle-checkbox" id="sk-toggle-checkbox">
+      <label id="sk-sidemenu-toggle" class="sk-btn-toggle-toc btn sk-btn-primary" for="sk-toggle-checkbox">Toggle Menu</label>
+      <div id="sk-sidebar-wrapper" class="border-right">
+        <div class="sk-sidebar-toc-wrapper">
+          <div class="sk-sidebar-toc-logo">
+            <a href="../../index.html">
+              <img
+                class="sk-brand-img"
+                src="../../_static/piml-logo.png"
+                alt="logo"/>
+            </a>
+          </div>
+          <!--div class="btn-group w-100 mb-2" role="group" aria-label="rellinks">
+              <a href="../classes.html" role="button" class="btn sk-btn-rellink py-1" sk-rellink-tooltip="API Reference">Prev</a><a href="../classes.html" role="button" class="btn sk-btn-rellink py-1" sk-rellink-tooltip="API Reference">Up</a>
+              <a href="../../user_guide.html" role="button" class="btn sk-btn-rellink py-1" sk-rellink-tooltip="User Guide">Next</a>
+          </div-->
+              <div class="sk-sidebar-toc">
+                <ul>
+<li><a class="reference internal" href="#"><code class="xref py py-mod docutils literal notranslate"><span class="pre">piml.api</span></code>.Experiment</a><ul>
+<li><a class="reference internal" href="#piml.api.Experiment"><code class="docutils literal notranslate"><span class="pre">Experiment</span></code></a><ul>
+<li><a class="reference internal" href="#piml.api.Experiment.data_loader"><code class="docutils literal notranslate"><span class="pre">Experiment.data_loader</span></code></a></li>
+<li><a class="reference internal" href="#piml.api.Experiment.data_prepare"><code class="docutils literal notranslate"><span class="pre">Experiment.data_prepare</span></code></a></li>
+<li><a class="reference internal" href="#piml.api.Experiment.data_summary"><code class="docutils literal notranslate"><span class="pre">Experiment.data_summary</span></code></a></li>
+<li><a class="reference internal" href="#piml.api.Experiment.eda"><code class="docutils literal notranslate"><span class="pre">Experiment.eda</span></code></a></li>
+<li><a class="reference internal" href="#piml.api.Experiment.feature_select"><code class="docutils literal notranslate"><span class="pre">Experiment.feature_select</span></code></a></li>
+<li><a class="reference internal" href="#piml.api.Experiment.get_data"><code class="docutils literal notranslate"><span class="pre">Experiment.get_data</span></code></a></li>
+<li><a class="reference internal" href="#piml.api.Experiment.get_feature_names"><code class="docutils literal notranslate"><span class="pre">Experiment.get_feature_names</span></code></a></li>
+<li><a class="reference internal" href="#piml.api.Experiment.get_feature_types"><code class="docutils literal notranslate"><span class="pre">Experiment.get_feature_types</span></code></a></li>
+<li><a class="reference internal" href="#piml.api.Experiment.get_model"><code class="docutils literal notranslate"><span class="pre">Experiment.get_model</span></code></a></li>
+<li><a class="reference internal" href="#piml.api.Experiment.get_model_config"><code class="docutils literal notranslate"><span class="pre">Experiment.get_model_config</span></code></a></li>
+<li><a class="reference internal" href="#piml.api.Experiment.get_raw_data"><code class="docutils literal notranslate"><span class="pre">Experiment.get_raw_data</span></code></a></li>
+<li><a class="reference internal" href="#piml.api.Experiment.get_target_name"><code class="docutils literal notranslate"><span class="pre">Experiment.get_target_name</span></code></a></li>
+<li><a class="reference internal" href="#piml.api.Experiment.make_pipeline"><code class="docutils literal notranslate"><span class="pre">Experiment.make_pipeline</span></code></a></li>
+<li><a class="reference internal" href="#piml.api.Experiment.model_compare"><code class="docutils literal notranslate"><span class="pre">Experiment.model_compare</span></code></a></li>
+<li><a class="reference internal" href="#piml.api.Experiment.model_diagnose"><code class="docutils literal notranslate"><span class="pre">Experiment.model_diagnose</span></code></a></li>
+<li><a class="reference internal" href="#piml.api.Experiment.model_explain"><code class="docutils literal notranslate"><span class="pre">Experiment.model_explain</span></code></a></li>
+<li><a class="reference internal" href="#piml.api.Experiment.model_fairness"><code class="docutils literal notranslate"><span class="pre">Experiment.model_fairness</span></code></a></li>
+<li><a class="reference internal" href="#piml.api.Experiment.model_fairness_solas"><code class="docutils literal notranslate"><span class="pre">Experiment.model_fairness_solas</span></code></a></li>
+<li><a class="reference internal" href="#piml.api.Experiment.model_interpret"><code class="docutils literal notranslate"><span class="pre">Experiment.model_interpret</span></code></a></li>
+<li><a class="reference internal" href="#piml.api.Experiment.model_train"><code class="docutils literal notranslate"><span class="pre">Experiment.model_train</span></code></a></li>
+<li><a class="reference internal" href="#piml.api.Experiment.model_tune"><code class="docutils literal notranslate"><span class="pre">Experiment.model_tune</span></code></a></li>
+<li><a class="reference internal" href="#piml.api.Experiment.register"><code class="docutils literal notranslate"><span class="pre">Experiment.register</span></code></a></li>
+<li><a class="reference internal" href="#piml.api.Experiment.twosample_test"><code class="docutils literal notranslate"><span class="pre">Experiment.twosample_test</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+              </div>
+        </div>
+      </div>
+      <div id="sk-page-content-wrapper">
+        <div class="sk-page-content container-fluid body px-md-3" role="main">
+          
+  <section id="piml-api-experiment">
+<h1><code class="xref py py-mod docutils literal notranslate"><span class="pre">piml.api</span></code>.Experiment<a class="headerlink" href="#piml-api-experiment" title="Permalink to this heading">¶</a></h1>
+<dl class="py class">
+<dt class="sig sig-object py" id="piml.api.Experiment">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">piml.api.</span></span><span class="sig-name descname"><span class="pre">Experiment</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">platform</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#piml.api.Experiment" title="Permalink to this definition">¶</a></dt>
+<dd><p>PiML Experiment Workflow Manager.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>platform</strong><span class="classifier">str, default=None</span></dt><dd><p>Depreciated parameter.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+<p class="rubric">Methods</p>
+<table class="autosummary longtable docutils align-default">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#piml.api.Experiment.data_loader" title="piml.api.Experiment.data_loader"><code class="xref py py-obj docutils literal notranslate"><span class="pre">data_loader</span></code></a>([data])</p></td>
+<td><p>Load data for experimentation.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#piml.api.Experiment.data_prepare" title="piml.api.Experiment.data_prepare"><code class="xref py py-obj docutils literal notranslate"><span class="pre">data_prepare</span></code></a>([target, sample_weight, ...])</p></td>
+<td><p>Prepare data for model training, including setting up the task's target (y) and type (classification or regression), splitting train / test data.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#piml.api.Experiment.data_summary" title="piml.api.Experiment.data_summary"><code class="xref py py-obj docutils literal notranslate"><span class="pre">data_summary</span></code></a>([feature_type, feature_exclude])</p></td>
+<td><p>Summarize basic data statistics.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#piml.api.Experiment.eda" title="piml.api.Experiment.eda"><code class="xref py py-obj docutils literal notranslate"><span class="pre">eda</span></code></a>([show, uni_feature, bi_features, ...])</p></td>
+<td><p>Exploratory data analysis from the data_prepare step.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#piml.api.Experiment.feature_select" title="piml.api.Experiment.feature_select"><code class="xref py py-obj docutils literal notranslate"><span class="pre">feature_select</span></code></a>([method, threshold, alpha, ...])</p></td>
+<td><p>Feature selection.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#piml.api.Experiment.get_data" title="piml.api.Experiment.get_data"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_data</span></code></a>([x, y, sample_weight, train, test])</p></td>
+<td><p>Get the preprocessed data (after feature selection and scaling).</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#piml.api.Experiment.get_feature_names" title="piml.api.Experiment.get_feature_names"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_feature_names</span></code></a>()</p></td>
+<td><p>Get feature names.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#piml.api.Experiment.get_feature_types" title="piml.api.Experiment.get_feature_types"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_feature_types</span></code></a>()</p></td>
+<td><p>Get feature types.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#piml.api.Experiment.get_model" title="piml.api.Experiment.get_model"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_model</span></code></a>(model)</p></td>
+<td><p>Get registered pipeline.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#piml.api.Experiment.get_model_config" title="piml.api.Experiment.get_model_config"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_model_config</span></code></a>(model)</p></td>
+<td><p>Get model's config parameters.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#piml.api.Experiment.get_raw_data" title="piml.api.Experiment.get_raw_data"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_raw_data</span></code></a>()</p></td>
+<td><p>Get raw data of experiment.dataset, only including selected features.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#piml.api.Experiment.get_target_name" title="piml.api.Experiment.get_target_name"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_target_name</span></code></a>()</p></td>
+<td><p>Get feature names.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#piml.api.Experiment.make_pipeline" title="piml.api.Experiment.make_pipeline"><code class="xref py py-obj docutils literal notranslate"><span class="pre">make_pipeline</span></code></a>(model[, normalize_strategy, ...])</p></td>
+<td><p>Generate pipeline object.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#piml.api.Experiment.model_compare" title="piml.api.Experiment.model_compare"><code class="xref py py-obj docutils literal notranslate"><span class="pre">model_compare</span></code></a>([models, show, metric, ...])</p></td>
+<td><p>Model comparison using multiple diagnostic tools.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#piml.api.Experiment.model_diagnose" title="piml.api.Experiment.model_diagnose"><code class="xref py py-obj docutils literal notranslate"><span class="pre">model_diagnose</span></code></a>([model, show, metric, ...])</p></td>
+<td><p>Post-hoc model diagnostic for arbitrary model.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#piml.api.Experiment.model_explain" title="piml.api.Experiment.model_explain"><code class="xref py py-obj docutils literal notranslate"><span class="pre">model_explain</span></code></a>([model, show, uni_feature, ...])</p></td>
+<td><p>Post-hoc explanation for arbitrary model.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#piml.api.Experiment.model_fairness" title="piml.api.Experiment.model_fairness"><code class="xref py py-obj docutils literal notranslate"><span class="pre">model_fairness</span></code></a>([model, show, metric, ...])</p></td>
+<td><p>Model fairness test developed by PiML team.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#piml.api.Experiment.model_fairness_solas" title="piml.api.Experiment.model_fairness_solas"><code class="xref py py-obj docutils literal notranslate"><span class="pre">model_fairness_solas</span></code></a>([model, show, metric, ...])</p></td>
+<td><p>Model fairness test based on solas-ai.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#piml.api.Experiment.model_interpret" title="piml.api.Experiment.model_interpret"><code class="xref py py-obj docutils literal notranslate"><span class="pre">model_interpret</span></code></a>([model, show, uni_feature, ...])</p></td>
+<td><p>Interpretation for inherently interpretable models.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#piml.api.Experiment.model_train" title="piml.api.Experiment.model_train"><code class="xref py py-obj docutils literal notranslate"><span class="pre">model_train</span></code></a>([model, name, train_x, train_y, ...])</p></td>
+<td><p>Model training.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#piml.api.Experiment.model_tune" title="piml.api.Experiment.model_tune"><code class="xref py py-obj docutils literal notranslate"><span class="pre">model_tune</span></code></a>()</p></td>
+<td><p>Model tuning.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#piml.api.Experiment.register" title="piml.api.Experiment.register"><code class="xref py py-obj docutils literal notranslate"><span class="pre">register</span></code></a>(pipeline, name)</p></td>
+<td><p>Register specific pipeline to experiment.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#piml.api.Experiment.twosample_test" title="piml.api.Experiment.twosample_test"><code class="xref py py-obj docutils literal notranslate"><span class="pre">twosample_test</span></code></a>([metric, buckets, feature, ...])</p></td>
+<td><p>Two sample test between train_x and test_x from the data_prepare step.</p></td>
+</tr>
+</tbody>
+</table>
+<dl class="py method">
+<dt class="sig sig-object py" id="piml.api.Experiment.data_loader">
+<span class="sig-name descname"><span class="pre">data_loader</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Optional" title="(in Python v3.11)"><span class="pre">Optional</span></a><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Union" title="(in Python v3.11)"><span class="pre">Union</span></a><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.11)"><span class="pre">str</span></a><span class="p"><span class="pre">,</span></span><span class="w"> </span><a class="reference external" href="https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.html#pandas.DataFrame" title="(in pandas v1.5.1)"><span class="pre">DataFrame</span></a><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#piml.api.Experiment.data_loader" title="Permalink to this definition">¶</a></dt>
+<dd><p>Load data for experimentation.</p>
+<p>If no parameter is passed into the method, the program will run in low code mode, otherwise high code mode.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>data</strong><span class="classifier">Union[str, pd.DataFrame], default=None</span></dt><dd><ul class="simple">
+<li><dl class="simple">
+<dt>str: the name of demo datasets:</dt><dd><ul>
+<li><p>“CoCircles”: Gaussian data with a spherical decision boundary for binary classification, generated via Scikit-Learn.</p></li>
+<li><p>“Friedman”: “Friedman #1” regression problem, generated via Scikit-Learn.</p></li>
+<li><p>“BikeSharing”: Refer to <a class="reference external" href="https://archive.ics.uci.edu/ml/datasets/bike+sharing+dataset">https://archive.ics.uci.edu/ml/datasets/bike+sharing+dataset</a>.</p></li>
+<li><p>“TaiwanCredit”: Refer to <a class="reference external" href="https://archive.ics.uci.edu/ml/datasets/default+of+credit+card+clients">https://archive.ics.uci.edu/ml/datasets/default+of+credit+card+clients</a>.</p></li>
+<li><p>“CaliforniaHousing_raw”: Refer to <a class="reference external" href="https://developers.google.com/machine-learning/crash-course/california-housing-data-description">https://developers.google.com/machine-learning/crash-course/california-housing-data-description</a>.</p></li>
+<li><p>“CaliforniaHousing_trim1”: “CaliforniaHousing_raw” dataset with the feature ‘AveOccup’ trimed by upper threshold 5.</p></li>
+<li><p>“CaliforniaHousing_trim2”: “CaliforniaHousing_raw” dataset with the features ‘AveRooms’, ‘AveBedrms’, ‘Population’, ‘AveOccup’ trimed by upper threshold quantile(0.98).</p></li>
+<li><p>“SolasSimu1”: A simulated dataset, modified from the <code class="docutils literal notranslate"><span class="pre">Friedman</span> <span class="pre">#1</span></code> regression problem. The covariates used for modeling are <code class="docutils literal notranslate"><span class="pre">Segment</span></code>, <code class="docutils literal notranslate"><span class="pre">x1</span></code>, <code class="docutils literal notranslate"><span class="pre">x2</span></code>, …, <code class="docutils literal notranslate"><span class="pre">x5</span></code>, the response <code class="docutils literal notranslate"><span class="pre">Label</span></code> is binary and it is a classification problem. The rest variables are demographic variables used for testing fairness. The data is contributed by [Solas-AI](<a class="reference external" href="https://github.com/SolasAI/solas-ai-disparity">https://github.com/SolasAI/solas-ai-disparity</a>).</p></li>
+<li><p>“SolasHMDA”: A (preprocessed) sample of the 2018 Home Mortgage Disclosure Act (HMDA) data. The HMDA dataset includes information about nearly every home mortgage application in the United States.</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><p>pd.DataFrame: Dataframe with row as data points and column as variables.</p></li>
+</ul>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="piml.api.Experiment.data_prepare">
+<span class="sig-name descname"><span class="pre">data_prepare</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">target</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">unicode</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sample_weight</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">unicode</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">test_ratio</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.11)"><span class="pre">float</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">random_state</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.11)"><span class="pre">int</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">task_type</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">unicode</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">with_display</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.11)"><span class="pre">bool</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">train_idx</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">test_idx</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#piml.api.Experiment.data_prepare" title="Permalink to this definition">¶</a></dt>
+<dd><p>Prepare data for model training, including setting up the task’s target (y) and type (classification or
+regression), splitting train / test data.</p>
+<p>If no parameter is passed into the method, the program will run in low code mode, otherwise high code mode.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>target</strong><span class="classifier">str, default=None</span></dt><dd><p>Target variable name.</p>
+</dd>
+<dt><strong>sample_weight: str, default=None</strong></dt><dd><p>Sample weight column name.</p>
+</dd>
+<dt><strong>test_ratio</strong><span class="classifier">float, default=0.2</span></dt><dd><p>Test sample ratio.</p>
+</dd>
+<dt><strong>random_state</strong><span class="classifier">int, default=0</span></dt><dd><p>Random seed for train / test split.</p>
+</dd>
+<dt><strong>task_type</strong><span class="classifier">str, default=None</span></dt><dd><p>Task type, “classification” or “regression”.</p>
+</dd>
+<dt><strong>with_display</strong><span class="classifier">bool, default=True</span></dt><dd><p>Display data prepare summary or not.</p>
+</dd>
+<dt><strong>train_idx</strong><span class="classifier">array-like of shape (n_samples_train,), default=None</span></dt><dd><p>If train_idx and test_idx are specified, test_ratio will not be used.</p>
+</dd>
+<dt><strong>test_idx</strong><span class="classifier">array-like of shape (n_samples_test,), default=None</span></dt><dd><p>If train_idx and test_idx are specified, test_ratio will not be used.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="piml.api.Experiment.data_summary">
+<span class="sig-name descname"><span class="pre">data_summary</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">feature_type</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Optional" title="(in Python v3.11)"><span class="pre">Optional</span></a><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Dict" title="(in Python v3.11)"><span class="pre">Dict</span></a><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">feature_exclude</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Optional" title="(in Python v3.11)"><span class="pre">Optional</span></a><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.List" title="(in Python v3.11)"><span class="pre">List</span></a><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#piml.api.Experiment.data_summary" title="Permalink to this definition">¶</a></dt>
+<dd><p>Summarize basic data statistics.</p>
+<p>If no parameter is passed into the method, the program will run in low code mode, otherwise high code mode.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>feature_type</strong><span class="classifier">dict, default=None</span></dt><dd><p>Feature type for each feature, “categorical” or “numerical”.</p>
+</dd>
+<dt><strong>feature_exclude</strong><span class="classifier">list, default=None</span></dt><dd><p>Features to exclude in training and diagnostics.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="piml.api.Experiment.eda">
+<span class="sig-name descname"><span class="pre">eda</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">show</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">unicode</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">uni_feature</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">unicode</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">bi_features</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.List" title="(in Python v3.11)"><span class="pre">List</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">multi_type</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">unicode</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">figsize</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Tuple" title="(in Python v3.11)"><span class="pre">Tuple</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#piml.api.Experiment.eda" title="Permalink to this definition">¶</a></dt>
+<dd><p>Exploratory data analysis from the data_prepare step.</p>
+<p>If no parameter is passed into the method, the program will run in low code mode, otherwise high code mode.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>show</strong><span class="classifier">{“univariate”, “bivariate”, “multivariate”}, default=None</span></dt><dd><p>The plot method.</p>
+</dd>
+<dt><strong>uni_feature</strong><span class="classifier">str, default=None</span></dt><dd><p>Feature name of showed feature for Univariate plot.</p>
+</dd>
+<dt><strong>bi_features</strong><span class="classifier">list, default=None</span></dt><dd><p>Feature names of showed features for Bivariate plot.</p>
+</dd>
+<dt><strong>multi_type</strong><span class="classifier">str, default=None</span></dt><dd><p>Plot type for Multivariate plot.</p>
+</dd>
+<dt><strong>figsize</strong><span class="classifier">tuple, default=(8, 6)</span></dt><dd><p>Figure size of the plot.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="piml.api.Experiment.feature_select">
+<span class="sig-name descname"><span class="pre">feature_select</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">method</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">unicode</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">threshold</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.11)"><span class="pre">float</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">alpha</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.11)"><span class="pre">float</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">figsize</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Tuple" title="(in Python v3.11)"><span class="pre">Tuple</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#piml.api.Experiment.feature_select" title="Permalink to this definition">¶</a></dt>
+<dd><p>Feature selection.</p>
+<p>If no parameter is passed into the method, the program will run in low code mode, otherwise high code mode.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>method</strong><span class="classifier">str, default=None</span></dt><dd><p>The method for feature selection.</p>
+</dd>
+<dt><strong>threshold</strong><span class="classifier">float, default=None</span></dt><dd><p>Threshold for selecting the most important features such that the sum of their normalized feature importance exceeds this threshold, by default 0.9.
+The feature importance is obtained by lightGBM and then normalized with all features’ importance sum up to 1.</p>
+</dd>
+<dt><strong>alpha</strong><span class="classifier">float, default=1e-6</span></dt><dd><p>The threshold of test statistics in RCIT test.</p>
+</dd>
+<dt><strong>figsize</strong><span class="classifier">tuple, default=(8, 6)</span></dt><dd><p>Figure size of the plot.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="piml.api.Experiment.get_data">
+<span class="sig-name descname"><span class="pre">get_data</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sample_weight</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">train</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">test</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#piml.api.Experiment.get_data" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the preprocessed data (after feature selection and scaling).</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>x</strong><span class="classifier">ndarray of shape (n_samples, n_features), default=None</span></dt><dd><p>Covariates if using self data.</p>
+</dd>
+<dt><strong>y</strong><span class="classifier">ndarray of shape (n_samples, ), default=None</span></dt><dd><p>Response if using self data.</p>
+</dd>
+<dt><strong>sample_weight</strong><span class="classifier">ndarray of shape (n_samples, ), default=None</span></dt><dd><p>The sample weights if using self data.</p>
+</dd>
+<dt><strong>train</strong><span class="classifier">bool, default=False</span></dt><dd><p>Whether to return training data only.</p>
+</dd>
+<dt><strong>test</strong><span class="classifier">bool, default=False</span></dt><dd><p>Whether to return testing data only.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="piml.api.Experiment.get_feature_names">
+<span class="sig-name descname"><span class="pre">get_feature_names</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.List" title="(in Python v3.11)"><span class="pre">List</span></a></span></span><a class="headerlink" href="#piml.api.Experiment.get_feature_names" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get feature names.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><dl class="simple">
+<dt>feature_names: list of str</dt><dd><p>Feature names.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="piml.api.Experiment.get_feature_types">
+<span class="sig-name descname"><span class="pre">get_feature_types</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#piml.api.Experiment.get_feature_types" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get feature types.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><dl class="simple">
+<dt>feature_types: list of str</dt><dd><p>Feature types.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="piml.api.Experiment.get_model">
+<span class="sig-name descname"><span class="pre">get_model</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">model</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">ModelPipeline</span></span></span><a class="headerlink" href="#piml.api.Experiment.get_model" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get registered pipeline.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>model</strong><span class="classifier">str</span></dt><dd><p>The registered pipeline name.</p>
+</dd>
+</dl>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><dl class="simple">
+<dt>ModelPipeline Object</dt><dd><p>The pipeline wrapper estimator with data and data processing.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="piml.api.Experiment.get_model_config">
+<span class="sig-name descname"><span class="pre">get_model_config</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">model</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#piml.api.Experiment.get_model_config" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get model’s config parameters.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>model</strong><span class="classifier">str</span></dt><dd><p>Model’s registered name.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="piml.api.Experiment.get_raw_data">
+<span class="sig-name descname"><span class="pre">get_raw_data</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#piml.api.Experiment.get_raw_data" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get raw data of experiment.dataset, only including selected features.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><dl class="simple">
+<dt>The raw data like: (train_x, train_y, train_sample_weight,</dt><dd><p>test_x, test_y, test_sample_weight,
+feature_names, target_name).</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="piml.api.Experiment.get_target_name">
+<span class="sig-name descname"><span class="pre">get_target_name</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.List" title="(in Python v3.11)"><span class="pre">List</span></a></span></span><a class="headerlink" href="#piml.api.Experiment.get_target_name" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get feature names.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><dl class="simple">
+<dt>target_names: str</dt><dd><p>Target name.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="piml.api.Experiment.make_pipeline">
+<span class="sig-name descname"><span class="pre">make_pipeline</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">model</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">normalize_strategy</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">encode_strategy</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">train_x</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">train_y</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">test_x</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">test_y</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">train_sample_weight</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">test_sample_weight</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">excluded_features</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">feature_names</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">feature_types</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">target_name</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#piml.api.Experiment.make_pipeline" title="Permalink to this definition">¶</a></dt>
+<dd><p>Generate pipeline object.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>model</strong><span class="classifier">Estimator Object</span></dt><dd><p>Fitted or not fitted estimator object, which should follow the sklearn.estimator style.</p>
+</dd>
+<dt><strong>normalize_strategy</strong><span class="classifier">{None, “minmax”, “unit_norm”}, default=None</span></dt><dd><p>The normalize strategy names. If None, no normalization is performed.</p>
+</dd>
+<dt><strong>encode_strategy</strong><span class="classifier">{None, “ordinal”, “one_hot”}, default=None</span></dt><dd><p>The encode strategy names. If None, no normalization is performed.</p>
+</dd>
+<dt><strong>train_x</strong><span class="classifier">Xndarray of shape (n_samples_train, n_features), default=None</span></dt><dd><p>The training data for the estimator. Use default data if None.</p>
+</dd>
+<dt><strong>train_y</strong><span class="classifier">Xndarray of shape (n_samples_train, ), default=None</span></dt><dd><p>The training target for the estimator. Use default data if None.</p>
+</dd>
+<dt><strong>test_x</strong><span class="classifier">Xndarray of shape (n_samples_test, n_features), default=None</span></dt><dd><p>The testing data for the estimator. Use default data if None.</p>
+</dd>
+<dt><strong>test_y</strong><span class="classifier">Xndarray of shape (n_samples_test, ), default=None</span></dt><dd><p>The testing target for the estimator. Use default data if None.</p>
+</dd>
+<dt><strong>train_sample_weight</strong><span class="classifier">Xndarray of shape (n_samples_test, ), default=None</span></dt><dd><p>The testing sample_weight for the estimator. Use default data if None.</p>
+</dd>
+<dt><strong>test_sample_weight</strong><span class="classifier">Xndarray of shape (n_samples_test, ), default=None</span></dt><dd><p>The testing sample_weight for the estimator. Use default data if None.</p>
+</dd>
+<dt><strong>excluded_features</strong><span class="classifier">List[str], default=None</span></dt><dd><p>Feature names to exclude for the model.</p>
+</dd>
+<dt><strong>feature_names</strong><span class="classifier">List[str], default=None</span></dt><dd><p>Feature names.</p>
+</dd>
+<dt><strong>feature_types: List[str], default=None</strong></dt><dd><p>Feature types, can be ‘numerical’ or ‘categorical’; if None or empty,
+the type of each feature will be determined by several samples</p>
+</dd>
+<dt><strong>target_name</strong><span class="classifier">str, default=None</span></dt><dd><p>Target name.</p>
+</dd>
+</dl>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><dl class="simple">
+<dt>Pipeline object</dt><dd><p>The pipeline wrapper estimator with data and data processing.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="piml.api.Experiment.model_compare">
+<span class="sig-name descname"><span class="pre">model_compare</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">models</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.List" title="(in Python v3.11)"><span class="pre">List</span></a><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.11)"><span class="pre">str</span></a><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">show</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">unicode</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">metric</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">unicode</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">immu_feature</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">unicode</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">perturb_features</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Union" title="(in Python v3.11)"><span class="pre">Union</span></a><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.11)"><span class="pre">str</span></a><span class="p"><span class="pre">,</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.List" title="(in Python v3.11)"><span class="pre">List</span></a><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.11)"><span class="pre">str</span></a><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">perturb_method</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">unicode</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">resilience_method</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">unicode</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">perturb_size</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.11)"><span class="pre">float</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">psi_buckets</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">unicode</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">alpha</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.11)"><span class="pre">float</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n_clusters</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.11)"><span class="pre">int</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">bins</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.11)"><span class="pre">int</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">target_feature</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">unicode</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">method</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">unicode</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">threshold_ratio</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.11)"><span class="pre">int</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">original_scale</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.11)"><span class="pre">bool</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">figsize</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Tuple" title="(in Python v3.11)"><span class="pre">Tuple</span></a><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.11)"><span class="pre">int</span></a><span class="p"><span class="pre">,</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.11)"><span class="pre">int</span></a><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#piml.api.Experiment.model_compare" title="Permalink to this definition">¶</a></dt>
+<dd><p>Model comparison using multiple diagnostic tools.</p>
+<p>If no parameter is passed into the method, the program will run in low code mode, otherwise high code mode.</p>
+<dl class="field-list">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><dl>
+<dt><strong>models</strong><span class="classifier">List[str], default=None</span></dt><dd><p>models’ registered names, up to 3 models.</p>
+</dd>
+<dt><strong>show</strong><span class="classifier">str, default=None</span></dt><dd><p>Supported diagnostic methods for model comparison:</p>
+<ul>
+<li><p>Accuracy</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>“accuracy_mse”: MSE plot</p></li>
+<li><p>“accuracy_r2”: R-squared plot; only supports Regressors</p></li>
+<li><p>“accuracy_acc”: Accuracy plot; only supports Classfiers</p></li>
+<li><p>“accuracy_auc”: AUC plot; only supports Classfiers</p></li>
+<li><p>“accuracy”: all the Accuracy plots (if applicable for the model’s type)</p></li>
+</ul>
+</div></blockquote>
+</li>
+<li><p>Overfit: measured by the gap between training and testing errors</p>
+<ul class="simple">
+<li><p>“overfit_perf”: compare overfit performance between models</p></li>
+</ul>
+</li>
+<li><p>Robustness: evaluate the performance degradation under (normal) covariate noise perturbation</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>“robustness_perf”: compare robustness performance between 2 to 3 models</p></li>
+<li><p>“robustness_perf_worst”: compare robustness performance between models, based on worst sample</p></li>
+<li><p>“robustness”: all the Robustness plots (if applicable)</p></li>
+</ul>
+</div></blockquote>
+</li>
+<li><p>Resilience: evaluate the performance degradation under worstcase subsampling</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>“resilience_perf”: compare resilience performance between 2 to 3 models</p></li>
+<li><p>“resilience_psi”: compare resilience PSI between 2 to 3 models</p></li>
+<li><p>“resilience”: all the Resilience plots (if applicable)</p></li>
+</ul>
+</div></blockquote>
+</li>
+<li><p>Reliability: through Split Conformal Prediction under the exchangeability assumption;</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>“reliability_bandwidth”: compare reliability bandwidth between 2-3 models</p></li>
+<li><p>“reliability_coverage”: only supports Regressors; compare reliability coverage between 2-3 models</p></li>
+<li><p>“reliability”: all the Reliability plots (if applicable)</p></li>
+</ul>
+</div></blockquote>
+</li>
+</ul>
+</dd>
+<dt><strong>metric</strong><span class="classifier">str, default=None</span></dt><dd><p>The metric for robustness and resilience.</p>
+</dd>
+<dt><strong>immu_feature</strong><span class="classifier">str, default=None</span></dt><dd><p>For Resilience, the name of immutable feature.</p>
+</dd>
+<dt><strong>perturb_features</strong><span class="classifier">Union[str, List[str]], default=None</span></dt><dd><p>Common parameters for all Robustness plots, decides which numeric features to perturb.
+If None, perturb on all numeric features.</p>
+</dd>
+<dt><strong>perturb_size</strong><span class="classifier">float, default=0.1</span></dt><dd><p>For Robustness plots,</p>
+<ul class="simple">
+<li><p>The step of perturbation strength for numeric feature;</p></li>
+<li><p>The step of perturbation strength for categorical features.</p></li>
+</ul>
+</dd>
+<dt><strong>perturb_method</strong><span class="classifier">{‘raw’, ‘quantile’}, default=’raw’</span></dt><dd><p>Perturbation metho for Robustness test,</p>
+<ul class="simple">
+<li><p>‘raw’: add normal noise directly on covariates for perturbation;</p></li>
+<li><p>‘quantile’: add uniform noise on quantile space of covariates.</p></li>
+</ul>
+</dd>
+<dt><strong>resilience_method: {“worst-sample”, “hard-sample”, “outer-sample”, “worst-cluster”}, default=”worst-sample”</strong></dt><dd><p>The method used for selecting worst samples.</p>
+<ul class="simple">
+<li><p>“worst-sample”: Select the worst samples according to the loss of each sample; the worst samples are related to models.</p></li>
+<li><p>“hard-sample”: Use a deep XGB model to distinguish hard and easy samples; the worst samples are the same for different models.</p></li>
+<li><p>“outer-sample”: Use the Euclidean distance of each sample to the mean of X as a surrogate of worstness; the worst samples are the same for different models.</p></li>
+<li><p>“worst-cluster”: Fit a K-means using the X, and then select the worst performing cluster as the worst samples; the worst samples are related to models.</p></li>
+</ul>
+</dd>
+<dt><strong>alpha</strong><span class="classifier">float, default=0.1</span></dt><dd><ul class="simple">
+<li><p>Resilience: decides the ratio for worst sampling, can only be 0.1, 0.2, …, 1.</p></li>
+<li><p>Reliability: the error rate in Split Conformal Prediction.</p></li>
+</ul>
+</dd>
+<dt><strong>n_clusters</strong><span class="classifier">int, default=1</span></dt><dd><p>For Resilience plots: the step length for n clusters in K-means based “worst-cluster” method, can only be 1, 2, …, 10.</p>
+</dd>
+<dt><strong>bins</strong><span class="classifier">int, default=20</span></dt><dd><p>For Reliability, Weakspot and Overfit, the number of bins.</p>
+</dd>
+<dt><strong>target_feature</strong><span class="classifier">str, default=None</span></dt><dd><p>Used as show = “resilience_shift_density”, “resilience_shift_histogram”, “reliability_marginal”, “reliability_psi”, “accuracy_residual” plot methods, decide the target feature in the plot (usually the x-axis).</p>
+</dd>
+<dt><strong>method</strong><span class="classifier">{‘histogram’, ‘tree’}, default=’histogram’</span></dt><dd><p>The way to segment data to regions with slicing features for overfit.</p>
+<ul class="simple">
+<li><p>“histogram”: use equal-space binning;</p></li>
+<li><p>“tree”: default, fit a decision tree to generate regions.</p></li>
+</ul>
+</dd>
+<dt><strong>threshold_ratio</strong><span class="classifier">int, default=1.1</span></dt><dd><p>For Overfit plots, overfit threshold.</p>
+</dd>
+<dt><strong>original_scale: bool, default=False</strong></dt><dd><p>Whether or not use original scale of X in the plots, if False, use normalized scale.</p>
+</dd>
+<dt><strong>figsize</strong><span class="classifier">Tuple[int, int], default=(8, 6)</span></dt><dd><p>Figure size of the plot.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="piml.api.Experiment.model_diagnose">
+<span class="sig-name descname"><span class="pre">model_diagnose</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">model</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">unicode</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">show</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">unicode</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">metric</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">unicode</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">perturb_size</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.11)"><span class="pre">float</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">perturb_features</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Union" title="(in Python v3.11)"><span class="pre">Union</span></a><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.11)"><span class="pre">str</span></a><span class="p"><span class="pre">,</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.List" title="(in Python v3.11)"><span class="pre">List</span></a><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.11)"><span class="pre">str</span></a><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">perturb_method</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">unicode</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">bins</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.11)"><span class="pre">int</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">resilience_method</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">unicode</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">alpha</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.11)"><span class="pre">float</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n_clusters</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.11)"><span class="pre">int</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">slice_features</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Union" title="(in Python v3.11)"><span class="pre">Union</span></a><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.11)"><span class="pre">str</span></a><span class="p"><span class="pre">,</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.List" title="(in Python v3.11)"><span class="pre">List</span></a><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.11)"><span class="pre">str</span></a><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">slice_method</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">unicode</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">threshold</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.11)"><span class="pre">float</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">min_sample</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.11)"><span class="pre">int</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">use_test</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.11)"><span class="pre">bool</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">psi_buckets</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">unicode</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">immu_feature</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">unicode</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">target_feature</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">unicode</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">original_scale</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.11)"><span class="pre">bool</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">return_data</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.11)"><span class="pre">bool</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">return_fig</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.11)"><span class="pre">bool</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">figsize</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Tuple" title="(in Python v3.11)"><span class="pre">Tuple</span></a><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.11)"><span class="pre">int</span></a><span class="p"><span class="pre">,</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.11)"><span class="pre">int</span></a><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#piml.api.Experiment.model_diagnose" title="Permalink to this definition">¶</a></dt>
+<dd><p>Post-hoc model diagnostic for arbitrary model.</p>
+<p>If no parameter is passed into the method, the program will run in low code mode, otherwise high code mode.</p>
+<dl class="field-list">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><dl>
+<dt><strong>model</strong><span class="classifier">str, default=None</span></dt><dd><p>Model’s registered name.</p>
+</dd>
+<dt><strong>show</strong><span class="classifier">{‘accuracy’, ‘accuracy_residual’, ‘accuracy_plot’, ‘accuracy_result’, ‘overfit’, ‘overfit_plot’, ‘overfit_result’, ‘weakspot’, ‘weakspot_plot’, ‘weakspot_result’,’robustness’, ‘robustness_perf’, ‘robustness_perf_worst’, ‘resilience’, ‘resilience_perf’, ‘resilience_psi’, ‘resilience_shift_density’, ‘resilience_shift_histogram’, ‘reliability’, ‘reliability_psi’, ‘reliability_marginal’, ‘reliability_result’, ‘reliability_perf’, ‘reliability_calibration’}, default=None</span></dt><dd><p>All the supported model diagnostics methods.</p>
+<ul class="simple">
+<li><dl class="simple">
+<dt>Accuracy:</dt><dd><ul>
+<li><p>“accuracy”: show all plots related to accuracy. (params: target_feature)</p></li>
+<li><p>“accuracy_residual”: plot residual with respect to a variable. (params: target_feature)</p></li>
+<li><p>“accuracy_plot”: only supports Classifiers; plot confusion matrix, ROC and Recall-Precision.</p></li>
+<li><p>“accuracy_result”: show accuracy results with a table.</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>WeakSpot:</dt><dd><ul>
+<li><p>“weakspot”: show all plots related to weakspot. (params: slice_method, slice_features, threshold, min_sample, use_test)</p></li>
+<li><p>“weakspot_plot”: plot weaksot regions. (params: slice_method, slice_features, threshold, min_sample, use_test)</p></li>
+<li><p>“weakspot_result”: show detected weakspot regions with a table. (params: slice_method, slice_features, threshold, min_sample, use_test)</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>Overfit:</dt><dd><ul>
+<li><p>“overfit”: show all plots related to overfit. (params: slice_method, slice_features, threshold, min_sample, use_test)</p></li>
+<li><p>“overfit_plot”: identify overfitting regions with high testing - training error gaps. (params: slice_method, slice_features, threshold, min_sample, use_test)</p></li>
+<li><p>“overfit_result”: show detected overfit regions with a table. (params: slice_method, slice_features, threshold, min_sample, use_test)</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>Reliability:</dt><dd><ul>
+<li><p>“reliability”: show all plots related to reliability. (params: target_feature, bins, threshold, alpha)</p></li>
+<li><p>“reliability_psi”: calculate Population Stability Index (PSI) of features between reliable and un-reliable data. (params: bins, alpha)</p></li>
+<li><p>“reliability_marginal”: plot the histogram of bandwidth against a given feature. (params: target_feature, bins, threshold, alpha)</p></li>
+<li><p>“reliability_result”: show empirical coverage and average bandwidth for regression or Brier Loss for classification. (params: alpha, only used for regressor)</p></li>
+<li><p>“reliability_perf”: only for classifiers; reliability diagram.</p></li>
+<li><p>“reliability_calibration”: only for classifiers; show the calibrated predicted probability vs. original predicted probability.</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>Robustness:</dt><dd><ul>
+<li><p>“robustness”: show all plots related to robustness. (params: perturb_method, perturb_features, perturb_size, alpha)</p></li>
+<li><p>“robustness_perf”: performance against perturbation size.  (params: perturb_method, perturb_features, perturb_size)</p></li>
+<li><p>“robustness_perf_worst”: performance against perturbation size based on worst sample. (params: perturb_method, perturb_features, perturb_size, alpha)</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>Resilience:</dt><dd><ul>
+<li><p>“resilience”: show all plots related to resilience.</p></li>
+<li><p>“resilience_perf”: performance against worst sample ratio. (params: resilience_method, target_feature, immu_feature, alpha)</p></li>
+<li><p>“resilience_psi”: calculate population stability index of features between worst sample and full dataset.</p></li>
+<li><p>“resilience_shift_density”: compare distribution between worst sample and full dataset with density plot.</p></li>
+<li><p>“resilience_shift_histogram”: compare distribution between worst sample and full dataset with shift plot.</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+</dd>
+<dt><strong>metric</strong><span class="classifier">str, default=None</span></dt><dd><p>The metric for robustness and resilience testing.</p>
+</dd>
+<dt><strong>perturb_features</strong><span class="classifier">Union[str, List[str]], default=None</span></dt><dd><p>Common parameters for all Robustness plots, decides which numeric features to perturb.
+If None, perturb on all numeric features.</p>
+</dd>
+<dt><strong>perturb_size</strong><span class="classifier">float, default=0.1</span></dt><dd><p>For Robustness plots, the step of perturbation strength for numeric features, or
+perturbation probability step by standard deviation of categorical feature.</p>
+</dd>
+<dt><strong>perturb_method</strong><span class="classifier">{‘raw’, ‘quantile’}, default=’raw’</span></dt><dd><blockquote>
+<div><p>Perturbation method for Robustness test.</p>
+</div></blockquote>
+<ul class="simple">
+<li><p>‘raw’: add normal noise directly on covariates for perturbation;</p></li>
+<li><p>‘quantile’: add uniform noise on quantile space of covariates.</p></li>
+</ul>
+</dd>
+<dt><strong>resilience_method</strong><span class="classifier">{“worst-sample”, “hard-sample”, “outer-sample”, “worst-cluster”}, default=”worst-sample”</span></dt><dd><p>The method used for selecting worst samples.</p>
+<ul class="simple">
+<li><p>“worst-sample”: Select the worst samples according to the loss of each sample; the worst samples are related to models.</p></li>
+<li><p>“hard-sample”: Use a deep XGB model to distinguish hard and easy samples; the worst samples are the same for different models.</p></li>
+<li><p>“outer-sample”: Use the Euclidean distance of each sample to the mean of X as a surrogate of worstness; the worst samples are the same for different models.</p></li>
+<li><p>“worst-cluster”: Fit a K-means using the X, and then select the worst performing cluster as the worst samples; the worst samples are related to models.</p></li>
+</ul>
+</dd>
+<dt><strong>alpha</strong><span class="classifier">float, default=0.1</span></dt><dd><p>This parameter has different meanings for different diagnostics.</p>
+<ul class="simple">
+<li><p>Resilience: decides the ratio for worst sampling, can only be 0.1, 0.2, …, 1;</p></li>
+<li><p>Reliability: the error rate in Split Conformal Prediction.</p></li>
+</ul>
+</dd>
+<dt><strong>n_clusters</strong><span class="classifier">int, default=1</span></dt><dd><p>For Resilience plots: the step length for n clusters in K-means based “worst-cluster” method.</p>
+</dd>
+<dt><strong>bins</strong><span class="classifier">int, default=10</span></dt><dd><p>Used in Reliability, Weakspot and Overfit, the number of bins.</p>
+</dd>
+<dt><strong>slice_features</strong><span class="classifier">List[str], default=None</span></dt><dd><p>Slicing feature for Weakspot and Overfit.</p>
+</dd>
+<dt><strong>slice_method</strong><span class="classifier">{‘histogram’, ‘tree’, ‘xgb’}, default=’histogram’</span></dt><dd><p>The way to segment data to regions with slicing features for weakspot and overfit.</p>
+<ul class="simple">
+<li><p>“histogram”: use equal-space binning;</p></li>
+<li><p>“tree”: default, fit a decision tree to generate regions;</p></li>
+<li><p>“xgb”: use xgboost to generate regions.</p></li>
+</ul>
+</dd>
+<dt><strong>threshold</strong><span class="classifier">float, default=1.1</span></dt><dd><p>This parameter has different meanings for different diagnostics.</p>
+<ul class="simple">
+<li><p>Overfit: decide min error gap for an overfit region;</p></li>
+<li><p>Weakspot: decide min error gap for an weakspot region;</p></li>
+<li><p>Reliability: the threshold to determine whether data are inside or outside coverage.</p></li>
+</ul>
+</dd>
+<dt><strong>min_sample</strong><span class="classifier">int, default=20</span></dt><dd><p>For Overfit and Weaksot, decide min sample number of each region.</p>
+</dd>
+<dt><strong>use_test</strong><span class="classifier">bool, default=False</span></dt><dd><p>For Overfit and Weaksot, whther use test data or not.</p>
+</dd>
+<dt><strong>immu_feature</strong><span class="classifier">str, default=None</span></dt><dd><p>For Resilience, the name of immutable feature.</p>
+</dd>
+<dt><strong>target_feature</strong><span class="classifier">str, default=None</span></dt><dd><p>For “resilience_shift_density”, “resilience_shift_histogram”, “reliability_marginal”, “reliability_psi”, “accuracy_residual” plot methods, decide the target feature in the plot (usually the x-axis).</p>
+</dd>
+<dt><strong>original_scale: bool, default=False</strong></dt><dd><p>Whether or not use original scale of X in the plots, if False, use normalized scale.</p>
+</dd>
+<dt><strong>return_data</strong><span class="classifier">bool, default=False</span></dt><dd><p>Whether or not return analysis result.</p>
+</dd>
+<dt><strong>figsize</strong><span class="classifier">Tuple[int, int], default=(8, 6)</span></dt><dd><p>Figure size of the plot.</p>
+</dd>
+</dl>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><dl class="simple">
+<dt>pd.DataFrame or Dict</dt><dd><p>Diagnose result, for methods with parameter “return_data” = True</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="piml.api.Experiment.model_explain">
+<span class="sig-name descname"><span class="pre">model_explain</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">model</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">unicode</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">show</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">unicode</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">uni_feature</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">unicode</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">bi_features</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.List" title="(in Python v3.11)"><span class="pre">List</span></a><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.11)"><span class="pre">str</span></a><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sample_id</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.11)"><span class="pre">int</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sample_size</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.11)"><span class="pre">int</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n_repeats</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.11)"><span class="pre">int</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">return_data</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.11)"><span class="pre">bool</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">return_fig</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.11)"><span class="pre">bool</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pdp_size</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.11)"><span class="pre">int</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">centered</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.11)"><span class="pre">bool</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">original_scale</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.11)"><span class="pre">bool</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">figsize</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Tuple" title="(in Python v3.11)"><span class="pre">Tuple</span></a><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.11)"><span class="pre">int</span></a><span class="p"><span class="pre">,</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.11)"><span class="pre">int</span></a><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#piml.api.Experiment.model_explain" title="Permalink to this definition">¶</a></dt>
+<dd><p>Post-hoc explanation for arbitrary model. Each method can be applied to arbitrary model.</p>
+<p>If no parameter is passed into the method, the program will run in low code mode, otherwise high code mode.</p>
+<dl class="field-list">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><dl>
+<dt><strong>model</strong><span class="classifier">str, default=None</span></dt><dd><p>Model’s registered name.</p>
+</dd>
+<dt><strong>show</strong><span class="classifier">str, default=None</span></dt><dd><p>Supported global explanation methods (corresponding to the <code class="docutils literal notranslate"><span class="pre">show</span></code> parameter values):</p>
+<blockquote>
+<div><ul>
+<li><p>“global_pfi”: Permutation Feature Importance (PFI)</p></li>
+<li><p>“global_pdp”: Partial Dependence Plot (PDP)</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>parameter “uni_feature” or “bi_features” is required for the plot</p></li>
+</ul>
+</div></blockquote>
+</li>
+<li><p>“global_ice”: (Global) Individual Conditional Effect (ICE)</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>parameter “uni_feature” is required for the plot</p></li>
+</ul>
+</div></blockquote>
+</li>
+<li><p>“global_ale”: Accumulated Local Effects (ALE)</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>parameter “uni_feature” or “bi_features” is required for the plot</p></li>
+</ul>
+</div></blockquote>
+</li>
+<li><p>“global_shap_summary”: SHAP summary</p></li>
+<li><p>“global_shap_fi”: SHAP feature importance</p></li>
+<li><p>“global_shap_scatter”: SHAP scatter plot</p></li>
+<li><p>“global”: contains multiple plots - “global_pfi”, “global_pdp”, “global_ale”</p></li>
+</ul>
+</div></blockquote>
+<p>Supported local explanation methods (corresponding to the <code class="docutils literal notranslate"><span class="pre">show</span></code> parameter values):</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>“local_shap”: SHAP for single data point</p></li>
+<li><p>“local_lime”: LIME for single data point</p></li>
+<li><p>“local”: contains multiple plots - “local_shap”, “local_lime”</p></li>
+</ul>
+</div></blockquote>
+</dd>
+<dt><strong>uni_feature</strong><span class="classifier">str, default=None</span></dt><dd><p>Feature name of showed feature for Univariate plot.</p>
+</dd>
+<dt><strong>bi_features</strong><span class="classifier">List[str], default=None</span></dt><dd><p>Feature names of showed features for Bivariate plot.</p>
+</dd>
+<dt><strong>sample_id</strong><span class="classifier">int, default=0</span></dt><dd><p>Single data point for analysis.</p>
+</dd>
+<dt><strong>sample_size</strong><span class="classifier">int, default=500</span></dt><dd><p>Sample size for “global_ice” and SHAP plots: “global_shap_fi”, “global_shap_summary”, “global_shap_scatter”, “local_shap”.</p>
+</dd>
+<dt><strong>n_repeats</strong><span class="classifier">int, default=1</span></dt><dd><p>For “global_pfi” plot method, decide repeat times for the random permutation.</p>
+</dd>
+<dt><strong>return_data</strong><span class="classifier">bool, default=False</span></dt><dd><p>Whether or not return analysis result.</p>
+</dd>
+<dt><strong>pdp_size</strong><span class="classifier">int, default=2000</span></dt><dd><p>The sample size for “global_pdp” plot method.</p>
+</dd>
+<dt><strong>centered</strong><span class="classifier">bool, default=True</span></dt><dd><p>For “local_lime” and “local_fi” methods, whether make data centered.</p>
+</dd>
+<dt><strong>original_scale: bool, default=False</strong></dt><dd><p>For “global_pdp” and “global_ale” plots, whether or not use original scale of X, if False, use normalized scale.</p>
+</dd>
+<dt><strong>figsize</strong><span class="classifier">Tuple[int, int], default=(8, 6)</span></dt><dd><p>Figure size of the plot.</p>
+</dd>
+</dl>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><dl class="simple">
+<dt><strong>res</strong><span class="classifier">pd.DataFrame or dict</span></dt><dd><p>Diagnose result, for methods with parameter “return_data” = True</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="piml.api.Experiment.model_fairness">
+<span class="sig-name descname"><span class="pre">model_fairness</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">model</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">unicode</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">show</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">unicode</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">metric</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">unicode</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">favorable_class</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.11)"><span class="pre">int</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">segmented_feature</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">unicode</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">group_category</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.List" title="(in Python v3.11)"><span class="pre">List</span></a><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.11)"><span class="pre">str</span></a><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">reference_group</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.List" title="(in Python v3.11)"><span class="pre">List</span></a><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.11)"><span class="pre">str</span></a><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">protected_group</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.List" title="(in Python v3.11)"><span class="pre">List</span></a><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.11)"><span class="pre">str</span></a><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">favorable_threshold</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.11)"><span class="pre">float</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">metric_threshold</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.11)"><span class="pre">float</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">thresholding_bins</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.11)"><span class="pre">int</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">segmented_bins</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.11)"><span class="pre">int</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">performance_metric</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">unicode</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">by_weights</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.List" title="(in Python v3.11)"><span class="pre">List</span></a><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.11)"><span class="pre">int</span></a><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#piml.api.Experiment.model_fairness" title="Permalink to this definition">¶</a></dt>
+<dd><p>Model fairness test developed by PiML team.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>model</strong><span class="classifier">str, default=None</span></dt><dd><p>Model’s registered name.</p>
+</dd>
+<dt><strong>show</strong><span class="classifier">{‘performance’, ‘segmented’, ‘thresholding’, ‘feature_removal’} str, default=None</span></dt><dd><p>The fairness result method.</p>
+<ul class="simple">
+<li><p>“performance”: show fairness metric result.</p></li>
+<li><p>“segmented”: show segmented fairness metric result.</p></li>
+<li><p>“thresholding”: show bi metrics evaluation result with different outcome cut off.</p></li>
+<li><p>“feature_removal”: show bi metrics evaluation result after remove each feature and retrain.</p></li>
+</ul>
+</dd>
+<dt><strong>metric</strong><span class="classifier">{‘AIR’, ‘SMD’, ‘FPR’, ‘FNR’, ‘Precision’, ‘Recall’} str, default=None</span></dt><dd><p>The metric for fairness testing.</p>
+<ul class="simple">
+<li><p>“AIR”: Adverse Impact Ratio.</p></li>
+<li><p>“SMD”: Standardized Mean Difference.</p></li>
+<li><p>“FPR”: False Positive Rate disparity ratio.</p></li>
+<li><p>“FNR”: False Negative Rate disparity ratio.</p></li>
+<li><p>“Precision”: Positive predictive value disparity ratio.</p></li>
+<li><p>“Recall”: True positive rate disparity ratio.</p></li>
+</ul>
+</dd>
+<dt><strong>favorable_class</strong><span class="classifier">int, default=None</span></dt><dd><p>Favorable target class for AIR.</p>
+</dd>
+<dt><strong>segmented_feature</strong><span class="classifier">str, default=None</span></dt><dd><p>Segemented feature name for marginal method.</p>
+</dd>
+<dt><strong>group_category</strong><span class="classifier">List[str], default=None</span></dt><dd><p>Feature list of each group.</p>
+</dd>
+<dt><strong>reference_group</strong><span class="classifier">List[str], default=None</span></dt><dd><p>Reference group list of category names.</p>
+</dd>
+<dt><strong>protected_group</strong><span class="classifier">List[str], default=None</span></dt><dd><p>Protected group list of category names.</p>
+</dd>
+<dt><strong>favorable_threshold</strong><span class="classifier">float, default=None</span></dt><dd><p>Favorable target class threshold, only work for regression problem.</p>
+</dd>
+<dt><strong>metric_threshold</strong><span class="classifier">float, optional</span></dt><dd><p>Threshold line in Plots.</p>
+</dd>
+<dt><strong>thresholding_bins</strong><span class="classifier">int, default=None</span></dt><dd><p>The num of bins for thresholding function.</p>
+</dd>
+<dt><strong>segmented_bins</strong><span class="classifier">int, default=None</span></dt><dd><p>The num of bins for segmented function.</p>
+</dd>
+<dt><strong>performance_metric</strong><span class="classifier">int, default=None</span></dt><dd><p>The performance metric for bi metrics evaluation.</p>
+</dd>
+<dt><strong>by_weights: List[int], optional</strong></dt><dd><p>The index list of weighted groups.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="piml.api.Experiment.model_fairness_solas">
+<span class="sig-name descname"><span class="pre">model_fairness_solas</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">model</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">unicode</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">show</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">unicode</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">metric</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">unicode</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">favorable_class</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.11)"><span class="pre">int</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">segmented_feature</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">unicode</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">group_category</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.List" title="(in Python v3.11)"><span class="pre">List</span></a><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.11)"><span class="pre">str</span></a><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">reference_group</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.List" title="(in Python v3.11)"><span class="pre">List</span></a><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.11)"><span class="pre">str</span></a><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">protected_group</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.List" title="(in Python v3.11)"><span class="pre">List</span></a><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.11)"><span class="pre">str</span></a><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">favorable_threshold</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.11)"><span class="pre">float</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">metric_threshold</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.11)"><span class="pre">float</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">thresholding_bins</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.11)"><span class="pre">int</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">segmented_bins</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.11)"><span class="pre">int</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">performance_metric</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">unicode</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">by_weights</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.List" title="(in Python v3.11)"><span class="pre">List</span></a><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.11)"><span class="pre">int</span></a><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#piml.api.Experiment.model_fairness_solas" title="Permalink to this definition">¶</a></dt>
+<dd><p>Model fairness test based on solas-ai.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>model</strong><span class="classifier">str, default=None</span></dt><dd><p>Model’s registered name.</p>
+</dd>
+<dt><strong>show</strong><span class="classifier">{‘performance’,’segmented’} str, default=None</span></dt><dd><p>The fairness result method.</p>
+<ul class="simple">
+<li><p>“performance”: show fairness metric result.</p></li>
+<li><p>“segmented”: show segmented fairness metric result.</p></li>
+</ul>
+</dd>
+<dt><strong>metric</strong><span class="classifier">{‘AIR’,’SMD’, ‘RSMD’, ‘Odds Ratio’} str, default=None</span></dt><dd><p>The metric for fairness testing.</p>
+<ul class="simple">
+<li><p>“AIR”: Adverse Impact Ratio.</p></li>
+<li><p>“SMD”: Standardized Mean difference.</p></li>
+<li><p>“RSMD”: Residual Standardized Mean difference.</p></li>
+<li><p>“Odds Ratio”: Odds Ratio.</p></li>
+</ul>
+</dd>
+<dt><strong>favorable_class</strong><span class="classifier">int, default=None</span></dt><dd><p>Favorable target class for AIR.</p>
+</dd>
+<dt><strong>segmented_feature</strong><span class="classifier">str, default=None</span></dt><dd><p>Segemented feature name for segmented AIR.</p>
+</dd>
+<dt><strong>group_category</strong><span class="classifier">List[str], default=None</span></dt><dd><p>Category list of group.</p>
+</dd>
+<dt><strong>reference_group</strong><span class="classifier">List[str], default=None</span></dt><dd><p>Reference group list.</p>
+</dd>
+<dt><strong>protected_group</strong><span class="classifier">List[str], default=None</span></dt><dd><p>Protected group list.</p>
+</dd>
+<dt><strong>favorable_threshold</strong><span class="classifier">float, default=None</span></dt><dd><p>Favorable target class threshold, only work for regression problem.</p>
+</dd>
+<dt><strong>metric_threshold</strong><span class="classifier">float, default=None</span></dt><dd><p>Threshold line in Plots.</p>
+</dd>
+<dt><strong>thresholding_bins</strong><span class="classifier">int, default=None</span></dt><dd><p>The num of bins for thresholding function.</p>
+</dd>
+<dt><strong>segmented_bins</strong><span class="classifier">int, default=None</span></dt><dd><p>The num of bins for segmented function.</p>
+</dd>
+<dt><strong>performance_metric</strong><span class="classifier">int, default=None</span></dt><dd><p>The performance metric for bi metrics evaluation.</p>
+</dd>
+<dt><strong>by_weights: List[int], optional</strong></dt><dd><p>The index list of weighted groups.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="piml.api.Experiment.model_interpret">
+<span class="sig-name descname"><span class="pre">model_interpret</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">model</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">unicode</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">show</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">unicode</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">uni_feature</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">unicode</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">bi_features</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.List" title="(in Python v3.11)"><span class="pre">List</span></a><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.11)"><span class="pre">str</span></a><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sample_id</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.11)"><span class="pre">int</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tree_idx</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.11)"><span class="pre">int</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">return_data</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.11)"><span class="pre">bool</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">return_fig</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.11)"><span class="pre">bool</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">root</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.11)"><span class="pre">int</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">depth</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.11)"><span class="pre">int</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">centered</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.11)"><span class="pre">bool</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">original_scale</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.11)"><span class="pre">bool</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">figsize</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Tuple" title="(in Python v3.11)"><span class="pre">Tuple</span></a><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.11)"><span class="pre">int</span></a><span class="p"><span class="pre">,</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.11)"><span class="pre">int</span></a><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#piml.api.Experiment.model_interpret" title="Permalink to this definition">¶</a></dt>
+<dd><p>Interpretation for inherently interpretable models.</p>
+<p>If no parameter is passed into the method, the program will run in low code mode, otherwise high code mode.</p>
+<dl class="field-list">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><dl>
+<dt><strong>model</strong><span class="classifier">str, default=None</span></dt><dd><p>Model’s registered name.</p>
+</dd>
+<dt><strong>show</strong><span class="classifier">str, default=None</span></dt><dd><p>The plot method.</p>
+<p>Each inherently interpretable model supports different interpretation methods (corresponding to different <code class="docutils literal notranslate"><span class="pre">show</span></code> parameter values):</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">|</span> <span class="n">Interpret</span> <span class="n">Method</span>     <span class="o">|</span> <span class="n">GLM</span> <span class="o">|</span> <span class="n">GAM</span> <span class="o">|</span> <span class="n">GAMI</span><span class="o">-</span><span class="n">NET</span> <span class="o">|</span> <span class="n">Tree</span> <span class="o">|</span> <span class="n">FIGS</span> <span class="o">|</span> <span class="n">XGB2</span> <span class="o">|</span> <span class="n">EBM</span> <span class="o">|</span> <span class="n">ReLU</span><span class="o">-</span><span class="n">DNN</span> <span class="o">|</span> <span class="n">Description</span>                                          <span class="o">|</span>
+<span class="o">|</span> <span class="o">--------------------</span> <span class="o">|</span> <span class="o">---</span> <span class="o">|</span> <span class="o">---</span> <span class="o">|</span> <span class="o">--------</span> <span class="o">|</span> <span class="o">----</span> <span class="o">|</span> <span class="o">----</span> <span class="o">|</span> <span class="o">----</span> <span class="o">|</span> <span class="o">---</span> <span class="o">|</span> <span class="o">--------</span> <span class="o">|</span> <span class="o">-----------------------------------------------------|</span>
+<span class="o">|</span> <span class="s2">&quot;global_fi&quot;</span>          <span class="o">|</span>  <span class="n">X</span>  <span class="o">|</span>  <span class="n">X</span>  <span class="o">|</span>    <span class="n">X</span>     <span class="o">|</span>      <span class="o">|</span>      <span class="o">|</span>  <span class="n">X</span>   <span class="o">|</span>  <span class="n">X</span>  <span class="o">|</span>    <span class="n">X</span>     <span class="o">|</span> <span class="n">Global</span> <span class="n">Feature</span> <span class="n">Importance</span>                            <span class="o">|</span>
+<span class="o">|</span> <span class="s2">&quot;local_fi&quot;</span>           <span class="o">|</span>  <span class="n">X</span>  <span class="o">|</span>  <span class="n">X</span>  <span class="o">|</span>    <span class="n">X</span>     <span class="o">|</span>      <span class="o">|</span>      <span class="o">|</span>  <span class="n">X</span>   <span class="o">|</span>  <span class="n">X</span>  <span class="o">|</span>    <span class="n">X</span>     <span class="o">|</span> <span class="n">Local</span> <span class="n">Feature</span> <span class="n">Importance</span>                             <span class="o">|</span>
+<span class="o">|</span> <span class="s2">&quot;global_ei&quot;</span>          <span class="o">|</span>     <span class="o">|</span>     <span class="o">|</span>    <span class="n">X</span>     <span class="o">|</span>      <span class="o">|</span>      <span class="o">|</span>  <span class="n">X</span>   <span class="o">|</span>  <span class="n">X</span>  <span class="o">|</span>          <span class="o">|</span> <span class="n">Global</span> <span class="n">Effect</span> <span class="n">Importance</span>                             <span class="o">|</span>
+<span class="o">|</span> <span class="s2">&quot;local_ei&quot;</span>           <span class="o">|</span>     <span class="o">|</span>     <span class="o">|</span>    <span class="n">X</span>     <span class="o">|</span>      <span class="o">|</span>      <span class="o">|</span>  <span class="n">X</span>   <span class="o">|</span>  <span class="n">X</span>  <span class="o">|</span>          <span class="o">|</span> <span class="n">Local</span> <span class="n">Effect</span> <span class="n">Importance</span>                              <span class="o">|</span>
+<span class="o">|</span> <span class="s2">&quot;global_effect_plot&quot;</span> <span class="o">|</span>     <span class="o">|</span>  <span class="n">X</span>  <span class="o">|</span>    <span class="n">X</span>     <span class="o">|</span>      <span class="o">|</span>      <span class="o">|</span>  <span class="n">X</span>   <span class="o">|</span>  <span class="n">X</span>  <span class="o">|</span>    <span class="n">X</span>     <span class="o">|</span> <span class="n">Global</span> <span class="n">Effect</span> <span class="n">Plot</span>                                   <span class="o">|</span>
+<span class="o">|</span> <span class="s2">&quot;glm_coef&quot;</span>           <span class="o">|</span>  <span class="n">X</span>  <span class="o">|</span>     <span class="o">|</span>          <span class="o">|</span>      <span class="o">|</span>      <span class="o">|</span>      <span class="o">|</span>     <span class="o">|</span>          <span class="o">|</span> <span class="n">Global</span> <span class="n">Model</span> <span class="n">Coefficients</span> <span class="k">for</span> <span class="n">GLM</span> <span class="n">models</span>             <span class="o">|</span>
+<span class="o">|</span> <span class="s2">&quot;tree_global&quot;</span>        <span class="o">|</span>     <span class="o">|</span>     <span class="o">|</span>          <span class="o">|</span>  <span class="n">X</span>   <span class="o">|</span>  <span class="n">X</span>   <span class="o">|</span>      <span class="o">|</span>     <span class="o">|</span>          <span class="o">|</span> <span class="n">Global</span> <span class="n">Interpretation</span> <span class="n">Plot</span> <span class="k">for</span> <span class="n">Tree</span> <span class="n">models</span>           <span class="o">|</span>
+<span class="o">|</span> <span class="s2">&quot;tree_local&quot;</span>         <span class="o">|</span>     <span class="o">|</span>     <span class="o">|</span>          <span class="o">|</span>  <span class="n">X</span>   <span class="o">|</span>  <span class="n">X</span>   <span class="o">|</span>      <span class="o">|</span>     <span class="o">|</span>          <span class="o">|</span> <span class="n">Local</span> <span class="n">Interpretation</span> <span class="n">Plot</span> <span class="k">for</span> <span class="n">Tree</span> <span class="n">models</span>            <span class="o">|</span>
+<span class="o">|</span> <span class="s2">&quot;llm_summary&quot;</span>        <span class="o">|</span>     <span class="o">|</span>     <span class="o">|</span>          <span class="o">|</span>      <span class="o">|</span>      <span class="o">|</span>      <span class="o">|</span>     <span class="o">|</span>    <span class="n">X</span>     <span class="o">|</span> <span class="n">Local</span> <span class="n">Linear</span> <span class="n">Model</span> <span class="p">(</span><span class="n">LLM</span><span class="p">)</span> <span class="n">summary</span> <span class="n">plot</span>                <span class="o">|</span>
+<span class="o">|</span> <span class="s2">&quot;llm_violin&quot;</span>         <span class="o">|</span>     <span class="o">|</span>     <span class="o">|</span>          <span class="o">|</span>      <span class="o">|</span>      <span class="o">|</span>      <span class="o">|</span>     <span class="o">|</span>    <span class="n">X</span>     <span class="o">|</span> <span class="n">Local</span> <span class="n">Linear</span> <span class="n">Model</span> <span class="p">(</span><span class="n">LLM</span><span class="p">)</span> <span class="n">violin</span> <span class="n">plot</span>                 <span class="o">|</span>
+<span class="o">|</span> <span class="s2">&quot;llm_pc&quot;</span>             <span class="o">|</span>     <span class="o">|</span>     <span class="o">|</span>          <span class="o">|</span>      <span class="o">|</span>      <span class="o">|</span>      <span class="o">|</span>     <span class="o">|</span>    <span class="n">X</span>     <span class="o">|</span> <span class="n">Local</span> <span class="n">Linear</span> <span class="n">Model</span> <span class="p">(</span><span class="n">LLM</span><span class="p">)</span> <span class="n">parallel</span> <span class="n">coordinate</span> <span class="n">plot</span>    <span class="o">|</span>
+<span class="o">|</span> <span class="s2">&quot;llm&quot;</span>                <span class="o">|</span>     <span class="o">|</span>     <span class="o">|</span>          <span class="o">|</span>      <span class="o">|</span>      <span class="o">|</span>      <span class="o">|</span>     <span class="o">|</span>    <span class="n">X</span>     <span class="o">|</span> <span class="n">Local</span> <span class="n">Linear</span> <span class="n">Model</span> <span class="p">(</span><span class="n">LLM</span><span class="p">)</span> <span class="n">violin</span> <span class="n">plot</span> <span class="o">+</span>  <span class="n">summary</span> <span class="n">plot</span> <span class="o">|</span>
+<span class="o">|</span> <span class="s2">&quot;global&quot;</span>             <span class="o">|</span>  <span class="n">X</span>  <span class="o">|</span>  <span class="n">X</span>  <span class="o">|</span>    <span class="n">X</span>     <span class="o">|</span>  <span class="n">X</span>   <span class="o">|</span>  <span class="n">X</span>   <span class="o">|</span>  <span class="n">X</span>   <span class="o">|</span> <span class="n">X</span>   <span class="o">|</span>    <span class="n">X</span>     <span class="o">|</span> <span class="n">Global</span> <span class="n">interpretation</span> <span class="n">adapted</span> <span class="n">to</span> <span class="n">different</span> <span class="n">model</span>     <span class="o">|</span>
+<span class="o">|</span> <span class="s2">&quot;local&quot;</span>              <span class="o">|</span>  <span class="n">X</span>  <span class="o">|</span>  <span class="n">X</span>  <span class="o">|</span>    <span class="n">X</span>     <span class="o">|</span>  <span class="n">X</span>   <span class="o">|</span>  <span class="n">X</span>   <span class="o">|</span>  <span class="n">X</span>   <span class="o">|</span> <span class="n">X</span>   <span class="o">|</span>    <span class="n">X</span>     <span class="o">|</span> <span class="n">Local</span> <span class="n">interpretation</span> <span class="n">adapted</span> <span class="n">to</span> <span class="n">different</span> <span class="n">model</span>      <span class="o">|</span>
+</pre></div>
+</div>
+<p>Notes:</p>
+<p>As show = “global_effect_plot”</p>
+<blockquote>
+<div><ul>
+<li><p>parameter “uni_feature” or “bi_features” is required for the plot</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>“uni_feature”: supports GAM, EBM, GAMI-Net and ReLU-DNN models</p></li>
+<li><p>“bi_features”: supports EBM, GAMI-Net and ReLU-DNN models</p></li>
+</ul>
+</div></blockquote>
+</li>
+</ul>
+</div></blockquote>
+<p>As show = “glm_coef”:</p>
+<blockquote>
+<div><ul>
+<li><p>parameter “uni_feature” is required for the plot</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>if “Numeric”: plot for all the numeric features</p></li>
+<li><p>if “[CATEGORICAL_FEATURE_NAME]”: plot for a specific categorical feature named “[CATEGORICAL_FEATURE_NAME]”</p></li>
+</ul>
+</div></blockquote>
+</li>
+</ul>
+</div></blockquote>
+</dd>
+<dt><strong>uni_feature</strong><span class="classifier">str, default=None</span></dt><dd><p>Feature name of showed feature for Univariate plot.</p>
+</dd>
+<dt><strong>bi_features</strong><span class="classifier">List[str], default=None</span></dt><dd><p>Feature names of showed features for Bivariate plot.</p>
+</dd>
+<dt><strong>sample_id</strong><span class="classifier">int, default=0</span></dt><dd><p>single data point for local interpret methods.</p>
+</dd>
+<dt><strong>return_data</strong><span class="classifier">bool, default=False</span></dt><dd><p>whether return analysis result.</p>
+</dd>
+<dt><strong>root</strong><span class="classifier">int, default=0</span></dt><dd><p>For “tree_global” plot method.</p>
+</dd>
+<dt><strong>depth</strong><span class="classifier">int, default=3</span></dt><dd><p>For “tree_global” plot method, decide the max depth of tree plot.</p>
+</dd>
+<dt><strong>centered</strong><span class="classifier">bool, default=True</span></dt><dd><p>For “local_lime” and “local_fi” methods, whether make data centered.</p>
+</dd>
+<dt><strong>original_scale: bool, default=False</strong></dt><dd><p>Whether or not use original scale of X in the plots, if False, use normalized scale.</p>
+</dd>
+<dt><strong>figsize</strong><span class="classifier">Tuple[int, int], default=(8, 6)</span></dt><dd><p>Figure size of the plot.</p>
+</dd>
+</dl>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><dl class="simple">
+<dt>pd.DataFrame or Dict</dt><dd><p>Diagnose result, for methods with parameter “return_data” = True</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="piml.api.Experiment.model_train">
+<span class="sig-name descname"><span class="pre">model_train</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">model</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">unicode</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">train_x</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">array</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">train_y</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">array</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">test_x</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">array</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">test_y</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">array</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">train_sample_weight</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">array</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">test_sample_weight</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">array</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#piml.api.Experiment.model_train" title="Permalink to this definition">¶</a></dt>
+<dd><p>Model training.</p>
+<p>If no parameter is passed into the method, the program will run in low code mode, otherwise high code mode.</p>
+<dl class="field-list">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><dl>
+<dt><strong>model</strong><span class="classifier">estimator object, default=None</span></dt><dd><p>Estimator object to be fitted, which should follow the sklearn style.
+Here are (inherently interpretable) models directly supported and called in PiML,</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>| Model                                      | PiML Regressor Class                       | PiML Classifier Class                       |
+| ------------------------------------------ | ------------------------------------------ | ------------------------------------------- |
+| Generalized Linear Model (GLM)             | `piml.models.GLMRegressor`                 | `piml.models.GLMClassifier`                 |
+| Generalized Additive Model (GAM)           | `piml.models.GAMRegressor`                 | `piml.models.GAMClassifier`                 |
+| Decision Tree (Tree)                       | `piml.models.PiDecisionTreeRegressor`      | `piml.models.PiDecisionTreeClassifier`      |
+| Fast Interpretable Greedy-Tree Sums (FIGS) | `piml.models.FIGSRegressor`                | `piml.models.FIGSClassifier` |
+| Explainable Boosting Machine (EBM)         | `piml.models.ExplainableBoostingRegressor` | `piml.models.ExplainableBoostingClassifier` |
+| Xgboost Depth 2 (XGB2)                     | `piml.models.PiXGBRegressor`               | `piml.models.PiXGBClassifier`             |
+| GAMI-Net                                   | `piml.models.GAMINetRegressor`             | `piml.models.GAMINetClassifier`             |
+| ReLU-DNN                                   | `piml.models.ReluDNNRegressor`             | `piml.models.ReluDNNClassifier`             |
+</pre></div>
+</div>
+</dd>
+<dt><strong>name</strong><span class="classifier">str, default=None</span></dt><dd><p>Model’s name for registration.</p>
+</dd>
+<dt><strong>train_x</strong><span class="classifier">array-like, default=None</span></dt><dd><p>Training data if using self data.</p>
+</dd>
+<dt><strong>train_y</strong><span class="classifier">array-like, default=None</span></dt><dd><p>Training response if using self data.</p>
+</dd>
+<dt><strong>test_x</strong><span class="classifier">array-like, default=None</span></dt><dd><p>Testing data if using self data.</p>
+</dd>
+<dt><strong>test_y</strong><span class="classifier">array-like, default=None</span></dt><dd><p>Testing response if using self data.</p>
+</dd>
+<dt><strong>train_sample_weight</strong><span class="classifier">array-like, default=None</span></dt><dd><p>sample weights for training data points.</p>
+</dd>
+<dt><strong>test_sample_weight</strong><span class="classifier">array-like, default=None</span></dt><dd><p>sample weights for test data points.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+<p class="rubric">Notes</p>
+<p>You can use a method to get all directly supported models in PiML with:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">piml.models</span> <span class="kn">import</span> <span class="n">get_all_supported_models</span>
+<span class="n">get_all_supported_models</span><span class="p">()</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="piml.api.Experiment.model_tune">
+<span class="sig-name descname"><span class="pre">model_tune</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#piml.api.Experiment.model_tune" title="Permalink to this definition">¶</a></dt>
+<dd><p>Model tuning. (Under developing)</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="piml.api.Experiment.register">
+<span class="sig-name descname"><span class="pre">register</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">pipeline</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">name</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#piml.api.Experiment.register" title="Permalink to this definition">¶</a></dt>
+<dd><p>Register specific pipeline to experiment.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>pipeline</strong><span class="classifier">Pipeline Object</span></dt><dd><p>The pipeline object to register.</p>
+</dd>
+<dt><strong>name</strong><span class="classifier">str</span></dt><dd><p>The name of registered pipeline.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="piml.api.Experiment.twosample_test">
+<span class="sig-name descname"><span class="pre">twosample_test</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">metric</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">unicode</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">buckets</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.11)"><span class="pre">int</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">feature</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Union" title="(in Python v3.11)"><span class="pre">Union</span></a><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.11)"><span class="pre">str</span></a><span class="p"><span class="pre">,</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.11)"><span class="pre">int</span></a><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">return_data</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.11)"><span class="pre">bool</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Dict" title="(in Python v3.11)"><span class="pre">Dict</span></a></span></span><a class="headerlink" href="#piml.api.Experiment.twosample_test" title="Permalink to this definition">¶</a></dt>
+<dd><p>Two sample test between train_x and test_x from the data_prepare step.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>metric</strong><span class="classifier">{‘psi’}, default=None</span></dt><dd><p>Test metric between two distributions.</p>
+</dd>
+<dt><strong>buckets</strong><span class="classifier">int, default=10</span></dt><dd><p>Buckets for metric calculation.</p>
+</dd>
+<dt><strong>feature</strong><span class="classifier">Union[str, int], default=None</span></dt><dd><p>Feature for distribution plot, can be string (feature’s name) or int (feature’s index).
+If not given, the plot would be metric scores against each feature.</p>
+</dd>
+<dt><strong>return_data</strong><span class="classifier">bool, default=False</span></dt><dd><p>Indicator for return result data.</p>
+</dd>
+</dl>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><dl class="simple">
+<dt><strong>data</strong><span class="classifier">dict</span></dt><dd><p>result data, including metric scores.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<div class="clearer"></div></section>
+
+
+        </div>
+      <div class="container">
+        <footer class="sk-content-footer">
+              &copy; Copyright 2022-, PiML-Toolbox authors.
+            <a href="../../_sources/modules/generated/piml.api.Experiment.rst.txt" rel="nofollow">Show this page source</a>
+        </footer>
+      </div>
+    </div>
+  </div>
+
+
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(false);
+      });
+  </script>
+
+
+<!--script>
+    window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+    ga('create', 'UA-22606712-2', 'auto');
+    ga('set', 'anonymizeIp', true);
+    ga('send', 'pageview');
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script-->
+
+
+<script>
+$(document).ready(function() {
+    /* Add a [>>>] button on the top-right corner of code samples to hide
+     * the >>> and ... prompts and the output and thus make the code
+     * copyable. */
+    var div = $('.highlight-python .highlight,' +
+                '.highlight-python3 .highlight,' +
+                '.highlight-pycon .highlight,' +
+		'.highlight-default .highlight')
+    var pre = div.find('pre');
+
+    // get the styles from the current theme
+    pre.parent().parent().css('position', 'relative');
+    var hide_text = 'Hide prompts and outputs';
+    var show_text = 'Show prompts and outputs';
+
+    // create and add the button to all the code blocks that contain >>>
+    div.each(function(index) {
+        var jthis = $(this);
+        if (jthis.find('.gp').length > 0) {
+            var button = $('<span class="copybutton">&gt;&gt;&gt;</span>');
+            button.attr('title', hide_text);
+            button.data('hidden', 'false');
+            jthis.prepend(button);
+        }
+        // tracebacks (.gt) contain bare text elements that need to be
+        // wrapped in a span to work with .nextUntil() (see later)
+        jthis.find('pre:has(.gt)').contents().filter(function() {
+            return ((this.nodeType == 3) && (this.data.trim().length > 0));
+        }).wrap('<span>');
+    });
+
+    // define the behavior of the button when it's clicked
+    $('.copybutton').click(function(e){
+        e.preventDefault();
+        var button = $(this);
+        if (button.data('hidden') === 'false') {
+            // hide the code output
+            button.parent().find('.go, .gp, .gt').hide();
+            button.next('pre').find('.gt').nextUntil('.gp, .go').css('visibility', 'hidden');
+            button.css('text-decoration', 'line-through');
+            button.attr('title', show_text);
+            button.data('hidden', 'true');
+        } else {
+            // show the code output
+            button.parent().find('.go, .gp, .gt').show();
+            button.next('pre').find('.gt').nextUntil('.gp, .go').css('visibility', 'visible');
+            button.css('text-decoration', 'none');
+            button.attr('title', hide_text);
+            button.data('hidden', 'false');
+        }
+    });
+
+	/*** Add permalink buttons next to glossary terms ***/
+	$('dl.glossary > dt[id]').append(function() {
+		return ('<a class="headerlink" href="#' +
+			    this.getAttribute('id') +
+			    '" title="Permalink to this term">¶</a>');
+	});
+  /*** Hide navbar when scrolling down ***/
+  // Returns true when headerlink target matches hash in url
+  (function() {
+    hashTargetOnTop = function() {
+        var hash = window.location.hash;
+        if ( hash.length < 2 ) { return false; }
+
+        var target = document.getElementById( hash.slice(1) );
+        if ( target === null ) { return false; }
+
+        var top = target.getBoundingClientRect().top;
+        return (top < 2) && (top > -2);
+    };
+
+    // Hide navbar on load if hash target is on top
+    var navBar = document.getElementById("navbar");
+    var navBarToggler = document.getElementById("sk-navbar-toggler");
+    var navBarHeightHidden = "-" + navBar.getBoundingClientRect().height + "px";
+    var $window = $(window);
+
+    hideNavBar = function() {
+        navBar.style.top = navBarHeightHidden;
+    };
+
+    showNavBar = function() {
+        navBar.style.top = "0";
+    }
+
+    if (hashTargetOnTop()) {
+        hideNavBar()
+    }
+
+    var prevScrollpos = window.pageYOffset;
+    hideOnScroll = function(lastScrollTop) {
+        if (($window.width() < 768) && (navBarToggler.getAttribute("aria-expanded") === 'true')) {
+            return;
+        }
+        if (lastScrollTop > 2 && (prevScrollpos <= lastScrollTop) || hashTargetOnTop()){
+            hideNavBar()
+        } else {
+            showNavBar()
+        }
+        prevScrollpos = lastScrollTop;
+    };
+
+    /*** high performance scroll event listener***/
+    var raf = window.requestAnimationFrame ||
+        window.webkitRequestAnimationFrame ||
+        window.mozRequestAnimationFrame ||
+        window.msRequestAnimationFrame ||
+        window.oRequestAnimationFrame;
+    var lastScrollTop = $window.scrollTop();
+
+    if (raf) {
+        loop();
+    }
+
+    function loop() {
+        var scrollTop = $window.scrollTop();
+        if (lastScrollTop === scrollTop) {
+            raf(loop);
+            return;
+        } else {
+            lastScrollTop = scrollTop;
+            hideOnScroll(lastScrollTop);
+            raf(loop);
+        }
+    }
+  })();
+});
+
+</script>
+    
+
+</body>
+</html>

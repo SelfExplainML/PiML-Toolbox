@@ -1,0 +1,12 @@
+﻿:mod:`piml.models`.GAMINetRegressor
+==========================================
+
+.. currentmodule:: piml.models
+
+.. autoclass:: GAMINetRegressor
+
+.. include:: piml.models.GAMINetRegressor.examples
+
+.. raw:: html
+
+    <div class="clearer"></div>

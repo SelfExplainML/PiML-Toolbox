@@ -1,0 +1,12 @@
+﻿:mod:`piml.models`.GAMINetClassifier
+===========================================
+
+.. currentmodule:: piml.models
+
+.. autoclass:: GAMINetClassifier
+
+.. include:: piml.models.GAMINetClassifier.examples
+
+.. raw:: html
+
+    <div class="clearer"></div>

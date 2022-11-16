@@ -1,0 +1,51 @@
+.. _api_ref:
+
+=============
+API Reference
+=============
+
+This is the class and function reference of PiML. Please refer to
+the user guide for further details, as the class and
+function raw specifications may not be enough to give full guidelines on their
+uses.
+For reference on concepts repeated across the API.
+
+
+:mod:`piml.api`: User interface
+=======================================================
+
+.. currentmodule:: piml
+
+.. autosummary::
+   :nosignatures:
+   :toctree: generated/
+   :template: class.rst
+
+   api.Experiment
+
+..
+    Comment off
+    :mod:`piml.models`: Built-in Models
+    =======================================================
+
+    .. automodule:: piml.models
+        :no-members:
+        :no-inherited-members:
+
+    .. currentmodule:: piml
+
+    .. autosummary::
+       :nosignatures:
+       :toctree: generated/
+       :template: class.rst
+
+       models.FIGSRegressor
+       models.FIGSClassifier
+       models.GAMINetRegressor
+       models.GAMINetClassifier
+       models.ReluDNNRegressor
+       models.ReluDNNClassifier
+       models.GLMRegressor
+       models.GLMClassifier
+       models.GAMRegressor
+       models.GAMClassifier

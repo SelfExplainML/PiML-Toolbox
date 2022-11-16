@@ -9,10 +9,3 @@
 Interpretable ML Models
 --------------------------
 
-..
-   comment off
-
-    .. toctree::
-        :maxdepth: 2
-
-        models/decision_tree.rst

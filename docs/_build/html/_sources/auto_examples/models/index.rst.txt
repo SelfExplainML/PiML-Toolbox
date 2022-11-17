@@ -4,7 +4,7 @@
 
 .. _models_examples:
 
-Interpretable ML Models
+Inherient Interpretable Models
 --------------------------------
 
 Examples concerning the :mod:`piml.models` module.
@@ -22,13 +22,13 @@ Examples concerning the :mod:`piml.models` module.
 .. only:: html
 
   .. image:: /auto_examples/models/images/thumb/sphx_glr_plot_0_gam_thumb.png
-    :alt: Generalized additive model (GAM)
+    :alt: PiML Inheriently Interpretable Models
 
   :ref:`sphx_glr_auto_examples_models_plot_0_gam.py`
 
 .. raw:: html
 
-      <div class="sphx-glr-thumbnail-title">Generalized additive model (GAM)</div>
+      <div class="sphx-glr-thumbnail-title">PiML Inheriently Interpretable Models</div>
     </div>
 
 

@@ -1,0 +1,66 @@
+=================================
+PDP (Partial Dependence Plot)
+=================================
+
+Partial dependence plots(PDP) [H2009]_  visualize the dependence between the response and a set of 
+target features (usually one or two), marginalizing over the values of all other input features (the ‘complement’ features). It can be interpreted as the expected 
+target response as a function of the input features of interest.
+
+**Mathematical Formulation**
+
+Let :math:`x = \{x_{1}, x_{2}....x_{p}\}` represent the predictors set of a  prediction function :math:`\widehat{f}(x)`. if we partition 
+:math:`x` into trow sets , :math:`z_{s}` and his complement :math:`z_{c} = \{x_{i}; x_{i} \notin z_{s}\}`, then the partial dependence of the responses 
+on :math:`z_{s}` is defined as follow :  
+
+.. math::
+        f_{s}(z_{s})=\mathbb{E}_{z_{c}}[\widehat{f}(z_{s},z_{c})]= \int \widehat{f}(z_{s},z_{c})p_{c}(z_{c})dz_{c}           (1)
+
+In (1) , :math:`p_{c}(z_{c})` is the marginal probability density of :math:`z_{c}: p_{c}(z_{c})=\int p(x)dz_{s}`.
+(1) can be estimated from a set of training data points by the followin 
+
+.. math::
+        \overline{f}_{s}(z_{s})=\frac{1}{n}\sum_{i=1}^n \widehat{f}(z_{s},z_{i,c})
+
+
+**Examples:**
+
+In this example, we assume the reader has full knowledge of **PiMl**, starting from data preparation through model training.
+Therefore, we start the tutorial with model training.
+
+
+
+**Training model:**  To train a model , run ``exp.model_train()``. in this case, we select ``XGB2``
+and the evaluation loss is the **MSE** as follows.
+
+.. prompt:: python >>
+
+    exp.model_train()
+
+.. image:: images_exp/select_model_A.png
+  :width: 800
+  :alt: Alternative text
+
+.. image:: images_exp/select_model_B.png
+  :width: 800
+  :alt: Alternative text
+
+**NB:** it is also possible to customize your model and the training process. So we strongly recommend you explore the options above.
+
+**PDP (Partial Dependence Plot)**
+
+.. image:: images_exp/pdp_1.png
+  :width: 800
+  :alt: Alternative text
+
+.. image:: images_exp/pdp_2.png
+  :width: 800
+  :alt: Alternative text
+
+
+
+.. topic:: References
+
+     .. [H2009] T. Hastie, R. Tibshirani and J. Friedman,
+                `The Elements of Statistical Learning, Second Edition
+                <https://link.springer.com/book/10.1007/978-0-387-21606-5>`_,
+                Section 10.13.2, Springer, 2009. 

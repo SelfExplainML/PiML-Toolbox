@@ -29,6 +29,7 @@
   <link rel="stylesheet" href="../_static/sg_gallery-dataframe.css" type="text/css" />
   <link rel="stylesheet" href="../_static/sg_gallery-rendered-html.css" type="text/css" />
   <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
 <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
 <script src="../_static/jquery.js"></script>
   <!--[if lt IE 9]>
@@ -188,6 +189,10 @@
                           <a href="cases/Example_SolasSimu1_fairness.html">8.4. Fairness Simulation Study</a>
                         </li>
                       
+                        <li class="sk-toctree-l3">
+                          <a href="cases/Example_fairness.html">8.5. Fairness Testing</a>
+                        </li>
+                      
                     </ul>
                     
                   </li>
@@ -268,6 +273,13 @@
 <li class="toctree-l2"><a class="reference internal" href="cases/Example_SolasSimu1_fairness.html#Fairness-Testing">8.4.2. Fairness Testing</a></li>
 </ul>
 </li>
+<li class="toctree-l1"><a class="reference internal" href="cases/Example_fairness.html">8.5. Fairness Testing</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="cases/Example_fairness.html#Stage-1:-Data-Generation">8.5.1. Stage 1: Data Generation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cases/Example_fairness.html#Stage-2:-Initialize-an-experiment,-Load-and-Prepare-data">8.5.2. Stage 2: Initialize an experiment, Load and Prepare data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cases/Example_fairness.html#Stage-3.-Train-Models">8.5.3. Stage 3. Train Models</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cases/Example_fairness.html#Stage-4.-Fairness-Testing">8.5.4. Stage 4. Fairness Testing</a></li>
+</ul>
+</li>
 </ul>
 </div>
 </section>
@@ -288,6 +300,9 @@
       jQuery(function () {
           SphinxRtdTheme.Navigation.enable(false);
       });
+      
+      const tooltipTriggerList = document.querySelectorAll('[data-bs-toggle="tooltip"]')
+      const tooltipList = [...tooltipTriggerList].map(tooltipTriggerEl => new bootstrap.Tooltip(tooltipTriggerEl))
   </script>
 
 

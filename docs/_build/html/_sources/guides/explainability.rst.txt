@@ -9,3 +9,26 @@
 Post-hoc Explainability
 =================================
 
+..
+    Global Explainers 
+    ----------------------------------------------------------
+
+    .. toctree::
+       :maxdepth: 2
+
+       explain/PFI.rst
+       explain/PDP.rst
+       explain/ALE.rst
+
+
+
+
+    Local Explainers 
+    ----------------------------------------------------------
+
+    .. toctree::
+       :maxdepth: 2
+
+       explain/LIME.rst
+       explain/SHAP.rst
+

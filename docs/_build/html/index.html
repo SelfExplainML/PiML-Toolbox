@@ -23,6 +23,7 @@
   <link rel="stylesheet" href="_static/sg_gallery-dataframe.css" type="text/css" />
   <link rel="stylesheet" href="_static/sg_gallery-rendered-html.css" type="text/css" />
   <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
 <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
 <script src="_static/jquery.js"></script>
   <!--[if lt IE 9]>
@@ -36,7 +37,6 @@
         <script src="_static/doctools.js"></script>
         <script src="_static/sphinx_highlight.js"></script>
         <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
-        <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.20.1/dist/embed-amd.js"></script>
     <script src="_static/js/theme.js"></script>
 
 </head>
@@ -125,9 +125,9 @@
           <a href="guides/data.html"><h4 class="sk-card-title card-title">Data Processing</h4></a>
           <p class="card-text">Load, summarize, preprocess and prepare data</p>
           <ul style="margin-left:-20px;">
-			  <li><a href="#h">PiML Data Pipeline</a></li>
-			  <li><a href="#">Exploratory Data Visualization</a></li>
-			  <li><a href="#">Custom Train-Test Data Split</a></li>
+			  <li><a href="#" data-bs-toggle="tooltip" data-bs-title="Under development">PiML Data Pipeline</a></li>
+			  <li><a href="#" data-bs-toggle="tooltip" data-bs-title="Under development">Exploratory Data Visualization</a></li>
+			  <li><a href="#" data-bs-toggle="tooltip" data-bs-title="Under development">Custom Train-Test Data Split</a></li>
 		  </ul>
         </div>
       </div>
@@ -138,9 +138,9 @@
           <a href="guides/models.html"><h4 class="sk-card-title card-title">Interpretable ML Models</h4></a>
           <p class="card-text">Inherently interpretable machine learning</p>
           <ul style="margin-left:-20px;">
-			  <li><a href="#">XGBoosted Trees of Depth 2</a></li>
-			  <li><a href="#">GAMI Neural Networks</a></li>
-			  <li><a href="#">Deep ReLU Networks by Aletheia Unwrapper</a></li>
+			  <li><a href="#" data-bs-toggle="tooltip" data-bs-title="Under development">XGBoosted Trees of Depth 2</a></li>
+			  <li><a href="#" data-bs-toggle="tooltip" data-bs-title="Under development">GAMI Neural Networks</a></li>
+			  <li><a href="#" data-bs-toggle="tooltip" data-bs-title="Under development">Deep ReLU Networks by Aletheia Unwrapper</a></li>
 		  </ul>
         </div>
       </div>
@@ -151,9 +151,9 @@
           <a href="guides/explainability.html"><h4 class="sk-card-title card-title">Post-hoc Explainability</h4></a>
           <p class="card-text">Global and local explainability</p>
           <ul style="margin-left:-20px;">
-			  <li><a href="#">Global methods: PFI, PDP, ALE</a></li>
-			  <li><a href="#">Local methods: LIME, SHAP</a></li>
-			  <li><a href="#">Post-hoc explainability disagreement</a></li>
+			  <li><a href="#" data-bs-toggle="tooltip" data-bs-title="Under development">Global methods: PFI, PDP, ALE</a></li>
+			  <li><a href="#" data-bs-toggle="tooltip" data-bs-title="Under development">Local methods: LIME, SHAP</a></li>
+			  <li><a href="#" data-bs-toggle="tooltip" data-bs-title="Under development">Post-hoc explainability disagreement</a></li>
 		</ul>
         </div>
       </div>
@@ -164,9 +164,9 @@
           <a href="guides/diagnostics.html"><h4 class="sk-card-title card-title">Model Diagnostics</h4></a>
           <p class="card-text">Outcome testing for supervised ML models</p>
           <ul style="margin-left:-20px;">
-			  <li><a href="#"><strong>WeakSpot</strong> by slicing techniques</a></li>
-			  <li><a href="#"><strong>Robustness test</strong> under covariate perturbation</a></li>
-			  <li><a href="#"><strong>Resilience test</strong> under out-of-dist scenarios</a></li>			  
+			  <li><a href="#" data-bs-toggle="tooltip" data-bs-title="Under development"><strong>WeakSpot</strong> by slicing techniques</a></li>
+			  <li><a href="#" data-bs-toggle="tooltip" data-bs-title="Under development"><strong>Robustness test</strong> under covariate perturbation</a></li>
+			  <li><a href="#" data-bs-toggle="tooltip" data-bs-title="Under development"><strong>Resilience test</strong> under out-of-dist scenarios</a></li>			  
 		  </ul>
         </div>
       </div>
@@ -177,9 +177,9 @@
           <a href="guides/comparison.html"><h4 class="sk-card-title card-title">Model Comparison</h4></a>
           <p class="card-text">Comparing multiple ML models and benchmarking</p>
           <ul style="margin-left:-20px;">
-			  <li><a href="#">Black-box vs. glass-box models</a> </li>
-			  <li><a href="#">Is XGBoost benign overfitting?</a> </li>
-			  <li><a href="#">Multi-objective model selection</a></li>
+			  <li><a href="#" data-bs-toggle="tooltip" data-bs-title="Under development">Black-box vs. glass-box models</a> </li>
+			  <li><a href="#" data-bs-toggle="tooltip" data-bs-title="Under development">Is XGBoost benign overfitting?</a> </li>
+			  <li><a href="#" data-bs-toggle="tooltip" data-bs-title="Under development">Multi-objective model selection</a></li>
 		  </ul>
         </div>
       </div>
@@ -206,6 +206,9 @@
       jQuery(function () {
           SphinxRtdTheme.Navigation.enable(false);
       });
+      
+      const tooltipTriggerList = document.querySelectorAll('[data-bs-toggle="tooltip"]')
+      const tooltipList = [...tooltipTriggerList].map(tooltipTriggerEl => new bootstrap.Tooltip(tooltipTriggerEl))
   </script>
 
 

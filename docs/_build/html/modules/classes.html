@@ -4,11 +4,6 @@
 
   <meta charset="utf-8">
   <meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
-<meta property="og:title" content="API Reference" />
-<meta property="og:type" content="website" />
-<meta property="og:url" content="modules/classes.html" />
-<meta property="og:description" content="This is the class and function reference of PiML. Please refer to the user guide for further details, as the class and function raw specifications may not be enough to give full guidelines on their..." />
-<meta name="description" content="This is the class and function reference of PiML. Please refer to the user guide for further details, as the class and function raw specifications may not be enough to give full guidelines on their..." />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
@@ -117,12 +112,20 @@
           <!--div class="btn-group w-100 mb-2" role="group" aria-label="rellinks">
               <a href="../install.html" role="button" class="btn sk-btn-rellink py-1" sk-rellink-tooltip="Installing PiML">Prev</a>
               <a href="#" role="button" class="btn sk-btn-rellink disabled py-1">Up</a>
-              <a href="generated/piml.api.Experiment.html" role="button" class="btn sk-btn-rellink py-1" sk-rellink-tooltip="piml.api.Experiment">Next</a>
+              <a href="generated/piml.Experiment.html" role="button" class="btn sk-btn-rellink py-1" sk-rellink-tooltip="piml.Experiment">Next</a>
           </div-->
               <div class="sk-sidebar-toc">
                 <ul>
 <li><a class="reference internal" href="#">API Reference</a><ul>
-<li><a class="reference internal" href="#piml-api-user-interface"><code class="xref py py-mod docutils literal notranslate"><span class="pre">piml.api</span></code>: User interface</a></li>
+<li><a class="reference internal" href="#experiment-class">Experiment Class</a></li>
+<li><a class="reference internal" href="#data-pipeline">Data Pipeline</a></li>
+<li><a class="reference internal" href="#interpretable-models">Interpretable Models</a><ul>
+<li><a class="reference internal" href="#high-code-apis">High Code APIs</a></li>
+<li><a class="reference internal" href="#model-classes">Model Classes</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#post-hoc-explainability">Post-hoc Explainability</a></li>
+<li><a class="reference internal" href="#diagnostic-tests">Diagnostic Tests</a></li>
 </ul>
 </li>
 </ul>
@@ -135,21 +138,181 @@
           
   <section id="api-reference">
 <span id="api-ref"></span><h1>API Reference<a class="headerlink" href="#api-reference" title="Permalink to this heading">¶</a></h1>
-<p>This is the class and function reference of PiML. Please refer to
-the user guide for further details, as the class and
-function raw specifications may not be enough to give full guidelines on their
-uses.
-For reference on concepts repeated across the API.</p>
-<section id="piml-api-user-interface">
-<h2><code class="xref py py-mod docutils literal notranslate"><span class="pre">piml.api</span></code>: User interface<a class="headerlink" href="#piml-api-user-interface" title="Permalink to this heading">¶</a></h2>
+<p>This is the class and function reference of PiML.
+Please refer to the user guide for further details, as the class and function raw specifications may not be enough to give full guidelines on their uses.</p>
+<section id="experiment-class">
+<h2>Experiment Class<a class="headerlink" href="#experiment-class" title="Permalink to this heading">¶</a></h2>
 <table class="autosummary longtable docutils align-default">
 <colgroup>
 <col style="width: 10%" />
 <col style="width: 90%" />
 </colgroup>
 <tbody>
-<tr class="row-odd"><td><p><a class="reference internal" href="generated/piml.api.Experiment.html#piml.api.Experiment" title="piml.api.Experiment"><code class="xref py py-obj docutils literal notranslate"><span class="pre">api.Experiment</span></code></a></p></td>
-<td><p>PiML Experiment Workflow Manager.</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/piml.Experiment.html#piml.Experiment" title="piml.Experiment"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Experiment</span></code></a></p></td>
+<td><p>The overall workflow management class.</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="data-pipeline">
+<h2>Data Pipeline<a class="headerlink" href="#data-pipeline" title="Permalink to this heading">¶</a></h2>
+<table class="autosummary longtable docutils align-default">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/piml.Experiment.html#piml.Experiment.data_loader" title="piml.Experiment.data_loader"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Experiment.data_loader</span></code></a>([data])</p></td>
+<td><p>Load data for experimentation.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="generated/piml.Experiment.html#piml.Experiment.data_summary" title="piml.Experiment.data_summary"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Experiment.data_summary</span></code></a>([feature_type, ...])</p></td>
+<td><p>Summarize basic data statistics.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/piml.Experiment.html#piml.Experiment.data_prepare" title="piml.Experiment.data_prepare"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Experiment.data_prepare</span></code></a>([target, ...])</p></td>
+<td><p>Prepare data for model fitting.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="generated/piml.Experiment.html#piml.Experiment.eda" title="piml.Experiment.eda"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Experiment.eda</span></code></a>([show, uni_feature, ...])</p></td>
+<td><p>Run exploratory data analysis.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/piml.Experiment.html#piml.Experiment.feature_select" title="piml.Experiment.feature_select"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Experiment.feature_select</span></code></a>([method, ...])</p></td>
+<td><p>Select features that are important for modeling.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="generated/piml.Experiment.html#piml.Experiment.get_data" title="piml.Experiment.get_data"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Experiment.get_data</span></code></a>([x, y, sample_weight, ...])</p></td>
+<td><p>Get the preprocessed train-test data.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/piml.Experiment.html#piml.Experiment.get_raw_data" title="piml.Experiment.get_raw_data"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Experiment.get_raw_data</span></code></a>()</p></td>
+<td><p>Get the raw train-test data.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="generated/piml.Experiment.html#piml.Experiment.get_feature_names" title="piml.Experiment.get_feature_names"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Experiment.get_feature_names</span></code></a>()</p></td>
+<td><p>Get the input feature names.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/piml.Experiment.html#piml.Experiment.get_feature_types" title="piml.Experiment.get_feature_types"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Experiment.get_feature_types</span></code></a>()</p></td>
+<td><p>Get the data type of each input feature.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="generated/piml.Experiment.html#piml.Experiment.get_target_name" title="piml.Experiment.get_target_name"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Experiment.get_target_name</span></code></a>()</p></td>
+<td><p>Get the target feature name.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/piml.Experiment.html#piml.Experiment.twosample_test" title="piml.Experiment.twosample_test"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Experiment.twosample_test</span></code></a>([metric, buckets, ...])</p></td>
+<td><p>Test the distributional difference of train_x and test_x.</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="interpretable-models">
+<h2>Interpretable Models<a class="headerlink" href="#interpretable-models" title="Permalink to this heading">¶</a></h2>
+<section id="high-code-apis">
+<h3>High Code APIs<a class="headerlink" href="#high-code-apis" title="Permalink to this heading">¶</a></h3>
+<table class="autosummary longtable docutils align-default">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/piml.Experiment.html#piml.Experiment.model_train" title="piml.Experiment.model_train"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Experiment.model_train</span></code></a>([model, name, ...])</p></td>
+<td><p>Fit interpretable models.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="generated/piml.Experiment.html#piml.Experiment.model_interpret" title="piml.Experiment.model_interpret"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Experiment.model_interpret</span></code></a>([model, show, ...])</p></td>
+<td><p>Interpret inherently interpretable models.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/piml.Experiment.html#piml.Experiment.register" title="piml.Experiment.register"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Experiment.register</span></code></a>(pipeline, name)</p></td>
+<td><p>Register a pipeline.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="generated/piml.Experiment.html#piml.Experiment.make_pipeline" title="piml.Experiment.make_pipeline"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Experiment.make_pipeline</span></code></a>(model[, ...])</p></td>
+<td><p>Customize a pipeline.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/piml.Experiment.html#piml.Experiment.get_model" title="piml.Experiment.get_model"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Experiment.get_model</span></code></a>(model)</p></td>
+<td><p>Get a registered pipeline.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="generated/piml.Experiment.html#piml.Experiment.get_model_config" title="piml.Experiment.get_model_config"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Experiment.get_model_config</span></code></a>(model)</p></td>
+<td><p>Get the configuration of a model.</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="model-classes">
+<h3>Model Classes<a class="headerlink" href="#model-classes" title="Permalink to this heading">¶</a></h3>
+<table class="autosummary longtable docutils align-default">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/piml.models.GAMRegressor.html#piml.models.GAMRegressor" title="piml.models.GAMRegressor"><code class="xref py py-obj docutils literal notranslate"><span class="pre">models.GAMRegressor</span></code></a></p></td>
+<td><p>Generalized additive model regressor.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="generated/piml.models.GAMClassifier.html#piml.models.GAMClassifier" title="piml.models.GAMClassifier"><code class="xref py py-obj docutils literal notranslate"><span class="pre">models.GAMClassifier</span></code></a></p></td>
+<td><p>Generalized additive model classifier.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/piml.models.GLMRegressor.html#piml.models.GLMRegressor" title="piml.models.GLMRegressor"><code class="xref py py-obj docutils literal notranslate"><span class="pre">models.GLMRegressor</span></code></a></p></td>
+<td><p>Linear regression with L1 and L2 regularization.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="generated/piml.models.GLMClassifier.html#piml.models.GLMClassifier" title="piml.models.GLMClassifier"><code class="xref py py-obj docutils literal notranslate"><span class="pre">models.GLMClassifier</span></code></a></p></td>
+<td><p>Logistic Regression with L1 and L2 regularization.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/piml.models.FIGSRegressor.html#piml.models.FIGSRegressor" title="piml.models.FIGSRegressor"><code class="xref py py-obj docutils literal notranslate"><span class="pre">models.FIGSRegressor</span></code></a></p></td>
+<td><p>Fast Interpretable Greedy-Tree Sums (FIGS) regressor.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="generated/piml.models.FIGSClassifier.html#piml.models.FIGSClassifier" title="piml.models.FIGSClassifier"><code class="xref py py-obj docutils literal notranslate"><span class="pre">models.FIGSClassifier</span></code></a></p></td>
+<td><p>Fast Interpretable Greedy-Tree Sums (FIGS) classifier.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/piml.models.ReluDNNRegressor.html#piml.models.ReluDNNRegressor" title="piml.models.ReluDNNRegressor"><code class="xref py py-obj docutils literal notranslate"><span class="pre">models.ReluDNNRegressor</span></code></a></p></td>
+<td><p>Multi-layer perceptron regressor with ReLU activation function.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="generated/piml.models.ReluDNNClassifier.html#piml.models.ReluDNNClassifier" title="piml.models.ReluDNNClassifier"><code class="xref py py-obj docutils literal notranslate"><span class="pre">models.ReluDNNClassifier</span></code></a></p></td>
+<td><p>Multi-layer perceptron classifier with ReLU activation function.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/piml.models.ExplainableBoostingRegressor.html#piml.models.ExplainableBoostingRegressor" title="piml.models.ExplainableBoostingRegressor"><code class="xref py py-obj docutils literal notranslate"><span class="pre">models.ExplainableBoostingRegressor</span></code></a></p></td>
+<td><p>Explainable boosting regressor.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="generated/piml.models.ExplainableBoostingClassifier.html#piml.models.ExplainableBoostingClassifier" title="piml.models.ExplainableBoostingClassifier"><code class="xref py py-obj docutils literal notranslate"><span class="pre">models.ExplainableBoostingClassifier</span></code></a></p></td>
+<td><p>Explainable boosting classifier.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/piml.models.GAMINetRegressor.html#piml.models.GAMINetRegressor" title="piml.models.GAMINetRegressor"><code class="xref py py-obj docutils literal notranslate"><span class="pre">models.GAMINetRegressor</span></code></a></p></td>
+<td><p>Generalized additive model with pairwise interaction regressor.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="generated/piml.models.GAMINetClassifier.html#piml.models.GAMINetClassifier" title="piml.models.GAMINetClassifier"><code class="xref py py-obj docutils literal notranslate"><span class="pre">models.GAMINetClassifier</span></code></a></p></td>
+<td><p>Generalized additive model with pairwise interaction classifier.</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+</section>
+<section id="post-hoc-explainability">
+<h2>Post-hoc Explainability<a class="headerlink" href="#post-hoc-explainability" title="Permalink to this heading">¶</a></h2>
+<table class="autosummary longtable docutils align-default">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/piml.Experiment.html#piml.Experiment.model_explain" title="piml.Experiment.model_explain"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Experiment.model_explain</span></code></a>([model, show, ...])</p></td>
+<td><p>Explain an arbitrary fitted model using post-hoc explanation tools.</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="diagnostic-tests">
+<h2>Diagnostic Tests<a class="headerlink" href="#diagnostic-tests" title="Permalink to this heading">¶</a></h2>
+<table class="autosummary longtable docutils align-default">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/piml.Experiment.html#piml.Experiment.model_diagnose" title="piml.Experiment.model_diagnose"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Experiment.model_diagnose</span></code></a>([model, show, ...])</p></td>
+<td><p>Test model performance using various diagnostic tools.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="generated/piml.Experiment.html#piml.Experiment.model_compare" title="piml.Experiment.model_compare"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Experiment.model_compare</span></code></a>([models, show, ...])</p></td>
+<td><p>Compare the diagnostic results of multiple models.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/piml.Experiment.html#piml.Experiment.model_fairness" title="piml.Experiment.model_fairness"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Experiment.model_fairness</span></code></a>([model, show, ...])</p></td>
+<td><p>Test model fairness.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="generated/piml.Experiment.html#piml.Experiment.model_fairness_compare" title="piml.Experiment.model_fairness_compare"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Experiment.model_fairness_compare</span></code></a>([model, ...])</p></td>
+<td><p>Compare the fairness results of multiple models.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/piml.Experiment.html#piml.Experiment.model_fairness_solas" title="piml.Experiment.model_fairness_solas"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Experiment.model_fairness_solas</span></code></a>([model, ...])</p></td>
+<td><p>Test model fairness based on solas-ai.</p></td>
 </tr>
 </tbody>
 </table>
@@ -176,16 +339,6 @@ For reference on concepts repeated across the API.</p>
       const tooltipTriggerList = document.querySelectorAll('[data-bs-toggle="tooltip"]')
       const tooltipList = [...tooltipTriggerList].map(tooltipTriggerEl => new bootstrap.Tooltip(tooltipTriggerEl))
   </script>
-
-
-<!--script>
-    window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
-    ga('create', 'UA-22606712-2', 'auto');
-    ga('set', 'anonymizeIp', true);
-    ga('send', 'pageview');
-</script>
-<script async src='https://www.google-analytics.com/analytics.js'></script-->
-
 
 <script>
 $(document).ready(function() {
@@ -319,6 +472,8 @@ $(document).ready(function() {
 
 </script>
     
+
+<script src="_static/js/vendor/bootstrap.min.js"></script>
 
 </body>
 </html>

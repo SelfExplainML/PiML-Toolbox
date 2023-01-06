@@ -977,6 +977,11 @@ table.docutils p {
 }
 
 /* gallery */
+.sphx-glr-single-img {
+  margin: auto;
+  display: block;
+  width: 40%;
+}
 
 div.sphx-glr-thumbcontainer {
   min-height: 250px;

@@ -116,7 +116,7 @@
           </div-->
               <div class="sk-sidebar-toc">
                 <ul>
-<li><a class="reference internal" href="#">Resilience - Performance: XGB</a></li>
+<li><a class="reference internal" href="#">ALE:  Regression</a></li>
 </ul>
 
               </div>
@@ -127,19 +127,20 @@
           
   <div class="sphx-glr-download-link-note admonition note">
 <p class="admonition-title">Note</p>
-<p>Click <a class="reference internal" href="#sphx-glr-download-auto-examples-diagnostics-plot-1-resilience-py"><span class="std std-ref">here</span></a>
+<p>Click <a class="reference internal" href="#sphx-glr-download-auto-examples-explain-plot-0-ale-py"><span class="std std-ref">here</span></a>
 to download the full example code or to run this example in your browser via Binder</p>
 </div>
-<section class="sphx-glr-example-title" id="resilience-performance-xgb">
-<span id="sphx-glr-auto-examples-diagnostics-plot-1-resilience-py"></span><h1>Resilience - Performance: XGB<a class="headerlink" href="#resilience-performance-xgb" title="Permalink to this heading">¶</a></h1>
-<p>PiML model diagnostics</p>
-<p>Train model and Run</p>
+<section class="sphx-glr-example-title" id="ale-regression">
+<span id="sphx-glr-auto-examples-explain-plot-0-ale-py"></span><h1>ALE:  Regression<a class="headerlink" href="#ale-regression" title="Permalink to this heading">¶</a></h1>
+<p>Global ALE on BikeSharing data</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">piml</span> <span class="kn">import</span> <a href="../../modules/generated/piml.Experiment.html#piml.Experiment" title="piml.Experiment" class="sphx-glr-backref-module-piml sphx-glr-backref-type-py-class sphx-glr-backref-instance"><a href="../../modules/generated/piml.Experiment.html#piml.Experiment" title="piml.Experiment" class="sphx-glr-backref-module-piml sphx-glr-backref-type-py-class sphx-glr-backref-instance"><a href="../../modules/generated/piml.Experiment.html#piml.Experiment" title="piml.Experiment" class="sphx-glr-backref-module-piml sphx-glr-backref-type-py-class sphx-glr-backref-instance"><a href="../../modules/generated/piml.Experiment.html#piml.Experiment" title="piml.Experiment" class="sphx-glr-backref-module-piml sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">Experiment</span></a></a></a></a>
-<span class="kn">from</span> <span class="nn">xgboost</span> <span class="kn">import</span> <span class="n">XGBRegressor</span>
-
+<span class="kn">from</span> <span class="nn">piml.models</span> <span class="kn">import</span> <a href="../../modules/generated/piml.models.GAMINetRegressor.html#piml.models.GAMINetRegressor" title="piml.models.GAMINetRegressor" class="sphx-glr-backref-module-piml-models sphx-glr-backref-type-py-class sphx-glr-backref-instance"><a href="../../modules/generated/piml.models.GAMINetRegressor.html#piml.models.GAMINetRegressor" title="piml.models.GAMINetRegressor" class="sphx-glr-backref-module-piml-models sphx-glr-backref-type-py-class sphx-glr-backref-instance"><a href="../../modules/generated/piml.models.GAMINetRegressor.html#piml.models.GAMINetRegressor" title="piml.models.GAMINetRegressor" class="sphx-glr-backref-module-piml-models sphx-glr-backref-type-py-class sphx-glr-backref-instance"><a href="../../modules/generated/piml.models.GAMINetRegressor.html#piml.models.GAMINetRegressor" title="piml.models.GAMINetRegressor" class="sphx-glr-backref-module-piml-models sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">GAMINetRegressor</span></a></a></a></a>
 <span class="n">exp</span> <span class="o">=</span> <a href="../../modules/generated/piml.Experiment.html#piml.Experiment" title="piml.Experiment" class="sphx-glr-backref-module-piml sphx-glr-backref-type-py-class sphx-glr-backref-instance"><a href="../../modules/generated/piml.Experiment.html#piml.Experiment" title="piml.Experiment" class="sphx-glr-backref-module-piml sphx-glr-backref-type-py-class sphx-glr-backref-instance"><a href="../../modules/generated/piml.Experiment.html#piml.Experiment" title="piml.Experiment" class="sphx-glr-backref-module-piml sphx-glr-backref-type-py-class sphx-glr-backref-instance"><a href="../../modules/generated/piml.Experiment.html#piml.Experiment" title="piml.Experiment" class="sphx-glr-backref-module-piml sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">Experiment</span></a></a></a></a><span class="p">()</span>
-<span class="n">exp</span><span class="o">.</span><span class="n">data_loader</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="s2">&quot;BikeSharing&quot;</span><span class="p">)</span>
-<span class="n">exp</span><span class="o">.</span><span class="n">data_prepare</span><span class="p">()</span>
+<span class="n">exp</span><span class="o">.</span><span class="n">data_loader</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="s1">&#39;BikeSharing&#39;</span><span class="p">)</span>
+<span class="n">exp</span><span class="o">.</span><span class="n">data_summary</span><span class="p">(</span><span class="n">feature_exclude</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;season&quot;</span><span class="p">,</span> <span class="s2">&quot;workingday&quot;</span><span class="p">,</span> <span class="s2">&quot;atemp&quot;</span><span class="p">])</span>
+<span class="n">exp</span><span class="o">.</span><span class="n">data_prepare</span><span class="p">(</span><span class="n">target</span><span class="o">=</span><span class="s1">&#39;cnt&#39;</span><span class="p">,</span> <span class="n">task_type</span><span class="o">=</span><span class="s1">&#39;Regression&#39;</span><span class="p">,</span> <span class="n">test_ratio</span><span class="o">=</span><span class="mf">0.2</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+<span class="n">regressor_model</span> <span class="o">=</span> <a href="../../modules/generated/piml.models.GAMINetRegressor.html#piml.models.GAMINetRegressor" title="piml.models.GAMINetRegressor" class="sphx-glr-backref-module-piml-models sphx-glr-backref-type-py-class sphx-glr-backref-instance"><a href="../../modules/generated/piml.models.GAMINetRegressor.html#piml.models.GAMINetRegressor" title="piml.models.GAMINetRegressor" class="sphx-glr-backref-module-piml-models sphx-glr-backref-type-py-class sphx-glr-backref-instance"><a href="../../modules/generated/piml.models.GAMINetRegressor.html#piml.models.GAMINetRegressor" title="piml.models.GAMINetRegressor" class="sphx-glr-backref-module-piml-models sphx-glr-backref-type-py-class sphx-glr-backref-instance"><a href="../../modules/generated/piml.models.GAMINetRegressor.html#piml.models.GAMINetRegressor" title="piml.models.GAMINetRegressor" class="sphx-glr-backref-module-piml-models sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">GAMINetRegressor</span></a></a></a></a><span class="p">()</span>
+<span class="n">exp</span><span class="o">.</span><span class="n">model_train</span><span class="p">(</span><span class="n">model</span><span class="o">=</span><span class="n">regressor_model</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s1">&#39;GAMINetRegressor&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 <div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>       season   yr  mnth    hr  holiday  weekday  workingday  weathersit  \
@@ -169,34 +170,72 @@ to download the full example code or to run this example in your browser via Bin
 17378  0.26  0.2727  0.65     0.1343   49.0
 
 [17379 rows x 13 columns]
+        name  n_missing        mean         std   min       q1   median  \
+0       mnth        0.0    6.537775    3.438776  1.00   4.0000    7.000
+1         hr        0.0   11.546752    6.914405  0.00   6.0000   12.000
+2    weekday        0.0    3.003683    2.005771  0.00   1.0000    3.000
+3       temp        0.0    0.496987    0.192556  0.02   0.3400    0.500
+5        hum        0.0    0.627229    0.192930  0.00   0.4800    0.630
+6  windspeed        0.0    0.190098    0.122340  0.00   0.1045    0.194
+7        cnt        0.0  189.463088  181.387599  1.00  40.0000  142.000
 
+         q3       max
+0   10.0000   12.0000
+1   18.0000   23.0000
+2    5.0000    6.0000
+3    0.6600    1.0000
+5    0.7800    1.0000
+6    0.2537    0.8507
+7  281.0000  977.0000
+         name  n_missing  n_unique         top1        top2        top3  \
+1          yr          0         2   1.0 : 8734  0.0 : 8645           0
+2     holiday          0         2  0.0 : 16879   1.0 : 500           0
+4  weathersit          0         4  1.0 : 11413  2.0 : 4544  3.0 : 1419
 
-&lt;IPython.core.display.HTML object&gt;
-
-
-HTML(value=&quot;\n        &lt;table class=&#39;ptable striped&#39;&gt;\n            &lt;thead class=&#39;pthead&#39;&gt;\n            &lt;/thead&gt;\n\n            &lt;tbody class=&#39;ptbody&#39;&gt;\n                &lt;tr class=&#39;ptr&#39;&gt;&lt;td class=&#39;ptd&#39;&gt;Excluded columns&lt;/td&gt;&lt;td class=&#39;ptd&#39;&gt;[]&lt;/td&gt;&lt;/tr&gt;&lt;tr class=&#39;ptr&#39;&gt;&lt;td class=&#39;ptd&#39;&gt;Target variable&lt;/td&gt;&lt;td class=&#39;ptd&#39;&gt;cnt&lt;/td&gt;&lt;/tr&gt;&lt;tr class=&#39;ptr&#39;&gt;&lt;td class=&#39;ptd&#39;&gt;Sample weight&lt;/td&gt;&lt;td class=&#39;ptd&#39;&gt;None&lt;/td&gt;&lt;/tr&gt;&lt;tr class=&#39;ptr&#39;&gt;&lt;td class=&#39;ptd&#39;&gt;Task type&lt;/td&gt;&lt;td class=&#39;ptd&#39;&gt;Regression&lt;/td&gt;&lt;/tr&gt;&lt;tr class=&#39;ptr&#39;&gt;&lt;td class=&#39;ptd&#39;&gt;Split method&lt;/td&gt;&lt;td class=&#39;ptd&#39;&gt;Random&lt;/td&gt;&lt;/tr&gt;&lt;tr class=&#39;ptr&#39;&gt;&lt;td class=&#39;ptd&#39;&gt;Test ratio&lt;/td&gt;&lt;td class=&#39;ptd&#39;&gt;0.2&lt;/td&gt;&lt;/tr&gt;&lt;tr class=&#39;ptr&#39;&gt;&lt;td class=&#39;ptd&#39;&gt;Random state&lt;/td&gt;&lt;td class=&#39;ptd&#39;&gt;0&lt;/td&gt;&lt;/tr&gt;\n            &lt;/tbody&gt;\n        &lt;/table&gt;\n        &quot;)
-VBox(children=(HBox(children=(VBox(children=(HTML(value=&#39;&lt;p&gt;Target Variable:&lt;/p&gt;&#39;), HTML(value=&#39;&lt;p&gt;Test Ratio:&lt;/p&gt;&#39;)), layout=Layout(width=&#39;100px&#39;)), VBox(children=(Dropdown(index=12, options=(&#39;season&#39;, &#39;yr&#39;, &#39;mnth&#39;, &#39;hr&#39;, &#39;holiday&#39;, &#39;weekday&#39;, &#39;workingday&#39;, &#39;weathersit&#39;, &#39;temp&#39;, &#39;atemp&#39;, &#39;hum&#39;, &#39;windspeed&#39;, &#39;cnt&#39;), style=DescriptionStyle(description_width=&#39;initial&#39;), value=&#39;cnt&#39;), BoundedFloatText(value=0.2, layout=Layout(width=&#39;auto&#39;), max=1.0, step=0.01, style=DescriptionStyle(description_width=&#39;initial&#39;))), layout=Layout(width=&#39;15%&#39;)), HTML(value=&quot;&lt;div style=&#39;margin-right: 10px&#39;&gt;&lt;/div&gt;&quot;), VBox(children=(HTML(value=&#39;&lt;p&gt;Task Type:&lt;/p&gt;&#39;), HTML(value=&#39;&lt;p&gt;Random Seed:&lt;/p&gt;&#39;)), layout=Layout(width=&#39;100px&#39;)), VBox(children=(Dropdown(index=1, options=(&#39;Classification&#39;, &#39;Regression&#39;), style=DescriptionStyle(description_width=&#39;initial&#39;), value=&#39;Regression&#39;), BoundedIntText(value=0, layout=Layout(justify_content=&#39;flex-end&#39;, width=&#39;auto&#39;), style=DescriptionStyle(description_width=&#39;initial&#39;))), layout=Layout(width=&#39;15%&#39;)), HTML(value=&quot;&lt;div style=&#39;margin-right: 10px&#39;&gt;&lt;/div&gt;&quot;), VBox(children=(HTML(value=&#39;&lt;p&gt;Sample Weight:&lt;/p&gt;&#39;),), layout=Layout(width=&#39;100px&#39;)), VBox(children=(Dropdown(options=(&#39;None&#39;, &#39;season&#39;, &#39;yr&#39;, &#39;mnth&#39;, &#39;hr&#39;, &#39;holiday&#39;, &#39;weekday&#39;, &#39;workingday&#39;, &#39;weathersit&#39;, &#39;temp&#39;, &#39;atemp&#39;, &#39;hum&#39;, &#39;windspeed&#39;, &#39;cnt&#39;), style=DescriptionStyle(description_width=&#39;initial&#39;), value=&#39;None&#39;), HTML(value=&quot;&lt;div style=&#39;margin-right: 2px&#39;&gt;&lt;/div&gt;&quot;), HBox(children=(HTML(value=&quot;&lt;div style=&#39;margin-right: 10px&#39;&gt;&lt;/div&gt;&quot;), Button(button_style=&#39;danger&#39;, description=&#39;UPDATE&#39;, layout=Layout(height=&#39;80%&#39;, width=&#39;60%&#39;), style=ButtonStyle(), _dom_classes=(&#39;pbtn&#39;,))), layout=Layout(justify_content=&#39;space-between&#39;, width=&#39;100%&#39;), _dom_classes=(&#39;split-btn&#39;,))), layout=Layout(width=&#39;15%&#39;)), HTML(value=&quot;&lt;div style=&#39;margin-right: 10px&#39;&gt;&lt;/div&gt;&quot;)), layout=Layout(width=&#39;100%&#39;), _dom_classes=(&#39;form&#39;,)), HTML(value=&quot;&lt;div class=&#39;divider&#39;&gt;&lt;/div&gt;&quot;), Output(), Output()), _dom_classes=(&#39;input-width-with-parent&#39;,))
+   n_others
+1         0
+2         0
+4         3
+HTML(value=&#39;Data Shape:(17379, 13)&#39;)
+Tab(children=(Output(), Output()), layout=Layout(height=&#39;350px&#39;), _titles={&#39;0&#39;: &#39;Numerical Attributes&#39;, &#39;1&#39;: &#39;Categorical Attributes&#39;})
+                  0                            1
+0  Excluded columns  [season, workingday, atemp]
+1   Target variable                          cnt
+2     Sample weight                         None
+3         Task type                   Regression
+4      Split method                       Random
+5        Test ratio                          0.2
+6      Random state                            0
+HTML(value=&quot;&lt;p class=&#39;notification info&#39;&gt;Register GAMINetRegressor Done&lt;/p&gt;&quot;)
 </pre></div>
 </div>
-<p>Train model and Run</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">exp</span><span class="o">.</span><span class="n">model_train</span><span class="p">(</span><span class="n">model</span><span class="o">=</span><span class="n">XGBRegressor</span><span class="p">(</span><span class="n">max_depth</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">n_estimators</span><span class="o">=</span><span class="mi">100</span><span class="p">),</span> <span class="n">name</span><span class="o">=</span><span class="s2">&quot;XGB-2&quot;</span><span class="p">)</span>
-<span class="n">exp</span><span class="o">.</span><span class="n">model_diagnose</span><span class="p">(</span><span class="s2">&quot;XGB-2&quot;</span><span class="p">,</span> <span class="n">show</span><span class="o">=</span><span class="s1">&#39;resilience_perf&#39;</span><span class="p">,</span> <span class="n">immu_feature</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span>
+<p>Plot ALE</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">exp</span><span class="o">.</span><span class="n">model_explain</span><span class="p">(</span><span class="n">model</span><span class="o">=</span><span class="s1">&#39;GAMINetRegressor&#39;</span><span class="p">,</span> <span class="n">show</span><span class="o">=</span><span class="s1">&#39;global_ale&#39;</span><span class="p">,</span> <span class="n">uni_feature</span><span class="o">=</span><span class="s1">&#39;weathersit&#39;</span><span class="p">,</span>
+                  <span class="n">original_scale</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 </pre></div>
 </div>
-<img src="../../_images/sphx_glr_plot_1_resilience_001.png" srcset="../../_images/sphx_glr_plot_1_resilience_001.png" alt="Resilience Test" class = "sphx-glr-single-img"/><div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>HTML(value=&quot;&lt;p class=&#39;notification info&#39;&gt;Register XGB-2 Done&lt;/p&gt;&quot;)
+<img src="../../_images/sphx_glr_plot_0_ale_001.png" srcset="../../_images/sphx_glr_plot_0_ale_001.png" alt="Accumulated Local Effects" class = "sphx-glr-single-img"/><div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">exp</span><span class="o">.</span><span class="n">model_explain</span><span class="p">(</span><span class="n">model</span><span class="o">=</span><span class="s1">&#39;GAMINetRegressor&#39;</span><span class="p">,</span> <span class="n">show</span><span class="o">=</span><span class="s1">&#39;global_ale&#39;</span><span class="p">,</span>
+                  <span class="n">uni_feature</span><span class="o">=</span><span class="s1">&#39;hr&#39;</span><span class="p">,</span> <span class="n">original_scale</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 </pre></div>
 </div>
-<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> ( 0 minutes  8.414 seconds)</p>
-<p><strong>Estimated memory usage:</strong>  20 MB</p>
-<div class="sphx-glr-footer sphx-glr-footer-example docutils container" id="sphx-glr-download-auto-examples-diagnostics-plot-1-resilience-py">
+<img src="../../_images/sphx_glr_plot_0_ale_002.png" srcset="../../_images/sphx_glr_plot_0_ale_002.png" alt="Accumulated Local Effects" class = "sphx-glr-single-img"/><div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">exp</span><span class="o">.</span><span class="n">model_explain</span><span class="p">(</span><span class="n">model</span><span class="o">=</span><span class="s1">&#39;GAMINetRegressor&#39;</span><span class="p">,</span> <span class="n">show</span><span class="o">=</span><span class="s1">&#39;global_ale&#39;</span><span class="p">,</span>
+                  <span class="n">original_scale</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">bi_features</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;weekday&#39;</span><span class="p">,</span> <span class="s1">&#39;hr&#39;</span><span class="p">])</span>
+</pre></div>
+</div>
+<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>HTML(value=&quot;&lt;p class=&#39;notification info&#39;&gt;ALE-2D heatmap(centered) is zero or nearly zero.&lt;/p&gt;&quot;)
+</pre></div>
+</div>
+<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> ( 2 minutes  30.849 seconds)</p>
+<p><strong>Estimated memory usage:</strong>  350 MB</p>
+<div class="sphx-glr-footer sphx-glr-footer-example docutils container" id="sphx-glr-download-auto-examples-explain-plot-0-ale-py">
 <div class="binder-badge docutils container">
-<a class="reference external image-reference" href="https://mybinder.org/v2/gh/selfexplainml/piml-toolbox/main?urlpath=lab/tree/./docs/_build/html/notebooks/auto_examples/diagnostics/plot_1_resilience.ipynb"><img alt="Launch binder" src="../../_images/binder_badge_logo1.svg" width="150px" /></a>
+<a class="reference external image-reference" href="https://mybinder.org/v2/gh/selfexplainml/piml-toolbox/main?urlpath=lab/tree/./docs/_build/html/notebooks/auto_examples/explain/plot_0_ale.ipynb"><img alt="Launch binder" src="../../_images/binder_badge_logo2.svg" width="150px" /></a>
 </div>
 <div class="sphx-glr-download sphx-glr-download-python docutils container">
-<p><a class="reference download internal" download="" href="../../_downloads/8e364ec9e666d32b814b7f71dffdb1ef/plot_1_resilience.py"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Python</span> <span class="pre">source</span> <span class="pre">code:</span> <span class="pre">plot_1_resilience.py</span></code></a></p>
+<p><a class="reference download internal" download="" href="../../_downloads/3b68f894720fe32e7a05a5fd2b9f8fc0/plot_0_ale.py"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Python</span> <span class="pre">source</span> <span class="pre">code:</span> <span class="pre">plot_0_ale.py</span></code></a></p>
 </div>
 <div class="sphx-glr-download sphx-glr-download-jupyter docutils container">
-<p><a class="reference download internal" download="" href="../../_downloads/d1bd9865b3dcdd581f68bf275c1ccf08/plot_1_resilience.ipynb"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Jupyter</span> <span class="pre">notebook:</span> <span class="pre">plot_1_resilience.ipynb</span></code></a></p>
+<p><a class="reference download internal" download="" href="../../_downloads/3426eb04c768bddecc7e47c2f933dea0/plot_0_ale.ipynb"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Jupyter</span> <span class="pre">notebook:</span> <span class="pre">plot_0_ale.ipynb</span></code></a></p>
 </div>
 </div>
 <p class="sphx-glr-signature"><a class="reference external" href="https://sphinx-gallery.github.io">Gallery generated by Sphinx-Gallery</a></p>
@@ -207,7 +246,7 @@ VBox(children=(HBox(children=(VBox(children=(HTML(value=&#39;&lt;p&gt;Target Var
       <div class="container">
         <footer class="sk-content-footer">
               &copy; Copyright 2022-, PiML-Toolbox authors.
-            <a href="../../_sources/auto_examples/diagnostics/plot_1_resilience.rst.txt" rel="nofollow">Show this page source</a>
+            <a href="../../_sources/auto_examples/explain/plot_0_ale.rst.txt" rel="nofollow">Show this page source</a>
         </footer>
       </div>
     </div>

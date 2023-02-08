@@ -4,11 +4,6 @@
 
   <meta charset="utf-8">
   <meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
-<meta property="og:title" content="8.4. Fairness Simulation Study 1" />
-<meta property="og:type" content="website" />
-<meta property="og:url" content="guides/cases/Example_Fairness_SimuStudy1.html" />
-<meta property="og:description" content="This example demonstrates the use of PiML for fairness testing based on the integrated solas-ai APIs. The SolasSimu1 data is modified from the Friedman demo data. The covariates used for modeling a..." />
-<meta name="description" content="This example demonstrates the use of PiML for fairness testing based on the integrated solas-ai APIs. The SolasSimu1 data is modified from the Friedman demo data. The covariates used for modeling a..." />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
@@ -43,7 +38,6 @@
         <script src="../../_static/doctools.js"></script>
         <script src="../../_static/sphinx_highlight.js"></script>
         <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
-        <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.20.1/dist/embed-amd.js"></script>
         <script>window.MathJax = {"tex": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true}, "options": {"ignoreHtmlClass": "tex2jax_ignore|mathjax_ignore|document", "processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
         <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
     <script src="../../_static/js/theme.js"></script>
@@ -81,14 +75,14 @@
         <li class="nav-item">
           <a class="sk-nav-link nav-link" href="../../install.html">Install</a>
         </li>
+		<li class="nav-item">
+          <a class="sk-nav-link nav-link" href="../../modules/classes.html">API</a>
+        </li>
         <li class="nav-item">
           <a class="sk-nav-link nav-link" href="../../user_guide.html">User Guide</a>
         </li>
         <li class="nav-item">
           <a class="sk-nav-link nav-link" href="../../auto_examples/index.html">Examples</a>
-        </li>
-        <li class="nav-item">
-          <a class="sk-nav-link nav-link" href="../../modules/classes.html">API</a>
         </li>
         <li class="nav-item">
           <a class="sk-nav-link nav-link" href="../../faq.html">FAQ</a>
@@ -118,15 +112,15 @@
             </a>
           </div>
           <!--div class="btn-group w-100 mb-2" role="group" aria-label="rellinks">
-              <a href="Example_TaiwanCredit.html" role="button" class="btn sk-btn-rellink py-1" sk-rellink-tooltip="8.3. TaiwanCredit Data">Prev</a><a href="../cases.html" role="button" class="btn sk-btn-rellink py-1" sk-rellink-tooltip="8. Case Studies">Up</a>
-              <a href="Example_Fairness_SimuStudy2.html" role="button" class="btn sk-btn-rellink py-1" sk-rellink-tooltip="8.5. Fairness Simulation Study 2">Next</a>
+              <a href="Example_TaiwanCredit.html" role="button" class="btn sk-btn-rellink py-1" sk-rellink-tooltip="7.3. TaiwanCredit Data">Prev</a><a href="../cases.html" role="button" class="btn sk-btn-rellink py-1" sk-rellink-tooltip="7. Low-Code Case Studies">Up</a>
+              <a href="Example_Fairness_SimuStudy2.html" role="button" class="btn sk-btn-rellink py-1" sk-rellink-tooltip="7.5. Fairness Simulation Study 2">Next</a>
           </div-->
               <div class="sk-sidebar-toc">
                 <ul>
-<li><a class="reference internal" href="#">8.4. Fairness Simulation Study 1</a><ul>
-<li><a class="reference internal" href="#Load-and-Prepare-Data">8.4.1. Load and Prepare Data</a></li>
-<li><a class="reference internal" href="#Train-ML-Model(s)">8.4.2. Train ML Model(s)</a></li>
-<li><a class="reference internal" href="#Fairness-Testing">8.4.3. Fairness Testing</a></li>
+<li><a class="reference internal" href="#">7.4. Fairness Simulation Study 1</a><ul>
+<li><a class="reference internal" href="#Load-and-Prepare-Data">7.4.1. Load and Prepare Data</a></li>
+<li><a class="reference internal" href="#Train-ML-Model(s)">7.4.2. Train ML Model(s)</a></li>
+<li><a class="reference internal" href="#Fairness-Testing">7.4.3. Fairness Testing</a></li>
 </ul>
 </li>
 </ul>
@@ -395,11 +389,11 @@ div.rendered_html tbody tr:hover {
 }
 </style>
 <section id="Fairness-Simulation-Study-1">
-<h1><span class="section-number">8.4. </span>Fairness Simulation Study 1<a class="headerlink" href="#Fairness-Simulation-Study-1" title="Permalink to this heading">¶</a></h1>
+<h1><span class="section-number">7.4. </span>Fairness Simulation Study 1<a class="headerlink" href="#Fairness-Simulation-Study-1" title="Permalink to this heading">¶</a></h1>
 <p>This example demonstrates the use of PiML for fairness testing based on the integrated <code class="docutils literal notranslate"><span class="pre">solas-ai</span></code> APIs. The SolasSimu1 data is modified from the <code class="docutils literal notranslate"><span class="pre">Friedman</span></code> demo data. The covariates used for modeling are <code class="docutils literal notranslate"><span class="pre">x1</span></code>, <code class="docutils literal notranslate"><span class="pre">x2</span></code>, …, <code class="docutils literal notranslate"><span class="pre">x5</span></code>, the response <code class="docutils literal notranslate"><span class="pre">Label</span></code> is binary and it is a classification problem. The rest variables are demographic variables used for testing fairness. The data and APIs are contributed by <a class="reference external" href="https://github.com/SolasAI/solas-ai-disparity">Solas-AI</a>.</p>
 <p>Click the ipynb links to run examples in <a class="reference external" href="https://colab.research.google.com/github/SelfExplainML/PiML-Toolbox/blob/main/examples/Example_Fairness_SimuStudy1.ipynb">Google Colab</a>.</p>
 <section id="Load-and-Prepare-Data">
-<h2><span class="section-number">8.4.1. </span>Load and Prepare Data<a class="headerlink" href="#Load-and-Prepare-Data" title="Permalink to this heading">¶</a></h2>
+<h2><span class="section-number">7.4.1. </span>Load and Prepare Data<a class="headerlink" href="#Load-and-Prepare-Data" title="Permalink to this heading">¶</a></h2>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[1]:
 </pre></div>
@@ -554,7 +548,7 @@ var element = document.currentScript.previousSibling.previousSibling;
 </div>
 </section>
 <section id="Train-ML-Model(s)">
-<h2><span class="section-number">8.4.2. </span>Train ML Model(s)<a class="headerlink" href="#Train-ML-Model(s)" title="Permalink to this heading">¶</a></h2>
+<h2><span class="section-number">7.4.2. </span>Train ML Model(s)<a class="headerlink" href="#Train-ML-Model(s)" title="Permalink to this heading">¶</a></h2>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[8]:
 </pre></div>
@@ -598,7 +592,7 @@ var element = document.currentScript.previousSibling.previousSibling;
 </div>
 </section>
 <section id="Fairness-Testing">
-<h2><span class="section-number">8.4.3. </span>Fairness Testing<a class="headerlink" href="#Fairness-Testing" title="Permalink to this heading">¶</a></h2>
+<h2><span class="section-number">7.4.3. </span>Fairness Testing<a class="headerlink" href="#Fairness-Testing" title="Permalink to this heading">¶</a></h2>
 <p><strong>Suggested Procudure:</strong></p>
 <ol class="arabic simple">
 <li><p>First select a registered model (in this case, GAM)</p></li>
@@ -681,16 +675,6 @@ var element = document.currentScript.previousSibling.previousSibling;
       const tooltipTriggerList = document.querySelectorAll('[data-bs-toggle="tooltip"]')
       const tooltipList = [...tooltipTriggerList].map(tooltipTriggerEl => new bootstrap.Tooltip(tooltipTriggerEl))
   </script>
-
-
-<!--script>
-    window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
-    ga('create', 'UA-22606712-2', 'auto');
-    ga('set', 'anonymizeIp', true);
-    ga('send', 'pageview');
-</script>
-<script async src='https://www.google-analytics.com/analytics.js'></script-->
-
 
 <script>
 $(document).ready(function() {
@@ -824,6 +808,8 @@ $(document).ready(function() {
 
 </script>
     
+
+<script src="_static/js/vendor/bootstrap.min.js"></script>
 
 </body>
 </html>

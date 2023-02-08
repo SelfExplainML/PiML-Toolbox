@@ -4,11 +4,6 @@
 
   <meta charset="utf-8">
   <meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
-<meta property="og:title" content="8.3. TaiwanCredit Data" />
-<meta property="og:type" content="website" />
-<meta property="og:url" content="guides/cases/Example_TaiwanCredit.html" />
-<meta property="og:description" content="This example notebook demonstrates how to use PiML in its low-code mode for developing machine learning models for the TaiwanCredit data from UCI repository, which consists of 30,000 credit card cl..." />
-<meta name="description" content="This example notebook demonstrates how to use PiML in its low-code mode for developing machine learning models for the TaiwanCredit data from UCI repository, which consists of 30,000 credit card cl..." />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
@@ -43,7 +38,6 @@
         <script src="../../_static/doctools.js"></script>
         <script src="../../_static/sphinx_highlight.js"></script>
         <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
-        <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.20.1/dist/embed-amd.js"></script>
         <script>window.MathJax = {"tex": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true}, "options": {"ignoreHtmlClass": "tex2jax_ignore|mathjax_ignore|document", "processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
         <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
     <script src="../../_static/js/theme.js"></script>
@@ -81,14 +75,14 @@
         <li class="nav-item">
           <a class="sk-nav-link nav-link" href="../../install.html">Install</a>
         </li>
+		<li class="nav-item">
+          <a class="sk-nav-link nav-link" href="../../modules/classes.html">API</a>
+        </li>
         <li class="nav-item">
           <a class="sk-nav-link nav-link" href="../../user_guide.html">User Guide</a>
         </li>
         <li class="nav-item">
           <a class="sk-nav-link nav-link" href="../../auto_examples/index.html">Examples</a>
-        </li>
-        <li class="nav-item">
-          <a class="sk-nav-link nav-link" href="../../modules/classes.html">API</a>
         </li>
         <li class="nav-item">
           <a class="sk-nav-link nav-link" href="../../faq.html">FAQ</a>
@@ -118,17 +112,17 @@
             </a>
           </div>
           <!--div class="btn-group w-100 mb-2" role="group" aria-label="rellinks">
-              <a href="Example_CaliforniaHousing.html" role="button" class="btn sk-btn-rellink py-1" sk-rellink-tooltip="8.2. CaliforniaHousing Data">Prev</a><a href="../cases.html" role="button" class="btn sk-btn-rellink py-1" sk-rellink-tooltip="8. Case Studies">Up</a>
-              <a href="Example_Fairness_SimuStudy1.html" role="button" class="btn sk-btn-rellink py-1" sk-rellink-tooltip="8.4. Fairness Simulation Study 1">Next</a>
+              <a href="Example_CaliforniaHousing.html" role="button" class="btn sk-btn-rellink py-1" sk-rellink-tooltip="7.2. CaliforniaHousing Data">Prev</a><a href="../cases.html" role="button" class="btn sk-btn-rellink py-1" sk-rellink-tooltip="7. Low-Code Case Studies">Up</a>
+              <a href="Example_Fairness_SimuStudy1.html" role="button" class="btn sk-btn-rellink py-1" sk-rellink-tooltip="7.4. Fairness Simulation Study 1">Next</a>
           </div-->
               <div class="sk-sidebar-toc">
                 <ul>
-<li><a class="reference internal" href="#">8.3. TaiwanCredit Data</a><ul>
-<li><a class="reference internal" href="#Load-and-Prepare-Data">8.3.1. Load and Prepare Data</a></li>
-<li><a class="reference internal" href="#Train-Intepretable-Models">8.3.2. Train Intepretable Models</a></li>
-<li><a class="reference internal" href="#Interpretability-and-Explainability">8.3.3. Interpretability and Explainability</a></li>
-<li><a class="reference internal" href="#Model-Diagnostics-and-Outcome-Testing">8.3.4. Model Diagnostics and Outcome Testing</a></li>
-<li><a class="reference internal" href="#Model-Comparison-and-Benchmarking">8.3.5. Model Comparison and Benchmarking</a></li>
+<li><a class="reference internal" href="#">7.3. TaiwanCredit Data</a><ul>
+<li><a class="reference internal" href="#Load-and-Prepare-Data">7.3.1. Load and Prepare Data</a></li>
+<li><a class="reference internal" href="#Train-Intepretable-Models">7.3.2. Train Intepretable Models</a></li>
+<li><a class="reference internal" href="#Interpretability-and-Explainability">7.3.3. Interpretability and Explainability</a></li>
+<li><a class="reference internal" href="#Model-Diagnostics-and-Outcome-Testing">7.3.4. Model Diagnostics and Outcome Testing</a></li>
+<li><a class="reference internal" href="#Model-Comparison-and-Benchmarking">7.3.5. Model Comparison and Benchmarking</a></li>
 </ul>
 </li>
 </ul>
@@ -397,12 +391,12 @@ div.rendered_html tbody tr:hover {
 }
 </style>
 <section id="TaiwanCredit-Data">
-<h1><span class="section-number">8.3. </span>TaiwanCredit Data<a class="headerlink" href="#TaiwanCredit-Data" title="Permalink to this heading">¶</a></h1>
+<h1><span class="section-number">7.3. </span>TaiwanCredit Data<a class="headerlink" href="#TaiwanCredit-Data" title="Permalink to this heading">¶</a></h1>
 <p>This example notebook demonstrates how to use PiML in its low-code mode for developing machine learning models for the TaiwanCredit data from UCI repository, which consists of 30,000 credit card clients in Taiwan from 200504 to 200509; see details <a class="reference external" href="https://archive.ics.uci.edu/ml/datasets/default+of+credit+card+clients">here</a>. The data can be loaded from PiML and it is subject to slight preprocessing.</p>
 <p>The response <code class="docutils literal notranslate"><span class="pre">FlagDefault</span></code> is binary and it is a classification problem.</p>
 <p>Click the ipynb links to run examples in <a class="reference external" href="https://colab.research.google.com/github/SelfExplainML/PiML-Toolbox/blob/main/examples/Example_TaiwanCredit.ipynb">Google Colab</a>.</p>
 <section id="Load-and-Prepare-Data">
-<h2><span class="section-number">8.3.1. </span>Load and Prepare Data<a class="headerlink" href="#Load-and-Prepare-Data" title="Permalink to this heading">¶</a></h2>
+<h2><span class="section-number">7.3.1. </span>Load and Prepare Data<a class="headerlink" href="#Load-and-Prepare-Data" title="Permalink to this heading">¶</a></h2>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[1]:
 </pre></div>
@@ -504,7 +498,7 @@ div.rendered_html tbody tr:hover {
 </div>
 </section>
 <section id="Train-Intepretable-Models">
-<h2><span class="section-number">8.3.2. </span>Train Intepretable Models<a class="headerlink" href="#Train-Intepretable-Models" title="Permalink to this heading">¶</a></h2>
+<h2><span class="section-number">7.3.2. </span>Train Intepretable Models<a class="headerlink" href="#Train-Intepretable-Models" title="Permalink to this heading">¶</a></h2>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[11]:
 </pre></div>
@@ -534,7 +528,7 @@ div.rendered_html tbody tr:hover {
 </div>
 </section>
 <section id="Interpretability-and-Explainability">
-<h2><span class="section-number">8.3.3. </span>Interpretability and Explainability<a class="headerlink" href="#Interpretability-and-Explainability" title="Permalink to this heading">¶</a></h2>
+<h2><span class="section-number">7.3.3. </span>Interpretability and Explainability<a class="headerlink" href="#Interpretability-and-Explainability" title="Permalink to this heading">¶</a></h2>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[12]:
 </pre></div>
@@ -579,7 +573,7 @@ div.rendered_html tbody tr:hover {
 </div>
 </section>
 <section id="Model-Diagnostics-and-Outcome-Testing">
-<h2><span class="section-number">8.3.4. </span>Model Diagnostics and Outcome Testing<a class="headerlink" href="#Model-Diagnostics-and-Outcome-Testing" title="Permalink to this heading">¶</a></h2>
+<h2><span class="section-number">7.3.4. </span>Model Diagnostics and Outcome Testing<a class="headerlink" href="#Model-Diagnostics-and-Outcome-Testing" title="Permalink to this heading">¶</a></h2>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[14]:
 </pre></div>
@@ -602,7 +596,7 @@ div.rendered_html tbody tr:hover {
 </div>
 </section>
 <section id="Model-Comparison-and-Benchmarking">
-<h2><span class="section-number">8.3.5. </span>Model Comparison and Benchmarking<a class="headerlink" href="#Model-Comparison-and-Benchmarking" title="Permalink to this heading">¶</a></h2>
+<h2><span class="section-number">7.3.5. </span>Model Comparison and Benchmarking<a class="headerlink" href="#Model-Comparison-and-Benchmarking" title="Permalink to this heading">¶</a></h2>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[15]:
 </pre></div>
@@ -648,16 +642,6 @@ div.rendered_html tbody tr:hover {
       const tooltipTriggerList = document.querySelectorAll('[data-bs-toggle="tooltip"]')
       const tooltipList = [...tooltipTriggerList].map(tooltipTriggerEl => new bootstrap.Tooltip(tooltipTriggerEl))
   </script>
-
-
-<!--script>
-    window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
-    ga('create', 'UA-22606712-2', 'auto');
-    ga('set', 'anonymizeIp', true);
-    ga('send', 'pageview');
-</script>
-<script async src='https://www.google-analytics.com/analytics.js'></script-->
-
 
 <script>
 $(document).ready(function() {
@@ -791,6 +775,8 @@ $(document).ready(function() {
 
 </script>
     
+
+<script src="_static/js/vendor/bootstrap.min.js"></script>
 
 </body>
 </html>

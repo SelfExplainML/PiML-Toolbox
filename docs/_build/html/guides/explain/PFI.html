@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+
+  <meta charset="utf-8">
+  <meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  
+  <title>PiML Toolbox</title>
+  
+
+  
+  <link rel="shortcut icon" href="../../_static/favicon.ico"/>
+  
+
+  <link rel="stylesheet" href="../../_static/css/vendor/bootstrap.min.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/plot_directive.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/sg_gallery.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/sg_gallery-binder.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/sg_gallery-dataframe.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/sg_gallery-rendered-html.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
+<script id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+<script src="../../_static/jquery.js"></script>
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="../../_static/doctools.js"></script>
+        <script src="../../_static/sphinx_highlight.js"></script>
+        <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+        <script>window.MathJax = {"tex": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true}, "options": {"ignoreHtmlClass": "tex2jax_ignore|mathjax_ignore|document", "processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+        <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
+    <script src="../../_static/js/theme.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav">
+
+  
+
+
+<nav id="navbar" class="sk-docs-navbar navbar navbar-expand-md navbar-light bg-light py-0">
+  <div class="container-fluid sk-docs-container px-0">
+      <a class="navbar-brand py-0" href="../../index.html">
+        <img
+          class="sk-brand-img"
+          src="../../_static/piml-logo.png"
+          alt="logo"/>
+      </a>
+    <button
+      id="sk-navbar-toggler"
+      class="navbar-toggler"
+      type="button"
+      data-toggle="collapse"
+      data-target="#navbarSupportedContent"
+      aria-controls="navbarSupportedContent"
+      aria-expanded="false"
+      aria-label="Toggle navigation"
+    >
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="sk-navbar-collapse collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item">
+          <a class="sk-nav-link nav-link" href="../../install.html">Install</a>
+        </li>
+		<li class="nav-item">
+          <a class="sk-nav-link nav-link" href="../../modules/classes.html">API</a>
+        </li>
+        <li class="nav-item">
+          <a class="sk-nav-link nav-link" href="../../user_guide.html">User Guide</a>
+        </li>
+        <li class="nav-item">
+          <a class="sk-nav-link nav-link" href="../../auto_examples/index.html">Examples</a>
+        </li>
+        <li class="nav-item">
+          <a class="sk-nav-link nav-link" href="../../faq.html">FAQ</a>
+        </li>      </ul>
+      <div id="searchbox" role="search">
+          <div class="searchformwrapper">
+          <form class="search" action="../../search.html" method="get">
+            <input class="sk-search-text-input" type="text" name="q" aria-labelledby="searchlabel" />
+            <input class="sk-search-text-btn" type="submit" value="Go" />
+          </form>
+          </div>
+      </div>
+    </div>
+  </div>
+</nav>
+  <div class="d-flex" id="sk-doc-wrapper">
+      <input type="checkbox" name="sk-toggle-checkbox" id="sk-toggle-checkbox">
+      <label id="sk-sidemenu-toggle" class="sk-btn-toggle-toc btn sk-btn-primary" for="sk-toggle-checkbox">Toggle Menu</label>
+      <div id="sk-sidebar-wrapper" class="border-right">
+        <div class="sk-sidebar-toc-wrapper">
+          <div class="sk-sidebar-toc-logo">
+            <a href="../../index.html">
+              <img
+                class="sk-brand-img"
+                src="../../_static/piml-logo.png"
+                alt="logo"/>
+            </a>
+          </div>
+          <!--div class="btn-group w-100 mb-2" role="group" aria-label="rellinks">
+              <a href="../explainability.html" role="button" class="btn sk-btn-rellink py-1" sk-rellink-tooltip="4. Post-hoc Explainability">Prev</a><a href="../explainability.html" role="button" class="btn sk-btn-rellink py-1" sk-rellink-tooltip="4. Post-hoc Explainability">Up</a>
+              <a href="PDP.html" role="button" class="btn sk-btn-rellink py-1" sk-rellink-tooltip="4.1.2. PDP (Partial Dependence Plot)">Next</a>
+          </div-->
+              <div class="sk-sidebar-toc">
+              
+                <ul>
+                
+                
+                
+                
+                
+                
+                <li>
+                  <a href="../../user_guide.html" class="sk-toc-active">User Guide</a>
+                </li>
+                <ul>
+                
+                  <li>
+                    <a href="../introduction.html" class="">1. Introduction</a>
+                    
+                  </li>
+                
+                  <li>
+                    <a href="../data.html" class="">2. Data Pipeline</a>
+                    
+                  </li>
+                
+                  <li>
+                    <a href="../models.html" class="">3. Interpretable Models</a>
+                    
+                  </li>
+                
+                  <li>
+                    <a href="../explainability.html" class="sk-toc-active">4. Post-hoc Explainability</a>
+                    
+                  </li>
+                
+                  <li>
+                    <a href="../testing.html" class="">5. Outcome Testing</a>
+                    
+                  </li>
+                
+                  <li>
+                    <a href="../comparison.html" class="">6. Model Comparison</a>
+                    
+                  </li>
+                
+                  <li>
+                    <a href="../cases.html" class="">7. Low-Code Case Studies</a>
+                    
+                  </li>
+                
+                  <li>
+                    <a href="../conclusion.html" class="">8. Conclusion</a>
+                    
+                  </li>
+                
+                </ul>
+                
+                
+                
+                
+                </ul>
+              </div>
+        </div>
+      </div>
+      <div id="sk-page-content-wrapper">
+        <div class="sk-page-content container-fluid body px-md-3" role="main">
+          
+  <section id="pfi-permutation-feature-importance">
+<h1><span class="section-number">4.1.1. </span>PFI (Permutation Feature Importance)<a class="headerlink" href="#pfi-permutation-feature-importance" title="Permalink to this heading">¶</a></h1>
+<p>The Permutation feature importance (PFI) of a model is defined as the increase in loss <span class="math notranslate nohighlight">\(L\)</span> when the feature set (usually just one feature) is permuted <a class="reference internal" href="#l2001" id="id1"><span>[L2001]</span></a>.
+In other words, it is the decrease in a model score when a single feature value is randomly shuffled, breaking the relationship between the feature and the target. The drop in the model performance
+is indicative of how much the model depends on the feature. With different permutations of the feature, such a technique can be used to evaluate how the model depends on each feature of the input
+set. However, features of low importance for a bad model (low cross-validation score) could be very important for a good model. Therefore, evaluating our model using techniques such as cross-validation before computing importance is
+strongly recommended.</p>
+<section id="algorithm-description">
+<h2><span class="section-number">4.1.1.1. </span>Algorithm Description<a class="headerlink" href="#algorithm-description" title="Permalink to this heading">¶</a></h2>
+<ul class="simple">
+<li><p>Assume we have a fully trained model, <span class="math notranslate nohighlight">\(\textbf{m}\)</span> and a dataset <span class="math notranslate nohighlight">\(\textbf{D}\)</span> (training or validation data)</p></li>
+<li><p>Evaluate your model, <span class="math notranslate nohighlight">\(\textbf{m}\)</span> on <span class="math notranslate nohighlight">\(\textbf{D}\)</span>, and record your model performance, <span class="math notranslate nohighlight">\(\textbf{s}\)</span>.</p></li>
+<li><p>For each feature <span class="math notranslate nohighlight">\(\textbf{k}\)</span> of the data <span class="math notranslate nohighlight">\(\textbf{D}\)</span>, do the following:</p>
+<ol class="arabic simple">
+<li><p>Perform a random shuffling of the values of feature <span class="math notranslate nohighlight">\(\textbf{k}\)</span> in the dataset <span class="math notranslate nohighlight">\(\textbf{D}\)</span>, and call the shuffled data <span class="math notranslate nohighlight">\(\textbf{D}^{'}\)</span>.</p></li>
+<li><p>Evaluate <span class="math notranslate nohighlight">\(\textbf{m}\)</span> on <span class="math notranslate nohighlight">\(\textbf{D}^{'}\)</span> and record your mode performance <span class="math notranslate nohighlight">\(\textbf{s}^{'}\)</span>.</p></li>
+<li><p>Compute <span class="math notranslate nohighlight">\(\textbf{S}_{i} = \textbf{s} - \textbf{s}^{'}\)</span></p></li>
+</ol>
+</li>
+<li><p>Repeat steps 1, 2 and 3  multiple times, then record the average of the <span class="math notranslate nohighlight">\(\textbf{S}_{i}\)</span>’s.</p></li>
+</ul>
+</section>
+<section id="high-code">
+<h2><span class="section-number">4.1.1.2. </span>High-code<a class="headerlink" href="#high-code" title="Permalink to this heading">¶</a></h2>
+<p>PiML offers a straightforward approach to visualizing the PFI plots. In <code class="docutils literal notranslate"><span class="pre">exp.model_explain</span></code> , we set the  parameter <code class="docutils literal notranslate"><span class="pre">show</span></code> to <code class="docutils literal notranslate"><span class="pre">global_pfi</span></code>. The example below demonstrates how to use PiML with its high-code APIs to develop
+machine learning models for the BikeSharing data from UCI repository, consisting of 17,389 samples of hourly counts of rental bikes in Capital bikeshare system; see details <a class="reference external" href="https://archive.ics.uci.edu/ml/datasets/bike+sharing+dataset">BikeshareData</a>. The response <code class="docutils literal notranslate"><span class="pre">cnt</span></code> (hourly bike rental counts)
+is continuous, and we are dealing with a regression problem. Below is an illustration of the PFI plot. Please refer to the examples for additional details on a classification problem.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">piml</span> <span class="kn">import</span> <span class="n">Experiment</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">piml.models</span> <span class="kn">import</span> <span class="n">ReluDNNRegressor</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">exp</span> <span class="o">=</span> <span class="n">Experiment</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">exp</span><span class="o">.</span><span class="n">data_loader</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="s1">&#39;BikeSharing&#39;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">exp</span><span class="o">.</span><span class="n">data_prepare</span><span class="p">(</span><span class="n">target</span><span class="o">=</span><span class="s1">&#39;cnt&#39;</span><span class="p">,</span> <span class="n">task_type</span><span class="o">=</span><span class="s1">&#39;Regression&#39;</span><span class="p">,</span> <span class="n">test_ratio</span><span class="o">=</span><span class="mf">0.2</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">reludnn_model</span> <span class="o">=</span> <span class="n">ReluDNNRegressor</span><span class="p">(</span><span class="n">hidden_layer_sizes</span><span class="o">=</span><span class="p">(</span><span class="mi">40</span><span class="p">,</span> <span class="mi">40</span><span class="p">),</span> <span class="n">l1_reg</span><span class="o">=</span><span class="mf">1e-05</span><span class="p">,</span>
+<span class="gp">... </span>                      <span class="n">batch_size</span><span class="o">=</span><span class="mi">500</span><span class="p">,</span> <span class="n">learning_rate</span><span class="o">=</span><span class="mf">0.001</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">exp</span><span class="o">.</span><span class="n">model_train</span><span class="p">(</span><span class="n">model</span><span class="o">=</span><span class="n">reludnn_model</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s1">&#39;ReLU_DNN&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Our variable of intrest is <code class="docutils literal notranslate"><span class="pre">hr</span></code> so we set <code class="docutils literal notranslate"><span class="pre">uni_feature</span></code> to <code class="docutils literal notranslate"><span class="pre">hr</span></code> as follow.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">exp</span><span class="o">.</span><span class="n">model_explain</span><span class="p">(</span><span class="n">model</span><span class="o">=</span><span class="s1">&#39;ReLU_DNN&#39;</span><span class="p">,</span> <span class="n">show</span><span class="o">=</span><span class="s1">&#39;global_pfi&#39;</span><span class="p">,</span> <span class="n">uni_feature</span><span class="o">=</span><span class="s1">&#39;hr&#39;</span><span class="p">,</span>
+<span class="go">                      original_scale=True, figsize=(6,5))</span>
+</pre></div>
+</div>
+<figure class="align-center">
+<a class="reference internal image-reference" href="../../_images/pfi_1.png"><img alt="../../_images/pfi_1.png" src="../../_images/pfi_1.png" style="width: 258.0px; height: 216.0px;" /></a>
+</figure>
+<p>This analysis gives us valuable insights on how our model makes predictions. We see that the variable <strong>hr</strong> is the most important feature. <strong>yr</strong>, <strong>temp</strong>, <strong>workingday</strong>, and <strong>atemp</strong> also
+appear to be important predictors. Therefore,  permuting the values of these features will lead to the most decrease in the accuracy score of the model on the test set.</p>
+</section>
+<section id="additional-details-and-misleading-values">
+<h2><span class="section-number">4.1.1.3. </span>Additional details and  Misleading values<a class="headerlink" href="#additional-details-and-misleading-values" title="Permalink to this heading">¶</a></h2>
+<p>If features <strong>a</strong> and <strong>b</strong> are correlated, and we permute either <strong>a</strong> or <strong>b</strong>, this permutation will reduce the importance values for both <strong>a</strong> and <strong>b</strong>. For more information on Tree-based models, please refer to this page
+<a class="reference external" href="https://scikit-learn.org/stable/modules/permutation_importance.html">here</a>.</p>
+</section>
+<section id="example">
+<h2><span class="section-number">4.1.1.4. </span>Example<a class="headerlink" href="#example" title="Permalink to this heading">¶</a></h2>
+<p>The second example below demonstrates how to use PiML with its high-code APIs for the TaiwanCredit data from the UCI repository, which consists of 30,000 credit card clients in Taiwan
+from 200504 to 200509; see details here <a class="reference external" href="https://archive.ics.uci.edu/ml/datasets/default+of+credit+card+clients">TaiwanCreditData</a> . The data can be loaded from PiML, and it is subject to slight preprocessing. The response to this classification problem is
+<code class="docutils literal notranslate"><span class="pre">FlagDefault</span></code>.</p>
+<div class="topic">
+<p class="topic-title">Example</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="../../auto_examples/explain/plot_4_pfi.html#sphx-glr-auto-examples-explain-plot-4-pfi-py"><span class="std std-ref">PFI:  Classification</span></a></p></li>
+</ul>
+</div>
+<div class="topic">
+<p class="topic-title">References</p>
+<dl class="citation">
+<dt class="label" id="l2001"><span class="brackets"><a class="fn-backref" href="#id1">L2001</a></span></dt>
+<dd><p>Breiman L,
+<a class="reference external" href="https://link.springer.com/article/10.1023/a:1010933404324">(2001) Random forests. Machine Learning</a>,
+45(1):5–32</p>
+</dd>
+</dl>
+</div>
+</section>
+</section>
+
+
+        </div>
+      <div class="container">
+        <footer class="sk-content-footer">
+              &copy; Copyright 2022-, PiML-Toolbox authors.
+            <a href="../../_sources/guides/explain/PFI.rst.txt" rel="nofollow">Show this page source</a>
+        </footer>
+      </div>
+    </div>
+  </div>
+
+
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(false);
+      });
+      
+      const tooltipTriggerList = document.querySelectorAll('[data-bs-toggle="tooltip"]')
+      const tooltipList = [...tooltipTriggerList].map(tooltipTriggerEl => new bootstrap.Tooltip(tooltipTriggerEl))
+  </script>
+
+<script>
+$(document).ready(function() {
+    /* Add a [>>>] button on the top-right corner of code samples to hide
+     * the >>> and ... prompts and the output and thus make the code
+     * copyable. */
+    var div = $('.highlight-python .highlight,' +
+                '.highlight-python3 .highlight,' +
+                '.highlight-pycon .highlight,' +
+		'.highlight-default .highlight')
+    var pre = div.find('pre');
+
+    // get the styles from the current theme
+    pre.parent().parent().css('position', 'relative');
+    var hide_text = 'Hide prompts and outputs';
+    var show_text = 'Show prompts and outputs';
+
+    // create and add the button to all the code blocks that contain >>>
+    div.each(function(index) {
+        var jthis = $(this);
+        if (jthis.find('.gp').length > 0) {
+            var button = $('<span class="copybutton">&gt;&gt;&gt;</span>');
+            button.attr('title', hide_text);
+            button.data('hidden', 'false');
+            jthis.prepend(button);
+        }
+        // tracebacks (.gt) contain bare text elements that need to be
+        // wrapped in a span to work with .nextUntil() (see later)
+        jthis.find('pre:has(.gt)').contents().filter(function() {
+            return ((this.nodeType == 3) && (this.data.trim().length > 0));
+        }).wrap('<span>');
+    });
+
+    // define the behavior of the button when it's clicked
+    $('.copybutton').click(function(e){
+        e.preventDefault();
+        var button = $(this);
+        if (button.data('hidden') === 'false') {
+            // hide the code output
+            button.parent().find('.go, .gp, .gt').hide();
+            button.next('pre').find('.gt').nextUntil('.gp, .go').css('visibility', 'hidden');
+            button.css('text-decoration', 'line-through');
+            button.attr('title', show_text);
+            button.data('hidden', 'true');
+        } else {
+            // show the code output
+            button.parent().find('.go, .gp, .gt').show();
+            button.next('pre').find('.gt').nextUntil('.gp, .go').css('visibility', 'visible');
+            button.css('text-decoration', 'none');
+            button.attr('title', hide_text);
+            button.data('hidden', 'false');
+        }
+    });
+
+	/*** Add permalink buttons next to glossary terms ***/
+	$('dl.glossary > dt[id]').append(function() {
+		return ('<a class="headerlink" href="#' +
+			    this.getAttribute('id') +
+			    '" title="Permalink to this term">¶</a>');
+	});
+  /*** Hide navbar when scrolling down ***/
+  // Returns true when headerlink target matches hash in url
+  (function() {
+    hashTargetOnTop = function() {
+        var hash = window.location.hash;
+        if ( hash.length < 2 ) { return false; }
+
+        var target = document.getElementById( hash.slice(1) );
+        if ( target === null ) { return false; }
+
+        var top = target.getBoundingClientRect().top;
+        return (top < 2) && (top > -2);
+    };
+
+    // Hide navbar on load if hash target is on top
+    var navBar = document.getElementById("navbar");
+    var navBarToggler = document.getElementById("sk-navbar-toggler");
+    var navBarHeightHidden = "-" + navBar.getBoundingClientRect().height + "px";
+    var $window = $(window);
+
+    hideNavBar = function() {
+        navBar.style.top = navBarHeightHidden;
+    };
+
+    showNavBar = function() {
+        navBar.style.top = "0";
+    }
+
+    if (hashTargetOnTop()) {
+        hideNavBar()
+    }
+
+    var prevScrollpos = window.pageYOffset;
+    hideOnScroll = function(lastScrollTop) {
+        if (($window.width() < 768) && (navBarToggler.getAttribute("aria-expanded") === 'true')) {
+            return;
+        }
+        if (lastScrollTop > 2 && (prevScrollpos <= lastScrollTop) || hashTargetOnTop()){
+            hideNavBar()
+        } else {
+            showNavBar()
+        }
+        prevScrollpos = lastScrollTop;
+    };
+
+    /*** high performance scroll event listener***/
+    var raf = window.requestAnimationFrame ||
+        window.webkitRequestAnimationFrame ||
+        window.mozRequestAnimationFrame ||
+        window.msRequestAnimationFrame ||
+        window.oRequestAnimationFrame;
+    var lastScrollTop = $window.scrollTop();
+
+    if (raf) {
+        loop();
+    }
+
+    function loop() {
+        var scrollTop = $window.scrollTop();
+        if (lastScrollTop === scrollTop) {
+            raf(loop);
+            return;
+        } else {
+            lastScrollTop = scrollTop;
+            hideOnScroll(lastScrollTop);
+            raf(loop);
+        }
+    }
+  })();
+});
+
+</script>
+    
+
+<script src="_static/js/vendor/bootstrap.min.js"></script>
+
+</body>
+</html>

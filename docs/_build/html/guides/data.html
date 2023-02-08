@@ -4,11 +4,6 @@
 
   <meta charset="utf-8">
   <meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
-<meta property="og:title" content="2. Data Processing" />
-<meta property="og:type" content="website" />
-<meta property="og:url" content="guides/data.html" />
-<meta property="og:description" content="Load, summarize, preprocess, and prepare data for machine learning …" />
-<meta name="description" content="Load, summarize, preprocess, and prepare data for machine learning …" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
@@ -43,7 +38,6 @@
         <script src="../_static/doctools.js"></script>
         <script src="../_static/sphinx_highlight.js"></script>
         <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
-        <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.20.1/dist/embed-amd.js"></script>
     <script src="../_static/js/theme.js"></script>
 
 </head>
@@ -79,14 +73,14 @@
         <li class="nav-item">
           <a class="sk-nav-link nav-link" href="../install.html">Install</a>
         </li>
+		<li class="nav-item">
+          <a class="sk-nav-link nav-link" href="../modules/classes.html">API</a>
+        </li>
         <li class="nav-item">
           <a class="sk-nav-link nav-link" href="../user_guide.html">User Guide</a>
         </li>
         <li class="nav-item">
           <a class="sk-nav-link nav-link" href="../auto_examples/index.html">Examples</a>
-        </li>
-        <li class="nav-item">
-          <a class="sk-nav-link nav-link" href="../modules/classes.html">API</a>
         </li>
         <li class="nav-item">
           <a class="sk-nav-link nav-link" href="../faq.html">FAQ</a>
@@ -117,7 +111,7 @@
           </div>
           <!--div class="btn-group w-100 mb-2" role="group" aria-label="rellinks">
               <a href="introduction.html" role="button" class="btn sk-btn-rellink py-1" sk-rellink-tooltip="1. Introduction">Prev</a><a href="../user_guide.html" role="button" class="btn sk-btn-rellink py-1" sk-rellink-tooltip="User Guide">Up</a>
-              <a href="models.html" role="button" class="btn sk-btn-rellink py-1" sk-rellink-tooltip="3. Interpretable ML Models">Next</a>
+              <a href="data/feature_select.html" role="button" class="btn sk-btn-rellink py-1" sk-rellink-tooltip="2.1. Feature Selection">Next</a>
           </div-->
               <div class="sk-sidebar-toc">
               
@@ -139,12 +133,20 @@
                   </li>
                 
                   <li>
-                    <a href="" class="sk-toc-active">2. Data Processing</a>
+                    <a href="" class="sk-toc-active">2. Data Pipeline</a>
+                    
+                    <ul>
+                      
+                        <li class="sk-toctree-l3">
+                          <a href="data/feature_select.html">2.1. Feature Selection</a>
+                        </li>
+                      
+                    </ul>
                     
                   </li>
                 
                   <li>
-                    <a href="models.html" class="">3. Interpretable ML Models</a>
+                    <a href="models.html" class="">3. Interpretable Models</a>
                     
                   </li>
                 
@@ -154,7 +156,7 @@
                   </li>
                 
                   <li>
-                    <a href="diagnostics.html" class="">5. Model Diagnostics</a>
+                    <a href="testing.html" class="">5. Outcome Testing</a>
                     
                   </li>
                 
@@ -164,12 +166,12 @@
                   </li>
                 
                   <li>
-                    <a href="workflow.html" class="">7. Low-Code Workflow</a>
+                    <a href="cases.html" class="">7. Low-Code Case Studies</a>
                     
                   </li>
                 
                   <li>
-                    <a href="cases.html" class="">8. Case Studies</a>
+                    <a href="conclusion.html" class="">8. Conclusion</a>
                     
                   </li>
                 
@@ -215,9 +217,20 @@
       margin-left: 40px;
   }
 
-</style><section id="data-processing">
-<h1><span class="section-number">2. </span>Data Processing<a class="headerlink" href="#data-processing" title="Permalink to this heading">¶</a></h1>
-<p>Load, summarize, preprocess, and prepare data for machine learning …</p>
+</style><section id="data-pipeline">
+<h1><span class="section-number">2. </span>Data Pipeline<a class="headerlink" href="#data-pipeline" title="Permalink to this heading">¶</a></h1>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="data/feature_select.html">2.1. Feature Selection</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="data/feature_select.html#pearson-correlation">2.1.1. Pearson Correlation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="data/feature_select.html#distance-correlation">2.1.2. Distance Correlation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="data/feature_select.html#feature-importance">2.1.3. Feature Importance</a></li>
+<li class="toctree-l2"><a class="reference internal" href="data/feature_select.html#randomized-conditional-independence-test">2.1.4. Randomized Conditional Independence Test</a></li>
+<li class="toctree-l2"><a class="reference internal" href="data/feature_select.html#full-example">2.1.5. Full Example</a></li>
+</ul>
+</li>
+</ul>
+</div>
 </section>
 
 
@@ -240,16 +253,6 @@
       const tooltipTriggerList = document.querySelectorAll('[data-bs-toggle="tooltip"]')
       const tooltipList = [...tooltipTriggerList].map(tooltipTriggerEl => new bootstrap.Tooltip(tooltipTriggerEl))
   </script>
-
-
-<!--script>
-    window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
-    ga('create', 'UA-22606712-2', 'auto');
-    ga('set', 'anonymizeIp', true);
-    ga('send', 'pageview');
-</script>
-<script async src='https://www.google-analytics.com/analytics.js'></script-->
-
 
 <script>
 $(document).ready(function() {
@@ -383,6 +386,8 @@ $(document).ready(function() {
 
 </script>
     
+
+<script src="_static/js/vendor/bootstrap.min.js"></script>
 
 </body>
 </html>

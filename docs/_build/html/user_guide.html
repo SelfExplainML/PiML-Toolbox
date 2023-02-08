@@ -4,11 +4,6 @@
 
   <meta charset="utf-8">
   <meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
-<meta property="og:title" content="User guide: contents" />
-<meta property="og:type" content="website" />
-<meta property="og:url" content="user_guide.html" />
-<meta property="og:description" content="User Guide: Introduction, Data Processing, Interpretable ML Models, Post-hoc Explainability, Model Diagnostics, Model Comparison, Low-Code Workflow, Case Studies- BikeSharing Data, CaliforniaHousin..." />
-<meta name="description" content="User Guide: Introduction, Data Processing, Interpretable ML Models, Post-hoc Explainability, Model Diagnostics, Model Comparison, Low-Code Workflow, Case Studies- BikeSharing Data, CaliforniaHousin..." />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
@@ -43,7 +38,6 @@
         <script src="_static/doctools.js"></script>
         <script src="_static/sphinx_highlight.js"></script>
         <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
-        <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.20.1/dist/embed-amd.js"></script>
     <script src="_static/js/theme.js"></script>
 
 </head>
@@ -79,14 +73,14 @@
         <li class="nav-item">
           <a class="sk-nav-link nav-link" href="install.html">Install</a>
         </li>
+		<li class="nav-item">
+          <a class="sk-nav-link nav-link" href="modules/classes.html">API</a>
+        </li>
         <li class="nav-item">
           <a class="sk-nav-link nav-link" href="#">User Guide</a>
         </li>
         <li class="nav-item">
           <a class="sk-nav-link nav-link" href="auto_examples/index.html">Examples</a>
-        </li>
-        <li class="nav-item">
-          <a class="sk-nav-link nav-link" href="modules/classes.html">API</a>
         </li>
         <li class="nav-item">
           <a class="sk-nav-link nav-link" href="faq.html">FAQ</a>
@@ -116,7 +110,7 @@
             </a>
           </div>
           <!--div class="btn-group w-100 mb-2" role="group" aria-label="rellinks">
-              <a href="modules/generated/piml.models.GAMClassifier.html" role="button" class="btn sk-btn-rellink py-1" sk-rellink-tooltip="piml.models.GAMClassifier">Prev</a>
+              <a href="modules/generated/piml.models.GAMINetClassifier.html" role="button" class="btn sk-btn-rellink py-1" sk-rellink-tooltip="piml.models.GAMINetClassifier">Prev</a>
               <a href="#" role="button" class="btn sk-btn-rellink disabled py-1">Up</a>
               <a href="guides/introduction.html" role="button" class="btn sk-btn-rellink py-1" sk-rellink-tooltip="1. Introduction">Next</a>
           </div-->
@@ -140,12 +134,12 @@
                   </li>
                 
                   <li>
-                    <a href="guides/data.html" class="">2. Data Processing</a>
+                    <a href="guides/data.html" class="">2. Data Pipeline</a>
                     
                   </li>
                 
                   <li>
-                    <a href="guides/models.html" class="">3. Interpretable ML Models</a>
+                    <a href="guides/models.html" class="">3. Interpretable Models</a>
                     
                   </li>
                 
@@ -155,7 +149,7 @@
                   </li>
                 
                   <li>
-                    <a href="guides/diagnostics.html" class="">5. Model Diagnostics</a>
+                    <a href="guides/testing.html" class="">5. Outcome Testing</a>
                     
                   </li>
                 
@@ -165,12 +159,12 @@
                   </li>
                 
                   <li>
-                    <a href="guides/workflow.html" class="">7. Low-Code Workflow</a>
+                    <a href="guides/cases.html" class="">7. Low-Code Case Studies</a>
                     
                   </li>
                 
                   <li>
-                    <a href="guides/cases.html" class="">8. Case Studies</a>
+                    <a href="guides/conclusion.html" class="">8. Conclusion</a>
                     
                   </li>
                 
@@ -347,20 +341,28 @@
 </style><div class="toctree-wrapper compound">
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="guides/introduction.html">1. Introduction</a></li>
-<li class="toctree-l1"><a class="reference internal" href="guides/data.html">2. Data Processing</a></li>
-<li class="toctree-l1"><a class="reference internal" href="guides/models.html">3. Interpretable ML Models</a></li>
-<li class="toctree-l1"><a class="reference internal" href="guides/explainability.html">4. Post-hoc Explainability</a></li>
-<li class="toctree-l1"><a class="reference internal" href="guides/diagnostics.html">5. Model Diagnostics</a></li>
-<li class="toctree-l1"><a class="reference internal" href="guides/comparison.html">6. Model Comparison</a></li>
-<li class="toctree-l1"><a class="reference internal" href="guides/workflow.html">7. Low-Code Workflow</a></li>
-<li class="toctree-l1"><a class="reference internal" href="guides/cases.html">8. Case Studies</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="guides/cases/Example_BikeSharing.html">8.1. BikeSharing Data</a></li>
-<li class="toctree-l2"><a class="reference internal" href="guides/cases/Example_CaliforniaHousing.html">8.2. CaliforniaHousing Data</a></li>
-<li class="toctree-l2"><a class="reference internal" href="guides/cases/Example_TaiwanCredit.html">8.3. TaiwanCredit Data</a></li>
-<li class="toctree-l2"><a class="reference internal" href="guides/cases/Example_Fairness_SimuStudy1.html">8.4. Fairness Simulation Study 1</a></li>
-<li class="toctree-l2"><a class="reference internal" href="guides/cases/Example_Fairness_SimuStudy2.html">8.5. Fairness Simulation Study 2</a></li>
+<li class="toctree-l1"><a class="reference internal" href="guides/data.html">2. Data Pipeline</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="guides/data/feature_select.html">2.1. Feature Selection</a></li>
 </ul>
 </li>
+<li class="toctree-l1"><a class="reference internal" href="guides/models.html">3. Interpretable Models</a><ul class="simple">
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="guides/explainability.html">4. Post-hoc Explainability</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="guides/explainability.html#global-explainability">4.1. Global Explainability</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="guides/testing.html">5. Outcome Testing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="guides/comparison.html">6. Model Comparison</a></li>
+<li class="toctree-l1"><a class="reference internal" href="guides/cases.html">7. Low-Code Case Studies</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="guides/cases/Example_BikeSharing.html">7.1. BikeSharing Data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="guides/cases/Example_CaliforniaHousing.html">7.2. CaliforniaHousing Data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="guides/cases/Example_TaiwanCredit.html">7.3. TaiwanCredit Data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="guides/cases/Example_Fairness_SimuStudy1.html">7.4. Fairness Simulation Study 1</a></li>
+<li class="toctree-l2"><a class="reference internal" href="guides/cases/Example_Fairness_SimuStudy2.html">7.5. Fairness Simulation Study 2</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="guides/conclusion.html">8. Conclusion</a></li>
 </ul>
 </div>
 </section>
@@ -385,16 +387,6 @@
       const tooltipTriggerList = document.querySelectorAll('[data-bs-toggle="tooltip"]')
       const tooltipList = [...tooltipTriggerList].map(tooltipTriggerEl => new bootstrap.Tooltip(tooltipTriggerEl))
   </script>
-
-
-<!--script>
-    window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
-    ga('create', 'UA-22606712-2', 'auto');
-    ga('set', 'anonymizeIp', true);
-    ga('send', 'pageview');
-</script>
-<script async src='https://www.google-analytics.com/analytics.js'></script-->
-
 
 <script>
 $(document).ready(function() {
@@ -528,6 +520,8 @@ $(document).ready(function() {
 
 </script>
     
+
+<script src="_static/js/vendor/bootstrap.min.js"></script>
 
 </body>
 </html>

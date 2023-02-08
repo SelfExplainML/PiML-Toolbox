@@ -1,0 +1,605 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+
+  <meta charset="utf-8">
+  <meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  
+  <title>PiML Toolbox</title>
+  
+
+  
+  <link rel="shortcut icon" href="../../_static/favicon.ico"/>
+  
+
+  <link rel="stylesheet" href="../../_static/css/vendor/bootstrap.min.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/plot_directive.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/sg_gallery.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/sg_gallery-binder.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/sg_gallery-dataframe.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/sg_gallery-rendered-html.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
+<script id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+<script src="../../_static/jquery.js"></script>
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="../../_static/doctools.js"></script>
+        <script src="../../_static/sphinx_highlight.js"></script>
+        <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+        <script>window.MathJax = {"tex": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true}, "options": {"ignoreHtmlClass": "tex2jax_ignore|mathjax_ignore|document", "processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+        <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
+    <script src="../../_static/js/theme.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav">
+
+  
+
+
+<nav id="navbar" class="sk-docs-navbar navbar navbar-expand-md navbar-light bg-light py-0">
+  <div class="container-fluid sk-docs-container px-0">
+      <a class="navbar-brand py-0" href="../../index.html">
+        <img
+          class="sk-brand-img"
+          src="../../_static/piml-logo.png"
+          alt="logo"/>
+      </a>
+    <button
+      id="sk-navbar-toggler"
+      class="navbar-toggler"
+      type="button"
+      data-toggle="collapse"
+      data-target="#navbarSupportedContent"
+      aria-controls="navbarSupportedContent"
+      aria-expanded="false"
+      aria-label="Toggle navigation"
+    >
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="sk-navbar-collapse collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item">
+          <a class="sk-nav-link nav-link" href="../../install.html">Install</a>
+        </li>
+		<li class="nav-item">
+          <a class="sk-nav-link nav-link" href="../../modules/classes.html">API</a>
+        </li>
+        <li class="nav-item">
+          <a class="sk-nav-link nav-link" href="../../user_guide.html">User Guide</a>
+        </li>
+        <li class="nav-item">
+          <a class="sk-nav-link nav-link" href="../../auto_examples/index.html">Examples</a>
+        </li>
+        <li class="nav-item">
+          <a class="sk-nav-link nav-link" href="../../faq.html">FAQ</a>
+        </li>      </ul>
+      <div id="searchbox" role="search">
+          <div class="searchformwrapper">
+          <form class="search" action="../../search.html" method="get">
+            <input class="sk-search-text-input" type="text" name="q" aria-labelledby="searchlabel" />
+            <input class="sk-search-text-btn" type="submit" value="Go" />
+          </form>
+          </div>
+      </div>
+    </div>
+  </div>
+</nav>
+  <div class="d-flex" id="sk-doc-wrapper">
+      <input type="checkbox" name="sk-toggle-checkbox" id="sk-toggle-checkbox">
+      <label id="sk-sidemenu-toggle" class="sk-btn-toggle-toc btn sk-btn-primary" for="sk-toggle-checkbox">Toggle Menu</label>
+      <div id="sk-sidebar-wrapper" class="border-right">
+        <div class="sk-sidebar-toc-wrapper">
+          <div class="sk-sidebar-toc-logo">
+            <a href="../../index.html">
+              <img
+                class="sk-brand-img"
+                src="../../_static/piml-logo.png"
+                alt="logo"/>
+            </a>
+          </div>
+          <!--div class="btn-group w-100 mb-2" role="group" aria-label="rellinks">
+              <a href="../data.html" role="button" class="btn sk-btn-rellink py-1" sk-rellink-tooltip="2. Data Pipeline">Prev</a><a href="../data.html" role="button" class="btn sk-btn-rellink py-1" sk-rellink-tooltip="2. Data Pipeline">Up</a>
+              <a href="../models.html" role="button" class="btn sk-btn-rellink py-1" sk-rellink-tooltip="3. Interpretable Models">Next</a>
+          </div-->
+              <div class="sk-sidebar-toc">
+              
+                <ul>
+                
+                
+                
+                
+                
+                
+                <li>
+                  <a href="../../user_guide.html" class="sk-toc-active">User Guide</a>
+                </li>
+                <ul>
+                
+                  <li>
+                    <a href="../introduction.html" class="">1. Introduction</a>
+                    
+                  </li>
+                
+                  <li>
+                    <a href="../data.html" class="sk-toc-active">2. Data Pipeline</a>
+                    
+                    <ul>
+                      
+                        <li class="sk-toctree-l3">
+                          <a href="">2.1. Feature Selection</a>
+                        </li>
+                      
+                    </ul>
+                    
+                  </li>
+                
+                  <li>
+                    <a href="../models.html" class="">3. Interpretable Models</a>
+                    
+                  </li>
+                
+                  <li>
+                    <a href="../explainability.html" class="">4. Post-hoc Explainability</a>
+                    
+                  </li>
+                
+                  <li>
+                    <a href="../testing.html" class="">5. Outcome Testing</a>
+                    
+                  </li>
+                
+                  <li>
+                    <a href="../comparison.html" class="">6. Model Comparison</a>
+                    
+                  </li>
+                
+                  <li>
+                    <a href="../cases.html" class="">7. Low-Code Case Studies</a>
+                    
+                  </li>
+                
+                  <li>
+                    <a href="../conclusion.html" class="">8. Conclusion</a>
+                    
+                  </li>
+                
+                </ul>
+                
+                
+                
+                
+                </ul>
+              </div>
+        </div>
+      </div>
+      <div id="sk-page-content-wrapper">
+        <div class="sk-page-content container-fluid body px-md-3" role="main">
+          
+  <style type="text/css">
+  div.body div.toctree-wrapper ul {
+      padding-left: 0;
+  }
+
+  div.body li.toctree-l1 {
+      padding: 0 0 0.5em 0;
+      list-style-type: none;
+      font-size: 150%;
+      font-weight: bold;
+  }
+
+  div.body li.toctree-l2 {
+      font-size: 70%;
+      list-style-type: square;
+      font-weight: normal;
+      margin-left: 40px;
+  }
+
+  div.body li.toctree-l3 {
+      font-size: 85%;
+      list-style-type: circle;
+      font-weight: normal;
+      margin-left: 40px;
+  }
+
+  div.body li.toctree-l4 {
+      margin-left: 40px;
+  }
+
+</style><section id="feature-selection">
+<h1><span class="section-number">2.1. </span>Feature Selection<a class="headerlink" href="#feature-selection" title="Permalink to this heading">¶</a></h1>
+<p>Feature selection aims at selecting a subset of covariates that are most relevant to the response.
+When the number of features is large, feature selection can help mitigate computational burden and avoid overfitting.
+Moreover, reducing the number of modeling features is also beneficial for enhancing model interpretability.</p>
+<p>In this section, four built-in feature selection strategies in PiML would be briefly introduced.
+For demonstration purposes, we run the following example codes to initialize a PiML experiment for the BikeSharing dataset.
+Note that feature selection is based on training data, and hence the <code class="docutils literal notranslate"><span class="pre">exp.data_prepare</span></code> function should be executed before running <code class="docutils literal notranslate"><span class="pre">exp.feature_select</span></code>.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">piml</span> <span class="kn">import</span> <span class="n">Experiment</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">exp</span> <span class="o">=</span> <span class="n">Experiment</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">exp</span><span class="o">.</span><span class="n">data_loader</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="s1">&#39;BikeSharing&#39;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">exp</span><span class="o">.</span><span class="n">data_prepare</span><span class="p">(</span><span class="n">target</span><span class="o">=</span><span class="s1">&#39;cnt&#39;</span><span class="p">,</span> <span class="n">task_type</span><span class="o">=</span><span class="s1">&#39;Regression&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<section id="pearson-correlation">
+<h2><span class="section-number">2.1.1. </span>Pearson Correlation<a class="headerlink" href="#pearson-correlation" title="Permalink to this heading">¶</a></h2>
+<p>Pearson correlation is a measure of linear correlation between two variables.
+Mathematically, the correlation coefficient of <span class="math notranslate nohighlight">\(X\)</span> and <span class="math notranslate nohighlight">\(Y\)</span> can be calculated in the following way.</p>
+<div class="math notranslate nohighlight">
+\[\begin{align}
+\rho_{X Y}=\frac{\sum_{i=1}^n\left(X_i-\bar{X}\right)\left(Y_i-\bar{Y}\right)}
+                     {\sqrt{\sum_{i=1}^n\left(X_i-\bar{X}\right)^2} \sqrt{\sum_{i=1}^n\left(Y_i-\bar{Y}\right)^2}}
+\end{align}\]</div>
+<p>The value of <span class="math notranslate nohighlight">\(\rho_{X Y}\)</span> ranges from -1 to 1, where the sign denotes the direction of the relationship, and the magnitude represents the correlation strength.
+The corresponding feature selection strategy is straightforward:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>Calculate the Pearson correlation coefficient between each covariate and the response.</p></li>
+<li><p>Select features with <span class="math notranslate nohighlight">\(|\rho_{X Y}|\)</span> greater than a user-specified <code class="docutils literal notranslate"><span class="pre">threshold</span></code>.</p></li>
+</ul>
+</div></blockquote>
+<p>These two steps are wrapped up and can be called in a single-line command in PiML, as follows,</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">exp</span><span class="o">.</span><span class="n">feature_select</span><span class="p">(</span><span class="n">method</span><span class="o">=</span><span class="s1">&#39;cor&#39;</span><span class="p">,</span> <span class="n">threshold</span><span class="o">=</span><span class="mf">0.1</span><span class="p">)</span>
+</pre></div>
+</div>
+<figure class="align-center">
+<a class="reference internal image-reference" href="../../_images/cor.png"><img alt="../../_images/cor.png" src="../../_images/cor.png" style="width: 676.8px; height: 365.4px;" /></a>
+</figure>
+<p>where <code class="docutils literal notranslate"><span class="pre">cor</span></code> is the keyword of the Pearson correlation strategy, and 0.1 is the user-defined threshold.
+The output results include:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>The upper-left figure shows the top 10 most important features, where the blue and orange bars denote the positive and negative correlations, respectively.</p></li>
+<li><p>The upper-right table contains the correlation coefficients of all features.</p></li>
+<li><p>The bottom line text highlights the selected features.</p></li>
+</ul>
+</div></blockquote>
+<p>Pearson correlation is easy to compute and interpret.
+However, as it cannot measure non-linear relationships, its usage is limited and we may use the following three methods when dealing with complicated data.</p>
+</section>
+<section id="distance-correlation">
+<h2><span class="section-number">2.1.2. </span>Distance Correlation<a class="headerlink" href="#distance-correlation" title="Permalink to this heading">¶</a></h2>
+<p>The distance correlation is a measure of dependence between two paired random vectors.
+It can be viewed as an advanced correlation measurement that can handle both linear and non-linear relationships.
+Given two features <span class="math notranslate nohighlight">\(X\)</span> and <span class="math notranslate nohighlight">\(Y\)</span>, we first calculate their pairwise Euclidean distance matrix, as follows,</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{aligned}
+        &amp; a_{j, k}=\left\|X_j-X_k\right\|, \quad j, k=1,2, \ldots, n \\
+        &amp; b_{j, k}=\left\|Y_j-Y_k\right\|, \quad j, k=1,2, \ldots, n.
+\end{aligned}\end{split}\]</div>
+<p>Then, these two matrices are centered,</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{aligned}
+        &amp; A_{j, k}:=a_{j, k}-\bar{a}_{j \cdot}-\bar{a}_{\cdot k}+\bar{a}_{\cdot \cdot} \\
+        &amp; B_{j, k}:=b_{j, k}-\bar{b}_{j \cdot}-\bar{b}_{\cdot k}+\bar{b}_{\cdot \cdot}.
+\end{aligned}\end{split}\]</div>
+<p>The squared sample distance covariance is then defined as the arithmetic average of the products of <span class="math notranslate nohighlight">\(A_{j, k}\)</span> and <span class="math notranslate nohighlight">\(A_{j, k}\)</span></p>
+<div class="math notranslate nohighlight">
+\[\begin{aligned}
+             \mathrm{dCov}^2(X, Y):=\frac{1}{n^2} \sum_{j=1}^n \sum_{k=1}^n A_{j, k} B_{j, k}.
+\end{aligned}\]</div>
+<p>Finally, the distance correlation between <span class="math notranslate nohighlight">\(X\)</span> and <span class="math notranslate nohighlight">\(Y\)</span> can be calculated via the following formula.</p>
+<div class="math notranslate nohighlight">
+\[\begin{aligned}
+             \mathrm{dCor}^2(X, Y) = \frac{\mathrm{dCov}^2(X, Y)}{\sqrt{\mathrm{dVar}^2(X) \operatorname{dVar}^2(Y)}}.
+     \end{aligned}\]</div>
+<p>Similar to that of Pearson correlation, we first calculate the distance correlation of each covariate and the response and then use a <code class="docutils literal notranslate"><span class="pre">threshold</span></code> to determine which features are selected.
+Note that the distance correlation is always positive, ranging from 0 to 1, and hence we don’t need to take the absolute value of these coefficients.
+In PiML, this method can be called using the following command.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">exp</span><span class="o">.</span><span class="n">feature_select</span><span class="p">(</span><span class="n">method</span><span class="o">=</span><span class="s1">&#39;dcor&#39;</span><span class="p">,</span> <span class="n">threshold</span><span class="o">=</span><span class="mf">0.1</span><span class="p">)</span>
+</pre></div>
+</div>
+<figure class="align-center">
+<a class="reference internal image-reference" href="../../_images/dcor.png"><img alt="../../_images/dcor.png" src="../../_images/dcor.png" style="width: 667.8px; height: 361.2px;" /></a>
+</figure>
+<p>where the keyword is <code class="docutils literal notranslate"><span class="pre">dcor</span></code>, and the distance correlation is calculated using the <code class="docutils literal notranslate"><span class="pre">dcor</span></code> package, see the source code at <a class="reference external" href="https://github.com/vnmabus/dcor">https://github.com/vnmabus/dcor</a>.
+The main advantage of distance correlation lies in that it is flexible in capturing non-linear relationships.
+However, its calculation requires the pairwise distance matrix, which can be computationally very expensive as the sample size is large.</p>
+</section>
+<section id="feature-importance">
+<h2><span class="section-number">2.1.3. </span>Feature Importance<a class="headerlink" href="#feature-importance" title="Permalink to this heading">¶</a></h2>
+<p>This strategy is composed of the following four steps:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>Fit an LGBM model using all the covariates and the response.</p></li>
+<li><p>Run permutation feature importance test for the fitted LGBM model, and get the importance of each feature.</p></li>
+<li><p>Sort features in the descending order of importance (normalized such that all values sum to 1).</p></li>
+<li><p>Select the top features with accumulated importance greater than a pre-defined threshold.</p></li>
+</ul>
+</div></blockquote>
+<p>See the example usage below.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">exp</span><span class="o">.</span><span class="n">feature_select</span><span class="p">(</span><span class="n">method</span><span class="o">=</span><span class="s1">&#39;pfi&#39;</span><span class="p">,</span> <span class="n">threshold</span><span class="o">=</span><span class="mf">0.95</span><span class="p">)</span>
+</pre></div>
+</div>
+<figure class="align-center">
+<a class="reference internal image-reference" href="../../_images/pfi.png"><img alt="../../_images/pfi.png" src="../../_images/pfi.png" style="width: 667.1999999999999px; height: 362.4px;" /></a>
+</figure>
+<p>where the keyword here is <code class="docutils literal notranslate"><span class="pre">pfi</span></code>, and this test is based on the implementation of scikit-learn, and the details can be found at <a class="reference external" href="https://scikit-learn.org/stable/modules/generated/sklearn.inspection.permutation_importance.html">https://scikit-learn.org/stable/modules/generated/sklearn.inspection.permutation_importance.html</a>.
+The setting <code class="docutils literal notranslate"><span class="pre">threshold=0.95</span></code> means selecting the top features with the sum of feature importance greater than 95%.
+The valid range of <code class="docutils literal notranslate"><span class="pre">threshold</span></code> is 0 to 1, representing the percentage of accumulated importance.
+As we increase the threshold, more features would be selected.</p>
+<p>By using LGBM and PFI to rank features, the selected features are most relevant for predicting the response.
+The potential concern of this method is that the fitted model can be overfitting to noisy features, and thus the resulting feature ranking can be incorrect.</p>
+</section>
+<section id="randomized-conditional-independence-test">
+<h2><span class="section-number">2.1.4. </span>Randomized Conditional Independence Test<a class="headerlink" href="#randomized-conditional-independence-test" title="Permalink to this heading">¶</a></h2>
+<p>This strategy aims to identify a Markov boundary of the response variable, where the Markov boundary is defined as the minimal feature subset with maximum predictive power.
+In particular, the randomized conditional independence test (RCIT) is used to test whether a variable is probabilistically independent of the response variable, conditioning on the Markov boundary.
+A forward-backward selection strategy is incorporated with RCIT to generate the Markov boundary.</p>
+<section id="rcit-test">
+<h3><span class="section-number">2.1.4.1. </span>RCIT Test<a class="headerlink" href="#rcit-test" title="Permalink to this heading">¶</a></h3>
+<p>Given a Markov boundary set <span class="math notranslate nohighlight">\(Z\)</span>, the goal is to test whether a feature <span class="math notranslate nohighlight">\(X\)</span> is independent of the response variable <span class="math notranslate nohighlight">\(Y\)</span>, namely <span class="math notranslate nohighlight">\(X \perp Y \mid Z\)</span>..
+The RCIT test is highly related to KCIT, see follows.</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>KCIT <a class="reference internal" href="#zhang2012" id="id1"><span>[Zhang2012]</span></a>: kernel conditional independent test, works for non-linear and arbitrary data distribution; but not scalable.</p></li>
+<li><p>RCIT <a class="reference internal" href="#strobl2019" id="id2"><span>[Strobl2019]</span></a>: a fast approximation of KCIT; random Fourier features are used instead of reproducing kernel Hibert spaces.</p></li>
+</ul>
+</div></blockquote>
+<p>Therefore, RCIT is used as it can handle non-linear relationships and is fast in computation (as compared to KCIT).
+A detailed introduction to RCIT is given below:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(X, Y, Z\)</span> are first transformed using random Fourier features;</p></li>
+<li><p>Then the null hypothesis <span class="math notranslate nohighlight">\(X \perp Y \mid Z\)</span> is equivalent to zero partial cross-covariance <span class="math notranslate nohighlight">\(\Sigma_{X Y \mid Z}=\Sigma_{X Y}-\Sigma_{Y Z} \Sigma_{Z Z}^{-1} \Sigma_{X Z}=0\)</span>;</p></li>
+<li><p>The test statistics is then approximated by <span class="math notranslate nohighlight">\(\left\|\hat{\Sigma}_{X Y \mid Z}\right\|_F^2=\mathrm{n} \hat{\Sigma}_{X Y}-\hat{\Sigma}_{Y Z}\left(\hat{\Sigma}_{Z Z}+\gamma I\right)^{-1} \hat{\Sigma}_{X Z}\)</span>;</p></li>
+<li><p>The asymptotic distribution of the test statistics is <span class="math notranslate nohighlight">\(\sum_{i=1} \lambda_i z_i^2\)</span>, where <span class="math notranslate nohighlight">\(z_i\)</span> are i.i.d. standard Gaussian variables.</p></li>
+<li><p>Lindsay-Pilla-Basak (LPB; <a class="reference internal" href="#lindsayl2000" id="id3"><span>[Lindsayl2000]</span></a>) approximates the CDF under the null using a finite mixture of Gamma distribution.</p></li>
+</ul>
+</div></blockquote>
+<p>In PiML, the number of random Fourier features is set to 100 (<span class="math notranslate nohighlight">\(Z\)</span>) and 5 (<span class="math notranslate nohighlight">\(X\)</span> and <span class="math notranslate nohighlight">\(Y\)</span>), respectively.</p>
+</section>
+<section id="forward-backward-selection-with-early-dropping-fbedk">
+<h3><span class="section-number">2.1.4.2. </span>Forward-Backward selection with Early Dropping (FBEDk):<a class="headerlink" href="#forward-backward-selection-with-early-dropping-fbedk" title="Permalink to this heading">¶</a></h3>
+<p>The FBEDk <a class="reference internal" href="#borboudakis2019" id="id4"><span>[Borboudakis2019]</span></a> algorithm is a combination of forward selection and backward elimination.
+Here we first run forward selection with a user-defined Markov boundary set as initial and then conduct backward elimination to further delete insignificant features.</p>
+<p><strong>Forward Selection</strong></p>
+<blockquote>
+<div><ul class="simple">
+<li><p>Given a predefined Markov boundary set, we initialize all the remaining covariate features as candidate features.</p></li>
+<li><p>Run the RCIT test between each candidate feature and the response variable, conditional on the Markov boundary set.</p></li>
+<li><p>Features with <code class="docutils literal notranslate"><span class="pre">p_value</span> <span class="pre">&lt;=</span> <span class="pre">threshold</span></code> will be selected as the candidate features.</p></li>
+<li><p>Among the candidate features, the most significant one will be added to the Markov boundary set.</p></li>
+<li><p>Repeat the last three steps, and the algorithm stops as the candidate set is empty.</p></li>
+</ul>
+</div></blockquote>
+<p>The above steps describe one run of the forward phase. To increase accuracy, the overall forward phase is repeated for <code class="docutils literal notranslate"><span class="pre">k</span></code> times, i.e., the character “k” in “FBEDk”.
+As recommended by <a class="reference internal" href="#yu2020" id="id5"><span>[Yu2020]</span></a>, the forward phase is repeated twice, i.e., the value of <code class="docutils literal notranslate"><span class="pre">k</span></code> is 2, and you may change this parameter by specifying the argument <code class="docutils literal notranslate"><span class="pre">n_forward_phase</span></code>.</p>
+<p><strong>Backward Elimination</strong></p>
+<blockquote>
+<div><ul class="simple">
+<li><p>Temporarily remove feature <span class="math notranslate nohighlight">\(j\)</span> from the Markov boundary set.</p></li>
+<li><p>Run RCIT test for feature <span class="math notranslate nohighlight">\(j\)</span> and <span class="math notranslate nohighlight">\(Y\)</span>, conditional on the temporary Markov boundary set.</p></li>
+<li><p>Permanently remove feature <span class="math notranslate nohighlight">\(j\)</span> from the Markov boundary set, if <code class="docutils literal notranslate"><span class="pre">p_value</span> <span class="pre">&gt;</span> <span class="pre">threshold</span></code>.</p></li>
+</ul>
+</div></blockquote>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">exp</span><span class="o">.</span><span class="n">feature_select</span><span class="p">(</span><span class="n">method</span><span class="o">=</span><span class="s1">&#39;rcit&#39;</span><span class="p">,</span> <span class="n">threshold</span><span class="o">=</span><span class="mf">0.001</span><span class="p">,</span> <span class="n">n_forward_phase</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">kernel_num</span><span class="o">=</span><span class="mi">100</span><span class="p">)</span>
+</pre></div>
+</div>
+<figure class="align-center">
+<a class="reference internal image-reference" href="../../_images/rcit.png"><img alt="../../_images/rcit.png" src="../../_images/rcit.png" style="width: 691.8px; height: 369.0px;" /></a>
+</figure>
+<p>where the upper-left figure shows the step-by-step formulation of the Markov boundary set.
+The value of the <code class="docutils literal notranslate"><span class="pre">threshold</span></code> should be between 0 to 1. The smaller its value, the fewer features would be marked as significant and then selected.</p>
+<p>In the beginning, the Markov boundary set is empty, and the RCIT test is run over each feature and the response.
+As shown in iteration zero, some features are marked as significant if the corresponding <code class="docutils literal notranslate"><span class="pre">p_value</span> <span class="pre">&lt;=</span> <span class="pre">threshold</span></code>, e.g., <code class="docutils literal notranslate"><span class="pre">hr</span></code> and <code class="docutils literal notranslate"><span class="pre">temp</span></code>; while <code class="docutils literal notranslate"><span class="pre">workingday</span></code> and <code class="docutils literal notranslate"><span class="pre">weekday</span></code> are shown to be insignificant.
+In iteration one, the most significant feature <code class="docutils literal notranslate"><span class="pre">temp</span></code> is added to the Markov boundary set, while <code class="docutils literal notranslate"><span class="pre">workingday</span></code> and <code class="docutils literal notranslate"><span class="pre">weekday</span></code> are then removed from the candidate feature list.
+This procedure will be repeated, and in the end, seven features are selected, including, <code class="docutils literal notranslate"><span class="pre">temp</span></code>, <code class="docutils literal notranslate"><span class="pre">hr</span></code>, <code class="docutils literal notranslate"><span class="pre">yr</span></code>, <code class="docutils literal notranslate"><span class="pre">weathersit</span></code>, <code class="docutils literal notranslate"><span class="pre">season</span></code>, <code class="docutils literal notranslate"><span class="pre">hum</span></code>, and <code class="docutils literal notranslate"><span class="pre">mnth</span></code>.</p>
+<p>As the FBEDk algorithm can start with an arbitrary Markov boundary set, users may define a non-empty Markov boundary set as the start point, see the following example.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">exp</span><span class="o">.</span><span class="n">feature_select</span><span class="p">(</span><span class="n">method</span><span class="o">=</span><span class="s1">&#39;rcit&#39;</span><span class="p">,</span> <span class="n">threshold</span><span class="o">=</span><span class="mf">0.001</span><span class="p">,</span> <span class="n">preset</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;hr&quot;</span><span class="p">,</span> <span class="s2">&quot;temp&quot;</span><span class="p">])</span>
+</pre></div>
+</div>
+<figure class="align-center">
+<a class="reference internal image-reference" href="../../_images/rcit_preset.png"><img alt="../../_images/rcit_preset.png" src="../../_images/rcit_preset.png" style="width: 700.1999999999999px; height: 366.59999999999997px;" /></a>
+</figure>
+<p>This time, two features <code class="docutils literal notranslate"><span class="pre">hr</span></code> and <code class="docutils literal notranslate"><span class="pre">temp</span></code> are selected as the initialization, and they are shown in deep blue in iteration 0.</p>
+<p>The RCIT-based feature selection method is capable of handling non-linear relationships, and the selected features are all causally related to the response, subject to the pre-defined significance level.
+The disadvantages of this method include: a) the computational burden is relatively high; b) as it is a sequential selection approach, the results may be slightly different as we use different initial Markov boundary sets.</p>
+</section>
+</section>
+<section id="full-example">
+<h2><span class="section-number">2.1.5. </span>Full Example<a class="headerlink" href="#full-example" title="Permalink to this heading">¶</a></h2>
+<p>The full example codes of this section can be found in the following link.</p>
+<div class="topic">
+<p class="topic-title">Example</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="../../auto_examples/data/plot_0_feature_select.html#sphx-glr-auto-examples-data-plot-0-feature-select-py"><span class="std std-ref">Feature Selection</span></a></p></li>
+</ul>
+</div>
+<div class="topic">
+<p class="topic-title">References</p>
+<blockquote>
+<div><dl class="citation">
+<dt class="label" id="zhang2012"><span class="brackets"><a class="fn-backref" href="#id1">Zhang2012</a></span></dt>
+<dd><p>Zhang, K., Peters, J., Janzing, D. and Schölkopf, B., 2012. Kernel-based conditional independence test and application in causal discovery. arXiv preprint arXiv:1202.3775.</p>
+</dd>
+<dt class="label" id="strobl2019"><span class="brackets"><a class="fn-backref" href="#id2">Strobl2019</a></span></dt>
+<dd><p>Strobl, E.V., Zhang, K. and Visweswaran, S., 2019. Approximate kernel-based conditional independence tests for fast non-parametric causal discovery. Journal of Causal Inference, 7(1).</p>
+</dd>
+<dt class="label" id="lindsayl2000"><span class="brackets"><a class="fn-backref" href="#id3">Lindsayl2000</a></span></dt>
+<dd><p>Lindsay, B.G., Pilla, R.S. and Basak, P., 2000. Moment-based approximations of distributions using mixtures: Theory and applications. Annals of the Institute of Statistical Mathematics, 52(2), pp.215-230.</p>
+</dd>
+<dt class="label" id="borboudakis2019"><span class="brackets"><a class="fn-backref" href="#id4">Borboudakis2019</a></span></dt>
+<dd><p>Borboudakis, G. and Ioannis T., 2019. Forward-backward selection with early dropping. The Journal of Machine Learning Research 20(1), pp.276-314.</p>
+</dd>
+</dl>
+</div></blockquote>
+<dl class="citation">
+<dt class="label" id="yu2020"><span class="brackets"><a class="fn-backref" href="#id5">Yu2020</a></span></dt>
+<dd><p>Yu, K., Guo, X., Liu, L., Li, J., Wang, H., Ling, Z. and Wu, X., 2020. Causality-based feature selection: Methods and evaluations. ACM Computing Surveys (CSUR), 53(5), pp.1-36.</p>
+</dd>
+</dl>
+</div>
+</section>
+</section>
+
+
+        </div>
+      <div class="container">
+        <footer class="sk-content-footer">
+              &copy; Copyright 2022-, PiML-Toolbox authors.
+            <a href="../../_sources/guides/data/feature_select.rst.txt" rel="nofollow">Show this page source</a>
+        </footer>
+      </div>
+    </div>
+  </div>
+
+
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(false);
+      });
+      
+      const tooltipTriggerList = document.querySelectorAll('[data-bs-toggle="tooltip"]')
+      const tooltipList = [...tooltipTriggerList].map(tooltipTriggerEl => new bootstrap.Tooltip(tooltipTriggerEl))
+  </script>
+
+<script>
+$(document).ready(function() {
+    /* Add a [>>>] button on the top-right corner of code samples to hide
+     * the >>> and ... prompts and the output and thus make the code
+     * copyable. */
+    var div = $('.highlight-python .highlight,' +
+                '.highlight-python3 .highlight,' +
+                '.highlight-pycon .highlight,' +
+		'.highlight-default .highlight')
+    var pre = div.find('pre');
+
+    // get the styles from the current theme
+    pre.parent().parent().css('position', 'relative');
+    var hide_text = 'Hide prompts and outputs';
+    var show_text = 'Show prompts and outputs';
+
+    // create and add the button to all the code blocks that contain >>>
+    div.each(function(index) {
+        var jthis = $(this);
+        if (jthis.find('.gp').length > 0) {
+            var button = $('<span class="copybutton">&gt;&gt;&gt;</span>');
+            button.attr('title', hide_text);
+            button.data('hidden', 'false');
+            jthis.prepend(button);
+        }
+        // tracebacks (.gt) contain bare text elements that need to be
+        // wrapped in a span to work with .nextUntil() (see later)
+        jthis.find('pre:has(.gt)').contents().filter(function() {
+            return ((this.nodeType == 3) && (this.data.trim().length > 0));
+        }).wrap('<span>');
+    });
+
+    // define the behavior of the button when it's clicked
+    $('.copybutton').click(function(e){
+        e.preventDefault();
+        var button = $(this);
+        if (button.data('hidden') === 'false') {
+            // hide the code output
+            button.parent().find('.go, .gp, .gt').hide();
+            button.next('pre').find('.gt').nextUntil('.gp, .go').css('visibility', 'hidden');
+            button.css('text-decoration', 'line-through');
+            button.attr('title', show_text);
+            button.data('hidden', 'true');
+        } else {
+            // show the code output
+            button.parent().find('.go, .gp, .gt').show();
+            button.next('pre').find('.gt').nextUntil('.gp, .go').css('visibility', 'visible');
+            button.css('text-decoration', 'none');
+            button.attr('title', hide_text);
+            button.data('hidden', 'false');
+        }
+    });
+
+	/*** Add permalink buttons next to glossary terms ***/
+	$('dl.glossary > dt[id]').append(function() {
+		return ('<a class="headerlink" href="#' +
+			    this.getAttribute('id') +
+			    '" title="Permalink to this term">¶</a>');
+	});
+  /*** Hide navbar when scrolling down ***/
+  // Returns true when headerlink target matches hash in url
+  (function() {
+    hashTargetOnTop = function() {
+        var hash = window.location.hash;
+        if ( hash.length < 2 ) { return false; }
+
+        var target = document.getElementById( hash.slice(1) );
+        if ( target === null ) { return false; }
+
+        var top = target.getBoundingClientRect().top;
+        return (top < 2) && (top > -2);
+    };
+
+    // Hide navbar on load if hash target is on top
+    var navBar = document.getElementById("navbar");
+    var navBarToggler = document.getElementById("sk-navbar-toggler");
+    var navBarHeightHidden = "-" + navBar.getBoundingClientRect().height + "px";
+    var $window = $(window);
+
+    hideNavBar = function() {
+        navBar.style.top = navBarHeightHidden;
+    };
+
+    showNavBar = function() {
+        navBar.style.top = "0";
+    }
+
+    if (hashTargetOnTop()) {
+        hideNavBar()
+    }
+
+    var prevScrollpos = window.pageYOffset;
+    hideOnScroll = function(lastScrollTop) {
+        if (($window.width() < 768) && (navBarToggler.getAttribute("aria-expanded") === 'true')) {
+            return;
+        }
+        if (lastScrollTop > 2 && (prevScrollpos <= lastScrollTop) || hashTargetOnTop()){
+            hideNavBar()
+        } else {
+            showNavBar()
+        }
+        prevScrollpos = lastScrollTop;
+    };
+
+    /*** high performance scroll event listener***/
+    var raf = window.requestAnimationFrame ||
+        window.webkitRequestAnimationFrame ||
+        window.mozRequestAnimationFrame ||
+        window.msRequestAnimationFrame ||
+        window.oRequestAnimationFrame;
+    var lastScrollTop = $window.scrollTop();
+
+    if (raf) {
+        loop();
+    }
+
+    function loop() {
+        var scrollTop = $window.scrollTop();
+        if (lastScrollTop === scrollTop) {
+            raf(loop);
+            return;
+        } else {
+            lastScrollTop = scrollTop;
+            hideOnScroll(lastScrollTop);
+            raf(loop);
+        }
+    }
+  })();
+});
+
+</script>
+    
+
+<script src="_static/js/vendor/bootstrap.min.js"></script>
+
+</body>
+</html>

@@ -36,7 +36,7 @@
         <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
         <script src="_static/doctools.js"></script>
         <script src="_static/sphinx_highlight.js"></script>
-        <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.20.1/dist/embed-amd.js"></script>
+        <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
     <script src="_static/js/theme.js"></script>
 
 </head>
@@ -72,14 +72,14 @@
         <li class="nav-item">
           <a class="sk-nav-link nav-link" href="install.html">Install</a>
         </li>
+		<li class="nav-item">
+          <a class="sk-nav-link nav-link" href="modules/classes.html">API</a>
+        </li>
         <li class="nav-item">
           <a class="sk-nav-link nav-link" href="user_guide.html">User Guide</a>
         </li>
         <li class="nav-item">
           <a class="sk-nav-link nav-link" href="auto_examples/index.html">Examples</a>
-        </li>
-        <li class="nav-item">
-          <a class="sk-nav-link nav-link" href="modules/classes.html">API</a>
         </li>
         <li class="nav-item">
           <a class="sk-nav-link nav-link" href="faq.html">FAQ</a>
@@ -107,7 +107,7 @@
       </div>
       <div class="col-md-6 d-flex">
         <ul class="sk-landing-header-body text-white">
-          <li>An integrated Python toolbox for interpretable machine learning</li>
+          <li>A Python toolbox for interpretable machine learning</li>
 		  <li>Supports a growing list of inherently interpretable models</li>
 		  <li>Supports a whole spectrum of model testing and validation</li>
           <li>Provides easy to use low-code interface and high-code APIs</li>
@@ -122,11 +122,12 @@
     <div class="col-md-4 mb-3 px-md-2 sk-px-xl-4">
       <div class="card h-100">
         <div class="card-body">
-          <a href="guides/data.html"><h4 class="sk-card-title card-title">Data Processing</h4></a>
-          <p class="card-text">Load, summarize, preprocess and prepare data</p>
+          <a href="guides/data.html"><h4 class="sk-card-title card-title">Data Pipeline</h4></a>
+          <p class="card-text">Load, summarize, and prepare data</p>
           <ul style="margin-left:-20px;">
 			  <li><a href="#" data-bs-toggle="tooltip" data-bs-title="Under development">PiML Data Pipeline</a></li>
 			  <li><a href="#" data-bs-toggle="tooltip" data-bs-title="Under development">Exploratory Data Visualization</a></li>
+			  <li><a href="guides/data/feature_select.html">Feature Selection</a></li>
 			  <li><a href="#" data-bs-toggle="tooltip" data-bs-title="Under development">Custom Data Loading into PiML</a></li>
 		  </ul>
         </div>
@@ -135,12 +136,12 @@
     <div class="col-md-4 mb-3 px-md-2 sk-px-xl-4">
       <div class="card h-100">
         <div class="card-body">
-          <a href="guides/models.html"><h4 class="sk-card-title card-title">Interpretable ML Models</h4></a>
+          <a href="guides/models.html"><h4 class="sk-card-title card-title">Interpretable Models</h4></a>
           <p class="card-text">Inherently interpretable machine learning</p>
           <ul style="margin-left:-20px;">
-			  <li><a href="#" data-bs-toggle="tooltip" data-bs-title="Under development">XGBoosted Trees of Depth 2</a></li>
+			  <li><a href="#" data-bs-toggle="tooltip" data-bs-title="Under development">Classic Statistics Models</a></li>
 			  <li><a href="#" data-bs-toggle="tooltip" data-bs-title="Under development">GAMI Neural Networks</a></li>
-			  <li><a href="#" data-bs-toggle="tooltip" data-bs-title="Under development">Deep ReLU Networks by Aletheia Unwrapper</a></li>
+			  <li><a href="#" data-bs-toggle="tooltip" data-bs-title="Under development">XGBoosted Trees of Depth 2</a></li>
 		  </ul>
         </div>
       </div>
@@ -151,9 +152,9 @@
           <a href="guides/explainability.html"><h4 class="sk-card-title card-title">Post-hoc Explainability</h4></a>
           <p class="card-text">Global and local explainability</p>
           <ul style="margin-left:-20px;">
-			  <li><a href="#" data-bs-toggle="tooltip" data-bs-title="Under development">Global methods: PFI, PDP, ALE</a></li>
-			  <li><a href="#" data-bs-toggle="tooltip" data-bs-title="Under development">Local methods: LIME, SHAP</a></li>
-			  <li><a href="#" data-bs-toggle="tooltip" data-bs-title="Under development">Post-hoc explainability disagreement</a></li>
+			  <li><a href="#" data-bs-toggle="tooltip" data-bs-title="Under development">Global Methods: PFI, PDP, ALE</a></li>
+			  <li><a href="#" data-bs-toggle="tooltip" data-bs-title="Under development">Local Methods: LIME, SHAP</a></li>
+			  <li><a href="#" data-bs-toggle="tooltip" data-bs-title="Under development">Post-hoc Explainability Disagreement</a></li>
 		</ul>
         </div>
       </div>
@@ -161,12 +162,13 @@
     <div class="col-md-4 mb-3 px-md-2 sk-px-xl-4">
       <div class="card h-100">
         <div class="card-body">
-          <a href="guides/diagnostics.html"><h4 class="sk-card-title card-title">Model Diagnostics</h4></a>
-          <p class="card-text">Outcome testing for supervised ML models</p>
+          <a href="guides/diagnostics.html"><h4 class="sk-card-title card-title">Outcome Testing</h4></a>
+          <p class="card-text">Model diagnostics</p>
           <ul style="margin-left:-20px;">
-			  <li><a href="#" data-bs-toggle="tooltip" data-bs-title="Under development"><strong>WeakSpot</strong> by slicing techniques</a></li>
-			  <li><a href="#" data-bs-toggle="tooltip" data-bs-title="Under development"><strong>Robustness test</strong> under covariate perturbation</a></li>
-			  <li><a href="#" data-bs-toggle="tooltip" data-bs-title="Under development"><strong>Resilience test</strong> under out-of-dist scenarios</a></li>			  
+			  <li><a href="#" data-bs-toggle="tooltip" data-bs-title="Under development">WeakSpot by Slicing Techniques</a></li>
+			  <li><a href="#" data-bs-toggle="tooltip" data-bs-title="Under development">Reliability Test by Conformal Prediction</a></li>			  
+			  <li><a href="#" data-bs-toggle="tooltip" data-bs-title="Under development">Robustness Test by X-Perturbation</a></li>
+			  <li><a href="#" data-bs-toggle="tooltip" data-bs-title="Under development">Resilience Test under OOD Scenarios</a></li>			  
 		  </ul>
         </div>
       </div>
@@ -175,11 +177,11 @@
       <div class="card h-100">
         <div class="card-body">
           <a href="guides/comparison.html"><h4 class="sk-card-title card-title">Model Comparison</h4></a>
-          <p class="card-text">Comparing multiple ML models and benchmarking</p>
+          <p class="card-text">Benchmarking</p>
           <ul style="margin-left:-20px;">
-			  <li><a href="#" data-bs-toggle="tooltip" data-bs-title="Under development">Black-box vs. glass-box models</a> </li>
-			  <li><a href="#" data-bs-toggle="tooltip" data-bs-title="Under development">Is XGBoost benign overfitting?</a> </li>
-			  <li><a href="#" data-bs-toggle="tooltip" data-bs-title="Under development">Multi-objective model selection</a></li>
+			  <li><a href="#" data-bs-toggle="tooltip" data-bs-title="Under development">Black-box vs. Glass-box Models</a> </li>
+			  <li><a href="#" data-bs-toggle="tooltip" data-bs-title="Under development">Is XGBoost Benign Overfitting?</a> </li>
+			  <li><a href="#" data-bs-toggle="tooltip" data-bs-title="Under development">Multi-objective Model Selection</a></li>
 		  </ul>
         </div>
       </div>
@@ -187,12 +189,12 @@
     <div class="col-md-4 mb-3 px-md-2 sk-px-xl-4">
       <div class="card h-100">
         <div class="card-body">
-          <a href="guides/workflow.html"><h4 class="sk-card-title card-title">Low-Code Workflow</h4></a>
-          <p class="card-text">Low-code workflow and experimentation</p>
+          <a href="guides/workflow.html"><h4 class="sk-card-title card-title">Low-Code Case Studies</h4></a>
+          <p class="card-text">PiML workflow and experimentation</p>
           <ul style="margin-left:-20px;">
-			  <li><a href="guides/cases/Example_BikeSharing.html">Example: Bikesharing data</li>
-			  <li><a href="guides/cases/Example_CaliforniaHousing.html">Example: CaliforniaHousing data</li>
-			  <li><a href="guides/cases/Example_TaiwanCredit.html">Example: TaiwanCredit data</a></li>
+			  <li><a href="guides/cases/Example_BikeSharing.html">Example: Bikesharing Data</li>
+			  <li><a href="guides/cases/Example_CaliforniaHousing.html">Example: CaliforniaHousing Data</li>
+			  <li><a href="guides/cases/Example_TaiwanCredit.html">Example: TaiwanCredit Data</a></li>
 			  <li><a href="guides/cases/Example_Fairness_SimuStudy1.html">Fairness Simulation Study 1</a></li>
 			  <li><a href="guides/cases/Example_Fairness_SimuStudy2.html">Fairness Simulation Study 2</a></li>
 		  </ul>
@@ -212,16 +214,6 @@
       const tooltipTriggerList = document.querySelectorAll('[data-bs-toggle="tooltip"]')
       const tooltipList = [...tooltipTriggerList].map(tooltipTriggerEl => new bootstrap.Tooltip(tooltipTriggerEl))
   </script>
-
-
-<!--script>
-    window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
-    ga('create', 'UA-22606712-2', 'auto');
-    ga('set', 'anonymizeIp', true);
-    ga('send', 'pageview');
-</script>
-<script async src='https://www.google-analytics.com/analytics.js'></script-->
-
 
 <script>
 $(document).ready(function() {
@@ -285,6 +277,7 @@ $(document).ready(function() {
 });
 
 </script>
+
 <script src="_static/js/vendor/bootstrap.min.js"></script>
 
 </body>

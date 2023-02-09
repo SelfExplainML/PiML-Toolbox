@@ -38,6 +38,7 @@
         <script src="../../_static/doctools.js"></script>
         <script src="../../_static/sphinx_highlight.js"></script>
         <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+        <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.20.1/dist/embed-amd.js"></script>
     <script src="../../_static/js/theme.js"></script>
 
 </head>
@@ -73,14 +74,14 @@
         <li class="nav-item">
           <a class="sk-nav-link nav-link" href="../../install.html">Install</a>
         </li>
+		<li class="nav-item">
+          <a class="sk-nav-link nav-link" href="../classes.html">API</a>
+        </li>
         <li class="nav-item">
           <a class="sk-nav-link nav-link" href="../../user_guide.html">User Guide</a>
         </li>
         <li class="nav-item">
           <a class="sk-nav-link nav-link" href="../../auto_examples/index.html">Examples</a>
-        </li>
-        <li class="nav-item">
-          <a class="sk-nav-link nav-link" href="../classes.html">API</a>
         </li>
         <li class="nav-item">
           <a class="sk-nav-link nav-link" href="../../faq.html">FAQ</a>
@@ -117,6 +118,7 @@
                 <ul>
 <li><a class="reference internal" href="#"><code class="xref py py-mod docutils literal notranslate"><span class="pre">piml.models</span></code>.GLMRegressor</a><ul>
 <li><a class="reference internal" href="#piml.models.GLMRegressor"><code class="docutils literal notranslate"><span class="pre">GLMRegressor</span></code></a></li>
+<li><a class="reference internal" href="#examples-using-piml-models-glmregressor">Examples using <code class="docutils literal notranslate"><span class="pre">piml.models.GLMRegressor</span></code></a></li>
 </ul>
 </li>
 </ul>
@@ -131,7 +133,7 @@
 <h1><code class="xref py py-mod docutils literal notranslate"><span class="pre">piml.models</span></code>.GLMRegressor<a class="headerlink" href="#piml-models-glmregressor" title="Permalink to this heading">¶</a></h1>
 <dl class="py class">
 <dt class="sig sig-object py" id="piml.models.GLMRegressor">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">piml.models.</span></span><span class="sig-name descname"><span class="pre">GLMRegressor</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">l1_regularzation</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.11)"><span class="pre">float</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">0.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">l2_regularzation</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.11)"><span class="pre">float</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">0.0</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#piml.models.GLMRegressor" title="Permalink to this definition">¶</a></dt>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">piml.models.</span></span><span class="sig-name descname"><span class="pre">GLMRegressor</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">l1_regularzation</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">l2_regularzation</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#piml.models.GLMRegressor" title="Permalink to this definition">¶</a></dt>
 <dd><p>Linear regression with L1 and L2 regularization.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -165,7 +167,13 @@
 </table>
 </dd></dl>
 
-<div class="clearer"></div></section>
+<section id="examples-using-piml-models-glmregressor">
+<h2>Examples using <code class="docutils literal notranslate"><span class="pre">piml.models.GLMRegressor</span></code><a class="headerlink" href="#examples-using-piml-models-glmregressor" title="Permalink to this heading">¶</a></h2>
+<div class="sphx-glr-thumbnails"><div class="sphx-glr-thumbcontainer" tooltip="(GLM) Regression"><img alt="Generalized Linear Model - Linear Regression Model" src="../../_images/sphx_glr_plot_2_glm_thumb.png" />
+<p><a class="reference internal" href="../../auto_examples/models/plot_2_glm.html#sphx-glr-auto-examples-models-plot-2-glm-py"><span class="std std-ref">Generalized Linear Model - Linear Regression Model</span></a></p>
+  <div class="sphx-glr-thumbnail-title">Generalized Linear Model - Linear Regression Model</div>
+</div></div><div class="clearer"></div></section>
+</section>
 
 
         </div>

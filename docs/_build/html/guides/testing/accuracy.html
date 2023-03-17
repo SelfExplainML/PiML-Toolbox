@@ -1,0 +1,507 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+
+  <meta charset="utf-8">
+  <meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  
+  <title>PiML Toolbox</title>
+  
+
+  
+  <link rel="shortcut icon" href="../../_static/favicon.ico"/>
+  
+
+  <link rel="stylesheet" href="../../_static/css/vendor/bootstrap.min.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/plot_directive.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/jupyter-sphinx.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/thebelab.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/sg_gallery.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/sg_gallery-binder.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/sg_gallery-dataframe.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/sg_gallery-rendered-html.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
+<script id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+<script src="../../_static/jquery.js"></script>
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="../../_static/doctools.js"></script>
+        <script src="../../_static/sphinx_highlight.js"></script>
+        <script src="../../_static/thebelab-helper.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+        <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.20.1/dist/embed-amd.js"></script>
+        <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+        <script>window.MathJax = {"tex": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true}, "options": {"ignoreHtmlClass": "tex2jax_ignore|mathjax_ignore|document", "processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+        <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
+    <script src="../../_static/js/theme.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav">
+
+  
+
+
+<nav id="navbar" class="sk-docs-navbar navbar navbar-expand-md navbar-light bg-light py-0">
+  <div class="container-fluid sk-docs-container px-0">
+      <a class="navbar-brand py-0" href="../../index.html">
+        <img
+          class="sk-brand-img"
+          src="../../_static/piml-logo.png"
+          alt="logo"/>
+      </a>
+    <button
+      id="sk-navbar-toggler"
+      class="navbar-toggler"
+      type="button"
+      data-toggle="collapse"
+      data-target="#navbarSupportedContent"
+      aria-controls="navbarSupportedContent"
+      aria-expanded="false"
+      aria-label="Toggle navigation"
+    >
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="sk-navbar-collapse collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item">
+          <a class="sk-nav-link nav-link" href="../../install.html">Install</a>
+        </li>
+		<li class="nav-item">
+          <a class="sk-nav-link nav-link" href="../../modules/classes.html">API</a>
+        </li>
+        <li class="nav-item">
+          <a class="sk-nav-link nav-link" href="../../user_guide.html">User Guide</a>
+        </li>
+        <li class="nav-item">
+          <a class="sk-nav-link nav-link" href="../../auto_examples/index.html">Examples</a>
+        </li>
+        <li class="nav-item">
+          <a class="sk-nav-link nav-link" href="../../faq.html">FAQ</a>
+        </li>      </ul>
+      <div id="searchbox" role="search">
+          <div class="searchformwrapper">
+          <form class="search" action="../../search.html" method="get">
+            <input class="sk-search-text-input" type="text" name="q" aria-labelledby="searchlabel" />
+            <input class="sk-search-text-btn" type="submit" value="Go" />
+          </form>
+          </div>
+      </div>
+    </div>
+  </div>
+</nav>
+  <div class="d-flex" id="sk-doc-wrapper">
+      <input type="checkbox" name="sk-toggle-checkbox" id="sk-toggle-checkbox">
+      <label id="sk-sidemenu-toggle" class="sk-btn-toggle-toc btn sk-btn-primary" for="sk-toggle-checkbox">Toggle Menu</label>
+      <div id="sk-sidebar-wrapper" class="border-right">
+        <div class="sk-sidebar-toc-wrapper">
+          <div class="sk-sidebar-toc-logo">
+            <a href="../../index.html">
+              <img
+                class="sk-brand-img"
+                src="../../_static/piml-logo.png"
+                alt="logo"/>
+            </a>
+          </div>
+          <!--div class="btn-group w-100 mb-2" role="group" aria-label="rellinks">
+              <a href="../testing.html" role="button" class="btn sk-btn-rellink py-1" sk-rellink-tooltip="6. Outcome Testing">Prev</a><a href="../testing.html" role="button" class="btn sk-btn-rellink py-1" sk-rellink-tooltip="6. Outcome Testing">Up</a>
+              <a href="robustness.html" role="button" class="btn sk-btn-rellink py-1" sk-rellink-tooltip="6.2. Model Robustness">Next</a>
+          </div-->
+              <div class="sk-sidebar-toc">
+              
+                <ul>
+                
+                
+                
+                
+                
+                
+                <li>
+                  <a href="../../user_guide.html" class="sk-toc-active">User Guide</a>
+                </li>
+                <ul>
+                
+                  <li>
+                    <a href="../introduction.html" class="">1. Introduction</a>
+                    
+                  </li>
+                
+                  <li>
+                    <a href="../data.html" class="">2. Data Pipeline</a>
+                    
+                  </li>
+                
+                  <li>
+                    <a href="../extmodels.html" class="">3. Black-box Models</a>
+                    
+                  </li>
+                
+                  <li>
+                    <a href="../explainability.html" class="">4. Post-hoc Explainability</a>
+                    
+                  </li>
+                
+                  <li>
+                    <a href="../models.html" class="">5. Interpretable Models</a>
+                    
+                  </li>
+                
+                  <li>
+                    <a href="../testing.html" class="sk-toc-active">6. Outcome Testing</a>
+                    
+                    <ul>
+                      
+                        <li class="sk-toctree-l3">
+                          <a href="">6.1. Accuracy</a>
+                        </li>
+                      
+                        <li class="sk-toctree-l3">
+                          <a href="robustness.html">6.2. Model Robustness</a>
+                        </li>
+                      
+                        <li class="sk-toctree-l3">
+                          <a href="resilience.html">6.3. Resilience Test</a>
+                        </li>
+                      
+                        <li class="sk-toctree-l3">
+                          <a href="fairness.html">6.4. Fairness Test</a>
+                        </li>
+                      
+                    </ul>
+                    
+                  </li>
+                
+                  <li>
+                    <a href="../comparison.html" class="">7. Model Comparison</a>
+                    
+                  </li>
+                
+                  <li>
+                    <a href="../cases.html" class="">8. Case Studies</a>
+                    
+                  </li>
+                
+                  <li>
+                    <a href="../conclusion.html" class="">9. Conclusion</a>
+                    
+                  </li>
+                
+                </ul>
+                
+                
+                
+                
+                </ul>
+              </div>
+        </div>
+      </div>
+      <div id="sk-page-content-wrapper">
+        <div class="sk-page-content container-fluid body px-md-3" role="main">
+          
+  <section id="accuracy">
+<h1><span class="section-number">6.1. </span>Accuracy<a class="headerlink" href="#accuracy" title="Permalink to this heading">¶</a></h1>
+<p>This section demonstrates how to use PiML to evaluate our model using key performance metrics such as MSE and MAE for regression tasks and ACC, AUC, Recall, Precision, and F1-score for binary
+classification tasks.</p>
+<section id="key-terms-and-definitions">
+<h2><span class="section-number">6.1.1. </span>Key terms and definitions<a class="headerlink" href="#key-terms-and-definitions" title="Permalink to this heading">¶</a></h2>
+<p><strong>Mean Squared Error (MSE)</strong>: Let <span class="math notranslate nohighlight">\(n\)</span> represents the number of samples, <span class="math notranslate nohighlight">\(y\)</span> and <span class="math notranslate nohighlight">\(\hat{y}\)</span> the actual and the predicted value,
+respectively.  The mean square error is computed as</p>
+<div class="math notranslate nohighlight">
+\[\begin{align}
+    MSE = \frac{1}{n}\sum_{i-1}^{n}(y_{i} - \hat{y}_{i})^{2} \tag{1}
+\end{align}\]</div>
+<p><strong>True positives (TP)</strong>: The model predicts that an observation belongs to a specific class and it does belong to that class.</p>
+<p><strong>True negatives (TN)</strong>: The model predicts that an observation does not belong to a specific class when it actually does not belong to that class.</p>
+<p><strong>False positives (FP)</strong>: The model predicts that an observation belongs to a specific class when in reality, it does not.</p>
+<p><strong>False negatives (FN)</strong>: The model predicts that an observation does not belong to a specific class when it actually belongs to that class.</p>
+<p><strong>Accuracy</strong>: The accuracy is the number of samples correctly classified divided by the total number of samples. It is commonly used to evaluate classifiers models. However, it is not a better measurement
+when dealing with class-imbalance data. In addition to the accuracy, to fully evaluate the effectiveness of our model, we must look at both precision and recall.</p>
+<div class="math notranslate nohighlight">
+\[\begin{align}
+   Accuracy = \frac{TP+TN}{TP+FP+TN+FN} \tag{2}
+\end{align}\]</div>
+<p><strong>Precision</strong>:</p>
+<div class="math notranslate nohighlight">
+\[\begin{align}
+   Precision = \frac{TP}{TP+FP} \tag{3}
+\end{align}\]</div>
+<p><strong>Recall</strong>:</p>
+<div class="math notranslate nohighlight">
+\[\begin{align}
+   Recall = \frac{TP}{TP+FN} \tag{4}
+\end{align}\]</div>
+<p><strong>F1-score</strong></p>
+<div class="math notranslate nohighlight">
+\[\begin{align}
+   F1-score = 2\frac{Precision \cdot Recall}{Precision+Recall}=\frac{2.TP}{2.TP+FP+FN} \tag{5}
+\end{align}\]</div>
+<p>Precision-Recall is a useful measure of prediction success when the classes are very imbalanced. In information retrieval, precision is a measure of result relevancy, while recall is a
+measure of how many truly relevant results are returned. In practice, if a model have high recall but low precision, most of its predicted labels are not correct when compared to the training labels. On the other
+hand, a model with high precision but low recall will have most of its predicted labels correct when compared to the training labels.</p>
+</section>
+<section id="binary-classification-tasks">
+<h2><span class="section-number">6.1.2. </span>Binary classification tasks.<a class="headerlink" href="#binary-classification-tasks" title="Permalink to this heading">¶</a></h2>
+<p>We consider a binary classification task on the  TaiwanCredit data from UCI repository, which consists of 30,000 clients’ credit cards in Taiwan from 200504 to 200509; see details here
+<a class="reference external" href="https://archive.ics.uci.edu/ml/datasets/default+of+credit+card+clients">TaiwanCreditData</a> . The data can be loaded from PiML and subject to slight preprocessing. The response to this classification problem is ‘FlagDefault’.</p>
+<p>Let’s start by training two separate models; we then demonstrate how to use PiML to asses individual performance or compare the modes using a single plot (This approach can be extended to
+multiple models).</p>
+<section id="model-training">
+<h3><span class="section-number">6.1.2.1. </span>Model Training<a class="headerlink" href="#model-training" title="Permalink to this heading">¶</a></h3>
+<div class="jupyter_cell jupyter_container docutils container">
+<div class="cell_input code_cell docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">ipywidgets</span>
+<span class="k">with</span> <span class="n">ipywidgets</span><span class="o">.</span><span class="n">Output</span><span class="p">():</span>
+  <span class="kn">from</span> <span class="nn">piml</span> <span class="kn">import</span> <span class="n">Experiment</span>
+  <span class="kn">from</span> <span class="nn">piml.models</span> <span class="kn">import</span> <span class="n">FIGSClassifier</span>
+  <span class="kn">from</span> <span class="nn">piml.models</span> <span class="kn">import</span> <span class="n">ReluDNNClassifier</span>
+  <span class="kn">from</span> <span class="nn">piml.models</span> <span class="kn">import</span> <span class="n">GAMINetClassifier</span>
+  <span class="n">exp</span> <span class="o">=</span> <span class="n">Experiment</span><span class="p">()</span>
+  <span class="n">exp</span><span class="o">.</span><span class="n">data_loader</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="s1">&#39;TaiwanCredit&#39;</span><span class="p">)</span>
+  <span class="n">exp</span><span class="o">.</span><span class="n">data_summary</span><span class="p">(</span><span class="n">feature_exclude</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;LIMIT_BAL&quot;</span><span class="p">,</span> <span class="s2">&quot;SEX&quot;</span><span class="p">,</span> <span class="s2">&quot;EDUCATION&quot;</span><span class="p">,</span> <span class="s2">&quot;MARRIAGE&quot;</span><span class="p">,</span> <span class="s2">&quot;AGE&quot;</span><span class="p">],</span> <span class="n">feature_type</span><span class="o">=</span><span class="p">{})</span>
+  <span class="n">exp</span><span class="o">.</span><span class="n">data_prepare</span><span class="p">(</span><span class="n">target</span><span class="o">=</span><span class="s1">&#39;FlagDefault&#39;</span><span class="p">,</span> <span class="n">task_type</span><span class="o">=</span><span class="s1">&#39;Classification&#39;</span><span class="p">,</span> <span class="n">test_ratio</span><span class="o">=</span><span class="mf">0.2</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+</div>
+</div>
+<div class="jupyter_cell jupyter_container docutils container">
+<div class="cell_input code_cell docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">exp</span><span class="o">.</span><span class="n">model_train</span><span class="p">(</span><span class="n">model</span><span class="o">=</span><span class="n">ReluDNNClassifier</span><span class="p">(</span><span class="n">hidden_layer_sizes</span><span class="o">=</span><span class="p">(</span><span class="mi">40</span><span class="p">,</span> <span class="mi">40</span><span class="p">),</span> <span class="n">l1_reg</span><span class="o">=</span><span class="mf">0.0002</span><span class="p">,</span> <span class="n">learning_rate</span><span class="o">=</span><span class="mf">0.001</span><span class="p">),</span>
+                                 <span class="n">name</span><span class="o">=</span><span class="s1">&#39;ReLUDNN&#39;</span><span class="p">)</span>
+<span class="n">exp</span><span class="o">.</span><span class="n">model_train</span><span class="p">(</span><span class="n">model</span><span class="o">=</span><span class="n">FIGSClassifier</span><span class="p">(</span><span class="n">max_iter</span><span class="o">=</span><span class="mi">200</span><span class="p">,</span> <span class="n">max_depth</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">splitter</span><span class="o">=</span><span class="s1">&#39;best&#39;</span><span class="p">,</span> <span class="n">min_samples_leaf</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span>
+                <span class="n">min_impurity_decrease</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">learning_rate</span><span class="o">=</span><span class="mf">0.002</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="kc">None</span><span class="p">),</span> <span class="n">name</span><span class="o">=</span><span class="s1">&#39;FIGS&#39;</span><span class="p">)</span>
+<span class="n">exp</span><span class="o">.</span><span class="n">model_train</span><span class="p">(</span><span class="n">GAMINetClassifier</span><span class="p">(</span><span class="n">interact_num</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">loss_threshold</span><span class="o">=</span><span class="mf">0.01</span><span class="p">,</span>
+                <span class="n">subnet_size_main_effect</span><span class="o">=</span><span class="p">[</span><span class="mi">20</span><span class="p">],</span> <span class="n">subnet_size_interaction</span><span class="o">=</span><span class="p">[</span><span class="mi">20</span><span class="p">,</span><span class="mi">20</span><span class="p">]),</span>
+                <span class="n">name</span><span class="o">=</span><span class="s1">&#39;GAMINet&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+</div>
+</div>
+</section>
+<section id="model-performance">
+<h3><span class="section-number">6.1.2.2. </span>Model performance.<a class="headerlink" href="#model-performance" title="Permalink to this heading">¶</a></h3>
+<p>We first consider the performance of individual models. In addition, we can also compare the performance of many models at the same time (in this demo, we consider three models). Which helps
+identify a model that is suitable for a particular task.</p>
+<div class="jupyter_cell jupyter_container docutils container">
+<div class="cell_input code_cell docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">exp</span><span class="o">.</span><span class="n">model_diagnose</span><span class="p">(</span><span class="n">model</span><span class="o">=</span><span class="s2">&quot;GAMINet&quot;</span><span class="p">,</span> <span class="n">show</span><span class="o">=</span><span class="s1">&#39;accuracy_result&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+</div>
+</div>
+<p>Compare models’ performance</p>
+<div class="jupyter_cell jupyter_container docutils container">
+<div class="cell_input code_cell docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">exp</span><span class="o">.</span><span class="n">model_compare</span><span class="p">(</span><span class="n">models</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;FIGS&quot;</span><span class="p">,</span><span class="s2">&quot;ReLUDNN&quot;</span><span class="p">,</span><span class="s2">&quot;GAMINet&quot;</span><span class="p">],</span> <span class="n">show</span><span class="o">=</span><span class="s1">&#39;accuracy_acc&#39;</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span><span class="mi">4</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+</div>
+</div>
+<p>The plot above indicates that <code class="docutils literal notranslate"><span class="pre">ReluDNN</span></code> and <code class="docutils literal notranslate"><span class="pre">GAMINet</span></code> recorded a comparative performance. However, we should consider other factors when selecting our best-performing model. Below is an example of comparing models
+based on the AUC plot.</p>
+<div class="jupyter_cell jupyter_container docutils container">
+<div class="cell_input code_cell docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">exp</span><span class="o">.</span><span class="n">model_compare</span><span class="p">(</span><span class="n">models</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;FIGS&quot;</span><span class="p">,</span><span class="s2">&quot;ReLUDNN&quot;</span><span class="p">,</span><span class="s2">&quot;GAMINet&quot;</span><span class="p">],</span> <span class="n">show</span><span class="o">=</span><span class="s1">&#39;accuracy_auc&#39;</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span><span class="mi">4</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+</div>
+</div>
+</section>
+</section>
+<section id="regression-tasks">
+<h2><span class="section-number">6.1.3. </span>Regression tasks.<a class="headerlink" href="#regression-tasks" title="Permalink to this heading">¶</a></h2>
+<p>For a regression task, please refer to the example below.</p>
+</section>
+<section id="examples">
+<h2><span class="section-number">6.1.4. </span>Examples<a class="headerlink" href="#examples" title="Permalink to this heading">¶</a></h2>
+<p>The example below demonstrates how to use PiML with its high-code APIs for developing machine learning models for the BikeSharing data from UCI repository, which consists of 17,389
+samples of hourly counts of rental bikes in Capital bikeshare system; see details <a class="reference external" href="https://archive.ics.uci.edu/ml/datasets/bike+sharing+dataset">here</a>. The response <code class="docutils literal notranslate"><span class="pre">cnt</span></code> (hourly bike rental counts) is continuous and it is a regression problem.</p>
+<div class="topic">
+<p class="topic-title">Example</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="../../auto_examples/diagnostics/plot_1_accuracy.html#sphx-glr-auto-examples-diagnostics-plot-1-accuracy-py"><span class="std std-ref">Accuracy:  Regression</span></a></p></li>
+</ul>
+</div>
+</section>
+</section>
+
+
+        </div>
+      <div class="container">
+        <footer class="sk-content-footer">
+              &copy; Copyright 2022-, PiML-Toolbox authors.
+            <a href="../../_sources/guides/testing/accuracy.rst.txt" rel="nofollow">Show this page source</a>
+        </footer>
+      </div>
+    </div>
+  </div>
+
+
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(false);
+      });
+      
+      const tooltipTriggerList = document.querySelectorAll('[data-bs-toggle="tooltip"]')
+      const tooltipList = [...tooltipTriggerList].map(tooltipTriggerEl => new bootstrap.Tooltip(tooltipTriggerEl))
+  </script>
+
+<script>
+$(document).ready(function() {
+    /* Add a [>>>] button on the top-right corner of code samples to hide
+     * the >>> and ... prompts and the output and thus make the code
+     * copyable. */
+    var div = $('.highlight-python .highlight,' +
+                '.highlight-python3 .highlight,' +
+                '.highlight-pycon .highlight,' +
+		'.highlight-default .highlight')
+    var pre = div.find('pre');
+
+    // get the styles from the current theme
+    pre.parent().parent().css('position', 'relative');
+    var hide_text = 'Hide prompts and outputs';
+    var show_text = 'Show prompts and outputs';
+
+    // create and add the button to all the code blocks that contain >>>
+    div.each(function(index) {
+        var jthis = $(this);
+        if (jthis.find('.gp').length > 0) {
+            var button = $('<span class="copybutton">&gt;&gt;&gt;</span>');
+            button.attr('title', hide_text);
+            button.data('hidden', 'false');
+            jthis.prepend(button);
+        }
+        // tracebacks (.gt) contain bare text elements that need to be
+        // wrapped in a span to work with .nextUntil() (see later)
+        jthis.find('pre:has(.gt)').contents().filter(function() {
+            return ((this.nodeType == 3) && (this.data.trim().length > 0));
+        }).wrap('<span>');
+    });
+
+    // define the behavior of the button when it's clicked
+    $('.copybutton').click(function(e){
+        e.preventDefault();
+        var button = $(this);
+        if (button.data('hidden') === 'false') {
+            // hide the code output
+            button.parent().find('.go, .gp, .gt').hide();
+            button.next('pre').find('.gt').nextUntil('.gp, .go').css('visibility', 'hidden');
+            button.css('text-decoration', 'line-through');
+            button.attr('title', show_text);
+            button.data('hidden', 'true');
+        } else {
+            // show the code output
+            button.parent().find('.go, .gp, .gt').show();
+            button.next('pre').find('.gt').nextUntil('.gp, .go').css('visibility', 'visible');
+            button.css('text-decoration', 'none');
+            button.attr('title', hide_text);
+            button.data('hidden', 'false');
+        }
+    });
+
+	/*** Add permalink buttons next to glossary terms ***/
+	$('dl.glossary > dt[id]').append(function() {
+		return ('<a class="headerlink" href="#' +
+			    this.getAttribute('id') +
+			    '" title="Permalink to this term">¶</a>');
+	});
+  /*** Hide navbar when scrolling down ***/
+  // Returns true when headerlink target matches hash in url
+  (function() {
+    hashTargetOnTop = function() {
+        var hash = window.location.hash;
+        if ( hash.length < 2 ) { return false; }
+
+        var target = document.getElementById( hash.slice(1) );
+        if ( target === null ) { return false; }
+
+        var top = target.getBoundingClientRect().top;
+        return (top < 2) && (top > -2);
+    };
+
+    // Hide navbar on load if hash target is on top
+    var navBar = document.getElementById("navbar");
+    var navBarToggler = document.getElementById("sk-navbar-toggler");
+    var navBarHeightHidden = "-" + navBar.getBoundingClientRect().height + "px";
+    var $window = $(window);
+
+    hideNavBar = function() {
+        navBar.style.top = navBarHeightHidden;
+    };
+
+    showNavBar = function() {
+        navBar.style.top = "0";
+    }
+
+    if (hashTargetOnTop()) {
+        hideNavBar()
+    }
+
+    var prevScrollpos = window.pageYOffset;
+    hideOnScroll = function(lastScrollTop) {
+        if (($window.width() < 768) && (navBarToggler.getAttribute("aria-expanded") === 'true')) {
+            return;
+        }
+        if (lastScrollTop > 2 && (prevScrollpos <= lastScrollTop) || hashTargetOnTop()){
+            hideNavBar()
+        } else {
+            showNavBar()
+        }
+        prevScrollpos = lastScrollTop;
+    };
+
+    /*** high performance scroll event listener***/
+    var raf = window.requestAnimationFrame ||
+        window.webkitRequestAnimationFrame ||
+        window.mozRequestAnimationFrame ||
+        window.msRequestAnimationFrame ||
+        window.oRequestAnimationFrame;
+    var lastScrollTop = $window.scrollTop();
+
+    if (raf) {
+        loop();
+    }
+
+    function loop() {
+        var scrollTop = $window.scrollTop();
+        if (lastScrollTop === scrollTop) {
+            raf(loop);
+            return;
+        } else {
+            lastScrollTop = scrollTop;
+            hideOnScroll(lastScrollTop);
+            raf(loop);
+        }
+    }
+  })();
+});
+
+</script>
+    
+
+<script src="_static/js/vendor/bootstrap.min.js"></script>
+
+</body>
+</html>

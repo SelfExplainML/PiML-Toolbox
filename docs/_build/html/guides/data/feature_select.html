@@ -19,6 +19,8 @@
   <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
   <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
   <link rel="stylesheet" href="../../_static/plot_directive.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/jupyter-sphinx.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/thebelab.css" type="text/css" />
   <link rel="stylesheet" href="../../_static/sg_gallery.css" type="text/css" />
   <link rel="stylesheet" href="../../_static/sg_gallery-binder.css" type="text/css" />
   <link rel="stylesheet" href="../../_static/sg_gallery-dataframe.css" type="text/css" />
@@ -37,6 +39,9 @@
         <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
         <script src="../../_static/doctools.js"></script>
         <script src="../../_static/sphinx_highlight.js"></script>
+        <script src="../../_static/thebelab-helper.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+        <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.20.1/dist/embed-amd.js"></script>
         <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
         <script>window.MathJax = {"tex": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true}, "options": {"ignoreHtmlClass": "tex2jax_ignore|mathjax_ignore|document", "processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
         <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
@@ -113,7 +118,7 @@
           </div>
           <!--div class="btn-group w-100 mb-2" role="group" aria-label="rellinks">
               <a href="../data.html" role="button" class="btn sk-btn-rellink py-1" sk-rellink-tooltip="2. Data Pipeline">Prev</a><a href="../data.html" role="button" class="btn sk-btn-rellink py-1" sk-rellink-tooltip="2. Data Pipeline">Up</a>
-              <a href="../models.html" role="button" class="btn sk-btn-rellink py-1" sk-rellink-tooltip="3. Interpretable Models">Next</a>
+              <a href="../extmodels.html" role="button" class="btn sk-btn-rellink py-1" sk-rellink-tooltip="3. Black-box Models">Next</a>
           </div-->
               <div class="sk-sidebar-toc">
               
@@ -148,7 +153,7 @@
                   </li>
                 
                   <li>
-                    <a href="../models.html" class="">3. Interpretable Models</a>
+                    <a href="../extmodels.html" class="">3. Black-box Models</a>
                     
                   </li>
                 
@@ -158,22 +163,27 @@
                   </li>
                 
                   <li>
-                    <a href="../testing.html" class="">5. Outcome Testing</a>
+                    <a href="../models.html" class="">5. Interpretable Models</a>
                     
                   </li>
                 
                   <li>
-                    <a href="../comparison.html" class="">6. Model Comparison</a>
+                    <a href="../testing.html" class="">6. Outcome Testing</a>
                     
                   </li>
                 
                   <li>
-                    <a href="../cases.html" class="">7. Low-Code Case Studies</a>
+                    <a href="../comparison.html" class="">7. Model Comparison</a>
                     
                   </li>
                 
                   <li>
-                    <a href="../conclusion.html" class="">8. Conclusion</a>
+                    <a href="../cases.html" class="">8. Case Studies</a>
+                    
+                  </li>
+                
+                  <li>
+                    <a href="../conclusion.html" class="">9. Conclusion</a>
                     
                   </li>
                 
@@ -227,12 +237,6 @@ Moreover, reducing the number of modeling features is also beneficial for enhanc
 <p>In this section, four built-in feature selection strategies in PiML would be briefly introduced.
 For demonstration purposes, we run the following example codes to initialize a PiML experiment for the BikeSharing dataset.
 Note that feature selection is based on training data, and hence the <code class="docutils literal notranslate"><span class="pre">exp.data_prepare</span></code> function should be executed before running <code class="docutils literal notranslate"><span class="pre">exp.feature_select</span></code>.</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">piml</span> <span class="kn">import</span> <span class="n">Experiment</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">exp</span> <span class="o">=</span> <span class="n">Experiment</span><span class="p">()</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">exp</span><span class="o">.</span><span class="n">data_loader</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="s1">&#39;BikeSharing&#39;</span><span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">exp</span><span class="o">.</span><span class="n">data_prepare</span><span class="p">(</span><span class="n">target</span><span class="o">=</span><span class="s1">&#39;cnt&#39;</span><span class="p">,</span> <span class="n">task_type</span><span class="o">=</span><span class="s1">&#39;Regression&#39;</span><span class="p">)</span>
-</pre></div>
-</div>
 <section id="pearson-correlation">
 <h2><span class="section-number">2.1.1. </span>Pearson Correlation<a class="headerlink" href="#pearson-correlation" title="Permalink to this heading">¶</a></h2>
 <p>Pearson correlation is a measure of linear correlation between two variables.
@@ -251,11 +255,17 @@ The corresponding feature selection strategy is straightforward:</p>
 </ul>
 </div></blockquote>
 <p>These two steps are wrapped up and can be called in a single-line command in PiML, as follows,</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">exp</span><span class="o">.</span><span class="n">feature_select</span><span class="p">(</span><span class="n">method</span><span class="o">=</span><span class="s1">&#39;cor&#39;</span><span class="p">,</span> <span class="n">threshold</span><span class="o">=</span><span class="mf">0.1</span><span class="p">)</span>
+<div class="jupyter_cell jupyter_container docutils container">
+<div class="cell_input code_cell docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">exp</span><span class="o">.</span><span class="n">feature_select</span><span class="p">(</span><span class="n">method</span><span class="o">=</span><span class="s1">&#39;cor&#39;</span><span class="p">,</span> <span class="n">threshold</span><span class="o">=</span><span class="mf">0.1</span><span class="p">)</span>
 </pre></div>
 </div>
-<figure class="align-center">
-<a class="reference internal image-reference" href="../../_images/cor.png"><img alt="../../_images/cor.png" src="../../_images/cor.png" style="width: 676.8px; height: 365.4px;" /></a>
+</div>
+<div class="cell_output docutils container">
+</div>
+</div>
+<figure class="align-left">
+<a class="reference external image-reference" href="../../auto_examples/data/plot_0_feature_select.html"><img alt="../../_images/sphx_glr_plot_0_feature_select_001.png" src="../../_images/sphx_glr_plot_0_feature_select_001.png" style="width: 400.0px; height: 300.0px;" /></a>
 </figure>
 <p>where <code class="docutils literal notranslate"><span class="pre">cor</span></code> is the keyword of the Pearson correlation strategy, and 0.1 is the user-defined threshold.
 The output results include:</p>
@@ -298,11 +308,17 @@ Given two features <span class="math notranslate nohighlight">\(X\)</span> and <
 <p>Similar to that of Pearson correlation, we first calculate the distance correlation of each covariate and the response and then use a <code class="docutils literal notranslate"><span class="pre">threshold</span></code> to determine which features are selected.
 Note that the distance correlation is always positive, ranging from 0 to 1, and hence we don’t need to take the absolute value of these coefficients.
 In PiML, this method can be called using the following command.</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">exp</span><span class="o">.</span><span class="n">feature_select</span><span class="p">(</span><span class="n">method</span><span class="o">=</span><span class="s1">&#39;dcor&#39;</span><span class="p">,</span> <span class="n">threshold</span><span class="o">=</span><span class="mf">0.1</span><span class="p">)</span>
+<div class="jupyter_cell jupyter_container docutils container">
+<div class="cell_input code_cell docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">exp</span><span class="o">.</span><span class="n">feature_select</span><span class="p">(</span><span class="n">method</span><span class="o">=</span><span class="s1">&#39;dcor&#39;</span><span class="p">,</span> <span class="n">threshold</span><span class="o">=</span><span class="mf">0.1</span><span class="p">)</span>
 </pre></div>
 </div>
-<figure class="align-center">
-<a class="reference internal image-reference" href="../../_images/dcor.png"><img alt="../../_images/dcor.png" src="../../_images/dcor.png" style="width: 667.8px; height: 361.2px;" /></a>
+</div>
+<div class="cell_output docutils container">
+</div>
+</div>
+<figure class="align-left">
+<a class="reference external image-reference" href="../../auto_examples/data/plot_0_feature_select.html"><img alt="../../_images/sphx_glr_plot_0_feature_select_002.png" src="../../_images/sphx_glr_plot_0_feature_select_002.png" style="width: 400.0px; height: 300.0px;" /></a>
 </figure>
 <p>where the keyword is <code class="docutils literal notranslate"><span class="pre">dcor</span></code>, and the distance correlation is calculated using the <code class="docutils literal notranslate"><span class="pre">dcor</span></code> package, see the source code at <a class="reference external" href="https://github.com/vnmabus/dcor">https://github.com/vnmabus/dcor</a>.
 The main advantage of distance correlation lies in that it is flexible in capturing non-linear relationships.
@@ -320,11 +336,17 @@ However, its calculation requires the pairwise distance matrix, which can be com
 </ul>
 </div></blockquote>
 <p>See the example usage below.</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">exp</span><span class="o">.</span><span class="n">feature_select</span><span class="p">(</span><span class="n">method</span><span class="o">=</span><span class="s1">&#39;pfi&#39;</span><span class="p">,</span> <span class="n">threshold</span><span class="o">=</span><span class="mf">0.95</span><span class="p">)</span>
+<div class="jupyter_cell jupyter_container docutils container">
+<div class="cell_input code_cell docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">exp</span><span class="o">.</span><span class="n">feature_select</span><span class="p">(</span><span class="n">method</span><span class="o">=</span><span class="s1">&#39;pfi&#39;</span><span class="p">,</span> <span class="n">threshold</span><span class="o">=</span><span class="mf">0.95</span><span class="p">)</span>
 </pre></div>
 </div>
-<figure class="align-center">
-<a class="reference internal image-reference" href="../../_images/pfi.png"><img alt="../../_images/pfi.png" src="../../_images/pfi.png" style="width: 667.1999999999999px; height: 362.4px;" /></a>
+</div>
+<div class="cell_output docutils container">
+</div>
+</div>
+<figure class="align-left">
+<a class="reference external image-reference" href="../../auto_examples/data/plot_0_feature_select.html"><img alt="../../_images/sphx_glr_plot_0_feature_select_003.png" src="../../_images/sphx_glr_plot_0_feature_select_003.png" style="width: 400.0px; height: 300.0px;" /></a>
 </figure>
 <p>where the keyword here is <code class="docutils literal notranslate"><span class="pre">pfi</span></code>, and this test is based on the implementation of scikit-learn, and the details can be found at <a class="reference external" href="https://scikit-learn.org/stable/modules/generated/sklearn.inspection.permutation_importance.html">https://scikit-learn.org/stable/modules/generated/sklearn.inspection.permutation_importance.html</a>.
 The setting <code class="docutils literal notranslate"><span class="pre">threshold=0.95</span></code> means selecting the top features with the sum of feature importance greater than 95%.
@@ -385,11 +407,17 @@ As recommended by <a class="reference internal" href="#yu2020" id="id5"><span>[Y
 <li><p>Permanently remove feature <span class="math notranslate nohighlight">\(j\)</span> from the Markov boundary set, if <code class="docutils literal notranslate"><span class="pre">p_value</span> <span class="pre">&gt;</span> <span class="pre">threshold</span></code>.</p></li>
 </ul>
 </div></blockquote>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">exp</span><span class="o">.</span><span class="n">feature_select</span><span class="p">(</span><span class="n">method</span><span class="o">=</span><span class="s1">&#39;rcit&#39;</span><span class="p">,</span> <span class="n">threshold</span><span class="o">=</span><span class="mf">0.001</span><span class="p">,</span> <span class="n">n_forward_phase</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">kernel_size</span><span class="o">=</span><span class="mi">100</span><span class="p">)</span>
+<div class="jupyter_cell jupyter_container docutils container">
+<div class="cell_input code_cell docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">exp</span><span class="o">.</span><span class="n">feature_select</span><span class="p">(</span><span class="n">method</span><span class="o">=</span><span class="s1">&#39;rcit&#39;</span><span class="p">,</span> <span class="n">threshold</span><span class="o">=</span><span class="mf">0.001</span><span class="p">,</span> <span class="n">n_forward_phase</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">kernel_size</span><span class="o">=</span><span class="mi">100</span><span class="p">)</span>
 </pre></div>
 </div>
-<figure class="align-center">
-<a class="reference internal image-reference" href="../../_images/rcit.png"><img alt="../../_images/rcit.png" src="../../_images/rcit.png" style="width: 691.8px; height: 369.0px;" /></a>
+</div>
+<div class="cell_output docutils container">
+</div>
+</div>
+<figure class="align-left">
+<a class="reference external image-reference" href="../../auto_examples/data/plot_0_feature_select.html"><img alt="../../_images/sphx_glr_plot_0_feature_select_004.png" src="../../_images/sphx_glr_plot_0_feature_select_004.png" style="width: 400.0px; height: 300.0px;" /></a>
 </figure>
 <p>where the upper-left figure shows the step-by-step formulation of the Markov boundary set.
 The value of the <code class="docutils literal notranslate"><span class="pre">threshold</span></code> should be between 0 to 1. The smaller its value, the fewer features would be marked as significant and then selected.</p>
@@ -398,15 +426,26 @@ As shown in iteration zero, some features are marked as significant if the corre
 In iteration one, the most significant feature <code class="docutils literal notranslate"><span class="pre">temp</span></code> is added to the Markov boundary set, while <code class="docutils literal notranslate"><span class="pre">workingday</span></code> and <code class="docutils literal notranslate"><span class="pre">weekday</span></code> are then removed from the candidate feature list.
 This procedure will be repeated, and in the end, seven features are selected, including, <code class="docutils literal notranslate"><span class="pre">temp</span></code>, <code class="docutils literal notranslate"><span class="pre">hr</span></code>, <code class="docutils literal notranslate"><span class="pre">yr</span></code>, <code class="docutils literal notranslate"><span class="pre">weathersit</span></code>, <code class="docutils literal notranslate"><span class="pre">season</span></code>, <code class="docutils literal notranslate"><span class="pre">hum</span></code>, and <code class="docutils literal notranslate"><span class="pre">mnth</span></code>.</p>
 <p>As the FBEDk algorithm can start with an arbitrary Markov boundary set, users may define a non-empty Markov boundary set as the start point, see the following example.</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">exp</span><span class="o">.</span><span class="n">feature_select</span><span class="p">(</span><span class="n">method</span><span class="o">=</span><span class="s1">&#39;rcit&#39;</span><span class="p">,</span> <span class="n">threshold</span><span class="o">=</span><span class="mf">0.001</span><span class="p">,</span> <span class="n">preset</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;hr&quot;</span><span class="p">,</span> <span class="s2">&quot;temp&quot;</span><span class="p">])</span>
+<div class="jupyter_cell jupyter_container docutils container">
+<div class="cell_input code_cell docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">exp</span><span class="o">.</span><span class="n">feature_select</span><span class="p">(</span><span class="n">method</span><span class="o">=</span><span class="s1">&#39;rcit&#39;</span><span class="p">,</span> <span class="n">threshold</span><span class="o">=</span><span class="mf">0.001</span><span class="p">,</span> <span class="n">preset</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;hr&quot;</span><span class="p">,</span> <span class="s2">&quot;temp&quot;</span><span class="p">])</span>
 </pre></div>
 </div>
-<figure class="align-center">
-<a class="reference internal image-reference" href="../../_images/rcit_preset.png"><img alt="../../_images/rcit_preset.png" src="../../_images/rcit_preset.png" style="width: 700.1999999999999px; height: 366.59999999999997px;" /></a>
+</div>
+<div class="cell_output docutils container">
+</div>
+</div>
+<figure class="align-left">
+<a class="reference external image-reference" href="../auto_examples/data/plot_0_feature_select.html"><img alt="../../_images/sphx_glr_plot_0_feature_select_005.png" src="../../_images/sphx_glr_plot_0_feature_select_005.png" style="width: 400.0px; height: 300.0px;" /></a>
 </figure>
 <p>This time, two features <code class="docutils literal notranslate"><span class="pre">hr</span></code> and <code class="docutils literal notranslate"><span class="pre">temp</span></code> are selected as the initialization, and they are shown in deep blue in iteration 0.</p>
 <p>The RCIT-based feature selection method is capable of handling non-linear relationships, and the selected features are all causally related to the response, subject to the pre-defined significance level.
 The disadvantages of this method include: a) the computational burden is relatively high; b) as it is a sequential selection approach, the results may be slightly different as we use different initial Markov boundary sets.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>In all the four strategies, we treat binary responses as continuous variables.
+However, this treatment is not very rigourous, especially for pearson correlation, distance correlation, and rcit tests.</p>
+</div>
 </section>
 </section>
 <section id="full-example">

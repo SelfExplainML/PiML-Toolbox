@@ -1,0 +1,12 @@
+﻿:mod:`piml.models`.ExplainableBoostingRegressor
+======================================================
+
+.. currentmodule:: piml.models
+
+.. autoclass:: ExplainableBoostingRegressor
+
+.. include:: piml.models.ExplainableBoostingRegressor.examples
+
+.. raw:: html
+
+    <div class="clearer"></div>

@@ -19,6 +19,8 @@
   <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
   <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
   <link rel="stylesheet" href="../../_static/plot_directive.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/jupyter-sphinx.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/thebelab.css" type="text/css" />
   <link rel="stylesheet" href="../../_static/sg_gallery.css" type="text/css" />
   <link rel="stylesheet" href="../../_static/sg_gallery-binder.css" type="text/css" />
   <link rel="stylesheet" href="../../_static/sg_gallery-dataframe.css" type="text/css" />
@@ -37,8 +39,10 @@
         <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
         <script src="../../_static/doctools.js"></script>
         <script src="../../_static/sphinx_highlight.js"></script>
-        <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+        <script src="../../_static/thebelab-helper.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
         <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.20.1/dist/embed-amd.js"></script>
+        <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
     <script src="../../_static/js/theme.js"></script>
 
 </head>
@@ -198,7 +202,7 @@ If iterable is passed, the length of lam must be equal to the length of penaltie
 <tr class="row-even"><td><p><a class="reference internal" href="#piml.models.GAMRegressor.plot_fi_local" title="piml.models.GAMRegressor.plot_fi_local"><code class="xref py py-obj docutils literal notranslate"><span class="pre">plot_fi_local</span></code></a>(interpret_result[, max_show, ...])</p></td>
 <td><p>The plot function for display local feature importance result.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#piml.models.GAMRegressor.plot_main_effect" title="piml.models.GAMRegressor.plot_main_effect"><code class="xref py py-obj docutils literal notranslate"><span class="pre">plot_main_effect</span></code></a>(interpret_result[, figsize])</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#piml.models.GAMRegressor.plot_main_effect" title="piml.models.GAMRegressor.plot_main_effect"><code class="xref py py-obj docutils literal notranslate"><span class="pre">plot_main_effect</span></code></a>(interpret_result[, ...])</p></td>
 <td><p>The plot function for display main effect result.</p></td>
 </tr>
 <tr class="row-even"><td><p><a class="reference internal" href="#piml.models.GAMRegressor.set_params" title="piml.models.GAMRegressor.set_params"><code class="xref py py-obj docutils literal notranslate"><span class="pre">set_params</span></code></a>(**params)</p></td>
@@ -368,7 +372,7 @@ contained subobjects that are estimators.</p>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="piml.models.GAMRegressor.plot_fi_local">
-<span class="sig-name descname"><span class="pre">plot_fi_local</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">interpret_result</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">TestDataResult</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">max_show</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.11)"><span class="pre">int</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">10</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">figsize</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#tuple" title="(in Python v3.11)"><span class="pre">tuple</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">(8,</span> <span class="pre">6)</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#piml.models.GAMRegressor.plot_fi_local" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">plot_fi_local</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">interpret_result</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">TestDataResult</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">max_show</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.11)"><span class="pre">int</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">10</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">return_fig</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.11)"><span class="pre">bool</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">figsize</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#tuple" title="(in Python v3.11)"><span class="pre">tuple</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">(8,</span> <span class="pre">6)</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#piml.models.GAMRegressor.plot_fi_local" title="Permalink to this definition">¶</a></dt>
 <dd><p>The plot function for display local feature importance result.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -386,7 +390,7 @@ contained subobjects that are estimators.</p>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="piml.models.GAMRegressor.plot_main_effect">
-<span class="sig-name descname"><span class="pre">plot_main_effect</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">interpret_result</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">TestDataResult</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">figsize</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#tuple" title="(in Python v3.11)"><span class="pre">tuple</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">(8,</span> <span class="pre">6)</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#piml.models.GAMRegressor.plot_main_effect" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">plot_main_effect</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">interpret_result</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">TestDataResult</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">return_fig</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.11)"><span class="pre">bool</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">figsize</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#tuple" title="(in Python v3.11)"><span class="pre">tuple</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">(8,</span> <span class="pre">6)</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#piml.models.GAMRegressor.plot_main_effect" title="Permalink to this definition">¶</a></dt>
 <dd><p>The plot function for display main effect result.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -428,8 +432,11 @@ possible to update each component of a nested object.</p>
 
 <section id="examples-using-piml-models-gamregressor">
 <h2>Examples using <code class="docutils literal notranslate"><span class="pre">piml.models.GAMRegressor</span></code><a class="headerlink" href="#examples-using-piml-models-gamregressor" title="Permalink to this heading">¶</a></h2>
-<div class="sphx-glr-thumbnails"><div class="sphx-glr-thumbcontainer" tooltip="(GAM) Regressor"><img alt="Generalized Additive Model" src="../../_images/sphx_glr_plot_0_gam_thumb.png" />
-<p><a class="reference internal" href="../../auto_examples/models/plot_0_gam.html#sphx-glr-auto-examples-models-plot-0-gam-py"><span class="std std-ref">Generalized Additive Model</span></a></p>
+<div class="sphx-glr-thumbnails"><div class="sphx-glr-thumbcontainer" tooltip="GAM Regression"><img alt="Generalized Additive Model" src="../../_images/sphx_glr_plot_1_gam_cls_thumb.png" />
+<p><a class="reference internal" href="../../auto_examples/models/plot_1_gam_cls.html#sphx-glr-auto-examples-models-plot-1-gam-cls-py"><span class="std std-ref">Generalized Additive Model</span></a></p>
+  <div class="sphx-glr-thumbnail-title">Generalized Additive Model</div>
+</div><div class="sphx-glr-thumbcontainer" tooltip="GAM Regression"><img alt="Generalized Additive Model" src="../../_images/sphx_glr_plot_1_gam_reg_thumb.png" />
+<p><a class="reference internal" href="../../auto_examples/models/plot_1_gam_reg.html#sphx-glr-auto-examples-models-plot-1-gam-reg-py"><span class="std std-ref">Generalized Additive Model</span></a></p>
   <div class="sphx-glr-thumbnail-title">Generalized Additive Model</div>
 </div></div><div class="clearer"></div></section>
 </section>

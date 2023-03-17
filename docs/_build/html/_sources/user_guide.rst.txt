@@ -22,9 +22,10 @@ User Guide
    
    guides/introduction.rst
    guides/data.rst
-   guides/models.rst
+   guides/extmodels.rst
    guides/explainability.rst
-   guides/diagnostics.rst
+   guides/models.rst
+   guides/testing.rst
    guides/comparison.rst
-   guides/workflow.rst
    guides/cases.rst 
+   guides/conclusion.rst 

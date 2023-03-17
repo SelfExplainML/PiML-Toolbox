@@ -4,14 +4,11 @@
 API Reference
 =============
 
-This is the class and function reference of PiML. Please refer to
-the user guide for further details, as the class and
-function raw specifications may not be enough to give full guidelines on their
-uses.
-For reference on concepts repeated across the API.
+This is the class and function reference of PiML.
+Please refer to the user guide for further details, as the class and function raw specifications may not be enough to give full guidelines on their uses.
 
 
-:mod:`piml.api`: User interface
+Experiment Class
 =======================================================
 
 .. currentmodule:: piml
@@ -21,16 +18,48 @@ For reference on concepts repeated across the API.
    :toctree: generated/
    :template: class.rst
 
-   api.Experiment
+   Experiment
 
 
-:mod:`piml.models`: Built-in Models
+Data Pipeline
 =======================================================
 
-.. automodule:: piml.models
-    :no-members:
-    :no-inherited-members:
+.. currentmodule:: piml
 
+.. autosummary::
+
+   Experiment.data_loader
+   Experiment.data_summary
+   Experiment.data_prepare
+   Experiment.eda
+   Experiment.feature_select
+   Experiment.get_data
+   Experiment.get_raw_data
+   Experiment.get_feature_names
+   Experiment.get_feature_types
+   Experiment.get_target_name
+   Experiment.twosample_test
+
+
+Interpretable Models
+=======================================================
+
+High Code APIs
+--------------
+.. currentmodule:: piml
+
+.. autosummary::
+
+   Experiment.model_train
+   Experiment.model_interpret
+   Experiment.register
+   Experiment.make_pipeline
+   Experiment.get_model
+   Experiment.get_model_config
+   Experiment.model_save
+
+Model Classes
+--------------
 .. currentmodule:: piml
 
 .. autosummary::
@@ -38,13 +67,39 @@ For reference on concepts repeated across the API.
    :toctree: generated/
    :template: class.rst
 
-   models.FIGSRegressor
-   models.FIGSClassifier
-   models.GAMINetRegressor
-   models.GAMINetClassifier
-   models.ReluDNNRegressor
-   models.ReluDNNClassifier
-   models.GLMRegressor
-   models.GLMClassifier
    models.GAMRegressor
    models.GAMClassifier
+   models.GLMRegressor
+   models.GLMClassifier
+   models.FIGSRegressor
+   models.FIGSClassifier
+   models.ReluDNNRegressor
+   models.ReluDNNClassifier
+   models.ExplainableBoostingRegressor
+   models.ExplainableBoostingClassifier
+   models.GAMINetRegressor
+   models.GAMINetClassifier
+
+
+Post-hoc Explainability
+=======================================================
+
+.. currentmodule:: piml
+
+.. autosummary::
+
+   Experiment.model_explain
+
+
+Outcome Testing
+=======================================================
+
+.. currentmodule:: piml
+
+.. autosummary::
+
+   Experiment.model_diagnose
+   Experiment.model_compare
+   Experiment.model_fairness
+   Experiment.model_fairness_compare
+   Experiment.model_fairness_solas

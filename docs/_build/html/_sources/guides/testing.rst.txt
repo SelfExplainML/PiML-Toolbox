@@ -1,0 +1,23 @@
+.. Places parent toc into the sidebar
+
+:parenttoc: True
+
+.. include:: ../includes/big_toc_css.rst
+
+=======================
+Outcome Testing
+=======================
+
+Accuracy: popular metrics like MSE, MAE for regression tasks and ACC, AUC, Recall, Precision, F1-score for binary classification tasks.
+
+WeakSpot: identification of weak regions with high residuals by slicing techniques.
+
+Overfit: identification of overfitting regions according to train-test performance gap.
+
+Reliability: assessment of prediction uncertainty by split conformal prediction techniques.
+
+Robustness: evaluation of performance degradation under covariate noise perturbation.
+
+Resilience: evaluation of performance degradation under different out-of-distribution scenarios.
+
+

@@ -1,0 +1,12 @@
+﻿:mod:`piml.models`.ExplainableBoostingClassifier
+=======================================================
+
+.. currentmodule:: piml.models
+
+.. autoclass:: ExplainableBoostingClassifier
+
+.. include:: piml.models.ExplainableBoostingClassifier.examples
+
+.. raw:: html
+
+    <div class="clearer"></div>

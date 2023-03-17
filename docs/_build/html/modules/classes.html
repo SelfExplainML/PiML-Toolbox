@@ -19,6 +19,8 @@
   <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
   <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
   <link rel="stylesheet" href="../_static/plot_directive.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/jupyter-sphinx.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/thebelab.css" type="text/css" />
   <link rel="stylesheet" href="../_static/sg_gallery.css" type="text/css" />
   <link rel="stylesheet" href="../_static/sg_gallery-binder.css" type="text/css" />
   <link rel="stylesheet" href="../_static/sg_gallery-dataframe.css" type="text/css" />
@@ -37,6 +39,9 @@
         <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
         <script src="../_static/doctools.js"></script>
         <script src="../_static/sphinx_highlight.js"></script>
+        <script src="../_static/thebelab-helper.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+        <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.20.1/dist/embed-amd.js"></script>
         <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
     <script src="../_static/js/theme.js"></script>
 
@@ -162,7 +167,7 @@ Please refer to the user guide for further details, as the class and function ra
 <col style="width: 90%" />
 </colgroup>
 <tbody>
-<tr class="row-odd"><td><p><a class="reference internal" href="generated/piml.Experiment.html#piml.Experiment.data_loader" title="piml.Experiment.data_loader"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Experiment.data_loader</span></code></a>([data])</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/piml.Experiment.html#piml.Experiment.data_loader" title="piml.Experiment.data_loader"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Experiment.data_loader</span></code></a>([data, silent])</p></td>
 <td><p>Load data for experimentation.</p></td>
 </tr>
 <tr class="row-even"><td><p><a class="reference internal" href="generated/piml.Experiment.html#piml.Experiment.data_summary" title="piml.Experiment.data_summary"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Experiment.data_summary</span></code></a>([feature_type, ...])</p></td>
@@ -225,6 +230,9 @@ Please refer to the user guide for further details, as the class and function ra
 </tr>
 <tr class="row-even"><td><p><a class="reference internal" href="generated/piml.Experiment.html#piml.Experiment.get_model_config" title="piml.Experiment.get_model_config"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Experiment.get_model_config</span></code></a>(model)</p></td>
 <td><p>Get the configuration of a model.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/piml.Experiment.html#piml.Experiment.model_save" title="piml.Experiment.model_save"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Experiment.model_save</span></code></a>(model[, path])</p></td>
+<td><p>Save a PiML-trained model as a pickle file.</p></td>
 </tr>
 </tbody>
 </table>
@@ -308,7 +316,7 @@ Please refer to the user guide for further details, as the class and function ra
 <tr class="row-odd"><td><p><a class="reference internal" href="generated/piml.Experiment.html#piml.Experiment.model_fairness" title="piml.Experiment.model_fairness"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Experiment.model_fairness</span></code></a>([model, show, ...])</p></td>
 <td><p>Test model fairness.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="generated/piml.Experiment.html#piml.Experiment.model_fairness_compare" title="piml.Experiment.model_fairness_compare"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Experiment.model_fairness_compare</span></code></a>([model, ...])</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="generated/piml.Experiment.html#piml.Experiment.model_fairness_compare" title="piml.Experiment.model_fairness_compare"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Experiment.model_fairness_compare</span></code></a>([models, ...])</p></td>
 <td><p>Compare the fairness results of multiple models.</p></td>
 </tr>
 <tr class="row-odd"><td><p><a class="reference internal" href="generated/piml.Experiment.html#piml.Experiment.model_fairness_solas" title="piml.Experiment.model_fairness_solas"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Experiment.model_fairness_solas</span></code></a>([model, ...])</p></td>

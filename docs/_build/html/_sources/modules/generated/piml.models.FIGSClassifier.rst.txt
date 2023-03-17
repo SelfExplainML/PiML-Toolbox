@@ -1,0 +1,12 @@
+﻿:mod:`piml.models`.FIGSClassifier
+========================================
+
+.. currentmodule:: piml.models
+
+.. autoclass:: FIGSClassifier
+
+.. include:: piml.models.FIGSClassifier.examples
+
+.. raw:: html
+
+    <div class="clearer"></div>

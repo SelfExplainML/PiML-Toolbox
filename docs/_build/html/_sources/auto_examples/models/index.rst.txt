@@ -4,10 +4,9 @@
 
 .. _models_examples:
 
-Inherient Interpretable Models
+Interpretable Models
 --------------------------------
 
-Examples concerning the :mod:`piml.models` module.
 
 
 .. raw:: html
@@ -17,18 +16,205 @@ Examples concerning the :mod:`piml.models` module.
 
 .. raw:: html
 
-    <div class="sphx-glr-thumbcontainer" tooltip="Generalized additive model (GAM)">
+    <div class="sphx-glr-thumbcontainer" tooltip="Decision Tree: Classification Tree Model">
 
 .. only:: html
 
-  .. image:: /auto_examples/models/images/thumb/sphx_glr_plot_0_gam_thumb.png
-    :alt: PiML Inheriently Interpretable Models
+  .. image:: /auto_examples/models/images/thumb/sphx_glr_plot_2_dt_reg_thumb.png
+    :alt: Decision Tree: Classification Tree Model
 
-  :ref:`sphx_glr_auto_examples_models_plot_0_gam.py`
+  :ref:`sphx_glr_auto_examples_models_plot_2_dt_reg.py`
 
 .. raw:: html
 
-      <div class="sphx-glr-thumbnail-title">PiML Inheriently Interpretable Models</div>
+      <div class="sphx-glr-thumbnail-title">Decision Tree: Classification Tree Model</div>
+    </div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="GAM Regression">
+
+.. only:: html
+
+  .. image:: /auto_examples/models/images/thumb/sphx_glr_plot_1_gam_reg_thumb.png
+    :alt: Generalized Additive Model
+
+  :ref:`sphx_glr_auto_examples_models_plot_1_gam_reg.py`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Generalized Additive Model</div>
+    </div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="Decision Tree: Classification Tree Model">
+
+.. only:: html
+
+  .. image:: /auto_examples/models/images/thumb/sphx_glr_plot_2_dt_cls_thumb.png
+    :alt: Decision Tree: Classification Tree Model
+
+  :ref:`sphx_glr_auto_examples_models_plot_2_dt_cls.py`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Decision Tree: Classification Tree Model</div>
+    </div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="GAM Regression">
+
+.. only:: html
+
+  .. image:: /auto_examples/models/images/thumb/sphx_glr_plot_4_ebm_reg_thumb.png
+    :alt: Generalized Additive Model
+
+  :ref:`sphx_glr_auto_examples_models_plot_4_ebm_reg.py`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Generalized Additive Model</div>
+    </div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="GAM Regression">
+
+.. only:: html
+
+  .. image:: /auto_examples/models/images/thumb/sphx_glr_plot_1_gam_cls_thumb.png
+    :alt: Generalized Additive Model
+
+  :ref:`sphx_glr_auto_examples_models_plot_1_gam_cls.py`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Generalized Additive Model</div>
+    </div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="GAM Regression">
+
+.. only:: html
+
+  .. image:: /auto_examples/models/images/thumb/sphx_glr_plot_4_ebm_cls_thumb.png
+    :alt: Generalized Additive Model
+
+  :ref:`sphx_glr_auto_examples_models_plot_4_ebm_cls.py`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Generalized Additive Model</div>
+    </div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="FIGS: Regression">
+
+.. only:: html
+
+  .. image:: /auto_examples/models/images/thumb/sphx_glr_plot_3_figs_reg_thumb.png
+    :alt: FIGS: Regression
+
+  :ref:`sphx_glr_auto_examples_models_plot_3_figs_reg.py`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">FIGS: Regression</div>
+    </div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="FIGS: Regression">
+
+.. only:: html
+
+  .. image:: /auto_examples/models/images/thumb/sphx_glr_plot_3_figs_cls_thumb.png
+    :alt: FIGS: Regression
+
+  :ref:`sphx_glr_auto_examples_models_plot_3_figs_cls.py`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">FIGS: Regression</div>
+    </div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="GLM Linear Regression">
+
+.. only:: html
+
+  .. image:: /auto_examples/models/images/thumb/sphx_glr_plot_0_glm_reg_thumb.png
+    :alt: GLM - Linear Regression Model
+
+  :ref:`sphx_glr_auto_examples_models_plot_0_glm_reg.py`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">GLM - Linear Regression Model</div>
+    </div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="GLM Logistic Regression">
+
+.. only:: html
+
+  .. image:: /auto_examples/models/images/thumb/sphx_glr_plot_0_glm_cls_thumb.png
+    :alt: GLM - Logistic Regression Model
+
+  :ref:`sphx_glr_auto_examples_models_plot_0_glm_cls.py`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">GLM - Logistic Regression Model</div>
+    </div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="ReLU DNN: Regression">
+
+.. only:: html
+
+  .. image:: /auto_examples/models/images/thumb/sphx_glr_plot_7_reludnn_reg_thumb.png
+    :alt: ReLU DNN: Regression
+
+  :ref:`sphx_glr_auto_examples_models_plot_7_reludnn_reg.py`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">ReLU DNN: Regression</div>
+    </div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="ReLU DNN: Classification">
+
+.. only:: html
+
+  .. image:: /auto_examples/models/images/thumb/sphx_glr_plot_7_reludnn_cls_thumb.png
+    :alt: ReLU DNN: Classification
+
+  :ref:`sphx_glr_auto_examples_models_plot_7_reludnn_cls.py`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">ReLU DNN: Classification</div>
     </div>
 
 
@@ -40,5 +226,16 @@ Examples concerning the :mod:`piml.models` module.
 .. toctree::
    :hidden:
 
-   /auto_examples/models/plot_0_gam
+   /auto_examples/models/plot_2_dt_reg
+   /auto_examples/models/plot_1_gam_reg
+   /auto_examples/models/plot_2_dt_cls
+   /auto_examples/models/plot_4_ebm_reg
+   /auto_examples/models/plot_1_gam_cls
+   /auto_examples/models/plot_4_ebm_cls
+   /auto_examples/models/plot_3_figs_reg
+   /auto_examples/models/plot_3_figs_cls
+   /auto_examples/models/plot_0_glm_reg
+   /auto_examples/models/plot_0_glm_cls
+   /auto_examples/models/plot_7_reludnn_reg
+   /auto_examples/models/plot_7_reludnn_cls
 

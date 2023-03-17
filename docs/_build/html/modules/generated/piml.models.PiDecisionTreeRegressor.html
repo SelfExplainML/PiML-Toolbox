@@ -1,0 +1,994 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+
+  <meta charset="utf-8">
+  <meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  
+  <title>PiML Toolbox</title>
+  
+
+  
+  <link rel="shortcut icon" href="../../_static/favicon.ico"/>
+  
+
+  <link rel="stylesheet" href="../../_static/css/vendor/bootstrap.min.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/plot_directive.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/jupyter-sphinx.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/thebelab.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/sg_gallery.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/sg_gallery-binder.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/sg_gallery-dataframe.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/sg_gallery-rendered-html.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
+<script id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+<script src="../../_static/jquery.js"></script>
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="../../_static/doctools.js"></script>
+        <script src="../../_static/sphinx_highlight.js"></script>
+        <script src="../../_static/thebelab-helper.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+        <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.20.1/dist/embed-amd.js"></script>
+        <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+        <script>window.MathJax = {"tex": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true}, "options": {"ignoreHtmlClass": "tex2jax_ignore|mathjax_ignore|document", "processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+        <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
+    <script src="../../_static/js/theme.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav">
+
+  
+
+
+<nav id="navbar" class="sk-docs-navbar navbar navbar-expand-md navbar-light bg-light py-0">
+  <div class="container-fluid sk-docs-container px-0">
+      <a class="navbar-brand py-0" href="../../index.html">
+        <img
+          class="sk-brand-img"
+          src="../../_static/piml-logo.png"
+          alt="logo"/>
+      </a>
+    <button
+      id="sk-navbar-toggler"
+      class="navbar-toggler"
+      type="button"
+      data-toggle="collapse"
+      data-target="#navbarSupportedContent"
+      aria-controls="navbarSupportedContent"
+      aria-expanded="false"
+      aria-label="Toggle navigation"
+    >
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="sk-navbar-collapse collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item">
+          <a class="sk-nav-link nav-link" href="../../install.html">Install</a>
+        </li>
+		<li class="nav-item">
+          <a class="sk-nav-link nav-link" href="../classes.html">API</a>
+        </li>
+        <li class="nav-item">
+          <a class="sk-nav-link nav-link" href="../../user_guide.html">User Guide</a>
+        </li>
+        <li class="nav-item">
+          <a class="sk-nav-link nav-link" href="../../auto_examples/index.html">Examples</a>
+        </li>
+        <li class="nav-item">
+          <a class="sk-nav-link nav-link" href="../../faq.html">FAQ</a>
+        </li>      </ul>
+      <div id="searchbox" role="search">
+          <div class="searchformwrapper">
+          <form class="search" action="../../search.html" method="get">
+            <input class="sk-search-text-input" type="text" name="q" aria-labelledby="searchlabel" />
+            <input class="sk-search-text-btn" type="submit" value="Go" />
+          </form>
+          </div>
+      </div>
+    </div>
+  </div>
+</nav>
+  <div class="d-flex" id="sk-doc-wrapper">
+      <input type="checkbox" name="sk-toggle-checkbox" id="sk-toggle-checkbox">
+      <label id="sk-sidemenu-toggle" class="sk-btn-toggle-toc btn sk-btn-primary" for="sk-toggle-checkbox">Toggle Menu</label>
+      <div id="sk-sidebar-wrapper" class="border-right">
+        <div class="sk-sidebar-toc-wrapper">
+          <div class="sk-sidebar-toc-logo">
+            <a href="../../index.html">
+              <img
+                class="sk-brand-img"
+                src="../../_static/piml-logo.png"
+                alt="logo"/>
+            </a>
+          </div>
+          <!--div class="btn-group w-100 mb-2" role="group" aria-label="rellinks">
+              <a href="#" role="button" class="btn sk-btn-rellink py-1 disabled"">Prev</a>
+              <a href="#" role="button" class="btn sk-btn-rellink disabled py-1">Up</a>
+              <a href="#" role="button" class="btn sk-btn-rellink py-1 disabled"">Next</a>
+          </div-->
+              <div class="sk-sidebar-toc">
+                <ul>
+<li><a class="reference internal" href="#"><code class="xref py py-mod docutils literal notranslate"><span class="pre">piml.models</span></code>.PiDecisionTreeRegressor</a><ul>
+<li><a class="reference internal" href="#piml.models.PiDecisionTreeRegressor"><code class="docutils literal notranslate"><span class="pre">PiDecisionTreeRegressor</span></code></a><ul>
+<li><a class="reference internal" href="#piml.models.PiDecisionTreeRegressor.apply"><code class="docutils literal notranslate"><span class="pre">PiDecisionTreeRegressor.apply</span></code></a></li>
+<li><a class="reference internal" href="#piml.models.PiDecisionTreeRegressor.cost_complexity_pruning_path"><code class="docutils literal notranslate"><span class="pre">PiDecisionTreeRegressor.cost_complexity_pruning_path</span></code></a></li>
+<li><a class="reference internal" href="#piml.models.PiDecisionTreeRegressor.decision_path"><code class="docutils literal notranslate"><span class="pre">PiDecisionTreeRegressor.decision_path</span></code></a></li>
+<li><a class="reference internal" href="#piml.models.PiDecisionTreeRegressor.feature_importances_"><code class="docutils literal notranslate"><span class="pre">PiDecisionTreeRegressor.feature_importances_</span></code></a></li>
+<li><a class="reference internal" href="#piml.models.PiDecisionTreeRegressor.fit"><code class="docutils literal notranslate"><span class="pre">PiDecisionTreeRegressor.fit</span></code></a></li>
+<li><a class="reference internal" href="#piml.models.PiDecisionTreeRegressor.get_depth"><code class="docutils literal notranslate"><span class="pre">PiDecisionTreeRegressor.get_depth</span></code></a></li>
+<li><a class="reference internal" href="#piml.models.PiDecisionTreeRegressor.get_n_leaves"><code class="docutils literal notranslate"><span class="pre">PiDecisionTreeRegressor.get_n_leaves</span></code></a></li>
+<li><a class="reference internal" href="#piml.models.PiDecisionTreeRegressor.get_params"><code class="docutils literal notranslate"><span class="pre">PiDecisionTreeRegressor.get_params</span></code></a></li>
+<li><a class="reference internal" href="#piml.models.PiDecisionTreeRegressor.get_tree_diag"><code class="docutils literal notranslate"><span class="pre">PiDecisionTreeRegressor.get_tree_diag</span></code></a></li>
+<li><a class="reference internal" href="#piml.models.PiDecisionTreeRegressor.global_interpret"><code class="docutils literal notranslate"><span class="pre">PiDecisionTreeRegressor.global_interpret</span></code></a></li>
+<li><a class="reference internal" href="#piml.models.PiDecisionTreeRegressor.interpret_local_tree"><code class="docutils literal notranslate"><span class="pre">PiDecisionTreeRegressor.interpret_local_tree</span></code></a></li>
+<li><a class="reference internal" href="#piml.models.PiDecisionTreeRegressor.n_features_"><code class="docutils literal notranslate"><span class="pre">PiDecisionTreeRegressor.n_features_</span></code></a></li>
+<li><a class="reference internal" href="#piml.models.PiDecisionTreeRegressor.plot_local_tree"><code class="docutils literal notranslate"><span class="pre">PiDecisionTreeRegressor.plot_local_tree</span></code></a></li>
+<li><a class="reference internal" href="#piml.models.PiDecisionTreeRegressor.plot_tree_diag"><code class="docutils literal notranslate"><span class="pre">PiDecisionTreeRegressor.plot_tree_diag</span></code></a></li>
+<li><a class="reference internal" href="#piml.models.PiDecisionTreeRegressor.predict"><code class="docutils literal notranslate"><span class="pre">PiDecisionTreeRegressor.predict</span></code></a></li>
+<li><a class="reference internal" href="#piml.models.PiDecisionTreeRegressor.score"><code class="docutils literal notranslate"><span class="pre">PiDecisionTreeRegressor.score</span></code></a></li>
+<li><a class="reference internal" href="#piml.models.PiDecisionTreeRegressor.set_params"><code class="docutils literal notranslate"><span class="pre">PiDecisionTreeRegressor.set_params</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#examples-using-piml-models-pidecisiontreeregressor">Examples using <code class="docutils literal notranslate"><span class="pre">piml.models.PiDecisionTreeRegressor</span></code></a></li>
+</ul>
+</li>
+</ul>
+
+              </div>
+        </div>
+      </div>
+      <div id="sk-page-content-wrapper">
+        <div class="sk-page-content container-fluid body px-md-3" role="main">
+          
+  <section id="piml-models-pidecisiontreeregressor">
+<h1><code class="xref py py-mod docutils literal notranslate"><span class="pre">piml.models</span></code>.PiDecisionTreeRegressor<a class="headerlink" href="#piml-models-pidecisiontreeregressor" title="Permalink to this heading">¶</a></h1>
+<dl class="py class">
+<dt class="sig sig-object py" id="piml.models.PiDecisionTreeRegressor">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">piml.models.</span></span><span class="sig-name descname"><span class="pre">PiDecisionTreeRegressor</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">criterion</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">splitter</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'best'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">max_depth</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">5</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">min_samples_split</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">2</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">min_samples_leaf</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">5</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">min_weight_fraction_leaf</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">max_features</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">random_state</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">max_leaf_nodes</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">min_impurity_decrease</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ccp_alpha</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.0</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#piml.models.PiDecisionTreeRegressor" title="Permalink to this definition">¶</a></dt>
+<dd><p>A decision tree regressor.</p>
+<p>Read more in the <span class="xref std std-ref">User Guide</span>.</p>
+<dl class="field-list">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><dl>
+<dt><strong>criterion</strong><span class="classifier">{“squared_error”, “friedman_mse”, “absolute_error”,             “poisson”}, default=”squared_error”</span></dt><dd><p>The function to measure the quality of a split. Supported criteria
+are “squared_error” for the mean squared error, which is equal to
+variance reduction as feature selection criterion and minimizes the L2
+loss using the mean of each terminal node, “friedman_mse”, which uses
+mean squared error with Friedman’s improvement score for potential
+splits, “absolute_error” for the mean absolute error, which minimizes
+the L1 loss using the median of each terminal node, and “poisson” which
+uses reduction in Poisson deviance to find splits.</p>
+<div class="versionadded">
+<p><span class="versionmodified added">New in version 0.18: </span>Mean Absolute Error (MAE) criterion.</p>
+</div>
+<div class="versionadded">
+<p><span class="versionmodified added">New in version 0.24: </span>Poisson deviance criterion.</p>
+</div>
+<div class="deprecated">
+<p><span class="versionmodified deprecated">Deprecated since version 1.0: </span>Criterion “mse” was deprecated in v1.0 and will be removed in
+version 1.2. Use <code class="docutils literal notranslate"><span class="pre">criterion=&quot;squared_error&quot;</span></code> which is equivalent.</p>
+</div>
+<div class="deprecated">
+<p><span class="versionmodified deprecated">Deprecated since version 1.0: </span>Criterion “mae” was deprecated in v1.0 and will be removed in
+version 1.2. Use <code class="docutils literal notranslate"><span class="pre">criterion=&quot;absolute_error&quot;</span></code> which is equivalent.</p>
+</div>
+</dd>
+<dt><strong>splitter</strong><span class="classifier">{“best”, “random”}, default=”best”</span></dt><dd><p>The strategy used to choose the split at each node. Supported
+strategies are “best” to choose the best split and “random” to choose
+the best random split.</p>
+</dd>
+<dt><strong>max_depth</strong><span class="classifier">int, default=None</span></dt><dd><p>The maximum depth of the tree. If None, then nodes are expanded until
+all leaves are pure or until all leaves contain less than
+min_samples_split samples.</p>
+</dd>
+<dt><strong>min_samples_split</strong><span class="classifier">int or float, default=2</span></dt><dd><p>The minimum number of samples required to split an internal node:</p>
+<ul class="simple">
+<li><p>If int, then consider <code class="docutils literal notranslate"><span class="pre">min_samples_split</span></code> as the minimum number.</p></li>
+<li><p>If float, then <code class="docutils literal notranslate"><span class="pre">min_samples_split</span></code> is a fraction and
+<code class="docutils literal notranslate"><span class="pre">ceil(min_samples_split</span> <span class="pre">*</span> <span class="pre">n_samples)</span></code> are the minimum
+number of samples for each split.</p></li>
+</ul>
+<div class="versionchanged">
+<p><span class="versionmodified changed">Changed in version 0.18: </span>Added float values for fractions.</p>
+</div>
+</dd>
+<dt><strong>min_samples_leaf</strong><span class="classifier">int or float, default=1</span></dt><dd><p>The minimum number of samples required to be at a leaf node.
+A split point at any depth will only be considered if it leaves at
+least <code class="docutils literal notranslate"><span class="pre">min_samples_leaf</span></code> training samples in each of the left and
+right branches.  This may have the effect of smoothing the model,
+especially in regression.</p>
+<ul class="simple">
+<li><p>If int, then consider <code class="docutils literal notranslate"><span class="pre">min_samples_leaf</span></code> as the minimum number.</p></li>
+<li><p>If float, then <code class="docutils literal notranslate"><span class="pre">min_samples_leaf</span></code> is a fraction and
+<code class="docutils literal notranslate"><span class="pre">ceil(min_samples_leaf</span> <span class="pre">*</span> <span class="pre">n_samples)</span></code> are the minimum
+number of samples for each node.</p></li>
+</ul>
+<div class="versionchanged">
+<p><span class="versionmodified changed">Changed in version 0.18: </span>Added float values for fractions.</p>
+</div>
+</dd>
+<dt><strong>min_weight_fraction_leaf</strong><span class="classifier">float, default=0.0</span></dt><dd><p>The minimum weighted fraction of the sum total of weights (of all
+the input samples) required to be at a leaf node. Samples have
+equal weight when sample_weight is not provided.</p>
+</dd>
+<dt><strong>max_features</strong><span class="classifier">int, float or {“auto”, “sqrt”, “log2”}, default=None</span></dt><dd><p>The number of features to consider when looking for the best split:</p>
+<ul class="simple">
+<li><p>If int, then consider <code class="docutils literal notranslate"><span class="pre">max_features</span></code> features at each split.</p></li>
+<li><p>If float, then <code class="docutils literal notranslate"><span class="pre">max_features</span></code> is a fraction and
+<code class="docutils literal notranslate"><span class="pre">int(max_features</span> <span class="pre">*</span> <span class="pre">n_features)</span></code> features are considered at each
+split.</p></li>
+<li><p>If “auto”, then <code class="docutils literal notranslate"><span class="pre">max_features=n_features</span></code>.</p></li>
+<li><p>If “sqrt”, then <code class="docutils literal notranslate"><span class="pre">max_features=sqrt(n_features)</span></code>.</p></li>
+<li><p>If “log2”, then <code class="docutils literal notranslate"><span class="pre">max_features=log2(n_features)</span></code>.</p></li>
+<li><p>If None, then <code class="docutils literal notranslate"><span class="pre">max_features=n_features</span></code>.</p></li>
+</ul>
+<div class="deprecated">
+<p><span class="versionmodified deprecated">Deprecated since version 1.1: </span>The <code class="docutils literal notranslate"><span class="pre">&quot;auto&quot;</span></code> option was deprecated in 1.1 and will be removed
+in 1.3.</p>
+</div>
+<p>Note: the search for a split does not stop until at least one
+valid partition of the node samples is found, even if it requires to
+effectively inspect more than <code class="docutils literal notranslate"><span class="pre">max_features</span></code> features.</p>
+</dd>
+<dt><strong>random_state</strong><span class="classifier">int, RandomState instance or None, default=None</span></dt><dd><p>Controls the randomness of the estimator. The features are always
+randomly permuted at each split, even if <code class="docutils literal notranslate"><span class="pre">splitter</span></code> is set to
+<code class="docutils literal notranslate"><span class="pre">&quot;best&quot;</span></code>. When <code class="docutils literal notranslate"><span class="pre">max_features</span> <span class="pre">&lt;</span> <span class="pre">n_features</span></code>, the algorithm will
+select <code class="docutils literal notranslate"><span class="pre">max_features</span></code> at random at each split before finding the best
+split among them. But the best found split may vary across different
+runs, even if <code class="docutils literal notranslate"><span class="pre">max_features=n_features</span></code>. That is the case, if the
+improvement of the criterion is identical for several splits and one
+split has to be selected at random. To obtain a deterministic behaviour
+during fitting, <code class="docutils literal notranslate"><span class="pre">random_state</span></code> has to be fixed to an integer.
+See <span class="xref std std-term">Glossary</span> for details.</p>
+</dd>
+<dt><strong>max_leaf_nodes</strong><span class="classifier">int, default=None</span></dt><dd><p>Grow a tree with <code class="docutils literal notranslate"><span class="pre">max_leaf_nodes</span></code> in best-first fashion.
+Best nodes are defined as relative reduction in impurity.
+If None then unlimited number of leaf nodes.</p>
+</dd>
+<dt><strong>min_impurity_decrease</strong><span class="classifier">float, default=0.0</span></dt><dd><p>A node will be split if this split induces a decrease of the impurity
+greater than or equal to this value.</p>
+<p>The weighted impurity decrease equation is the following:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">N_t</span> <span class="o">/</span> <span class="n">N</span> <span class="o">*</span> <span class="p">(</span><span class="n">impurity</span> <span class="o">-</span> <span class="n">N_t_R</span> <span class="o">/</span> <span class="n">N_t</span> <span class="o">*</span> <span class="n">right_impurity</span>
+                    <span class="o">-</span> <span class="n">N_t_L</span> <span class="o">/</span> <span class="n">N_t</span> <span class="o">*</span> <span class="n">left_impurity</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>where <code class="docutils literal notranslate"><span class="pre">N</span></code> is the total number of samples, <code class="docutils literal notranslate"><span class="pre">N_t</span></code> is the number of
+samples at the current node, <code class="docutils literal notranslate"><span class="pre">N_t_L</span></code> is the number of samples in the
+left child, and <code class="docutils literal notranslate"><span class="pre">N_t_R</span></code> is the number of samples in the right child.</p>
+<p><code class="docutils literal notranslate"><span class="pre">N</span></code>, <code class="docutils literal notranslate"><span class="pre">N_t</span></code>, <code class="docutils literal notranslate"><span class="pre">N_t_R</span></code> and <code class="docutils literal notranslate"><span class="pre">N_t_L</span></code> all refer to the weighted sum,
+if <code class="docutils literal notranslate"><span class="pre">sample_weight</span></code> is passed.</p>
+<div class="versionadded">
+<p><span class="versionmodified added">New in version 0.19.</span></p>
+</div>
+</dd>
+<dt><strong>ccp_alpha</strong><span class="classifier">non-negative float, default=0.0</span></dt><dd><p>Complexity parameter used for Minimal Cost-Complexity Pruning. The
+subtree with the largest cost complexity that is smaller than
+<code class="docutils literal notranslate"><span class="pre">ccp_alpha</span></code> will be chosen. By default, no pruning is performed. See
+<span class="xref std std-ref">minimal_cost_complexity_pruning</span> for details.</p>
+<div class="versionadded">
+<p><span class="versionmodified added">New in version 0.22.</span></p>
+</div>
+</dd>
+</dl>
+</dd>
+<dt class="field-even">Attributes</dt>
+<dd class="field-even"><dl>
+<dt><a class="reference internal" href="#piml.models.PiDecisionTreeRegressor.feature_importances_" title="piml.models.PiDecisionTreeRegressor.feature_importances_"><code class="xref py py-obj docutils literal notranslate"><span class="pre">feature_importances_</span></code></a><span class="classifier">ndarray of shape (n_features,)</span></dt><dd><p>Return the feature importances.</p>
+</dd>
+<dt><strong>max_features_</strong><span class="classifier">int</span></dt><dd><p>The inferred value of max_features.</p>
+</dd>
+<dt><a class="reference internal" href="#piml.models.PiDecisionTreeRegressor.n_features_" title="piml.models.PiDecisionTreeRegressor.n_features_"><code class="xref py py-obj docutils literal notranslate"><span class="pre">n_features_</span></code></a><span class="classifier">int</span></dt><dd><p>DEPRECATED: The attribute <code class="docutils literal notranslate"><span class="pre">n_features_</span></code> is deprecated in 1.0 and will be removed in 1.2.</p>
+</dd>
+<dt><strong>n_features_in_</strong><span class="classifier">int</span></dt><dd><p>Number of features seen during <span class="xref std std-term">fit</span>.</p>
+<div class="versionadded">
+<p><span class="versionmodified added">New in version 0.24.</span></p>
+</div>
+</dd>
+<dt><strong>feature_names_in_</strong><span class="classifier">ndarray of shape (<code class="docutils literal notranslate"><span class="pre">n_features_in_</span></code>,)</span></dt><dd><p>Names of features seen during <span class="xref std std-term">fit</span>. Defined only when <code class="docutils literal notranslate"><span class="pre">X</span></code>
+has feature names that are all strings.</p>
+<div class="versionadded">
+<p><span class="versionmodified added">New in version 1.0.</span></p>
+</div>
+</dd>
+<dt><strong>n_outputs_</strong><span class="classifier">int</span></dt><dd><p>The number of outputs when <code class="docutils literal notranslate"><span class="pre">fit</span></code> is performed.</p>
+</dd>
+<dt><strong>tree_</strong><span class="classifier">Tree instance</span></dt><dd><p>The underlying Tree object. Please refer to
+<code class="docutils literal notranslate"><span class="pre">help(sklearn.tree._tree.Tree)</span></code> for attributes of Tree object and
+<span class="xref std std-ref">sphx_glr_auto_examples_tree_plot_unveil_tree_structure.py</span>
+for basic usage of these attributes.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+<div class="admonition seealso">
+<p class="admonition-title">See also</p>
+<dl class="simple">
+<dt><code class="xref py py-obj docutils literal notranslate"><span class="pre">DecisionTreeClassifier</span></code></dt><dd><p>A decision tree classifier.</p>
+</dd>
+</dl>
+</div>
+<p class="rubric">Notes</p>
+<p>The default values for the parameters controlling the size of the trees
+(e.g. <code class="docutils literal notranslate"><span class="pre">max_depth</span></code>, <code class="docutils literal notranslate"><span class="pre">min_samples_leaf</span></code>, etc.) lead to fully grown and
+unpruned trees which can potentially be very large on some data sets. To
+reduce memory consumption, the complexity and size of the trees should be
+controlled by setting those parameter values.</p>
+<p class="rubric">References</p>
+<dl class="citation">
+<dt class="label" id="r8763369d4ed8-1"><span class="brackets">1</span></dt>
+<dd><p><a class="reference external" href="https://en.wikipedia.org/wiki/Decision_tree_learning">https://en.wikipedia.org/wiki/Decision_tree_learning</a></p>
+</dd>
+<dt class="label" id="r8763369d4ed8-2"><span class="brackets">2</span></dt>
+<dd><p>L. Breiman, J. Friedman, R. Olshen, and C. Stone, “Classification
+and Regression Trees”, Wadsworth, Belmont, CA, 1984.</p>
+</dd>
+<dt class="label" id="r8763369d4ed8-3"><span class="brackets">3</span></dt>
+<dd><p>T. Hastie, R. Tibshirani and J. Friedman. “Elements of Statistical
+Learning”, Springer, 2009.</p>
+</dd>
+<dt class="label" id="r8763369d4ed8-4"><span class="brackets">4</span></dt>
+<dd><p>L. Breiman, and A. Cutler, “Random Forests”,
+<a class="reference external" href="https://www.stat.berkeley.edu/~breiman/RandomForests/cc_home.htm">https://www.stat.berkeley.edu/~breiman/RandomForests/cc_home.htm</a></p>
+</dd>
+</dl>
+<p class="rubric">Examples</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">sklearn.datasets</span> <span class="kn">import</span> <span class="n">load_diabetes</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">sklearn.model_selection</span> <span class="kn">import</span> <span class="n">cross_val_score</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">sklearn.tree</span> <span class="kn">import</span> <span class="n">DecisionTreeRegressor</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">X</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="n">load_diabetes</span><span class="p">(</span><span class="n">return_X_y</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">regressor</span> <span class="o">=</span> <span class="n">DecisionTreeRegressor</span><span class="p">(</span><span class="n">random_state</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">cross_val_score</span><span class="p">(</span><span class="n">regressor</span><span class="p">,</span> <span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">cv</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
+<span class="gp">... </span>                   
+<span class="gp">...</span>
+<span class="go">array([-0.39..., -0.46...,  0.02...,  0.06..., -0.50...,</span>
+<span class="go">       0.16...,  0.11..., -0.73..., -0.30..., -0.00...])</span>
+</pre></div>
+</div>
+<p class="rubric">Methods</p>
+<table class="autosummary longtable docutils align-default">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#piml.models.PiDecisionTreeRegressor.apply" title="piml.models.PiDecisionTreeRegressor.apply"><code class="xref py py-obj docutils literal notranslate"><span class="pre">apply</span></code></a>(X[, check_input])</p></td>
+<td><p>Return the index of the leaf that each sample is predicted as.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#piml.models.PiDecisionTreeRegressor.cost_complexity_pruning_path" title="piml.models.PiDecisionTreeRegressor.cost_complexity_pruning_path"><code class="xref py py-obj docutils literal notranslate"><span class="pre">cost_complexity_pruning_path</span></code></a>(X, y[, ...])</p></td>
+<td><p>Compute the pruning path during Minimal Cost-Complexity Pruning.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#piml.models.PiDecisionTreeRegressor.decision_path" title="piml.models.PiDecisionTreeRegressor.decision_path"><code class="xref py py-obj docutils literal notranslate"><span class="pre">decision_path</span></code></a>(X[, check_input])</p></td>
+<td><p>Return the decision path in the tree.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#piml.models.PiDecisionTreeRegressor.fit" title="piml.models.PiDecisionTreeRegressor.fit"><code class="xref py py-obj docutils literal notranslate"><span class="pre">fit</span></code></a>(X, y[, sample_weight, check_input])</p></td>
+<td><p>Build a decision tree regressor from the training set (X, y).</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#piml.models.PiDecisionTreeRegressor.get_depth" title="piml.models.PiDecisionTreeRegressor.get_depth"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_depth</span></code></a>()</p></td>
+<td><p>Return the depth of the decision tree.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#piml.models.PiDecisionTreeRegressor.get_n_leaves" title="piml.models.PiDecisionTreeRegressor.get_n_leaves"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_n_leaves</span></code></a>()</p></td>
+<td><p>Return the number of leaves of the decision tree.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#piml.models.PiDecisionTreeRegressor.get_params" title="piml.models.PiDecisionTreeRegressor.get_params"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_params</span></code></a>([deep])</p></td>
+<td><p>Get parameters for this estimator.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#piml.models.PiDecisionTreeRegressor.get_tree_diag" title="piml.models.PiDecisionTreeRegressor.get_tree_diag"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_tree_diag</span></code></a>(depth, root, tree_idx[, ...])</p></td>
+<td><p>Get tree diagram data.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#piml.models.PiDecisionTreeRegressor.global_interpret" title="piml.models.PiDecisionTreeRegressor.global_interpret"><code class="xref py py-obj docutils literal notranslate"><span class="pre">global_interpret</span></code></a>([x, feature_names, ...])</p></td>
+<td><p>Global interpret calculating.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#piml.models.PiDecisionTreeRegressor.interpret_local_tree" title="piml.models.PiDecisionTreeRegressor.interpret_local_tree"><code class="xref py py-obj docutils literal notranslate"><span class="pre">interpret_local_tree</span></code></a>(x[, tree_idx, ...])</p></td>
+<td><p>Interpret local tree for specific sample.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#piml.models.PiDecisionTreeRegressor.plot_local_tree" title="piml.models.PiDecisionTreeRegressor.plot_local_tree"><code class="xref py py-obj docutils literal notranslate"><span class="pre">plot_local_tree</span></code></a>(interpret_result[, ...])</p></td>
+<td><p>The plot function for local tree diagram</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#piml.models.PiDecisionTreeRegressor.plot_tree_diag" title="piml.models.PiDecisionTreeRegressor.plot_tree_diag"><code class="xref py py-obj docutils literal notranslate"><span class="pre">plot_tree_diag</span></code></a>(interpret_result[, pipeline, ...])</p></td>
+<td><p>The plot function for global tree diagram</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#piml.models.PiDecisionTreeRegressor.predict" title="piml.models.PiDecisionTreeRegressor.predict"><code class="xref py py-obj docutils literal notranslate"><span class="pre">predict</span></code></a>(X[, check_input])</p></td>
+<td><p>Predict class or regression value for X.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#piml.models.PiDecisionTreeRegressor.score" title="piml.models.PiDecisionTreeRegressor.score"><code class="xref py py-obj docutils literal notranslate"><span class="pre">score</span></code></a>(X, y[, sample_weight])</p></td>
+<td><p>Return the coefficient of determination of the prediction.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#piml.models.PiDecisionTreeRegressor.set_params" title="piml.models.PiDecisionTreeRegressor.set_params"><code class="xref py py-obj docutils literal notranslate"><span class="pre">set_params</span></code></a>(**params)</p></td>
+<td><p>Set the parameters of this estimator.</p></td>
+</tr>
+</tbody>
+</table>
+<dl class="py method">
+<dt class="sig sig-object py" id="piml.models.PiDecisionTreeRegressor.apply">
+<span class="sig-name descname"><span class="pre">apply</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">X</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">check_input</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#piml.models.PiDecisionTreeRegressor.apply" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the index of the leaf that each sample is predicted as.</p>
+<div class="versionadded">
+<p><span class="versionmodified added">New in version 0.17.</span></p>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>X</strong><span class="classifier">{array-like, sparse matrix} of shape (n_samples, n_features)</span></dt><dd><p>The input samples. Internally, it will be converted to
+<code class="docutils literal notranslate"><span class="pre">dtype=np.float32</span></code> and if a sparse matrix is provided
+to a sparse <code class="docutils literal notranslate"><span class="pre">csr_matrix</span></code>.</p>
+</dd>
+<dt><strong>check_input</strong><span class="classifier">bool, default=True</span></dt><dd><p>Allow to bypass several input checking.
+Don’t use this parameter unless you know what you do.</p>
+</dd>
+</dl>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><dl class="simple">
+<dt><strong>X_leaves</strong><span class="classifier">array-like of shape (n_samples,)</span></dt><dd><p>For each datapoint x in X, return the index of the leaf x
+ends up in. Leaves are numbered within
+<code class="docutils literal notranslate"><span class="pre">[0;</span> <span class="pre">self.tree_.node_count)</span></code>, possibly with gaps in the
+numbering.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="piml.models.PiDecisionTreeRegressor.cost_complexity_pruning_path">
+<span class="sig-name descname"><span class="pre">cost_complexity_pruning_path</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">X</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sample_weight</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#piml.models.PiDecisionTreeRegressor.cost_complexity_pruning_path" title="Permalink to this definition">¶</a></dt>
+<dd><p>Compute the pruning path during Minimal Cost-Complexity Pruning.</p>
+<p>See <span class="xref std std-ref">minimal_cost_complexity_pruning</span> for details on the pruning
+process.</p>
+<dl class="field-list">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>X</strong><span class="classifier">{array-like, sparse matrix} of shape (n_samples, n_features)</span></dt><dd><p>The training input samples. Internally, it will be converted to
+<code class="docutils literal notranslate"><span class="pre">dtype=np.float32</span></code> and if a sparse matrix is provided
+to a sparse <code class="docutils literal notranslate"><span class="pre">csc_matrix</span></code>.</p>
+</dd>
+<dt><strong>y</strong><span class="classifier">array-like of shape (n_samples,) or (n_samples, n_outputs)</span></dt><dd><p>The target values (class labels) as integers or strings.</p>
+</dd>
+<dt><strong>sample_weight</strong><span class="classifier">array-like of shape (n_samples,), default=None</span></dt><dd><p>Sample weights. If None, then samples are equally weighted. Splits
+that would create child nodes with net zero or negative weight are
+ignored while searching for a split in each node. Splits are also
+ignored if they would result in any single class carrying a
+negative weight in either child node.</p>
+</dd>
+</dl>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><dl>
+<dt><strong>ccp_path</strong><span class="classifier"><code class="xref py py-class docutils literal notranslate"><span class="pre">Bunch</span></code></span></dt><dd><p>Dictionary-like object, with the following attributes.</p>
+<dl class="simple">
+<dt>ccp_alphas<span class="classifier">ndarray</span></dt><dd><p>Effective alphas of subtree during pruning.</p>
+</dd>
+<dt>impurities<span class="classifier">ndarray</span></dt><dd><p>Sum of the impurities of the subtree leaves for the
+corresponding alpha value in <code class="docutils literal notranslate"><span class="pre">ccp_alphas</span></code>.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="piml.models.PiDecisionTreeRegressor.decision_path">
+<span class="sig-name descname"><span class="pre">decision_path</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">X</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">check_input</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#piml.models.PiDecisionTreeRegressor.decision_path" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the decision path in the tree.</p>
+<div class="versionadded">
+<p><span class="versionmodified added">New in version 0.18.</span></p>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>X</strong><span class="classifier">{array-like, sparse matrix} of shape (n_samples, n_features)</span></dt><dd><p>The input samples. Internally, it will be converted to
+<code class="docutils literal notranslate"><span class="pre">dtype=np.float32</span></code> and if a sparse matrix is provided
+to a sparse <code class="docutils literal notranslate"><span class="pre">csr_matrix</span></code>.</p>
+</dd>
+<dt><strong>check_input</strong><span class="classifier">bool, default=True</span></dt><dd><p>Allow to bypass several input checking.
+Don’t use this parameter unless you know what you do.</p>
+</dd>
+</dl>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><dl class="simple">
+<dt><strong>indicator</strong><span class="classifier">sparse matrix of shape (n_samples, n_nodes)</span></dt><dd><p>Return a node indicator CSR matrix where non zero elements
+indicates that the samples goes through the nodes.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="piml.models.PiDecisionTreeRegressor.feature_importances_">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">feature_importances_</span></span><a class="headerlink" href="#piml.models.PiDecisionTreeRegressor.feature_importances_" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the feature importances.</p>
+<p>The importance of a feature is computed as the (normalized) total
+reduction of the criterion brought by that feature.
+It is also known as the Gini importance.</p>
+<p>Warning: impurity-based feature importances can be misleading for
+high cardinality features (many unique values). See
+<code class="xref py py-func docutils literal notranslate"><span class="pre">sklearn.inspection.permutation_importance</span></code> as an alternative.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>feature_importances_</strong><span class="classifier">ndarray of shape (n_features,)</span></dt><dd><p>Normalized total reduction of criteria by feature
+(Gini importance).</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="piml.models.PiDecisionTreeRegressor.fit">
+<span class="sig-name descname"><span class="pre">fit</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">X</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sample_weight</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">check_input</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#piml.models.PiDecisionTreeRegressor.fit" title="Permalink to this definition">¶</a></dt>
+<dd><p>Build a decision tree regressor from the training set (X, y).</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>X</strong><span class="classifier">{array-like, sparse matrix} of shape (n_samples, n_features)</span></dt><dd><p>The training input samples. Internally, it will be converted to
+<code class="docutils literal notranslate"><span class="pre">dtype=np.float32</span></code> and if a sparse matrix is provided
+to a sparse <code class="docutils literal notranslate"><span class="pre">csc_matrix</span></code>.</p>
+</dd>
+<dt><strong>y</strong><span class="classifier">array-like of shape (n_samples,) or (n_samples, n_outputs)</span></dt><dd><p>The target values (real numbers). Use <code class="docutils literal notranslate"><span class="pre">dtype=np.float64</span></code> and
+<code class="docutils literal notranslate"><span class="pre">order='C'</span></code> for maximum efficiency.</p>
+</dd>
+<dt><strong>sample_weight</strong><span class="classifier">array-like of shape (n_samples,), default=None</span></dt><dd><p>Sample weights. If None, then samples are equally weighted. Splits
+that would create child nodes with net zero or negative weight are
+ignored while searching for a split in each node.</p>
+</dd>
+<dt><strong>check_input</strong><span class="classifier">bool, default=True</span></dt><dd><p>Allow to bypass several input checking.
+Don’t use this parameter unless you know what you do.</p>
+</dd>
+</dl>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><dl class="simple">
+<dt><strong>self</strong><span class="classifier">DecisionTreeRegressor</span></dt><dd><p>Fitted estimator.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="piml.models.PiDecisionTreeRegressor.get_depth">
+<span class="sig-name descname"><span class="pre">get_depth</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#piml.models.PiDecisionTreeRegressor.get_depth" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the depth of the decision tree.</p>
+<p>The depth of a tree is the maximum distance between the root
+and any leaf.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>self.tree_.max_depth</strong><span class="classifier">int</span></dt><dd><p>The maximum depth of the tree.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="piml.models.PiDecisionTreeRegressor.get_n_leaves">
+<span class="sig-name descname"><span class="pre">get_n_leaves</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#piml.models.PiDecisionTreeRegressor.get_n_leaves" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the number of leaves of the decision tree.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>self.tree_.n_leaves</strong><span class="classifier">int</span></dt><dd><p>Number of leaves.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="piml.models.PiDecisionTreeRegressor.get_params">
+<span class="sig-name descname"><span class="pre">get_params</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">deep</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#piml.models.PiDecisionTreeRegressor.get_params" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get parameters for this estimator.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>deep</strong><span class="classifier">bool, default=True</span></dt><dd><p>If True, will return the parameters for this estimator and
+contained subobjects that are estimators.</p>
+</dd>
+</dl>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><dl class="simple">
+<dt><strong>params</strong><span class="classifier">dict</span></dt><dd><p>Parameter names mapped to their values.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="piml.models.PiDecisionTreeRegressor.get_tree_diag">
+<span class="sig-name descname"><span class="pre">get_tree_diag</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">depth</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.11)"><span class="pre">int</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">root</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.11)"><span class="pre">int</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">tree_idx</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.11)"><span class="pre">int</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">truncate_dict</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Optional" title="(in Python v3.11)"><span class="pre">Optional</span></a><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.11)"><span class="pre">dict</span></a><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#piml.models.PiDecisionTreeRegressor.get_tree_diag" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get tree diagram data.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>depth</strong><span class="classifier">int</span></dt><dd><p>The max depth to display.</p>
+</dd>
+<dt><strong>root</strong><span class="classifier">int</span></dt><dd><p>The root node index for display.</p>
+</dd>
+<dt><strong>tree_idx</strong><span class="classifier">int</span></dt><dd><p>Useless in this function.</p>
+</dd>
+<dt><strong>truncate_dict</strong><span class="classifier">dict, optional</span></dt><dd><p>Feature name dictionary for truncate feature when feature name is too long, by default None</p>
+</dd>
+</dl>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><dl class="simple">
+<dt>TestDataResult</dt><dd><p>Global tree diagram result under specific arguments.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="piml.models.PiDecisionTreeRegressor.global_interpret">
+<span class="sig-name descname"><span class="pre">global_interpret</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Optional" title="(in Python v3.11)"><span class="pre">Optional</span></a><span class="p"><span class="pre">[</span></span><span class="pre">array</span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">feature_names</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Optional" title="(in Python v3.11)"><span class="pre">Optional</span></a><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.11)"><span class="pre">list</span></a><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">truncate_dict</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Optional" title="(in Python v3.11)"><span class="pre">Optional</span></a><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.11)"><span class="pre">dict</span></a><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#piml.models.PiDecisionTreeRegressor.global_interpret" title="Permalink to this definition">¶</a></dt>
+<dd><p>Global interpret calculating.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>x</strong><span class="classifier">np.array</span></dt><dd><p>Useless for this function.</p>
+</dd>
+<dt><strong>feature_names</strong><span class="classifier">list</span></dt><dd><p>The feature name list.</p>
+</dd>
+<dt><strong>truncate_dict</strong><span class="classifier">dict, optional</span></dt><dd><p>Useless for this function.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="piml.models.PiDecisionTreeRegressor.interpret_local_tree">
+<span class="sig-name descname"><span class="pre">interpret_local_tree</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">array</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tree_idx</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Optional" title="(in Python v3.11)"><span class="pre">Optional</span></a><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.11)"><span class="pre">int</span></a><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">truncate_dict</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Optional" title="(in Python v3.11)"><span class="pre">Optional</span></a><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.11)"><span class="pre">dict</span></a><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#piml.models.PiDecisionTreeRegressor.interpret_local_tree" title="Permalink to this definition">¶</a></dt>
+<dd><p>Interpret local tree for specific sample.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>x</strong><span class="classifier">np.array</span></dt><dd><p>Data to interpret, should be shape(1, :)</p>
+</dd>
+<dt><strong>tree_idx</strong><span class="classifier">int, optional</span></dt><dd><p>Useless for this function, by default None</p>
+</dd>
+<dt><strong>truncate_dict</strong><span class="classifier">dict, optional</span></dt><dd><p>Feature name dictionary for truncate feature when feature name is too long, by default None.</p>
+</dd>
+</dl>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><dl class="simple">
+<dt>TestDataResult</dt><dd><p>Interpret result of local tree for specific sample</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="piml.models.PiDecisionTreeRegressor.n_features_">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">n_features_</span></span><a class="headerlink" href="#piml.models.PiDecisionTreeRegressor.n_features_" title="Permalink to this definition">¶</a></dt>
+<dd><p>DEPRECATED: The attribute <code class="docutils literal notranslate"><span class="pre">n_features_</span></code> is deprecated in 1.0 and will be removed in 1.2. Use <code class="docutils literal notranslate"><span class="pre">n_features_in_</span></code> instead.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="piml.models.PiDecisionTreeRegressor.plot_local_tree">
+<span class="sig-name descname"><span class="pre">plot_local_tree</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">interpret_result</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">TestDataResult</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pipeline</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">original_scale</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.11)"><span class="pre">bool</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">return_fig</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.11)"><span class="pre">bool</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">figsize</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#tuple" title="(in Python v3.11)"><span class="pre">tuple</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">(20,</span> <span class="pre">10)</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#piml.models.PiDecisionTreeRegressor.plot_local_tree" title="Permalink to this definition">¶</a></dt>
+<dd><p>The plot function for local tree diagram</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>interpret_result</strong><span class="classifier">TestDataResult</span></dt><dd><p>The result of “get_tree_diag”.</p>
+</dd>
+<dt><strong>pipeline</strong><span class="classifier">piml.workflow.Pipeline, optional</span></dt><dd><p>The related model pipeline, by default None</p>
+</dd>
+<dt><strong>original_scale</strong><span class="classifier">bool, optional</span></dt><dd><p>Whether to use original scale to display, by default False</p>
+</dd>
+<dt><strong>figsize</strong><span class="classifier">tuple, optional</span></dt><dd><p>The figure size, by default (20, 10)</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="piml.models.PiDecisionTreeRegressor.plot_tree_diag">
+<span class="sig-name descname"><span class="pre">plot_tree_diag</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">interpret_result</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">TestDataResult</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pipeline</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">return_fig</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">original_scale</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.11)"><span class="pre">bool</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">figsize</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#tuple" title="(in Python v3.11)"><span class="pre">tuple</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">(20,</span> <span class="pre">10)</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#piml.models.PiDecisionTreeRegressor.plot_tree_diag" title="Permalink to this definition">¶</a></dt>
+<dd><p>The plot function for global tree diagram</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>interpret_result</strong><span class="classifier">TestDataResult</span></dt><dd><p>The result of “get_tree_diag”.</p>
+</dd>
+<dt><strong>pipeline</strong><span class="classifier">piml.workflow.Pipeline, optional</span></dt><dd><p>The related model pipeline, by default None</p>
+</dd>
+<dt><strong>original_scale</strong><span class="classifier">bool, optional</span></dt><dd><p>Whether to use original scale to display, by default False</p>
+</dd>
+<dt><strong>figsize</strong><span class="classifier">tuple, optional</span></dt><dd><p>The figure size, by default (20, 10)</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="piml.models.PiDecisionTreeRegressor.predict">
+<span class="sig-name descname"><span class="pre">predict</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">X</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">check_input</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#piml.models.PiDecisionTreeRegressor.predict" title="Permalink to this definition">¶</a></dt>
+<dd><p>Predict class or regression value for X.</p>
+<p>For a classification model, the predicted class for each sample in X is
+returned. For a regression model, the predicted value based on X is
+returned.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>X</strong><span class="classifier">{array-like, sparse matrix} of shape (n_samples, n_features)</span></dt><dd><p>The input samples. Internally, it will be converted to
+<code class="docutils literal notranslate"><span class="pre">dtype=np.float32</span></code> and if a sparse matrix is provided
+to a sparse <code class="docutils literal notranslate"><span class="pre">csr_matrix</span></code>.</p>
+</dd>
+<dt><strong>check_input</strong><span class="classifier">bool, default=True</span></dt><dd><p>Allow to bypass several input checking.
+Don’t use this parameter unless you know what you do.</p>
+</dd>
+</dl>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><dl class="simple">
+<dt><strong>y</strong><span class="classifier">array-like of shape (n_samples,) or (n_samples, n_outputs)</span></dt><dd><p>The predicted classes, or the predict values.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="piml.models.PiDecisionTreeRegressor.score">
+<span class="sig-name descname"><span class="pre">score</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">X</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sample_weight</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#piml.models.PiDecisionTreeRegressor.score" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the coefficient of determination of the prediction.</p>
+<p>The coefficient of determination <span class="math notranslate nohighlight">\(R^2\)</span> is defined as
+<span class="math notranslate nohighlight">\((1 - \frac{u}{v})\)</span>, where <span class="math notranslate nohighlight">\(u\)</span> is the residual
+sum of squares <code class="docutils literal notranslate"><span class="pre">((y_true</span> <span class="pre">-</span> <span class="pre">y_pred)**</span> <span class="pre">2).sum()</span></code> and <span class="math notranslate nohighlight">\(v\)</span>
+is the total sum of squares <code class="docutils literal notranslate"><span class="pre">((y_true</span> <span class="pre">-</span> <span class="pre">y_true.mean())</span> <span class="pre">**</span> <span class="pre">2).sum()</span></code>.
+The best possible score is 1.0 and it can be negative (because the
+model can be arbitrarily worse). A constant model that always predicts
+the expected value of <code class="docutils literal notranslate"><span class="pre">y</span></code>, disregarding the input features, would get
+a <span class="math notranslate nohighlight">\(R^2\)</span> score of 0.0.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>X</strong><span class="classifier">array-like of shape (n_samples, n_features)</span></dt><dd><p>Test samples. For some estimators this may be a precomputed
+kernel matrix or a list of generic objects instead with shape
+<code class="docutils literal notranslate"><span class="pre">(n_samples,</span> <span class="pre">n_samples_fitted)</span></code>, where <code class="docutils literal notranslate"><span class="pre">n_samples_fitted</span></code>
+is the number of samples used in the fitting for the estimator.</p>
+</dd>
+<dt><strong>y</strong><span class="classifier">array-like of shape (n_samples,) or (n_samples, n_outputs)</span></dt><dd><p>True values for <code class="docutils literal notranslate"><span class="pre">X</span></code>.</p>
+</dd>
+<dt><strong>sample_weight</strong><span class="classifier">array-like of shape (n_samples,), default=None</span></dt><dd><p>Sample weights.</p>
+</dd>
+</dl>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><dl class="simple">
+<dt><strong>score</strong><span class="classifier">float</span></dt><dd><p><span class="math notranslate nohighlight">\(R^2\)</span> of <code class="docutils literal notranslate"><span class="pre">self.predict(X)</span></code> wrt. <code class="docutils literal notranslate"><span class="pre">y</span></code>.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+<p class="rubric">Notes</p>
+<p>The <span class="math notranslate nohighlight">\(R^2\)</span> score used when calling <code class="docutils literal notranslate"><span class="pre">score</span></code> on a regressor uses
+<code class="docutils literal notranslate"><span class="pre">multioutput='uniform_average'</span></code> from version 0.23 to keep consistent
+with default value of <code class="xref py py-func docutils literal notranslate"><span class="pre">r2_score</span></code>.
+This influences the <code class="docutils literal notranslate"><span class="pre">score</span></code> method of all the multioutput
+regressors (except for
+<code class="xref py py-class docutils literal notranslate"><span class="pre">MultiOutputRegressor</span></code>).</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="piml.models.PiDecisionTreeRegressor.set_params">
+<span class="sig-name descname"><span class="pre">set_params</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">params</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#piml.models.PiDecisionTreeRegressor.set_params" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set the parameters of this estimator.</p>
+<p>The method works on simple estimators as well as on nested objects
+(such as <code class="xref py py-class docutils literal notranslate"><span class="pre">Pipeline</span></code>). The latter have
+parameters of the form <code class="docutils literal notranslate"><span class="pre">&lt;component&gt;__&lt;parameter&gt;</span></code> so that it’s
+possible to update each component of a nested object.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>**params</strong><span class="classifier">dict</span></dt><dd><p>Estimator parameters.</p>
+</dd>
+</dl>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><dl class="simple">
+<dt><strong>self</strong><span class="classifier">estimator instance</span></dt><dd><p>Estimator instance.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<section id="examples-using-piml-models-pidecisiontreeregressor">
+<h2>Examples using <code class="docutils literal notranslate"><span class="pre">piml.models.PiDecisionTreeRegressor</span></code><a class="headerlink" href="#examples-using-piml-models-pidecisiontreeregressor" title="Permalink to this heading">¶</a></h2>
+<div class="sphx-glr-thumbnails"><div class="sphx-glr-thumbcontainer" tooltip="Decision Tree (DT)"><img alt="Decision Tree: Regression Tree Model" src="auto_examples/models/images/thumb/sphx_glr_plot_5_dt_thumb.png" />
+<p><span class="xref std std-ref">sphx_glr_auto_examples_models_plot_5_dt.py</span></p>
+  <div class="sphx-glr-thumbnail-title">Decision Tree: Regression Tree Model</div>
+</div></div><div class="clearer"></div></section>
+</section>
+
+
+        </div>
+      <div class="container">
+        <footer class="sk-content-footer">
+              &copy; Copyright 2022-, PiML-Toolbox authors.
+            <a href="../../_sources/modules/generated/piml.models.PiDecisionTreeRegressor.rst.txt" rel="nofollow">Show this page source</a>
+        </footer>
+      </div>
+    </div>
+  </div>
+
+
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(false);
+      });
+      
+      const tooltipTriggerList = document.querySelectorAll('[data-bs-toggle="tooltip"]')
+      const tooltipList = [...tooltipTriggerList].map(tooltipTriggerEl => new bootstrap.Tooltip(tooltipTriggerEl))
+  </script>
+
+<script>
+$(document).ready(function() {
+    /* Add a [>>>] button on the top-right corner of code samples to hide
+     * the >>> and ... prompts and the output and thus make the code
+     * copyable. */
+    var div = $('.highlight-python .highlight,' +
+                '.highlight-python3 .highlight,' +
+                '.highlight-pycon .highlight,' +
+		'.highlight-default .highlight')
+    var pre = div.find('pre');
+
+    // get the styles from the current theme
+    pre.parent().parent().css('position', 'relative');
+    var hide_text = 'Hide prompts and outputs';
+    var show_text = 'Show prompts and outputs';
+
+    // create and add the button to all the code blocks that contain >>>
+    div.each(function(index) {
+        var jthis = $(this);
+        if (jthis.find('.gp').length > 0) {
+            var button = $('<span class="copybutton">&gt;&gt;&gt;</span>');
+            button.attr('title', hide_text);
+            button.data('hidden', 'false');
+            jthis.prepend(button);
+        }
+        // tracebacks (.gt) contain bare text elements that need to be
+        // wrapped in a span to work with .nextUntil() (see later)
+        jthis.find('pre:has(.gt)').contents().filter(function() {
+            return ((this.nodeType == 3) && (this.data.trim().length > 0));
+        }).wrap('<span>');
+    });
+
+    // define the behavior of the button when it's clicked
+    $('.copybutton').click(function(e){
+        e.preventDefault();
+        var button = $(this);
+        if (button.data('hidden') === 'false') {
+            // hide the code output
+            button.parent().find('.go, .gp, .gt').hide();
+            button.next('pre').find('.gt').nextUntil('.gp, .go').css('visibility', 'hidden');
+            button.css('text-decoration', 'line-through');
+            button.attr('title', show_text);
+            button.data('hidden', 'true');
+        } else {
+            // show the code output
+            button.parent().find('.go, .gp, .gt').show();
+            button.next('pre').find('.gt').nextUntil('.gp, .go').css('visibility', 'visible');
+            button.css('text-decoration', 'none');
+            button.attr('title', hide_text);
+            button.data('hidden', 'false');
+        }
+    });
+
+	/*** Add permalink buttons next to glossary terms ***/
+	$('dl.glossary > dt[id]').append(function() {
+		return ('<a class="headerlink" href="#' +
+			    this.getAttribute('id') +
+			    '" title="Permalink to this term">¶</a>');
+	});
+  /*** Hide navbar when scrolling down ***/
+  // Returns true when headerlink target matches hash in url
+  (function() {
+    hashTargetOnTop = function() {
+        var hash = window.location.hash;
+        if ( hash.length < 2 ) { return false; }
+
+        var target = document.getElementById( hash.slice(1) );
+        if ( target === null ) { return false; }
+
+        var top = target.getBoundingClientRect().top;
+        return (top < 2) && (top > -2);
+    };
+
+    // Hide navbar on load if hash target is on top
+    var navBar = document.getElementById("navbar");
+    var navBarToggler = document.getElementById("sk-navbar-toggler");
+    var navBarHeightHidden = "-" + navBar.getBoundingClientRect().height + "px";
+    var $window = $(window);
+
+    hideNavBar = function() {
+        navBar.style.top = navBarHeightHidden;
+    };
+
+    showNavBar = function() {
+        navBar.style.top = "0";
+    }
+
+    if (hashTargetOnTop()) {
+        hideNavBar()
+    }
+
+    var prevScrollpos = window.pageYOffset;
+    hideOnScroll = function(lastScrollTop) {
+        if (($window.width() < 768) && (navBarToggler.getAttribute("aria-expanded") === 'true')) {
+            return;
+        }
+        if (lastScrollTop > 2 && (prevScrollpos <= lastScrollTop) || hashTargetOnTop()){
+            hideNavBar()
+        } else {
+            showNavBar()
+        }
+        prevScrollpos = lastScrollTop;
+    };
+
+    /*** high performance scroll event listener***/
+    var raf = window.requestAnimationFrame ||
+        window.webkitRequestAnimationFrame ||
+        window.mozRequestAnimationFrame ||
+        window.msRequestAnimationFrame ||
+        window.oRequestAnimationFrame;
+    var lastScrollTop = $window.scrollTop();
+
+    if (raf) {
+        loop();
+    }
+
+    function loop() {
+        var scrollTop = $window.scrollTop();
+        if (lastScrollTop === scrollTop) {
+            raf(loop);
+            return;
+        } else {
+            lastScrollTop = scrollTop;
+            hideOnScroll(lastScrollTop);
+            raf(loop);
+        }
+    }
+  })();
+});
+
+</script>
+    
+
+<script src="_static/js/vendor/bootstrap.min.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,12 @@
+﻿:mod:`piml.models`.ReluDNNClassifier
+===========================================
+
+.. currentmodule:: piml.models
+
+.. autoclass:: ReluDNNClassifier
+
+.. include:: piml.models.ReluDNNClassifier.examples
+
+.. raw:: html
+
+    <div class="clearer"></div>

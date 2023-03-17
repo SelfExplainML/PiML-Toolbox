@@ -1,0 +1,107 @@
+.. Places parent toc into the sidebar
+
+:parenttoc: True
+
+.. include:: ../../includes/big_toc_css.rst
+
+
+Resilience Test
+======================================
+
+Resilience is the model's quality of accuracy, when the distribution of inputs shifts. Shifts in data can lead to performance degradation under different out-of distribution scenarios. Examples of these kinds of scenarios include, Worst-sample scenario, Hard-sample scenario, Outer-sample scenario, and Worst-cluster scenario. We will explore how PiML analyzes and protects against distributional shifts which is equivalent to controlling the tail-performance of a model [DN2018]_. Additionally, we will cover PiML's resiliency metrics like Population Stability Index and Out-of distribution scenarios.
+
+
+In this section, the model resilience tests will be introduced. For demonstration purposes, we run the following example codes to initialize a PiML experiment for the California Housing dataset. We use monotonic depth 2 xgboost and a GLM model for our Regeression dataset. Our focus will be to compare the resiliency performance of each our models, compare resilience PSI for our independent variables, and detail the various Resilience plots.
+
+.. jupyter-input::
+
+    from piml import Experiment
+    exp = Experiment()
+    exp.data_loader(data='CaliforniaHousing_trim2')
+    exp.data_prepare(target='MedHouseVal', task_type='Regression', test_ratio=0.2, random_state=1)
+    from piml.models import GLMRegressor
+    exp.model_train(model=GLMRegressor(l1_regularzation=0.0008, l2_regularzation=0.0008), name='GLM')
+    from piml.models import XGBRegressor
+    exp.model_train(model=XGBRegressor(max_depth=2, n_estimators=100), name="XGB-2")
+ 
+ 	 
+Resilience Metrics
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+PIML supports showing the resilience results for different metrics.
+
+**Mean Drift:**
+
+.. math::
+
+   \begin{align}     
+   µ_{p-Q} = µ_{p} - µ_{Q}
+   \end{align}
+   
+Mean Drift details the gradual shift in the average value of a a set of data over time. Where `µ_{p}` is the mean of the developmental data set and `µ_{Q}` is the mean of the production data set.
+
+
+**Population Stability Index:**
+
+.. math::
+
+   \begin{align}     
+   PSI = D_{KL} (p|q) + D_{KL} (q|p)
+   = ∑^B_{i=1} (p(x) - q(x))ln (\frac{p(x)}{q(x)})
+   \end{align}
+
+The Population Stability Index (PSI) is a statistic that measures how much a variable has shifted over time, and is used to monitor applicability of a statistical model to the current population [Y2018]_.
+
+Where `B` number of bins and `P` and `Q` are the cumulative proportions of samples in each bin of histogram of the two samples. 
+
+Additionally, `p(x)` is the actual percentages, and `q(x)` is the expected percentage, and `ln` is the natural logarithm of the quotient of actual percentage and expected percentage. 
+
+Resilience Methods
+^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+With PIML you can select the out-distribution method you would like to use when comparing the resiliency performance of your model with command `resilience_method`, with the default being `worst-sample`.
+
+**Worst-sample:** Selects the worst samples according to the loss of each sample, the worst samples are related to models. 
+
+**Hard_sample:** Use a deep XGB model to distinguish hard and easy samples; the worst samples are the same for different models
+
+**Outer-sample:** Use the Euclidean distance of each sample to the mean of X as a surrogate of worstness; the worst samples are the same for different models.
+
+**Worst-cluster:** Fit a K-means using the X, and then select the worst performing cluster as the worst samples; the worst samples are related to models.
+
+Resiliency Performance Comparison
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+In PIML, you can compare the various models you have created results of the resiliency metrics, as follows:
+
+.. code-block:: default
+
+	>>> exp.model_compare(models=['GLM', 'XGB-2'], show="resilience", immu_feature='None', figsize=(8,6))
+
+.. figure:: images/Model_Resiliency_Comparison.png
+   :align: center
+   :scale: 60
+
+Full Example
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. topic:: Example 1
+
+   The example below demonstrates how to use PiML with its high-code APis for the California Housing dataset from the UCI repository, which consists of 20,640 samples and 9 features, fetched by `sklearn.datasets`, see details `here`_. The response variable MedHouseVal (Median Home Value) is continuous and is a regression problem.
+   
+  * :ref:`sphx_glr_auto_examples_models_plot_9_resilience_r.py`
+  
+.. _here: https://scikit-learn.org/stable/modules/generated/sklearn.datasets.fetch_california_housing.html
+
+.. topic:: Example 2
+
+   The example below demonstrates how to use PiML with its high-code APis for the Taiwan Credit dataset. The response variable is `FlagDefault` is binary and it is a classification problem. 
+  
+  * :ref:`sphx_glr_auto_examples_models_plot_9_resilience_c.py`
+  
+.. topic:: References
+
+     .. [DN2018] Duchi, J., & Namkoong, H. (2018). `Learning Models with Uniform Performance via Distributionally Robust Optimization. ArXiv. <https://doi.org/10.48550/arXiv.1810.08750>`_
+
+     .. [Y2018] Yurdakul, Bilal, `Statistical Properties of Population Stability Index (2018). Dissertations. 3208 <https://scholarworks.wmich.edu/dissertations/3208>`_
+

@@ -6,11 +6,6 @@
 
 .. _interpretable_ml_models:
 
-Interpretable ML Models
+Interpretable Models
 --------------------------
 
-..
-    .. toctree::
-        :maxdepth: 2
-
-        models/decision_tree.rst

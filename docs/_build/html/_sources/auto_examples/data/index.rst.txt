@@ -1,0 +1,43 @@
+
+
+.. _sphx_glr_auto_examples_data:
+
+.. _data_examples:
+
+Data Pipeline
+--------------------------------
+
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbnails">
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="Four built-in feature selection strategies using the BikeSharing dataset as example.">
+
+.. only:: html
+
+  .. image:: /auto_examples/data/images/thumb/sphx_glr_plot_0_feature_select_thumb.png
+    :alt: Feature Selection
+
+  :ref:`sphx_glr_auto_examples_data_plot_0_feature_select.py`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Feature Selection</div>
+    </div>
+
+
+.. raw:: html
+
+    </div>
+
+
+.. toctree::
+   :hidden:
+
+   /auto_examples/data/plot_0_feature_select
+

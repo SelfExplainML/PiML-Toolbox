@@ -1,0 +1,138 @@
+.. Places parent toc into the sidebar
+
+:parenttoc: True
+
+.. include:: ../../includes/big_toc_css.rst
+
+=================================
+Explainable Boosting Machines
+=================================
+
+Explainable boosting machine (EBM) is a generalized additive model with pairwise interactions, proposed by [L2013]_.
+
+.. math::
+   \begin{align}
+      g(\EEE(y|\x))=\mu + \sum\limits_{j} h_{j}(x_{j}) + \sum\limits_{j<k} f_{jk}(x_{j},x_{k}),  \tag{1}
+   \end{align}
+   
+EBM uses tree ensembles to fit each main effect and pairwise interaction, includes a fast procedure for pairwise interaction detection
+In practice, EBM is demonstrated to have superior predictive performance over some black-box models.
+
+
+
+Model Training
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+PiML integrates the `ExplainableBoostingRegressor` and `ExplainableBoostingClassifier` by the interpret package,
+developed by Microsoft Research [N2013]_.
+
+.. _FIGSRegressor: https://interpret.ml/docs/ebm.html#explainableboostingregressor
+
+.. _FIGSClassifier: https://interpret.ml/docs/ebm.html#explainableboostingclassifier
+
+
+The training of FIGS is similar to that of the other interpretable models.
+
+.. jupyter-input::
+
+    from piml.models import ExplainableBoostingRegressor
+    exp.model_train(model=ExplainableBoostingRegressor(), name='EBM')
+
+
+Global Interpretation
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Feature Importance
+"""""""""""""""""""""""""""""""""
+
+.. jupyter-input::
+     
+     exp.model_interpret(model='EBM', show="global_fi")
+
+.. figure:: ../../auto_examples/models/images/sphx_glr_plot_4_ebm_reg_001.png
+   :target: ../../auto_examples/models/plot_4_ebm_reg.html
+   :align: center
+   :scale: 50%
+
+
+Effect Importance
+"""""""""""""""""""""""""""""""""
+
+.. jupyter-input::
+     
+     exp.model_interpret(model='EBM', show="global_ei")
+
+.. figure:: ../../auto_examples/models/images/sphx_glr_plot_4_ebm_reg_002.png
+   :target: ../../auto_examples/models/plot_4_ebm_reg.html
+   :align: center
+   :scale: 50%
+
+
+Effect Plot
+"""""""""""""""""""""""""""""""""
+
+.. jupyter-input::
+     
+     exp.model_interpret(model='EBM', show="global_effect_plot", uni_feature="hr")
+
+.. figure:: ../../auto_examples/models/images/sphx_glr_plot_4_ebm_reg_003.png
+   :target: ../../auto_examples/models/plot_4_ebm_reg.html
+   :align: center
+   :scale: 50%
+
+
+Local Interpretation
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Local Feature Contribution
+"""""""""""""""""""""""""""""""""
+
+.. jupyter-input::
+
+    exp.model_interpret(model='EBM', show="local_fi", sample_id=0)
+
+.. figure:: ../../auto_examples/models/images/sphx_glr_plot_4_ebm_reg_004.png
+   :target: ../../auto_examples/models/plot_4_ebm_reg.html
+   :align: center
+   :scale: 50%
+
+
+Local Effect Contribution
+"""""""""""""""""""""""""""""""""
+
+.. jupyter-input::
+
+    exp.model_interpret(model='EBM', show="local_ei", sample_id=0, original_scale=True)
+
+.. figure:: ../../auto_examples/models/images/sphx_glr_plot_4_ebm_reg_005.png
+   :target: ../../auto_examples/models/plot_4_ebm_reg.html
+   :align: center
+   :scale: 50%
+
+
+Examples
+^^^^^^^^^^^^^^^^^^^^^
+
+.. topic:: Example 1: CaliforniaHousing_trim2
+
+  The example below demonstrates how to use PiML with its high-code APis for the California Housing dataset from the UCI repository, which consists of 20,640 samples and 9 features, fetched by sklearn.datasets. The response variable MedHouseVal (Median Home Value) is continuous and is a regression problem.
+
+ * :ref:`sphx_glr_auto_examples_models_plot_4_ebm_reg.py`
+
+.. topic:: Examples 2: Taiwan Credit
+
+   The second example below demonstrates how to use PiML's high-code APIs for the TaiwanCredit dataset from the UCI repository. This dataset comprises the credit card details of 30,000 clients in Taiwan from April 2005 to September 2005, and more information can be found on the TaiwanCreditData website. The `FlagDefault` variable serves as the response for this classification problem.
+
+ * :ref:`sphx_glr_auto_examples_models_plot_4_ebm_cls.py`
+
+
+.. topic:: References
+
+	.. [L2013] Yin Lou, Rich Caruana, Johannes Gehrke, Giles Hooker (2013).
+		`Accurate intelligible models with pairwise interactions. <https://dl.acm.org/doi/abs/10.1145/2487575.2487579>`_,
+		In Proceedings of the 19th ACM SIGKDD international conference on Knowledge discovery and data mining (pp. 623-631).
+		
+	.. [N2013] Harsha Nori, Samuel Jenkins, Paul Koch, Rich Caruana (2019). 
+		`InterpretML: A Unified Framework for Machine Learning Interpretability. <https://arxiv.org/pdf/1909.09223.pdf>`,
+		arXiv preprint arXiv:1909.09223.
+

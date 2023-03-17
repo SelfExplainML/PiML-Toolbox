@@ -1,0 +1,12 @@
+﻿:mod:`piml.models`.GLMRegressor
+======================================
+
+.. currentmodule:: piml.models
+
+.. autoclass:: GLMRegressor
+
+.. include:: piml.models.GLMRegressor.examples
+
+.. raw:: html
+
+    <div class="clearer"></div>

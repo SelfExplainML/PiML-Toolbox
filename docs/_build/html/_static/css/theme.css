@@ -980,7 +980,7 @@ table.docutils p {
 .sphx-glr-single-img {
   margin: auto;
   display: block;
-  width: 40%;
+  width: 60%;
 }
 
 div.sphx-glr-thumbcontainer {
@@ -1005,7 +1005,7 @@ div.sphx-glr-thumbcontainer {
 }
 
 .sphx-glr-script-out {
-	display: none;
+	/* # display: none; */
 }
 
 

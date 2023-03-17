@@ -1,0 +1,266 @@
+.. Places parent toc into the sidebar
+
+:parenttoc: True
+
+.. include:: ../../includes/big_toc_css.rst
+
+======================================
+Feature Selection
+======================================
+
+Feature selection aims at selecting a subset of covariates that are most relevant to the response.
+When the number of features is large, feature selection can help mitigate computational burden and avoid overfitting.
+Moreover, reducing the number of modeling features is also beneficial for enhancing model interpretability. 
+
+
+In this section, four built-in feature selection strategies in PiML would be briefly introduced. 
+For demonstration purposes, we run the following example codes to initialize a PiML experiment for the BikeSharing dataset.
+Note that feature selection is based on training data, and hence the `exp.data_prepare` function should be executed before running `exp.feature_select`.
+
+
+Pearson Correlation
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Pearson correlation is a measure of linear correlation between two variables. 
+Mathematically, the correlation coefficient of :math:`X` and :math:`Y` can be calculated in the following way.
+
+.. math::
+
+   \begin{align}     
+   \rho_{X Y}=\frac{\sum_{i=1}^n\left(X_i-\bar{X}\right)\left(Y_i-\bar{Y}\right)}
+			{\sqrt{\sum_{i=1}^n\left(X_i-\bar{X}\right)^2} \sqrt{\sum_{i=1}^n\left(Y_i-\bar{Y}\right)^2}}
+   \end{align}
+
+The value of :math:`\rho_{X Y}` ranges from -1 to 1, where the sign denotes the direction of the relationship, and the magnitude represents the correlation strength.
+The corresponding feature selection strategy is straightforward:
+
+	- Calculate the Pearson correlation coefficient between each covariate and the response.
+	- Select features with :math:`|\rho_{X Y}|` greater than a user-specified `threshold`.
+
+These two steps are wrapped up and can be called in a single-line command in PiML, as follows,
+
+.. jupyter-input::
+
+	exp.feature_select(method='cor', threshold=0.1)
+
+.. figure:: ../../auto_examples/data/images/sphx_glr_plot_0_feature_select_001.png
+   :target: ../../auto_examples/data/plot_0_feature_select.html
+   :align: left
+   :scale: 50%
+
+where `cor` is the keyword of the Pearson correlation strategy, and 0.1 is the user-defined threshold.
+The output results include:
+
+	- The upper-left figure shows the top 10 most important features, where the blue and orange bars denote the positive and negative correlations, respectively.
+	- The upper-right table contains the correlation coefficients of all features.
+	- The bottom line text highlights the selected features.
+
+
+Pearson correlation is easy to compute and interpret.
+However, as it cannot measure non-linear relationships, its usage is limited and we may use the following three methods when dealing with complicated data.
+
+Distance Correlation
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+The distance correlation is a measure of dependence between two paired random vectors.
+It can be viewed as an advanced correlation measurement that can handle both linear and non-linear relationships.
+Given two features :math:`X` and :math:`Y`, we first calculate their pairwise Euclidean distance matrix, as follows,
+
+.. math::
+
+	\begin{aligned}
+		& a_{j, k}=\left\|X_j-X_k\right\|, \quad j, k=1,2, \ldots, n \\
+		& b_{j, k}=\left\|Y_j-Y_k\right\|, \quad j, k=1,2, \ldots, n.
+	\end{aligned}
+
+Then, these two matrices are centered, 
+
+.. math::
+
+	\begin{aligned}
+		& A_{j, k}:=a_{j, k}-\bar{a}_{j \cdot}-\bar{a}_{\cdot k}+\bar{a}_{\cdot \cdot} \\
+		& B_{j, k}:=b_{j, k}-\bar{b}_{j \cdot}-\bar{b}_{\cdot k}+\bar{b}_{\cdot \cdot}.
+	\end{aligned}
+
+The squared sample distance covariance is then defined as the arithmetic average of the products of :math:`A_{j, k}` and :math:`A_{j, k}`
+
+.. math::
+
+   \begin{aligned}     
+		\mathrm{dCov}^2(X, Y):=\frac{1}{n^2} \sum_{j=1}^n \sum_{k=1}^n A_{j, k} B_{j, k}.
+   \end{aligned}
+   
+Finally, the distance correlation between :math:`X` and :math:`Y` can be calculated via the following formula. 
+
+.. math::
+
+   \begin{aligned}
+		\mathrm{dCor}^2(X, Y) = \frac{\mathrm{dCov}^2(X, Y)}{\sqrt{\mathrm{dVar}^2(X) \operatorname{dVar}^2(Y)}}.
+	\end{aligned}
+
+
+Similar to that of Pearson correlation, we first calculate the distance correlation of each covariate and the response and then use a `threshold` to determine which features are selected. 
+Note that the distance correlation is always positive, ranging from 0 to 1, and hence we don't need to take the absolute value of these coefficients.
+In PiML, this method can be called using the following command.
+
+
+.. jupyter-input::
+
+	exp.feature_select(method='dcor', threshold=0.1)
+
+.. figure:: ../../auto_examples/data/images/sphx_glr_plot_0_feature_select_002.png
+   :target: ../../auto_examples/data/plot_0_feature_select.html
+   :align: left
+   :scale: 50%
+
+
+where the keyword is `dcor`, and the distance correlation is calculated using the `dcor` package, see the source code at https://github.com/vnmabus/dcor.
+The main advantage of distance correlation lies in that it is flexible in capturing non-linear relationships. 
+However, its calculation requires the pairwise distance matrix, which can be computationally very expensive as the sample size is large.
+
+
+Feature Importance
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+This strategy is composed of the following four steps:
+
+	- Fit an LGBM model using all the covariates and the response.
+	- Run permutation feature importance test for the fitted LGBM model, and get the importance of each feature.
+	- Sort features in the descending order of importance (normalized such that all values sum to 1).
+	- Select the top features with accumulated importance greater than a pre-defined threshold.
+
+See the example usage below.
+
+
+.. jupyter-input::
+
+	exp.feature_select(method='pfi', threshold=0.95)
+
+.. figure:: ../../auto_examples/data/images/sphx_glr_plot_0_feature_select_003.png
+   :target: ../../auto_examples/data/plot_0_feature_select.html
+   :align: left
+   :scale: 50%
+
+where the keyword here is `pfi`, and this test is based on the implementation of scikit-learn, and the details can be found at https://scikit-learn.org/stable/modules/generated/sklearn.inspection.permutation_importance.html.
+The setting `threshold=0.95` means selecting the top features with the sum of feature importance greater than 95%.
+The valid range of `threshold` is 0 to 1, representing the percentage of accumulated importance.
+As we increase the threshold, more features would be selected.
+
+
+By using LGBM and PFI to rank features, the selected features are most relevant for predicting the response. 
+The potential concern of this method is that the fitted model can be overfitting to noisy features, and thus the resulting feature ranking can be incorrect.
+
+
+Randomized Conditional Independence Test 
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+This strategy aims to identify a Markov boundary of the response variable, where the Markov boundary is defined as the minimal feature subset with maximum predictive power. 
+In particular, the randomized conditional independence test (RCIT) is used to test whether a variable is probabilistically independent of the response variable, conditioning on the Markov boundary. 
+A forward-backward selection strategy is incorporated with RCIT to generate the Markov boundary.
+
+RCIT Test
+----------------
+
+Given a Markov boundary set :math:`Z`, the goal is to test whether a feature :math:`X` is independent of the response variable :math:`Y`, namely :math:`X \perp Y \mid Z`..
+The RCIT test is highly related to KCIT, see follows. 
+
+	- KCIT [Zhang2012]_: kernel conditional independent test, works for non-linear and arbitrary data distribution; but not scalable.
+	- RCIT [Strobl2019]_: a fast approximation of KCIT; random Fourier features are used instead of reproducing kernel Hibert spaces.
+
+Therefore, RCIT is used as it can handle non-linear relationships and is fast in computation (as compared to KCIT).
+A detailed introduction to RCIT is given below:
+
+	- :math:`X, Y, Z` are first transformed using random Fourier features;
+	- Then the null hypothesis :math:`X \perp Y \mid Z` is equivalent to zero partial cross-covariance :math:`\Sigma_{X Y \mid Z}=\Sigma_{X Y}-\Sigma_{Y Z} \Sigma_{Z Z}^{-1} \Sigma_{X Z}=0`;
+	- The test statistics is then approximated by :math:`\left\|\hat{\Sigma}_{X Y \mid Z}\right\|_F^2=\mathrm{n} \hat{\Sigma}_{X Y}-\hat{\Sigma}_{Y Z}\left(\hat{\Sigma}_{Z Z}+\gamma I\right)^{-1} \hat{\Sigma}_{X Z}`;
+	- The asymptotic distribution of the test statistics is :math:`\sum_{i=1} \lambda_i z_i^2`, where :math:`z_i` are i.i.d. standard Gaussian variables.
+	- Lindsay-Pilla-Basak (LPB; [Lindsayl2000]_) approximates the CDF under the null using a finite mixture of Gamma distribution.
+	
+In PiML, the number of random Fourier features is set to 100 (:math:`Z`) and 5 (:math:`X` and :math:`Y`), respectively.
+
+
+Forward-Backward selection with Early Dropping (FBEDk):
+---------------------------------------------------------------------
+
+The FBEDk [Borboudakis2019]_ algorithm is a combination of forward selection and backward elimination.
+Here we first run forward selection with a user-defined Markov boundary set as initial and then conduct backward elimination to further delete insignificant features.
+
+**Forward Selection**
+
+	- Given a predefined Markov boundary set, we initialize all the remaining covariate features as candidate features.
+	- Run the RCIT test between each candidate feature and the response variable, conditional on the Markov boundary set.
+	- Features with `p_value <= threshold` will be selected as the candidate features.
+	- Among the candidate features, the most significant one will be added to the Markov boundary set.
+	- Repeat the last three steps, and the algorithm stops as the candidate set is empty.
+
+The above steps describe one run of the forward phase. To increase accuracy, the overall forward phase is repeated for `k` times, i.e., the character "k" in "FBEDk".
+As recommended by [Yu2020]_, the forward phase is repeated twice, i.e., the value of `k` is 2, and you may change this parameter by specifying the argument `n_forward_phase`.
+
+
+**Backward Elimination**
+
+	- Temporarily remove feature :math:`j` from the Markov boundary set.
+	- Run RCIT test for feature :math:`j` and :math:`Y`, conditional on the temporary Markov boundary set.
+	- Permanently remove feature :math:`j` from the Markov boundary set, if `p_value > threshold`. 
+
+.. jupyter-input::
+
+	exp.feature_select(method='rcit', threshold=0.001, n_forward_phase=2, kernel_size=100)
+
+.. figure:: ../../auto_examples/data/images/sphx_glr_plot_0_feature_select_004.png
+   :target: ../../auto_examples/data/plot_0_feature_select.html
+   :align: left
+   :scale: 50%
+
+where the upper-left figure shows the step-by-step formulation of the Markov boundary set. 
+The value of the `threshold` should be between 0 to 1. The smaller its value, the fewer features would be marked as significant and then selected.
+
+
+In the beginning, the Markov boundary set is empty, and the RCIT test is run over each feature and the response.
+As shown in iteration zero, some features are marked as significant if the corresponding `p_value <= threshold`, e.g., `hr` and `temp`; while `workingday` and `weekday` are shown to be insignificant.
+In iteration one, the most significant feature `temp` is added to the Markov boundary set, while `workingday` and `weekday` are then removed from the candidate feature list.
+This procedure will be repeated, and in the end, seven features are selected, including, `temp`, `hr`, `yr`, `weathersit`, `season`, `hum`, and `mnth`.
+
+
+As the FBEDk algorithm can start with an arbitrary Markov boundary set, users may define a non-empty Markov boundary set as the start point, see the following example.
+
+
+.. jupyter-input::
+
+	exp.feature_select(method='rcit', threshold=0.001, preset=["hr", "temp"])
+
+.. figure:: ../../auto_examples/data/images/sphx_glr_plot_0_feature_select_005.png
+   :target: ../auto_examples/data/plot_0_feature_select.html
+   :align: left
+   :scale: 50%
+
+
+This time, two features `hr` and `temp` are selected as the initialization, and they are shown in deep blue in iteration 0. 
+
+
+The RCIT-based feature selection method is capable of handling non-linear relationships, and the selected features are all causally related to the response, subject to the pre-defined significance level. 
+The disadvantages of this method include: a) the computational burden is relatively high; b) as it is a sequential selection approach, the results may be slightly different as we use different initial Markov boundary sets.
+
+.. warning::
+
+	In all the four strategies, we treat binary responses as continuous variables.
+	However, this treatment is not very rigourous, especially for pearson correlation, distance correlation, and rcit tests.  
+
+
+Full Example
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+The full example codes of this section can be found in the following link.
+
+.. topic:: Example
+
+	* :ref:`sphx_glr_auto_examples_data_plot_0_feature_select.py`
+
+
+.. topic:: References
+
+	 .. [Zhang2012] Zhang, K., Peters, J., Janzing, D. and Schölkopf, B., 2012. Kernel-based conditional independence test and application in causal discovery. arXiv preprint arXiv:1202.3775.
+	 .. [Strobl2019] Strobl, E.V., Zhang, K. and Visweswaran, S., 2019. Approximate kernel-based conditional independence tests for fast non-parametric causal discovery. Journal of Causal Inference, 7(1).
+	 .. [Lindsayl2000] Lindsay, B.G., Pilla, R.S. and Basak, P., 2000. Moment-based approximations of distributions using mixtures: Theory and applications. Annals of the Institute of Statistical Mathematics, 52(2), pp.215-230.
+	 .. [Borboudakis2019] Borboudakis, G. and Ioannis T., 2019. Forward-backward selection with early dropping. The Journal of Machine Learning Research 20(1), pp.276-314.
+     .. [Yu2020] Yu, K., Guo, X., Liu, L., Li, J., Wang, H., Ling, Z. and Wu, X., 2020. Causality-based feature selection: Methods and evaluations. ACM Computing Surveys (CSUR), 53(5), pp.1-36.

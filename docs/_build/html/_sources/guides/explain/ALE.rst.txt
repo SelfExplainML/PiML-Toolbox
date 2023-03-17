@@ -1,0 +1,151 @@
+.. Places parent toc into the sidebar
+
+:parenttoc: True
+
+.. include:: ../../includes/big_toc_css.rst
+
+
+ALE (Accumulated Local Effects)
+=================================
+
+Accumulated Local Effects (ALE) [A2016]_ is a model-agnostic global explanation method that describes (asses) how features affect a model prediction. It shares the same goal as PDP (Partial Dependence Plot). 
+However, the PDP is not recommended if the features are correlated. Instead, consider the ALE. ALE overcomes the features correlation problem by averaging and 
+accumulating the difference in predictions across the conditional distribution, limiting the effects of specific features.  
+
+ALE Estimate
+^^^^^^^^^^^^^^^^^^^^^^^^^
+
+In this section, we estimate the first and second-order effects and use the formulation of the ALE paper [A2016]_. Consider a scalar response variable :math:`Y` and a vector of d predictors :math:`\textbf{X} = (X_{1}, X_{2},...,X_{d})`;  
+:math:`f(.)`, a function that predicts  :math:`Y` (or the probability that  :math:`Y` falls into a particular class) and :math:`\{y_{i}, \textbf{x}_{i}\}_{i=1}^{n}` the set of training input pairs. Let :math:`J\subseteq\{1, 2,..., d\}` be 
+the general subset of predictor indices of the ALE higher-order effect :math:`f_{J,ALE}(\textbf{X}_{J})` . Detailed on this estimation can be found here ([A2016]_ ). We denote by :math:`\hat{f}_{j,ALE}(x_{j})` and 
+:math:`\hat{f}_{\{j,l\},ALE}(x_{j},x_{l})` the ALE estimates of the firts-order ( :math:`|J|=1`) and the estiamate of the second-order ( :math:`|J|=2` ) effects respectively. 
+
+let :math:`\textbf{x}_{i,J} = (x_{i,j} :j \in J)` and :math:`\textbf{x}_{i, J^{c}} = (x_{i, j}: j= 1,2,...,d; j \in J^{c})` represents the i-th observation of the subset of predictors :math:`\textbf{X}_{J}` , and 
+:math:`\textbf{X}_{J^{c}}`, respectively. For each :math:`j\in \{1, 2, ...,d\}`, let :math:`N_{j}(k) = \{(z_{k-1,j} , z_{k,j}]\}_{k=1}^{K}` represents a partition of the sample range of :math:`\{x_{i,j}\}_{i=1}^{n}` into :math:`K` intervals. 
+:math:`z_{k,j}` is the :math:`\frac{k}{K}` quantile of the empirical distribution of :math:`\{ x_{i,j}\}_{i}^{n}`. For :math:`k=\{1,2,...,K\}`, let :math:`n_{j}(k)` denote the number of training observations that fall into the kth 
+interval :math:`N_{j}(k)`, and :math:`k_{j}(x)` denotes the index of the interval into which a particular value :math:`x` of the predictor :math:`x_{j}` falls , meaning :math:`x\in (z_{k_{j}(x)-1,j},z_{k_{j}(x),j}]`. 
+To estimate the main effect of a predictor :math:`\hat{f}_{j,ALE}(.)`, of a predictor :math:`X_{j}`, we first compute the uncentered effect using the expression below.
+
+ .. math::
+   \begin{align}
+      \hat{h}_{j,ALE}(x) = \sum_{k=1}^{k_{j}(x)}\frac{1}{n_{k}(k)}\sum_{i:x_{i,j}\in N_{j}(k)}[ f(z_{k,j},\textbf{x}_{j,j^{c}})-f(z_{k-1,j},\textbf{x}_{i,j^{c}}))] \tag{1} 
+   \end{align}
+
+The ALE main effect is therfore computed as follows: 
+
+.. math::
+   \begin{align}
+      \hat{f}_{j,ALE}(x) = \hat{h}_{j,ALE}(x)-\frac{1}{n} \sum_{k=1}^{K} n_{j}(k) h_{j,ALE}(z_{k,j}) \tag{2}
+   \end{align}
+
+:math:`n_{j}(k)` is the number of training samples that fall in the k-th interval :math:`N_{j}(k)`. For the second order ALE and for aditional details on the formulation above, 
+please refer to the original paper [A2016]_ .
+
+ALE Plots
+^^^^^^^^^^^^^^^^^
+
+Similar to the visualization of PDPs, the visualization of ALE plots vias PiML can be done using `exp.model_explain`. First, we briefly describe the key parameters involved in the ALE plot: one-way and two-way
+ALE. The one-way ALE tells us about the interaction between the target response and an input feature of interest. On the other hand, the two-way (two inputs features of interest) show the
+interaction between the two features. Below is the illustration of a one-way and a two-way ALE.
+
+.. figure:: images_exp/ale.png
+   :align: center
+   :scale: 100
+
+Plots **A**, **B**, and **C** are the ALEs plots on the BikeSharing data (regression problem). The task of interest is to predict the response `cnt (hourly bike rental counts)`. The average hourly bike counts increase with the time when 
+`hr` is in the intervals [4.6, 6.9) and [14.0,17.8]; decrease when `hr` is in [7.2, 9.2] and [18.4, 23.0]. Plot **A** is an ALE plot of the categorical variable `weatherist`. As observed in **A**, the weatherist value of 3 has a very 
+low effect on the prediction, compared to 1.0, which has a marginal effect. In plot **C**, lighter shade indicates an above average, and darker shade indicates a below average, considering the main effect. `weekday` (from 4.8 to 6.0) 
+increases the prediction.
+
+High-code
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+This section illustrates how to use PiML to get the ALE plots. Built on the external package `PyALE`_ , the PiML implementation of ALE allows us to get the ALE plots. The example below is an illustration of a regression problem. Please 
+refer to the Examples for additional details.
+
+.. code-block:: default
+    
+    >>> from piml.models import GAMINetRegressor
+    >>> from piml import Experiment
+    >>> exp = Experiment()
+    >>> exp.data_loader(data='BikeSharing')
+    >>> exp.data_summary(feature_exclude=["season", "workingday", "atemp"])
+    >>> exp.data_prepare(target='cnt', task_type='Regression', test_ratio=0.2, random_state=0)
+    >>> gaminetregressor_model = GAMINetRegressor()
+    >>> exp.model_train(model=gaminetregressor_model, name='GAMINetRegressor')
+
+The **uni_feature** or **bi_features** parameters specify the one-way or the two-way ALE plots, respectively. See details below.
+
+`uni_feature` (one variable): in this case, `hr`.
+
+.. code-block:: default
+    
+    >>> exp.model_explain(model='GAMINetRegressor', show='ale',
+    ...                   uni_feature='weathersit', original_scale=True)
+
+`bi_features` (two variables): in this case `weekday` and `hr`.
+
+.. code-block:: default
+    
+    >>> exp.model_explain(model='GAMINetRegressor', show='ale', 
+    ...                   original_scale=True, bi_features=['weekday', 'hr'])
+
+.. _PyALE: https://pypi.org/project/PyALE/
+
+Disadvantages of ALEs
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+The main disadvantages of the ALE include the following:
+
+ 1. **The interpretation of ALE plots is difficult when features are strongly correlated**. In the context of strongly correlated variables, the ideal approach is to explore the effect when we change both features. Considering the effect when 
+    we change only one feature will lead to a false interpretation. However, suppose the features are uncorrelated, and the computation time is not a problem. In such case, PDPs are preferable because they are easier to understand. 
+ 2. **Selection of the number of intervals**. There is no standard for selecting the number of intervals. If the number of intervals is too small, the ALE plots might not be very accurate. On the other hand, If the number is too high, the curve 
+    will have many small ups and downs. 
+ 3. **Not easy to interpret the second-order effect plots**. The main disadvantage of the second-order effect plots is that one must keep the main effects in mind during the interpretation. The reason is the temptation to read the heat maps as 
+    the total effect of the two features, but it is only the additional effect of the interaction `ale`_. 
+ 4. **Complex implementation**. Implementing ALE plots is much more complex and less intuitive than partial dependence plots.
+ 5. **An interpretation of the effect across intervals is prohibited**.
+    The effects are computed per interval (locally), so the interpretation of the effect can only be local. However, for convenience, the interval-wise effects are accumulated, and the plot shows a smooth curve.
+
+Advantages of ALE 
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+ 1. **The ALE plots are easy to interpret**. The interpretation of ALE is straightforward. On the ALE plot, we can easily visualize the relative effect on the prediction when we slightly change our feature of interest.     
+ 2. **In most scenarios, features are correlated**. Therefore, ALE plots are recommended over PDP.
+ 3. **ALE plots are unbiased**. Since PDP marginalize over a combination of features, It may be difficult to consider all the features. 
+ 4. **ALE plots are faster to compute**. The linear time complexity (O(n)) of ALE, where n is the number of intervals, makes it preferable over PDPs when we have a time constraint. 
+
+.. _ale: https://christophm.github.io/interpretable-ml-book/ale.html
+
+Examples
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    
+The example below demonstrates how to use PiML with its high-code APIs for developing machine learning models for the BikeSharing data from UCI repository, which consists of 17,389
+samples of hourly counts of rental bikes in Capital bikeshare system; see details `here`_. The response `cnt` (hourly bike rental counts) is continuous and it is a regression problem.
+    
+.. _here: https://archive.ics.uci.edu/ml/datasets/bike+sharing+dataset
+    
+.. topic:: Examples 1
+                          
+ * :ref:`sphx_glr_auto_examples_explain_plot_0_ale.py`
+
+The second example below demonstrates how to use PiML with its high-code APIs for the TaiwanCredit data from UCI repository, which consists of 30,000 clients credit cards in Taiwan
+from 200504 to 200509; see details here `TaiwanCreditData`_ . The data can be loaded from PiML and it is subject to slight preprocessing. The response of this classification probelm is
+`FlagDefault`.
+
+.. _TaiwanCreditData: https://archive.ics.uci.edu/ml/datasets/default+of+credit+card+clients
+                          
+.. topic:: Examples 2
+
+ * :ref:`sphx_glr_auto_examples_explain_plot_1_ale.py`    
+
+.. _TaiwanCreditData: https://archive.ics.uci.edu/ml/datasets/default+of+credit+card+clients
+                          
+
+.. topic:: References
+
+     .. [A2016] Apley, D. W., and J. Zhu.
+                `Visualizing the effects of predictor variables in black box supervised learning models.
+                <https://arxiv.org/pdf/1612.08468.pdf>`_,
+                arXiv preprint arXiv:1612.08468.  
+

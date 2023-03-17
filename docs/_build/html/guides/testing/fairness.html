@@ -1,0 +1,599 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+
+  <meta charset="utf-8">
+  <meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  
+  <title>PiML Toolbox</title>
+  
+
+  
+  <link rel="shortcut icon" href="../../_static/favicon.ico"/>
+  
+
+  <link rel="stylesheet" href="../../_static/css/vendor/bootstrap.min.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/plot_directive.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/jupyter-sphinx.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/thebelab.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/sg_gallery.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/sg_gallery-binder.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/sg_gallery-dataframe.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/sg_gallery-rendered-html.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
+<script id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+<script src="../../_static/jquery.js"></script>
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="../../_static/doctools.js"></script>
+        <script src="../../_static/sphinx_highlight.js"></script>
+        <script src="../../_static/thebelab-helper.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+        <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.20.1/dist/embed-amd.js"></script>
+        <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+        <script>window.MathJax = {"tex": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true}, "options": {"ignoreHtmlClass": "tex2jax_ignore|mathjax_ignore|document", "processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+        <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
+    <script src="../../_static/js/theme.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav">
+
+  
+
+
+<nav id="navbar" class="sk-docs-navbar navbar navbar-expand-md navbar-light bg-light py-0">
+  <div class="container-fluid sk-docs-container px-0">
+      <a class="navbar-brand py-0" href="../../index.html">
+        <img
+          class="sk-brand-img"
+          src="../../_static/piml-logo.png"
+          alt="logo"/>
+      </a>
+    <button
+      id="sk-navbar-toggler"
+      class="navbar-toggler"
+      type="button"
+      data-toggle="collapse"
+      data-target="#navbarSupportedContent"
+      aria-controls="navbarSupportedContent"
+      aria-expanded="false"
+      aria-label="Toggle navigation"
+    >
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="sk-navbar-collapse collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item">
+          <a class="sk-nav-link nav-link" href="../../install.html">Install</a>
+        </li>
+		<li class="nav-item">
+          <a class="sk-nav-link nav-link" href="../../modules/classes.html">API</a>
+        </li>
+        <li class="nav-item">
+          <a class="sk-nav-link nav-link" href="../../user_guide.html">User Guide</a>
+        </li>
+        <li class="nav-item">
+          <a class="sk-nav-link nav-link" href="../../auto_examples/index.html">Examples</a>
+        </li>
+        <li class="nav-item">
+          <a class="sk-nav-link nav-link" href="../../faq.html">FAQ</a>
+        </li>      </ul>
+      <div id="searchbox" role="search">
+          <div class="searchformwrapper">
+          <form class="search" action="../../search.html" method="get">
+            <input class="sk-search-text-input" type="text" name="q" aria-labelledby="searchlabel" />
+            <input class="sk-search-text-btn" type="submit" value="Go" />
+          </form>
+          </div>
+      </div>
+    </div>
+  </div>
+</nav>
+  <div class="d-flex" id="sk-doc-wrapper">
+      <input type="checkbox" name="sk-toggle-checkbox" id="sk-toggle-checkbox">
+      <label id="sk-sidemenu-toggle" class="sk-btn-toggle-toc btn sk-btn-primary" for="sk-toggle-checkbox">Toggle Menu</label>
+      <div id="sk-sidebar-wrapper" class="border-right">
+        <div class="sk-sidebar-toc-wrapper">
+          <div class="sk-sidebar-toc-logo">
+            <a href="../../index.html">
+              <img
+                class="sk-brand-img"
+                src="../../_static/piml-logo.png"
+                alt="logo"/>
+            </a>
+          </div>
+          <!--div class="btn-group w-100 mb-2" role="group" aria-label="rellinks">
+              <a href="resilience.html" role="button" class="btn sk-btn-rellink py-1" sk-rellink-tooltip="6.3. Resilience Test">Prev</a><a href="../testing.html" role="button" class="btn sk-btn-rellink py-1" sk-rellink-tooltip="6. Outcome Testing">Up</a>
+              <a href="../comparison.html" role="button" class="btn sk-btn-rellink py-1" sk-rellink-tooltip="7. Model Comparison">Next</a>
+          </div-->
+              <div class="sk-sidebar-toc">
+              
+                <ul>
+                
+                
+                
+                
+                
+                
+                <li>
+                  <a href="../../user_guide.html" class="sk-toc-active">User Guide</a>
+                </li>
+                <ul>
+                
+                  <li>
+                    <a href="../introduction.html" class="">1. Introduction</a>
+                    
+                  </li>
+                
+                  <li>
+                    <a href="../data.html" class="">2. Data Pipeline</a>
+                    
+                  </li>
+                
+                  <li>
+                    <a href="../extmodels.html" class="">3. Black-box Models</a>
+                    
+                  </li>
+                
+                  <li>
+                    <a href="../explainability.html" class="">4. Post-hoc Explainability</a>
+                    
+                  </li>
+                
+                  <li>
+                    <a href="../models.html" class="">5. Interpretable Models</a>
+                    
+                  </li>
+                
+                  <li>
+                    <a href="../testing.html" class="sk-toc-active">6. Outcome Testing</a>
+                    
+                    <ul>
+                      
+                        <li class="sk-toctree-l3">
+                          <a href="accuracy.html">6.1. Accuracy</a>
+                        </li>
+                      
+                        <li class="sk-toctree-l3">
+                          <a href="robustness.html">6.2. Model Robustness</a>
+                        </li>
+                      
+                        <li class="sk-toctree-l3">
+                          <a href="resilience.html">6.3. Resilience Test</a>
+                        </li>
+                      
+                        <li class="sk-toctree-l3">
+                          <a href="">6.4. Fairness Test</a>
+                        </li>
+                      
+                    </ul>
+                    
+                  </li>
+                
+                  <li>
+                    <a href="../comparison.html" class="">7. Model Comparison</a>
+                    
+                  </li>
+                
+                  <li>
+                    <a href="../cases.html" class="">8. Case Studies</a>
+                    
+                  </li>
+                
+                  <li>
+                    <a href="../conclusion.html" class="">9. Conclusion</a>
+                    
+                  </li>
+                
+                </ul>
+                
+                
+                
+                
+                </ul>
+              </div>
+        </div>
+      </div>
+      <div id="sk-page-content-wrapper">
+        <div class="sk-page-content container-fluid body px-md-3" role="main">
+          
+  <style type="text/css">
+  div.body div.toctree-wrapper ul {
+      padding-left: 0;
+  }
+
+  div.body li.toctree-l1 {
+      padding: 0 0 0.5em 0;
+      list-style-type: none;
+      font-size: 150%;
+      font-weight: bold;
+  }
+
+  div.body li.toctree-l2 {
+      font-size: 70%;
+      list-style-type: square;
+      font-weight: normal;
+      margin-left: 40px;
+  }
+
+  div.body li.toctree-l3 {
+      font-size: 85%;
+      list-style-type: circle;
+      font-weight: normal;
+      margin-left: 40px;
+  }
+
+  div.body li.toctree-l4 {
+      margin-left: 40px;
+  }
+
+</style><section id="fairness-test">
+<h1><span class="section-number">6.4. </span>Fairness Test<a class="headerlink" href="#fairness-test" title="Permalink to this heading">¶</a></h1>
+<p>Fairness is the model’s quality or state of being fair or impartial.
+Decisions made by computers after a machine-learning process may be considered unfair if they were based on variables considered sensitive.
+Examples of these kinds of variables include gender, ethnicity, sexual orientation, disability and more.</p>
+<p>In this section, the model fairness test will be introduced.
+For demonstration purposes, we run the following example codes to initialize a PiML experiment for the Credit Simulation dataset.
+In the model training process, we cannot use demographic features like ‘Race’ and ‘Gender’. So we need to remove them from training data.
+We use monotonic depth 2 xgboost to train the data.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">piml</span> <span class="kn">import</span> <span class="n">Experiment</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">exp</span> <span class="o">=</span> <span class="n">Experiment</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">data</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;https://github.com/SelfExplainML/PiML-Toolbox/blob/main/datasets/CreditSimuBalanced.csv?raw=true&#39;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">exp</span><span class="o">.</span><span class="n">data_loader</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">exp</span><span class="o">.</span><span class="n">data_summary</span><span class="p">(</span><span class="n">feature_exclude</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;Race&#39;</span><span class="p">,</span> <span class="s1">&#39;Gender&#39;</span><span class="p">])</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">exp</span><span class="o">.</span><span class="n">data_prepare</span><span class="p">(</span><span class="n">target</span><span class="o">=</span><span class="s1">&#39;Status&#39;</span><span class="p">,</span> <span class="n">task_type</span><span class="o">=</span><span class="s1">&#39;Classification&#39;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">xgb2_mono</span> <span class="o">=</span> <span class="n">PiXGBClassifier</span><span class="p">(</span><span class="n">max_depth</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">n_estimators</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">feature_names</span><span class="o">=</span><span class="n">exp</span><span class="o">.</span><span class="n">get_feature_names</span><span class="p">(),</span>
+<span class="go">                            mono_increasing_list=[&#39;Mortgage&#39;, &#39;Balance&#39;],</span>
+<span class="go">                            mono_decreasing_list=[&#39;Amount Past Due&#39;, &#39;Utilization&#39;, &#39;Delinquency Status&#39;, &#39;Credit Inquiry&#39;, &#39;Open Trade&#39;])</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">xgb2_mono</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">train_x</span><span class="p">,</span> <span class="n">train_y</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">xgb2_wrapper</span> <span class="o">=</span> <span class="n">exp</span><span class="o">.</span><span class="n">make_pipeline</span><span class="p">(</span><span class="n">xgb2_mono</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">exp</span><span class="o">.</span><span class="n">register</span><span class="p">(</span><span class="n">xgb2_wrapper</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s1">&#39;XGB2_monotonic&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<section id="fairness-metric">
+<h2><span class="section-number">6.4.1. </span>Fairness Metric<a class="headerlink" href="#fairness-metric" title="Permalink to this heading">¶</a></h2>
+<p>PIML support showing the fairness result for different metrics.</p>
+<p>Metric types:</p>
+<ul class="simple">
+<li><p>“AIR”: Adverse impact ratio.</p></li>
+</ul>
+<div class="math notranslate nohighlight">
+\[\begin{align}
+AIR = \frac{(TP_{p}+FN_{p}) / n_{r}}{(TP_{r}+FN_{r}) / n_{p}}
+\end{align}\]</div>
+<p>The value of <span class="math notranslate nohighlight">\(TP\)</span>, <span class="math notranslate nohighlight">\(FN\)</span>, <span class="math notranslate nohighlight">\(n\)</span> refers to the count of True Positive samples, False negative samples and all samples,
+respectively. The <span class="math notranslate nohighlight">\(p\)</span> and <span class="math notranslate nohighlight">\(r\)</span> refers to the group samples belong to.</p>
+<ul class="simple">
+<li><p>“SMD”: Standardized mean difference. (Usually used for continuous response)</p></li>
+</ul>
+<div class="math notranslate nohighlight">
+\[\begin{align}
+SMD = \frac{(\sum_{x\in{p}} outcome_x / {n_{p}}) - (\sum_{x\in{r}} outcome_x / n_{r})} {\sigma(outcome)} * 100
+\end{align}\]</div>
+<p>The <span class="math notranslate nohighlight">\(outcome\)</span> is the prediction value, <span class="math notranslate nohighlight">\(\sigma\)</span> is the standard deviation.</p>
+<ul class="simple">
+<li><p>“Precision”: Positive predictive value disparity ratio.</p></li>
+</ul>
+<div class="math notranslate nohighlight">
+\[\begin{align}
+Precision Ratio = \frac{(TP_{p}) / (TP_{p}+FP_{p})}{(TP_{r}) / (FP_{r}+FN_{r})}
+\end{align}\]</div>
+<p>The value of <span class="math notranslate nohighlight">\(TP\)</span>, <span class="math notranslate nohighlight">\(FP\)</span> refers to the count of True Positive samples and False Positive samples, respectively.
+The <span class="math notranslate nohighlight">\(p\)</span> and <span class="math notranslate nohighlight">\(r\)</span> refers to the group samples belong to.</p>
+<ul class="simple">
+<li><p>“Recall”: True positive rate disparity ratio.</p></li>
+</ul>
+<div class="math notranslate nohighlight">
+\[\begin{align}
+Recall Ratio = \frac{(TP_{p}) / (TP_{p}+FN_{p})}{(TP_{r}) / (TP_{r}+FN_{r})}
+\end{align}\]</div>
+<p>The value of <span class="math notranslate nohighlight">\(TP\)</span>, <span class="math notranslate nohighlight">\(FN\)</span> refers to the count of True Positive samples and False negative samples, respectively. And the ‘protected’ and ‘reference’ refer to the group samples belong to.</p>
+<p>In PIML, you can use model_fairness API to get the metric result, as follows,</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">exp</span><span class="o">.</span><span class="n">model_fairness</span><span class="p">(</span><span class="n">model</span><span class="o">=</span><span class="s1">&#39;XGB2_monotonic&#39;</span><span class="p">,</span> <span class="n">show</span><span class="o">=</span><span class="s1">&#39;performance&#39;</span><span class="p">,</span> <span class="n">metric</span><span class="o">=</span><span class="s1">&#39;AIR&#39;</span><span class="p">,</span> <span class="n">group_category</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;Race&#39;</span><span class="p">,</span><span class="s1">&#39;Gender&#39;</span><span class="p">],</span>
+<span class="go">           reference_group=[1., 1.], protected_group=[0., 0.],</span>
+<span class="go">           favorable_threshold=0.5, performance_metric=&#39;ACC&#39;)</span>
+</pre></div>
+</div>
+<figure class="align-center">
+<a class="reference internal image-reference" href="../../_images/metric.png"><img alt="../../_images/metric.png" src="../../_images/metric.png" style="width: 610.1999999999999px; height: 523.1999999999999px;" /></a>
+</figure>
+<p>where <code class="docutils literal notranslate"><span class="pre">performance</span></code> is the keyword of showing metric, and you also need to set the protected group and the referece group.
+The output results include:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>The plot of fairness metric result for each group.</p></li>
+<li><p>The detailed table of fairness metric results for each group.</p></li>
+</ul>
+</div></blockquote>
+</section>
+<section id="fairness-segmented">
+<h2><span class="section-number">6.4.2. </span>Fairness Segmented<a class="headerlink" href="#fairness-segmented" title="Permalink to this heading">¶</a></h2>
+<p>PIML also supports showing the segmented fairness result for different metrics.
+Given the segmented features and the number of bins, if the feature is categorical,
+the samples will be segmented according to the unique categories of the feature.
+And if the feature is continuous, the samples will be segmented by the equal space binning method.
+After binning, PIML will show the fairness result in each bucket.
+The metric types in this section are the same as in the ‘Fairness Metric’ section.</p>
+<p>In PIML, you can use model_fairness API to get the segmented metric result, as follows,</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">exp</span><span class="o">.</span><span class="n">model_fairness</span><span class="p">(</span><span class="n">model</span><span class="o">=</span><span class="s1">&#39;XGB2_monotonic&#39;</span><span class="p">,</span> <span class="n">show</span><span class="o">=</span><span class="s1">&#39;segmented&#39;</span><span class="p">,</span> <span class="n">metric</span><span class="o">=</span><span class="s1">&#39;AIR&#39;</span><span class="p">,</span>
+<span class="go">           segmented_feature=&#39;Balance&#39;, group_category=[&#39;Race&#39;,&#39;Gender&#39;],</span>
+<span class="go">           reference_group=[1., 1.], protected_group=[0., 0.],</span>
+<span class="go">           favorable_threshold=0.5, segmented_bins=5)</span>
+</pre></div>
+</div>
+<figure class="align-center">
+<a class="reference internal image-reference" href="../../_images/segmented.png"><img alt="../../_images/segmented.png" src="../../_images/segmented.png" style="width: 817.1999999999999px; height: 450.0px;" /></a>
+</figure>
+<p>where the keyword is <code class="docutils literal notranslate"><span class="pre">segmented</span></code>, the segmented feature is ‘Balance’ and the segmented_bins is 5,
+which means the data is segmented into 5 buckets by feature ‘Balance’.
+The output results include:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>The plot of segmented fairness metric results for each group.</p></li>
+<li><p>The detailed table of segmented fairness metric results for each group.</p></li>
+</ul>
+</div></blockquote>
+</section>
+<section id="fairness-thresholding">
+<h2><span class="section-number">6.4.3. </span>Fairness Thresholding<a class="headerlink" href="#fairness-thresholding" title="Permalink to this heading">¶</a></h2>
+<p>For the fairness thresholding function, users can change the classification threshold by inspecting the change of
+the fairness and performance result to get a better trade-off result.
+This function only works for classification problems.
+The fairness metric types in this section are the same as the ‘Fairness Metric’ section.
+The performance metric types:</p>
+<ul class="simple">
+<li><p>“ACC”: accuracy value. This value is calculated by the scikit-learn function “accuracy_score”, the detail can be found at <a class="reference external" href="https://scikit-learn.org/stable/modules/generated/sklearn.metrics.accuracy_score.html">https://scikit-learn.org/stable/modules/generated/sklearn.metrics.accuracy_score.html</a>.</p></li>
+<li><p>“F1”: F1 score. This value is calculated by the scikit-learn function “f1_score”, the detail can be found at <a class="reference external" href="https://scikit-learn.org/stable/modules/generated/sklearn.metrics.f1_score.html">https://scikit-learn.org/stable/modules/generated/sklearn.metrics.f1_score.html</a>.</p></li>
+</ul>
+<p>See the example usage below.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">exp</span><span class="o">.</span><span class="n">model_fairness</span><span class="p">(</span><span class="n">model</span><span class="o">=</span><span class="s1">&#39;XGB2_monotonic&#39;</span><span class="p">,</span> <span class="n">show</span><span class="o">=</span><span class="s1">&#39;thresholding&#39;</span><span class="p">,</span> <span class="n">metric</span><span class="o">=</span><span class="s1">&#39;AIR&#39;</span><span class="p">,</span> <span class="n">group_category</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;Race&#39;</span><span class="p">,</span><span class="s1">&#39;Gender&#39;</span><span class="p">],</span>
+<span class="go">           reference_group=[1., 1.], protected_group=[0., 0.],</span>
+<span class="go">           favorable_threshold=0.32, performance_metric=&#39;ACC&#39;)</span>
+</pre></div>
+</div>
+<figure class="align-center">
+<a class="reference internal image-reference" href="../../_images/thresholding.png"><img alt="../../_images/thresholding.png" src="../../_images/thresholding.png" style="width: 804.6px; height: 381.59999999999997px;" /></a>
+</figure>
+<p>where the keyword here is <code class="docutils literal notranslate"><span class="pre">thresholding</span></code>.
+The ‘favorable_threshold’ is the classification threshold value, which controls the dashed line position in the plots.
+The two y axes is controlled by ‘metric’ and ‘performance_metric’, respectively.
+The output results include:</p>
+<ul class="simple">
+<li><p>The plot of the fairness metric and performance metric results with a different threshold for each group.</p></li>
+<li><p>The detailed table of fairness metric and performance metric results with a different threshold for each group.</p></li>
+</ul>
+</section>
+<section id="fairness-binning">
+<h2><span class="section-number">6.4.4. </span>Fairness Binning<a class="headerlink" href="#fairness-binning" title="Permalink to this heading">¶</a></h2>
+<p>PIML supports binning the data to adjust the fairness and performance results.
+Different from the ‘Fairness Segmented’ section, there is not only segmenting the data to show metrics but also changing
+the data to get better predictions.
+The fairness and Performance metric types in this section are the same as the ‘Fairness Thresholding’ section.
+There are two binning methods, ‘quantile’ and ‘customize’.
+Quantile binning aims to assign the same number of observations to each bin, while customize binning only
+works for a specific area by replacing the original value with the mean value of this area.</p>
+<p>In PiML, you should first define the binning list, which includes the binning settings you want to compare.
+Each binning setting is a key-value pair, and the format is like this:{feature name: {‘type’: binning type, ‘value’: binning paramter}}.
+If binning type is ‘customize’, the value is the binning range, while if the type is ‘quantile’ the value is the number of bins.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">binning_list</span> <span class="o">=</span> <span class="p">[{</span><span class="s1">&#39;Balance&#39;</span><span class="p">:{</span><span class="s1">&#39;type&#39;</span><span class="p">:</span> <span class="s1">&#39;customize&#39;</span><span class="p">,</span> <span class="s1">&#39;value&#39;</span><span class="p">:</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mf">0.25</span><span class="p">)}}]</span>
+<span class="gp">&gt;&gt;&gt; </span>    <span class="n">exp</span><span class="o">.</span><span class="n">model_fairness</span><span class="p">(</span><span class="n">model</span><span class="o">=</span><span class="s1">&#39;XGB2_monotonic&#39;</span><span class="p">,</span> <span class="n">show</span><span class="o">=</span><span class="s1">&#39;binning&#39;</span><span class="p">,</span> <span class="n">metric</span><span class="o">=</span><span class="s1">&#39;AIR&#39;</span><span class="p">,</span> <span class="n">group_category</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;Race&#39;</span><span class="p">,</span><span class="s1">&#39;Gender&#39;</span><span class="p">],</span> <span class="n">reference_group</span><span class="o">=</span><span class="p">[</span><span class="mf">1.</span><span class="p">,</span> <span class="mf">1.</span><span class="p">],</span> <span class="n">protected_group</span><span class="o">=</span><span class="p">[</span><span class="mf">0.</span><span class="p">,</span> <span class="mf">0.</span><span class="p">],</span>
+<span class="go">                                        favorable_threshold=0.5, performance_metric=&#39;F1&#39;, binning_list=binning_list)</span>
+</pre></div>
+</div>
+<figure class="align-center">
+<a class="reference internal image-reference" href="../../_images/binning.png"><img alt="../../_images/binning.png" src="../../_images/binning.png" style="width: 810.6px; height: 426.59999999999997px;" /></a>
+</figure>
+<p>where the keyword is <code class="docutils literal notranslate"><span class="pre">binning</span></code>, and the parameter ‘binning_list’ is for the list of binning settings.
+The output results include:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>The plot of fairness and performance metric results with different binning settings.</p></li>
+<li><p>The detailed table of fairness and performance metric results with different binning settings.</p></li>
+</ul>
+</div></blockquote>
+</section>
+<section id="fairness-feature-selection">
+<h2><span class="section-number">6.4.5. </span>Fairness Feature Selection<a class="headerlink" href="#fairness-feature-selection" title="Permalink to this heading">¶</a></h2>
+<p>For the fairness selection, In PIML we test both fairness and performance metrics when
+a single feature value is randomly shuffled, to check which feature caused unfairness or bad performance.
+The fairness and Performance metric types in this section are the same as the ‘Fairness Thresholding’ section.</p>
+<p>In PIML, you can use model_fairness API to get the feature removal result, as follows,</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">exp</span><span class="o">.</span><span class="n">model_fairness</span><span class="p">(</span><span class="n">model</span><span class="o">=</span><span class="s1">&#39;XGB2_monotonic&#39;</span><span class="p">,</span> <span class="n">show</span><span class="o">=</span><span class="s1">&#39;feature_removal&#39;</span><span class="p">,</span> <span class="n">metric</span><span class="o">=</span><span class="s1">&#39;AIR&#39;</span><span class="p">,</span> <span class="n">group_category</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;Race&#39;</span><span class="p">,</span><span class="s1">&#39;Gender&#39;</span><span class="p">],</span>
+<span class="go">           reference_group=[1., 1.], protected_group=[0., 0.],</span>
+<span class="go">           favorable_threshold=0.5, performance_metric=&#39;F1&#39;,)</span>
+</pre></div>
+</div>
+<figure class="align-center">
+<a class="reference internal image-reference" href="../../_images/feature_select.png"><img alt="../../_images/feature_select.png" src="../../_images/feature_select.png" style="width: 819.6px; height: 517.1999999999999px;" /></a>
+</figure>
+<p>where the keyword here is <code class="docutils literal notranslate"><span class="pre">feature_removal</span></code>. Other parameters are similar to the above method.
+The output results include:</p>
+<ul class="simple">
+<li><p>The plot of fairness and performance metric results with different features shuffled.</p></li>
+<li><p>The detailed table of fairness and performance metric results with different features shuffled.</p></li>
+</ul>
+</section>
+<section id="full-example">
+<h2><span class="section-number">6.4.6. </span>Full Example<a class="headerlink" href="#full-example" title="Permalink to this heading">¶</a></h2>
+<p>The full example codes of this section can be found in the following link.</p>
+<div class="topic">
+<p class="topic-title">Example</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="../../auto_examples/diagnostics/plot_1_fairness.html#sphx-glr-auto-examples-diagnostics-plot-1-fairness-py"><span class="std std-ref">Fairness - Performance: XGB</span></a></p></li>
+</ul>
+</div>
+</section>
+</section>
+
+
+        </div>
+      <div class="container">
+        <footer class="sk-content-footer">
+              &copy; Copyright 2022-, PiML-Toolbox authors.
+            <a href="../../_sources/guides/testing/fairness.rst.txt" rel="nofollow">Show this page source</a>
+        </footer>
+      </div>
+    </div>
+  </div>
+
+
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(false);
+      });
+      
+      const tooltipTriggerList = document.querySelectorAll('[data-bs-toggle="tooltip"]')
+      const tooltipList = [...tooltipTriggerList].map(tooltipTriggerEl => new bootstrap.Tooltip(tooltipTriggerEl))
+  </script>
+
+<script>
+$(document).ready(function() {
+    /* Add a [>>>] button on the top-right corner of code samples to hide
+     * the >>> and ... prompts and the output and thus make the code
+     * copyable. */
+    var div = $('.highlight-python .highlight,' +
+                '.highlight-python3 .highlight,' +
+                '.highlight-pycon .highlight,' +
+		'.highlight-default .highlight')
+    var pre = div.find('pre');
+
+    // get the styles from the current theme
+    pre.parent().parent().css('position', 'relative');
+    var hide_text = 'Hide prompts and outputs';
+    var show_text = 'Show prompts and outputs';
+
+    // create and add the button to all the code blocks that contain >>>
+    div.each(function(index) {
+        var jthis = $(this);
+        if (jthis.find('.gp').length > 0) {
+            var button = $('<span class="copybutton">&gt;&gt;&gt;</span>');
+            button.attr('title', hide_text);
+            button.data('hidden', 'false');
+            jthis.prepend(button);
+        }
+        // tracebacks (.gt) contain bare text elements that need to be
+        // wrapped in a span to work with .nextUntil() (see later)
+        jthis.find('pre:has(.gt)').contents().filter(function() {
+            return ((this.nodeType == 3) && (this.data.trim().length > 0));
+        }).wrap('<span>');
+    });
+
+    // define the behavior of the button when it's clicked
+    $('.copybutton').click(function(e){
+        e.preventDefault();
+        var button = $(this);
+        if (button.data('hidden') === 'false') {
+            // hide the code output
+            button.parent().find('.go, .gp, .gt').hide();
+            button.next('pre').find('.gt').nextUntil('.gp, .go').css('visibility', 'hidden');
+            button.css('text-decoration', 'line-through');
+            button.attr('title', show_text);
+            button.data('hidden', 'true');
+        } else {
+            // show the code output
+            button.parent().find('.go, .gp, .gt').show();
+            button.next('pre').find('.gt').nextUntil('.gp, .go').css('visibility', 'visible');
+            button.css('text-decoration', 'none');
+            button.attr('title', hide_text);
+            button.data('hidden', 'false');
+        }
+    });
+
+	/*** Add permalink buttons next to glossary terms ***/
+	$('dl.glossary > dt[id]').append(function() {
+		return ('<a class="headerlink" href="#' +
+			    this.getAttribute('id') +
+			    '" title="Permalink to this term">¶</a>');
+	});
+  /*** Hide navbar when scrolling down ***/
+  // Returns true when headerlink target matches hash in url
+  (function() {
+    hashTargetOnTop = function() {
+        var hash = window.location.hash;
+        if ( hash.length < 2 ) { return false; }
+
+        var target = document.getElementById( hash.slice(1) );
+        if ( target === null ) { return false; }
+
+        var top = target.getBoundingClientRect().top;
+        return (top < 2) && (top > -2);
+    };
+
+    // Hide navbar on load if hash target is on top
+    var navBar = document.getElementById("navbar");
+    var navBarToggler = document.getElementById("sk-navbar-toggler");
+    var navBarHeightHidden = "-" + navBar.getBoundingClientRect().height + "px";
+    var $window = $(window);
+
+    hideNavBar = function() {
+        navBar.style.top = navBarHeightHidden;
+    };
+
+    showNavBar = function() {
+        navBar.style.top = "0";
+    }
+
+    if (hashTargetOnTop()) {
+        hideNavBar()
+    }
+
+    var prevScrollpos = window.pageYOffset;
+    hideOnScroll = function(lastScrollTop) {
+        if (($window.width() < 768) && (navBarToggler.getAttribute("aria-expanded") === 'true')) {
+            return;
+        }
+        if (lastScrollTop > 2 && (prevScrollpos <= lastScrollTop) || hashTargetOnTop()){
+            hideNavBar()
+        } else {
+            showNavBar()
+        }
+        prevScrollpos = lastScrollTop;
+    };
+
+    /*** high performance scroll event listener***/
+    var raf = window.requestAnimationFrame ||
+        window.webkitRequestAnimationFrame ||
+        window.mozRequestAnimationFrame ||
+        window.msRequestAnimationFrame ||
+        window.oRequestAnimationFrame;
+    var lastScrollTop = $window.scrollTop();
+
+    if (raf) {
+        loop();
+    }
+
+    function loop() {
+        var scrollTop = $window.scrollTop();
+        if (lastScrollTop === scrollTop) {
+            raf(loop);
+            return;
+        } else {
+            lastScrollTop = scrollTop;
+            hideOnScroll(lastScrollTop);
+            raf(loop);
+        }
+    }
+  })();
+});
+
+</script>
+    
+
+<script src="_static/js/vendor/bootstrap.min.js"></script>
+
+</body>
+</html>

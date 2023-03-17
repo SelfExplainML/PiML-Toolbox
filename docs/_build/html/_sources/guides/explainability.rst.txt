@@ -5,30 +5,17 @@
 .. include:: ../includes/big_toc_css.rst
 
 
-=================================
 Post-hoc Explainability
 =================================
 
-..
-    Global Explainers 
-    ----------------------------------------------------------
 
-    .. toctree::
-       :maxdepth: 2
+Global Explainability 
+----------------------------------------------------------
 
-       explain/PFI.rst
-       explain/PDP.rst
-       explain/ALE.rst
-
-
-
-
-    Local Explainers 
-    ----------------------------------------------------------
-
-    .. toctree::
-       :maxdepth: 2
-
-       explain/LIME.rst
-       explain/SHAP.rst
-
+.. toctree::
+   :maxdepth: 2
+  
+   explain/PFI.rst
+   explain/PDP.rst
+   explain/ICE.rst
+   explain/ALE.rst

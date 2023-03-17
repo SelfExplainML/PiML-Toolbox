@@ -1,0 +1,97 @@
+.. Places parent toc into the sidebar
+
+:parenttoc: True
+
+.. include:: ../../includes/big_toc_css.rst
+
+
+PFI (Permutation Feature Importance)
+======================================
+
+The Permutation feature importance (PFI) of a model is defined as the increase in loss :math:`L` when the feature set (usually just one feature) is permuted [L2001]_.
+In other words, it is the decrease in a model score when a single feature value is randomly shuffled, breaking the relationship between the feature and the target. The drop in the model performance
+is indicative of how much the model depends on the feature. With different permutations of the feature, such a technique can be used to evaluate how the model depends on each feature of the input  
+set. However, features of low importance for a bad model (low cross-validation score) could be very important for a good model. Therefore, evaluating our model using techniques such as cross-validation before computing importance is 
+strongly recommended.
+
+Algorithm Description
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+- Assume we have a fully trained model, :math:`\textbf{m}` and a dataset :math:`\textbf{D}` (training or validation data)
+ 
+- Evaluate your model, :math:`\textbf{m}` on :math:`\textbf{D}`, and record your model performance, :math:`\textbf{s}`.
+
+- For each feature :math:`\textbf{k}` of the data :math:`\textbf{D}`, do the following:  
+
+  1. Perform a random shuffling of the values of feature :math:`\textbf{k}` in the dataset :math:`\textbf{D}`, and call the shuffled data :math:`\textbf{D}^{'}`.
+ 
+  2. Evaluate :math:`\textbf{m}` on :math:`\textbf{D}^{'}` and record your mode performance :math:`\textbf{s}^{'}`.
+
+  3. Compute :math:`\textbf{S}_{i} = \textbf{s} - \textbf{s}^{'}`
+
+- Repeat steps 1, 2 and 3  multiple times, then record the average of the :math:`\textbf{S}_{i}`'s. 
+
+High-code
+^^^^^^^^^^^^^^^^^
+
+PiML offers a straightforward approach to visualizing the PFI plots. In ``exp.model_explain`` , we set the  parameter ``show`` to `global_pfi`. The example below demonstrates how to use PiML with its high-code APIs to develop 
+machine learning models for the BikeSharing data from UCI repository, consisting of 17,389 samples of hourly counts of rental bikes in Capital bikeshare system; see details `BikeshareData`_. The response `cnt` (hourly bike rental counts) 
+is continuous, and we are dealing with a regression problem. Below is an illustration of the PFI plot. Please refer to the examples for additional details on a classification problem. 
+
+.. _BikeshareData: https://archive.ics.uci.edu/ml/datasets/bike+sharing+dataset
+
+.. code-block:: default
+
+    >>> from piml import Experiment
+    >>> from piml.models import ReluDNNRegressor   
+    >>> exp = Experiment()
+    >>> exp.data_loader(data='BikeSharing')
+    >>> exp.data_prepare(target='cnt', task_type='Regression', test_ratio=0.2, random_state=0)
+    >>> reludnn_model = ReluDNNRegressor(hidden_layer_sizes=(40, 40), l1_reg=1e-05,
+    ...                       batch_size=500, learning_rate=0.001)
+    >>> exp.model_train(model=reludnn_model, name='ReLU_DNN')
+
+Our variable of intrest is ``hr`` so we set ``uni_feature`` to `hr` as follow. 
+
+.. code-block:: default
+    
+    >>> exp.model_explain(model='ReLU_DNN', show='pfi', uni_feature='hr',
+                          original_scale=True, figsize=(6,5))
+
+.. figure:: images_exp/pfi_1.png
+   :align: center
+   :scale: 30
+
+This analysis gives us valuable insights on how our model makes predictions. We see that the variable **hr** is the most important feature. **yr**, **temp**, **workingday**, and **atemp** also 
+appear to be important predictors. Therefore,  permuting the values of these features will lead to the most decrease in the accuracy score of the model on the test set.
+
+Additional details and  Misleading values 
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+If features **a** and **b** are correlated, and we permute either **a** or **b**, this permutation will reduce the importance values for both **a** and **b**. For more information on Tree-based models, please refer to this page 
+`here`_.
+
+Example
+^^^^^^^^^^^^^^^^^^^^^
+
+The second example below demonstrates how to use PiML with its high-code APIs for the TaiwanCredit data from the UCI repository, which consists of 30,000 credit card clients in Taiwan
+from 200504 to 200509; see details here `TaiwanCreditData`_ . The data can be loaded from PiML, and it is subject to slight preprocessing. The response to this classification problem is
+`FlagDefault`.
+
+.. _TaiwanCreditData: https://archive.ics.uci.edu/ml/datasets/default+of+credit+card+clients
+                          
+.. topic:: Example
+
+ * :ref:`sphx_glr_auto_examples_explain_plot_4_pfi.py`
+
+.. _here: https://scikit-learn.org/stable/modules/permutation_importance.html 
+
+   
+.. topic:: References
+
+     .. [L2001] Breiman L,
+               `(2001) Random forests. Machine Learning
+               <https://link.springer.com/article/10.1023/a:1010933404324>`_,
+               45(1):5–32
+
+

@@ -1,0 +1,82 @@
+.. Places parent toc into the sidebar
+
+:parenttoc: True
+
+.. include:: ../../includes/big_toc_css.rst
+
+
+ICE (Individual Conditional Expectation)  
+==============================================
+
+Individual Conditional Expectation (ICE) plots [G2015]_ are similar to PDPs in that they visualize the relationship between a feature of interest and the predicted response. 
+However, whereas PDPs show the average effect of the feature on the response across all instances in the dataset, 
+ICE plots show the dependence of the predicted response on the feature for each instance.
+
+
+Introduction
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Let :math:`X` represent the set of input features of a predictor function, and :math:`\hat{f}` be a fitted model to be explained. 
+We partition :math:`X` into two sets, i.e., :math:`X_{S}` (features of interest) and its complement :math:`X_{C}`.
+To be specific, an ICE plot for a feature :math:`x_{S}` and an instance :math:`i` can be defined as:
+
+.. math::
+   \begin{align}  
+	 \mathrm{ICE}_{S}^{i}(x_{S}) = \hat{f}(x_{S}, x_{C}^{(i)})   
+   \end{align}
+
+
+Usage
+^^^^^^^^^^^^^^^^^
+
+Below we still use a fitted two-hidden-layer ReLU network on the BikeSharing dataset for illustration.
+
+.. code-block:: default
+	
+    from piml import Experiment
+    from piml.models import ReluDNNRegressor
+    exp = Experiment()
+    exp.data_loader(data='BikeSharing')
+    exp.data_summary(feature_exclude=["season", "workingday", "atemp"])
+    exp.data_prepare(target='cnt', task_type='Regression', test_ratio=0.2, random_state=0)
+    exp.model_train(model=ReluDNNRegressor(hidden_layer_sizes=(40, 40), l1_reg=1e-05,
+					 batch_size=500, learning_rate=0.001), name='ReLU_DNN')
+
+The following code snippet shows an example of how to generate an ICE plot using PiML in Python.
+The `show` parameter is set to "global_ice", and the `uni_feature` parameter is set to `hr`.
+This will generate a line plot with one line for each instance in the dataset, showing how the predicted response varies as the value of `hr` changes while holding all other features constant.
+By examining the individual lines in the ICE plot, we can gain a better understanding of how the model is making predictions for each instance in the dataset, 
+and identify any patterns or interactions that may be relevant to our analysis.
+
+.. code-block:: default
+
+    exp.model_explain(model='ReLU_DNN', show='ice', original_scale=True, uni_feature='hr', figsize=(6, 5))
+
+The rows predictions are lower when :math:`hr < 4.6`. However, most rows
+record an increase in prediction with the increase of `hr` when :math:`4.6 < hr < 8.3` and :math:`10 < hr < 18.0`. 
+
+.. _ice: https://scikit-learn.org/stable/auto_examples/inspection/plot_partial_dependence.html 
+
+
+Examples
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    
+The example below demonstrates how to use PiML with its high-code APIs for the TaiwanCredit data from the UCI repository, which consists of 30,000 clients' credit cards in Taiwan
+from 200504 to 200509; see details here `TaiwanCreditData`_. The data can be loaded from PiML and is subject to slight preprocessing. The response to this classification problem is
+`FlagDefault`.
+   
+.. _TaiwanCreditData: https://archive.ics.uci.edu/ml/datasets/default+of+credit+card+clients
+
+.. topic:: Example
+                          
+ * :ref:`sphx_glr_auto_examples_explain_plot_7_ICE.py`
+
+
+.. topic:: References
+
+     .. [G2015] Goldstein, Alex, Adam Kapelner, Justin Bleich, and Emil Pitkin. 
+                `Visualizing statistical learning with plots of individual conditional expectation.
+                <https://www.tandfonline.com/doi/abs/10.1080/10618600.2014.907095>`_,
+                Journal of Computational and Graphical Statistics 24, no. 1 (2015): 44-65
+
+

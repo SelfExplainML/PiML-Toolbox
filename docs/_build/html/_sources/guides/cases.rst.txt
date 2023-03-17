@@ -16,5 +16,6 @@ This chapter includes multiple examples of PiML low-code experimentation.
     cases/Example_BikeSharing.ipynb
     cases/Example_CaliforniaHousing.ipynb 
     cases/Example_TaiwanCredit.ipynb
-    cases/Example_SolasSimu1_fairness.ipynb 
-    cases/Example_fairness.ipynb 
+    cases/Example_Fairness_SimuStudy1.ipynb 
+    cases/Example_Fairness_SimuStudy2.ipynb 
+    

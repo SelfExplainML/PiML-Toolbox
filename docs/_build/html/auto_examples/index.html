@@ -19,6 +19,8 @@
   <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
   <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
   <link rel="stylesheet" href="../_static/plot_directive.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/jupyter-sphinx.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/thebelab.css" type="text/css" />
   <link rel="stylesheet" href="../_static/sg_gallery.css" type="text/css" />
   <link rel="stylesheet" href="../_static/sg_gallery-binder.css" type="text/css" />
   <link rel="stylesheet" href="../_static/sg_gallery-dataframe.css" type="text/css" />
@@ -37,6 +39,9 @@
         <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
         <script src="../_static/doctools.js"></script>
         <script src="../_static/sphinx_highlight.js"></script>
+        <script src="../_static/thebelab-helper.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+        <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.20.1/dist/embed-amd.js"></script>
         <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
     <script src="../_static/js/theme.js"></script>
 
@@ -118,8 +123,8 @@
                 <ul>
 <li><a class="reference internal" href="#">Examples</a><ul>
 <li><a class="reference internal" href="#data-pipeline">Data Pipeline</a></li>
-<li><a class="reference internal" href="#diagnostic-tests">Diagnostic Tests</a></li>
 <li><a class="reference internal" href="#interpretable-models">Interpretable Models</a></li>
+<li><a class="reference internal" href="#outcome-testing">Outcome Testing</a></li>
 <li><a class="reference internal" href="#post-hoc-explainability">Post hoc Explainability</a></li>
 </ul>
 </li>
@@ -139,38 +144,71 @@
 <p><a class="reference internal" href="data/plot_0_feature_select.html#sphx-glr-auto-examples-data-plot-0-feature-select-py"><span class="std std-ref">Feature Selection</span></a></p>
   <div class="sphx-glr-thumbnail-title">Feature Selection</div>
 </div></div></section>
-<section id="diagnostic-tests">
-<h2>Diagnostic Tests<a class="headerlink" href="#diagnostic-tests" title="Permalink to this heading">¶</a></h2>
+<section id="interpretable-models">
+<h2>Interpretable Models<a class="headerlink" href="#interpretable-models" title="Permalink to this heading">¶</a></h2>
+<div class="sphx-glr-thumbnails"><div class="sphx-glr-thumbcontainer" tooltip="Decision Tree: Classification Tree Model"><img alt="Decision Tree: Classification Tree Model" src="../_images/sphx_glr_plot_2_dt_reg_thumb.png" />
+<p><a class="reference internal" href="models/plot_2_dt_reg.html#sphx-glr-auto-examples-models-plot-2-dt-reg-py"><span class="std std-ref">Decision Tree: Classification Tree Model</span></a></p>
+  <div class="sphx-glr-thumbnail-title">Decision Tree: Classification Tree Model</div>
+</div><div class="sphx-glr-thumbcontainer" tooltip="GAM Regression"><img alt="Generalized Additive Model" src="../_images/sphx_glr_plot_1_gam_reg_thumb.png" />
+<p><a class="reference internal" href="models/plot_1_gam_reg.html#sphx-glr-auto-examples-models-plot-1-gam-reg-py"><span class="std std-ref">Generalized Additive Model</span></a></p>
+  <div class="sphx-glr-thumbnail-title">Generalized Additive Model</div>
+</div><div class="sphx-glr-thumbcontainer" tooltip="Decision Tree: Classification Tree Model"><img alt="Decision Tree: Classification Tree Model" src="../_images/sphx_glr_plot_2_dt_cls_thumb.png" />
+<p><a class="reference internal" href="models/plot_2_dt_cls.html#sphx-glr-auto-examples-models-plot-2-dt-cls-py"><span class="std std-ref">Decision Tree: Classification Tree Model</span></a></p>
+  <div class="sphx-glr-thumbnail-title">Decision Tree: Classification Tree Model</div>
+</div><div class="sphx-glr-thumbcontainer" tooltip="GAM Regression"><img alt="Generalized Additive Model" src="../_images/sphx_glr_plot_4_ebm_reg_thumb.png" />
+<p><a class="reference internal" href="models/plot_4_ebm_reg.html#sphx-glr-auto-examples-models-plot-4-ebm-reg-py"><span class="std std-ref">Generalized Additive Model</span></a></p>
+  <div class="sphx-glr-thumbnail-title">Generalized Additive Model</div>
+</div><div class="sphx-glr-thumbcontainer" tooltip="GAM Regression"><img alt="Generalized Additive Model" src="../_images/sphx_glr_plot_1_gam_cls_thumb.png" />
+<p><a class="reference internal" href="models/plot_1_gam_cls.html#sphx-glr-auto-examples-models-plot-1-gam-cls-py"><span class="std std-ref">Generalized Additive Model</span></a></p>
+  <div class="sphx-glr-thumbnail-title">Generalized Additive Model</div>
+</div><div class="sphx-glr-thumbcontainer" tooltip="GAM Regression"><img alt="Generalized Additive Model" src="../_images/sphx_glr_plot_4_ebm_cls_thumb.png" />
+<p><a class="reference internal" href="models/plot_4_ebm_cls.html#sphx-glr-auto-examples-models-plot-4-ebm-cls-py"><span class="std std-ref">Generalized Additive Model</span></a></p>
+  <div class="sphx-glr-thumbnail-title">Generalized Additive Model</div>
+</div><div class="sphx-glr-thumbcontainer" tooltip="FIGS: Regression"><img alt="FIGS: Regression" src="../_images/sphx_glr_plot_3_figs_reg_thumb.png" />
+<p><a class="reference internal" href="models/plot_3_figs_reg.html#sphx-glr-auto-examples-models-plot-3-figs-reg-py"><span class="std std-ref">FIGS: Regression</span></a></p>
+  <div class="sphx-glr-thumbnail-title">FIGS: Regression</div>
+</div><div class="sphx-glr-thumbcontainer" tooltip="FIGS: Regression"><img alt="FIGS: Regression" src="../_images/sphx_glr_plot_3_figs_cls_thumb.png" />
+<p><a class="reference internal" href="models/plot_3_figs_cls.html#sphx-glr-auto-examples-models-plot-3-figs-cls-py"><span class="std std-ref">FIGS: Regression</span></a></p>
+  <div class="sphx-glr-thumbnail-title">FIGS: Regression</div>
+</div><div class="sphx-glr-thumbcontainer" tooltip="GLM Linear Regression"><img alt="GLM - Linear Regression Model" src="../_images/sphx_glr_plot_0_glm_reg_thumb.png" />
+<p><a class="reference internal" href="models/plot_0_glm_reg.html#sphx-glr-auto-examples-models-plot-0-glm-reg-py"><span class="std std-ref">GLM - Linear Regression Model</span></a></p>
+  <div class="sphx-glr-thumbnail-title">GLM - Linear Regression Model</div>
+</div><div class="sphx-glr-thumbcontainer" tooltip="GLM Logistic Regression"><img alt="GLM - Logistic Regression Model" src="../_images/sphx_glr_plot_0_glm_cls_thumb.png" />
+<p><a class="reference internal" href="models/plot_0_glm_cls.html#sphx-glr-auto-examples-models-plot-0-glm-cls-py"><span class="std std-ref">GLM - Logistic Regression Model</span></a></p>
+  <div class="sphx-glr-thumbnail-title">GLM - Logistic Regression Model</div>
+</div><div class="sphx-glr-thumbcontainer" tooltip="ReLU DNN: Regression"><img alt="ReLU DNN: Regression" src="../_images/sphx_glr_plot_7_reludnn_reg_thumb.png" />
+<p><a class="reference internal" href="models/plot_7_reludnn_reg.html#sphx-glr-auto-examples-models-plot-7-reludnn-reg-py"><span class="std std-ref">ReLU DNN: Regression</span></a></p>
+  <div class="sphx-glr-thumbnail-title">ReLU DNN: Regression</div>
+</div><div class="sphx-glr-thumbcontainer" tooltip="ReLU DNN: Classification"><img alt="ReLU DNN: Classification" src="../_images/sphx_glr_plot_7_reludnn_cls_thumb.png" />
+<p><a class="reference internal" href="models/plot_7_reludnn_cls.html#sphx-glr-auto-examples-models-plot-7-reludnn-cls-py"><span class="std std-ref">ReLU DNN: Classification</span></a></p>
+  <div class="sphx-glr-thumbnail-title">ReLU DNN: Classification</div>
+</div></div></section>
+<section id="outcome-testing">
+<h2>Outcome Testing<a class="headerlink" href="#outcome-testing" title="Permalink to this heading">¶</a></h2>
 <div class="sphx-glr-thumbnails"><div class="sphx-glr-thumbcontainer" tooltip="PiML model diagnostics"><img alt="Resilience - Performance: XGB" src="../_images/sphx_glr_plot_1_resilience_thumb.png" />
 <p><a class="reference internal" href="diagnostics/plot_1_resilience.html#sphx-glr-auto-examples-diagnostics-plot-1-resilience-py"><span class="std std-ref">Resilience - Performance: XGB</span></a></p>
   <div class="sphx-glr-thumbnail-title">Resilience - Performance: XGB</div>
-</div></div></section>
-<section id="interpretable-models">
-<h2>Interpretable Models<a class="headerlink" href="#interpretable-models" title="Permalink to this heading">¶</a></h2>
-<div class="sphx-glr-thumbnails"><div class="sphx-glr-thumbcontainer" tooltip="(GAM) Regressor"><img alt="Generalized Additive Model" src="../_images/sphx_glr_plot_0_gam_thumb.png" />
-<p><a class="reference internal" href="models/plot_0_gam.html#sphx-glr-auto-examples-models-plot-0-gam-py"><span class="std std-ref">Generalized Additive Model</span></a></p>
-  <div class="sphx-glr-thumbnail-title">Generalized Additive Model</div>
-</div><div class="sphx-glr-thumbcontainer" tooltip="(GLM) Regression"><img alt="Generalized Linear Model - Linear Regression Model" src="../_images/sphx_glr_plot_2_glm_thumb.png" />
-<p><a class="reference internal" href="models/plot_2_glm.html#sphx-glr-auto-examples-models-plot-2-glm-py"><span class="std std-ref">Generalized Linear Model - Linear Regression Model</span></a></p>
-  <div class="sphx-glr-thumbnail-title">Generalized Linear Model - Linear Regression Model</div>
-</div><div class="sphx-glr-thumbcontainer" tooltip="Decision Tree: Classification Tree Model"><img alt="Decision Tree: Classification Tree Model" src="../_images/sphx_glr_plot_5_dt_thumb.png" />
-<p><a class="reference internal" href="models/plot_5_dt.html#sphx-glr-auto-examples-models-plot-5-dt-py"><span class="std std-ref">Decision Tree: Classification Tree Model</span></a></p>
-  <div class="sphx-glr-thumbnail-title">Decision Tree: Classification Tree Model</div>
-</div><div class="sphx-glr-thumbcontainer" tooltip="Decision Tree (DT)"><img alt="Decision Tree: Regression Tree Model" src="../_images/sphx_glr_plot_4_dt_thumb.png" />
-<p><a class="reference internal" href="models/plot_4_dt.html#sphx-glr-auto-examples-models-plot-4-dt-py"><span class="std std-ref">Decision Tree: Regression Tree Model</span></a></p>
-  <div class="sphx-glr-thumbnail-title">Decision Tree: Regression Tree Model</div>
-</div><div class="sphx-glr-thumbcontainer" tooltip="ReLU DNN: Regression"><img alt="ReLU DNN: Regression" src="../_images/sphx_glr_plot_1_reludnn_thumb.png" />
-<p><a class="reference internal" href="models/plot_1_reludnn.html#sphx-glr-auto-examples-models-plot-1-reludnn-py"><span class="std std-ref">ReLU DNN: Regression</span></a></p>
-  <div class="sphx-glr-thumbnail-title">ReLU DNN: Regression</div>
+</div><div class="sphx-glr-thumbcontainer" tooltip="Model evaluation"><img alt="Accuracy:  Regression" src="../_images/sphx_glr_plot_1_accuracy_thumb.png" />
+<p><a class="reference internal" href="diagnostics/plot_1_accuracy.html#sphx-glr-auto-examples-diagnostics-plot-1-accuracy-py"><span class="std std-ref">Accuracy:  Regression</span></a></p>
+  <div class="sphx-glr-thumbnail-title">Accuracy:  Regression</div>
+</div><div class="sphx-glr-thumbcontainer" tooltip="Evaluate model robustness"><img alt="Robustness:  Regression" src="../_images/sphx_glr_plot_2_robustness_thumb.png" />
+<p><a class="reference internal" href="diagnostics/plot_2_robustness.html#sphx-glr-auto-examples-diagnostics-plot-2-robustness-py"><span class="std std-ref">Robustness:  Regression</span></a></p>
+  <div class="sphx-glr-thumbnail-title">Robustness:  Regression</div>
+</div><div class="sphx-glr-thumbcontainer" tooltip="Evaluate model robustness"><img alt="Robustness: Classification" src="../_images/sphx_glr_plot_3_robustness_thumb.png" />
+<p><a class="reference internal" href="diagnostics/plot_3_robustness.html#sphx-glr-auto-examples-diagnostics-plot-3-robustness-py"><span class="std std-ref">Robustness: Classification</span></a></p>
+  <div class="sphx-glr-thumbnail-title">Robustness: Classification</div>
+</div><div class="sphx-glr-thumbcontainer" tooltip="PiML model diagnostics"><img alt="Fairness - Performance: XGB" src="../_images/sphx_glr_plot_1_fairness_thumb.png" />
+<p><a class="reference internal" href="diagnostics/plot_1_fairness.html#sphx-glr-auto-examples-diagnostics-plot-1-fairness-py"><span class="std std-ref">Fairness - Performance: XGB</span></a></p>
+  <div class="sphx-glr-thumbnail-title">Fairness - Performance: XGB</div>
 </div></div></section>
 <section id="post-hoc-explainability">
 <h2>Post hoc Explainability<a class="headerlink" href="#post-hoc-explainability" title="Permalink to this heading">¶</a></h2>
-<div class="sphx-glr-thumbnails"><div class="sphx-glr-thumbcontainer" tooltip="Local Interpretable Model-Agnostic Explanation for Classification groblem."><img alt="LIME:  Classification" src="../_images/sphx_glr_plot_6_LIME_thumb.png" />
-<p><a class="reference internal" href="explain/plot_6_LIME.html#sphx-glr-auto-examples-explain-plot-6-lime-py"><span class="std std-ref">LIME:  Classification</span></a></p>
-  <div class="sphx-glr-thumbnail-title">LIME:  Classification</div>
-</div><div class="sphx-glr-thumbcontainer" tooltip="ICE plot on Classification problem"><img alt="ICE:  Classification" src="../_images/sphx_glr_plot_7_ICE_thumb.png" />
+<div class="sphx-glr-thumbnails"><div class="sphx-glr-thumbcontainer" tooltip="ICE plot on Classification problem"><img alt="ICE:  Classification" src="../_images/sphx_glr_plot_7_ICE_thumb.png" />
 <p><a class="reference internal" href="explain/plot_7_ICE.html#sphx-glr-auto-examples-explain-plot-7-ice-py"><span class="std std-ref">ICE:  Classification</span></a></p>
   <div class="sphx-glr-thumbnail-title">ICE:  Classification</div>
+</div><div class="sphx-glr-thumbcontainer" tooltip="Local Interpretable Model-Agnostic Explanation for Classification groblem."><img alt="LIME:  Classification" src="../_images/sphx_glr_plot_6_LIME_thumb.png" />
+<p><a class="reference internal" href="explain/plot_6_LIME.html#sphx-glr-auto-examples-explain-plot-6-lime-py"><span class="std std-ref">LIME:  Classification</span></a></p>
+  <div class="sphx-glr-thumbnail-title">LIME:  Classification</div>
 </div><div class="sphx-glr-thumbcontainer" tooltip="Permutation Feature Importance plot on a Classification problem"><img alt="PFI:  Classification" src="../_images/sphx_glr_plot_4_pfi_thumb.png" />
 <p><a class="reference internal" href="explain/plot_4_pfi.html#sphx-glr-auto-examples-explain-plot-4-pfi-py"><span class="std std-ref">PFI:  Classification</span></a></p>
   <div class="sphx-glr-thumbnail-title">PFI:  Classification</div>
@@ -183,12 +221,12 @@
 </div><div class="sphx-glr-thumbcontainer" tooltip="SHAP plots on classification problem"><img alt="SHAP:  Classification" src="../_images/sphx_glr_plot_5_shap_thumb.png" />
 <p><a class="reference internal" href="explain/plot_5_shap.html#sphx-glr-auto-examples-explain-plot-5-shap-py"><span class="std std-ref">SHAP:  Classification</span></a></p>
   <div class="sphx-glr-thumbnail-title">SHAP:  Classification</div>
-</div><div class="sphx-glr-thumbcontainer" tooltip="Global ALE on TaiwanCredit data from UCI repository"><img alt="ALE:  Classification" src="../_images/sphx_glr_plot_1_ale_thumb.png" />
-<p><a class="reference internal" href="explain/plot_1_ale.html#sphx-glr-auto-examples-explain-plot-1-ale-py"><span class="std std-ref">ALE:  Classification</span></a></p>
-  <div class="sphx-glr-thumbnail-title">ALE:  Classification</div>
 </div><div class="sphx-glr-thumbcontainer" tooltip="Partial Dependence Plot (PDP) on  Regression problem "><img alt="PDP:  Regression" src="../_images/sphx_glr_plot_2_pdp_thumb.png" />
 <p><a class="reference internal" href="explain/plot_2_pdp.html#sphx-glr-auto-examples-explain-plot-2-pdp-py"><span class="std std-ref">PDP:  Regression</span></a></p>
   <div class="sphx-glr-thumbnail-title">PDP:  Regression</div>
+</div><div class="sphx-glr-thumbcontainer" tooltip="Global ALE on TaiwanCredit data from UCI repository"><img alt="ALE:  Classification" src="../_images/sphx_glr_plot_1_ale_thumb.png" />
+<p><a class="reference internal" href="explain/plot_1_ale.html#sphx-glr-auto-examples-explain-plot-1-ale-py"><span class="std std-ref">ALE:  Classification</span></a></p>
+  <div class="sphx-glr-thumbnail-title">ALE:  Classification</div>
 </div></div><div class="toctree-wrapper compound">
 </div>
 <div class="sphx-glr-footer sphx-glr-footer-gallery docutils container">

@@ -1,0 +1,457 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+
+  <meta charset="utf-8">
+  <meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  
+  <title>PiML Toolbox</title>
+  
+
+  
+  <link rel="shortcut icon" href="../../_static/favicon.ico"/>
+  
+
+  <link rel="stylesheet" href="../../_static/css/vendor/bootstrap.min.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/plot_directive.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/jupyter-sphinx.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/thebelab.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/sg_gallery.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/sg_gallery-binder.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/sg_gallery-dataframe.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/sg_gallery-rendered-html.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
+<script id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+<script src="../../_static/jquery.js"></script>
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="../../_static/doctools.js"></script>
+        <script src="../../_static/sphinx_highlight.js"></script>
+        <script src="../../_static/thebelab-helper.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+        <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.20.1/dist/embed-amd.js"></script>
+        <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="../../_static/js/theme.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav">
+
+  
+
+
+<nav id="navbar" class="sk-docs-navbar navbar navbar-expand-md navbar-light bg-light py-0">
+  <div class="container-fluid sk-docs-container px-0">
+      <a class="navbar-brand py-0" href="../../index.html">
+        <img
+          class="sk-brand-img"
+          src="../../_static/piml-logo.png"
+          alt="logo"/>
+      </a>
+    <button
+      id="sk-navbar-toggler"
+      class="navbar-toggler"
+      type="button"
+      data-toggle="collapse"
+      data-target="#navbarSupportedContent"
+      aria-controls="navbarSupportedContent"
+      aria-expanded="false"
+      aria-label="Toggle navigation"
+    >
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="sk-navbar-collapse collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item">
+          <a class="sk-nav-link nav-link" href="../../install.html">Install</a>
+        </li>
+		<li class="nav-item">
+          <a class="sk-nav-link nav-link" href="../../modules/classes.html">API</a>
+        </li>
+        <li class="nav-item">
+          <a class="sk-nav-link nav-link" href="../../user_guide.html">User Guide</a>
+        </li>
+        <li class="nav-item">
+          <a class="sk-nav-link nav-link" href="../index.html">Examples</a>
+        </li>
+        <li class="nav-item">
+          <a class="sk-nav-link nav-link" href="../../faq.html">FAQ</a>
+        </li>      </ul>
+      <div id="searchbox" role="search">
+          <div class="searchformwrapper">
+          <form class="search" action="../../search.html" method="get">
+            <input class="sk-search-text-input" type="text" name="q" aria-labelledby="searchlabel" />
+            <input class="sk-search-text-btn" type="submit" value="Go" />
+          </form>
+          </div>
+      </div>
+    </div>
+  </div>
+</nav>
+  <div class="d-flex" id="sk-doc-wrapper">
+      <input type="checkbox" name="sk-toggle-checkbox" id="sk-toggle-checkbox">
+      <label id="sk-sidemenu-toggle" class="sk-btn-toggle-toc btn sk-btn-primary" for="sk-toggle-checkbox">Toggle Menu</label>
+      <div id="sk-sidebar-wrapper" class="border-right">
+        <div class="sk-sidebar-toc-wrapper">
+          <div class="sk-sidebar-toc-logo">
+            <a href="../../index.html">
+              <img
+                class="sk-brand-img"
+                src="../../_static/piml-logo.png"
+                alt="logo"/>
+            </a>
+          </div>
+          <!--div class="btn-group w-100 mb-2" role="group" aria-label="rellinks">
+              <a href="#" role="button" class="btn sk-btn-rellink py-1 disabled"">Prev</a>
+              <a href="#" role="button" class="btn sk-btn-rellink disabled py-1">Up</a>
+              <a href="#" role="button" class="btn sk-btn-rellink py-1 disabled"">Next</a>
+          </div-->
+              <div class="sk-sidebar-toc">
+                <ul>
+<li><a class="reference internal" href="#">Generalized Additive Model</a></li>
+</ul>
+
+              </div>
+        </div>
+      </div>
+      <div id="sk-page-content-wrapper">
+        <div class="sk-page-content container-fluid body px-md-3" role="main">
+          
+  <div class="sphx-glr-download-link-note admonition note">
+<p class="admonition-title">Note</p>
+<p>Click <a class="reference internal" href="#sphx-glr-download-auto-examples-models-plot-4-ebm-cls-py"><span class="std std-ref">here</span></a>
+to download the full example code or to run this example in your browser via Binder</p>
+</div>
+<section class="sphx-glr-example-title" id="generalized-additive-model">
+<span id="sphx-glr-auto-examples-models-plot-4-ebm-cls-py"></span><h1>Generalized Additive Model<a class="headerlink" href="#generalized-additive-model" title="Permalink to this heading">¶</a></h1>
+<p>GAM Regression</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">piml</span> <span class="kn">import</span> <a href="../../modules/generated/piml.Experiment.html#piml.Experiment" title="piml.Experiment" class="sphx-glr-backref-module-piml sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">Experiment</span></a>
+<span class="kn">from</span> <span class="nn">piml.models</span> <span class="kn">import</span> <a href="../../modules/generated/piml.models.ExplainableBoostingClassifier.html#piml.models.ExplainableBoostingClassifier" title="piml.models.ExplainableBoostingClassifier" class="sphx-glr-backref-module-piml-models sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">ExplainableBoostingClassifier</span></a>
+<span class="n">exp</span> <span class="o">=</span> <a href="../../modules/generated/piml.Experiment.html#piml.Experiment" title="piml.Experiment" class="sphx-glr-backref-module-piml sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">Experiment</span></a><span class="p">()</span>
+<span class="n">exp</span><span class="o">.</span><span class="n">data_loader</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="s1">&#39;TaiwanCredit&#39;</span><span class="p">)</span>
+<span class="n">exp</span><span class="o">.</span><span class="n">data_summary</span><span class="p">(</span><span class="n">feature_exclude</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;LIMIT_BAL&quot;</span><span class="p">,</span> <span class="s2">&quot;SEX&quot;</span><span class="p">,</span> <span class="s2">&quot;EDUCATION&quot;</span><span class="p">,</span> <span class="s2">&quot;MARRIAGE&quot;</span><span class="p">,</span> <span class="s2">&quot;AGE&quot;</span><span class="p">],</span> <span class="n">feature_type</span><span class="o">=</span><span class="p">{})</span>
+<span class="n">exp</span><span class="o">.</span><span class="n">data_prepare</span><span class="p">(</span><span class="n">target</span><span class="o">=</span><span class="s1">&#39;FlagDefault&#39;</span><span class="p">,</span> <span class="n">task_type</span><span class="o">=</span><span class="s1">&#39;Classification&#39;</span><span class="p">,</span> <span class="n">test_ratio</span><span class="o">=</span><span class="mf">0.2</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>       LIMIT_BAL  SEX  EDUCATION  MARRIAGE   AGE  PAY_1  PAY_2  PAY_3  PAY_4  \
+0        20000.0  2.0        2.0       1.0  24.0    2.0    2.0   -1.0   -1.0
+1       120000.0  2.0        2.0       2.0  26.0   -1.0    2.0    0.0    0.0
+2        90000.0  2.0        2.0       2.0  34.0    0.0    0.0    0.0    0.0
+3        50000.0  2.0        2.0       1.0  37.0    0.0    0.0    0.0    0.0
+4        50000.0  1.0        2.0       1.0  57.0   -1.0    0.0   -1.0    0.0
+...          ...  ...        ...       ...   ...    ...    ...    ...    ...
+29995   220000.0  1.0        3.0       1.0  39.0    0.0    0.0    0.0    0.0
+29996   150000.0  1.0        3.0       2.0  43.0   -1.0   -1.0   -1.0   -1.0
+29997    30000.0  1.0        2.0       2.0  37.0    4.0    3.0    2.0   -1.0
+29998    80000.0  1.0        3.0       1.0  41.0    1.0   -1.0    0.0    0.0
+29999    50000.0  1.0        2.0       1.0  46.0    0.0    0.0    0.0    0.0
+
+       PAY_5  PAY_6  BILL_AMT1  BILL_AMT2  BILL_AMT3  BILL_AMT4  BILL_AMT5  \
+0        0.0    0.0   3.592621   3.491782   2.838849   0.000000   0.000000
+1        0.0    2.0   3.428621   3.237041   3.428621   3.514946   3.538574
+2        0.0    0.0   4.465977   4.146996   4.132260   4.156307   4.174612
+3        0.0    0.0   4.672015   4.683353   4.692776   4.452016   4.461799
+4        0.0    0.0   3.935406   3.753660   4.554319   4.320997   4.282101
+...      ...    ...        ...        ...        ...        ...        ...
+29995    0.0    0.0   5.276345   5.285143   5.318827   4.944507   4.494683
+29996    0.0    0.0   3.226342   3.262214   3.544440   3.953276   3.715251
+29997    0.0    0.0   3.552181   3.525951   3.440752   4.319710   4.313509
+29998    0.0   -1.0  -3.216430   4.894205   4.882553   4.722428   4.073938
+29999    0.0    0.0   4.680607   4.689362   4.696924   4.562721   4.510933
+
+       BILL_AMT6  PAY_AMT1  PAY_AMT2  PAY_AMT3  PAY_AMT4  PAY_AMT5  PAY_AMT6  \
+0       0.000000  0.000000  2.838849  0.000000  0.000000  0.000000  0.000000
+1       3.513484  0.000000  3.000434  3.000434  3.000434  0.000000  3.301247
+2       4.191731  3.181558  3.176381  3.000434  3.000434  3.000434  3.699057
+3       4.470528  3.301247  3.305351  3.079543  3.041787  3.029384  3.000434
+4       4.281760  3.301247  4.564453  4.000043  3.954291  2.838849  2.832509
+...          ...       ...       ...       ...       ...       ...       ...
+29995   4.203604  3.929470  4.301052  3.699317  3.484015  3.699057  3.000434
+29996   0.000000  3.264345  3.547405  3.954194  2.113943  0.000000  0.000000
+29997   4.286861  0.000000  0.000000  4.342442  3.623353  3.301247  3.491502
+29998   4.689708  4.933998  3.532754  3.071514  3.284882  4.723989  3.256477
+29999   4.185089  3.317854  3.255514  3.155640  3.000434  3.000434  3.000434
+
+       FlagDefault
+0              1.0
+1              1.0
+2              0.0
+3              0.0
+4              0.0
+...            ...
+29995          0.0
+29996          0.0
+29997          1.0
+29998          1.0
+29999          1.0
+
+[30000 rows x 24 columns]
+         name  n_missing      mean       std       min        q1    median  \
+2       PAY_1        0.0  0.167233  0.931323 -1.000000  0.000000  0.000000
+3       PAY_2        0.0  0.118367  0.965844 -1.000000  0.000000  0.000000
+4       PAY_3        0.0  0.106133  0.950876 -1.000000  0.000000  0.000000
+5       PAY_4        0.0  0.069200  0.911613 -1.000000  0.000000  0.000000
+6       PAY_5        0.0  0.036867  0.864561 -1.000000  0.000000  0.000000
+7       PAY_6        0.0  0.035233  0.867919 -1.000000  0.000000  0.000000
+8   BILL_AMT1        0.0  3.885958  1.547037 -5.219010  3.551419  4.349909
+9   BILL_AMT2        0.0  3.795420  1.654534 -4.843718  3.475053  4.326357
+10  BILL_AMT3        0.0  3.739384  1.696840 -5.196632  3.426064  4.302969
+11  BILL_AMT4        0.0  3.670062  1.733904 -5.230452  3.366936  4.279964
+12  BILL_AMT5        0.0  3.599323  1.762540 -4.910277  3.246499  4.257811
+13  BILL_AMT6        0.0  3.507501  1.833062 -5.530973  3.099335  4.232285
+14   PAY_AMT1        0.0  2.879374  1.411589  0.000000  3.000434  3.322426
+15   PAY_AMT2        0.0  2.850124  1.423945  0.000000  2.921166  3.303196
+16   PAY_AMT3        0.0  2.728754  1.454766  0.000000  2.592177  3.255514
+17   PAY_AMT4        0.0  2.639519  1.475124  0.000000  2.472756  3.176381
+18   PAY_AMT5        0.0  2.619748  1.495708  0.000000  2.403976  3.176381
+19   PAY_AMT6        0.0  2.576596  1.532231  0.000000  2.074631  3.176381
+
+          q3       max
+2   0.000000  8.000000
+3   0.000000  8.000000
+4   0.000000  8.000000
+5   0.000000  8.000000
+6   0.000000  8.000000
+7   0.000000  8.000000
+8   4.826671  5.984308
+9   4.806229  5.992965
+10  4.779349  6.221177
+11  4.736452  5.950164
+12  4.700630  5.967160
+13  4.691958  5.983024
+14  3.699578  5.941289
+15  3.699057  6.226409
+16  3.653791  5.952328
+17  3.603604  5.793092
+18  3.605574  5.629950
+19  3.602169  5.723182
+          name  n_missing  n_unique         top1        top2 top3  n_others
+3  FlagDefault          0         2  0.0 : 23364  1.0 : 6636    0         0
+HTML(value=&#39;Data Shape:(30000, 24)&#39;)
+Tab(children=(Output(), Output()), layout=Layout(height=&#39;350px&#39;), _titles={&#39;0&#39;: &#39;Numerical Attributes&#39;, &#39;1&#39;: &#39;Categorical Attributes&#39;})
+                  0                                           1
+0  Excluded columns  [EDUCATION, LIMIT_BAL, SEX, AGE, MARRIAGE]
+1   Target variable                                 FlagDefault
+2     Sample weight                                        None
+3         Task type                              Classification
+4      Split method                                      Random
+5        Test ratio                                         0.2
+6      Random state                                           0
+</pre></div>
+</div>
+<p>Model Training</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">exp</span><span class="o">.</span><span class="n">model_train</span><span class="p">(</span><span class="n">model</span><span class="o">=</span><a href="../../modules/generated/piml.models.ExplainableBoostingClassifier.html#piml.models.ExplainableBoostingClassifier" title="piml.models.ExplainableBoostingClassifier" class="sphx-glr-backref-module-piml-models sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">ExplainableBoostingClassifier</span></a><span class="p">(),</span> <span class="n">name</span><span class="o">=</span><span class="s1">&#39;EBM&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>HTML(value=&quot;&lt;p class=&#39;notification info&#39;&gt;Register EBM Done&lt;/p&gt;&quot;)
+</pre></div>
+</div>
+<p>Global interpretation</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">exp</span><span class="o">.</span><span class="n">model_interpret</span><span class="p">(</span><span class="n">model</span><span class="o">=</span><span class="s1">&#39;EBM&#39;</span><span class="p">,</span> <span class="n">show</span><span class="o">=</span><span class="s2">&quot;global_fi&quot;</span><span class="p">)</span>
+
+<span class="n">exp</span><span class="o">.</span><span class="n">model_interpret</span><span class="p">(</span><span class="n">model</span><span class="o">=</span><span class="s1">&#39;EBM&#39;</span><span class="p">,</span> <span class="n">show</span><span class="o">=</span><span class="s2">&quot;global_ei&quot;</span><span class="p">)</span>
+
+<span class="n">exp</span><span class="o">.</span><span class="n">model_interpret</span><span class="p">(</span><span class="n">model</span><span class="o">=</span><span class="s1">&#39;EBM&#39;</span><span class="p">,</span> <span class="n">show</span><span class="o">=</span><span class="s2">&quot;global_effect_plot&quot;</span><span class="p">,</span> <span class="n">uni_feature</span><span class="o">=</span><span class="s2">&quot;PAY_1&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<ul class="sphx-glr-horizontal">
+<li><img src="../../_images/sphx_glr_plot_4_ebm_cls_001.png" srcset="../../_images/sphx_glr_plot_4_ebm_cls_001.png" alt="Feature Importance" class = "sphx-glr-multi-img"/></li>
+<li><img src="../../_images/sphx_glr_plot_4_ebm_cls_002.png" srcset="../../_images/sphx_glr_plot_4_ebm_cls_002.png" alt="Effect Importance" class = "sphx-glr-multi-img"/></li>
+<li><img src="../../_images/sphx_glr_plot_4_ebm_cls_003.png" srcset="../../_images/sphx_glr_plot_4_ebm_cls_003.png" alt="PAY_1 (17.7%)" class = "sphx-glr-multi-img"/></li>
+</ul>
+<p>Local interpretation</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">exp</span><span class="o">.</span><span class="n">model_interpret</span><span class="p">(</span><span class="n">model</span><span class="o">=</span><span class="s1">&#39;EBM&#39;</span><span class="p">,</span> <span class="n">show</span><span class="o">=</span><span class="s2">&quot;local_fi&quot;</span><span class="p">,</span> <span class="n">sample_id</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+<span class="n">exp</span><span class="o">.</span><span class="n">model_interpret</span><span class="p">(</span><span class="n">model</span><span class="o">=</span><span class="s1">&#39;EBM&#39;</span><span class="p">,</span> <span class="n">show</span><span class="o">=</span><span class="s2">&quot;local_ei&quot;</span><span class="p">,</span> <span class="n">sample_id</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+</pre></div>
+</div>
+<ul class="sphx-glr-horizontal">
+<li><img src="../../_images/sphx_glr_plot_4_ebm_cls_004.png" srcset="../../_images/sphx_glr_plot_4_ebm_cls_004.png" alt="Predicted: 0.2286 | Actual: 0.0000" class = "sphx-glr-multi-img"/></li>
+<li><img src="../../_images/sphx_glr_plot_4_ebm_cls_005.png" srcset="../../_images/sphx_glr_plot_4_ebm_cls_005.png" alt="Predicted: 0.2286 | Actual: 0.0000" class = "sphx-glr-multi-img"/></li>
+</ul>
+<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> ( 0 minutes  22.902 seconds)</p>
+<p><strong>Estimated memory usage:</strong>  48 MB</p>
+<div class="sphx-glr-footer sphx-glr-footer-example docutils container" id="sphx-glr-download-auto-examples-models-plot-4-ebm-cls-py">
+<div class="binder-badge docutils container">
+<a class="reference external image-reference" href="https://mybinder.org/v2/gh/selfexplainml/piml-toolbox/main?urlpath=lab/tree/./docs/_build/html/notebooks/auto_examples/models/plot_4_ebm_cls.ipynb"><img alt="Launch binder" src="../../_images/binder_badge_logo3.svg" width="150px" /></a>
+</div>
+<div class="sphx-glr-download sphx-glr-download-python docutils container">
+<p><a class="reference download internal" download="" href="../../_downloads/e47a58a521f34b14ace7a0c7531aec89/plot_4_ebm_cls.py"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Python</span> <span class="pre">source</span> <span class="pre">code:</span> <span class="pre">plot_4_ebm_cls.py</span></code></a></p>
+</div>
+<div class="sphx-glr-download sphx-glr-download-jupyter docutils container">
+<p><a class="reference download internal" download="" href="../../_downloads/9565388f1f21859a01d1a2ee4b7e072e/plot_4_ebm_cls.ipynb"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Jupyter</span> <span class="pre">notebook:</span> <span class="pre">plot_4_ebm_cls.ipynb</span></code></a></p>
+</div>
+</div>
+<p class="sphx-glr-signature"><a class="reference external" href="https://sphinx-gallery.github.io">Gallery generated by Sphinx-Gallery</a></p>
+</section>
+
+
+        </div>
+      <div class="container">
+        <footer class="sk-content-footer">
+              &copy; Copyright 2022-, PiML-Toolbox authors.
+            <a href="../../_sources/auto_examples/models/plot_4_ebm_cls.rst.txt" rel="nofollow">Show this page source</a>
+        </footer>
+      </div>
+    </div>
+  </div>
+
+
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(false);
+      });
+      
+      const tooltipTriggerList = document.querySelectorAll('[data-bs-toggle="tooltip"]')
+      const tooltipList = [...tooltipTriggerList].map(tooltipTriggerEl => new bootstrap.Tooltip(tooltipTriggerEl))
+  </script>
+
+<script>
+$(document).ready(function() {
+    /* Add a [>>>] button on the top-right corner of code samples to hide
+     * the >>> and ... prompts and the output and thus make the code
+     * copyable. */
+    var div = $('.highlight-python .highlight,' +
+                '.highlight-python3 .highlight,' +
+                '.highlight-pycon .highlight,' +
+		'.highlight-default .highlight')
+    var pre = div.find('pre');
+
+    // get the styles from the current theme
+    pre.parent().parent().css('position', 'relative');
+    var hide_text = 'Hide prompts and outputs';
+    var show_text = 'Show prompts and outputs';
+
+    // create and add the button to all the code blocks that contain >>>
+    div.each(function(index) {
+        var jthis = $(this);
+        if (jthis.find('.gp').length > 0) {
+            var button = $('<span class="copybutton">&gt;&gt;&gt;</span>');
+            button.attr('title', hide_text);
+            button.data('hidden', 'false');
+            jthis.prepend(button);
+        }
+        // tracebacks (.gt) contain bare text elements that need to be
+        // wrapped in a span to work with .nextUntil() (see later)
+        jthis.find('pre:has(.gt)').contents().filter(function() {
+            return ((this.nodeType == 3) && (this.data.trim().length > 0));
+        }).wrap('<span>');
+    });
+
+    // define the behavior of the button when it's clicked
+    $('.copybutton').click(function(e){
+        e.preventDefault();
+        var button = $(this);
+        if (button.data('hidden') === 'false') {
+            // hide the code output
+            button.parent().find('.go, .gp, .gt').hide();
+            button.next('pre').find('.gt').nextUntil('.gp, .go').css('visibility', 'hidden');
+            button.css('text-decoration', 'line-through');
+            button.attr('title', show_text);
+            button.data('hidden', 'true');
+        } else {
+            // show the code output
+            button.parent().find('.go, .gp, .gt').show();
+            button.next('pre').find('.gt').nextUntil('.gp, .go').css('visibility', 'visible');
+            button.css('text-decoration', 'none');
+            button.attr('title', hide_text);
+            button.data('hidden', 'false');
+        }
+    });
+
+	/*** Add permalink buttons next to glossary terms ***/
+	$('dl.glossary > dt[id]').append(function() {
+		return ('<a class="headerlink" href="#' +
+			    this.getAttribute('id') +
+			    '" title="Permalink to this term">¶</a>');
+	});
+  /*** Hide navbar when scrolling down ***/
+  // Returns true when headerlink target matches hash in url
+  (function() {
+    hashTargetOnTop = function() {
+        var hash = window.location.hash;
+        if ( hash.length < 2 ) { return false; }
+
+        var target = document.getElementById( hash.slice(1) );
+        if ( target === null ) { return false; }
+
+        var top = target.getBoundingClientRect().top;
+        return (top < 2) && (top > -2);
+    };
+
+    // Hide navbar on load if hash target is on top
+    var navBar = document.getElementById("navbar");
+    var navBarToggler = document.getElementById("sk-navbar-toggler");
+    var navBarHeightHidden = "-" + navBar.getBoundingClientRect().height + "px";
+    var $window = $(window);
+
+    hideNavBar = function() {
+        navBar.style.top = navBarHeightHidden;
+    };
+
+    showNavBar = function() {
+        navBar.style.top = "0";
+    }
+
+    if (hashTargetOnTop()) {
+        hideNavBar()
+    }
+
+    var prevScrollpos = window.pageYOffset;
+    hideOnScroll = function(lastScrollTop) {
+        if (($window.width() < 768) && (navBarToggler.getAttribute("aria-expanded") === 'true')) {
+            return;
+        }
+        if (lastScrollTop > 2 && (prevScrollpos <= lastScrollTop) || hashTargetOnTop()){
+            hideNavBar()
+        } else {
+            showNavBar()
+        }
+        prevScrollpos = lastScrollTop;
+    };
+
+    /*** high performance scroll event listener***/
+    var raf = window.requestAnimationFrame ||
+        window.webkitRequestAnimationFrame ||
+        window.mozRequestAnimationFrame ||
+        window.msRequestAnimationFrame ||
+        window.oRequestAnimationFrame;
+    var lastScrollTop = $window.scrollTop();
+
+    if (raf) {
+        loop();
+    }
+
+    function loop() {
+        var scrollTop = $window.scrollTop();
+        if (lastScrollTop === scrollTop) {
+            raf(loop);
+            return;
+        } else {
+            lastScrollTop = scrollTop;
+            hideOnScroll(lastScrollTop);
+            raf(loop);
+        }
+    }
+  })();
+});
+
+</script>
+    
+
+<script src="_static/js/vendor/bootstrap.min.js"></script>
+
+</body>
+</html>

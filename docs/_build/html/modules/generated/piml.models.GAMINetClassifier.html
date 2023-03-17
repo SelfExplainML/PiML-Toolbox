@@ -19,6 +19,8 @@
   <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
   <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
   <link rel="stylesheet" href="../../_static/plot_directive.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/jupyter-sphinx.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/thebelab.css" type="text/css" />
   <link rel="stylesheet" href="../../_static/sg_gallery.css" type="text/css" />
   <link rel="stylesheet" href="../../_static/sg_gallery-binder.css" type="text/css" />
   <link rel="stylesheet" href="../../_static/sg_gallery-dataframe.css" type="text/css" />
@@ -37,8 +39,10 @@
         <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
         <script src="../../_static/doctools.js"></script>
         <script src="../../_static/sphinx_highlight.js"></script>
-        <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+        <script src="../../_static/thebelab-helper.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
         <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.20.1/dist/embed-amd.js"></script>
+        <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
     <script src="../../_static/js/theme.js"></script>
 
 </head>
@@ -246,9 +250,9 @@ last 5 by setting this parameter to be positive.</p>
 uniformly within the feature spacec per epoch, to impose the monotonicity
 regularization in addition to original training samples.</p>
 </dd>
-<dt><strong>mono_increasing_list</strong><span class="classifier">tuple of str, default=().</span></dt><dd><p>The feature name tuple with monotonic increasing constraint.</p>
+<dt><strong>mono_increasing_list</strong><span class="classifier">tuple of str, default=()</span></dt><dd><p>The feature name tuple subject to monotonic increasing constraint.</p>
 </dd>
-<dt><strong>mono_decreasing_list</strong><span class="classifier">tuple of str, default=()</span></dt><dd><p>The feature name tuple with monotonic decreasing constraint.</p>
+<dt><strong>mono_decreasing_list</strong><span class="classifier">tuple of str, default=()</span></dt><dd><p>The feature name tuple subject to monotonic decreasing constraint.</p>
 </dd>
 <dt><strong>include_interaction_list</strong><span class="classifier">tuple of (str, str), default=()</span></dt><dd><p>The tuple of interaction to be included for fitting,
 each interaction is expressed by (feature_name1, feature_name2).</p>
@@ -1030,7 +1034,10 @@ As interaction_num=None, all main effects would be shown.</p>
 
 <section id="examples-using-piml-models-gaminetclassifier">
 <h2>Examples using <code class="docutils literal notranslate"><span class="pre">piml.models.GAMINetClassifier</span></code><a class="headerlink" href="#examples-using-piml-models-gaminetclassifier" title="Permalink to this heading">¶</a></h2>
-<div class="sphx-glr-thumbnails"><div class="sphx-glr-thumbcontainer" tooltip="Permutation Feature Importance plot on a Classification problem"><img alt="PFI:  Classification" src="../../_images/sphx_glr_plot_4_pfi_thumb.png" />
+<div class="sphx-glr-thumbnails"><div class="sphx-glr-thumbcontainer" tooltip="Evaluate model robustness"><img alt="Robustness: Classification" src="../../_images/sphx_glr_plot_3_robustness_thumb.png" />
+<p><a class="reference internal" href="../../auto_examples/diagnostics/plot_3_robustness.html#sphx-glr-auto-examples-diagnostics-plot-3-robustness-py"><span class="std std-ref">Robustness: Classification</span></a></p>
+  <div class="sphx-glr-thumbnail-title">Robustness: Classification</div>
+</div><div class="sphx-glr-thumbcontainer" tooltip="Permutation Feature Importance plot on a Classification problem"><img alt="PFI:  Classification" src="../../_images/sphx_glr_plot_4_pfi_thumb.png" />
 <p><a class="reference internal" href="../../auto_examples/explain/plot_4_pfi.html#sphx-glr-auto-examples-explain-plot-4-pfi-py"><span class="std std-ref">PFI:  Classification</span></a></p>
   <div class="sphx-glr-thumbnail-title">PFI:  Classification</div>
 </div></div><div class="clearer"></div></section>

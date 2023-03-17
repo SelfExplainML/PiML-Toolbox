@@ -19,6 +19,8 @@
   <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
   <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
   <link rel="stylesheet" href="../../_static/plot_directive.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/jupyter-sphinx.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/thebelab.css" type="text/css" />
   <link rel="stylesheet" href="../../_static/sg_gallery.css" type="text/css" />
   <link rel="stylesheet" href="../../_static/sg_gallery-binder.css" type="text/css" />
   <link rel="stylesheet" href="../../_static/sg_gallery-dataframe.css" type="text/css" />
@@ -37,6 +39,9 @@
         <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
         <script src="../../_static/doctools.js"></script>
         <script src="../../_static/sphinx_highlight.js"></script>
+        <script src="../../_static/thebelab-helper.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+        <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.20.1/dist/embed-amd.js"></script>
         <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
         <script>window.MathJax = {"tex": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true}, "options": {"ignoreHtmlClass": "tex2jax_ignore|mathjax_ignore|document", "processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
         <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
@@ -140,7 +145,7 @@
                   </li>
                 
                   <li>
-                    <a href="../models.html" class="">3. Interpretable Models</a>
+                    <a href="../extmodels.html" class="">3. Black-box Models</a>
                     
                   </li>
                 
@@ -150,22 +155,27 @@
                   </li>
                 
                   <li>
-                    <a href="../testing.html" class="">5. Outcome Testing</a>
+                    <a href="../models.html" class="">5. Interpretable Models</a>
                     
                   </li>
                 
                   <li>
-                    <a href="../comparison.html" class="">6. Model Comparison</a>
+                    <a href="../testing.html" class="">6. Outcome Testing</a>
                     
                   </li>
                 
                   <li>
-                    <a href="../cases.html" class="">7. Low-Code Case Studies</a>
+                    <a href="../comparison.html" class="">7. Model Comparison</a>
                     
                   </li>
                 
                   <li>
-                    <a href="../conclusion.html" class="">8. Conclusion</a>
+                    <a href="../cases.html" class="">8. Case Studies</a>
+                    
+                  </li>
+                
+                  <li>
+                    <a href="../conclusion.html" class="">9. Conclusion</a>
                     
                   </li>
                 
@@ -181,7 +191,37 @@
       <div id="sk-page-content-wrapper">
         <div class="sk-page-content container-fluid body px-md-3" role="main">
           
-  <section id="pfi-permutation-feature-importance">
+  <style type="text/css">
+  div.body div.toctree-wrapper ul {
+      padding-left: 0;
+  }
+
+  div.body li.toctree-l1 {
+      padding: 0 0 0.5em 0;
+      list-style-type: none;
+      font-size: 150%;
+      font-weight: bold;
+  }
+
+  div.body li.toctree-l2 {
+      font-size: 70%;
+      list-style-type: square;
+      font-weight: normal;
+      margin-left: 40px;
+  }
+
+  div.body li.toctree-l3 {
+      font-size: 85%;
+      list-style-type: circle;
+      font-weight: normal;
+      margin-left: 40px;
+  }
+
+  div.body li.toctree-l4 {
+      margin-left: 40px;
+  }
+
+</style><section id="pfi-permutation-feature-importance">
 <h1><span class="section-number">4.1.1. </span>PFI (Permutation Feature Importance)<a class="headerlink" href="#pfi-permutation-feature-importance" title="Permalink to this heading">¶</a></h1>
 <p>The Permutation feature importance (PFI) of a model is defined as the increase in loss <span class="math notranslate nohighlight">\(L\)</span> when the feature set (usually just one feature) is permuted <a class="reference internal" href="#l2001" id="id1"><span>[L2001]</span></a>.
 In other words, it is the decrease in a model score when a single feature value is randomly shuffled, breaking the relationship between the feature and the target. The drop in the model performance
@@ -219,7 +259,7 @@ is continuous, and we are dealing with a regression problem. Below is an illustr
 </pre></div>
 </div>
 <p>Our variable of intrest is <code class="docutils literal notranslate"><span class="pre">hr</span></code> so we set <code class="docutils literal notranslate"><span class="pre">uni_feature</span></code> to <code class="docutils literal notranslate"><span class="pre">hr</span></code> as follow.</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">exp</span><span class="o">.</span><span class="n">model_explain</span><span class="p">(</span><span class="n">model</span><span class="o">=</span><span class="s1">&#39;ReLU_DNN&#39;</span><span class="p">,</span> <span class="n">show</span><span class="o">=</span><span class="s1">&#39;global_pfi&#39;</span><span class="p">,</span> <span class="n">uni_feature</span><span class="o">=</span><span class="s1">&#39;hr&#39;</span><span class="p">,</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">exp</span><span class="o">.</span><span class="n">model_explain</span><span class="p">(</span><span class="n">model</span><span class="o">=</span><span class="s1">&#39;ReLU_DNN&#39;</span><span class="p">,</span> <span class="n">show</span><span class="o">=</span><span class="s1">&#39;pfi&#39;</span><span class="p">,</span> <span class="n">uni_feature</span><span class="o">=</span><span class="s1">&#39;hr&#39;</span><span class="p">,</span>
 <span class="go">                      original_scale=True, figsize=(6,5))</span>
 </pre></div>
 </div>

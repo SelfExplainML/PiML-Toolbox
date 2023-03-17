@@ -19,6 +19,8 @@
   <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
   <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
   <link rel="stylesheet" href="../../_static/plot_directive.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/jupyter-sphinx.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/thebelab.css" type="text/css" />
   <link rel="stylesheet" href="../../_static/sg_gallery.css" type="text/css" />
   <link rel="stylesheet" href="../../_static/sg_gallery-binder.css" type="text/css" />
   <link rel="stylesheet" href="../../_static/sg_gallery-dataframe.css" type="text/css" />
@@ -37,6 +39,9 @@
         <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
         <script src="../../_static/doctools.js"></script>
         <script src="../../_static/sphinx_highlight.js"></script>
+        <script src="../../_static/thebelab-helper.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+        <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.20.1/dist/embed-amd.js"></script>
         <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
     <script src="../../_static/js/theme.js"></script>
 
@@ -134,9 +139,9 @@ to download the full example code or to run this example in your browser via Bin
 <span id="sphx-glr-auto-examples-data-plot-0-feature-select-py"></span><h1>Feature Selection<a class="headerlink" href="#feature-selection" title="Permalink to this heading">¶</a></h1>
 <p>Four built-in feature selection strategies using the BikeSharing dataset as example.</p>
 <p>Train model and Run</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">piml</span> <span class="kn">import</span> <a href="../../modules/generated/piml.Experiment.html#piml.Experiment" title="piml.Experiment" class="sphx-glr-backref-module-piml sphx-glr-backref-type-py-class sphx-glr-backref-instance"><a href="../../modules/generated/piml.Experiment.html#piml.Experiment" title="piml.Experiment" class="sphx-glr-backref-module-piml sphx-glr-backref-type-py-class sphx-glr-backref-instance"><a href="../../modules/generated/piml.Experiment.html#piml.Experiment" title="piml.Experiment" class="sphx-glr-backref-module-piml sphx-glr-backref-type-py-class sphx-glr-backref-instance"><a href="../../modules/generated/piml.Experiment.html#piml.Experiment" title="piml.Experiment" class="sphx-glr-backref-module-piml sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">Experiment</span></a></a></a></a>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">piml</span> <span class="kn">import</span> <a href="../../modules/generated/piml.Experiment.html#piml.Experiment" title="piml.Experiment" class="sphx-glr-backref-module-piml sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">Experiment</span></a>
 
-<span class="n">exp</span> <span class="o">=</span> <a href="../../modules/generated/piml.Experiment.html#piml.Experiment" title="piml.Experiment" class="sphx-glr-backref-module-piml sphx-glr-backref-type-py-class sphx-glr-backref-instance"><a href="../../modules/generated/piml.Experiment.html#piml.Experiment" title="piml.Experiment" class="sphx-glr-backref-module-piml sphx-glr-backref-type-py-class sphx-glr-backref-instance"><a href="../../modules/generated/piml.Experiment.html#piml.Experiment" title="piml.Experiment" class="sphx-glr-backref-module-piml sphx-glr-backref-type-py-class sphx-glr-backref-instance"><a href="../../modules/generated/piml.Experiment.html#piml.Experiment" title="piml.Experiment" class="sphx-glr-backref-module-piml sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">Experiment</span></a></a></a></a><span class="p">()</span>
+<span class="n">exp</span> <span class="o">=</span> <a href="../../modules/generated/piml.Experiment.html#piml.Experiment" title="piml.Experiment" class="sphx-glr-backref-module-piml sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">Experiment</span></a><span class="p">()</span>
 <span class="n">exp</span><span class="o">.</span><span class="n">data_loader</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="s2">&quot;BikeSharing&quot;</span><span class="p">)</span>
 <span class="n">exp</span><span class="o">.</span><span class="n">data_prepare</span><span class="p">(</span><span class="n">target</span><span class="o">=</span><span class="s1">&#39;cnt&#39;</span><span class="p">,</span> <span class="n">task_type</span><span class="o">=</span><span class="s1">&#39;Regression&#39;</span><span class="p">)</span>
 </pre></div>
@@ -182,59 +187,24 @@ to download the full example code or to run this example in your browser via Bin
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">exp</span><span class="o">.</span><span class="n">feature_select</span><span class="p">(</span><span class="n">method</span><span class="o">=</span><span class="s1">&#39;cor&#39;</span><span class="p">,</span> <span class="n">threshold</span><span class="o">=</span><span class="mf">0.1</span><span class="p">)</span>
 </pre></div>
 </div>
-<img src="../../_images/sphx_glr_plot_0_feature_select_001.png" srcset="../../_images/sphx_glr_plot_0_feature_select_001.png" alt="Pearson Correlation (Top10)" class = "sphx-glr-single-img"/><div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>&lt;pandas.io.formats.style.Styler object at 0x0000017CA9191EB0&gt;
-
-
-HTML(value=&#39;&lt;span style=&quot;font-size:15px&quot;&gt;Selected Features: &lt;/span&gt;&lt;b style=&quot;font-size:15px; white-space:pre&quot;&gt;  temp,  atemp,  hr,  yr,  season,  mnth,  weathersit,  hum&lt;/b&gt;&#39;)
-VBox(children=(HBox(children=(HBox(children=(Box(children=(Output(),), layout=Layout(width=&#39;80%&#39;)),), layout=Layout(justify_content=&#39;space-between&#39;, width=&#39;100%&#39;), _dom_classes=(&#39;fix-img&#39;,)), Box(children=(Output(),), layout=Layout(width=&#39;40%&#39;), _dom_classes=(&#39;restricted_table_height&#39;,))), layout=Layout(justify_content=&#39;space-between&#39;, width=&#39;80%&#39;)), HTML(value=&quot;&lt;div class=&#39;divider&#39;&gt;&lt;/div&gt;&quot;), Output()), layout=Layout(width=&#39;100%&#39;), _dom_classes=(&#39;input-width-with-parent&#39;,))
-</pre></div>
-</div>
-<p>Feature selections using distance correlation strategy</p>
+<img src="../../_images/sphx_glr_plot_0_feature_select_001.png" srcset="../../_images/sphx_glr_plot_0_feature_select_001.png" alt="Pearson Correlation (Top10)" class = "sphx-glr-single-img"/><p>Feature selections using distance correlation strategy</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">exp</span><span class="o">.</span><span class="n">feature_select</span><span class="p">(</span><span class="n">method</span><span class="o">=</span><span class="s1">&#39;dcor&#39;</span><span class="p">,</span> <span class="n">threshold</span><span class="o">=</span><span class="mf">0.1</span><span class="p">)</span>
 </pre></div>
 </div>
-<img src="../../_images/sphx_glr_plot_0_feature_select_002.png" srcset="../../_images/sphx_glr_plot_0_feature_select_002.png" alt="Distance Correlation (Top10)" class = "sphx-glr-single-img"/><div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>&lt;pandas.io.formats.style.Styler object at 0x0000017CA9E35BE0&gt;
-
-
-HTML(value=&#39;&lt;span style=&quot;font-size:15px&quot;&gt;Selected Features: &lt;/span&gt;&lt;b style=&quot;font-size:15px; white-space:pre&quot;&gt;  hr,  atemp,  temp,  hum,  yr,  season,  mnth,  weathersit,  windspeed&lt;/b&gt;&#39;)
-VBox(children=(HBox(children=(HBox(children=(Box(children=(Output(),), layout=Layout(width=&#39;80%&#39;)),), layout=Layout(justify_content=&#39;space-between&#39;, width=&#39;100%&#39;), _dom_classes=(&#39;fix-img&#39;,)), Box(children=(Output(),), layout=Layout(width=&#39;40%&#39;), _dom_classes=(&#39;restricted_table_height&#39;,))), layout=Layout(justify_content=&#39;space-between&#39;, width=&#39;80%&#39;)), HTML(value=&quot;&lt;div class=&#39;divider&#39;&gt;&lt;/div&gt;&quot;), Output()), layout=Layout(width=&#39;100%&#39;), _dom_classes=(&#39;input-width-with-parent&#39;,))
-</pre></div>
-</div>
-<p>Feature selection using permutation feature importance strategy</p>
+<img src="../../_images/sphx_glr_plot_0_feature_select_002.png" srcset="../../_images/sphx_glr_plot_0_feature_select_002.png" alt="Distance Correlation (Top10)" class = "sphx-glr-single-img"/><p>Feature selection using permutation feature importance strategy</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">exp</span><span class="o">.</span><span class="n">feature_select</span><span class="p">(</span><span class="n">method</span><span class="o">=</span><span class="s1">&#39;pfi&#39;</span><span class="p">,</span> <span class="n">threshold</span><span class="o">=</span><span class="mf">0.95</span><span class="p">)</span>
 </pre></div>
 </div>
-<img src="../../_images/sphx_glr_plot_0_feature_select_003.png" srcset="../../_images/sphx_glr_plot_0_feature_select_003.png" alt="LGBM-based Feature Importance (Top10)" class = "sphx-glr-single-img"/><div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>&lt;pandas.io.formats.style.Styler object at 0x0000017CA9C300A0&gt;
-
-
-HTML(value=&#39;&lt;span style=&quot;font-size:15px&quot;&gt;Selected Features: &lt;/span&gt;&lt;b style=&quot;font-size:15px; white-space:pre&quot;&gt;  hr,  workingday,  yr,  temp,  season,  hum&lt;/b&gt;&#39;)
-VBox(children=(HBox(children=(HBox(children=(Box(children=(Output(),), layout=Layout(width=&#39;80%&#39;)),), layout=Layout(justify_content=&#39;space-between&#39;, width=&#39;100%&#39;), _dom_classes=(&#39;fix-img&#39;,)), Box(children=(Output(),), layout=Layout(width=&#39;40%&#39;), _dom_classes=(&#39;restricted_table_height&#39;,))), layout=Layout(justify_content=&#39;space-between&#39;, width=&#39;80%&#39;)), HTML(value=&quot;&lt;div class=&#39;divider&#39;&gt;&lt;/div&gt;&quot;), Output()), layout=Layout(width=&#39;100%&#39;), _dom_classes=(&#39;input-width-with-parent&#39;,))
+<img src="../../_images/sphx_glr_plot_0_feature_select_003.png" srcset="../../_images/sphx_glr_plot_0_feature_select_003.png" alt="LGBM-based Feature Importance (Top10)" class = "sphx-glr-single-img"/><p>Feature selection using randomized conditional independence test strategy</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">exp</span><span class="o">.</span><span class="n">feature_select</span><span class="p">(</span><span class="n">method</span><span class="o">=</span><span class="s1">&#39;rcit&#39;</span><span class="p">,</span> <span class="n">threshold</span><span class="o">=</span><span class="mf">0.001</span><span class="p">,</span> <span class="n">n_forward_phase</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">kernel_size</span><span class="o">=</span><span class="mi">100</span><span class="p">)</span>
 </pre></div>
 </div>
-<p>Feature selection using randomized conditional independence test strategy</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">exp</span><span class="o">.</span><span class="n">feature_select</span><span class="p">(</span><span class="n">method</span><span class="o">=</span><span class="s1">&#39;rcit&#39;</span><span class="p">,</span> <span class="n">threshold</span><span class="o">=</span><span class="mf">0.001</span><span class="p">)</span>
-</pre></div>
-</div>
-<img src="../../_images/sphx_glr_plot_0_feature_select_004.png" srcset="../../_images/sphx_glr_plot_0_feature_select_004.png" alt="RCIT" class = "sphx-glr-single-img"/><div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>&lt;pandas.io.formats.style.Styler object at 0x0000017CA9E776A0&gt;
-
-
-HTML(value=&#39;&lt;span style=&quot;font-size:15px&quot;&gt;Selected Features: &lt;/span&gt;&lt;b style=&quot;font-size:15px; white-space:pre&quot;&gt;  season,  yr,  mnth,  hr,  weathersit,  temp,  hum&lt;/b&gt;&#39;)
-VBox(children=(HBox(children=(HBox(children=(Box(children=(Output(),), layout=Layout(width=&#39;80%&#39;)),), layout=Layout(justify_content=&#39;space-between&#39;, width=&#39;100%&#39;), _dom_classes=(&#39;fix-img&#39;,)), Box(children=(Output(),), layout=Layout(width=&#39;40%&#39;), _dom_classes=(&#39;restricted_table_height&#39;,))), layout=Layout(justify_content=&#39;space-between&#39;, width=&#39;80%&#39;)), HTML(value=&quot;&lt;div class=&#39;divider&#39;&gt;&lt;/div&gt;&quot;), Output()), layout=Layout(width=&#39;100%&#39;), _dom_classes=(&#39;input-width-with-parent&#39;,))
-</pre></div>
-</div>
-<p>Feature selection using randomized conditional independence test strategy, where the initial Markov boundary is non-empty</p>
+<img src="../../_images/sphx_glr_plot_0_feature_select_004.png" srcset="../../_images/sphx_glr_plot_0_feature_select_004.png" alt="RCIT" class = "sphx-glr-single-img"/><p>Feature selection using randomized conditional independence test strategy, where the initial Markov boundary is non-empty</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">exp</span><span class="o">.</span><span class="n">feature_select</span><span class="p">(</span><span class="n">method</span><span class="o">=</span><span class="s1">&#39;rcit&#39;</span><span class="p">,</span> <span class="n">threshold</span><span class="o">=</span><span class="mf">0.001</span><span class="p">,</span> <span class="n">preset</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;hr&quot;</span><span class="p">,</span> <span class="s2">&quot;temp&quot;</span><span class="p">])</span>
 </pre></div>
 </div>
-<img src="../../_images/sphx_glr_plot_0_feature_select_005.png" srcset="../../_images/sphx_glr_plot_0_feature_select_005.png" alt="RCIT" class = "sphx-glr-single-img"/><div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>&lt;pandas.io.formats.style.Styler object at 0x0000017CAB330A90&gt;
-
-
-HTML(value=&#39;&lt;span style=&quot;font-size:15px&quot;&gt;Selected Features: &lt;/span&gt;&lt;b style=&quot;font-size:15px; white-space:pre&quot;&gt;  season,  yr,  mnth,  hr,  weathersit,  temp,  hum&lt;/b&gt;&#39;)
-VBox(children=(HBox(children=(HBox(children=(Box(children=(Output(),), layout=Layout(width=&#39;80%&#39;)),), layout=Layout(justify_content=&#39;space-between&#39;, width=&#39;100%&#39;), _dom_classes=(&#39;fix-img&#39;,)), Box(children=(Output(),), layout=Layout(width=&#39;40%&#39;), _dom_classes=(&#39;restricted_table_height&#39;,))), layout=Layout(justify_content=&#39;space-between&#39;, width=&#39;80%&#39;)), HTML(value=&quot;&lt;div class=&#39;divider&#39;&gt;&lt;/div&gt;&quot;), Output()), layout=Layout(width=&#39;100%&#39;), _dom_classes=(&#39;input-width-with-parent&#39;,))
-</pre></div>
-</div>
-<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> ( 0 minutes  22.475 seconds)</p>
-<p><strong>Estimated memory usage:</strong>  63 MB</p>
+<img src="../../_images/sphx_glr_plot_0_feature_select_005.png" srcset="../../_images/sphx_glr_plot_0_feature_select_005.png" alt="RCIT" class = "sphx-glr-single-img"/><p class="sphx-glr-timing"><strong>Total running time of the script:</strong> ( 0 minutes  33.638 seconds)</p>
+<p><strong>Estimated memory usage:</strong>  101 MB</p>
 <div class="sphx-glr-footer sphx-glr-footer-example docutils container" id="sphx-glr-download-auto-examples-data-plot-0-feature-select-py">
 <div class="binder-badge docutils container">
 <a class="reference external image-reference" href="https://mybinder.org/v2/gh/selfexplainml/piml-toolbox/main?urlpath=lab/tree/./docs/_build/html/notebooks/auto_examples/data/plot_0_feature_select.ipynb"><img alt="Launch binder" src="../../_images/binder_badge_logo.svg" width="150px" /></a>

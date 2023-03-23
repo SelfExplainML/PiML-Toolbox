@@ -786,7 +786,7 @@ If None, perturb on all features.</p>
 If None, perturb on all features.</p>
 </dd>
 <dt><strong>perturb_size</strong><span class="classifier">float, default=0.1</span></dt><dd><p>For Robustness plots, the step of perturbation strength for numeric features, or
-perturbation probability step by standard deviation of categorical feature.</p>
+perturbation probability step of categorical feature.</p>
 </dd>
 <dt><strong>perturb_method</strong><span class="classifier">{‘raw’, ‘quantile’}, default=’raw’</span></dt><dd><blockquote>
 <div><p>Perturbation method for Robustness test.</p>
@@ -914,17 +914,17 @@ perturbation probability step by standard deviation of categorical feature.</p>
 </dd>
 <dt><strong>sample_id</strong><span class="classifier">int, default=0</span></dt><dd><p>Single data point for analysis.</p>
 </dd>
-<dt><strong>sample_size</strong><span class="classifier">int, default=500</span></dt><dd><p>Sample size for “global_ice” and SHAP plots: “global_shap_fi”, “global_shap_summary”, “global_shap_scatter”, “local_shap”.</p>
+<dt><strong>sample_size</strong><span class="classifier">int, default=500</span></dt><dd><p>Sample size for “ice” and SHAP plots: “shap_fi”, “shap_summary”, “shap_scatter”, “shap_waterfall”.</p>
 </dd>
-<dt><strong>n_repeats</strong><span class="classifier">int, default=1</span></dt><dd><p>For “global_pfi” plot method, decide repeat times for the random permutation.</p>
+<dt><strong>n_repeats</strong><span class="classifier">int, default=1</span></dt><dd><p>For “pfi” plot method, decide repeat times for the random permutation.</p>
 </dd>
 <dt><strong>return_data: bool, default=False</strong></dt><dd><p>Whether to return the data object</p>
 </dd>
-<dt><strong>pdp_size</strong><span class="classifier">int, default=2000</span></dt><dd><p>The sample size for “global_pdp” plot method.</p>
+<dt><strong>pdp_size</strong><span class="classifier">int, default=2000</span></dt><dd><p>The sample size for “pdp” plot method.</p>
 </dd>
-<dt><strong>centered</strong><span class="classifier">bool, default=True</span></dt><dd><p>For “local_lime” and “local_fi” methods, whether make data centered.</p>
+<dt><strong>centered</strong><span class="classifier">bool, default=True</span></dt><dd><p>For “lime” and “local_fi” methods, whether make data centered.</p>
 </dd>
-<dt><strong>original_scale: bool, default=False</strong></dt><dd><p>For “global_pdp” and “global_ale” plots, whether or not use original scale of X, if False, use normalized scale.</p>
+<dt><strong>original_scale: bool, default=False</strong></dt><dd><p>For “pdp” and “ale” plots, whether or not use original scale of X, if False, use normalized scale.</p>
 </dd>
 <dt><strong>figsize</strong><span class="classifier">tuple, default=(8, 6)</span></dt><dd><p>Figure size of the plot.</p>
 </dd>
@@ -1313,42 +1313,9 @@ If not given, the plot would be metric scores against each feature.</p>
 
 <section id="examples-using-piml-experiment">
 <h2>Examples using <code class="docutils literal notranslate"><span class="pre">piml.Experiment</span></code><a class="headerlink" href="#examples-using-piml-experiment" title="Permalink to this heading">¶</a></h2>
-<div class="sphx-glr-thumbnails"><div class="sphx-glr-thumbcontainer" tooltip="Model evaluation"><img alt="Accuracy:  Regression" src="../../_images/sphx_glr_plot_1_accuracy_thumb.png" />
-<p><a class="reference internal" href="../../auto_examples/diagnostics/plot_1_accuracy.html#sphx-glr-auto-examples-diagnostics-plot-1-accuracy-py"><span class="std std-ref">Accuracy:  Regression</span></a></p>
-  <div class="sphx-glr-thumbnail-title">Accuracy:  Regression</div>
-</div><div class="sphx-glr-thumbcontainer" tooltip="Evaluate model robustness"><img alt="Robustness:  Regression" src="../../_images/sphx_glr_plot_2_robustness_thumb.png" />
-<p><a class="reference internal" href="../../auto_examples/diagnostics/plot_2_robustness.html#sphx-glr-auto-examples-diagnostics-plot-2-robustness-py"><span class="std std-ref">Robustness:  Regression</span></a></p>
-  <div class="sphx-glr-thumbnail-title">Robustness:  Regression</div>
-</div><div class="sphx-glr-thumbcontainer" tooltip="Evaluate model robustness"><img alt="Robustness: Classification" src="../../_images/sphx_glr_plot_3_robustness_thumb.png" />
-<p><a class="reference internal" href="../../auto_examples/diagnostics/plot_3_robustness.html#sphx-glr-auto-examples-diagnostics-plot-3-robustness-py"><span class="std std-ref">Robustness: Classification</span></a></p>
-  <div class="sphx-glr-thumbnail-title">Robustness: Classification</div>
-</div><div class="sphx-glr-thumbcontainer" tooltip="PiML model diagnostics"><img alt="Fairness - Performance: XGB" src="../../_images/sphx_glr_plot_1_fairness_thumb.png" />
+<div class="sphx-glr-thumbnails"><div class="sphx-glr-thumbcontainer" tooltip="PiML model diagnostics"><img alt="Fairness - Performance: XGB" src="../../_images/sphx_glr_plot_1_fairness_thumb.png" />
 <p><a class="reference internal" href="../../auto_examples/diagnostics/plot_1_fairness.html#sphx-glr-auto-examples-diagnostics-plot-1-fairness-py"><span class="std std-ref">Fairness - Performance: XGB</span></a></p>
   <div class="sphx-glr-thumbnail-title">Fairness - Performance: XGB</div>
-</div><div class="sphx-glr-thumbcontainer" tooltip="ICE plot on Classification problem"><img alt="ICE:  Classification" src="../../_images/sphx_glr_plot_7_ICE_thumb.png" />
-<p><a class="reference internal" href="../../auto_examples/explain/plot_7_ICE.html#sphx-glr-auto-examples-explain-plot-7-ice-py"><span class="std std-ref">ICE:  Classification</span></a></p>
-  <div class="sphx-glr-thumbnail-title">ICE:  Classification</div>
-</div><div class="sphx-glr-thumbcontainer" tooltip="Local Interpretable Model-Agnostic Explanation for Classification groblem."><img alt="LIME:  Classification" src="../../_images/sphx_glr_plot_6_LIME_thumb.png" />
-<p><a class="reference internal" href="../../auto_examples/explain/plot_6_LIME.html#sphx-glr-auto-examples-explain-plot-6-lime-py"><span class="std std-ref">LIME:  Classification</span></a></p>
-  <div class="sphx-glr-thumbnail-title">LIME:  Classification</div>
-</div><div class="sphx-glr-thumbcontainer" tooltip="Permutation Feature Importance plot on a Classification problem"><img alt="PFI:  Classification" src="../../_images/sphx_glr_plot_4_pfi_thumb.png" />
-<p><a class="reference internal" href="../../auto_examples/explain/plot_4_pfi.html#sphx-glr-auto-examples-explain-plot-4-pfi-py"><span class="std std-ref">PFI:  Classification</span></a></p>
-  <div class="sphx-glr-thumbnail-title">PFI:  Classification</div>
-</div><div class="sphx-glr-thumbcontainer" tooltip="Partial Dependence Plot on Classification problem"><img alt="PDP:  Classification" src="../../_images/sphx_glr_plot_3_pdp_thumb.png" />
-<p><a class="reference internal" href="../../auto_examples/explain/plot_3_pdp.html#sphx-glr-auto-examples-explain-plot-3-pdp-py"><span class="std std-ref">PDP:  Classification</span></a></p>
-  <div class="sphx-glr-thumbnail-title">PDP:  Classification</div>
-</div><div class="sphx-glr-thumbcontainer" tooltip="Global ALE on BikeSharing data "><img alt="ALE:  Regression" src="../../_images/sphx_glr_plot_0_ale_thumb.png" />
-<p><a class="reference internal" href="../../auto_examples/explain/plot_0_ale.html#sphx-glr-auto-examples-explain-plot-0-ale-py"><span class="std std-ref">ALE:  Regression</span></a></p>
-  <div class="sphx-glr-thumbnail-title">ALE:  Regression</div>
-</div><div class="sphx-glr-thumbcontainer" tooltip="SHAP plots on classification problem"><img alt="SHAP:  Classification" src="../../_images/sphx_glr_plot_5_shap_thumb.png" />
-<p><a class="reference internal" href="../../auto_examples/explain/plot_5_shap.html#sphx-glr-auto-examples-explain-plot-5-shap-py"><span class="std std-ref">SHAP:  Classification</span></a></p>
-  <div class="sphx-glr-thumbnail-title">SHAP:  Classification</div>
-</div><div class="sphx-glr-thumbcontainer" tooltip="Partial Dependence Plot (PDP) on  Regression problem "><img alt="PDP:  Regression" src="../../_images/sphx_glr_plot_2_pdp_thumb.png" />
-<p><a class="reference internal" href="../../auto_examples/explain/plot_2_pdp.html#sphx-glr-auto-examples-explain-plot-2-pdp-py"><span class="std std-ref">PDP:  Regression</span></a></p>
-  <div class="sphx-glr-thumbnail-title">PDP:  Regression</div>
-</div><div class="sphx-glr-thumbcontainer" tooltip="Global ALE on TaiwanCredit data from UCI repository"><img alt="ALE:  Classification" src="../../_images/sphx_glr_plot_1_ale_thumb.png" />
-<p><a class="reference internal" href="../../auto_examples/explain/plot_1_ale.html#sphx-glr-auto-examples-explain-plot-1-ale-py"><span class="std std-ref">ALE:  Classification</span></a></p>
-  <div class="sphx-glr-thumbnail-title">ALE:  Classification</div>
 </div></div><div class="clearer"></div></section>
 </section>
 

@@ -41,7 +41,7 @@
         <script src="_static/sphinx_highlight.js"></script>
         <script src="_static/thebelab-helper.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
-        <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.20.1/dist/embed-amd.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/@jupyter-widgets/html-manager@^1.0.1/dist/embed-amd.js"></script>
         <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
     <script src="_static/js/theme.js"></script>
 
@@ -122,7 +122,13 @@
                 <ul>
 <li><a class="reference internal" href="#">Installation</a><ul>
 <li><a class="reference internal" href="#quick-install">Quick Install</a></li>
-<li><a class="reference internal" href="#troubleshooting">Troubleshooting</a></li>
+<li><a class="reference internal" href="#troubleshooting">Troubleshooting</a><ul>
+<li><a class="reference internal" href="#could-not-find-a-version-that-satisfies-the-requirement-piml">Could not find a version that satisfies the requirement PiML</a></li>
+<li><a class="reference internal" href="#library-libomp-dylib-not-loaded">Library “libomp.dylib” not loaded</a></li>
+<li><a class="reference internal" href="#library-libxgboost-so-not-loaded">Library “libxgboost.so” not loaded</a></li>
+<li><a class="reference internal" href="#cannot-import-piml-on-colab">Cannot import PiML on Colab</a></li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>
@@ -143,14 +149,42 @@
 span.prompt1:before {
   content: "$ ";
 }
-</style><span class="prompt1"><span class="n">pip</span> <span class="n">install</span> <span class="n">piml</span></span>
+</style><span class="prompt1">pip install piml <span class="s2">&quot;pandas&lt;=2.0&quot;</span> <span class="s2">&quot;numpy&lt;1.24&quot;</span> <span class="s2">&quot;xgboost&lt;1.7.3&quot;</span> <span class="s2">&quot;pygam&lt;0.9.0&quot;</span></span>
 </pre></div></div></section>
 <section id="troubleshooting">
 <h2>Troubleshooting<a class="headerlink" href="#troubleshooting" title="Permalink to this heading">¶</a></h2>
+<section id="could-not-find-a-version-that-satisfies-the-requirement-piml">
+<h3>Could not find a version that satisfies the requirement PiML<a class="headerlink" href="#could-not-find-a-version-that-satisfies-the-requirement-piml" title="Permalink to this heading">¶</a></h3>
 <p>If you got the following error message:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span class="prompt1">ERROR: Could not find a version that satisfies the requirement PiML</span>
-<span class="prompt1">ERROR: No matching distribution found for PiML</span>
-</pre></div></div><p>You may need to upgrade the version of pip.</p>
+<span class="prompt1">ERROR: No matching distribution found <span class="k">for</span> PiML</span>
+</pre></div></div><p>One possbility is that your Python version is not one of the [py37, py38, py39].</p>
+<p>If your Python version is correct, you may need to upgrade pip first and then reinstall piml.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span class="prompt1">pip install pip -U</span>
+<span class="prompt1">pip install piml</span>
+</pre></div></div></section>
+<section id="library-libomp-dylib-not-loaded">
+<h3>Library “libomp.dylib” not loaded<a class="headerlink" href="#library-libomp-dylib-not-loaded" title="Permalink to this heading">¶</a></h3>
+<p>This is an error due to lightgbm on MacOS.
+You may reinstall lightgbm using conda.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span class="prompt1">conda install lightgbm</span>
+</pre></div></div></section>
+<section id="library-libxgboost-so-not-loaded">
+<h3>Library “libxgboost.so” not loaded<a class="headerlink" href="#library-libxgboost-so-not-loaded" title="Permalink to this heading">¶</a></h3>
+<p>This is an error related to the xgboost package.
+You may reinstall it using conda.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span class="prompt1">pip uninstall xgboost</span>
+<span class="prompt1">conda install -c conda-forge py-xgboost</span>
+</pre></div></div></section>
+<section id="cannot-import-piml-on-colab">
+<h3>Cannot import PiML on Colab<a class="headerlink" href="#cannot-import-piml-on-colab" title="Permalink to this heading">¶</a></h3>
+<p>After running pip install piml on Colab, you may get the following error message:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span class="prompt1">RuntimeError Traceback <span class="o">(</span>most recent call last<span class="o">)</span></span>
+<span class="prompt1">RuntimeError: module compiled against API version 0x10 but this version of numpy is 0xf</span>
+</pre></div></div><p>To fix this, you may need to click on “Restart runtime” and then import piml directly:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span class="prompt1">from piml import Experiment</span>
+<span class="prompt1"><span class="nv">exp</span> <span class="o">=</span> Experiment<span class="o">()</span></span>
+</pre></div></div></section>
 </section>
 </section>
 

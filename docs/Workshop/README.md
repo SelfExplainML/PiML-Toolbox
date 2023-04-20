@@ -5,11 +5,14 @@
   
 **Speakers:** Agus Sudjianto, Vijay Nair and Anwesha Bhattacharyya
 
-**Demo Notebooks:** click the ipynb links to run Jupyter notebooks in Google Colab  
+The focus of this workshop is to provide the latest development in model validation for Machine Learning with special emphasis on evaluation of conceptual soundness and outcome analysis. Key topics for conceptual soundness includes model causality, explainability and interpretability, as well as dealing with over-parameterized/under-specification problems commonly occurred in machine learning models. Designing inherently interpretable machine learning models will be discussed in-depth considering the importance of the methodology for high-risk applications as well as its role for model benchmark.
 
-  - BikeSharing example: <a style="text-laign: 'center'" target="_blank" href="https://colab.research.google.com/github/SelfExplainML/PiML-Toolbox/blob/main/docs/Workshop/202207DemoNotebook_CaliforniaHousing.ipynb"><img src="https://github.com/SelfExplainML/PiML-Toolbox/blob/main/examples/results/LogoColab.png" width="20">  ipynb</a>  
-  - BikeSharing example: <a style="text-laign: 'center'" target="_blank" href="https://colab.research.google.com/github/SelfExplainML/PiML-Toolbox/blob/main/docs/Workshop/202207DemoNotebook_BikeSharing.ipynb"><img src="https://github.com/SelfExplainML/PiML-Toolbox/blob/main/examples/results/LogoColab.png" width="20">  ipynb</a>  
-  - TaiwanCredit example: <a style="text-laign: 'center'" target="_blank" href="https://colab.research.google.com/github/SelfExplainML/PiML-Toolbox/blob/main/docs/Workshop/202207DemoNotebook_TaiwanCredit.ipynb"><img src="https://github.com/SelfExplainML/PiML-Toolbox/blob/main/examples/results/LogoColab.png" width="20">  ipynb</a>  
+
+**Example Notebooks:** (provided by Anwesha) 
+
+  - <a href="https://github.com/SelfExplainML/PiML-Toolbox/blob/main/docs/Workshop/Truist_bikeshare.ipynb">bikeshare.ipynb</a>  
+  - <a href="https://github.com/SelfExplainML/PiML-Toolbox/blob/main/docs/Workshop/Truist_taiwan_demo.ipynb">taiwan_demo.ipynb</a>  
+  - <a href="https://github.com/SelfExplainML/PiML-Toolbox/blob/main/docs/Workshop/Truist_Credit_Analysis.ipynb">Credit_Analysis.ipynb</a>
   
 </details>  
 

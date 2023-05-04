@@ -15,7 +15,7 @@ In PiML, we only focus on the outliers of the dataset. We support four different
 Method
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-We support four outlier detection methods, Isolation Forest, Cluster-Based Local Outlier Factor, Principle Component Analysis and Kmeans Tree.
+We support four outlier detection methods, Isolation Forest, Cluster-Based Local Outlier Factor, Principal Component Analysis and Kmeans Tree.
 
 
 Isolation Forest
@@ -26,14 +26,16 @@ Since recursive partitioning can be represented by a tree structure, the number 
 This path length averaged over a forest of such random trees, is a measure of normality and our decision function.
 Random partitioning produces noticeably shorter paths for anomalies. Hence, when a forest of random trees collectively produces shorter path lengths for particular samples, they are highly likely to be anomalies.
 
-This method is imported from scikit-learn package: https://scikit-learn.org/stable/modules/generated/sklearn.ensemble.IsolationForest.html
-It is based on an ensemble of trees.ExtraTreeRegressor. And the maximum depth of each tree is set to less than :math:`log_{2}(n)`
-where n is the number of samples used to build the tree (see (Liu et al., 2008) for more details).
+This method is implemented by `IsolationForest`_ from scikit-learn package.
+
+.. _`IsolationForest`: https://scikit-learn.org/stable/modules/generated/sklearn.ensemble.IsolationForest.html
+
+It is based on an ensemble of trees.ExtraTreeRegressor. And the maximum depth of each tree is set to less than :math:`log_{2}(n)` where n is the number of samples used to build the tree (see (Liu et al., 2008) for more details).
 
 
 Cluster-Based Local Outlier Factor
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-CBLOF(Clustering-Based Local Outlier Factor) is an outlier detection method based on clusters, which was proposed by He, Xu, and Deng, (2002) [1] for its unique merit in capturing outliers.
+CBLOF (Clustering-Based Local Outlier Factor) is an outlier detection method based on clusters, which was proposed by He, Xu, and Deng, (2002) [1] for its unique merit in capturing outliers.
 The formula for CBLOF can be broken down into several steps:
 
 1. Clustering: First, the dataset is divided into clusters using a clustering algorithm such as k-means or DBSCAN.
@@ -47,42 +49,31 @@ The formula for CBLOF can be broken down into several steps:
 - `clustering_method:`: We support 'Kmeans' and 'Gaussian Mixture Model' for getting the initial clusters.
 
 
-Principle Component Analysis
+Principal Component Analysis
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 PCA and other dimensionality reduction methods can be used to detect outliers.
 
 In our implementation, we support two dimensionality reduction methods, PCA and sparse PCA.
 And two different methods to calculate the outlier score, Mahalanobis distance and error reconstruction.
 
-- `Mahalanobis distance`: The Mahalanobis distance is equal to the sum of squares of the scores of all non-zero standardized principal components.
-
-The Mahalanobis distance can be got easily with PCA under the formula.
+- **Mahalanobis distance**: The Mahalanobis distance is equal to the sum of squares of the scores of all non-zero standardized principal components. The Mahalanobis distance can be got easily with PCA under the formula.
 
     .. math::
-        MD(x) = sqrt(sum((zi)^2 / lambda_i))
+        MD(x)^2 = \sum z_{i}^{2} / \lambda_{i}
 
-where :math:`zi` are the ith principal component scores, and :math:`lambda_i` is the ith eigenvalue of the covariance matrix which can be explained as the variance. 
-But this is precisely the sum of squared distances in the transformed PCA space, which gives us the desired result.
+where :math:`z_{i}` are the :math:`i`-th principal component scores, and :math:`\lambda_{i}` is the :math:`i`-th eigenvalue of the covariance matrix which can be explained as the variance. But this is precisely the sum of squared distances in the transformed PCA space, which gives us the desired result.
 
-- `Error reconstruction`: Use XGBoost regressor to reconstruct the new data and compare the error between the original data.
-
-The only difference with Mahalanobis distance is using residual instead of PCA value to calculate scores.
-
-The formula is:
-
-    .. math::
-        score(x) = sqrt(sum((X_{new} - X_{old})^2 / lambda_i))
-        
-where :math:`X_new` is the reconstructed value, :math:`X_old` is the old value, and lambda_i is the ith eigenvalue of the covariance matrix which can be explained as variance.
+- **Error reconstruction**: Use XGBoost to reconstruct the new data and compare the error between the original data. Based on the reconstruction error, we further calculate the Mahalanobis distance of the error as the final outlier score. That is, as the reconstruction error are independent, then the outlier score reduces to mean squared reconstruction error.
 
 KmeansTree
 """""""""""""""""""""""""""""""""
-To absorb the advantage of the cluster-based method and PCA-based method, we proposed a new outlier detection method called KmeansTree.
+To absorb the advantage of the cluster-based method and PCA-based method, we proposed a new outlier detection method called KmeansTree. The Algorithm is below:
 
-The Algorithm is below:
-    1. Use the K-means cluster method with K equal to 2 to split the dataset iteratively
-    2. Stop splitting until certain conditions are met (max depth, data distance...)
-    3. For samples in each cluster, we just use the reconstruction error of the PCA-based method as the outlier score.
+    1. Use the K-means cluster method with K equal to 2 to split the dataset iteratively.
+    2. Stop splitting until certain conditions are met (max depth, max leves, distributional distance...).
+    3. For samples in each cluster, calculate the principal components using PCA.
+    4. Fit a XGB model between the principal components and the original predictors, and calculate the reconstruction error.
+    5. Calculate the Mahalanobis distance of the reconstruction error, and use it as the outlier score.
 
 Because the condition we use to stop splitting and the splitting way is similar to the decision tree, we call this method KmeansTree.
 

@@ -5,13 +5,14 @@ Contributors from Wells Fargo:
 - Vijay Nair
 - William Knauth
 - Siddhartha Arora
-- Simon Zhao
 - Nengfeng Zhou
+- Simon Zhao
 - Anwesha Bhattacharyya
 - Yaqun Wang
 - Shijie Cui
-- Modeste Atsague
 - Daniel Kern
+- Modeste Atsague
+- Gordon Willingham
  
 External Contributors:
 

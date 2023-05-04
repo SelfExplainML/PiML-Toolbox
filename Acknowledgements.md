@@ -20,4 +20,4 @@ External Contributors:
 - Nick Schmit
 - Sri Krishnamurthy
 
-Our thanks also go to countless feedbacks from Model Risk Management communities of various Financial Institutions! 
+Our thanks also go to countless feedback from Model Risk Management communities of various Financial Institutions! 

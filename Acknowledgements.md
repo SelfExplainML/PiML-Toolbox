@@ -5,12 +5,14 @@ Contributors from Wells Fargo:
 - Vijay Nair
 - William Knauth
 - Siddhartha Arora
-- Simon Zhao
 - Nengfeng Zhou
+- Simon Zhao
 - Anwesha Bhattacharyya
 - Yaqun Wang
 - Shijie Cui
+- Daniel Kern
 - Modeste Atsague
+- Gordon Willingham
  
 External Contributors:
 
@@ -19,4 +21,4 @@ External Contributors:
 - Nick Schmit
 - Sri Krishnamurthy
 
-Our thanks also go to countless feedbacks from Model Risk Management communities of various Financial Institutions! 
+Our thanks also go to countless feedback from Model Risk Management communities of various Financial Institutions! 

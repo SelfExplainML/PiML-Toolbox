@@ -15,7 +15,18 @@ Global Explainability
 .. toctree::
    :maxdepth: 2
   
-   explain/PFI.rst
-   explain/PDP.rst
-   explain/ICE.rst
-   explain/ALE.rst
+   explain/pfi.rst
+   explain/pdp.rst
+   explain/ice.rst
+   explain/ale.rst
+
+
+Local Explainability
+----------------------------------------------------------
+
+.. toctree::
+   :maxdepth: 2
+   
+   explain/lime.rst
+   explain/shap.rst
+  

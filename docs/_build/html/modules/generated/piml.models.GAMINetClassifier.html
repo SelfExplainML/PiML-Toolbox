@@ -3,7 +3,7 @@
 <head>
 
   <meta charset="utf-8">
-  <meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+  <meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
@@ -41,7 +41,7 @@
         <script src="../../_static/sphinx_highlight.js"></script>
         <script src="../../_static/thebelab-helper.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
-        <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.20.1/dist/embed-amd.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/@jupyter-widgets/html-manager@^1.0.1/dist/embed-amd.js"></script>
         <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
     <script src="../../_static/js/theme.js"></script>
 
@@ -116,7 +116,7 @@
           </div>
           <!--div class="btn-group w-100 mb-2" role="group" aria-label="rellinks">
               <a href="piml.models.GAMINetRegressor.html" role="button" class="btn sk-btn-rellink py-1" sk-rellink-tooltip="piml.models.GAMINetRegressor">Prev</a><a href="../classes.html" role="button" class="btn sk-btn-rellink py-1" sk-rellink-tooltip="API Reference">Up</a>
-              <a href="../../user_guide.html" role="button" class="btn sk-btn-rellink py-1" sk-rellink-tooltip="User Guide">Next</a>
+              <a href="piml.models.ReluDNNRegressor.html" role="button" class="btn sk-btn-rellink py-1" sk-rellink-tooltip="piml.models.ReluDNNRegressor">Next</a>
           </div-->
               <div class="sk-sidebar-toc">
                 <ul>
@@ -130,27 +130,27 @@
 <li><a class="reference internal" href="#piml.models.GAMINetClassifier.get_clarity_loss"><code class="docutils literal notranslate"><span class="pre">GAMINetClassifier.get_clarity_loss</span></code></a></li>
 <li><a class="reference internal" href="#piml.models.GAMINetClassifier.get_effect_importance"><code class="docutils literal notranslate"><span class="pre">GAMINetClassifier.get_effect_importance</span></code></a></li>
 <li><a class="reference internal" href="#piml.models.GAMINetClassifier.get_feature_importance"><code class="docutils literal notranslate"><span class="pre">GAMINetClassifier.get_feature_importance</span></code></a></li>
+<li><a class="reference internal" href="#piml.models.GAMINetClassifier.get_global_effects"><code class="docutils literal notranslate"><span class="pre">GAMINetClassifier.get_global_effects</span></code></a></li>
 <li><a class="reference internal" href="#piml.models.GAMINetClassifier.get_interaction_raw_output"><code class="docutils literal notranslate"><span class="pre">GAMINetClassifier.get_interaction_raw_output</span></code></a></li>
+<li><a class="reference internal" href="#piml.models.GAMINetClassifier.get_main_effect"><code class="docutils literal notranslate"><span class="pre">GAMINetClassifier.get_main_effect</span></code></a></li>
 <li><a class="reference internal" href="#piml.models.GAMINetClassifier.get_main_effect_raw_output"><code class="docutils literal notranslate"><span class="pre">GAMINetClassifier.get_main_effect_raw_output</span></code></a></li>
 <li><a class="reference internal" href="#piml.models.GAMINetClassifier.get_mono_loss"><code class="docutils literal notranslate"><span class="pre">GAMINetClassifier.get_mono_loss</span></code></a></li>
 <li><a class="reference internal" href="#piml.models.GAMINetClassifier.get_params"><code class="docutils literal notranslate"><span class="pre">GAMINetClassifier.get_params</span></code></a></li>
-<li><a class="reference internal" href="#piml.models.GAMINetClassifier.global_explain"><code class="docutils literal notranslate"><span class="pre">GAMINetClassifier.global_explain</span></code></a></li>
+<li><a class="reference internal" href="#piml.models.GAMINetClassifier.interpret_fi"><code class="docutils literal notranslate"><span class="pre">GAMINetClassifier.interpret_fi</span></code></a></li>
+<li><a class="reference internal" href="#piml.models.GAMINetClassifier.interpret_local_fi"><code class="docutils literal notranslate"><span class="pre">GAMINetClassifier.interpret_local_fi</span></code></a></li>
 <li><a class="reference internal" href="#piml.models.GAMINetClassifier.load"><code class="docutils literal notranslate"><span class="pre">GAMINetClassifier.load</span></code></a></li>
 <li><a class="reference internal" href="#piml.models.GAMINetClassifier.local_effect_explain"><code class="docutils literal notranslate"><span class="pre">GAMINetClassifier.local_effect_explain</span></code></a></li>
 <li><a class="reference internal" href="#piml.models.GAMINetClassifier.local_feature_explain"><code class="docutils literal notranslate"><span class="pre">GAMINetClassifier.local_feature_explain</span></code></a></li>
 <li><a class="reference internal" href="#piml.models.GAMINetClassifier.partial_derivatives"><code class="docutils literal notranslate"><span class="pre">GAMINetClassifier.partial_derivatives</span></code></a></li>
+<li><a class="reference internal" href="#piml.models.GAMINetClassifier.plot_fi"><code class="docutils literal notranslate"><span class="pre">GAMINetClassifier.plot_fi</span></code></a></li>
+<li><a class="reference internal" href="#piml.models.GAMINetClassifier.plot_local_fi"><code class="docutils literal notranslate"><span class="pre">GAMINetClassifier.plot_local_fi</span></code></a></li>
 <li><a class="reference internal" href="#piml.models.GAMINetClassifier.predict"><code class="docutils literal notranslate"><span class="pre">GAMINetClassifier.predict</span></code></a></li>
 <li><a class="reference internal" href="#piml.models.GAMINetClassifier.predict_proba"><code class="docutils literal notranslate"><span class="pre">GAMINetClassifier.predict_proba</span></code></a></li>
 <li><a class="reference internal" href="#piml.models.GAMINetClassifier.save"><code class="docutils literal notranslate"><span class="pre">GAMINetClassifier.save</span></code></a></li>
 <li><a class="reference internal" href="#piml.models.GAMINetClassifier.score"><code class="docutils literal notranslate"><span class="pre">GAMINetClassifier.score</span></code></a></li>
 <li><a class="reference internal" href="#piml.models.GAMINetClassifier.set_params"><code class="docutils literal notranslate"><span class="pre">GAMINetClassifier.set_params</span></code></a></li>
-<li><a class="reference internal" href="#piml.models.GAMINetClassifier.show_effect_importance"><code class="docutils literal notranslate"><span class="pre">GAMINetClassifier.show_effect_importance</span></code></a></li>
-<li><a class="reference internal" href="#piml.models.GAMINetClassifier.show_feature_importance"><code class="docutils literal notranslate"><span class="pre">GAMINetClassifier.show_feature_importance</span></code></a></li>
-<li><a class="reference internal" href="#piml.models.GAMINetClassifier.show_global_explain"><code class="docutils literal notranslate"><span class="pre">GAMINetClassifier.show_global_explain</span></code></a></li>
-<li><a class="reference internal" href="#piml.models.GAMINetClassifier.show_local_effect_explain"><code class="docutils literal notranslate"><span class="pre">GAMINetClassifier.show_local_effect_explain</span></code></a></li>
-<li><a class="reference internal" href="#piml.models.GAMINetClassifier.show_local_feature_explain"><code class="docutils literal notranslate"><span class="pre">GAMINetClassifier.show_local_feature_explain</span></code></a></li>
-<li><a class="reference internal" href="#piml.models.GAMINetClassifier.show_loss_trajectory"><code class="docutils literal notranslate"><span class="pre">GAMINetClassifier.show_loss_trajectory</span></code></a></li>
-<li><a class="reference internal" href="#piml.models.GAMINetClassifier.show_regularization_path"><code class="docutils literal notranslate"><span class="pre">GAMINetClassifier.show_regularization_path</span></code></a></li>
+<li><a class="reference internal" href="#piml.models.GAMINetClassifier.update_effect_importance"><code class="docutils literal notranslate"><span class="pre">GAMINetClassifier.update_effect_importance</span></code></a></li>
+<li><a class="reference internal" href="#piml.models.GAMINetClassifier.update_feature_importance"><code class="docutils literal notranslate"><span class="pre">GAMINetClassifier.update_feature_importance</span></code></a></li>
 </ul>
 </li>
 <li><a class="reference internal" href="#examples-using-piml-models-gaminetclassifier">Examples using <code class="docutils literal notranslate"><span class="pre">piml.models.GAMINetClassifier</span></code></a></li>
@@ -171,13 +171,11 @@
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">piml.models.</span></span><span class="sig-name descname"><span class="pre">GAMINetClassifier</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">feature_names</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">feature_types</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">interact_num</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">10</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">subnet_size_main_effect</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">(20,)</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">subnet_size_interaction</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">(20,</span> <span class="pre">20)</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">activation_func</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'ReLU'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">max_epochs</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">(1000,</span> <span class="pre">1000,</span> <span class="pre">1000)</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">learning_rates</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">(0.001,</span> <span class="pre">0.001,</span> <span class="pre">0.0001)</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">early_stop_thres</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">('auto',</span> <span class="pre">'auto',</span> <span class="pre">'auto')</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">batch_size</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1000</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">batch_size_inference</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">10000</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">max_iter_per_epoch</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">100</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">val_ratio</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.2</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">warm_start</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">gam_sample_size</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">5000</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mlp_sample_size</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1000</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">heredity</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">reg_clarity</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">loss_threshold</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.01</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">reg_mono</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mono_increasing_list</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">()</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mono_decreasing_list</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">()</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mono_sample_size</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1000</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">include_interaction_list</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">()</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">boundary_clip</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">normalize</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">verbose</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n_jobs</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">10</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">device</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'cpu'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">random_state</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#piml.models.GAMINetClassifier" title="Permalink to this definition">¶</a></dt>
 <dd><p>Generalized additive model with pairwise interaction classifier.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><dl class="simple">
-<dt><strong>meta_info</strong><span class="classifier">None or dict, default=None</span></dt><dd><p>A dict of feature_name: feature_type pairs.
-If not None, its length should be the same as the number of features.
-E.g., {“X1”: “categorical”, “X2”: “numerical”}
-For categorical features, the input values should be ordinal encoded,
-i.e., 0, 1, … n_classes - 1.</p>
+<dt><strong>feature_names</strong><span class="classifier">list or None, default=None</span></dt><dd><p>The list of feature names.</p>
+</dd>
+<dt><strong>feature_types</strong><span class="classifier">list or None, default=None</span></dt><dd><p>The list of feature types. Available types include “numerical” and “categorical”.</p>
 </dd>
 <dt><strong>interact_num</strong><span class="classifier">int, default=10</span></dt><dd><p>The max number of interactions to be included in the second stage training.</p>
 </dd>
@@ -273,7 +271,7 @@ available cpus will be used.</p>
 </dd>
 </dl>
 </dd>
-<dt class="field-even">Attributes</dt>
+<dt class="field-even">Attributes<span class="colon">:</span></dt>
 <dd class="field-even"><dl class="simple">
 <dt><strong>net_</strong><span class="classifier">torch network object</span></dt><dd><p>The fitted GAMI-Net module.</p>
 </dd>
@@ -372,10 +370,6 @@ self.global_explain() function.</p>
 </dl>
 <p class="rubric">Methods</p>
 <table class="autosummary longtable docutils align-default">
-<colgroup>
-<col style="width: 10%" />
-<col style="width: 90%" />
-</colgroup>
 <tbody>
 <tr class="row-odd"><td><p><a class="reference internal" href="#piml.models.GAMINetClassifier.certify_mono" title="piml.models.GAMINetClassifier.certify_mono"><code class="xref py py-obj docutils literal notranslate"><span class="pre">certify_mono</span></code></a>([n_samples])</p></td>
 <td><p>Certify whether monotonicity constraint is satisfied.</p></td>
@@ -401,8 +395,14 @@ self.global_explain() function.</p>
 <tr class="row-even"><td><p><a class="reference internal" href="#piml.models.GAMINetClassifier.get_feature_importance" title="piml.models.GAMINetClassifier.get_feature_importance"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_feature_importance</span></code></a>()</p></td>
 <td><p>Extract the feature importance.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#piml.models.GAMINetClassifier.get_interaction_raw_output" title="piml.models.GAMINetClassifier.get_interaction_raw_output"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_interaction_raw_output</span></code></a>(x)</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#piml.models.GAMINetClassifier.get_global_effects" title="piml.models.GAMINetClassifier.get_global_effects"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_global_effects</span></code></a>([main_grid_size, ...])</p></td>
+<td><p>Extract the fitted main effects and interactions.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#piml.models.GAMINetClassifier.get_interaction_raw_output" title="piml.models.GAMINetClassifier.get_interaction_raw_output"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_interaction_raw_output</span></code></a>(x)</p></td>
 <td><p>Returns numpy array of interactions' raw prediction.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#piml.models.GAMINetClassifier.get_main_effect" title="piml.models.GAMINetClassifier.get_main_effect"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_main_effect</span></code></a>(feature[, scaler])</p></td>
+<td><p>Return the raw main effects after aggregation, purification and attribution.</p></td>
 </tr>
 <tr class="row-even"><td><p><a class="reference internal" href="#piml.models.GAMINetClassifier.get_main_effect_raw_output" title="piml.models.GAMINetClassifier.get_main_effect_raw_output"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_main_effect_raw_output</span></code></a>(x)</p></td>
 <td><p>Returns numpy array of main effects' raw prediction.</p></td>
@@ -413,99 +413,77 @@ self.global_explain() function.</p>
 <tr class="row-even"><td><p><a class="reference internal" href="#piml.models.GAMINetClassifier.get_params" title="piml.models.GAMINetClassifier.get_params"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_params</span></code></a>([deep])</p></td>
 <td><p>Get parameters for this estimator.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#piml.models.GAMINetClassifier.global_explain" title="piml.models.GAMINetClassifier.global_explain"><code class="xref py py-obj docutils literal notranslate"><span class="pre">global_explain</span></code></a>([main_grid_size, ...])</p></td>
-<td><p>Extract the fitted main effects and interactions.</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#piml.models.GAMINetClassifier.interpret_fi" title="piml.models.GAMINetClassifier.interpret_fi"><code class="xref py py-obj docutils literal notranslate"><span class="pre">interpret_fi</span></code></a>()</p></td>
+<td><p>Interpret feature importance.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#piml.models.GAMINetClassifier.load" title="piml.models.GAMINetClassifier.load"><code class="xref py py-obj docutils literal notranslate"><span class="pre">load</span></code></a>([folder, name])</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#piml.models.GAMINetClassifier.interpret_local_fi" title="piml.models.GAMINetClassifier.interpret_local_fi"><code class="xref py py-obj docutils literal notranslate"><span class="pre">interpret_local_fi</span></code></a>(x_, y_[, centered])</p></td>
+<td><p>Interpret local feature importance</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#piml.models.GAMINetClassifier.load" title="piml.models.GAMINetClassifier.load"><code class="xref py py-obj docutils literal notranslate"><span class="pre">load</span></code></a>([folder, name])</p></td>
 <td><p>Load a model from local disk.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#piml.models.GAMINetClassifier.local_effect_explain" title="piml.models.GAMINetClassifier.local_effect_explain"><code class="xref py py-obj docutils literal notranslate"><span class="pre">local_effect_explain</span></code></a>(x[, y])</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#piml.models.GAMINetClassifier.local_effect_explain" title="piml.models.GAMINetClassifier.local_effect_explain"><code class="xref py py-obj docutils literal notranslate"><span class="pre">local_effect_explain</span></code></a>(x[, y])</p></td>
 <td><p>Extract the main effects and interactions values of a given sample.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#piml.models.GAMINetClassifier.local_feature_explain" title="piml.models.GAMINetClassifier.local_feature_explain"><code class="xref py py-obj docutils literal notranslate"><span class="pre">local_feature_explain</span></code></a>(x[, y])</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#piml.models.GAMINetClassifier.local_feature_explain" title="piml.models.GAMINetClassifier.local_feature_explain"><code class="xref py py-obj docutils literal notranslate"><span class="pre">local_feature_explain</span></code></a>(x[, y, feature_names, ...])</p></td>
 <td><p>Extract the main effects and interactions values of a given sample.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#piml.models.GAMINetClassifier.partial_derivatives" title="piml.models.GAMINetClassifier.partial_derivatives"><code class="xref py py-obj docutils literal notranslate"><span class="pre">partial_derivatives</span></code></a>(feature_name[, n_samples])</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#piml.models.GAMINetClassifier.partial_derivatives" title="piml.models.GAMINetClassifier.partial_derivatives"><code class="xref py py-obj docutils literal notranslate"><span class="pre">partial_derivatives</span></code></a>(feature_name[, n_samples])</p></td>
 <td><p>Plot the first-order partial derivatives w.r.t.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#piml.models.GAMINetClassifier.predict" title="piml.models.GAMINetClassifier.predict"><code class="xref py py-obj docutils literal notranslate"><span class="pre">predict</span></code></a>(x[, main_effect, interaction])</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#piml.models.GAMINetClassifier.plot_fi" title="piml.models.GAMINetClassifier.plot_fi"><code class="xref py py-obj docutils literal notranslate"><span class="pre">plot_fi</span></code></a>(interpret_result[, max_show, ...])</p></td>
+<td><p>The plot function for display feature importance result.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#piml.models.GAMINetClassifier.plot_local_fi" title="piml.models.GAMINetClassifier.plot_local_fi"><code class="xref py py-obj docutils literal notranslate"><span class="pre">plot_local_fi</span></code></a>(interpret_result[, max_show, ...])</p></td>
+<td><p>The plot function for display local feature importance result.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#piml.models.GAMINetClassifier.predict" title="piml.models.GAMINetClassifier.predict"><code class="xref py py-obj docutils literal notranslate"><span class="pre">predict</span></code></a>(x[, main_effect, interaction])</p></td>
 <td><p>Returns numpy array of predicted class.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#piml.models.GAMINetClassifier.predict_proba" title="piml.models.GAMINetClassifier.predict_proba"><code class="xref py py-obj docutils literal notranslate"><span class="pre">predict_proba</span></code></a>(x[, main_effect, interaction])</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#piml.models.GAMINetClassifier.predict_proba" title="piml.models.GAMINetClassifier.predict_proba"><code class="xref py py-obj docutils literal notranslate"><span class="pre">predict_proba</span></code></a>(x[, main_effect, interaction])</p></td>
 <td><p>Returns numpy array of predicted probabilities of each class.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#piml.models.GAMINetClassifier.save" title="piml.models.GAMINetClassifier.save"><code class="xref py py-obj docutils literal notranslate"><span class="pre">save</span></code></a>([folder, name])</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#piml.models.GAMINetClassifier.save" title="piml.models.GAMINetClassifier.save"><code class="xref py py-obj docutils literal notranslate"><span class="pre">save</span></code></a>([folder, name])</p></td>
 <td><p>Save a model to local disk.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#piml.models.GAMINetClassifier.score" title="piml.models.GAMINetClassifier.score"><code class="xref py py-obj docutils literal notranslate"><span class="pre">score</span></code></a>(X, y[, sample_weight])</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#piml.models.GAMINetClassifier.score" title="piml.models.GAMINetClassifier.score"><code class="xref py py-obj docutils literal notranslate"><span class="pre">score</span></code></a>(X, y[, sample_weight])</p></td>
 <td><p>Return the mean accuracy on the given test data and labels.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#piml.models.GAMINetClassifier.set_params" title="piml.models.GAMINetClassifier.set_params"><code class="xref py py-obj docutils literal notranslate"><span class="pre">set_params</span></code></a>(**params)</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#piml.models.GAMINetClassifier.set_params" title="piml.models.GAMINetClassifier.set_params"><code class="xref py py-obj docutils literal notranslate"><span class="pre">set_params</span></code></a>(**params)</p></td>
 <td><p>Set the parameters of this estimator.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#piml.models.GAMINetClassifier.show_effect_importance" title="piml.models.GAMINetClassifier.show_effect_importance"><code class="xref py py-obj docutils literal notranslate"><span class="pre">show_effect_importance</span></code></a>([xlabel_rotation])</p></td>
-<td><p>Visualize the effect importance.</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#piml.models.GAMINetClassifier.update_effect_importance" title="piml.models.GAMINetClassifier.update_effect_importance"><code class="xref py py-obj docutils literal notranslate"><span class="pre">update_effect_importance</span></code></a>(X)</p></td>
+<td><p>Update the effect importance using custom data.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#piml.models.GAMINetClassifier.show_feature_importance" title="piml.models.GAMINetClassifier.show_feature_importance"><code class="xref py py-obj docutils literal notranslate"><span class="pre">show_feature_importance</span></code></a>([xlabel_rotation])</p></td>
-<td><p>Visualize the feature importance.</p></td>
-</tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#piml.models.GAMINetClassifier.show_global_explain" title="piml.models.GAMINetClassifier.show_global_explain"><code class="xref py py-obj docutils literal notranslate"><span class="pre">show_global_explain</span></code></a>([key, density, ...])</p></td>
-<td><p>Visualize the global explanation.</p></td>
-</tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#piml.models.GAMINetClassifier.show_local_effect_explain" title="piml.models.GAMINetClassifier.show_local_effect_explain"><code class="xref py py-obj docutils literal notranslate"><span class="pre">show_local_effect_explain</span></code></a>(x[, y, ...])</p></td>
-<td><p>Visualize the local explanation.</p></td>
-</tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#piml.models.GAMINetClassifier.show_local_feature_explain" title="piml.models.GAMINetClassifier.show_local_feature_explain"><code class="xref py py-obj docutils literal notranslate"><span class="pre">show_local_feature_explain</span></code></a>(x[, y, ...])</p></td>
-<td><p>Visualize the local explanation.</p></td>
-</tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#piml.models.GAMINetClassifier.show_loss_trajectory" title="piml.models.GAMINetClassifier.show_loss_trajectory"><code class="xref py py-obj docutils literal notranslate"><span class="pre">show_loss_trajectory</span></code></a>()</p></td>
-<td><p>Visualize the loss trajectory.</p></td>
-</tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#piml.models.GAMINetClassifier.show_regularization_path" title="piml.models.GAMINetClassifier.show_regularization_path"><code class="xref py py-obj docutils literal notranslate"><span class="pre">show_regularization_path</span></code></a>()</p></td>
-<td><p>Visualize the regularization path.</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#piml.models.GAMINetClassifier.update_feature_importance" title="piml.models.GAMINetClassifier.update_feature_importance"><code class="xref py py-obj docutils literal notranslate"><span class="pre">update_feature_importance</span></code></a>(X)</p></td>
+<td><p>Update the feature importance using custom data.</p></td>
 </tr>
 </tbody>
 </table>
 <table class="docutils align-default">
-<colgroup>
-<col style="width: 73%" />
-<col style="width: 27%" />
-</colgroup>
 <tbody>
 <tr class="row-odd"><td><p><strong>get_interaction_effect</strong></p></td>
 <td></td>
 </tr>
-<tr class="row-even"><td><p><strong>get_main_effect</strong></p></td>
+<tr class="row-even"><td><p><strong>global_interpret</strong></p></td>
 <td></td>
 </tr>
-<tr class="row-odd"><td><p><strong>global_interpret</strong></p></td>
+<tr class="row-odd"><td><p><strong>interpret_effect</strong></p></td>
 <td></td>
 </tr>
 <tr class="row-even"><td><p><strong>interpret_ei</strong></p></td>
 <td></td>
 </tr>
-<tr class="row-odd"><td><p><strong>interpret_fi</strong></p></td>
-<td></td>
-</tr>
-<tr class="row-even"><td><p><strong>interpret_local_effect</strong></p></td>
-<td></td>
-</tr>
-<tr class="row-odd"><td><p><strong>interpret_local_fi</strong></p></td>
+<tr class="row-odd"><td><p><strong>interpret_local_ei</strong></p></td>
 <td></td>
 </tr>
 <tr class="row-even"><td><p><strong>plot_ei</strong></p></td>
 <td></td>
 </tr>
-<tr class="row-odd"><td><p><strong>plot_ei_local</strong></p></td>
+<tr class="row-odd"><td><p><strong>plot_interaction_effect</strong></p></td>
 <td></td>
 </tr>
-<tr class="row-even"><td><p><strong>plot_fi</strong></p></td>
-<td></td>
-</tr>
-<tr class="row-odd"><td><p><strong>plot_fi_local</strong></p></td>
-<td></td>
-</tr>
-<tr class="row-even"><td><p><strong>plot_interaction_effect</strong></p></td>
+<tr class="row-even"><td><p><strong>plot_local_ei</strong></p></td>
 <td></td>
 </tr>
 <tr class="row-odd"><td><p><strong>plot_main_effect</strong></p></td>
@@ -518,14 +496,14 @@ self.global_explain() function.</p>
 <span class="sig-name descname"><span class="pre">certify_mono</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">n_samples</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">10000</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#piml.models.GAMINetClassifier.certify_mono" title="Permalink to this definition">¶</a></dt>
 <dd><p>Certify whether monotonicity constraint is satisfied.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><dl class="simple">
 <dt><strong>n_samples</strong><span class="classifier">int, default=10000</span></dt><dd><p>Size of random samples for certifying
 the monotonicity constraint.</p>
 </dd>
 </dl>
 </dd>
-<dt class="field-even">Returns</dt>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
 <dd class="field-even"><dl class="simple">
 <dt><strong>mono_status</strong><span class="classifier">bool</span></dt><dd><p>True means monotonicity constraint is satisfied.</p>
 </dd>
@@ -539,7 +517,7 @@ the monotonicity constraint.</p>
 <span class="sig-name descname"><span class="pre">decision_function</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">X</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">main_effect</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">interaction</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#piml.models.GAMINetClassifier.decision_function" title="Permalink to this definition">¶</a></dt>
 <dd><p>Returns numpy array of raw predicted value before softmax.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><dl class="simple">
 <dt><strong>x</strong><span class="classifier">np.ndarray of shape (n_samples, n_features)</span></dt><dd><p>Data features.</p>
 </dd>
@@ -549,7 +527,7 @@ the monotonicity constraint.</p>
 </dd>
 </dl>
 </dd>
-<dt class="field-even">Returns</dt>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
 <dd class="field-even"><dl class="simple">
 <dt><strong>pred</strong><span class="classifier">np.ndarray of shape (n_samples, )</span></dt><dd><p>numpy array of predicted class values.</p>
 </dd>
@@ -576,7 +554,7 @@ and the subnetworks are also centered.</p>
 <span class="sig-name descname"><span class="pre">fit</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sample_weight</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">feature_names</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">feature_types</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#piml.models.GAMINetClassifier.fit" title="Permalink to this definition">¶</a></dt>
 <dd><p>Fit GAMINetClassifier model.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><dl class="simple">
 <dt><strong>x</strong><span class="classifier">np.ndarray of shape (n_samples, n_features)</span></dt><dd><p>Data features.</p>
 </dd>
@@ -586,7 +564,7 @@ and the subnetworks are also centered.</p>
 </dd>
 </dl>
 </dd>
-<dt class="field-even">Returns</dt>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
 <dd class="field-even"><dl class="simple">
 <dt><strong>self</strong><span class="classifier">object</span></dt><dd><p>Fitted Estimator.</p>
 </dd>
@@ -600,7 +578,7 @@ and the subnetworks are also centered.</p>
 <span class="sig-name descname"><span class="pre">get_aggregate_output</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">main_effect</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">interaction</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#piml.models.GAMINetClassifier.get_aggregate_output" title="Permalink to this definition">¶</a></dt>
 <dd><p>Returns numpy array of raw prediction.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><dl class="simple">
 <dt><strong>x</strong><span class="classifier">np.ndarray of shape (n_samples, n_features)</span></dt><dd><p>Data features.</p>
 </dd>
@@ -610,7 +588,7 @@ and the subnetworks are also centered.</p>
 </dd>
 </dl>
 </dd>
-<dt class="field-even">Returns</dt>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
 <dd class="field-even"><dl class="simple">
 <dt><strong>pred</strong><span class="classifier">np.ndarray of shape (n_samples, 1)</span></dt><dd><p>numpy array of raw prediction.</p>
 </dd>
@@ -624,7 +602,7 @@ and the subnetworks are also centered.</p>
 <span class="sig-name descname"><span class="pre">get_clarity_loss</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sample_weight</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#piml.models.GAMINetClassifier.get_clarity_loss" title="Permalink to this definition">¶</a></dt>
 <dd><p>Returns clarity loss of given samples.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><dl class="simple">
 <dt><strong>x</strong><span class="classifier">np.ndarray of shape (n_samples, n_features)</span></dt><dd><p>Data features</p>
 </dd>
@@ -632,7 +610,7 @@ and the subnetworks are also centered.</p>
 </dd>
 </dl>
 </dd>
-<dt class="field-even">Returns</dt>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
 <dd class="field-even"><dl class="simple">
 <dt><strong>clarity_loss</strong><span class="classifier">float</span></dt><dd><p>clarity loss.</p>
 </dd>
@@ -654,19 +632,57 @@ and the subnetworks are also centered.</p>
 </dd></dl>
 
 <dl class="py method">
+<dt class="sig sig-object py" id="piml.models.GAMINetClassifier.get_global_effects">
+<span class="sig-name descname"><span class="pre">get_global_effects</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">main_grid_size</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">100</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">interact_grid_size</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">20</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#piml.models.GAMINetClassifier.get_global_effects" title="Permalink to this definition">¶</a></dt>
+<dd><p>Extract the fitted main effects and interactions.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>main_grid_size</strong><span class="classifier">int, default=100</span></dt><dd><p>The grid size of main effects.</p>
+</dd>
+<dt><strong>interact_grid_size</strong><span class="classifier">int, default=20</span></dt><dd><p>The grid size of interactions.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
 <dt class="sig sig-object py" id="piml.models.GAMINetClassifier.get_interaction_raw_output">
 <span class="sig-name descname"><span class="pre">get_interaction_raw_output</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#piml.models.GAMINetClassifier.get_interaction_raw_output" title="Permalink to this definition">¶</a></dt>
 <dd><p>Returns numpy array of interactions’ raw prediction.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><dl class="simple">
 <dt><strong>x</strong><span class="classifier">np.ndarray of shape (n_samples, n_features)</span></dt><dd><p>Data features.</p>
 </dd>
 </dl>
 </dd>
-<dt class="field-even">Returns</dt>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
 <dd class="field-even"><dl class="simple">
 <dt><strong>pred</strong><span class="classifier">np.ndarray of shape (n_samples, n_interactions)</span></dt><dd><p>numpy array of interactions’ raw prediction.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="piml.models.GAMINetClassifier.get_main_effect">
+<span class="sig-name descname"><span class="pre">get_main_effect</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">feature</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">scaler</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#piml.models.GAMINetClassifier.get_main_effect" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the raw main effects after aggregation, purification and attribution.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>feature</strong><span class="classifier">str</span></dt><dd><p>The name of a feature.</p>
+</dd>
+<dt><strong>scaler</strong><span class="classifier">scaler object, default=None</span></dt><dd><p>Whether to scale it to the original scale.</p>
+</dd>
+</dl>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><dl class="simple">
+<dt><strong>result</strong><span class="classifier">TestDataResult</span></dt><dd><p>The main effect results.</p>
 </dd>
 </dl>
 </dd>
@@ -678,13 +694,13 @@ and the subnetworks are also centered.</p>
 <span class="sig-name descname"><span class="pre">get_main_effect_raw_output</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#piml.models.GAMINetClassifier.get_main_effect_raw_output" title="Permalink to this definition">¶</a></dt>
 <dd><p>Returns numpy array of main effects’ raw prediction.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><dl class="simple">
 <dt><strong>x</strong><span class="classifier">np.ndarray of shape (n_samples, n_features)</span></dt><dd><p>Data features.</p>
 </dd>
 </dl>
 </dd>
-<dt class="field-even">Returns</dt>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
 <dd class="field-even"><dl class="simple">
 <dt><strong>pred</strong><span class="classifier">np.ndarray of shape (n_samples, n_features)</span></dt><dd><p>numpy array of main effects’ raw prediction.</p>
 </dd>
@@ -698,7 +714,7 @@ and the subnetworks are also centered.</p>
 <span class="sig-name descname"><span class="pre">get_mono_loss</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sample_weight</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#piml.models.GAMINetClassifier.get_mono_loss" title="Permalink to this definition">¶</a></dt>
 <dd><p>Returns monotonicity loss of given samples.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><dl class="simple">
 <dt><strong>x</strong><span class="classifier">np.ndarray of shape (n_samples, n_features)</span></dt><dd><p>Data features.</p>
 </dd>
@@ -706,7 +722,7 @@ and the subnetworks are also centered.</p>
 </dd>
 </dl>
 </dd>
-<dt class="field-even">Returns</dt>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
 <dd class="field-even"><dl class="simple">
 <dt><strong>mono_loss</strong><span class="classifier">float</span></dt><dd><p>monotonicity loss.</p>
 </dd>
@@ -720,14 +736,14 @@ and the subnetworks are also centered.</p>
 <span class="sig-name descname"><span class="pre">get_params</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">deep</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#piml.models.GAMINetClassifier.get_params" title="Permalink to this definition">¶</a></dt>
 <dd><p>Get parameters for this estimator.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><dl class="simple">
 <dt><strong>deep</strong><span class="classifier">bool, default=True</span></dt><dd><p>If True, will return the parameters for this estimator and
 contained subobjects that are estimators.</p>
 </dd>
 </dl>
 </dd>
-<dt class="field-even">Returns</dt>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
 <dd class="field-even"><dl class="simple">
 <dt><strong>params</strong><span class="classifier">dict</span></dt><dd><p>Parameter names mapped to their values.</p>
 </dd>
@@ -737,15 +753,37 @@ contained subobjects that are estimators.</p>
 </dd></dl>
 
 <dl class="py method">
-<dt class="sig sig-object py" id="piml.models.GAMINetClassifier.global_explain">
-<span class="sig-name descname"><span class="pre">global_explain</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">main_grid_size</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">100</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">interact_grid_size</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">20</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#piml.models.GAMINetClassifier.global_explain" title="Permalink to this definition">¶</a></dt>
-<dd><p>Extract the fitted main effects and interactions.</p>
+<dt class="sig sig-object py" id="piml.models.GAMINetClassifier.interpret_fi">
+<span class="sig-name descname"><span class="pre">interpret_fi</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#piml.models.GAMINetClassifier.interpret_fi" title="Permalink to this definition">¶</a></dt>
+<dd><p>Interpret feature importance.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
 <dd class="field-odd"><dl class="simple">
-<dt><strong>main_grid_size</strong><span class="classifier">int, default=100</span></dt><dd><p>The grid size of main effects.</p>
+<dt>TestDataResult</dt><dd><p>The feature importance result.</p>
 </dd>
-<dt><strong>interact_grid_size</strong><span class="classifier">int, default=20</span></dt><dd><p>The grid size of interactions.</p>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="piml.models.GAMINetClassifier.interpret_local_fi">
+<span class="sig-name descname"><span class="pre">interpret_local_fi</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x_</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">array</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y_</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">array</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">centered</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Optional" title="(in Python v3.11)"><span class="pre">Optional</span></a><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.11)"><span class="pre">bool</span></a><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#piml.models.GAMINetClassifier.interpret_local_fi" title="Permalink to this definition">¶</a></dt>
+<dd><p>Interpret local feature importance</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>x_</strong><span class="classifier">np.array</span></dt><dd><p>The data to interpret, should be shape(1, :).</p>
+</dd>
+<dt><strong>y_</strong><span class="classifier">np.array</span></dt><dd><p>The response to interpret, should be shape(1, :).</p>
+</dd>
+<dt><strong>centered</strong><span class="classifier">bool, default=None</span></dt><dd><p>Whether to centerize the importance.</p>
+</dd>
+</dl>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><dl class="simple">
+<dt>TestDataResult</dt><dd><p>The local feature importance result.</p>
 </dd>
 </dl>
 </dd>
@@ -757,7 +795,7 @@ contained subobjects that are estimators.</p>
 <span class="sig-name descname"><span class="pre">load</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">folder</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'./'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'demo'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#piml.models.GAMINetClassifier.load" title="Permalink to this definition">¶</a></dt>
 <dd><p>Load a model from local disk.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><dl class="simple">
 <dt><strong>folder</strong><span class="classifier">str, default=”./”</span></dt><dd><p>The path of folder.</p>
 </dd>
@@ -773,7 +811,7 @@ contained subobjects that are estimators.</p>
 <span class="sig-name descname"><span class="pre">local_effect_explain</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#piml.models.GAMINetClassifier.local_effect_explain" title="Permalink to this definition">¶</a></dt>
 <dd><p>Extract the main effects and interactions values of a given sample.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><dl class="simple">
 <dt><strong>x</strong><span class="classifier">np.ndarray of shape (n_samples, n_features)</span></dt><dd><p>Data features.</p>
 </dd>
@@ -786,10 +824,10 @@ contained subobjects that are estimators.</p>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="piml.models.GAMINetClassifier.local_feature_explain">
-<span class="sig-name descname"><span class="pre">local_feature_explain</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#piml.models.GAMINetClassifier.local_feature_explain" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">local_feature_explain</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">feature_names</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">centered</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#piml.models.GAMINetClassifier.local_feature_explain" title="Permalink to this definition">¶</a></dt>
 <dd><p>Extract the main effects and interactions values of a given sample.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><dl class="simple">
 <dt><strong>x</strong><span class="classifier">np.ndarray of shape (n_samples, n_features)</span></dt><dd><p>Data features.</p>
 </dd>
@@ -805,7 +843,7 @@ contained subobjects that are estimators.</p>
 <span class="sig-name descname"><span class="pre">partial_derivatives</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">feature_name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n_samples</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">10000</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#piml.models.GAMINetClassifier.partial_derivatives" title="Permalink to this definition">¶</a></dt>
 <dd><p>Plot the first-order partial derivatives w.r.t. given feature index.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><dl class="simple">
 <dt><strong>feature_name</strong><span class="classifier">int</span></dt><dd><p>Feature name.</p>
 </dd>
@@ -817,11 +855,55 @@ contained subobjects that are estimators.</p>
 </dd></dl>
 
 <dl class="py method">
+<dt class="sig sig-object py" id="piml.models.GAMINetClassifier.plot_fi">
+<span class="sig-name descname"><span class="pre">plot_fi</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">interpret_result</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">max_show</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">10</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">return_fig</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">figsize</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">(8,</span> <span class="pre">6)</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#piml.models.GAMINetClassifier.plot_fi" title="Permalink to this definition">¶</a></dt>
+<dd><p>The plot function for display feature importance result.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>interpret_result</strong><span class="classifier">TestDataResult</span></dt><dd><p>The result of function “interpret_fi”</p>
+</dd>
+<dt><strong>max_show</strong><span class="classifier">int, optional</span></dt><dd><p>The max number of features to show, by default 10</p>
+</dd>
+<dt><strong>return_fig</strong><span class="classifier">bool, optional</span></dt><dd><p>Whether to return the fig object, by default False</p>
+</dd>
+<dt><strong>figsize</strong><span class="classifier">tuple, optional</span></dt><dd><p>Figure size, by default (8, 6)</p>
+</dd>
+</dl>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><dl class="simple">
+<dt>plt.Figure</dt><dd><p>Matplotlib pyplot figure object.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="piml.models.GAMINetClassifier.plot_local_fi">
+<span class="sig-name descname"><span class="pre">plot_local_fi</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">interpret_result</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">TestDataResult</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">max_show</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.11)"><span class="pre">int</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">10</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">return_fig</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.11)"><span class="pre">bool</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">figsize</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#tuple" title="(in Python v3.11)"><span class="pre">tuple</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">(8,</span> <span class="pre">6)</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#piml.models.GAMINetClassifier.plot_local_fi" title="Permalink to this definition">¶</a></dt>
+<dd><p>The plot function for display local feature importance result.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>interpret_result</strong><span class="classifier">TestDataResult</span></dt><dd><p>The result of function “interpret_local_fi”</p>
+</dd>
+<dt><strong>max_show</strong><span class="classifier">int, optional</span></dt><dd><p>The max number of features to show, by default 10</p>
+</dd>
+<dt><strong>figsize</strong><span class="classifier">tuple, optional</span></dt><dd><p>Figure size, by default (8, 6)</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
 <dt class="sig sig-object py" id="piml.models.GAMINetClassifier.predict">
 <span class="sig-name descname"><span class="pre">predict</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">main_effect</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">interaction</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#piml.models.GAMINetClassifier.predict" title="Permalink to this definition">¶</a></dt>
 <dd><p>Returns numpy array of predicted class.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><dl class="simple">
 <dt><strong>x</strong><span class="classifier">np.ndarray of shape (n_samples, n_features)</span></dt><dd><p>Data features</p>
 </dd>
@@ -831,7 +913,7 @@ contained subobjects that are estimators.</p>
 </dd>
 </dl>
 </dd>
-<dt class="field-even">Returns</dt>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
 <dd class="field-even"><dl class="simple">
 <dt><strong>pred</strong><span class="classifier">np.ndarray of shape (n_samples, )</span></dt><dd><p>numpy array of predicted class values.</p>
 </dd>
@@ -845,7 +927,7 @@ contained subobjects that are estimators.</p>
 <span class="sig-name descname"><span class="pre">predict_proba</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">main_effect</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">interaction</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#piml.models.GAMINetClassifier.predict_proba" title="Permalink to this definition">¶</a></dt>
 <dd><p>Returns numpy array of predicted probabilities of each class.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><dl class="simple">
 <dt><strong>x</strong><span class="classifier">np.ndarray of shape (n_samples, n_features)</span></dt><dd><p>Data features.</p>
 </dd>
@@ -855,7 +937,7 @@ contained subobjects that are estimators.</p>
 </dd>
 </dl>
 </dd>
-<dt class="field-even">Returns</dt>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
 <dd class="field-even"><dl class="simple">
 <dt><strong>pred_proba</strong><span class="classifier">np.ndarray of shape (n_samples, 2)</span></dt><dd><p>numpy array of predicted proba values.</p>
 </dd>
@@ -869,7 +951,7 @@ contained subobjects that are estimators.</p>
 <span class="sig-name descname"><span class="pre">save</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">folder</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'./'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'demo'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#piml.models.GAMINetClassifier.save" title="Permalink to this definition">¶</a></dt>
 <dd><p>Save a model to local disk.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><dl class="simple">
 <dt><strong>folder</strong><span class="classifier">str, default=”./”</span></dt><dd><p>The path of folder.</p>
 </dd>
@@ -888,7 +970,7 @@ contained subobjects that are estimators.</p>
 which is a harsh metric since you require for each sample that
 each label set be correctly predicted.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><dl class="simple">
 <dt><strong>X</strong><span class="classifier">array-like of shape (n_samples, n_features)</span></dt><dd><p>Test samples.</p>
 </dd>
@@ -898,9 +980,9 @@ each label set be correctly predicted.</p>
 </dd>
 </dl>
 </dd>
-<dt class="field-even">Returns</dt>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
 <dd class="field-even"><dl class="simple">
-<dt><strong>score</strong><span class="classifier">float</span></dt><dd><p>Mean accuracy of <code class="docutils literal notranslate"><span class="pre">self.predict(X)</span></code> wrt. <code class="docutils literal notranslate"><span class="pre">y</span></code>.</p>
+<dt><strong>score</strong><span class="classifier">float</span></dt><dd><p>Mean accuracy of <code class="docutils literal notranslate"><span class="pre">self.predict(X)</span></code> w.r.t. <code class="docutils literal notranslate"><span class="pre">y</span></code>.</p>
 </dd>
 </dl>
 </dd>
@@ -916,13 +998,13 @@ each label set be correctly predicted.</p>
 parameters of the form <code class="docutils literal notranslate"><span class="pre">&lt;component&gt;__&lt;parameter&gt;</span></code> so that it’s
 possible to update each component of a nested object.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><dl class="simple">
 <dt><strong>**params</strong><span class="classifier">dict</span></dt><dd><p>Estimator parameters.</p>
 </dd>
 </dl>
 </dd>
-<dt class="field-even">Returns</dt>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
 <dd class="field-even"><dl class="simple">
 <dt><strong>self</strong><span class="classifier">estimator instance</span></dt><dd><p>Estimator instance.</p>
 </dd>
@@ -932,13 +1014,13 @@ possible to update each component of a nested object.</p>
 </dd></dl>
 
 <dl class="py method">
-<dt class="sig sig-object py" id="piml.models.GAMINetClassifier.show_effect_importance">
-<span class="sig-name descname"><span class="pre">show_effect_importance</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">xlabel_rotation</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#piml.models.GAMINetClassifier.show_effect_importance" title="Permalink to this definition">¶</a></dt>
-<dd><p>Visualize the effect importance.</p>
+<dt class="sig sig-object py" id="piml.models.GAMINetClassifier.update_effect_importance">
+<span class="sig-name descname"><span class="pre">update_effect_importance</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">X</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#piml.models.GAMINetClassifier.update_effect_importance" title="Permalink to this definition">¶</a></dt>
+<dd><p>Update the effect importance using custom data.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><dl class="simple">
-<dt><strong>xlabel_rotation</strong><span class="classifier">int, default=0</span></dt><dd><p>Rotation angle of x-axis labels.</p>
+<dt><strong>X</strong><span class="classifier">np.ndarray of shape (n_samples, n_features)</span></dt><dd><p>Data features.</p>
 </dd>
 </dl>
 </dd>
@@ -946,100 +1028,26 @@ possible to update each component of a nested object.</p>
 </dd></dl>
 
 <dl class="py method">
-<dt class="sig sig-object py" id="piml.models.GAMINetClassifier.show_feature_importance">
-<span class="sig-name descname"><span class="pre">show_feature_importance</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">xlabel_rotation</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#piml.models.GAMINetClassifier.show_feature_importance" title="Permalink to this definition">¶</a></dt>
-<dd><p>Visualize the feature importance.</p>
+<dt class="sig sig-object py" id="piml.models.GAMINetClassifier.update_feature_importance">
+<span class="sig-name descname"><span class="pre">update_feature_importance</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">X</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#piml.models.GAMINetClassifier.update_feature_importance" title="Permalink to this definition">¶</a></dt>
+<dd><p>Update the feature importance using custom data.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><dl class="simple">
-<dt><strong>xlabel_rotation</strong><span class="classifier">int, default=0</span></dt><dd><p>Rotation angle of x-axis labels.</p>
+<dt><strong>X</strong><span class="classifier">np.ndarray of shape (n_samples, n_features)</span></dt><dd><p>Data features.</p>
 </dd>
 </dl>
 </dd>
 </dl>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="piml.models.GAMINetClassifier.show_global_explain">
-<span class="sig-name descname"><span class="pre">show_global_explain</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">key</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">density</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">main_effect_num</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">interaction_num</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#piml.models.GAMINetClassifier.show_global_explain" title="Permalink to this definition">¶</a></dt>
-<dd><p>Visualize the global explanation.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><dl class="simple">
-<dt><strong>key</strong><span class="classifier">str or None, default=None</span></dt><dd><p>The name of the effect to be shown.
-As key=None, all the effects would be visualized.</p>
-</dd>
-<dt><strong>density</strong><span class="classifier">bool</span></dt><dd><p>Whether to show the marginal density of each feature.</p>
-</dd>
-<dt><strong>main_effect_num</strong><span class="classifier">int or None, default=None</span></dt><dd><p>The number of top main effects to show,
-As main_effect_num=None, all main effects would be shown.</p>
-</dd>
-<dt><strong>interaction_num</strong><span class="classifier">int or None, default=None</span></dt><dd><p>The number of top interactions to show,
-As interaction_num=None, all main effects would be shown.</p>
-</dd>
-</dl>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="piml.models.GAMINetClassifier.show_local_effect_explain">
-<span class="sig-name descname"><span class="pre">show_local_effect_explain</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">xlabel_rotation</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#piml.models.GAMINetClassifier.show_local_effect_explain" title="Permalink to this definition">¶</a></dt>
-<dd><p>Visualize the local explanation.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><dl class="simple">
-<dt><strong>x</strong><span class="classifier">np.ndarray of shape (n_samples, n_features)</span></dt><dd><p>Data features.</p>
-</dd>
-<dt><strong>y</strong><span class="classifier">np.ndarray of shape (n_samples, )</span></dt><dd><p>Target response.</p>
-</dd>
-<dt><strong>xlabel_rotation</strong><span class="classifier">int, default=0</span></dt><dd><p>Rotation angle of x-axis labels.</p>
-</dd>
-</dl>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="piml.models.GAMINetClassifier.show_local_feature_explain">
-<span class="sig-name descname"><span class="pre">show_local_feature_explain</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">xlabel_rotation</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#piml.models.GAMINetClassifier.show_local_feature_explain" title="Permalink to this definition">¶</a></dt>
-<dd><p>Visualize the local explanation.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><dl class="simple">
-<dt><strong>x</strong><span class="classifier">np.ndarray of shape (n_samples, n_features)</span></dt><dd><p>Data features.</p>
-</dd>
-<dt><strong>y</strong><span class="classifier">np.ndarray of shape (n_samples, )</span></dt><dd><p>Target response.</p>
-</dd>
-<dt><strong>xlabel_rotation</strong><span class="classifier">int, default=0</span></dt><dd><p>Rotation angle of x-axis labels.</p>
-</dd>
-</dl>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="piml.models.GAMINetClassifier.show_loss_trajectory">
-<span class="sig-name descname"><span class="pre">show_loss_trajectory</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#piml.models.GAMINetClassifier.show_loss_trajectory" title="Permalink to this definition">¶</a></dt>
-<dd><p>Visualize the loss trajectory.</p>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="piml.models.GAMINetClassifier.show_regularization_path">
-<span class="sig-name descname"><span class="pre">show_regularization_path</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#piml.models.GAMINetClassifier.show_regularization_path" title="Permalink to this definition">¶</a></dt>
-<dd><p>Visualize the regularization path.</p>
 </dd></dl>
 
 </dd></dl>
 
 <section id="examples-using-piml-models-gaminetclassifier">
 <h2>Examples using <code class="docutils literal notranslate"><span class="pre">piml.models.GAMINetClassifier</span></code><a class="headerlink" href="#examples-using-piml-models-gaminetclassifier" title="Permalink to this heading">¶</a></h2>
-<div class="sphx-glr-thumbnails"><div class="sphx-glr-thumbcontainer" tooltip="Evaluate model robustness"><img alt="Robustness: Classification" src="../../_images/sphx_glr_plot_3_robustness_thumb.png" />
-<p><a class="reference internal" href="../../auto_examples/diagnostics/plot_3_robustness.html#sphx-glr-auto-examples-diagnostics-plot-3-robustness-py"><span class="std std-ref">Robustness: Classification</span></a></p>
-  <div class="sphx-glr-thumbnail-title">Robustness: Classification</div>
-</div><div class="sphx-glr-thumbcontainer" tooltip="Permutation Feature Importance plot on a Classification problem"><img alt="PFI:  Classification" src="../../_images/sphx_glr_plot_4_pfi_thumb.png" />
-<p><a class="reference internal" href="../../auto_examples/explain/plot_4_pfi.html#sphx-glr-auto-examples-explain-plot-4-pfi-py"><span class="std std-ref">PFI:  Classification</span></a></p>
-  <div class="sphx-glr-thumbnail-title">PFI:  Classification</div>
+<div class="sphx-glr-thumbnails"><div class="sphx-glr-thumbcontainer" tooltip="GAMI-Net Classification (Taiwan Credit)"><img alt="" src="../../_images/sphx_glr_plot_7_gaminet_cls_thumb.png" />
+<p><a class="reference internal" href="../../auto_examples/models/plot_7_gaminet_cls.html#sphx-glr-auto-examples-models-plot-7-gaminet-cls-py"><span class="std std-ref">GAMI-Net Classification (Taiwan Credit)</span></a></p>
+  <div class="sphx-glr-thumbnail-title">GAMI-Net Classification (Taiwan Credit)</div>
 </div></div><div class="clearer"></div></section>
 </section>
 

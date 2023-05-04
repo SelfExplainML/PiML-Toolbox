@@ -31,6 +31,7 @@ Data Pipeline
    Experiment.data_loader
    Experiment.data_summary
    Experiment.data_prepare
+   Experiment.data_quality_check
    Experiment.eda
    Experiment.feature_select
    Experiment.get_data
@@ -56,7 +57,6 @@ High Code APIs
    Experiment.make_pipeline
    Experiment.get_model
    Experiment.get_model_config
-   Experiment.model_save
 
 Model Classes
 --------------
@@ -67,18 +67,24 @@ Model Classes
    :toctree: generated/
    :template: class.rst
 
-   models.GAMRegressor
-   models.GAMClassifier
    models.GLMRegressor
    models.GLMClassifier
+   models.GAMRegressor
+   models.GAMClassifier
+   models.TreeRegressor
+   models.TreeClassifier
    models.FIGSRegressor
    models.FIGSClassifier
-   models.ReluDNNRegressor
-   models.ReluDNNClassifier
+   models.XGB1Classifier
+   models.XGB1Regressor
+   models.XGB2Classifier
+   models.XGB2Regressor
    models.ExplainableBoostingRegressor
    models.ExplainableBoostingClassifier
    models.GAMINetRegressor
    models.GAMINetClassifier
+   models.ReluDNNRegressor
+   models.ReluDNNClassifier
 
 
 Post-hoc Explainability

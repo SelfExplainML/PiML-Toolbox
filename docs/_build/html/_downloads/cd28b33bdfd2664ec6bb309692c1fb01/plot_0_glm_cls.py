@@ -1,33 +1,48 @@
 
 # -*- coding: utf-8 -*-
 """
-GLM - Logistic Regression Model
-===================================
+GLM Logistic Regression (Taiwan Credit)
+==========================================
 
-GLM Logistic Regression
 """
 #%%
+# Experiment initialization and data preparation
 from piml import Experiment
 from piml.models import GLMClassifier
+
 exp = Experiment()
-exp.data_loader(data='TaiwanCredit')
-exp.data_summary(feature_exclude=["LIMIT_BAL", "SEX", "EDUCATION", "MARRIAGE", "AGE"], feature_type={})
-exp.data_prepare(target='FlagDefault', task_type='Classification', test_ratio=0.2, random_state=0)
+exp.data_loader(data="TaiwanCredit", silent=True)
+exp.data_summary(feature_exclude=["LIMIT_BAL", "SEX", "EDUCATION", "MARRIAGE", "AGE"], silent=True)
+exp.data_prepare(target="FlagDefault", task_type="classification", silent=True)
 
 #%%
-# Model training
-exp.model_train(model=GLMClassifier(), name='GLM')
-exp.model_diagnose(model='GLM', show='accuracy_table')
+# Train Model
+exp.model_train(model=GLMClassifier(), name="GLM")
 
 #%%
-# Global interpretation
-exp.model_interpret(model='GLM', show="glm_coef_plot")
+# Evaluate predictive performance
+exp.model_diagnose(model="GLM", show='accuracy_table')
 
-exp.model_interpret(model='GLM', show="global_fi", figsize=(6, 5))
 #%%
-# Local interpretation
-exp.model_interpret(model='GLM', show="local_fi", sample_id=0, centered=False, figsize=(6, 5))
+# Regression coefficient plot for numerical features
+exp.model_interpret(model="GLM", show="glm_coef_plot", figsize=(5, 4))
 
-exp.model_interpret(model="GLM", show='local_fi', sample_id=0, centered=False, original_scale=True, figsize=(6, 5))
+#%%
+# Regression coefficient table for all features
+exp.model_interpret(model="GLM", show="glm_coef_table")
 
-exp.model_interpret(model="GLM", show='local_fi', sample_id=0, centered=True, original_scale=True, figsize=(6, 5))
+#%%
+# Feature importance plot
+exp.model_interpret(model="GLM", show="global_fi", figsize=(5, 4))
+
+#%%
+# Local interpretation without centering
+exp.model_interpret(model="GLM", show="local_fi", sample_id=0, centered=False, original_scale=False, figsize=(5, 4))
+
+#%%
+# Local interpretation with original scale of x
+exp.model_interpret(model="GLM", show="local_fi", sample_id=0, centered=False, original_scale=True, figsize=(5, 4))
+
+#%%
+# Local interpretation with centering and original scale of x
+exp.model_interpret(model="GLM", show="local_fi", sample_id=0, centered=True, original_scale=True, figsize=(5, 4))

@@ -1,0 +1,641 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+
+  <meta charset="utf-8">
+  <meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  
+  <title>PiML Toolbox</title>
+  
+
+  
+  <link rel="shortcut icon" href="../../_static/favicon.ico"/>
+  
+
+  <link rel="stylesheet" href="../../_static/css/vendor/bootstrap.min.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/plot_directive.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/jupyter-sphinx.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/thebelab.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/sg_gallery.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/sg_gallery-binder.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/sg_gallery-dataframe.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/sg_gallery-rendered-html.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
+<script id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+<script src="../../_static/jquery.js"></script>
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="../../_static/doctools.js"></script>
+        <script src="../../_static/sphinx_highlight.js"></script>
+        <script src="../../_static/thebelab-helper.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/@jupyter-widgets/html-manager@^1.0.1/dist/embed-amd.js"></script>
+        <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="../../_static/js/theme.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav">
+
+  
+
+
+<nav id="navbar" class="sk-docs-navbar navbar navbar-expand-md navbar-light bg-light py-0">
+  <div class="container-fluid sk-docs-container px-0">
+      <a class="navbar-brand py-0" href="../../index.html">
+        <img
+          class="sk-brand-img"
+          src="../../_static/piml-logo.png"
+          alt="logo"/>
+      </a>
+    <button
+      id="sk-navbar-toggler"
+      class="navbar-toggler"
+      type="button"
+      data-toggle="collapse"
+      data-target="#navbarSupportedContent"
+      aria-controls="navbarSupportedContent"
+      aria-expanded="false"
+      aria-label="Toggle navigation"
+    >
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="sk-navbar-collapse collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item">
+          <a class="sk-nav-link nav-link" href="../../install.html">Install</a>
+        </li>
+		<li class="nav-item">
+          <a class="sk-nav-link nav-link" href="../../modules/classes.html">API</a>
+        </li>
+        <li class="nav-item">
+          <a class="sk-nav-link nav-link" href="../../user_guide.html">User Guide</a>
+        </li>
+        <li class="nav-item">
+          <a class="sk-nav-link nav-link" href="../../auto_examples/index.html">Examples</a>
+        </li>
+        <li class="nav-item">
+          <a class="sk-nav-link nav-link" href="../../faq.html">FAQ</a>
+        </li>      </ul>
+      <div id="searchbox" role="search">
+          <div class="searchformwrapper">
+          <form class="search" action="../../search.html" method="get">
+            <input class="sk-search-text-input" type="text" name="q" aria-labelledby="searchlabel" />
+            <input class="sk-search-text-btn" type="submit" value="Go" />
+          </form>
+          </div>
+      </div>
+    </div>
+  </div>
+</nav>
+  <div class="d-flex" id="sk-doc-wrapper">
+      <input type="checkbox" name="sk-toggle-checkbox" id="sk-toggle-checkbox">
+      <label id="sk-sidemenu-toggle" class="sk-btn-toggle-toc btn sk-btn-primary" for="sk-toggle-checkbox">Toggle Menu</label>
+      <div id="sk-sidebar-wrapper" class="border-right">
+        <div class="sk-sidebar-toc-wrapper">
+          <div class="sk-sidebar-toc-logo">
+            <a href="../../index.html">
+              <img
+                class="sk-brand-img"
+                src="../../_static/piml-logo.png"
+                alt="logo"/>
+            </a>
+          </div>
+          <!--div class="btn-group w-100 mb-2" role="group" aria-label="rellinks">
+              <a href="weakspot.html" role="button" class="btn sk-btn-rellink py-1" sk-rellink-tooltip="6.2. WeakSpot">Prev</a><a href="../testing.html" role="button" class="btn sk-btn-rellink py-1" sk-rellink-tooltip="6. Diagnostic Suite">Up</a>
+              <a href="reliability.html" role="button" class="btn sk-btn-rellink py-1" sk-rellink-tooltip="6.4. Reliability">Next</a>
+          </div-->
+              <div class="sk-sidebar-toc">
+              
+                <ul>
+                
+                
+                
+                
+                
+                
+                <li>
+                  <a href="../../user_guide.html" class="sk-toc-active">User Guide</a>
+                </li>
+                <ul>
+                
+                  <li>
+                    <a href="../introduction.html" class="">1. Introduction</a>
+                    
+                  </li>
+                
+                  <li>
+                    <a href="../data.html" class="">2. Data Pipeline</a>
+                    
+                  </li>
+                
+                  <li>
+                    <a href="../extmodels.html" class="">3. Black-box Models</a>
+                    
+                  </li>
+                
+                  <li>
+                    <a href="../explainability.html" class="">4. Post-hoc Explainability</a>
+                    
+                  </li>
+                
+                  <li>
+                    <a href="../models.html" class="">5. Interpretable Models</a>
+                    
+                  </li>
+                
+                  <li>
+                    <a href="../testing.html" class="sk-toc-active">6. Diagnostic Suite</a>
+                    
+                    <ul>
+                      
+                        <li class="sk-toctree-l3">
+                          <a href="accuracy.html">6.1. Accuracy</a>
+                        </li>
+                      
+                        <li class="sk-toctree-l3">
+                          <a href="weakspot.html">6.2. WeakSpot</a>
+                        </li>
+                      
+                        <li class="sk-toctree-l3">
+                          <a href="">6.3. Overfit</a>
+                        </li>
+                      
+                        <li class="sk-toctree-l3">
+                          <a href="reliability.html">6.4. Reliability</a>
+                        </li>
+                      
+                        <li class="sk-toctree-l3">
+                          <a href="robustness.html">6.5. Robustness</a>
+                        </li>
+                      
+                        <li class="sk-toctree-l3">
+                          <a href="resilience.html">6.6. Resilience</a>
+                        </li>
+                      
+                        <li class="sk-toctree-l3">
+                          <a href="fairness.html">6.7. Fairness</a>
+                        </li>
+                      
+                    </ul>
+                    
+                  </li>
+                
+                  <li>
+                    <a href="../comparison.html" class="">7. Model Comparison</a>
+                    
+                  </li>
+                
+                  <li>
+                    <a href="../cases.html" class="">8. Case Studies</a>
+                    
+                  </li>
+                
+                </ul>
+                
+                
+                
+                
+                </ul>
+              </div>
+        </div>
+      </div>
+      <div id="sk-page-content-wrapper">
+        <div class="sk-page-content container-fluid body px-md-3" role="main">
+          
+  <style type="text/css">
+  div.body div.toctree-wrapper ul {
+      padding-left: 0;
+  }
+
+  div.body li.toctree-l1 {
+      padding: 0 0 0.5em 0;
+      list-style-type: none;
+      font-size: 150%;
+      font-weight: bold;
+  }
+
+  div.body li.toctree-l2 {
+      font-size: 70%;
+      list-style-type: square;
+      font-weight: normal;
+      margin-left: 40px;
+  }
+
+  div.body li.toctree-l3 {
+      font-size: 85%;
+      list-style-type: circle;
+      font-weight: normal;
+      margin-left: 40px;
+  }
+
+  div.body li.toctree-l4 {
+      margin-left: 40px;
+  }
+
+</style><section id="overfit">
+<h1><span class="section-number">6.3. </span>Overfit<a class="headerlink" href="#overfit" title="Permalink to this heading">¶</a></h1>
+<p>Overfitting is a common problem in machine learning where a model performs well on the training data, but fails to generalize to test or unseen data. Overfit detection is the process of identifying when a model is overfitting to the training data so that model developers can take further steps to prevent or mitigate it.</p>
+<section id="algorithm-details">
+<h2><span class="section-number">6.3.1. </span>Algorithm Details<a class="headerlink" href="#algorithm-details" title="Permalink to this heading">¶</a></h2>
+<p>The overfit detection is similar but a bit different to weakspot detection. Given a fitted model, we need to deine the the degree of overfitting for each test sample, using the following algorithm:</p>
+<ul class="simple">
+<li><p>Find the nearest neighbors of each test sample in the training set;</p></li>
+<li><p>Calculate the performance gap between each test sample and its nearest neighbor in the training set.</p></li>
+</ul>
+<p>After that, we obtain a list of performance gaps for each test sample, and we can use the performance gap list to identify the overfit regions of 1 or 2 features of interest. The detection algorithm is similar to that of <a class="reference external" href="weakspot.html#algorithm-details">weakspot</a>. In overfit, we have two built-in methods, i.e., histogram slicing and tree slicing. The ensemble tree approach is not used here. In practice, the computational cost can be very large as the training sample size is large. To avoid this, we do random downsampling for training set, such that the set used for selecting the nearest neighbors has at most 10000 samples.</p>
+</section>
+<section id="usage">
+<h2><span class="section-number">6.3.2. </span>Usage<a class="headerlink" href="#usage" title="Permalink to this heading">¶</a></h2>
+<p>Overfit assessment can be done using <code class="docutils literal notranslate"><span class="pre">model_diagnose</span></code>. The keyword is “overfit”, and additional parameters are listed below. Compared to the weakspot test, the overfit test does not have the argument <code class="docutils literal notranslate"><span class="pre">use_test</span></code>, as it is always performed on the test set.</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">slice_method</span></code>: This option is used to chose which slcing method to use, avaible options includes “histogram” and “tree”, which corresponds the three previously mentioned slicing methods. The default is “histogram”.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">slice_features</span></code>: This is the argument for specifying the list of slicing features. 1 or 2 slicing features should be specified, otherwise, a warning message would show up.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">bins</span></code>: This is the number of bins for histogram slicing. By default, it is set to 10.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">metric</span></code>: The performance metrics, including “MSE”, “MAE”, and “R2” for regression; “ACC”, “AUC”, and “F1” for classification. The default metric is “MSE” for regression tasks and “ACC” for classification tasks.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">threshold</span></code>: This is the performance gap threshold ratio. By default, it is set to 1.1, which means 10% greater than the average performance gap.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">min_samples</span></code>: The minimum sample size for a weak region, and the default value is 20. Regions with sample size less than 20 will be ignored.</p></li>
+</ul>
+<section id="one-way-overfit-plot">
+<h3><span class="section-number">6.3.2.1. </span>One-way Overfit Plot<a class="headerlink" href="#one-way-overfit-plot" title="Permalink to this heading">¶</a></h3>
+<p>We consider a regression task on the BiksSharing data. In the following demo, we identify overfit regions using histogram method, and focus on a single variable <code class="docutils literal notranslate"><span class="pre">hr</span></code>.</p>
+<div class="jupyter_cell jupyter_container docutils container">
+<div class="cell_input code_cell docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">results</span> <span class="o">=</span> <span class="n">exp</span><span class="o">.</span><span class="n">model_diagnose</span><span class="p">(</span><span class="n">model</span><span class="o">=</span><span class="s2">&quot;XGB2&quot;</span><span class="p">,</span> <span class="n">show</span><span class="o">=</span><span class="s2">&quot;overfit&quot;</span><span class="p">,</span> <span class="n">slice_method</span><span class="o">=</span><span class="s2">&quot;histogram&quot;</span><span class="p">,</span>
+                           <span class="n">slice_features</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;hr&quot;</span><span class="p">],</span> <span class="n">threshold</span><span class="o">=</span><span class="mf">1.05</span><span class="p">,</span> <span class="n">min_samples</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span>
+                           <span class="n">original_scale</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">return_data</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">4</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+</div>
+</div>
+<figure class="align-left">
+<a class="reference external image-reference" href="../../auto_examples/testing/plot_2_overfit_reg.html"><img alt="../../_images/sphx_glr_plot_2_overfit_reg_001.png" src="../../_images/sphx_glr_plot_2_overfit_reg_001.png" /></a>
+</figure>
+<div class="jupyter_cell jupyter_container docutils container">
+<div class="cell_input code_cell docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">results</span><span class="o">.</span><span class="n">data</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+</div>
+</div>
+<div class="output_subarea output_html rendered_html output_result">
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>[hr</th>
+      <th>hr)</th>
+      <th>#Test</th>
+      <th>#Train</th>
+      <th>test_MSE</th>
+      <th>train_MSE</th>
+      <th>Gap</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>0.3</td>
+      <td>0.4</td>
+      <td>445</td>
+      <td>1736</td>
+      <td>0.017079</td>
+      <td>0.015575</td>
+      <td>0.001504</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>0.8</td>
+      <td>0.9</td>
+      <td>285</td>
+      <td>1171</td>
+      <td>0.005226</td>
+      <td>0.004305</td>
+      <td>0.000921</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>0.6</td>
+      <td>0.7</td>
+      <td>445</td>
+      <td>1743</td>
+      <td>0.006050</td>
+      <td>0.005585</td>
+      <td>0.000465</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div><p>The most significant overfit region is the one with <code class="docutils literal notranslate"><span class="pre">hr</span></code> in the range of (7am, 9am), where the test set has a MSE of 0.0171, while the train set has a MSE of 0.0156. The gap is 0.0015, which is larger than the threshold around 0.0004. Note that the original scale argument only affect the plot, the returned table still uses the scaled values.</p>
+</section>
+<section id="two-way-overfit-plot">
+<h3><span class="section-number">6.3.2.2. </span>Two-way Overfit Plot<a class="headerlink" href="#two-way-overfit-plot" title="Permalink to this heading">¶</a></h3>
+<p>In the follows, we identify overfit regions with <code class="docutils literal notranslate"><span class="pre">hr</span></code> and <code class="docutils literal notranslate"><span class="pre">atemp</span></code> using tree slicing. The minimum sample size is set to 100 and the threshold ratio is 1.05.</p>
+<div class="jupyter_cell jupyter_container docutils container">
+<div class="cell_input code_cell docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">results</span><span class="o">=</span><span class="n">exp</span><span class="o">.</span><span class="n">model_diagnose</span><span class="p">(</span><span class="n">model</span><span class="o">=</span><span class="s2">&quot;XGB2&quot;</span><span class="p">,</span> <span class="n">show</span><span class="o">=</span><span class="s2">&quot;overfit&quot;</span><span class="p">,</span> <span class="n">slice_method</span><span class="o">=</span><span class="s2">&quot;tree&quot;</span><span class="p">,</span>
+                           <span class="n">slice_features</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;hr&quot;</span><span class="p">,</span> <span class="s2">&quot;atemp&quot;</span><span class="p">],</span> <span class="n">threshold</span><span class="o">=</span><span class="mf">1.05</span><span class="p">,</span> <span class="n">min_samples</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span>
+                           <span class="n">original_scale</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">return_data</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">4</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+</div>
+</div>
+<figure class="align-left">
+<a class="reference external image-reference" href="../../auto_examples/testing/plot_2_overfit_reg.html"><img alt="../../_images/sphx_glr_plot_2_overfit_reg_002.png" src="../../_images/sphx_glr_plot_2_overfit_reg_002.png" /></a>
+</figure>
+<p>From the plot, it can be seen that 3 overfit regions are detected, where 2 regions are purely determined by <code class="docutils literal notranslate"><span class="pre">hr</span></code> (from 7am to 9am), and the third region is an interaction of these two features (<code class="docutils literal notranslate"><span class="pre">hr</span></code> less than 2am and <code class="docutils literal notranslate"><span class="pre">atemp</span></code> less than 0.55). For the detailed information, see the table below.</p>
+<div class="jupyter_cell jupyter_container docutils container">
+<div class="cell_input code_cell docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">results</span><span class="o">.</span><span class="n">data</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+</div>
+</div>
+<div class="output_subarea output_html rendered_html output_result">
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>[hr</th>
+      <th>hr)</th>
+      <th>[atemp</th>
+      <th>atemp)</th>
+      <th>#Test</th>
+      <th>#Train</th>
+      <th>test_MSE</th>
+      <th>train_MSE</th>
+      <th>Gap</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>0.326087</td>
+      <td>0.369565</td>
+      <td>0.0</td>
+      <td>0.98480</td>
+      <td>135</td>
+      <td>592</td>
+      <td>0.036693</td>
+      <td>0.029954</td>
+      <td>0.006739</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>0.282609</td>
+      <td>0.326087</td>
+      <td>0.0</td>
+      <td>0.98480</td>
+      <td>148</td>
+      <td>579</td>
+      <td>0.013106</td>
+      <td>0.011935</td>
+      <td>0.001172</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>0.000000</td>
+      <td>0.065217</td>
+      <td>0.0</td>
+      <td>0.55305</td>
+      <td>197</td>
+      <td>831</td>
+      <td>0.001208</td>
+      <td>0.000855</td>
+      <td>0.000353</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div></section>
+</section>
+<section id="examples">
+<h2><span class="section-number">6.3.3. </span>Examples<a class="headerlink" href="#examples" title="Permalink to this heading">¶</a></h2>
+<aside class="topic">
+<p class="topic-title">Example 1: BikeSharing</p>
+<blockquote>
+<div><p>The first example below demonstrates how to use PiML with its high-code APIs for developing machine learning models for the BikeSharing data from the UCI repository, which consists of 17,389 samples of hourly counts of rental bikes in Capital bikeshare system; see details. The response <code class="docutils literal notranslate"><span class="pre">cnt</span></code> (hourly bike rental counts) is continuous and it is a regression problem.</p>
+</div></blockquote>
+<ul class="simple">
+<li><p><a class="reference internal" href="../../auto_examples/testing/plot_2_overfit_reg.html#sphx-glr-auto-examples-testing-plot-2-overfit-reg-py"><span class="std std-ref">Overfit: Regression</span></a></p></li>
+</ul>
+</aside>
+<aside class="topic">
+<p class="topic-title">Examples 2: Taiwan Credit</p>
+<blockquote>
+<div><p>The second example below demonstrates how to use PiML’s high-code APIs for the TaiwanCredit dataset from the UCI repository. This dataset comprises the credit card details of 30,000 clients in Taiwan from April 2005 to September 2005, and more information can be found on the TaiwanCreditData website. The data can be loaded directly into PiML, although it requires some preprocessing. The FlagDefault variable serves as the response for this classification problem.</p>
+</div></blockquote>
+<ul class="simple">
+<li><p><a class="reference internal" href="../../auto_examples/testing/plot_2_overfit_cls.html#sphx-glr-auto-examples-testing-plot-2-overfit-cls-py"><span class="std std-ref">Overfit: Classification</span></a></p></li>
+</ul>
+</aside>
+</section>
+</section>
+
+
+        </div>
+      <div class="container">
+        <footer class="sk-content-footer">
+              &copy; Copyright 2022-, PiML-Toolbox authors.
+            <a href="../../_sources/guides/testing/overfit.rst.txt" rel="nofollow">Show this page source</a>
+        </footer>
+      </div>
+    </div>
+  </div>
+
+
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(false);
+      });
+      
+      const tooltipTriggerList = document.querySelectorAll('[data-bs-toggle="tooltip"]')
+      const tooltipList = [...tooltipTriggerList].map(tooltipTriggerEl => new bootstrap.Tooltip(tooltipTriggerEl))
+  </script>
+
+<script>
+$(document).ready(function() {
+    /* Add a [>>>] button on the top-right corner of code samples to hide
+     * the >>> and ... prompts and the output and thus make the code
+     * copyable. */
+    var div = $('.highlight-python .highlight,' +
+                '.highlight-python3 .highlight,' +
+                '.highlight-pycon .highlight,' +
+		'.highlight-default .highlight')
+    var pre = div.find('pre');
+
+    // get the styles from the current theme
+    pre.parent().parent().css('position', 'relative');
+    var hide_text = 'Hide prompts and outputs';
+    var show_text = 'Show prompts and outputs';
+
+    // create and add the button to all the code blocks that contain >>>
+    div.each(function(index) {
+        var jthis = $(this);
+        if (jthis.find('.gp').length > 0) {
+            var button = $('<span class="copybutton">&gt;&gt;&gt;</span>');
+            button.attr('title', hide_text);
+            button.data('hidden', 'false');
+            jthis.prepend(button);
+        }
+        // tracebacks (.gt) contain bare text elements that need to be
+        // wrapped in a span to work with .nextUntil() (see later)
+        jthis.find('pre:has(.gt)').contents().filter(function() {
+            return ((this.nodeType == 3) && (this.data.trim().length > 0));
+        }).wrap('<span>');
+    });
+
+    // define the behavior of the button when it's clicked
+    $('.copybutton').click(function(e){
+        e.preventDefault();
+        var button = $(this);
+        if (button.data('hidden') === 'false') {
+            // hide the code output
+            button.parent().find('.go, .gp, .gt').hide();
+            button.next('pre').find('.gt').nextUntil('.gp, .go').css('visibility', 'hidden');
+            button.css('text-decoration', 'line-through');
+            button.attr('title', show_text);
+            button.data('hidden', 'true');
+        } else {
+            // show the code output
+            button.parent().find('.go, .gp, .gt').show();
+            button.next('pre').find('.gt').nextUntil('.gp, .go').css('visibility', 'visible');
+            button.css('text-decoration', 'none');
+            button.attr('title', hide_text);
+            button.data('hidden', 'false');
+        }
+    });
+
+	/*** Add permalink buttons next to glossary terms ***/
+	$('dl.glossary > dt[id]').append(function() {
+		return ('<a class="headerlink" href="#' +
+			    this.getAttribute('id') +
+			    '" title="Permalink to this term">¶</a>');
+	});
+  /*** Hide navbar when scrolling down ***/
+  // Returns true when headerlink target matches hash in url
+  (function() {
+    hashTargetOnTop = function() {
+        var hash = window.location.hash;
+        if ( hash.length < 2 ) { return false; }
+
+        var target = document.getElementById( hash.slice(1) );
+        if ( target === null ) { return false; }
+
+        var top = target.getBoundingClientRect().top;
+        return (top < 2) && (top > -2);
+    };
+
+    // Hide navbar on load if hash target is on top
+    var navBar = document.getElementById("navbar");
+    var navBarToggler = document.getElementById("sk-navbar-toggler");
+    var navBarHeightHidden = "-" + navBar.getBoundingClientRect().height + "px";
+    var $window = $(window);
+
+    hideNavBar = function() {
+        navBar.style.top = navBarHeightHidden;
+    };
+
+    showNavBar = function() {
+        navBar.style.top = "0";
+    }
+
+    if (hashTargetOnTop()) {
+        hideNavBar()
+    }
+
+    var prevScrollpos = window.pageYOffset;
+    hideOnScroll = function(lastScrollTop) {
+        if (($window.width() < 768) && (navBarToggler.getAttribute("aria-expanded") === 'true')) {
+            return;
+        }
+        if (lastScrollTop > 2 && (prevScrollpos <= lastScrollTop) || hashTargetOnTop()){
+            hideNavBar()
+        } else {
+            showNavBar()
+        }
+        prevScrollpos = lastScrollTop;
+    };
+
+    /*** high performance scroll event listener***/
+    var raf = window.requestAnimationFrame ||
+        window.webkitRequestAnimationFrame ||
+        window.mozRequestAnimationFrame ||
+        window.msRequestAnimationFrame ||
+        window.oRequestAnimationFrame;
+    var lastScrollTop = $window.scrollTop();
+
+    if (raf) {
+        loop();
+    }
+
+    function loop() {
+        var scrollTop = $window.scrollTop();
+        if (lastScrollTop === scrollTop) {
+            raf(loop);
+            return;
+        } else {
+            lastScrollTop = scrollTop;
+            hideOnScroll(lastScrollTop);
+            raf(loop);
+        }
+    }
+  })();
+});
+
+</script>
+    
+
+<script src="_static/js/vendor/bootstrap.min.js"></script>
+
+</body>
+</html>

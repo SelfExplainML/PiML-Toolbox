@@ -3,7 +3,7 @@
 <head>
 
   <meta charset="utf-8">
-  <meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+  <meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
@@ -41,7 +41,7 @@
         <script src="../../_static/sphinx_highlight.js"></script>
         <script src="../../_static/thebelab-helper.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
-        <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.20.1/dist/embed-amd.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/@jupyter-widgets/html-manager@^1.0.1/dist/embed-amd.js"></script>
         <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
     <script src="../../_static/js/theme.js"></script>
 
@@ -116,12 +116,16 @@
           </div>
           <!--div class="btn-group w-100 mb-2" role="group" aria-label="rellinks">
               <a href="piml.models.GLMRegressor.html" role="button" class="btn sk-btn-rellink py-1" sk-rellink-tooltip="piml.models.GLMRegressor">Prev</a><a href="../classes.html" role="button" class="btn sk-btn-rellink py-1" sk-rellink-tooltip="API Reference">Up</a>
-              <a href="piml.models.FIGSRegressor.html" role="button" class="btn sk-btn-rellink py-1" sk-rellink-tooltip="piml.models.FIGSRegressor">Next</a>
+              <a href="piml.models.GAMRegressor.html" role="button" class="btn sk-btn-rellink py-1" sk-rellink-tooltip="piml.models.GAMRegressor">Next</a>
           </div-->
               <div class="sk-sidebar-toc">
                 <ul>
 <li><a class="reference internal" href="#"><code class="xref py py-mod docutils literal notranslate"><span class="pre">piml.models</span></code>.GLMClassifier</a><ul>
-<li><a class="reference internal" href="#piml.models.GLMClassifier"><code class="docutils literal notranslate"><span class="pre">GLMClassifier</span></code></a></li>
+<li><a class="reference internal" href="#piml.models.GLMClassifier"><code class="docutils literal notranslate"><span class="pre">GLMClassifier</span></code></a><ul>
+<li><a class="reference internal" href="#piml.models.GLMClassifier.get_params"><code class="docutils literal notranslate"><span class="pre">GLMClassifier.get_params</span></code></a></li>
+<li><a class="reference internal" href="#piml.models.GLMClassifier.set_params"><code class="docutils literal notranslate"><span class="pre">GLMClassifier.set_params</span></code></a></li>
+</ul>
+</li>
 <li><a class="reference internal" href="#examples-using-piml-models-glmclassifier">Examples using <code class="docutils literal notranslate"><span class="pre">piml.models.GLMClassifier</span></code></a></li>
 </ul>
 </li>
@@ -137,26 +141,93 @@
 <h1><code class="xref py py-mod docutils literal notranslate"><span class="pre">piml.models</span></code>.GLMClassifier<a class="headerlink" href="#piml-models-glmclassifier" title="Permalink to this heading">¶</a></h1>
 <dl class="py class">
 <dt class="sig sig-object py" id="piml.models.GLMClassifier">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">piml.models.</span></span><span class="sig-name descname"><span class="pre">GLMClassifier</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#piml.models.GLMClassifier" title="Permalink to this definition">¶</a></dt>
-<dd><p>Logistic Regression with L1 and L2 regularization.</p>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">piml.models.</span></span><span class="sig-name descname"><span class="pre">GLMClassifier</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">feature_names</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">feature_types</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#piml.models.GLMClassifier" title="Permalink to this definition">¶</a></dt>
+<dd><p>A wrapper of generalized linear model classifier in scikit-learn.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><dl class="simple">
-<dt><strong>l1_regularzation: float, default=0</strong></dt><dd><p>The strength of l1 regularzation,  l1_regularzation must be non-negative float.</p>
+<dt><strong>feature_names</strong><span class="classifier">list or None, default=None</span></dt><dd><p>The list of feature names.</p>
 </dd>
-<dt><strong>l2_regularzation: float, default=0</strong></dt><dd><p>The strength of l2 regularzation,  l2_regularzation must be non-negative float.</p>
+<dt><strong>feature_types</strong><span class="classifier">list or None, default=None</span></dt><dd><p>The list of feature types. Available types include “numerical” and “categorical”.</p>
 </dd>
-<dt><strong>Inherit:</strong></dt><dd></dd>
+<dt><strong>l1_regularzation: float, default=0</strong></dt><dd><p>The strength of l1 regularzation, l1_regularzation must be non-negative float.</p>
+</dd>
+<dt><strong>l2_regularzation: float, default=0</strong></dt><dd><p>The strength of l2 regularzation, l2_regularzation must be non-negative float.</p>
+</dd>
+</dl>
+</dd>
+<dt class="field-even">Attributes<span class="colon">:</span></dt>
+<dd class="field-even"><dl class="simple">
+<dt><strong>feature_names_</strong><span class="classifier">list of str</span></dt><dd><p>The feature name list of all input features.</p>
+</dd>
+<dt><strong>feature_types_</strong><span class="classifier">list of str</span></dt><dd><p>The feature type list of all input features.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+<p class="rubric">Methods</p>
+<table class="autosummary longtable docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#piml.models.GLMClassifier.get_params" title="piml.models.GLMClassifier.get_params"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_params</span></code></a>([deep])</p></td>
+<td><p>Get parameters for this estimator.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#piml.models.GLMClassifier.set_params" title="piml.models.GLMClassifier.set_params"><code class="xref py py-obj docutils literal notranslate"><span class="pre">set_params</span></code></a>(**params)</p></td>
+<td><p>Set the parameters of this estimator.</p></td>
+</tr>
+</tbody>
+</table>
+<dl class="py method">
+<dt class="sig sig-object py" id="piml.models.GLMClassifier.get_params">
+<span class="sig-name descname"><span class="pre">get_params</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">deep</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#piml.models.GLMClassifier.get_params" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get parameters for this estimator.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>deep</strong><span class="classifier">bool, default=True</span></dt><dd><p>If True, will return the parameters for this estimator and
+contained subobjects that are estimators.</p>
+</dd>
+</dl>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><dl class="simple">
+<dt><strong>params</strong><span class="classifier">dict</span></dt><dd><p>Parameter names mapped to their values.</p>
+</dd>
 </dl>
 </dd>
 </dl>
 </dd></dl>
 
+<dl class="py method">
+<dt class="sig sig-object py" id="piml.models.GLMClassifier.set_params">
+<span class="sig-name descname"><span class="pre">set_params</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">params</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#piml.models.GLMClassifier.set_params" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set the parameters of this estimator.</p>
+<p>The method works on simple estimators as well as on nested objects
+(such as <code class="xref py py-class docutils literal notranslate"><span class="pre">Pipeline</span></code>). The latter have
+parameters of the form <code class="docutils literal notranslate"><span class="pre">&lt;component&gt;__&lt;parameter&gt;</span></code> so that it’s
+possible to update each component of a nested object.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>**params</strong><span class="classifier">dict</span></dt><dd><p>Estimator parameters.</p>
+</dd>
+</dl>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><dl class="simple">
+<dt><strong>self</strong><span class="classifier">estimator instance</span></dt><dd><p>Estimator instance.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
 <section id="examples-using-piml-models-glmclassifier">
 <h2>Examples using <code class="docutils literal notranslate"><span class="pre">piml.models.GLMClassifier</span></code><a class="headerlink" href="#examples-using-piml-models-glmclassifier" title="Permalink to this heading">¶</a></h2>
-<div class="sphx-glr-thumbnails"><div class="sphx-glr-thumbcontainer" tooltip="GLM Logistic Regression"><img alt="GLM - Logistic Regression Model" src="../../_images/sphx_glr_plot_0_glm_cls_thumb.png" />
-<p><a class="reference internal" href="../../auto_examples/models/plot_0_glm_cls.html#sphx-glr-auto-examples-models-plot-0-glm-cls-py"><span class="std std-ref">GLM - Logistic Regression Model</span></a></p>
-  <div class="sphx-glr-thumbnail-title">GLM - Logistic Regression Model</div>
+<div class="sphx-glr-thumbnails"><div class="sphx-glr-thumbcontainer" tooltip="Fairness Comparison"><img alt="" src="../../_images/sphx_glr_plot_1_compare_fairness_thumb.png" />
+<p><a class="reference internal" href="../../auto_examples/testing_compare/plot_1_compare_fairness.html#sphx-glr-auto-examples-testing-compare-plot-1-compare-fairness-py"><span class="std std-ref">Fairness Comparison</span></a></p>
+  <div class="sphx-glr-thumbnail-title">Fairness Comparison</div>
 </div></div><div class="clearer"></div></section>
 </section>
 

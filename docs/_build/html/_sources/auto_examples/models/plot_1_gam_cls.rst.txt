@@ -10,7 +10,7 @@
     .. note::
         :class: sphx-glr-download-link-note
 
-        Click :ref:`here <sphx_glr_download_auto_examples_models_plot_1_gam_cls.py>`
+        :ref:`Go to the end <sphx_glr_download_auto_examples_models_plot_1_gam_cls.py>`
         to download the full example code or to run this example in your browser via Binder
 
 .. rst-class:: sphx-glr-example-title
@@ -18,12 +18,14 @@
 .. _sphx_glr_auto_examples_models_plot_1_gam_cls.py:
 
 
-Generalized Additive Model
+GAM Classification (CoCircles)
 =====================================
 
-GAM Regression
+.. GENERATED FROM PYTHON SOURCE LINES 8-9
 
-.. GENERATED FROM PYTHON SOURCE LINES 10-17
+Experiment initialization and data preparation
+
+.. GENERATED FROM PYTHON SOURCE LINES 9-16
 
 .. code-block:: default
 
@@ -31,48 +33,21 @@ GAM Regression
     from piml.models import GAMClassifier
 
     exp = Experiment()
-    exp.data_loader(data="CoCircles")
-    exp.data_prepare(target='target', task_type='Classification', test_ratio=0.2)
+    exp.data_loader(data="CoCircles", silent=True)
+    exp.data_prepare(target="target", task_type="classification", silent=True)
 
 
 
 
 
-.. rst-class:: sphx-glr-script-out
-
- .. code-block:: none
-
-                X0        X1  target
-    0    -0.783526  0.502161     0.0
-    1     0.297809  0.658405     1.0
-    2     0.468272  0.500653     1.0
-    3    -0.134700 -0.887973     0.0
-    4     0.337202 -0.780797     1.0
-    ...        ...       ...     ...
-    1995  0.498109 -0.889060     0.0
-    1996  0.312980  0.724953     1.0
-    1997 -0.542930 -0.583517     1.0
-    1998 -0.871481 -0.491301     0.0
-    1999 -0.323963 -0.719150     0.0
-
-    [2000 rows x 3 columns]
-                      0               1
-    0  Excluded columns              []
-    1   Target variable          target
-    2     Sample weight            None
-    3         Task type  Classification
-    4      Split method          Random
-    5        Test ratio             0.2
-    6      Random state               0
 
 
 
+.. GENERATED FROM PYTHON SOURCE LINES 17-18
 
-.. GENERATED FROM PYTHON SOURCE LINES 18-19
+Train Model
 
-Model Training
-
-.. GENERATED FROM PYTHON SOURCE LINES 19-21
+.. GENERATED FROM PYTHON SOURCE LINES 18-20
 
 .. code-block:: default
 
@@ -82,24 +57,46 @@ Model Training
 
 
 
+
+
+
+.. GENERATED FROM PYTHON SOURCE LINES 21-22
+
+Evaluate predictive performance
+
+.. GENERATED FROM PYTHON SOURCE LINES 22-24
+
+.. code-block:: default
+
+    exp.model_diagnose(model="GAM", show="accuracy_table")
+
+
+
+
+
 .. rst-class:: sphx-glr-script-out
 
  .. code-block:: none
 
-    HTML(value="<p class='notification info'>Register GAM Done</p>")
+              ACC     AUC  Recall Precision      F1
+                                               
+    Train  0.8363  0.9226  0.8428    0.8346  0.8387
+    Test   0.8475  0.9306  0.8542    0.8325  0.8432
+    Gap    0.0112  0.0080  0.0113   -0.0021  0.0045
 
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 22-23
+.. GENERATED FROM PYTHON SOURCE LINES 25-26
 
 Global interpretation: effect plot for X0
 
-.. GENERATED FROM PYTHON SOURCE LINES 23-25
+.. GENERATED FROM PYTHON SOURCE LINES 26-29
 
 .. code-block:: default
 
-    exp.model_interpret(model='GAM', show='global_effect_plot', uni_feature="X0", original_scale=True, figsize=(6, 5))
+    exp.model_interpret(model="GAM", show="global_effect_plot", uni_feature="X0",
+                        original_scale=True, figsize=(5, 4))
 
 
 
@@ -113,15 +110,16 @@ Global interpretation: effect plot for X0
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 26-27
+.. GENERATED FROM PYTHON SOURCE LINES 30-31
 
 Global interpretation: effect plot for X1
 
-.. GENERATED FROM PYTHON SOURCE LINES 27-29
+.. GENERATED FROM PYTHON SOURCE LINES 31-34
 
 .. code-block:: default
 
-    exp.model_interpret(model='GAM', show='global_effect_plot', uni_feature="X1", original_scale=True, figsize=(6, 5))
+    exp.model_interpret(model="GAM", show="global_effect_plot", uni_feature="X1",
+                        original_scale=True, figsize=(5, 4))
 
 
 
@@ -135,15 +133,15 @@ Global interpretation: effect plot for X1
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 30-31
+.. GENERATED FROM PYTHON SOURCE LINES 35-36
 
 Global interpretation: feature importance
 
-.. GENERATED FROM PYTHON SOURCE LINES 31-33
+.. GENERATED FROM PYTHON SOURCE LINES 36-38
 
 .. code-block:: default
 
-    exp.model_interpret(model='GAM',show='global_fi', figsize=(6, 5))
+    exp.model_interpret(model="GAM",show="global_fi", figsize=(5, 4))
 
 
 
@@ -157,15 +155,15 @@ Global interpretation: feature importance
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 34-35
+.. GENERATED FROM PYTHON SOURCE LINES 39-40
 
 Local interpretation
 
-.. GENERATED FROM PYTHON SOURCE LINES 35-36
+.. GENERATED FROM PYTHON SOURCE LINES 40-41
 
 .. code-block:: default
 
-    exp.model_interpret(model='GAM',show='local_fi', sample_id=0, figsize=(6, 5))
+    exp.model_interpret(model="GAM",show="local_fi", sample_id=0, original_scale=True, figsize=(5, 4))
 
 
 
@@ -181,9 +179,7 @@ Local interpretation
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** ( 0 minutes  28.419 seconds)
-
-**Estimated memory usage:**  15 MB
+   **Total running time of the script:** ( 0 minutes  0.669 seconds)
 
 
 .. _sphx_glr_download_auto_examples_models_plot_1_gam_cls.py:
@@ -199,6 +195,8 @@ Local interpretation
         :target: https://mybinder.org/v2/gh/selfexplainml/piml-toolbox/main?urlpath=lab/tree/./docs/_build/html/notebooks/auto_examples/models/plot_1_gam_cls.ipynb
         :alt: Launch binder
         :width: 150 px
+
+
 
     .. container:: sphx-glr-download sphx-glr-download-python
 

@@ -10,7 +10,7 @@
     .. note::
         :class: sphx-glr-download-link-note
 
-        Click :ref:`here <sphx_glr_download_auto_examples_models_plot_0_glm_reg.py>`
+        :ref:`Go to the end <sphx_glr_download_auto_examples_models_plot_0_glm_reg.py>`
         to download the full example code or to run this example in your browser via Binder
 
 .. rst-class:: sphx-glr-example-title
@@ -18,78 +18,58 @@
 .. _sphx_glr_auto_examples_models_plot_0_glm_reg.py:
 
 
-GLM - Linear Regression Model
-===================================
+GLM Linear Regression (Bike Sharing)
+=====================================
 
-GLM Linear Regression
+.. GENERATED FROM PYTHON SOURCE LINES 7-8
 
-.. GENERATED FROM PYTHON SOURCE LINES 10-16
+Experiment initialization and data preparation
+
+.. GENERATED FROM PYTHON SOURCE LINES 8-16
 
 .. code-block:: default
 
     from piml import Experiment
     from piml.models import GLMRegressor
+
     exp = Experiment()
-    exp.data_loader(data="BikeSharing")
-    exp.data_prepare(target='cnt', task_type='Regression', test_ratio=0.2, random_state=0)
+    exp.data_loader(data="BikeSharing", silent=True)
+    exp.data_summary(feature_exclude=["yr", "mnth", "temp"], silent=True)
+    exp.data_prepare(target="cnt", task_type="regression", silent=True)
 
 
 
 
-
-.. rst-class:: sphx-glr-script-out
-
- .. code-block:: none
-
-           season   yr  mnth    hr  holiday  weekday  workingday  weathersit  \
-    0         1.0  0.0   1.0   0.0      0.0      6.0         0.0         1.0   
-    1         1.0  0.0   1.0   1.0      0.0      6.0         0.0         1.0   
-    2         1.0  0.0   1.0   2.0      0.0      6.0         0.0         1.0   
-    3         1.0  0.0   1.0   3.0      0.0      6.0         0.0         1.0   
-    4         1.0  0.0   1.0   4.0      0.0      6.0         0.0         1.0   
-    ...       ...  ...   ...   ...      ...      ...         ...         ...   
-    17374     1.0  1.0  12.0  19.0      0.0      1.0         1.0         2.0   
-    17375     1.0  1.0  12.0  20.0      0.0      1.0         1.0         2.0   
-    17376     1.0  1.0  12.0  21.0      0.0      1.0         1.0         1.0   
-    17377     1.0  1.0  12.0  22.0      0.0      1.0         1.0         1.0   
-    17378     1.0  1.0  12.0  23.0      0.0      1.0         1.0         1.0   
-
-           temp   atemp   hum  windspeed    cnt  
-    0      0.24  0.2879  0.81     0.0000   16.0  
-    1      0.22  0.2727  0.80     0.0000   40.0  
-    2      0.22  0.2727  0.80     0.0000   32.0  
-    3      0.24  0.2879  0.75     0.0000   13.0  
-    4      0.24  0.2879  0.75     0.0000    1.0  
-    ...     ...     ...   ...        ...    ...  
-    17374  0.26  0.2576  0.60     0.1642  119.0  
-    17375  0.26  0.2576  0.60     0.1642   89.0  
-    17376  0.26  0.2576  0.60     0.1642   90.0  
-    17377  0.26  0.2727  0.56     0.1343   61.0  
-    17378  0.26  0.2727  0.65     0.1343   49.0  
-
-    [17379 rows x 13 columns]
-                      0           1
-    0  Excluded columns          []
-    1   Target variable         cnt
-    2     Sample weight        None
-    3         Task type  Regression
-    4      Split method      Random
-    5        Test ratio         0.2
-    6      Random state           0
 
 
 
 
 .. GENERATED FROM PYTHON SOURCE LINES 17-18
 
-Model training
+Train Model
 
-.. GENERATED FROM PYTHON SOURCE LINES 18-21
+.. GENERATED FROM PYTHON SOURCE LINES 18-20
 
 .. code-block:: default
 
-    exp.model_train(model=GLMRegressor(), name='GLM')
-    exp.model_diagnose(model='GLM', show='accuracy_table')
+    exp.model_train(model=GLMRegressor(), name="GLM")
+
+
+
+
+
+
+
+
+.. GENERATED FROM PYTHON SOURCE LINES 21-22
+
+Evaluate predictive performance
+
+.. GENERATED FROM PYTHON SOURCE LINES 22-24
+
+.. code-block:: default
+
+    exp.model_diagnose(model="GLM", show='accuracy_table')
 
 
 
@@ -99,55 +79,32 @@ Model training
 
  .. code-block:: none
 
-    HTML(value="<p class='notification info'>Register GLM Done</p>")
                MSE      MAE      R2
                                
-    Train   0.0209   0.1083  0.3947
-    Test    0.0206   0.1060  0.4138
-    Gap    -0.0003  -0.0023  0.0191
+    Train   0.0225   0.1105  0.3467
+    Test    0.0225   0.1090  0.3593
+    Gap    -0.0000  -0.0015  0.0127
 
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 22-23
+.. GENERATED FROM PYTHON SOURCE LINES 25-26
 
-Global interpretation
+Regression coefficient plot for numerical features
 
-.. GENERATED FROM PYTHON SOURCE LINES 23-28
+.. GENERATED FROM PYTHON SOURCE LINES 26-28
 
 .. code-block:: default
 
-    exp.model_interpret(model='GLM', show="glm_coef_plot")
-
-    exp.model_interpret(model='GLM', show="glm_coef_plot", uni_feature="season")
-
-    exp.model_interpret(model='GLM', show="global_fi", figsize=(6, 5))
+    exp.model_interpret(model="GLM", show="glm_coef_plot", figsize=(5, 4))
 
 
 
-.. rst-class:: sphx-glr-horizontal
 
-
-    *
-
-      .. image-sg:: /auto_examples/models/images/sphx_glr_plot_0_glm_reg_001.png
-         :alt: Model Coefficients
-         :srcset: /auto_examples/models/images/sphx_glr_plot_0_glm_reg_001.png
-         :class: sphx-glr-multi-img
-
-    *
-
-      .. image-sg:: /auto_examples/models/images/sphx_glr_plot_0_glm_reg_002.png
-         :alt: Model Coefficients
-         :srcset: /auto_examples/models/images/sphx_glr_plot_0_glm_reg_002.png
-         :class: sphx-glr-multi-img
-
-    *
-
-      .. image-sg:: /auto_examples/models/images/sphx_glr_plot_0_glm_reg_003.png
-         :alt: Feature Importance
-         :srcset: /auto_examples/models/images/sphx_glr_plot_0_glm_reg_003.png
-         :class: sphx-glr-multi-img
+.. image-sg:: /auto_examples/models/images/sphx_glr_plot_0_glm_reg_001.png
+   :alt: Model Coefficients
+   :srcset: /auto_examples/models/images/sphx_glr_plot_0_glm_reg_001.png
+   :class: sphx-glr-single-img
 
 
 
@@ -155,42 +112,147 @@ Global interpretation
 
 .. GENERATED FROM PYTHON SOURCE LINES 29-30
 
-Local interpretation
+Regression coefficient plot for categorical features
 
-.. GENERATED FROM PYTHON SOURCE LINES 30-34
+.. GENERATED FROM PYTHON SOURCE LINES 30-32
 
 .. code-block:: default
 
-    exp.model_interpret(model='GLM', show="local_fi", sample_id=0, centered=False, figsize=(6, 5))
-
-    exp.model_interpret(model="GLM", show='local_fi', sample_id=0, centered=False, original_scale=True, figsize=(6, 5))
-
-    exp.model_interpret(model="GLM", show='local_fi', sample_id=0, centered=True, original_scale=True, figsize=(6, 5))
+    exp.model_interpret(model="GLM", show="glm_coef_plot", uni_feature="season", figsize=(5, 4))
 
 
-.. rst-class:: sphx-glr-horizontal
 
 
-    *
+.. image-sg:: /auto_examples/models/images/sphx_glr_plot_0_glm_reg_002.png
+   :alt: Model Coefficients
+   :srcset: /auto_examples/models/images/sphx_glr_plot_0_glm_reg_002.png
+   :class: sphx-glr-single-img
 
-      .. image-sg:: /auto_examples/models/images/sphx_glr_plot_0_glm_reg_004.png
-         :alt: Predicted: 0.1499 | Actual: 0.1600
-         :srcset: /auto_examples/models/images/sphx_glr_plot_0_glm_reg_004.png
-         :class: sphx-glr-multi-img
 
-    *
 
-      .. image-sg:: /auto_examples/models/images/sphx_glr_plot_0_glm_reg_005.png
-         :alt: Predicted: 0.1499 | Actual: 0.1600
-         :srcset: /auto_examples/models/images/sphx_glr_plot_0_glm_reg_005.png
-         :class: sphx-glr-multi-img
 
-    *
 
-      .. image-sg:: /auto_examples/models/images/sphx_glr_plot_0_glm_reg_006.png
-         :alt: Predicted: 0.1499 | Actual: 0.1600
-         :srcset: /auto_examples/models/images/sphx_glr_plot_0_glm_reg_006.png
-         :class: sphx-glr-multi-img
+.. GENERATED FROM PYTHON SOURCE LINES 33-34
+
+Regression coefficient table for all features
+
+.. GENERATED FROM PYTHON SOURCE LINES 34-36
+
+.. code-block:: default
+
+    exp.model_interpret(model="GLM", show="glm_coef_table")
+
+
+
+
+
+.. rst-class:: sphx-glr-script-out
+
+ .. code-block:: none
+
+        Feature Name Coefficient
+    0            hum     -0.2133
+    1   weathersit_2     -0.0274
+    2      holiday_1     -0.0250
+    3       season_2     -0.0038
+    4   workingday_0     -0.0000
+    5      holiday_0     -0.0000
+    6       season_0      0.0000
+    7   weathersit_0      0.0000
+    8   workingday_1      0.0035
+    9   weathersit_1      0.0104
+    10       weekday      0.0125
+    11      season_1      0.0193
+    12     windspeed      0.0365
+    13      season_3      0.0659
+    14  weathersit_3      0.0727
+    15            hr      0.1742
+    16         atemp      0.4082
+
+
+
+
+.. GENERATED FROM PYTHON SOURCE LINES 37-38
+
+Feature importance plot
+
+.. GENERATED FROM PYTHON SOURCE LINES 38-40
+
+.. code-block:: default
+
+    exp.model_interpret(model="GLM", show="global_fi", figsize=(5, 4))
+
+
+
+
+.. image-sg:: /auto_examples/models/images/sphx_glr_plot_0_glm_reg_003.png
+   :alt: Feature Importance
+   :srcset: /auto_examples/models/images/sphx_glr_plot_0_glm_reg_003.png
+   :class: sphx-glr-single-img
+
+
+
+
+
+.. GENERATED FROM PYTHON SOURCE LINES 41-42
+
+Local interpretation without centering
+
+.. GENERATED FROM PYTHON SOURCE LINES 42-44
+
+.. code-block:: default
+
+    exp.model_interpret(model="GLM", show="local_fi", sample_id=0, centered=False, original_scale=False, figsize=(5, 4))
+
+
+
+
+.. image-sg:: /auto_examples/models/images/sphx_glr_plot_0_glm_reg_004.png
+   :alt: Predicted: 0.1058 | Actual: 0.1600
+   :srcset: /auto_examples/models/images/sphx_glr_plot_0_glm_reg_004.png
+   :class: sphx-glr-single-img
+
+
+
+
+
+.. GENERATED FROM PYTHON SOURCE LINES 45-46
+
+Local interpretation with original scale of x
+
+.. GENERATED FROM PYTHON SOURCE LINES 46-48
+
+.. code-block:: default
+
+    exp.model_interpret(model="GLM", show='local_fi', sample_id=0, centered=False, original_scale=True, figsize=(5, 4))
+
+
+
+
+.. image-sg:: /auto_examples/models/images/sphx_glr_plot_0_glm_reg_005.png
+   :alt: Predicted: 0.1058 | Actual: 0.1600
+   :srcset: /auto_examples/models/images/sphx_glr_plot_0_glm_reg_005.png
+   :class: sphx-glr-single-img
+
+
+
+
+
+.. GENERATED FROM PYTHON SOURCE LINES 49-50
+
+Local interpretation with centering and original scale of x
+
+.. GENERATED FROM PYTHON SOURCE LINES 50-50
+
+.. code-block:: default
+
+    exp.model_interpret(model="GLM", show='local_fi', sample_id=0, centered=True, original_scale=True, figsize=(5, 4))
+
+
+.. image-sg:: /auto_examples/models/images/sphx_glr_plot_0_glm_reg_006.png
+   :alt: Predicted: 0.1058 | Actual: 0.1600
+   :srcset: /auto_examples/models/images/sphx_glr_plot_0_glm_reg_006.png
+   :class: sphx-glr-single-img
 
 
 
@@ -199,9 +261,7 @@ Local interpretation
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** ( 0 minutes  20.171 seconds)
-
-**Estimated memory usage:**  31 MB
+   **Total running time of the script:** ( 0 minutes  1.546 seconds)
 
 
 .. _sphx_glr_download_auto_examples_models_plot_0_glm_reg.py:
@@ -217,6 +277,8 @@ Local interpretation
         :target: https://mybinder.org/v2/gh/selfexplainml/piml-toolbox/main?urlpath=lab/tree/./docs/_build/html/notebooks/auto_examples/models/plot_0_glm_reg.ipynb
         :alt: Launch binder
         :width: 150 px
+
+
 
     .. container:: sphx-glr-download sphx-glr-download-python
 

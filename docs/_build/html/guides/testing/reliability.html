@@ -1,0 +1,630 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+
+  <meta charset="utf-8">
+  <meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  
+  <title>PiML Toolbox</title>
+  
+
+  
+  <link rel="shortcut icon" href="../../_static/favicon.ico"/>
+  
+
+  <link rel="stylesheet" href="../../_static/css/vendor/bootstrap.min.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/plot_directive.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/jupyter-sphinx.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/thebelab.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/sg_gallery.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/sg_gallery-binder.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/sg_gallery-dataframe.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/sg_gallery-rendered-html.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
+<script id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+<script src="../../_static/jquery.js"></script>
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="../../_static/doctools.js"></script>
+        <script src="../../_static/sphinx_highlight.js"></script>
+        <script src="../../_static/thebelab-helper.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/@jupyter-widgets/html-manager@^1.0.1/dist/embed-amd.js"></script>
+        <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+        <script>window.MathJax = {"tex": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true}, "options": {"ignoreHtmlClass": "tex2jax_ignore|mathjax_ignore|document", "processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+        <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
+    <script src="../../_static/js/theme.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav">
+
+  
+
+
+<nav id="navbar" class="sk-docs-navbar navbar navbar-expand-md navbar-light bg-light py-0">
+  <div class="container-fluid sk-docs-container px-0">
+      <a class="navbar-brand py-0" href="../../index.html">
+        <img
+          class="sk-brand-img"
+          src="../../_static/piml-logo.png"
+          alt="logo"/>
+      </a>
+    <button
+      id="sk-navbar-toggler"
+      class="navbar-toggler"
+      type="button"
+      data-toggle="collapse"
+      data-target="#navbarSupportedContent"
+      aria-controls="navbarSupportedContent"
+      aria-expanded="false"
+      aria-label="Toggle navigation"
+    >
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="sk-navbar-collapse collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item">
+          <a class="sk-nav-link nav-link" href="../../install.html">Install</a>
+        </li>
+		<li class="nav-item">
+          <a class="sk-nav-link nav-link" href="../../modules/classes.html">API</a>
+        </li>
+        <li class="nav-item">
+          <a class="sk-nav-link nav-link" href="../../user_guide.html">User Guide</a>
+        </li>
+        <li class="nav-item">
+          <a class="sk-nav-link nav-link" href="../../auto_examples/index.html">Examples</a>
+        </li>
+        <li class="nav-item">
+          <a class="sk-nav-link nav-link" href="../../faq.html">FAQ</a>
+        </li>      </ul>
+      <div id="searchbox" role="search">
+          <div class="searchformwrapper">
+          <form class="search" action="../../search.html" method="get">
+            <input class="sk-search-text-input" type="text" name="q" aria-labelledby="searchlabel" />
+            <input class="sk-search-text-btn" type="submit" value="Go" />
+          </form>
+          </div>
+      </div>
+    </div>
+  </div>
+</nav>
+  <div class="d-flex" id="sk-doc-wrapper">
+      <input type="checkbox" name="sk-toggle-checkbox" id="sk-toggle-checkbox">
+      <label id="sk-sidemenu-toggle" class="sk-btn-toggle-toc btn sk-btn-primary" for="sk-toggle-checkbox">Toggle Menu</label>
+      <div id="sk-sidebar-wrapper" class="border-right">
+        <div class="sk-sidebar-toc-wrapper">
+          <div class="sk-sidebar-toc-logo">
+            <a href="../../index.html">
+              <img
+                class="sk-brand-img"
+                src="../../_static/piml-logo.png"
+                alt="logo"/>
+            </a>
+          </div>
+          <!--div class="btn-group w-100 mb-2" role="group" aria-label="rellinks">
+              <a href="overfit.html" role="button" class="btn sk-btn-rellink py-1" sk-rellink-tooltip="6.3. Overfit">Prev</a><a href="../testing.html" role="button" class="btn sk-btn-rellink py-1" sk-rellink-tooltip="6. Diagnostic Suite">Up</a>
+              <a href="robustness.html" role="button" class="btn sk-btn-rellink py-1" sk-rellink-tooltip="6.5. Robustness">Next</a>
+          </div-->
+              <div class="sk-sidebar-toc">
+              
+                <ul>
+                
+                
+                
+                
+                
+                
+                <li>
+                  <a href="../../user_guide.html" class="sk-toc-active">User Guide</a>
+                </li>
+                <ul>
+                
+                  <li>
+                    <a href="../introduction.html" class="">1. Introduction</a>
+                    
+                  </li>
+                
+                  <li>
+                    <a href="../data.html" class="">2. Data Pipeline</a>
+                    
+                  </li>
+                
+                  <li>
+                    <a href="../extmodels.html" class="">3. Black-box Models</a>
+                    
+                  </li>
+                
+                  <li>
+                    <a href="../explainability.html" class="">4. Post-hoc Explainability</a>
+                    
+                  </li>
+                
+                  <li>
+                    <a href="../models.html" class="">5. Interpretable Models</a>
+                    
+                  </li>
+                
+                  <li>
+                    <a href="../testing.html" class="sk-toc-active">6. Diagnostic Suite</a>
+                    
+                    <ul>
+                      
+                        <li class="sk-toctree-l3">
+                          <a href="accuracy.html">6.1. Accuracy</a>
+                        </li>
+                      
+                        <li class="sk-toctree-l3">
+                          <a href="weakspot.html">6.2. WeakSpot</a>
+                        </li>
+                      
+                        <li class="sk-toctree-l3">
+                          <a href="overfit.html">6.3. Overfit</a>
+                        </li>
+                      
+                        <li class="sk-toctree-l3">
+                          <a href="">6.4. Reliability</a>
+                        </li>
+                      
+                        <li class="sk-toctree-l3">
+                          <a href="robustness.html">6.5. Robustness</a>
+                        </li>
+                      
+                        <li class="sk-toctree-l3">
+                          <a href="resilience.html">6.6. Resilience</a>
+                        </li>
+                      
+                        <li class="sk-toctree-l3">
+                          <a href="fairness.html">6.7. Fairness</a>
+                        </li>
+                      
+                    </ul>
+                    
+                  </li>
+                
+                  <li>
+                    <a href="../comparison.html" class="">7. Model Comparison</a>
+                    
+                  </li>
+                
+                  <li>
+                    <a href="../cases.html" class="">8. Case Studies</a>
+                    
+                  </li>
+                
+                </ul>
+                
+                
+                
+                
+                </ul>
+              </div>
+        </div>
+      </div>
+      <div id="sk-page-content-wrapper">
+        <div class="sk-page-content container-fluid body px-md-3" role="main">
+          
+  <style type="text/css">
+  div.body div.toctree-wrapper ul {
+      padding-left: 0;
+  }
+
+  div.body li.toctree-l1 {
+      padding: 0 0 0.5em 0;
+      list-style-type: none;
+      font-size: 150%;
+      font-weight: bold;
+  }
+
+  div.body li.toctree-l2 {
+      font-size: 70%;
+      list-style-type: square;
+      font-weight: normal;
+      margin-left: 40px;
+  }
+
+  div.body li.toctree-l3 {
+      font-size: 85%;
+      list-style-type: circle;
+      font-weight: normal;
+      margin-left: 40px;
+  }
+
+  div.body li.toctree-l4 {
+      margin-left: 40px;
+  }
+
+</style><section id="reliability">
+<h1><span class="section-number">6.4. </span>Reliability<a class="headerlink" href="#reliability" title="Permalink to this heading">¶</a></h1>
+<p>Reliability of a model refers to its ability to consistently produce accurate and trustworthy predictions or classifications. In other words, a reliable model is one that consistently performs well on new, unseen data. Models that are unreliable can lead to inaccurate predictions, which can have significant consequences in fields such as healthcare, finance, and safety-critical systems. In PiML, we can use the <code class="docutils literal notranslate"><span class="pre">model_diagnose</span></code> function to assess the reliability of our model. We have implemented different methods to evaluate the reliability of regression and binary classification tasks, respectively.</p>
+<section id="reliability-for-regression-tasks">
+<h2><span class="section-number">6.4.1. </span>Reliability for Regression Tasks<a class="headerlink" href="#reliability-for-regression-tasks" title="Permalink to this heading">¶</a></h2>
+<p>Conformalized residual quantile regression (CRQR) is a model agnostic method to evaluate the reliability of regression models. It is based on the conformal prediction framework, which assumes validation samples are exchangeable to testing samples. For an arbitrary model <span class="math notranslate nohighlight">\(\hat{f}(x)\)</span>, the CRQR is defined as:</p>
+<ul class="simple">
+<li><p>Fit a quantile regression model <span class="math notranslate nohighlight">\(\hat{g}_{\alpha}(x)`\)</span> to predict the residuals <span class="math notranslate nohighlight">\(y_{i}-\hat{f}(x_{i})\)</span> of training data.</p></li>
+<li><p>Define the conformal score for the residual <span class="math notranslate nohighlight">\(\epsilon_{i}=y_{i}-\hat{f}(x_{i})\)</span>:</p></li>
+</ul>
+<div class="math notranslate nohighlight">
+\[\begin{align}
+   s(x_{i}, y_{i}, \hat{f})=\max\{\hat{g}_{\frac{\alpha}{2}}(x_{i}) - \epsilon_{i}, \epsilon_{i}-\hat{g}_{(1-\frac{\alpha}{2})} (x_{i})\}, i=1,2,\ldots,n.
+\end{align}\]</div>
+<ul class="simple">
+<li><p>Compute the <span class="math notranslate nohighlight">\(\frac{(⌈(n+1)(1-\alpha)⌉)}{n}\)</span>-quantile of the calibrated scores <span class="math notranslate nohighlight">\({s_{1},\ldots,s_{n}}\)</span>.</p></li>
+<li><p>For a testing sample <span class="math notranslate nohighlight">\(x_{test}\)</span>, construct the confidence interval to be:</p></li>
+</ul>
+<div class="math notranslate nohighlight">
+\[\begin{align}
+             [\hat{f}(x_{test})+\hat{g}_{\frac{\alpha}{2}} (x_{test})-\hat{q}, \hat{f}(x_{test})+\hat{g}_{(1-\frac{\alpha}{2})} (x_{test})+\hat{q}]
+\end{align}\]</div>
+<p>In PiML, we split the test set into 3 subsets, one (40%) for training the quantile regression model, the second one (20%) for calibration, and the rest (40%) for evaluating the quality of prediction intervals. In particular, we use the <a class="reference external" href="https://scikit-learn.org/stable/modules/generated/sklearn.ensemble.HistGradientBoostingRegressor.html">GBDT</a> model from sklearn with quantile regression loss, and the max depth parameter is set to 5. If the version of sklearn is less than 1.1, then the raw GBDT model is used instead.</p>
+<section id="coverage-and-bandwidth-table">
+<h3><span class="section-number">6.4.1.1. </span>Coverage and Bandwidth Table<a class="headerlink" href="#coverage-and-bandwidth-table" title="Permalink to this heading">¶</a></h3>
+<p>For demonstration purpose, we consider a XGB2 model on the BikeSharing data. By setting <code class="docutils literal notranslate"><span class="pre">show</span></code> to “reliability_table”, we can get the average coverage and bandwidth of the prediction intervals on test set.  The argument <code class="docutils literal notranslate"><span class="pre">alpha</span></code> is the desired proportion of test samples to be outside the prediction intervals.</p>
+<div class="jupyter_cell jupyter_container docutils container">
+<div class="cell_input code_cell docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">exp</span><span class="o">.</span><span class="n">model_diagnose</span><span class="p">(</span><span class="n">model</span><span class="o">=</span><span class="s2">&quot;XGB2&quot;</span><span class="p">,</span> <span class="n">show</span><span class="o">=</span><span class="s2">&quot;reliability_table&quot;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.1</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+</div>
+</div>
+<div class="output_subarea output_html rendered_html output_result">
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Empirical Coverage</th>
+      <th>Average Bandwidth</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>0.88705</td>
+      <td>0.232974</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div><p>From the table above, we can find that the coverage of prediction intervals is 88.7% (close to the pre-defined level 1 - 0.1 = 90%) and the average bandwidth is 0.233. The coverage is the proportion of test samples that are covered by the prediction intervals. The bandwidth is the average width of the prediction intervals. The bandwidth is a measure of the accuracy of the prediction intervals. The smaller the bandwidth, the more accurate the prediction intervals are.</p>
+</section>
+<section id="distance-of-reliable-and-un-reliable-data">
+<h3><span class="section-number">6.4.1.2. </span>Distance of Reliable and Un-reliable Data<a class="headerlink" href="#distance-of-reliable-and-un-reliable-data" title="Permalink to this heading">¶</a></h3>
+<p>As we obtained the prediction intervals for each sample, we can further analyze how each feature is related to the model uncertainty. This can be done by calculating the distance between reliable and un-reliable data.
+In PiML, we can set <code class="docutils literal notranslate"><span class="pre">show</span></code> to “reliability_distance” to get the distribution shift distance of features between reliable and un-reliable data. Next, we also need to specify the expected coverage <code class="docutils literal notranslate"><span class="pre">alpha</span></code>. Finally, the following arguments are useful. a) <code class="docutils literal notranslate"><span class="pre">threshold</span></code>: The threshold ratio between reliable and un-reliable data;
+b) <code class="docutils literal notranslate"><span class="pre">psi_buckets</span></code>: The binning method for calculating the PSI value; c) <code class="docutils literal notranslate"><span class="pre">distance_metrics</span></code>: The distance metric for comparing the worst test sample and full test sample; available options includes “PSI”, “WD1”, and “KS”. Next, we briefly introduce reliable and un-reliable data, as follows:</p>
+<ul class="simple">
+<li><p>Reliable data: samples with the width of prediction intervals less than a pre-defined threshold.</p></li>
+<li><p>Un-reliable data: samples with the width of prediction intervals greater than or equals to a pre-defined threshold.</p></li>
+</ul>
+<p>The threshold of bandwidth, is determined by the argument <code class="docutils literal notranslate"><span class="pre">threshold</span></code>, multiplied by the average bandwidth. For example, if we set <code class="docutils literal notranslate"><span class="pre">threshold</span></code> to 1.1, the threshold of bandwidth is 1.1 * 0.233 = 0.2563. Next, we compare the difference of the reliable data and un-reliable data. This is done by calculating the feature-wise distributional distance of these two groups of samples.</p>
+<div class="jupyter_cell jupyter_container docutils container">
+<div class="cell_input code_cell docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">exp</span><span class="o">.</span><span class="n">model_diagnose</span><span class="p">(</span><span class="n">model</span><span class="o">=</span><span class="s2">&quot;XGB2&quot;</span><span class="p">,</span> <span class="n">show</span><span class="o">=</span><span class="s2">&quot;reliability_distance&quot;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.1</span><span class="p">,</span>
+                   <span class="n">threshold</span><span class="o">=</span><span class="mf">1.1</span><span class="p">,</span> <span class="n">distance_metric</span><span class="o">=</span><span class="s2">&quot;PSI&quot;</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">4</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+</div>
+</div>
+<figure class="align-left">
+<a class="reference external image-reference" href="../../auto_examples/testing/plot_3_reliability_reg.html"><img alt="../../_images/sphx_glr_plot_3_reliability_reg_001.png" src="../../_images/sphx_glr_plot_3_reliability_reg_001.png" /></a>
+</figure>
+<p>From the figure above, we observe that the distributional distance of <code class="docutils literal notranslate"><span class="pre">hr</span></code> is the largest between reliable and un-reliable data. However, this result only tells us the feature <code class="docutils literal notranslate"><span class="pre">hr</span></code> is related to the model uncertainty, but we cannot conclude it is a causal relationship.</p>
+</section>
+<section id="marginal-bandwidth">
+<h3><span class="section-number">6.4.1.3. </span>Marginal Bandwidth<a class="headerlink" href="#marginal-bandwidth" title="Permalink to this heading">¶</a></h3>
+<p>Given the distributional distance, we can further displays the marginal bandwidth of each feature. The marginal bandwidth is the average width of prediction intervals for each feature. We can set <code class="docutils literal notranslate"><span class="pre">show</span></code> to “reliability_marginal” to get the marginal bandwidth of each feature. The argument <code class="docutils literal notranslate"><span class="pre">target_feature</span></code> is the feature of interest. The argument <code class="docutils literal notranslate"><span class="pre">bins</span></code> is the number of bins to discretize the feature. Similar to the above plots, we also need to specify <code class="docutils literal notranslate"><span class="pre">alpha</span></code> and <code class="docutils literal notranslate"><span class="pre">threshold</span></code>.</p>
+<div class="jupyter_cell jupyter_container docutils container">
+<div class="cell_input code_cell docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">exp</span><span class="o">.</span><span class="n">model_diagnose</span><span class="p">(</span><span class="n">model</span><span class="o">=</span><span class="s2">&quot;XGB2&quot;</span><span class="p">,</span> <span class="n">show</span><span class="o">=</span><span class="s2">&quot;reliability_marginal&quot;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.1</span><span class="p">,</span>
+                   <span class="n">target_feature</span><span class="o">=</span><span class="s2">&quot;hr&quot;</span><span class="p">,</span> <span class="n">bins</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">threshold</span><span class="o">=</span><span class="mf">1.1</span><span class="p">,</span>
+                   <span class="n">original_scale</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">4</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+</div>
+</div>
+<figure class="align-left">
+<a class="reference external image-reference" href="../../auto_examples/testing/plot_3_reliability_reg.html"><img alt="../../_images/sphx_glr_plot_3_reliability_reg_002.png" src="../../_images/sphx_glr_plot_3_reliability_reg_002.png" /></a>
+</figure>
+<p>In the plot above, we can see that the marginal bandwidth of <code class="docutils literal notranslate"><span class="pre">hr</span></code> is higher than the threshold (red dotted line) during rush hours. This is consistent with our finding in weakspot tests.</p>
+</section>
+</section>
+<section id="reliability-for-binary-classification">
+<h2><span class="section-number">6.4.2. </span>Reliability for Binary Classification<a class="headerlink" href="#reliability-for-binary-classification" title="Permalink to this heading">¶</a></h2>
+<p>The reliability for binary classification tasks is not mature in PiML. For the time being, we use the formula <span class="math notranslate nohighlight">\(\sqrt{\hat{p}(1-\hat{p})}\)</span> to quantify the uncertainty of each prediction. Further, the isotonic regression to calibrate the predicted probability, and we also show the reliability diagram and Brier score of the estimator.</p>
+<section id="id1">
+<h3><span class="section-number">6.4.2.1. </span>Distance of Reliable and Un-reliable Data<a class="headerlink" href="#id1" title="Permalink to this heading">¶</a></h3>
+<p>Similar to the distance analysis between reliable and un-reliable data for regression tasks, we also calculate the distributional distance of features between reliable and un-reliable data, using the formula <span class="math notranslate nohighlight">\(\sqrt{\hat{p}(1-\hat{p})}\)</span> to quantify the uncertainty of each prediction. This can be done by setting <code class="docutils literal notranslate"><span class="pre">show</span></code> to “reliability_distance”, together with the arguments <code class="docutils literal notranslate"><span class="pre">distance_metric</span></code> and <code class="docutils literal notranslate"><span class="pre">threshold</span></code>. Note that the argument <code class="docutils literal notranslate"><span class="pre">alpha</span></code> is not used for classifiers.</p>
+<div class="jupyter_cell jupyter_container docutils container">
+<div class="cell_input code_cell docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">exp</span><span class="o">.</span><span class="n">model_diagnose</span><span class="p">(</span><span class="n">model</span><span class="o">=</span><span class="s2">&quot;XGB2&quot;</span><span class="p">,</span> <span class="n">show</span><span class="o">=</span><span class="s2">&quot;reliability_distance&quot;</span><span class="p">,</span>
+                   <span class="n">threshold</span><span class="o">=</span><span class="mf">1.1</span><span class="p">,</span> <span class="n">distance_metric</span><span class="o">=</span><span class="s2">&quot;PSI&quot;</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">4</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+</div>
+</div>
+<figure class="align-left">
+<a class="reference external image-reference" href="../../auto_examples/testing/plot_3_reliability_cls.html"><img alt="../../_images/sphx_glr_plot_3_reliability_cls_001.png" src="../../_images/sphx_glr_plot_3_reliability_cls_001.png" /></a>
+</figure>
+</section>
+<section id="id2">
+<h3><span class="section-number">6.4.2.2. </span>Marginal Bandwidth<a class="headerlink" href="#id2" title="Permalink to this heading">¶</a></h3>
+<p>Similarly, the marginal bandwidth plot of each feature can be shown using the keyword “reliability_marginal”. We can further adjust the plot using arguments <code class="docutils literal notranslate"><span class="pre">target_feature</span></code>, <code class="docutils literal notranslate"><span class="pre">threshold</span></code>, and <code class="docutils literal notranslate"><span class="pre">bins</span></code>.</p>
+<div class="jupyter_cell jupyter_container docutils container">
+<div class="cell_input code_cell docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">exp</span><span class="o">.</span><span class="n">model_diagnose</span><span class="p">(</span><span class="n">model</span><span class="o">=</span><span class="s2">&quot;GAM&quot;</span><span class="p">,</span> <span class="n">show</span><span class="o">=</span><span class="s2">&quot;reliability_marginal&quot;</span><span class="p">,</span>
+                  <span class="n">target_feature</span><span class="o">=</span><span class="s2">&quot;PAY_1&quot;</span><span class="p">,</span> <span class="n">bins</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">threshold</span><span class="o">=</span><span class="mf">1.1</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">4</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+</div>
+</div>
+<figure class="align-left">
+<a class="reference external image-reference" href="../../auto_examples/testing/plot_3_reliability_cls.html"><img alt="../../_images/sphx_glr_plot_3_reliability_cls_002.png" src="../../_images/sphx_glr_plot_3_reliability_cls_002.png" /></a>
+</figure>
+</section>
+<section id="classifier-calibration">
+<h3><span class="section-number">6.4.2.3. </span>Classifier Calibration<a class="headerlink" href="#classifier-calibration" title="Permalink to this heading">¶</a></h3>
+<p>In this plot, we do calibration of estimator using isotonic regression. We can set <code class="docutils literal notranslate"><span class="pre">show</span></code> to “reliability_calibration” to get the calibration plot. The x-axis is the original probability, and the y-axis is the calibrated probability.</p>
+<div class="jupyter_cell jupyter_container docutils container">
+<div class="cell_input code_cell docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">exp</span><span class="o">.</span><span class="n">model_diagnose</span><span class="p">(</span><span class="n">model</span><span class="o">=</span><span class="s2">&quot;GAM&quot;</span><span class="p">,</span> <span class="n">show</span><span class="o">=</span><span class="s2">&quot;reliability_calibration&quot;</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">4</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+</div>
+</div>
+<figure class="align-left">
+<a class="reference external image-reference" href="../../auto_examples/testing/plot_3_reliability_cls.html"><img alt="../../_images/sphx_glr_plot_3_reliability_cls_003.png" src="../../_images/sphx_glr_plot_3_reliability_cls_003.png" /></a>
+</figure>
+</section>
+<section id="reliability-diagram">
+<h3><span class="section-number">6.4.2.4. </span>Reliability Diagram<a class="headerlink" href="#reliability-diagram" title="Permalink to this heading">¶</a></h3>
+<p>Reliability diagram is also known as calibration curve. It discretizes the predicted probability into multiple bins (equal quantile). The x-axis is the mean predicted probability of each bin; the y-axis is the observed frequency of the true response of each bin. Ideally, the curve should be close to the identity line. We show the reliability diagram of the original model as well as the calibrated model (by isotonic regression) by setting <code class="docutils literal notranslate"><span class="pre">show</span></code> to “reliability_perf”.</p>
+<p>This score is similar to the MSE metric, and it is used to evaluate the reliability of the probability prediction. The lower the Brier score, the better the model is. We show the Brier score of the original model as well as the calibrated model (by isotonic regression).</p>
+<div class="jupyter_cell jupyter_container docutils container">
+<div class="cell_input code_cell docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">exp</span><span class="o">.</span><span class="n">model_diagnose</span><span class="p">(</span><span class="n">model</span><span class="o">=</span><span class="s2">&quot;GAM&quot;</span><span class="p">,</span> <span class="n">show</span><span class="o">=</span><span class="s2">&quot;reliability_perf&quot;</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">4</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+</div>
+</div>
+<figure class="align-left">
+<a class="reference external image-reference" href="../../auto_examples/testing/plot_3_reliability_cls.html"><img alt="../../_images/sphx_glr_plot_3_reliability_cls_004.png" src="../../_images/sphx_glr_plot_3_reliability_cls_004.png" /></a>
+</figure>
+</section>
+<section id="brier-score-table">
+<h3><span class="section-number">6.4.2.5. </span>Brier Score Table<a class="headerlink" href="#brier-score-table" title="Permalink to this heading">¶</a></h3>
+<p>To get the Brier score individually, we can use the keyword “reliability_table”, as shown below.</p>
+<div class="jupyter_cell jupyter_container docutils container">
+<div class="cell_input code_cell docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">results</span> <span class="o">=</span> <span class="n">exp</span><span class="o">.</span><span class="n">model_diagnose</span><span class="p">(</span><span class="n">model</span><span class="o">=</span><span class="s2">&quot;GAM&quot;</span><span class="p">,</span> <span class="n">show</span><span class="o">=</span><span class="s2">&quot;reliability_table&quot;</span><span class="p">,</span> <span class="n">return_data</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">results</span><span class="o">.</span><span class="n">data</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+</div>
+</div>
+</section>
+</section>
+<section id="examples">
+<h2><span class="section-number">6.4.3. </span>Examples<a class="headerlink" href="#examples" title="Permalink to this heading">¶</a></h2>
+<aside class="topic">
+<p class="topic-title">Example 1: BikeSharing</p>
+<blockquote>
+<div><p>The first example below demonstrates how to use PiML with its high-code APIs for developing machine learning models for the BikeSharing data from the UCI repository, which consists of 17,389 samples of hourly counts of rental bikes in Capital bikeshare system; see details. The response <code class="docutils literal notranslate"><span class="pre">cnt</span></code> (hourly bike rental counts) is continuous and it is a regression problem.</p>
+</div></blockquote>
+<ul class="simple">
+<li><p><a class="reference internal" href="../../auto_examples/testing/plot_3_reliability_reg.html#sphx-glr-auto-examples-testing-plot-3-reliability-reg-py"><span class="std std-ref">Reliability: Regression</span></a></p></li>
+</ul>
+</aside>
+<aside class="topic">
+<p class="topic-title">Examples 2: Taiwan Credit</p>
+<blockquote>
+<div><p>The second example below demonstrates how to use PiML’s high-code APIs for the TaiwanCredit dataset from the UCI repository. This dataset comprises the credit card details of 30,000 clients in Taiwan from April 2005 to September 2005, and more information can be found on the TaiwanCreditData website. The data can be loaded directly into PiML, although it requires some preprocessing. The FlagDefault variable serves as the response for this classification problem.</p>
+</div></blockquote>
+<ul class="simple">
+<li><p><a class="reference internal" href="../../auto_examples/testing/plot_3_reliability_cls.html#sphx-glr-auto-examples-testing-plot-3-reliability-cls-py"><span class="std std-ref">Reliability: Classification</span></a></p></li>
+</ul>
+</aside>
+</section>
+</section>
+
+
+        </div>
+      <div class="container">
+        <footer class="sk-content-footer">
+              &copy; Copyright 2022-, PiML-Toolbox authors.
+            <a href="../../_sources/guides/testing/reliability.rst.txt" rel="nofollow">Show this page source</a>
+        </footer>
+      </div>
+    </div>
+  </div>
+
+
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(false);
+      });
+      
+      const tooltipTriggerList = document.querySelectorAll('[data-bs-toggle="tooltip"]')
+      const tooltipList = [...tooltipTriggerList].map(tooltipTriggerEl => new bootstrap.Tooltip(tooltipTriggerEl))
+  </script>
+
+<script>
+$(document).ready(function() {
+    /* Add a [>>>] button on the top-right corner of code samples to hide
+     * the >>> and ... prompts and the output and thus make the code
+     * copyable. */
+    var div = $('.highlight-python .highlight,' +
+                '.highlight-python3 .highlight,' +
+                '.highlight-pycon .highlight,' +
+		'.highlight-default .highlight')
+    var pre = div.find('pre');
+
+    // get the styles from the current theme
+    pre.parent().parent().css('position', 'relative');
+    var hide_text = 'Hide prompts and outputs';
+    var show_text = 'Show prompts and outputs';
+
+    // create and add the button to all the code blocks that contain >>>
+    div.each(function(index) {
+        var jthis = $(this);
+        if (jthis.find('.gp').length > 0) {
+            var button = $('<span class="copybutton">&gt;&gt;&gt;</span>');
+            button.attr('title', hide_text);
+            button.data('hidden', 'false');
+            jthis.prepend(button);
+        }
+        // tracebacks (.gt) contain bare text elements that need to be
+        // wrapped in a span to work with .nextUntil() (see later)
+        jthis.find('pre:has(.gt)').contents().filter(function() {
+            return ((this.nodeType == 3) && (this.data.trim().length > 0));
+        }).wrap('<span>');
+    });
+
+    // define the behavior of the button when it's clicked
+    $('.copybutton').click(function(e){
+        e.preventDefault();
+        var button = $(this);
+        if (button.data('hidden') === 'false') {
+            // hide the code output
+            button.parent().find('.go, .gp, .gt').hide();
+            button.next('pre').find('.gt').nextUntil('.gp, .go').css('visibility', 'hidden');
+            button.css('text-decoration', 'line-through');
+            button.attr('title', show_text);
+            button.data('hidden', 'true');
+        } else {
+            // show the code output
+            button.parent().find('.go, .gp, .gt').show();
+            button.next('pre').find('.gt').nextUntil('.gp, .go').css('visibility', 'visible');
+            button.css('text-decoration', 'none');
+            button.attr('title', hide_text);
+            button.data('hidden', 'false');
+        }
+    });
+
+	/*** Add permalink buttons next to glossary terms ***/
+	$('dl.glossary > dt[id]').append(function() {
+		return ('<a class="headerlink" href="#' +
+			    this.getAttribute('id') +
+			    '" title="Permalink to this term">¶</a>');
+	});
+  /*** Hide navbar when scrolling down ***/
+  // Returns true when headerlink target matches hash in url
+  (function() {
+    hashTargetOnTop = function() {
+        var hash = window.location.hash;
+        if ( hash.length < 2 ) { return false; }
+
+        var target = document.getElementById( hash.slice(1) );
+        if ( target === null ) { return false; }
+
+        var top = target.getBoundingClientRect().top;
+        return (top < 2) && (top > -2);
+    };
+
+    // Hide navbar on load if hash target is on top
+    var navBar = document.getElementById("navbar");
+    var navBarToggler = document.getElementById("sk-navbar-toggler");
+    var navBarHeightHidden = "-" + navBar.getBoundingClientRect().height + "px";
+    var $window = $(window);
+
+    hideNavBar = function() {
+        navBar.style.top = navBarHeightHidden;
+    };
+
+    showNavBar = function() {
+        navBar.style.top = "0";
+    }
+
+    if (hashTargetOnTop()) {
+        hideNavBar()
+    }
+
+    var prevScrollpos = window.pageYOffset;
+    hideOnScroll = function(lastScrollTop) {
+        if (($window.width() < 768) && (navBarToggler.getAttribute("aria-expanded") === 'true')) {
+            return;
+        }
+        if (lastScrollTop > 2 && (prevScrollpos <= lastScrollTop) || hashTargetOnTop()){
+            hideNavBar()
+        } else {
+            showNavBar()
+        }
+        prevScrollpos = lastScrollTop;
+    };
+
+    /*** high performance scroll event listener***/
+    var raf = window.requestAnimationFrame ||
+        window.webkitRequestAnimationFrame ||
+        window.mozRequestAnimationFrame ||
+        window.msRequestAnimationFrame ||
+        window.oRequestAnimationFrame;
+    var lastScrollTop = $window.scrollTop();
+
+    if (raf) {
+        loop();
+    }
+
+    function loop() {
+        var scrollTop = $window.scrollTop();
+        if (lastScrollTop === scrollTop) {
+            raf(loop);
+            return;
+        } else {
+            lastScrollTop = scrollTop;
+            hideOnScroll(lastScrollTop);
+            raf(loop);
+        }
+    }
+  })();
+});
+
+</script>
+    
+
+<script src="_static/js/vendor/bootstrap.min.js"></script>
+
+</body>
+</html>

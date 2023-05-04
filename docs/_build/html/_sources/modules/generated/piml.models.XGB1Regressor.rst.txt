@@ -1,0 +1,12 @@
+﻿:mod:`piml.models`.XGB1Regressor
+=======================================
+
+.. currentmodule:: piml.models
+
+.. autoclass:: XGB1Regressor
+
+.. include:: piml.models.XGB1Regressor.examples
+
+.. raw:: html
+
+    <div class="clearer"></div>

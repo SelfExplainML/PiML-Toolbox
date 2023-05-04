@@ -1,0 +1,12 @@
+﻿:mod:`piml.models`.TreeClassifier
+========================================
+
+.. currentmodule:: piml.models
+
+.. autoclass:: TreeClassifier
+
+.. include:: piml.models.TreeClassifier.examples
+
+.. raw:: html
+
+    <div class="clearer"></div>

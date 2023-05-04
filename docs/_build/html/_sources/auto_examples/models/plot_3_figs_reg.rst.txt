@@ -10,7 +10,7 @@
     .. note::
         :class: sphx-glr-download-link-note
 
-        Click :ref:`here <sphx_glr_download_auto_examples_models_plot_3_figs_reg.py>`
+        :ref:`Go to the end <sphx_glr_download_auto_examples_models_plot_3_figs_reg.py>`
         to download the full example code or to run this example in your browser via Binder
 
 .. rst-class:: sphx-glr-example-title
@@ -18,71 +18,57 @@
 .. _sphx_glr_auto_examples_models_plot_3_figs_reg.py:
 
 
-FIGS: Regression
-========================
+FIGS Regression (California Housing)
+===========================================
 
-.. GENERATED FROM PYTHON SOURCE LINES 8-14
+.. GENERATED FROM PYTHON SOURCE LINES 7-8
+
+Experiment initialization and data preparation
+
+.. GENERATED FROM PYTHON SOURCE LINES 8-15
 
 .. code-block:: default
 
     from piml import Experiment
     from piml.models import FIGSRegressor
+
     exp = Experiment()
-    exp.data_loader(data='CaliforniaHousing_trim2')
-    exp.data_prepare(target='MedHouseVal', task_type='Regression', test_ratio=0.2, random_state=1)
+    exp.data_loader(data="CaliforniaHousing_trim2", silent=True)
+    exp.data_prepare(target="MedHouseVal", task_type="regression", silent=True)
    
 
 
 
 
-.. rst-class:: sphx-glr-script-out
-
- .. code-block:: none
-
-           MedInc  HouseAge  AveRooms  AveBedrms  Population  AveOccup  Latitude  \
-    0      8.3252      41.0  6.984127   1.023810       322.0  2.555556     37.88   
-    1      8.3014      21.0  6.238137   0.971880      2401.0  2.109842     37.86   
-    2      7.2574      52.0  8.288136   1.073446       496.0  2.802260     37.85   
-    3      5.6431      52.0  5.817352   1.073059       558.0  2.547945     37.85   
-    4      3.8462      52.0  6.281853   1.081081       565.0  2.181467     37.85   
-    ...       ...       ...       ...        ...         ...       ...       ...   
-    20635  1.5603      25.0  5.045455   1.133333       845.0  2.560606     39.48   
-    20636  2.5568      18.0  6.114035   1.315789       356.0  3.122807     39.49   
-    20637  1.7000      17.0  5.205543   1.120092      1007.0  2.325635     39.43   
-    20638  1.8672      18.0  5.329513   1.171920       741.0  2.123209     39.43   
-    20639  2.3886      16.0  5.254717   1.162264      1387.0  2.616981     39.37   
-
-           Longitude  MedHouseVal  
-    0        -122.23        4.526  
-    1        -122.22        3.585  
-    2        -122.24        3.521  
-    3        -122.25        3.413  
-    4        -122.25        3.422  
-    ...          ...          ...  
-    20635    -121.09        0.781  
-    20636    -121.21        0.771  
-    20637    -121.22        0.923  
-    20638    -121.32        0.847  
-    20639    -121.24        0.894  
-
-    [20640 rows x 9 columns]
-                      0            1
-    0  Excluded columns           []
-    1   Target variable  MedHouseVal
-    2     Sample weight         None
-    3         Task type   Regression
-    4      Split method       Random
-    5        Test ratio          0.2
-    6      Random state            1
 
 
 
+.. GENERATED FROM PYTHON SOURCE LINES 16-17
 
-.. GENERATED FROM PYTHON SOURCE LINES 15-17
+Train Model
+
+.. GENERATED FROM PYTHON SOURCE LINES 17-19
 
 .. code-block:: default
 
-    exp.model_train(model=FIGSRegressor(max_iter=100, max_depth=4), name='FIGS')
+    exp.model_train(model=FIGSRegressor(max_iter=100, max_depth=4), name="FIGS")
+
+
+
+
+
+
+
+
+.. GENERATED FROM PYTHON SOURCE LINES 20-21
+
+Evaluate predictive performance
+
+.. GENERATED FROM PYTHON SOURCE LINES 21-23
+
+.. code-block:: default
+
+    exp.model_diagnose(model="FIGS", show="accuracy_table")
 
 
 
@@ -92,27 +78,30 @@ FIGS: Regression
 
  .. code-block:: none
 
-    HTML(value="<p class='notification info'>Register FIGS Done</p>")
+              MSE     MAE       R2
+                              
+    Train  0.0103  0.0705   0.8196
+    Test   0.0114  0.0739   0.7941
+    Gap    0.0012  0.0034  -0.0256
 
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 18-19
+.. GENERATED FROM PYTHON SOURCE LINES 24-25
 
-Global interpretation for the first tree.
+Global interpretation for the splits heatmap
 
-.. GENERATED FROM PYTHON SOURCE LINES 19-22
+.. GENERATED FROM PYTHON SOURCE LINES 25-27
 
 .. code-block:: default
 
-    exp.model_interpret(model='FIGS', show="tree_global", root=0, tree_idx=0,
-                             depth=3, original_scale=True, figsize=(20, 6))
+    exp.model_interpret(model="FIGS", show="figs_heatmap", tree_idx=0, figsize=(12, 4))
 
 
 
 
 .. image-sg:: /auto_examples/models/images/sphx_glr_plot_3_figs_reg_001.png
-   :alt: plot 3 figs reg
+   :alt: Leaf Values, Feature Importance: Tree 0 (59.82%), #Samples
    :srcset: /auto_examples/models/images/sphx_glr_plot_3_figs_reg_001.png
    :class: sphx-glr-single-img
 
@@ -120,17 +109,16 @@ Global interpretation for the first tree.
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 23-24
+.. GENERATED FROM PYTHON SOURCE LINES 28-29
 
-Global interpretation for the second tree.
+Global interpretation for the first tree
 
-.. GENERATED FROM PYTHON SOURCE LINES 24-27
+.. GENERATED FROM PYTHON SOURCE LINES 29-31
 
 .. code-block:: default
 
-    exp.model_interpret(model='FIGS', show="tree_global", root=0, tree_idx=1,
-                             depth=3, original_scale=True, figsize=(20, 6))
-
+    exp.model_interpret(model="FIGS", show="tree_global", root=0, tree_idx=0,
+                        depth=3, original_scale=True, figsize=(16, 10))
 
 
 
@@ -143,16 +131,18 @@ Global interpretation for the second tree.
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 28-29
+.. GENERATED FROM PYTHON SOURCE LINES 32-33
 
-Global interpretation for the second tree.
+Global interpretation for the second tree
 
-.. GENERATED FROM PYTHON SOURCE LINES 29-30
+.. GENERATED FROM PYTHON SOURCE LINES 33-36
 
 .. code-block:: default
 
-    exp.model_interpret(model='FIGS', show="tree_local", sample_id=0, tree_idx=0, root=0,
-                            depth=3, original_scale=True, figsize=(20, 6))
+    exp.model_interpret(model="FIGS", show="tree_global", root=0, tree_idx=1,
+                        depth=3, original_scale=True, figsize=(16, 10))
+
+
 
 
 .. image-sg:: /auto_examples/models/images/sphx_glr_plot_3_figs_reg_003.png
@@ -164,12 +154,54 @@ Global interpretation for the second tree.
 
 
 
+.. GENERATED FROM PYTHON SOURCE LINES 37-38
+
+Local interpretation for the first tree
+
+.. GENERATED FROM PYTHON SOURCE LINES 38-41
+
+.. code-block:: default
+
+    exp.model_interpret(model="FIGS", show="tree_local", sample_id=0, tree_idx=0,
+                        original_scale=True, figsize=(16, 10))
+
+
+
+
+.. image-sg:: /auto_examples/models/images/sphx_glr_plot_3_figs_reg_004.png
+   :alt: plot 3 figs reg
+   :srcset: /auto_examples/models/images/sphx_glr_plot_3_figs_reg_004.png
+   :class: sphx-glr-single-img
+
+
+
+
+
+.. GENERATED FROM PYTHON SOURCE LINES 42-43
+
+Local interpretation for the second tree
+
+.. GENERATED FROM PYTHON SOURCE LINES 43-44
+
+.. code-block:: default
+
+    exp.model_interpret(model="FIGS", show="tree_local", sample_id=0, tree_idx=1, 
+                        original_scale=True, figsize=(16, 10))
+
+
+.. image-sg:: /auto_examples/models/images/sphx_glr_plot_3_figs_reg_005.png
+   :alt: plot 3 figs reg
+   :srcset: /auto_examples/models/images/sphx_glr_plot_3_figs_reg_005.png
+   :class: sphx-glr-single-img
+
+
+
+
+
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** ( 0 minutes  34.383 seconds)
-
-**Estimated memory usage:**  28 MB
+   **Total running time of the script:** ( 0 minutes  8.987 seconds)
 
 
 .. _sphx_glr_download_auto_examples_models_plot_3_figs_reg.py:
@@ -185,6 +217,8 @@ Global interpretation for the second tree.
         :target: https://mybinder.org/v2/gh/selfexplainml/piml-toolbox/main?urlpath=lab/tree/./docs/_build/html/notebooks/auto_examples/models/plot_3_figs_reg.ipynb
         :alt: Launch binder
         :width: 150 px
+
+
 
     .. container:: sphx-glr-download sphx-glr-download-python
 

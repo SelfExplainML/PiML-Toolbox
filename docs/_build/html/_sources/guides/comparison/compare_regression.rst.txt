@@ -1,0 +1,212 @@
+.. Places parent toc into the sidebar
+
+:parenttoc: True
+
+.. include:: ../../includes/big_toc_css.rst
+
+========================================
+Comparison for Regression
+========================================
+This section compares models from various perspectives. This can be done by using the `model_compare` function in PiML. For demonstration, we consider a regression task on the BikeSharing data.
+
+
+Accuracy Comparison
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+The keyword for argument `show` is "accuracy_plot". The `metric` can be chosen from "MSE", "MAE", and "R2". 
+
+Mean Squared Error
+""""""""""""""""""""""""""
+The first plot compares models based on the squared error, with `metric` set to "MSE". For each model, the plot includes the squared error boxplots for both testing and training data. In addition, the mean squared error (MSE) is marked using the circle. From the plot, FIGS and XGB2 have similar perform and they both outperform the Tree model.
+
+.. jupyter-input::
+
+      exp.model_compare(models=["GLM", "XGB2", "XGB7"], show="accuracy_plot",
+                        metric="MSE", figsize=(5, 4))
+
+.. figure:: ../../auto_examples/testing_compare/images/sphx_glr_plot_0_compare_regression_001.png
+   :target: ../../auto_examples/testing_compare/plot_0_compare_regression.html
+   :align: left
+
+
+Mean Absoluate Error
+""""""""""""""""""""""""""
+This bar plot compares models based on the absolute error, with `metric` set to "MAE".
+
+.. jupyter-input::
+
+      exp.model_compare(models=["GLM", "XGB2", "XGB7"], show="accuracy_plot",
+                        metric="MAE", figsize=(5, 4))
+      
+.. figure:: ../../auto_examples/testing_compare/images/sphx_glr_plot_0_compare_regression_002.png
+   :target: ../../auto_examples/testing_compare/plot_0_compare_regression.html
+   :align: left
+
+
+R-squared Score
+""""""""""""""""""""""""""
+The bar plot below shows the R2 score for each model, with `metric` set to "R2".
+
+.. jupyter-input::
+
+      exp.model_compare(models=["GLM", "XGB2", "XGB7"], show="accuracy_plot",
+                        metric="R2", figsize=(5, 4))
+      
+.. figure:: ../../auto_examples/testing_compare/images/sphx_glr_plot_0_compare_regression_003.png
+   :target: ../../auto_examples/testing_compare/plot_0_compare_regression.html
+   :align: left
+
+The bar chart above compares models based on R2. 
+
+
+
+Overfit Comparison
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Overfit comparison is to compare the overfit regions of different models. The overfit detection algorithm can be found in the overfit_ testing section. The keyword for overfit comparison is "overfit". Similar to the overfit test for a single model, the following arguments are required to run the overfit comparison. 
+
+.. _overfit: ../testing/overfit.html
+
+Different from the overfit for a single model, the argument for selecting slicing features is `slice_feature` (instead of `slice_features`), which is a string representing the feature name. The following example illustrates how to compare models' overfit regions, using the keyword "overfit", in which we consider a binary classification task on the TaiwanCredit data for demonstration.
+
+.. jupyter-input::
+
+   exp.model_compare(models=["GLM", "XGB2", "XGB7"], show="overfit",
+                     slice_method="historgram", slice_feature="hr", threshold=1.05, 
+                     bins=10, metricmetric="MSE", figsize=(5, 4))
+
+.. figure:: ../../auto_examples/testing_compare/images/sphx_glr_plot_0_compare_regression_004.png
+   :target: ../../auto_examples/testing_compare/plot_0_compare_regression.html
+   :align: left
+
+
+.. jupyter-input::
+
+   exp.model_compare(models=["GLM", "XGB2", "XGB7"], show="overfit",
+                     slice_method="tree", slice_feature="atemp", threshold=1.05, 
+                     metricmetric="ACC", figsize=(5, 4))
+
+.. figure:: ../../auto_examples/testing_compare/images/sphx_glr_plot_0_compare_regression_005.png
+   :target: ../../auto_examples/testing_compare/plot_0_compare_regression.html
+   :align: left
+
+
+
+Reliability Comparison
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Reliability comparison is to compare models under input perturbation. The algorithm details of robustness test can be found in the reliability_ testing section.
+
+.. _reliability: ../testing/reliability.html
+
+
+Coverage Comparison
+""""""""""""""""""""""""""""""""
+For demonstration purpose, we consider 3 models on the BikeSharing data. By setting `show` to "reliability_coverage", we can get the average coverage comparison plot of the prediction intervals on test set. The argument `alpha` is the expected proportion of test samples to be outside the prediction intervals. 
+
+.. jupyter-input::
+
+   exp.model_compare(models=["GLM", "XGB2", "XGB7"], show="reliability_coverage",
+                     alpha=0.1, figsize=(5, 4))
+
+.. figure:: ../../auto_examples/testing_compare/images/sphx_glr_plot_0_compare_regression_006.png
+   :target: ../../auto_examples/testing_compare/plot_0_compare_regression.html
+   :align: left
+
+
+Bandwidth Comparison
+""""""""""""""""""""""""""""""
+The example below illustrates how to compare models' prediciton invertal bandwidth. The argument `alpha` is set to 0.1, which means the expected coverage is 90%.
+
+.. jupyter-input::
+
+   exp.model_compare(models=["GLM", "XGB2", "XGB7"], show="reliability_bandwidth",
+                     alpha=0.1, figsize=(5, 4))
+
+.. figure:: ../../auto_examples/testing_compare/images/sphx_glr_plot_0_compare_regression_007.png
+   :target: ../../auto_examples/testing_compare/plot_0_compare_regression.html
+   :align: left
+
+
+
+Robustness Comparison
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Robustness comparison is to compare models under input perturbation. This section illustrates how to compare models under input perturbation. The algorithm details of robustness test can be found in the robustness_ testing section.
+
+.. _robustness: ../testing/robustness.html
+
+
+Robustness Perforformance
+""""""""""""""""""""""""""""""
+The example below illustrates how to compare models' robustness performance using the keyword "robustness_perf". The perturbation method is set to "raw", which means we add normal noise on the raw data of numerical features. The perturbation step size is set to 0.2. By default, the perturbation features are all features. The performance metric is set to "AUC". The following example illustrates how to compare models' robustness performance.
+
+.. jupyter-input::
+
+   exp.model_compare(models=["GLM", "XGB2", "XGB7"], show="robustness_perf",
+                     perturb_method="raw", perturb_size=0.2, metric="MSE", figsize=(5, 4))
+
+.. figure:: ../../auto_examples/testing_compare/images/sphx_glr_plot_0_compare_regression_008.png
+   :target: ../../auto_examples/testing_compare/plot_0_compare_regression.html
+   :align: left
+
+In the plot above, the perturbation is applied on all variables. On the x-axis, we have the perturbation size, and on the y-axis, the model performance. Model XGB2 recorded the best robustness performance, followed by XGB7. The worst performing is GLM. 
+
+
+Robustness Performance on Worst Samples
+"""""""""""""""""""""""""""""""""""""""""""
+The keyword "robustness_perf_worst" is used to evaluate the models' performance against perturbation size based on the worst sample. For this option, in addition to the arguments `metric`, `perturb_method`, `perturb_size`, and `perturb_features`, we have an additional argument `alpha`, which is the proportion of worst samples to consider. The following example illustrates how to compare models' robustness performance on worst samples.
+
+.. jupyter-input::
+
+   exp.model_compare(models=["GLM", "XGB2", "XGB7"], show="robustness_perf_worst",
+                     perturb_method="quantile", perturb_size=0.1, metric="R2", alpha=0.3, figsize=(5, 4))
+                  
+.. figure:: ../../auto_examples/testing_compare/images/sphx_glr_plot_0_compare_regression_009.png
+   :target: ../../auto_examples/testing_compare/plot_0_compare_regression.html
+   :align: left
+
+The plot shows that XGB2 performs well on the unperturbed data (noise = 0) and it is also the most robust model against perturbation. GAM is the second best model, followed by GLM. 
+
+
+
+Resilience Comparison
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Resilience comparison is to compare models under input perturbation. This section illustrates how to compare models under input perturbation. The algorithm details of resilience test can be found in the resilience_ testing section.
+
+.. _resilience: ../testing/resilience.html
+
+Resilience Perforformance
+""""""""""""""""""""""""""""""
+The example below illustrates how to compare models' resilience performance using the keyword "resilience_perf". The perturbation method is set to "worst-sample". The performance metric is set to "AUC". The following example illustrates how to compare models' resilience performance.
+
+.. jupyter-input::
+
+   exp.model_compare(models=["GLM", "XGB2", "XGB7"], show="resilience_perf",
+                     resilience_method="worst-sample", immu_feature=None, metric="MSE", figsize=(5, 4))
+
+.. figure:: ../../auto_examples/testing_compare/images/sphx_glr_plot_0_compare_regression_010.png
+   :target: ../../auto_examples/testing_compare/plot_0_compare_regression.html
+   :align: left
+
+
+Resilience Performance on Worst Samples
+"""""""""""""""""""""""""""""""""""""""""""
+The keyword `resilience_perf_worst` is used to evaluate the models' resilience performance on the worst sample. For this option, in addition to the arguments `resilience_method`, `immu_feature`, and `metric`, we have an additional argument `alpha`, which is the proportion of worst samples to consider, as `resilience_method` is "worst-sample", "hard-sample", or "outer-sample"; or `n_clusters` the value of :math:`K` in Kmean clustering as `resilience_method` is "worst-cluster". The following example illustrates how to compare models' robustness performance on worst samples.
+
+.. jupyter-input::
+
+   exp.model_compare(models=["GLM", "XGB2", "XGB7"], show="resilience_perf_worst",
+                     resilience_method="worst-sample", immu_feature=None, metric="MSE",
+                     alpha=0.3, figsize=(5, 4))
+                  
+.. figure:: ../../auto_examples/testing_compare/images/sphx_glr_plot_0_compare_regression_011.png
+   :target: ../../auto_examples/testing_compare/plot_0_compare_regression.html
+   :align: left
+
+
+
+Examples
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+                        
+.. topic:: Example 1: BikeSharing
+
+  The first example below demonstrates how to use PiML with its high-code APIs for developing machine learning models for the BikeSharing data from the UCI repository, which consists of 17,389 samples of hourly counts of rental bikes in Capital bikeshare system; see details. The response `cnt` (hourly bike rental counts) is continuous and it is a regression problem.
+ 
+ * :ref:`sphx_glr_auto_examples_testing_compare_plot_0_compare_regression.py`

@@ -1,0 +1,180 @@
+.. Places parent toc into the sidebar
+
+:parenttoc: True
+
+.. include:: ../../includes/big_toc_css.rst
+
+======================================
+Fairness
+======================================
+
+Fairness is the model's quality or state of being fair or impartial. Decisions made by computers after a machine-learning process may be considered unfair if they were based on variables considered sensitive. 
+Examples of these kinds of variables include gender, ethnicity, sexual orientation, disability and more.
+
+
+In this section, the model fairness test will be introduced. For demonstration purposes, we run the following example codes to initialize a PiML experiment for the Credit Simulation dataset. In the model training process, we cannot use demographic features like "Race" and "Gender". So we need to remove them from training data. We use monotonic depth 2 xgboost to train the data.
+
+
+Fairness Metric
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+PIML support showing the fairness result for different metrics.
+
+Metric types:
+
+- "AIR": Adverse impact ratio.
+
+.. math::
+
+   \begin{align}     
+   AIR = \frac{(TP_{p}+FN_{p}) / n_{r}}{(TP_{r}+FN_{r}) / n_{p}}
+   \end{align}
+
+The value of :math:`TP`, :math:`FN`, :math:`n` refers to the count of True Positive samples, False negative samples and all samples,
+respectively. The :math:`p` and :math:`r` refers to the group samples belong to.
+
+- "SMD": Standardized mean difference. (Usually used for continuous response)
+
+.. math::
+
+   \begin{align}     
+   SMD = \frac{(\sum_{x\in{p}} outcome_x / {n_{p}}) - (\sum_{x\in{r}} outcome_x / n_{r})} {\sigma(outcome)} * 100
+   \end{align}
+
+The :math:`outcome` is the prediction value, :math:`\sigma` is the standard deviation.
+
+- "Precision": Positive predictive value disparity ratio.
+
+.. math::
+
+   \begin{align}     
+   Precision Ratio = \frac{(TP_{p}) / (TP_{p}+FP_{p})}{(TP_{r}) / (FP_{r}+FN_{r})}
+   \end{align}
+
+The value of :math:`TP`, :math:`FP` refers to the count of True Positive samples and False Positive samples, respectively. 
+The :math:`p` and :math:`r` refers to the group samples belong to.
+
+- "Recall": True positive rate disparity ratio.
+
+.. math::
+
+   \begin{align}     
+   Recall Ratio = \frac{(TP_{p}) / (TP_{p}+FN_{p})}{(TP_{r}) / (TP_{r}+FN_{r})}
+   \end{align}
+
+The value of :math:`TP`, :math:`FN` refers to the count of True Positive samples and False negative samples, respectively. And the "protected" and "reference" refer to the group samples belong to.
+
+In PIML, you can use the `model_fairness` API to get the metric result, as follows,
+
+.. jupyter-input::
+
+   metrics_result = exp.model_fairness(model="XGB2_monotonic", show="metrics", metric="AIR", group_category=["Race","Gender"], reference_group=[1., 1.], protected_group=[0., 0.], favorable_threshold=0.5,
+   figsize=(6, 4), return_data=True)
+
+.. figure:: ../../auto_examples/testing/images/sphx_glr_plot_6_fairness_001.png
+   :target: ../../auto_examples/testing/plot_6_fairness.html
+   :align: center
+
+where `metrics` is the keyword for showing metrics, and you also need to set the protected group and the reference group. If `return_data` is true, the output results include:
+
+	- The plot of fairness metric result for each group.
+	- The detailed table of fairness metric results for each group.
+
+
+Fairness Segmented
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+PIML also supports showing the segmented fairness result for different metrics. Given the segmented features and the number of bins, if the feature is categorical, the samples will be segmented according to the unique categories of the feature. And if the feature is continuous, the samples will be segmented by the equal space binning method. After binning, PIML will show the fairness result in each bucket. The metric types in this section are the same as in the "Fairness Metric" section. In PIML, you can use `model_fairness`` API to get the segmented metric result, as follows,
+
+.. jupyter-input::
+   
+   segmented_result = exp.model_fairness(model="XGB2_monotonic", show="segmented", metric="AIR", segmented_feature="Balance",
+                                         group_category=["Race","Gender"], reference_group=[1., 1.], protected_group=[0., 0.], segmented_bins=5,
+                                         favorable_threshold=0.5, return_data=True, figsize=(8, 4))
+
+.. figure:: ../../auto_examples/testing/images/sphx_glr_plot_6_fairness_002.png
+   :target: ../../auto_examples/testing/plot_6_fairness.html
+   :align: center
+
+where the keyword is "segmented", the segmented feature is `Balance` and the `segmented_bins` is 5,
+which means the data is segmented into 5 buckets by feature `Balance`. If `return_data` is true, the output results include:
+
+	- The plot of segmented fairness metric results for each group.
+	- The detailed table of segmented fairness metric results for each group.
+
+
+Fairness Binning
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+PIML supports binning the data to adjust the fairness and performance results.
+Different from the "Fairness Segmented" section, there is not only segmenting the data to show metrics but also changing the data to get better predictions.
+The fairness and Performance metric types in this section are the same as the "Fairness Thresholding" section. 
+
+There are three binning methods, `quantile`, `uniform` and `customize`.
+
+   - Quantile binning: Assign the same number of observations to each bin.
+   - Uniform binning: Assign the same width in the span of possible values for the variable to each bin.
+   - Custom binning: Work for a specific area by replacing the original value with the mean value of this area.
+
+For quantile binning and uniform binning, PiML supports the number of bins searches to show different results among the different number of bins settings.
+
+In PiML, you should first define the binning list, which includes the binning settings you want to compare.
+Each binning setting is a key-value pair, see the example below. If binning type is "customize", the value is the binning range, while if the type is "quantile", the value is the number of bins.
+
+.. jupyter-input::
+   
+   binning_dict = {"Balance": {"type": "quantile", "value": [1, 5]},
+                   "Mortgage": {"type": "uniform", "value": [1, 5]},
+                   "Amount Past Due": {"type": "custom", "value": (0, 100)}}
+   binning_result = exp.model_fairness(model="XGB2_monotonic", show="binning", metric="AIR", group_category=["Race","Gender"],
+                                    reference_group=[1., 1.], protected_group=[0., 0.], favorable_threshold=0.5,
+                                    performance_metric="F1", binning_dict=binning_dict, return_data=True, figsize=(8,4))
+
+.. figure:: ../../auto_examples/testing/images/sphx_glr_plot_6_fairness_003.png
+   :target: ../../auto_examples/testing/plot_6_fairness.html
+   :align: center
+
+where the keyword is "binning", and the parameter `binning_dict` is for the dictionary of binning settings.
+If "return_data" is true, the output results include:
+
+	- The plot of fairness and performance metric results with different binning settings.
+	- The detailed table of fairness and performance metric results with different binning settings.
+
+
+Fairness Thresholding
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+For the fairness thresholding function, users can change the classification threshold by inspecting the change in
+the fairness and performance result to get a better trade-off result. This function only works for classification problems. The fairness metric types in this section are the same as the "Fairness Metric" section. The performance metric types:
+
+- "ACC": accuracy value. This value is calculated by the scikit-learn function "accuracy_score", the detail can be found at https://scikit-learn.org/stable/modules/generated/sklearn.metrics.accuracy_score.html.
+- "F1": F1 score. This value is calculated by the scikit-learn function "f1_score", the detail can be found at https://scikit-learn.org/stable/modules/generated/sklearn.metrics.f1_score.html.
+
+See the example usage below.
+
+.. jupyter-input::
+
+    thresholding_result = exp.model_fairness(model="XGB2_monotonic", show="thresholding", metric="AIR", 
+                                             group_category=["Race","Gender"], 
+                                             reference_group=[1., 1.], protected_group=[0., 0.],
+                                             favorable_threshold=0.32, performance_metric="ACC",
+                                             return_data=True)
+
+.. figure:: ../../auto_examples/testing/images/sphx_glr_plot_6_fairness_004.png
+   :target: ../../auto_examples/testing/plot_6_fairness.html
+   :align: center
+
+where the keyword here is `thresholding`. The `favorable_threshold` is the classification threshold value, which controls the dashed line position in the plots. The two y axes is controlled by `metric` and `performance_metric`, respectively. If `return_data` is true, the output results include:
+
+- The plot of the fairness metric and performance metric results with a different threshold for each group.
+- The detailed table of fairness metric and performance metric results with a different threshold for each group.
+
+
+Examples
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+The full example codes of this section can be found in the following link.
+
+.. topic:: Example
+
+	* :ref:`sphx_glr_auto_examples_testing_plot_6_fairness.py`

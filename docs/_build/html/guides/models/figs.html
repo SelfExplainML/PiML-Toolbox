@@ -1,0 +1,561 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+
+  <meta charset="utf-8">
+  <meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  
+  <title>PiML Toolbox</title>
+  
+
+  
+  <link rel="shortcut icon" href="../../_static/favicon.ico"/>
+  
+
+  <link rel="stylesheet" href="../../_static/css/vendor/bootstrap.min.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/plot_directive.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/jupyter-sphinx.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/thebelab.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/sg_gallery.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/sg_gallery-binder.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/sg_gallery-dataframe.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/sg_gallery-rendered-html.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
+<script id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+<script src="../../_static/jquery.js"></script>
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="../../_static/doctools.js"></script>
+        <script src="../../_static/sphinx_highlight.js"></script>
+        <script src="../../_static/thebelab-helper.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/@jupyter-widgets/html-manager@^1.0.1/dist/embed-amd.js"></script>
+        <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+        <script>window.MathJax = {"tex": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true}, "options": {"ignoreHtmlClass": "tex2jax_ignore|mathjax_ignore|document", "processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+        <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
+    <script src="../../_static/js/theme.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav">
+
+  
+
+
+<nav id="navbar" class="sk-docs-navbar navbar navbar-expand-md navbar-light bg-light py-0">
+  <div class="container-fluid sk-docs-container px-0">
+      <a class="navbar-brand py-0" href="../../index.html">
+        <img
+          class="sk-brand-img"
+          src="../../_static/piml-logo.png"
+          alt="logo"/>
+      </a>
+    <button
+      id="sk-navbar-toggler"
+      class="navbar-toggler"
+      type="button"
+      data-toggle="collapse"
+      data-target="#navbarSupportedContent"
+      aria-controls="navbarSupportedContent"
+      aria-expanded="false"
+      aria-label="Toggle navigation"
+    >
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="sk-navbar-collapse collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item">
+          <a class="sk-nav-link nav-link" href="../../install.html">Install</a>
+        </li>
+		<li class="nav-item">
+          <a class="sk-nav-link nav-link" href="../../modules/classes.html">API</a>
+        </li>
+        <li class="nav-item">
+          <a class="sk-nav-link nav-link" href="../../user_guide.html">User Guide</a>
+        </li>
+        <li class="nav-item">
+          <a class="sk-nav-link nav-link" href="../../auto_examples/index.html">Examples</a>
+        </li>
+        <li class="nav-item">
+          <a class="sk-nav-link nav-link" href="../../faq.html">FAQ</a>
+        </li>      </ul>
+      <div id="searchbox" role="search">
+          <div class="searchformwrapper">
+          <form class="search" action="../../search.html" method="get">
+            <input class="sk-search-text-input" type="text" name="q" aria-labelledby="searchlabel" />
+            <input class="sk-search-text-btn" type="submit" value="Go" />
+          </form>
+          </div>
+      </div>
+    </div>
+  </div>
+</nav>
+  <div class="d-flex" id="sk-doc-wrapper">
+      <input type="checkbox" name="sk-toggle-checkbox" id="sk-toggle-checkbox">
+      <label id="sk-sidemenu-toggle" class="sk-btn-toggle-toc btn sk-btn-primary" for="sk-toggle-checkbox">Toggle Menu</label>
+      <div id="sk-sidebar-wrapper" class="border-right">
+        <div class="sk-sidebar-toc-wrapper">
+          <div class="sk-sidebar-toc-logo">
+            <a href="../../index.html">
+              <img
+                class="sk-brand-img"
+                src="../../_static/piml-logo.png"
+                alt="logo"/>
+            </a>
+          </div>
+          <!--div class="btn-group w-100 mb-2" role="group" aria-label="rellinks">
+              <a href="tree.html" role="button" class="btn sk-btn-rellink py-1" sk-rellink-tooltip="5.3. Decision Tree">Prev</a><a href="../models.html" role="button" class="btn sk-btn-rellink py-1" sk-rellink-tooltip="5. Interpretable Models">Up</a>
+              <a href="xgb1.html" role="button" class="btn sk-btn-rellink py-1" sk-rellink-tooltip="5.5. XGBoost Depth 1">Next</a>
+          </div-->
+              <div class="sk-sidebar-toc">
+              
+                <ul>
+                
+                
+                
+                
+                
+                
+                <li>
+                  <a href="../../user_guide.html" class="sk-toc-active">User Guide</a>
+                </li>
+                <ul>
+                
+                  <li>
+                    <a href="../introduction.html" class="">1. Introduction</a>
+                    
+                  </li>
+                
+                  <li>
+                    <a href="../data.html" class="">2. Data Pipeline</a>
+                    
+                  </li>
+                
+                  <li>
+                    <a href="../extmodels.html" class="">3. Black-box Models</a>
+                    
+                  </li>
+                
+                  <li>
+                    <a href="../explainability.html" class="">4. Post-hoc Explainability</a>
+                    
+                  </li>
+                
+                  <li>
+                    <a href="../models.html" class="sk-toc-active">5. Interpretable Models</a>
+                    
+                    <ul>
+                      
+                        <li class="sk-toctree-l3">
+                          <a href="glm.html">5.1. Generalized Linear Models</a>
+                        </li>
+                      
+                        <li class="sk-toctree-l3">
+                          <a href="gam.html">5.2. Generalized Additive Model</a>
+                        </li>
+                      
+                        <li class="sk-toctree-l3">
+                          <a href="tree.html">5.3. Decision Tree</a>
+                        </li>
+                      
+                        <li class="sk-toctree-l3">
+                          <a href="">5.4. Fast Interpretable Greedy-tree Sums</a>
+                        </li>
+                      
+                        <li class="sk-toctree-l3">
+                          <a href="xgb1.html">5.5. XGBoost Depth 1</a>
+                        </li>
+                      
+                        <li class="sk-toctree-l3">
+                          <a href="xgb2.html">5.6. XGBoost Depth 2</a>
+                        </li>
+                      
+                        <li class="sk-toctree-l3">
+                          <a href="ebm.html">5.7. Explainable Boosting Machines</a>
+                        </li>
+                      
+                        <li class="sk-toctree-l3">
+                          <a href="gaminet.html">5.8. GAMI-Net</a>
+                        </li>
+                      
+                        <li class="sk-toctree-l3">
+                          <a href="reludnn.html">5.9. ReLU Neural Network</a>
+                        </li>
+                      
+                    </ul>
+                    
+                  </li>
+                
+                  <li>
+                    <a href="../testing.html" class="">6. Diagnostic Suite</a>
+                    
+                  </li>
+                
+                  <li>
+                    <a href="../comparison.html" class="">7. Model Comparison</a>
+                    
+                  </li>
+                
+                  <li>
+                    <a href="../cases.html" class="">8. Case Studies</a>
+                    
+                  </li>
+                
+                </ul>
+                
+                
+                
+                
+                </ul>
+              </div>
+        </div>
+      </div>
+      <div id="sk-page-content-wrapper">
+        <div class="sk-page-content container-fluid body px-md-3" role="main">
+          
+  <style type="text/css">
+  div.body div.toctree-wrapper ul {
+      padding-left: 0;
+  }
+
+  div.body li.toctree-l1 {
+      padding: 0 0 0.5em 0;
+      list-style-type: none;
+      font-size: 150%;
+      font-weight: bold;
+  }
+
+  div.body li.toctree-l2 {
+      font-size: 70%;
+      list-style-type: square;
+      font-weight: normal;
+      margin-left: 40px;
+  }
+
+  div.body li.toctree-l3 {
+      font-size: 85%;
+      list-style-type: circle;
+      font-weight: normal;
+      margin-left: 40px;
+  }
+
+  div.body li.toctree-l4 {
+      margin-left: 40px;
+  }
+
+</style><section id="fast-interpretable-greedy-tree-sums">
+<h1><span class="section-number">5.4. </span>Fast Interpretable Greedy-tree Sums<a class="headerlink" href="#fast-interpretable-greedy-tree-sums" title="Permalink to this heading">¶</a></h1>
+<p>Fast Interpretable Greedy-tree Sums (FIGS; <a class="reference internal" href="../introduction.html#tan2022" id="id1"><span>[Tan2022]</span></a>) is a recently proposed machine-learning algorithm that extends classification and regression trees (CART). FIGS can also be viewed as a special case boosted tree models, as a fitted FIGS usually consists of multiple additive trees. The prediction of a fitted FIGS is a linear combination of the predictions of all trees, as follows,</p>
+<div class="math notranslate nohighlight">
+\[\begin{align}
+   g(\mathbb{E}(y|\textbf{x})) = \mu + \sum_{k=1}^K f_k\left(\mathbf{x}\right),  \tag{1}
+\end{align}\]</div>
+<p>where <span class="math notranslate nohighlight">\(\mu\)</span> is the intercept, <span class="math notranslate nohighlight">\(K\)</span> is the number of trees, and <span class="math notranslate nohighlight">\(f_k\)</span> is the function of the <span class="math notranslate nohighlight">\(k\)</span>-th tree. The process of model fitting begins by estimating the intercept term through the average of the response variable. Next, the additive trees are fitted in a greedy manner using the (pseudo) residuals. It is important to note that the value of <span class="math notranslate nohighlight">\(K\)</span> is not a hyperparameter specified by the user but is instead determined during the model fitting process. The advantages of FIGS are summarized below.</p>
+<ul class="simple">
+<li><p>Compared with CART, FIGS has a more expressive model form, and also its predictive performance. CART is a single tree, while FIGS is an ensemble of multiple trees.</p></li>
+<li><p>Compared with boosted trees, FIGS can have a larger search space, given the same number of split iterations. In boosted trees, the search space is limited to boosting a new tree. In contrast, FIGS can either boost a new tree or grow existing trees, whichever reduce the loss most. However, the training of FIGS is slower than that of boosted trees, especially when the number of split iterations is large.</p></li>
+<li><p>The fitted model can be easily interpretable, if the value of <span class="math notranslate nohighlight">\(K\)</span> is small. In practice, we usually limit the maximum iteration of FIGS to be within 1000.</p></li>
+</ul>
+<section id="model-training">
+<h2><span class="section-number">5.4.1. </span>Model Training<a class="headerlink" href="#model-training" title="Permalink to this heading">¶</a></h2>
+<p>The authors of FIGS provided an Python implementation in the <a class="reference external" href="https://github.com/csinva/imodels">imodels</a> package. In PiML, we re-implement this model, which is much faster and with more interpretation functionalities, see the corresponding API reference in <a class="reference external" href="../../modules/generated/piml.models.FIGSRegressor.html">FIGSRegressor</a> and <a class="reference external" href="../../modules/generated/piml.models.FIGSClassifier.html">FIGSClassifier</a>.</p>
+<p>The training of FIGS is similar to that of the other interpretable models, as shown below.</p>
+<div class="jupyter_cell jupyter_container docutils container">
+<div class="cell_input code_cell docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">piml.models</span> <span class="kn">import</span> <span class="n">FIGSRegressor</span>
+<span class="n">exp</span><span class="o">.</span><span class="n">model_train</span><span class="p">(</span><span class="n">model</span><span class="o">=</span><span class="n">FIGSRegressor</span><span class="p">(</span><span class="n">max_iter</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">max_depth</span><span class="o">=</span><span class="mi">4</span><span class="p">),</span> <span class="n">name</span><span class="o">=</span><span class="s2">&quot;FIGS&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+</div>
+</div>
+<p>In our implementation, <code class="docutils literal notranslate"><span class="pre">max_iter</span></code> and <code class="docutils literal notranslate"><span class="pre">max_depth</span></code> are the two most important hyperparameters.</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">max_iter</span></code>: an integer limiting the max number of split iterations, by default 20.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">max_depth</span></code>: an integer limiting the max depth of the tree, by default None, which means unlimited of max tree depth.</p></li>
+</ul>
+<p>Both of them are stopping criteria, and we can use them collectively to control the complexity of overall model and each single tree. For instance, if without any limit on <code class="docutils literal notranslate"><span class="pre">max_depth</span></code>, the fitted trees can be extremely deep, and the results can be hardly interpretable. On the other hand, if without any limit on <code class="docutils literal notranslate"><span class="pre">max_iter</span></code>, then the overall model can become even more complicated than ensemble tree models.</p>
+</section>
+<section id="global-interpretation">
+<h2><span class="section-number">5.4.2. </span>Global Interpretation<a class="headerlink" href="#global-interpretation" title="Permalink to this heading">¶</a></h2>
+<p>Once FIGS has been fitted and registered in PiML, we are able to gain a global interpretation of each tree by utilizing both the feature importance heatmap and tree diagram.</p>
+<section id="feature-importance-heatmap">
+<h3><span class="section-number">5.4.2.1. </span>Feature Importance Heatmap<a class="headerlink" href="#feature-importance-heatmap" title="Permalink to this heading">¶</a></h3>
+<p>To generate the heatmap plot displaying the importance of each feature, we will use the “figs_heatmap” keyword, along with the <code class="docutils literal notranslate"><span class="pre">tree_idx</span></code> argument to specify the tree index we want to show. The tree index starts from 0 and corresponds to the index of the tree in the fitted FIGS model.</p>
+<div class="jupyter_cell jupyter_container docutils container">
+<div class="cell_input code_cell docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">exp</span><span class="o">.</span><span class="n">model_interpret</span><span class="p">(</span><span class="n">model</span><span class="o">=</span><span class="s2">&quot;FIGS&quot;</span><span class="p">,</span> <span class="n">show</span><span class="o">=</span><span class="s2">&quot;figs_heatmap&quot;</span><span class="p">,</span> <span class="n">tree_idx</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span> <span class="mi">4</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+</div>
+</div>
+<figure class="align-left">
+<a class="reference external image-reference" href="../../auto_examples/models/plot_3_figs_reg.html"><img alt="../../_images/sphx_glr_plot_3_figs_reg_001.png" src="../../_images/sphx_glr_plot_3_figs_reg_001.png" /></a>
+</figure>
+<p>This plot is a summary of the leaf node information for the first tree in FIGS (<code class="docutils literal notranslate"><span class="pre">tree_idx</span></code> = 0). The title tells the importance of this tree, which is calculated by the normalized variance of <span class="math notranslate nohighlight">\(\hat{f_{k}}\)</span>, using the training data. The x-axis represents the feature names, while the y-axis represents the leaf node ID. In the leat column, the color scheme used represents the value of the leaf node. Blue shades are used for smaller values, while red shades are used for larger values. The hierarchical clustering dendrogram demonstrates how these leaf nodes are related to each other.</p>
+<p>The subplot in the middle displays the importance (sum of gain) of each feature in the decision path of each leaf node. The importance of each feature is represented by a color scale, where darker colors indicate higher importance. Thus, the deeper the color, the more important the feature on the leaf node. For example, the feature <code class="docutils literal notranslate"><span class="pre">MedInc</span></code> is the most important feature in this tree, as it is multiple times in spliting the tree and also reduces the loss the most.</p>
+<p>The rightmost subplot of the visualization displays the number of samples in each leaf node of the decision tree. This information is conveyed through a color scale, where darker colors represent a higher number of samples. For instance, the leaf node with ID 11 contains the most samples, followed by leaf nodes 5 and 7. The color scale ranges from light to dark, with darker shades indicating a higher number of samples.</p>
+</section>
+<section id="tree-diagram">
+<h3><span class="section-number">5.4.2.2. </span>Tree Diagram<a class="headerlink" href="#tree-diagram" title="Permalink to this heading">¶</a></h3>
+<p>In addition to the feature importance heatmap, we can also globally interpret FIGS using tree diagrams. Unlike tree models, FIGS may consist of multiple trees, so it is necessary to specify which tree to display by using the <code class="docutils literal notranslate"><span class="pre">tree_idx</span></code> argument.</p>
+<div class="jupyter_cell jupyter_container docutils container">
+<div class="cell_input code_cell docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">exp</span><span class="o">.</span><span class="n">model_interpret</span><span class="p">(</span><span class="n">model</span><span class="o">=</span><span class="s2">&quot;FIGS&quot;</span><span class="p">,</span> <span class="n">show</span><span class="o">=</span><span class="s2">&quot;tree_global&quot;</span><span class="p">,</span> <span class="n">tree_idx</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">root</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span>
+                    <span class="n">depth</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">original_scale</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">16</span><span class="p">,</span> <span class="mi">10</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+</div>
+</div>
+<figure class="align-left">
+<a class="reference external image-reference" href="../../auto_examples/models/plot_3_figs_reg.html"><img alt="../../_images/sphx_glr_plot_3_figs_reg_002.png" src="../../_images/sphx_glr_plot_3_figs_reg_002.png" /></a>
+</figure>
+<p>Here, the usage of <code class="docutils literal notranslate"><span class="pre">root</span></code> and <code class="docutils literal notranslate"><span class="pre">depth</span></code> is the same as that of <a class="reference external" href="tree.html#model-interpretation">Decsion_Trees</a>, which are used to control which part of the tree to display. The <code class="docutils literal notranslate"><span class="pre">original_scale</span></code> argument is used to control whether the feature values are scaled to the original scale. If <code class="docutils literal notranslate"><span class="pre">original_scale</span></code> is set to True, then the feature values are scaled to the original scale, otherwise, the feature values are by default scaled in the data preprocessing step.</p>
+<p>From this plot, it can be observed that <code class="docutils literal notranslate"><span class="pre">MedInc</span></code> is used multiple times to split the data. The leaf nodes with ID 11, 5, and 7 contain the most samples, which is consistent with the feature importance heatmap plot. The leaf node with ID 11 contains the most samples, followed by leaf nodes 5 and 7. The color scale ranges from light to dark, with darker shades indicating a higher number of samples. Furthermore, it is worth noting that in the root node, the average value is approximately zero, which is expected since the intercept term represents the overall mean of the response variable.</p>
+<p>Next, we can also draw the diagram for the rest trees in FIGS. For instance, by setting <code class="docutils literal notranslate"><span class="pre">tree_idx</span></code> to 1, we can have the tree diagram for the second tree.</p>
+<div class="jupyter_cell jupyter_container docutils container">
+<div class="cell_input code_cell docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">exp</span><span class="o">.</span><span class="n">model_interpret</span><span class="p">(</span><span class="n">model</span><span class="o">=</span><span class="s2">&quot;FIGS&quot;</span><span class="p">,</span> <span class="n">show</span><span class="o">=</span><span class="s2">&quot;tree_global&quot;</span><span class="p">,</span> <span class="n">tree_idx</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">root</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span>
+                    <span class="n">depth</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">original_scale</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">16</span><span class="p">,</span> <span class="mi">10</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+</div>
+</div>
+<figure class="align-left">
+<a class="reference external image-reference" href="../../auto_examples/models/plot_3_figs_reg.html"><img alt="../../_images/sphx_glr_plot_3_figs_reg_003.png" src="../../_images/sphx_glr_plot_3_figs_reg_003.png" /></a>
+</figure>
+<p>In this tree, <code class="docutils literal notranslate"><span class="pre">AveOccup</span></code> instead is the most important feature.</p>
+</section>
+</section>
+<section id="local-interpretation">
+<h2><span class="section-number">5.4.3. </span>Local Interpretation<a class="headerlink" href="#local-interpretation" title="Permalink to this heading">¶</a></h2>
+<p>By using the “tree_local” keyword, the decision path of a chosen sample can be easily distinguished within the tree diagram. In addtion, we need to specify the sample index to be interpreted in <code class="docutils literal notranslate"><span class="pre">sample_id</span></code>, as well as the <code class="docutils literal notranslate"><span class="pre">tree_idx</span></code> argument. The <code class="docutils literal notranslate"><span class="pre">original_scale</span></code> argument is also used to control whether the feature values are scaled to the original scale. For example, the following codes shows the local interpretation of the first training sample on the first two trees.</p>
+<div class="jupyter_cell jupyter_container docutils container">
+<div class="cell_input code_cell docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">exp</span><span class="o">.</span><span class="n">model_interpret</span><span class="p">(</span><span class="n">model</span><span class="o">=</span><span class="s2">&quot;FIGS&quot;</span><span class="p">,</span> <span class="n">show</span><span class="o">=</span><span class="s2">&quot;tree_local&quot;</span><span class="p">,</span> <span class="n">sample_id</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">tree_idx</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span>
+                    <span class="n">original_scale</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">16</span><span class="p">,</span> <span class="mi">10</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+</div>
+</div>
+<figure class="align-left">
+<a class="reference external image-reference" href="../../auto_examples/models/plot_3_figs_reg.html"><img alt="../../_images/sphx_glr_plot_3_figs_reg_004.png" src="../../_images/sphx_glr_plot_3_figs_reg_004.png" /></a>
+</figure>
+<div class="jupyter_cell jupyter_container docutils container">
+<div class="cell_input code_cell docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">exp</span><span class="o">.</span><span class="n">model_interpret</span><span class="p">(</span><span class="n">model</span><span class="o">=</span><span class="s2">&quot;FIGS&quot;</span><span class="p">,</span> <span class="n">show</span><span class="o">=</span><span class="s2">&quot;tree_local&quot;</span><span class="p">,</span> <span class="n">sample_id</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">tree_idx</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span>
+                    <span class="n">original_scale</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">16</span><span class="p">,</span> <span class="mi">10</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+</div>
+</div>
+<figure class="align-left">
+<a class="reference external image-reference" href="../../auto_examples/models/plot_3_figs_reg.html"><img alt="../../_images/sphx_glr_plot_3_figs_reg_005.png" src="../../_images/sphx_glr_plot_3_figs_reg_005.png" /></a>
+</figure>
+<p>The predicted values of this sample on the first two trees are 0.099 and -0.094, respectively. Similarly, we can use the same approach to get the local interpretation of the first sample on the rest trees.</p>
+</section>
+<section id="examples">
+<h2><span class="section-number">5.4.4. </span>Examples<a class="headerlink" href="#examples" title="Permalink to this heading">¶</a></h2>
+<aside class="topic">
+<p class="topic-title">Example 1: CaliforniaHousing</p>
+<blockquote>
+<div><p>The example below demonstrates how to use PiML with its high-code APis for the California Housing dataset from the UCI repository, which consists of 20,640 samples and 9 features, fetched by sklearn.datasets. The response variable MedHouseVal (Median Home Value) is continuous and is a regression problem.</p>
+</div></blockquote>
+<ul class="simple">
+<li><p><a class="reference internal" href="../../auto_examples/models/plot_3_figs_reg.html#sphx-glr-auto-examples-models-plot-3-figs-reg-py"><span class="std std-ref">FIGS Regression (California Housing)</span></a></p></li>
+</ul>
+</aside>
+<aside class="topic">
+<p class="topic-title">Examples 2: Taiwan Credit</p>
+<blockquote>
+<div><p>The second example below demonstrates how to use PiML’s high-code APIs for the TaiwanCredit dataset from the UCI repository. This dataset comprises the credit card details of 30,000 clients in Taiwan from April 2005 to September 2005, and more information can be found on the TaiwanCreditData website. The <code class="docutils literal notranslate"><span class="pre">FlagDefault</span></code> variable serves as the response for this classification problem.</p>
+</div></blockquote>
+<ul class="simple">
+<li><p><a class="reference internal" href="../../auto_examples/models/plot_3_figs_cls.html#sphx-glr-auto-examples-models-plot-3-figs-cls-py"><span class="std std-ref">FIGS Classification (Taiwan Credit)</span></a></p></li>
+</ul>
+</aside>
+</section>
+</section>
+
+
+        </div>
+      <div class="container">
+        <footer class="sk-content-footer">
+              &copy; Copyright 2022-, PiML-Toolbox authors.
+            <a href="../../_sources/guides/models/figs.rst.txt" rel="nofollow">Show this page source</a>
+        </footer>
+      </div>
+    </div>
+  </div>
+
+
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(false);
+      });
+      
+      const tooltipTriggerList = document.querySelectorAll('[data-bs-toggle="tooltip"]')
+      const tooltipList = [...tooltipTriggerList].map(tooltipTriggerEl => new bootstrap.Tooltip(tooltipTriggerEl))
+  </script>
+
+<script>
+$(document).ready(function() {
+    /* Add a [>>>] button on the top-right corner of code samples to hide
+     * the >>> and ... prompts and the output and thus make the code
+     * copyable. */
+    var div = $('.highlight-python .highlight,' +
+                '.highlight-python3 .highlight,' +
+                '.highlight-pycon .highlight,' +
+		'.highlight-default .highlight')
+    var pre = div.find('pre');
+
+    // get the styles from the current theme
+    pre.parent().parent().css('position', 'relative');
+    var hide_text = 'Hide prompts and outputs';
+    var show_text = 'Show prompts and outputs';
+
+    // create and add the button to all the code blocks that contain >>>
+    div.each(function(index) {
+        var jthis = $(this);
+        if (jthis.find('.gp').length > 0) {
+            var button = $('<span class="copybutton">&gt;&gt;&gt;</span>');
+            button.attr('title', hide_text);
+            button.data('hidden', 'false');
+            jthis.prepend(button);
+        }
+        // tracebacks (.gt) contain bare text elements that need to be
+        // wrapped in a span to work with .nextUntil() (see later)
+        jthis.find('pre:has(.gt)').contents().filter(function() {
+            return ((this.nodeType == 3) && (this.data.trim().length > 0));
+        }).wrap('<span>');
+    });
+
+    // define the behavior of the button when it's clicked
+    $('.copybutton').click(function(e){
+        e.preventDefault();
+        var button = $(this);
+        if (button.data('hidden') === 'false') {
+            // hide the code output
+            button.parent().find('.go, .gp, .gt').hide();
+            button.next('pre').find('.gt').nextUntil('.gp, .go').css('visibility', 'hidden');
+            button.css('text-decoration', 'line-through');
+            button.attr('title', show_text);
+            button.data('hidden', 'true');
+        } else {
+            // show the code output
+            button.parent().find('.go, .gp, .gt').show();
+            button.next('pre').find('.gt').nextUntil('.gp, .go').css('visibility', 'visible');
+            button.css('text-decoration', 'none');
+            button.attr('title', hide_text);
+            button.data('hidden', 'false');
+        }
+    });
+
+	/*** Add permalink buttons next to glossary terms ***/
+	$('dl.glossary > dt[id]').append(function() {
+		return ('<a class="headerlink" href="#' +
+			    this.getAttribute('id') +
+			    '" title="Permalink to this term">¶</a>');
+	});
+  /*** Hide navbar when scrolling down ***/
+  // Returns true when headerlink target matches hash in url
+  (function() {
+    hashTargetOnTop = function() {
+        var hash = window.location.hash;
+        if ( hash.length < 2 ) { return false; }
+
+        var target = document.getElementById( hash.slice(1) );
+        if ( target === null ) { return false; }
+
+        var top = target.getBoundingClientRect().top;
+        return (top < 2) && (top > -2);
+    };
+
+    // Hide navbar on load if hash target is on top
+    var navBar = document.getElementById("navbar");
+    var navBarToggler = document.getElementById("sk-navbar-toggler");
+    var navBarHeightHidden = "-" + navBar.getBoundingClientRect().height + "px";
+    var $window = $(window);
+
+    hideNavBar = function() {
+        navBar.style.top = navBarHeightHidden;
+    };
+
+    showNavBar = function() {
+        navBar.style.top = "0";
+    }
+
+    if (hashTargetOnTop()) {
+        hideNavBar()
+    }
+
+    var prevScrollpos = window.pageYOffset;
+    hideOnScroll = function(lastScrollTop) {
+        if (($window.width() < 768) && (navBarToggler.getAttribute("aria-expanded") === 'true')) {
+            return;
+        }
+        if (lastScrollTop > 2 && (prevScrollpos <= lastScrollTop) || hashTargetOnTop()){
+            hideNavBar()
+        } else {
+            showNavBar()
+        }
+        prevScrollpos = lastScrollTop;
+    };
+
+    /*** high performance scroll event listener***/
+    var raf = window.requestAnimationFrame ||
+        window.webkitRequestAnimationFrame ||
+        window.mozRequestAnimationFrame ||
+        window.msRequestAnimationFrame ||
+        window.oRequestAnimationFrame;
+    var lastScrollTop = $window.scrollTop();
+
+    if (raf) {
+        loop();
+    }
+
+    function loop() {
+        var scrollTop = $window.scrollTop();
+        if (lastScrollTop === scrollTop) {
+            raf(loop);
+            return;
+        } else {
+            lastScrollTop = scrollTop;
+            hideOnScroll(lastScrollTop);
+            raf(loop);
+        }
+    }
+  })();
+});
+
+</script>
+    
+
+<script src="_static/js/vendor/bootstrap.min.js"></script>
+
+</body>
+</html>

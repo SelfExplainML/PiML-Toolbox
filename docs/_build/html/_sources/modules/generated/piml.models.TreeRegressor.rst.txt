@@ -1,0 +1,12 @@
+﻿:mod:`piml.models`.TreeRegressor
+=======================================
+
+.. currentmodule:: piml.models
+
+.. autoclass:: TreeRegressor
+
+.. include:: piml.models.TreeRegressor.examples
+
+.. raw:: html
+
+    <div class="clearer"></div>

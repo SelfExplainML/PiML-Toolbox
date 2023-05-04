@@ -1,0 +1,12 @@
+﻿:mod:`piml.models`.XGB1Classifier
+========================================
+
+.. currentmodule:: piml.models
+
+.. autoclass:: XGB1Classifier
+
+.. include:: piml.models.XGB1Classifier.examples
+
+.. raw:: html
+
+    <div class="clearer"></div>

@@ -1,0 +1,69 @@
+.. Places parent toc into the sidebar
+
+:parenttoc: True
+
+.. include:: ../../includes/big_toc_css.rst
+
+============================
+Fairness Comparison
+============================
+
+We have introduced the fairness test of PiML in the testing section. 
+In this section, I will compare the fairness testing result of different models by the fairness compare module of PiML.
+
+We used the 'SimuCredit' dataset and trained two models, GLMClassifier and ExplainableBoostingClassifier in PiML to compare.
+Because of the complexity of the EBM model, compared with GLM, the test performance is much better.
+But we will see a different view based on fairness comparison.
+
+Metric
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+In fairness comparison, each fairness testing result of the single model is from the fairness test module.
+
+Here is an example of comparing the fairness metrics between models:
+
+.. jupyter-input::
+
+   metrics_result = exp.model_fairness_compare(models=["GLM", "EBM"], show="metrics", metric="AIR",
+                                               group_category=["Race", "Gender"],
+                                               reference_group=[1., 1.], protected_group=[0., 0.],
+                                               favorable_threshold=0.5,
+                                               figsize=(6, 4), return_data=True)
+
+.. figure:: ../../auto_examples/testing_compare/images/sphx_glr_plot_1_compare_fairness_001.png
+   :target: ../../auto_examples/testing_compare/plot_1_compare_fairness.py
+   :align: center
+
+From the plot, you can see the AIR result of GLM is better than EBM,
+which means although the model performance of EBM is better, its result is more unfair compared to GLM.
+
+Segmented
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Similar to the metric, Each of the segmented results in fairness comparison is got from the single model fairness testing.
+
+.. jupyter-input::
+   
+    segmented_result = exp.model_fairness_compare(models=["GLM", "EBM"], show="segmented", metric="AIR",
+                                                  segmented_feature="Balance",
+                                                  group_category=["Race", "Gender"],
+                                                  reference_group=[1., 1.], protected_group=[0., 0.],
+                                                  segmented_bins=5, favorable_threshold=0.5,
+                                                  return_data=True, figsize=(8, 4))
+
+.. figure:: ../../auto_examples/testing_compare/images/sphx_glr_plot_1_compare_fairness_002.png
+   :target: ../../auto_examples/testing_compare/plot_1_compare_fairness.py
+   :align: center
+
+From the plot, you can see the AIR difference is especially large in the low-balance area.
+That means the EBM model is more unfair to low-balance people.
+
+Examples
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+The full example codes of this section can be found in the following link.
+
+.. topic:: Example
+
+	* :ref:`sphx_glr_auto_examples_testing_compare_plot_1_compare_fairness.py`
+

@@ -29,14 +29,99 @@ Data Pipeline
 
 .. raw:: html
 
+    <div class="sphx-glr-thumbcontainer" tooltip="Data loader example">
+
+.. only:: html
+
+  .. image:: /auto_examples/data/images/thumb/sphx_glr_plot_0_data_loader_thumb.png
+    :alt:
+
+  :ref:`sphx_glr_auto_examples_data_plot_0_data_loader.py`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Data Load</div>
+    </div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="Showing data summary result using the BikeSharing dataset as example.">
+
+.. only:: html
+
+  .. image:: /auto_examples/data/images/thumb/sphx_glr_plot_1_data_summary_thumb.png
+    :alt:
+
+  :ref:`sphx_glr_auto_examples_data_plot_1_data_summary.py`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Data Summary</div>
+    </div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="EDA plots using the BikeSharing dataset as example.">
+
+.. only:: html
+
+  .. image:: /auto_examples/data/images/thumb/sphx_glr_plot_2_data_eda_thumb.png
+    :alt:
+
+  :ref:`sphx_glr_auto_examples_data_plot_2_data_eda.py`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">EDA</div>
+    </div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="Display data prepare result using the BikeSharing dataset as example.">
+
+.. only:: html
+
+  .. image:: /auto_examples/data/images/thumb/sphx_glr_plot_3_data_prepare_thumb.png
+    :alt:
+
+  :ref:`sphx_glr_auto_examples_data_plot_3_data_prepare.py`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Data Prepare</div>
+    </div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="Data quality analysis result using the BikeSharing dataset as example.">
+
+.. only:: html
+
+  .. image:: /auto_examples/data/images/thumb/sphx_glr_plot_4_data_quality_thumb.png
+    :alt:
+
+  :ref:`sphx_glr_auto_examples_data_plot_4_data_quality.py`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Data Quality Check</div>
+    </div>
+
+
+.. raw:: html
+
     <div class="sphx-glr-thumbcontainer" tooltip="Four built-in feature selection strategies using the BikeSharing dataset as example.">
 
 .. only:: html
 
-  .. image:: /auto_examples/data/images/thumb/sphx_glr_plot_0_feature_select_thumb.png
-    :alt: Feature Selection
+  .. image:: /auto_examples/data/images/thumb/sphx_glr_plot_5_feature_select_thumb.png
+    :alt:
 
-  :ref:`sphx_glr_auto_examples_data_plot_0_feature_select.py`
+  :ref:`sphx_glr_auto_examples_data_plot_5_feature_select.py`
 
 .. raw:: html
 
@@ -46,320 +131,18 @@ Data Pipeline
 
 .. raw:: html
 
-    </div>
-
-
-Interpretable Models
---------------------------------
-
-
-
-.. raw:: html
-
-    <div class="sphx-glr-thumbnails">
-
-
-.. raw:: html
-
-    <div class="sphx-glr-thumbcontainer" tooltip="Decision Tree: Classification Tree Model">
+    <div class="sphx-glr-thumbcontainer" tooltip="Two Sample Test">
 
 .. only:: html
 
-  .. image:: /auto_examples/models/images/thumb/sphx_glr_plot_2_dt_reg_thumb.png
-    :alt: Decision Tree: Classification Tree Model
+  .. image:: /auto_examples/data/images/thumb/sphx_glr_plot_6_twosample_test_thumb.png
+    :alt:
 
-  :ref:`sphx_glr_auto_examples_models_plot_2_dt_reg.py`
-
-.. raw:: html
-
-      <div class="sphx-glr-thumbnail-title">Decision Tree: Classification Tree Model</div>
-    </div>
-
+  :ref:`sphx_glr_auto_examples_data_plot_6_twosample_test.py`
 
 .. raw:: html
 
-    <div class="sphx-glr-thumbcontainer" tooltip="GAM Regression">
-
-.. only:: html
-
-  .. image:: /auto_examples/models/images/thumb/sphx_glr_plot_1_gam_reg_thumb.png
-    :alt: Generalized Additive Model
-
-  :ref:`sphx_glr_auto_examples_models_plot_1_gam_reg.py`
-
-.. raw:: html
-
-      <div class="sphx-glr-thumbnail-title">Generalized Additive Model</div>
-    </div>
-
-
-.. raw:: html
-
-    <div class="sphx-glr-thumbcontainer" tooltip="Decision Tree: Classification Tree Model">
-
-.. only:: html
-
-  .. image:: /auto_examples/models/images/thumb/sphx_glr_plot_2_dt_cls_thumb.png
-    :alt: Decision Tree: Classification Tree Model
-
-  :ref:`sphx_glr_auto_examples_models_plot_2_dt_cls.py`
-
-.. raw:: html
-
-      <div class="sphx-glr-thumbnail-title">Decision Tree: Classification Tree Model</div>
-    </div>
-
-
-.. raw:: html
-
-    <div class="sphx-glr-thumbcontainer" tooltip="GAM Regression">
-
-.. only:: html
-
-  .. image:: /auto_examples/models/images/thumb/sphx_glr_plot_4_ebm_reg_thumb.png
-    :alt: Generalized Additive Model
-
-  :ref:`sphx_glr_auto_examples_models_plot_4_ebm_reg.py`
-
-.. raw:: html
-
-      <div class="sphx-glr-thumbnail-title">Generalized Additive Model</div>
-    </div>
-
-
-.. raw:: html
-
-    <div class="sphx-glr-thumbcontainer" tooltip="GAM Regression">
-
-.. only:: html
-
-  .. image:: /auto_examples/models/images/thumb/sphx_glr_plot_1_gam_cls_thumb.png
-    :alt: Generalized Additive Model
-
-  :ref:`sphx_glr_auto_examples_models_plot_1_gam_cls.py`
-
-.. raw:: html
-
-      <div class="sphx-glr-thumbnail-title">Generalized Additive Model</div>
-    </div>
-
-
-.. raw:: html
-
-    <div class="sphx-glr-thumbcontainer" tooltip="GAM Regression">
-
-.. only:: html
-
-  .. image:: /auto_examples/models/images/thumb/sphx_glr_plot_4_ebm_cls_thumb.png
-    :alt: Generalized Additive Model
-
-  :ref:`sphx_glr_auto_examples_models_plot_4_ebm_cls.py`
-
-.. raw:: html
-
-      <div class="sphx-glr-thumbnail-title">Generalized Additive Model</div>
-    </div>
-
-
-.. raw:: html
-
-    <div class="sphx-glr-thumbcontainer" tooltip="FIGS: Regression">
-
-.. only:: html
-
-  .. image:: /auto_examples/models/images/thumb/sphx_glr_plot_3_figs_reg_thumb.png
-    :alt: FIGS: Regression
-
-  :ref:`sphx_glr_auto_examples_models_plot_3_figs_reg.py`
-
-.. raw:: html
-
-      <div class="sphx-glr-thumbnail-title">FIGS: Regression</div>
-    </div>
-
-
-.. raw:: html
-
-    <div class="sphx-glr-thumbcontainer" tooltip="FIGS: Regression">
-
-.. only:: html
-
-  .. image:: /auto_examples/models/images/thumb/sphx_glr_plot_3_figs_cls_thumb.png
-    :alt: FIGS: Regression
-
-  :ref:`sphx_glr_auto_examples_models_plot_3_figs_cls.py`
-
-.. raw:: html
-
-      <div class="sphx-glr-thumbnail-title">FIGS: Regression</div>
-    </div>
-
-
-.. raw:: html
-
-    <div class="sphx-glr-thumbcontainer" tooltip="GLM Linear Regression">
-
-.. only:: html
-
-  .. image:: /auto_examples/models/images/thumb/sphx_glr_plot_0_glm_reg_thumb.png
-    :alt: GLM - Linear Regression Model
-
-  :ref:`sphx_glr_auto_examples_models_plot_0_glm_reg.py`
-
-.. raw:: html
-
-      <div class="sphx-glr-thumbnail-title">GLM - Linear Regression Model</div>
-    </div>
-
-
-.. raw:: html
-
-    <div class="sphx-glr-thumbcontainer" tooltip="GLM Logistic Regression">
-
-.. only:: html
-
-  .. image:: /auto_examples/models/images/thumb/sphx_glr_plot_0_glm_cls_thumb.png
-    :alt: GLM - Logistic Regression Model
-
-  :ref:`sphx_glr_auto_examples_models_plot_0_glm_cls.py`
-
-.. raw:: html
-
-      <div class="sphx-glr-thumbnail-title">GLM - Logistic Regression Model</div>
-    </div>
-
-
-.. raw:: html
-
-    <div class="sphx-glr-thumbcontainer" tooltip="ReLU DNN: Regression">
-
-.. only:: html
-
-  .. image:: /auto_examples/models/images/thumb/sphx_glr_plot_7_reludnn_reg_thumb.png
-    :alt: ReLU DNN: Regression
-
-  :ref:`sphx_glr_auto_examples_models_plot_7_reludnn_reg.py`
-
-.. raw:: html
-
-      <div class="sphx-glr-thumbnail-title">ReLU DNN: Regression</div>
-    </div>
-
-
-.. raw:: html
-
-    <div class="sphx-glr-thumbcontainer" tooltip="ReLU DNN: Classification">
-
-.. only:: html
-
-  .. image:: /auto_examples/models/images/thumb/sphx_glr_plot_7_reludnn_cls_thumb.png
-    :alt: ReLU DNN: Classification
-
-  :ref:`sphx_glr_auto_examples_models_plot_7_reludnn_cls.py`
-
-.. raw:: html
-
-      <div class="sphx-glr-thumbnail-title">ReLU DNN: Classification</div>
-    </div>
-
-
-.. raw:: html
-
-    </div>
-
-
-Outcome Testing
---------------------
-
-
-
-.. raw:: html
-
-    <div class="sphx-glr-thumbnails">
-
-
-.. raw:: html
-
-    <div class="sphx-glr-thumbcontainer" tooltip="PiML model diagnostics">
-
-.. only:: html
-
-  .. image:: /auto_examples/diagnostics/images/thumb/sphx_glr_plot_1_resilience_thumb.png
-    :alt: Resilience - Performance: XGB
-
-  :ref:`sphx_glr_auto_examples_diagnostics_plot_1_resilience.py`
-
-.. raw:: html
-
-      <div class="sphx-glr-thumbnail-title">Resilience - Performance: XGB</div>
-    </div>
-
-
-.. raw:: html
-
-    <div class="sphx-glr-thumbcontainer" tooltip="Model evaluation">
-
-.. only:: html
-
-  .. image:: /auto_examples/diagnostics/images/thumb/sphx_glr_plot_1_accuracy_thumb.png
-    :alt: Accuracy:  Regression
-
-  :ref:`sphx_glr_auto_examples_diagnostics_plot_1_accuracy.py`
-
-.. raw:: html
-
-      <div class="sphx-glr-thumbnail-title">Accuracy:  Regression</div>
-    </div>
-
-
-.. raw:: html
-
-    <div class="sphx-glr-thumbcontainer" tooltip="Evaluate model robustness">
-
-.. only:: html
-
-  .. image:: /auto_examples/diagnostics/images/thumb/sphx_glr_plot_2_robustness_thumb.png
-    :alt: Robustness:  Regression
-
-  :ref:`sphx_glr_auto_examples_diagnostics_plot_2_robustness.py`
-
-.. raw:: html
-
-      <div class="sphx-glr-thumbnail-title">Robustness:  Regression</div>
-    </div>
-
-
-.. raw:: html
-
-    <div class="sphx-glr-thumbcontainer" tooltip="Evaluate model robustness">
-
-.. only:: html
-
-  .. image:: /auto_examples/diagnostics/images/thumb/sphx_glr_plot_3_robustness_thumb.png
-    :alt: Robustness: Classification
-
-  :ref:`sphx_glr_auto_examples_diagnostics_plot_3_robustness.py`
-
-.. raw:: html
-
-      <div class="sphx-glr-thumbnail-title">Robustness: Classification</div>
-    </div>
-
-
-.. raw:: html
-
-    <div class="sphx-glr-thumbcontainer" tooltip="PiML model diagnostics">
-
-.. only:: html
-
-  .. image:: /auto_examples/diagnostics/images/thumb/sphx_glr_plot_1_fairness_thumb.png
-    :alt: Fairness - Performance: XGB
-
-  :ref:`sphx_glr_auto_examples_diagnostics_plot_1_fairness.py`
-
-.. raw:: html
-
-      <div class="sphx-glr-thumbnail-title">Fairness - Performance: XGB</div>
+      <div class="sphx-glr-thumbnail-title">Two Sample Test</div>
     </div>
 
 
@@ -380,137 +163,726 @@ Post hoc Explainability
 
 .. raw:: html
 
-    <div class="sphx-glr-thumbcontainer" tooltip="ICE plot on Classification problem">
+    <div class="sphx-glr-thumbcontainer" tooltip="Permutation Feature Importance">
 
 .. only:: html
 
-  .. image:: /auto_examples/explain/images/thumb/sphx_glr_plot_7_ICE_thumb.png
-    :alt: ICE:  Classification
+  .. image:: /auto_examples/explain/images/thumb/sphx_glr_plot_0_pfi_thumb.png
+    :alt:
 
-  :ref:`sphx_glr_auto_examples_explain_plot_7_ICE.py`
+  :ref:`sphx_glr_auto_examples_explain_plot_0_pfi.py`
 
 .. raw:: html
 
-      <div class="sphx-glr-thumbnail-title">ICE:  Classification</div>
+      <div class="sphx-glr-thumbnail-title">Permutation Feature Importance</div>
     </div>
 
 
 .. raw:: html
 
-    <div class="sphx-glr-thumbcontainer" tooltip="Local Interpretable Model-Agnostic Explanation for Classification groblem.">
+    <div class="sphx-glr-thumbcontainer" tooltip="Partial Dependence Plot">
 
 .. only:: html
 
-  .. image:: /auto_examples/explain/images/thumb/sphx_glr_plot_6_LIME_thumb.png
-    :alt: LIME:  Classification
+  .. image:: /auto_examples/explain/images/thumb/sphx_glr_plot_1_pdp_thumb.png
+    :alt:
 
-  :ref:`sphx_glr_auto_examples_explain_plot_6_LIME.py`
+  :ref:`sphx_glr_auto_examples_explain_plot_1_pdp.py`
 
 .. raw:: html
 
-      <div class="sphx-glr-thumbnail-title">LIME:  Classification</div>
+      <div class="sphx-glr-thumbnail-title">Partial Dependence Plot</div>
     </div>
 
 
 .. raw:: html
 
-    <div class="sphx-glr-thumbcontainer" tooltip="Permutation Feature Importance plot on a Classification problem">
+    <div class="sphx-glr-thumbcontainer" tooltip="Individual Conditional Expectation">
 
 .. only:: html
 
-  .. image:: /auto_examples/explain/images/thumb/sphx_glr_plot_4_pfi_thumb.png
-    :alt: PFI:  Classification
+  .. image:: /auto_examples/explain/images/thumb/sphx_glr_plot_2_ice_thumb.png
+    :alt:
 
-  :ref:`sphx_glr_auto_examples_explain_plot_4_pfi.py`
+  :ref:`sphx_glr_auto_examples_explain_plot_2_ice.py`
 
 .. raw:: html
 
-      <div class="sphx-glr-thumbnail-title">PFI:  Classification</div>
+      <div class="sphx-glr-thumbnail-title">Individual Conditional Expectation</div>
     </div>
 
 
 .. raw:: html
 
-    <div class="sphx-glr-thumbcontainer" tooltip="Partial Dependence Plot on Classification problem">
+    <div class="sphx-glr-thumbcontainer" tooltip="Accumulated Local Effects">
 
 .. only:: html
 
-  .. image:: /auto_examples/explain/images/thumb/sphx_glr_plot_3_pdp_thumb.png
-    :alt: PDP:  Classification
+  .. image:: /auto_examples/explain/images/thumb/sphx_glr_plot_3_ale_thumb.png
+    :alt:
 
-  :ref:`sphx_glr_auto_examples_explain_plot_3_pdp.py`
+  :ref:`sphx_glr_auto_examples_explain_plot_3_ale.py`
 
 .. raw:: html
 
-      <div class="sphx-glr-thumbnail-title">PDP:  Classification</div>
+      <div class="sphx-glr-thumbnail-title">Accumulated Local Effects</div>
     </div>
 
 
 .. raw:: html
 
-    <div class="sphx-glr-thumbcontainer" tooltip="Global ALE on BikeSharing data ">
+    <div class="sphx-glr-thumbcontainer" tooltip="Local Interpretable Model-Agnostic Explanation">
 
 .. only:: html
 
-  .. image:: /auto_examples/explain/images/thumb/sphx_glr_plot_0_ale_thumb.png
-    :alt: ALE:  Regression
+  .. image:: /auto_examples/explain/images/thumb/sphx_glr_plot_4_lime_thumb.png
+    :alt:
 
-  :ref:`sphx_glr_auto_examples_explain_plot_0_ale.py`
+  :ref:`sphx_glr_auto_examples_explain_plot_4_lime.py`
 
 .. raw:: html
 
-      <div class="sphx-glr-thumbnail-title">ALE:  Regression</div>
+      <div class="sphx-glr-thumbnail-title">Local Interpretable Model-Agnostic Explanation</div>
     </div>
 
 
 .. raw:: html
 
-    <div class="sphx-glr-thumbcontainer" tooltip="SHAP plots on classification problem">
+    <div class="sphx-glr-thumbcontainer" tooltip="SHapley Additive exPlanations">
 
 .. only:: html
 
   .. image:: /auto_examples/explain/images/thumb/sphx_glr_plot_5_shap_thumb.png
-    :alt: SHAP:  Classification
+    :alt:
 
   :ref:`sphx_glr_auto_examples_explain_plot_5_shap.py`
 
 .. raw:: html
 
-      <div class="sphx-glr-thumbnail-title">SHAP:  Classification</div>
+      <div class="sphx-glr-thumbnail-title">SHapley Additive exPlanations</div>
     </div>
 
 
 .. raw:: html
 
-    <div class="sphx-glr-thumbcontainer" tooltip="Partial Dependence Plot (PDP) on  Regression problem ">
+    </div>
 
-.. only:: html
 
-  .. image:: /auto_examples/explain/images/thumb/sphx_glr_plot_2_pdp_thumb.png
-    :alt: PDP:  Regression
+Interpretable Models
+--------------------------------
 
-  :ref:`sphx_glr_auto_examples_explain_plot_2_pdp.py`
+
 
 .. raw:: html
 
-      <div class="sphx-glr-thumbnail-title">PDP:  Regression</div>
+    <div class="sphx-glr-thumbnails">
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="GLM Logistic Regression (Taiwan Credit)">
+
+.. only:: html
+
+  .. image:: /auto_examples/models/images/thumb/sphx_glr_plot_0_glm_cls_thumb.png
+    :alt:
+
+  :ref:`sphx_glr_auto_examples_models_plot_0_glm_cls.py`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">GLM Logistic Regression (Taiwan Credit)</div>
     </div>
 
 
 .. raw:: html
 
-    <div class="sphx-glr-thumbcontainer" tooltip="Global ALE on TaiwanCredit data from UCI repository">
+    <div class="sphx-glr-thumbcontainer" tooltip="GLM Linear Regression (Bike Sharing)">
 
 .. only:: html
 
-  .. image:: /auto_examples/explain/images/thumb/sphx_glr_plot_1_ale_thumb.png
-    :alt: ALE:  Classification
+  .. image:: /auto_examples/models/images/thumb/sphx_glr_plot_0_glm_reg_thumb.png
+    :alt:
 
-  :ref:`sphx_glr_auto_examples_explain_plot_1_ale.py`
+  :ref:`sphx_glr_auto_examples_models_plot_0_glm_reg.py`
 
 .. raw:: html
 
-      <div class="sphx-glr-thumbnail-title">ALE:  Classification</div>
+      <div class="sphx-glr-thumbnail-title">GLM Linear Regression (Bike Sharing)</div>
+    </div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="GAM Classification (CoCircles)">
+
+.. only:: html
+
+  .. image:: /auto_examples/models/images/thumb/sphx_glr_plot_1_gam_cls_thumb.png
+    :alt:
+
+  :ref:`sphx_glr_auto_examples_models_plot_1_gam_cls.py`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">GAM Classification (CoCircles)</div>
+    </div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="GAM Regression (California Housing)">
+
+.. only:: html
+
+  .. image:: /auto_examples/models/images/thumb/sphx_glr_plot_1_gam_reg_thumb.png
+    :alt:
+
+  :ref:`sphx_glr_auto_examples_models_plot_1_gam_reg.py`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">GAM Regression (California Housing)</div>
+    </div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="Tree Classification (TaiwanCredit)">
+
+.. only:: html
+
+  .. image:: /auto_examples/models/images/thumb/sphx_glr_plot_2_tree_cls_thumb.png
+    :alt:
+
+  :ref:`sphx_glr_auto_examples_models_plot_2_tree_cls.py`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Tree Classification (TaiwanCredit)</div>
+    </div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="Tree Regression (California Housing)">
+
+.. only:: html
+
+  .. image:: /auto_examples/models/images/thumb/sphx_glr_plot_2_tree_reg_thumb.png
+    :alt:
+
+  :ref:`sphx_glr_auto_examples_models_plot_2_tree_reg.py`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Tree Regression (California Housing)</div>
+    </div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="FIGS Classification (Taiwan Credit)">
+
+.. only:: html
+
+  .. image:: /auto_examples/models/images/thumb/sphx_glr_plot_3_figs_cls_thumb.png
+    :alt:
+
+  :ref:`sphx_glr_auto_examples_models_plot_3_figs_cls.py`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">FIGS Classification (Taiwan Credit)</div>
+    </div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="FIGS Regression (California Housing)">
+
+.. only:: html
+
+  .. image:: /auto_examples/models/images/thumb/sphx_glr_plot_3_figs_reg_thumb.png
+    :alt:
+
+  :ref:`sphx_glr_auto_examples_models_plot_3_figs_reg.py`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">FIGS Regression (California Housing)</div>
+    </div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="XGB-1 Classification (CoCircles)">
+
+.. only:: html
+
+  .. image:: /auto_examples/models/images/thumb/sphx_glr_plot_4_xgb1_cls_thumb.png
+    :alt:
+
+  :ref:`sphx_glr_auto_examples_models_plot_4_xgb1_cls.py`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">XGB-1 Classification (CoCircles)</div>
+    </div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="XGB-1 Regression (California Housing)">
+
+.. only:: html
+
+  .. image:: /auto_examples/models/images/thumb/sphx_glr_plot_4_xgb1_reg_thumb.png
+    :alt:
+
+  :ref:`sphx_glr_auto_examples_models_plot_4_xgb1_reg.py`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">XGB-1 Regression (California Housing)</div>
+    </div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="XGB-2 Classification (Taiwan Credit)">
+
+.. only:: html
+
+  .. image:: /auto_examples/models/images/thumb/sphx_glr_plot_5_xgb2_cls_thumb.png
+    :alt:
+
+  :ref:`sphx_glr_auto_examples_models_plot_5_xgb2_cls.py`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">XGB-2 Classification (Taiwan Credit)</div>
+    </div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="XGB-2 Regression (Bike Sharing)">
+
+.. only:: html
+
+  .. image:: /auto_examples/models/images/thumb/sphx_glr_plot_5_xgb2_reg_thumb.png
+    :alt:
+
+  :ref:`sphx_glr_auto_examples_models_plot_5_xgb2_reg.py`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">XGB-2 Regression (Bike Sharing)</div>
+    </div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="EBM Classification (Taiwan Credit)">
+
+.. only:: html
+
+  .. image:: /auto_examples/models/images/thumb/sphx_glr_plot_6_ebm_cls_thumb.png
+    :alt:
+
+  :ref:`sphx_glr_auto_examples_models_plot_6_ebm_cls.py`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">EBM Classification (Taiwan Credit)</div>
+    </div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="EBM Regression (Bike Sharing)">
+
+.. only:: html
+
+  .. image:: /auto_examples/models/images/thumb/sphx_glr_plot_6_ebm_reg_thumb.png
+    :alt:
+
+  :ref:`sphx_glr_auto_examples_models_plot_6_ebm_reg.py`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">EBM Regression (Bike Sharing)</div>
+    </div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="GAMI-Net Classification (Taiwan Credit)">
+
+.. only:: html
+
+  .. image:: /auto_examples/models/images/thumb/sphx_glr_plot_7_gaminet_cls_thumb.png
+    :alt:
+
+  :ref:`sphx_glr_auto_examples_models_plot_7_gaminet_cls.py`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">GAMI-Net Classification (Taiwan Credit)</div>
+    </div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="GAMI-Net Regression (Bike Sharing)">
+
+.. only:: html
+
+  .. image:: /auto_examples/models/images/thumb/sphx_glr_plot_7_gaminet_reg_thumb.png
+    :alt:
+
+  :ref:`sphx_glr_auto_examples_models_plot_7_gaminet_reg.py`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">GAMI-Net Regression (Bike Sharing)</div>
+    </div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="ReLU DNN Classification (Taiwan Credit)">
+
+.. only:: html
+
+  .. image:: /auto_examples/models/images/thumb/sphx_glr_plot_8_reludnn_cls_thumb.png
+    :alt:
+
+  :ref:`sphx_glr_auto_examples_models_plot_8_reludnn_cls.py`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">ReLU DNN Classification (Taiwan Credit)</div>
+    </div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="ReLU DNN Regression (Friedman)">
+
+.. only:: html
+
+  .. image:: /auto_examples/models/images/thumb/sphx_glr_plot_8_reludnn_reg_thumb.png
+    :alt:
+
+  :ref:`sphx_glr_auto_examples_models_plot_8_reludnn_reg.py`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">ReLU DNN Regression (Friedman)</div>
+    </div>
+
+
+.. raw:: html
+
+    </div>
+
+
+Outcome Testing
+--------------------
+
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbnails">
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="Accuracy: Classification">
+
+.. only:: html
+
+  .. image:: /auto_examples/testing/images/thumb/sphx_glr_plot_0_accuracy_cls_thumb.png
+    :alt:
+
+  :ref:`sphx_glr_auto_examples_testing_plot_0_accuracy_cls.py`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Accuracy: Classification</div>
+    </div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="Accuracy: Regression">
+
+.. only:: html
+
+  .. image:: /auto_examples/testing/images/thumb/sphx_glr_plot_0_accuracy_reg_thumb.png
+    :alt:
+
+  :ref:`sphx_glr_auto_examples_testing_plot_0_accuracy_reg.py`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Accuracy: Regression</div>
+    </div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="WeakSpot: Classification">
+
+.. only:: html
+
+  .. image:: /auto_examples/testing/images/thumb/sphx_glr_plot_1_weakspot_cls_thumb.png
+    :alt:
+
+  :ref:`sphx_glr_auto_examples_testing_plot_1_weakspot_cls.py`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">WeakSpot: Classification</div>
+    </div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="WeakSpot: Regression">
+
+.. only:: html
+
+  .. image:: /auto_examples/testing/images/thumb/sphx_glr_plot_1_weakspot_reg_thumb.png
+    :alt:
+
+  :ref:`sphx_glr_auto_examples_testing_plot_1_weakspot_reg.py`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">WeakSpot: Regression</div>
+    </div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="Overfit: Classification">
+
+.. only:: html
+
+  .. image:: /auto_examples/testing/images/thumb/sphx_glr_plot_2_overfit_cls_thumb.png
+    :alt:
+
+  :ref:`sphx_glr_auto_examples_testing_plot_2_overfit_cls.py`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Overfit: Classification</div>
+    </div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="Overfit: Regression">
+
+.. only:: html
+
+  .. image:: /auto_examples/testing/images/thumb/sphx_glr_plot_2_overfit_reg_thumb.png
+    :alt:
+
+  :ref:`sphx_glr_auto_examples_testing_plot_2_overfit_reg.py`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Overfit: Regression</div>
+    </div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="Reliability: Classification">
+
+.. only:: html
+
+  .. image:: /auto_examples/testing/images/thumb/sphx_glr_plot_3_reliability_cls_thumb.png
+    :alt:
+
+  :ref:`sphx_glr_auto_examples_testing_plot_3_reliability_cls.py`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Reliability: Classification</div>
+    </div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="Reliability: Regression">
+
+.. only:: html
+
+  .. image:: /auto_examples/testing/images/thumb/sphx_glr_plot_3_reliability_reg_thumb.png
+    :alt:
+
+  :ref:`sphx_glr_auto_examples_testing_plot_3_reliability_reg.py`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Reliability: Regression</div>
+    </div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="Robustness: Classification">
+
+.. only:: html
+
+  .. image:: /auto_examples/testing/images/thumb/sphx_glr_plot_4_robustness_cls_thumb.png
+    :alt:
+
+  :ref:`sphx_glr_auto_examples_testing_plot_4_robustness_cls.py`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Robustness: Classification</div>
+    </div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="Robustness:  Regression">
+
+.. only:: html
+
+  .. image:: /auto_examples/testing/images/thumb/sphx_glr_plot_4_robustness_reg_thumb.png
+    :alt:
+
+  :ref:`sphx_glr_auto_examples_testing_plot_4_robustness_reg.py`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Robustness:  Regression</div>
+    </div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="Resilience:  Classification">
+
+.. only:: html
+
+  .. image:: /auto_examples/testing/images/thumb/sphx_glr_plot_5_resilience_cls_thumb.png
+    :alt:
+
+  :ref:`sphx_glr_auto_examples_testing_plot_5_resilience_cls.py`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Resilience:  Classification</div>
+    </div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="Resilience - Regression">
+
+.. only:: html
+
+  .. image:: /auto_examples/testing/images/thumb/sphx_glr_plot_5_resilience_reg_thumb.png
+    :alt:
+
+  :ref:`sphx_glr_auto_examples_testing_plot_5_resilience_reg.py`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Resilience - Regression</div>
+    </div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="Fairness Test: XGB2">
+
+.. only:: html
+
+  .. image:: /auto_examples/testing/images/thumb/sphx_glr_plot_6_fairness_thumb.png
+    :alt:
+
+  :ref:`sphx_glr_auto_examples_testing_plot_6_fairness.py`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Fairness Test: XGB2</div>
+    </div>
+
+
+.. raw:: html
+
+    </div>
+
+
+Model Comparison
+--------------------
+
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbnails">
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="Model Comparison: Classification">
+
+.. only:: html
+
+  .. image:: /auto_examples/testing_compare/images/thumb/sphx_glr_plot_0_compare_classification_thumb.png
+    :alt:
+
+  :ref:`sphx_glr_auto_examples_testing_compare_plot_0_compare_classification.py`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Model Comparison: Classification</div>
+    </div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="Model Comparison: Regression">
+
+.. only:: html
+
+  .. image:: /auto_examples/testing_compare/images/thumb/sphx_glr_plot_0_compare_regression_thumb.png
+    :alt:
+
+  :ref:`sphx_glr_auto_examples_testing_compare_plot_0_compare_regression.py`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Model Comparison: Regression</div>
+    </div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="Fairness Comparison">
+
+.. only:: html
+
+  .. image:: /auto_examples/testing_compare/images/thumb/sphx_glr_plot_1_compare_fairness_thumb.png
+    :alt:
+
+  :ref:`sphx_glr_auto_examples_testing_compare_plot_1_compare_fairness.py`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Fairness Comparison</div>
     </div>
 
 
@@ -523,10 +895,12 @@ Post hoc Explainability
    :hidden:
    :includehidden:
 
+
    /auto_examples/data/index.rst
-   /auto_examples/models/index.rst
-   /auto_examples/diagnostics/index.rst
    /auto_examples/explain/index.rst
+   /auto_examples/models/index.rst
+   /auto_examples/testing/index.rst
+   /auto_examples/testing_compare/index.rst
 
 
 .. only:: html

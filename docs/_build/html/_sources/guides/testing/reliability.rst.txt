@@ -1,0 +1,213 @@
+.. Places parent toc into the sidebar
+
+:parenttoc: True
+
+.. include:: ../../includes/big_toc_css.rst
+
+============================
+Reliability
+============================
+Reliability of a model refers to its ability to consistently produce accurate and trustworthy predictions or classifications. In other words, a reliable model is one that consistently performs well on new, unseen data. Models that are unreliable can lead to inaccurate predictions, which can have significant consequences in fields such as healthcare, finance, and safety-critical systems. In PiML, we can use the `model_diagnose` function to assess the reliability of our model. We have implemented different methods to evaluate the reliability of regression and binary classification tasks, respectively.
+
+
+
+Reliability for Regression Tasks
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Conformalized residual quantile regression (CRQR) is a model agnostic method to evaluate the reliability of regression models. It is based on the conformal prediction framework, which assumes validation samples are exchangeable to testing samples. For an arbitrary model :math:`\hat{f}(x)`, the CRQR is defined as:
+
+- Fit a quantile regression model :math:`\hat{g}_{\alpha}(x)`` to predict the residuals :math:`y_{i}-\hat{f}(x_{i})` of training data.
+
+- Define the conformal score for the residual :math:`\epsilon_{i}=y_{i}-\hat{f}(x_{i})`:
+
+.. math::
+   \begin{align}     
+      s(x_{i}, y_{i}, \hat{f})=\max\{\hat{g}_{\frac{\alpha}{2}}(x_{i}) - \epsilon_{i}, \epsilon_{i}-\hat{g}_{(1-\frac{\alpha}{2})} (x_{i})\}, i=1,2,\ldots,n.
+   \end{align}
+
+- Compute the :math:`\frac{(⌈(n+1)(1-\alpha)⌉)}{n}`-quantile of the calibrated scores :math:`{s_{1},\ldots,s_{n}}`.
+
+- For a testing sample :math:`x_{test}`, construct the confidence interval to be:
+
+.. math::
+   \begin{align}
+		[\hat{f}(x_{test})+\hat{g}_{\frac{\alpha}{2}} (x_{test})-\hat{q}, \hat{f}(x_{test})+\hat{g}_{(1-\frac{\alpha}{2})} (x_{test})+\hat{q}]
+   \end{align}
+
+In PiML, we split the test set into 3 subsets, one (40%) for training the quantile regression model, the second one (20%) for calibration, and the rest (40%) for evaluating the quality of prediction intervals. In particular, we use the GBDT_ model from sklearn with quantile regression loss, and the max depth parameter is set to 5. If the version of sklearn is less than 1.1, then the raw GBDT model is used instead.
+
+.. _GBDT: https://scikit-learn.org/stable/modules/generated/sklearn.ensemble.HistGradientBoostingRegressor.html
+
+
+Coverage and Bandwidth Table
+""""""""""""""""""""""""""""""""
+For demonstration purpose, we consider a XGB2 model on the BikeSharing data. By setting `show` to "reliability_table", we can get the average coverage and bandwidth of the prediction intervals on test set.  The argument `alpha` is the desired proportion of test samples to be outside the prediction intervals. 
+
+.. jupyter-input::
+
+   exp.model_diagnose(model="XGB2", show="reliability_table", alpha=0.1)
+
+.. raw:: html
+
+    <div class="output_subarea output_html rendered_html output_result">
+    <div>
+    <style scoped>
+        .dataframe tbody tr th:only-of-type {
+            vertical-align: middle;
+        }
+
+        .dataframe tbody tr th {
+            vertical-align: top;
+        }
+
+        .dataframe thead th {
+            text-align: right;
+        }
+    </style>
+    <table border="1" class="dataframe">
+      <thead>
+        <tr style="text-align: right;">
+          <th></th>
+          <th>Empirical Coverage</th>
+          <th>Average Bandwidth</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <th>0</th>
+          <td>0.88705</td>
+          <td>0.232974</td>
+        </tr>
+      </tbody>
+    </table>
+    </div>
+    </div>
+
+From the table above, we can find that the coverage of prediction intervals is 88.7% (close to the pre-defined level 1 - 0.1 = 90%) and the average bandwidth is 0.233. The coverage is the proportion of test samples that are covered by the prediction intervals. The bandwidth is the average width of the prediction intervals. The bandwidth is a measure of the accuracy of the prediction intervals. The smaller the bandwidth, the more accurate the prediction intervals are. 
+
+
+Distance of Reliable and Un-reliable Data 
+""""""""""""""""""""""""""""""""""""""""""""""""""""""
+As we obtained the prediction intervals for each sample, we can further analyze how each feature is related to the model uncertainty. This can be done by calculating the distance between reliable and un-reliable data. 
+In PiML, we can set `show` to "reliability_distance" to get the distribution shift distance of features between reliable and un-reliable data. Next, we also need to specify the expected coverage `alpha`. Finally, the following arguments are useful. a) `threshold`: The threshold ratio between reliable and un-reliable data;
+b) `psi_buckets`: The binning method for calculating the PSI value; c) `distance_metrics`: The distance metric for comparing the worst test sample and full test sample; available options includes "PSI", "WD1", and "KS". Next, we briefly introduce reliable and un-reliable data, as follows:
+
+- Reliable data: samples with the width of prediction intervals less than a pre-defined threshold.
+- Un-reliable data: samples with the width of prediction intervals greater than or equals to a pre-defined threshold. 
+
+The threshold of bandwidth, is determined by the argument `threshold`, multiplied by the average bandwidth. For example, if we set `threshold` to 1.1, the threshold of bandwidth is 1.1 * 0.233 = 0.2563. Next, we compare the difference of the reliable data and un-reliable data. This is done by calculating the feature-wise distributional distance of these two groups of samples. 
+
+.. jupyter-input::
+
+   exp.model_diagnose(model="XGB2", show="reliability_distance", alpha=0.1,
+                      threshold=1.1, distance_metric="PSI", figsize=(5, 4))
+
+.. figure:: ../../auto_examples/testing/images/sphx_glr_plot_3_reliability_reg_001.png
+   :target: ../../auto_examples/testing/plot_3_reliability_reg.html
+   :align: left
+
+From the figure above, we observe that the distributional distance of `hr` is the largest between reliable and un-reliable data. However, this result only tells us the feature `hr` is related to the model uncertainty, but we cannot conclude it is a causal relationship.
+
+
+Marginal Bandwidth 
+""""""""""""""""""""""""""""""""""""""""""""""""""""""
+Given the distributional distance, we can further displays the marginal bandwidth of each feature. The marginal bandwidth is the average width of prediction intervals for each feature. We can set `show` to "reliability_marginal" to get the marginal bandwidth of each feature. The argument `target_feature` is the feature of interest. The argument `bins` is the number of bins to discretize the feature. Similar to the above plots, we also need to specify `alpha` and `threshold`.
+
+.. jupyter-input::
+
+      exp.model_diagnose(model="XGB2", show="reliability_marginal", alpha=0.1,
+                         target_feature="hr", bins=10, threshold=1.1,
+                         original_scale=True, figsize=(5, 4))
+
+.. figure:: ../../auto_examples/testing/images/sphx_glr_plot_3_reliability_reg_002.png
+   :target: ../../auto_examples/testing/plot_3_reliability_reg.html
+   :align: left
+
+In the plot above, we can see that the marginal bandwidth of `hr` is higher than the threshold (red dotted line) during rush hours. This is consistent with our finding in weakspot tests.
+
+
+
+Reliability for Binary Classification
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+The reliability for binary classification tasks is not mature in PiML. For the time being, we use the formula :math:`\sqrt{\hat{p}(1-\hat{p})}` to quantify the uncertainty of each prediction. Further, the isotonic regression to calibrate the predicted probability, and we also show the reliability diagram and Brier score of the estimator.
+
+
+Distance of Reliable and Un-reliable Data 
+""""""""""""""""""""""""""""""""""""""""""""""""""""""
+Similar to the distance analysis between reliable and un-reliable data for regression tasks, we also calculate the distributional distance of features between reliable and un-reliable data, using the formula :math:`\sqrt{\hat{p}(1-\hat{p})}` to quantify the uncertainty of each prediction. This can be done by setting `show` to "reliability_distance", together with the arguments `distance_metric` and `threshold`. Note that the argument `alpha` is not used for classifiers.
+
+.. jupyter-input::
+
+   exp.model_diagnose(model="XGB2", show="reliability_distance",
+                      threshold=1.1, distance_metric="PSI", figsize=(5, 4))
+
+.. figure:: ../../auto_examples/testing/images/sphx_glr_plot_3_reliability_cls_001.png
+   :target: ../../auto_examples/testing/plot_3_reliability_cls.html
+   :align: left
+
+
+Marginal Bandwidth 
+""""""""""""""""""""""""""""""""""""""""""""""""""""""
+Similarly, the marginal bandwidth plot of each feature can be shown using the keyword "reliability_marginal". We can further adjust the plot using arguments `target_feature`, `threshold`, and `bins`.
+
+.. jupyter-input::
+
+      exp.model_diagnose(model="GAM", show="reliability_marginal",
+                        target_feature="PAY_1", bins=10, threshold=1.1, figsize=(5, 4))
+
+.. figure:: ../../auto_examples/testing/images/sphx_glr_plot_3_reliability_cls_002.png
+   :target: ../../auto_examples/testing/plot_3_reliability_cls.html
+   :align: left
+
+
+Classifier Calibration
+""""""""""""""""""""""""""""""""
+In this plot, we do calibration of estimator using isotonic regression. We can set `show` to "reliability_calibration" to get the calibration plot. The x-axis is the original probability, and the y-axis is the calibrated probability.
+
+.. jupyter-input::
+
+      exp.model_diagnose(model="GAM", show="reliability_calibration", figsize=(5, 4))
+
+.. figure:: ../../auto_examples/testing/images/sphx_glr_plot_3_reliability_cls_003.png
+   :target: ../../auto_examples/testing/plot_3_reliability_cls.html
+   :align: left
+
+
+Reliability Diagram
+""""""""""""""""""""""""""""""""
+Reliability diagram is also known as calibration curve. It discretizes the predicted probability into multiple bins (equal quantile). The x-axis is the mean predicted probability of each bin; the y-axis is the observed frequency of the true response of each bin. Ideally, the curve should be close to the identity line. We show the reliability diagram of the original model as well as the calibrated model (by isotonic regression) by setting `show` to "reliability_perf". 
+
+This score is similar to the MSE metric, and it is used to evaluate the reliability of the probability prediction. The lower the Brier score, the better the model is. We show the Brier score of the original model as well as the calibrated model (by isotonic regression).
+
+.. jupyter-input::
+
+      exp.model_diagnose(model="GAM", show="reliability_perf", figsize=(5, 4))
+
+.. figure:: ../../auto_examples/testing/images/sphx_glr_plot_3_reliability_cls_004.png
+   :target: ../../auto_examples/testing/plot_3_reliability_cls.html
+   :align: left
+
+
+Brier Score Table
+""""""""""""""""""""""""""""""""
+To get the Brier score individually, we can use the keyword "reliability_table", as shown below.
+
+.. jupyter-input::
+
+   results = exp.model_diagnose(model="GAM", show="reliability_table", return_data=True)
+   results.data
+
+
+Examples
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. topic:: Example 1: BikeSharing
+
+  The first example below demonstrates how to use PiML with its high-code APIs for developing machine learning models for the BikeSharing data from the UCI repository, which consists of 17,389 samples of hourly counts of rental bikes in Capital bikeshare system; see details. The response `cnt` (hourly bike rental counts) is continuous and it is a regression problem.
+ 
+ * :ref:`sphx_glr_auto_examples_testing_plot_3_reliability_reg.py`
+
+.. topic:: Examples 2: Taiwan Credit
+
+  The second example below demonstrates how to use PiML’s high-code APIs for the TaiwanCredit dataset from the UCI repository. This dataset comprises the credit card details of 30,000 clients in Taiwan from April 2005 to September 2005, and more information can be found on the TaiwanCreditData website. The data can be loaded directly into PiML, although it requires some preprocessing. The FlagDefault variable serves as the response for this classification problem.
+    
+ * :ref:`sphx_glr_auto_examples_testing_plot_3_reliability_cls.py`

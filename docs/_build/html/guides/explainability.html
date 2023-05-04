@@ -3,7 +3,7 @@
 <head>
 
   <meta charset="utf-8">
-  <meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+  <meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
@@ -41,7 +41,7 @@
         <script src="../_static/sphinx_highlight.js"></script>
         <script src="../_static/thebelab-helper.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
-        <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.20.1/dist/embed-amd.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/@jupyter-widgets/html-manager@^1.0.1/dist/embed-amd.js"></script>
         <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
     <script src="../_static/js/theme.js"></script>
 
@@ -116,7 +116,7 @@
           </div>
           <!--div class="btn-group w-100 mb-2" role="group" aria-label="rellinks">
               <a href="extmodels.html" role="button" class="btn sk-btn-rellink py-1" sk-rellink-tooltip="3. Black-box Models">Prev</a><a href="../user_guide.html" role="button" class="btn sk-btn-rellink py-1" sk-rellink-tooltip="User Guide">Up</a>
-              <a href="explain/PFI.html" role="button" class="btn sk-btn-rellink py-1" sk-rellink-tooltip="4.1.1. PFI (Permutation Feature Importance)">Next</a>
+              <a href="explain/pfi.html" role="button" class="btn sk-btn-rellink py-1" sk-rellink-tooltip="4.1.1. PFI (Permutation Feature Importance)">Next</a>
           </div-->
               <div class="sk-sidebar-toc">
               
@@ -158,7 +158,7 @@
                   </li>
                 
                   <li>
-                    <a href="testing.html" class="">6. Outcome Testing</a>
+                    <a href="testing.html" class="">6. Diagnostic Suite</a>
                     
                   </li>
                 
@@ -169,11 +169,6 @@
                 
                   <li>
                     <a href="cases.html" class="">8. Case Studies</a>
-                    
-                  </li>
-                
-                  <li>
-                    <a href="conclusion.html" class="">9. Conclusion</a>
                     
                   </li>
                 
@@ -225,33 +220,47 @@
 <h2><span class="section-number">4.1. </span>Global Explainability<a class="headerlink" href="#global-explainability" title="Permalink to this heading">¶</a></h2>
 <div class="toctree-wrapper compound">
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="explain/PFI.html">4.1.1. PFI (Permutation Feature Importance)</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="explain/PFI.html#algorithm-description">4.1.1.1. Algorithm Description</a></li>
-<li class="toctree-l2"><a class="reference internal" href="explain/PFI.html#high-code">4.1.1.2. High-code</a></li>
-<li class="toctree-l2"><a class="reference internal" href="explain/PFI.html#additional-details-and-misleading-values">4.1.1.3. Additional details and  Misleading values</a></li>
-<li class="toctree-l2"><a class="reference internal" href="explain/PFI.html#example">4.1.1.4. Example</a></li>
+<li class="toctree-l1"><a class="reference internal" href="explain/pfi.html">4.1.1. PFI (Permutation Feature Importance)</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="explain/pfi.html#algorithm-details">4.1.1.1. Algorithm Details</a></li>
+<li class="toctree-l2"><a class="reference internal" href="explain/pfi.html#usage">4.1.1.2. Usage</a></li>
+<li class="toctree-l2"><a class="reference internal" href="explain/pfi.html#example">4.1.1.3. Example</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="explain/PDP.html">4.1.2. PDP (Partial Dependence Plot)</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="explain/PDP.html#introduction">4.1.2.1. Introduction</a></li>
-<li class="toctree-l2"><a class="reference internal" href="explain/PDP.html#usage">4.1.2.2. Usage</a></li>
-<li class="toctree-l2"><a class="reference internal" href="explain/PDP.html#limitations-of-pdps">4.1.2.3. Limitations of PDPs</a></li>
-<li class="toctree-l2"><a class="reference internal" href="explain/PDP.html#examples">4.1.2.4. Examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="explain/pdp.html">4.1.2. PDP (Partial Dependence Plot)</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="explain/pdp.html#algorithm-details">4.1.2.1. Algorithm Details</a></li>
+<li class="toctree-l2"><a class="reference internal" href="explain/pdp.html#usage">4.1.2.2. Usage</a></li>
+<li class="toctree-l2"><a class="reference internal" href="explain/pdp.html#examples">4.1.2.3. Examples</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="explain/ICE.html">4.1.3. ICE (Individual Conditional Expectation)</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="explain/ICE.html#introduction">4.1.3.1. Introduction</a></li>
-<li class="toctree-l2"><a class="reference internal" href="explain/ICE.html#usage">4.1.3.2. Usage</a></li>
-<li class="toctree-l2"><a class="reference internal" href="explain/ICE.html#examples">4.1.3.3. Examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="explain/ice.html">4.1.3. ICE (Individual Conditional Expectation)</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="explain/ice.html#algorithm-details">4.1.3.1. Algorithm Details</a></li>
+<li class="toctree-l2"><a class="reference internal" href="explain/ice.html#usage">4.1.3.2. Usage</a></li>
+<li class="toctree-l2"><a class="reference internal" href="explain/ice.html#examples">4.1.3.3. Examples</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="explain/ALE.html">4.1.4. ALE (Accumulated Local Effects)</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="explain/ALE.html#ale-estimate">4.1.4.1. ALE Estimate</a></li>
-<li class="toctree-l2"><a class="reference internal" href="explain/ALE.html#ale-plots">4.1.4.2. ALE Plots</a></li>
-<li class="toctree-l2"><a class="reference internal" href="explain/ALE.html#high-code">4.1.4.3. High-code</a></li>
-<li class="toctree-l2"><a class="reference internal" href="explain/ALE.html#disadvantages-of-ales">4.1.4.4. Disadvantages of ALEs</a></li>
-<li class="toctree-l2"><a class="reference internal" href="explain/ALE.html#advantages-of-ale">4.1.4.5. Advantages of ALE</a></li>
-<li class="toctree-l2"><a class="reference internal" href="explain/ALE.html#examples">4.1.4.6. Examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="explain/ale.html">4.1.4. ALE (Accumulated Local Effects)</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="explain/ale.html#algorithm-details">4.1.4.1. Algorithm Details</a></li>
+<li class="toctree-l2"><a class="reference internal" href="explain/ale.html#usage">4.1.4.2. Usage</a></li>
+<li class="toctree-l2"><a class="reference internal" href="explain/ale.html#examples">4.1.4.3. Examples</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</section>
+<section id="local-explainability">
+<h2><span class="section-number">4.2. </span>Local Explainability<a class="headerlink" href="#local-explainability" title="Permalink to this heading">¶</a></h2>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="explain/lime.html">4.2.1. LIME (Local Interpretable Model-Agnostic Explanation)</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="explain/lime.html#algorithm-details">4.2.1.1. Algorithm Details</a></li>
+<li class="toctree-l2"><a class="reference internal" href="explain/lime.html#usage">4.2.1.2. Usage</a></li>
+<li class="toctree-l2"><a class="reference internal" href="explain/lime.html#examples">4.2.1.3. Examples</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="explain/shap.html">4.2.2. SHAP (SHapley Additive exPlanations)</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="explain/shap.html#algorithm-details">4.2.2.1. Algorithm Details</a></li>
+<li class="toctree-l2"><a class="reference internal" href="explain/shap.html#usage">4.2.2.2. Usage</a></li>
+<li class="toctree-l2"><a class="reference internal" href="explain/shap.html#examples">4.2.2.3. Examples</a></li>
 </ul>
 </li>
 </ul>

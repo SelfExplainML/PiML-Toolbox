@@ -3,7 +3,7 @@
 <head>
 
   <meta charset="utf-8">
-  <meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+  <meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
@@ -41,7 +41,7 @@
         <script src="../../_static/sphinx_highlight.js"></script>
         <script src="../../_static/thebelab-helper.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
-        <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.20.1/dist/embed-amd.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/@jupyter-widgets/html-manager@^1.0.1/dist/embed-amd.js"></script>
         <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
         <script>window.MathJax = {"tex": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true}, "options": {"ignoreHtmlClass": "tex2jax_ignore|mathjax_ignore|document", "processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
         <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
@@ -117,7 +117,7 @@
             </a>
           </div>
           <!--div class="btn-group w-100 mb-2" role="group" aria-label="rellinks">
-              <a href="piml.models.GLMClassifier.html" role="button" class="btn sk-btn-rellink py-1" sk-rellink-tooltip="piml.models.GLMClassifier">Prev</a><a href="../classes.html" role="button" class="btn sk-btn-rellink py-1" sk-rellink-tooltip="API Reference">Up</a>
+              <a href="piml.models.TreeClassifier.html" role="button" class="btn sk-btn-rellink py-1" sk-rellink-tooltip="piml.models.TreeClassifier">Prev</a><a href="../classes.html" role="button" class="btn sk-btn-rellink py-1" sk-rellink-tooltip="API Reference">Up</a>
               <a href="piml.models.FIGSClassifier.html" role="button" class="btn sk-btn-rellink py-1" sk-rellink-tooltip="piml.models.FIGSClassifier">Next</a>
           </div-->
               <div class="sk-sidebar-toc">
@@ -133,6 +133,7 @@
 <li><a class="reference internal" href="#piml.models.FIGSRegressor.predict"><code class="docutils literal notranslate"><span class="pre">FIGSRegressor.predict</span></code></a></li>
 <li><a class="reference internal" href="#piml.models.FIGSRegressor.score"><code class="docutils literal notranslate"><span class="pre">FIGSRegressor.score</span></code></a></li>
 <li><a class="reference internal" href="#piml.models.FIGSRegressor.set_params"><code class="docutils literal notranslate"><span class="pre">FIGSRegressor.set_params</span></code></a></li>
+<li><a class="reference internal" href="#piml.models.FIGSRegressor.update_tree_importance"><code class="docutils literal notranslate"><span class="pre">FIGSRegressor.update_tree_importance</span></code></a></li>
 </ul>
 </li>
 <li><a class="reference internal" href="#examples-using-piml-models-figsregressor">Examples using <code class="docutils literal notranslate"><span class="pre">piml.models.FIGSRegressor</span></code></a></li>
@@ -150,13 +151,17 @@
 <h1><code class="xref py py-mod docutils literal notranslate"><span class="pre">piml.models</span></code>.FIGSRegressor<a class="headerlink" href="#piml-models-figsregressor" title="Permalink to this heading">¶</a></h1>
 <dl class="py class">
 <dt class="sig sig-object py" id="piml.models.FIGSRegressor">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">piml.models.</span></span><span class="sig-name descname"><span class="pre">FIGSRegressor</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">max_iter</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">20</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">max_depth</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">splitter</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'best'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">min_samples_leaf</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">min_impurity_decrease</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">learning_rate</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">random_state</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#piml.models.FIGSRegressor" title="Permalink to this definition">¶</a></dt>
-<dd><p>Fast interpretable greedy-tree sums (FIGS) regressor.</p>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">piml.models.</span></span><span class="sig-name descname"><span class="pre">FIGSRegressor</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">feature_names</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">feature_types</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">max_iter</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">20</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">max_depth</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">splitter</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'best'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">min_samples_leaf</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">min_impurity_decrease</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">learning_rate</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">random_state</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#piml.models.FIGSRegressor" title="Permalink to this definition">¶</a></dt>
+<dd><p>Fast interpretable greedy-tree sums regressor.</p>
 <p>FIGS is an algorithm for fitting concise rule-based models.
 This is an re-implementation of the FIGS algorithm of imodels (<a class="reference external" href="https://github.com/csinva/imodels">https://github.com/csinva/imodels</a>).</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><dl class="simple">
+<dt><strong>feature_names</strong><span class="classifier">list or None, default=None</span></dt><dd><p>The list of feature names.</p>
+</dd>
+<dt><strong>feature_types</strong><span class="classifier">list or None, default=None</span></dt><dd><p>The list of feature types. Available types include “numerical” and “categorical”.</p>
+</dd>
 <dt><strong>max_iter</strong><span class="classifier">int, default=20</span></dt><dd><p>The max number of iterations, each iteration is a spliting step.</p>
 </dd>
 <dt><strong>max_depth</strong><span class="classifier">int, default=None</span></dt><dd><p>The max tree depth, which means no constraint on max_depth.</p>
@@ -177,9 +182,13 @@ This may have the effect of smoothing the model, especially in regression.</p>
 </dd>
 </dl>
 </dd>
-<dt class="field-even">Attributes</dt>
+<dt class="field-even">Attributes<span class="colon">:</span></dt>
 <dd class="field-even"><dl class="simple">
-<dt><strong>n_features_</strong><span class="classifier">int</span></dt><dd><p>The number of input features.</p>
+<dt><strong>feature_names_</strong><span class="classifier">list of str</span></dt><dd><p>The feature name list of all input features.</p>
+</dd>
+<dt><strong>feature_types_</strong><span class="classifier">list of str</span></dt><dd><p>The feature type list of all input features.</p>
+</dd>
+<dt><strong>n_features_in_</strong><span class="classifier">int</span></dt><dd><p>The number of input features.</p>
 </dd>
 <dt><strong>intercept_</strong><span class="classifier">float</span></dt><dd><p>The intercept term in addition to trees.</p>
 </dd>
@@ -198,10 +207,6 @@ This may have the effect of smoothing the model, especially in regression.</p>
 </dl>
 <p class="rubric">Methods</p>
 <table class="autosummary longtable docutils align-default">
-<colgroup>
-<col style="width: 10%" />
-<col style="width: 90%" />
-</colgroup>
 <tbody>
 <tr class="row-odd"><td><p><a class="reference internal" href="#piml.models.FIGSRegressor.fit" title="piml.models.FIGSRegressor.fit"><code class="xref py py-obj docutils literal notranslate"><span class="pre">fit</span></code></a>(X, y[, sample_weight])</p></td>
 <td><p>Fit FIGS model.</p></td>
@@ -230,13 +235,12 @@ This may have the effect of smoothing the model, especially in regression.</p>
 <tr class="row-odd"><td><p><a class="reference internal" href="#piml.models.FIGSRegressor.set_params" title="piml.models.FIGSRegressor.set_params"><code class="xref py py-obj docutils literal notranslate"><span class="pre">set_params</span></code></a>(**params)</p></td>
 <td><p>Set the parameters of this estimator.</p></td>
 </tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#piml.models.FIGSRegressor.update_tree_importance" title="piml.models.FIGSRegressor.update_tree_importance"><code class="xref py py-obj docutils literal notranslate"><span class="pre">update_tree_importance</span></code></a>(X)</p></td>
+<td><p>Update the tree importance using custom data.</p></td>
+</tr>
 </tbody>
 </table>
 <table class="docutils align-default">
-<colgroup>
-<col style="width: 78%" />
-<col style="width: 22%" />
-</colgroup>
 <tbody>
 <tr class="row-odd"><td><p><strong>explain_tree</strong></p></td>
 <td></td>
@@ -275,7 +279,7 @@ This may have the effect of smoothing the model, especially in regression.</p>
 <span class="sig-name descname"><span class="pre">fit</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">X</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sample_weight</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#piml.models.FIGSRegressor.fit" title="Permalink to this definition">¶</a></dt>
 <dd><p>Fit FIGS model.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><dl class="simple">
 <dt><strong>X</strong><span class="classifier">np.ndarray of shape (n_samples, n_features)</span></dt><dd><p>Data features.</p>
 </dd>
@@ -285,7 +289,7 @@ This may have the effect of smoothing the model, especially in regression.</p>
 </dd>
 </dl>
 </dd>
-<dt class="field-even">Returns</dt>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
 <dd class="field-even"><dl class="simple">
 <dt><strong>self</strong><span class="classifier">object</span></dt><dd><p>Fitted Estimator.</p>
 </dd>
@@ -299,7 +303,7 @@ This may have the effect of smoothing the model, especially in regression.</p>
 <span class="sig-name descname"><span class="pre">get_binary_matrix</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#piml.models.FIGSRegressor.get_binary_matrix" title="Permalink to this definition">¶</a></dt>
 <dd><p>Returns the matrix binary representation of x of each tree stacked together.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><dl class="simple">
 <dt><strong>x</strong><span class="classifier">np.ndarray of shape (n_samples, n_features)</span></dt><dd><p>Data features.</p>
 </dd>
@@ -313,7 +317,7 @@ This may have the effect of smoothing the model, especially in regression.</p>
 <span class="sig-name descname"><span class="pre">get_binary_representation</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#piml.models.FIGSRegressor.get_binary_representation" title="Permalink to this definition">¶</a></dt>
 <dd><p>Returns the labeled binary representation of x under a tree.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><dl class="simple">
 <dt><strong>x</strong><span class="classifier">np.ndarray of shape (n_samples, n_features)</span></dt><dd><p>Data features.</p>
 </dd>
@@ -333,7 +337,7 @@ This may have the effect of smoothing the model, especially in regression.</p>
 <span class="sig-name descname"><span class="pre">get_depths_interactions</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#piml.models.FIGSRegressor.get_depths_interactions" title="Permalink to this definition">¶</a></dt>
 <dd><p>Returns the depths and interactions of each tree.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><dl class="simple">
 <dt><strong>x</strong><span class="classifier">np.ndarray of shape (n_samples, n_features)</span></dt><dd><p>Data features.</p>
 </dd>
@@ -347,14 +351,14 @@ This may have the effect of smoothing the model, especially in regression.</p>
 <span class="sig-name descname"><span class="pre">get_params</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">deep</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#piml.models.FIGSRegressor.get_params" title="Permalink to this definition">¶</a></dt>
 <dd><p>Get parameters for this estimator.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><dl class="simple">
 <dt><strong>deep</strong><span class="classifier">bool, default=True</span></dt><dd><p>If True, will return the parameters for this estimator and
 contained subobjects that are estimators.</p>
 </dd>
 </dl>
 </dd>
-<dt class="field-even">Returns</dt>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
 <dd class="field-even"><dl class="simple">
 <dt><strong>params</strong><span class="classifier">dict</span></dt><dd><p>Parameter names mapped to their values.</p>
 </dd>
@@ -368,13 +372,13 @@ contained subobjects that are estimators.</p>
 <span class="sig-name descname"><span class="pre">predict</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">X</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#piml.models.FIGSRegressor.predict" title="Permalink to this definition">¶</a></dt>
 <dd><p>Returns numpy array of predicted value.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><dl class="simple">
 <dt><strong>X</strong><span class="classifier">np.ndarray of shape (n_samples, n_features)</span></dt><dd><p>Data features</p>
 </dd>
 </dl>
 </dd>
-<dt class="field-even">Returns</dt>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
 <dd class="field-even"><dl class="simple">
 <dt><strong>pred</strong><span class="classifier">np.ndarray of shape (n_samples, )</span></dt><dd><p>numpy array of predicted class values.</p>
 </dd>
@@ -396,7 +400,7 @@ model can be arbitrarily worse). A constant model that always predicts
 the expected value of <code class="docutils literal notranslate"><span class="pre">y</span></code>, disregarding the input features, would get
 a <span class="math notranslate nohighlight">\(R^2\)</span> score of 0.0.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><dl class="simple">
 <dt><strong>X</strong><span class="classifier">array-like of shape (n_samples, n_features)</span></dt><dd><p>Test samples. For some estimators this may be a precomputed
 kernel matrix or a list of generic objects instead with shape
@@ -409,9 +413,9 @@ is the number of samples used in the fitting for the estimator.</p>
 </dd>
 </dl>
 </dd>
-<dt class="field-even">Returns</dt>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
 <dd class="field-even"><dl class="simple">
-<dt><strong>score</strong><span class="classifier">float</span></dt><dd><p><span class="math notranslate nohighlight">\(R^2\)</span> of <code class="docutils literal notranslate"><span class="pre">self.predict(X)</span></code> wrt. <code class="docutils literal notranslate"><span class="pre">y</span></code>.</p>
+<dt><strong>score</strong><span class="classifier">float</span></dt><dd><p><span class="math notranslate nohighlight">\(R^2\)</span> of <code class="docutils literal notranslate"><span class="pre">self.predict(X)</span></code> w.r.t. <code class="docutils literal notranslate"><span class="pre">y</span></code>.</p>
 </dd>
 </dl>
 </dd>
@@ -434,15 +438,29 @@ regressors (except for
 parameters of the form <code class="docutils literal notranslate"><span class="pre">&lt;component&gt;__&lt;parameter&gt;</span></code> so that it’s
 possible to update each component of a nested object.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><dl class="simple">
 <dt><strong>**params</strong><span class="classifier">dict</span></dt><dd><p>Estimator parameters.</p>
 </dd>
 </dl>
 </dd>
-<dt class="field-even">Returns</dt>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
 <dd class="field-even"><dl class="simple">
 <dt><strong>self</strong><span class="classifier">estimator instance</span></dt><dd><p>Estimator instance.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="piml.models.FIGSRegressor.update_tree_importance">
+<span class="sig-name descname"><span class="pre">update_tree_importance</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">X</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#piml.models.FIGSRegressor.update_tree_importance" title="Permalink to this definition">¶</a></dt>
+<dd><p>Update the tree importance using custom data.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>X</strong><span class="classifier">np.ndarray of shape (n_samples, n_features)</span></dt><dd><p>Data features.</p>
 </dd>
 </dl>
 </dd>
@@ -453,11 +471,11 @@ possible to update each component of a nested object.</p>
 
 <section id="examples-using-piml-models-figsregressor">
 <h2>Examples using <code class="docutils literal notranslate"><span class="pre">piml.models.FIGSRegressor</span></code><a class="headerlink" href="#examples-using-piml-models-figsregressor" title="Permalink to this heading">¶</a></h2>
-<div class="sphx-glr-thumbnails"><div class="sphx-glr-thumbcontainer" tooltip="Model evaluation"><img alt="Accuracy:  Regression" src="../../_images/sphx_glr_plot_1_accuracy_thumb.png" />
-<p><a class="reference internal" href="../../auto_examples/diagnostics/plot_1_accuracy.html#sphx-glr-auto-examples-diagnostics-plot-1-accuracy-py"><span class="std std-ref">Accuracy:  Regression</span></a></p>
-  <div class="sphx-glr-thumbnail-title">Accuracy:  Regression</div>
-</div><div class="sphx-glr-thumbcontainer" tooltip="Evaluate model robustness"><img alt="Robustness:  Regression" src="../../_images/sphx_glr_plot_2_robustness_thumb.png" />
-<p><a class="reference internal" href="../../auto_examples/diagnostics/plot_2_robustness.html#sphx-glr-auto-examples-diagnostics-plot-2-robustness-py"><span class="std std-ref">Robustness:  Regression</span></a></p>
+<div class="sphx-glr-thumbnails"><div class="sphx-glr-thumbcontainer" tooltip="FIGS Regression (California Housing)"><img alt="" src="../../_images/sphx_glr_plot_3_figs_reg_thumb.png" />
+<p><a class="reference internal" href="../../auto_examples/models/plot_3_figs_reg.html#sphx-glr-auto-examples-models-plot-3-figs-reg-py"><span class="std std-ref">FIGS Regression (California Housing)</span></a></p>
+  <div class="sphx-glr-thumbnail-title">FIGS Regression (California Housing)</div>
+</div><div class="sphx-glr-thumbcontainer" tooltip="Robustness:  Regression"><img alt="" src="../../_images/sphx_glr_plot_4_robustness_reg_thumb.png" />
+<p><a class="reference internal" href="../../auto_examples/testing/plot_4_robustness_reg.html#sphx-glr-auto-examples-testing-plot-4-robustness-reg-py"><span class="std std-ref">Robustness:  Regression</span></a></p>
   <div class="sphx-glr-thumbnail-title">Robustness:  Regression</div>
 </div></div><div class="clearer"></div></section>
 </section>

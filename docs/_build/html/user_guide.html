@@ -3,7 +3,7 @@
 <head>
 
   <meta charset="utf-8">
-  <meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+  <meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
@@ -41,7 +41,7 @@
         <script src="_static/sphinx_highlight.js"></script>
         <script src="_static/thebelab-helper.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
-        <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.20.1/dist/embed-amd.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/@jupyter-widgets/html-manager@^1.0.1/dist/embed-amd.js"></script>
         <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
     <script src="_static/js/theme.js"></script>
 
@@ -115,7 +115,7 @@
             </a>
           </div>
           <!--div class="btn-group w-100 mb-2" role="group" aria-label="rellinks">
-              <a href="modules/generated/piml.models.GAMINetClassifier.html" role="button" class="btn sk-btn-rellink py-1" sk-rellink-tooltip="piml.models.GAMINetClassifier">Prev</a>
+              <a href="modules/generated/piml.models.ReluDNNClassifier.html" role="button" class="btn sk-btn-rellink py-1" sk-rellink-tooltip="piml.models.ReluDNNClassifier">Prev</a>
               <a href="#" role="button" class="btn sk-btn-rellink disabled py-1">Up</a>
               <a href="guides/introduction.html" role="button" class="btn sk-btn-rellink py-1" sk-rellink-tooltip="1. Introduction">Next</a>
           </div-->
@@ -159,7 +159,7 @@
                   </li>
                 
                   <li>
-                    <a href="guides/testing.html" class="">6. Outcome Testing</a>
+                    <a href="guides/testing.html" class="">6. Diagnostic Suite</a>
                     
                   </li>
                 
@@ -170,11 +170,6 @@
                 
                   <li>
                     <a href="guides/cases.html" class="">8. Case Studies</a>
-                    
-                  </li>
-                
-                  <li>
-                    <a href="guides/conclusion.html" class="">9. Conclusion</a>
                     
                   </li>
                 
@@ -350,9 +345,22 @@
   }
 </style><div class="toctree-wrapper compound">
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="guides/introduction.html">1. Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="guides/introduction.html">1. Introduction</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="guides/introduction.html#id1">1.1. Introduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="guides/introduction.html#toolbox-design">1.2. Toolbox Design</a></li>
+<li class="toctree-l2"><a class="reference internal" href="guides/introduction.html#interpretable-models">1.3. Interpretable Models</a></li>
+<li class="toctree-l2"><a class="reference internal" href="guides/introduction.html#diagnostic-suite">1.4. Diagnostic Suite</a></li>
+<li class="toctree-l2"><a class="reference internal" href="guides/introduction.html#future-plan">1.5. Future Plan</a></li>
+</ul>
+</li>
 <li class="toctree-l1"><a class="reference internal" href="guides/data.html">2. Data Pipeline</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="guides/data/feature_select.html">2.1. Feature Selection</a></li>
+<li class="toctree-l2"><a class="reference internal" href="guides/data/data_load.html">2.1. Data Load</a></li>
+<li class="toctree-l2"><a class="reference internal" href="guides/data/data_summary.html">2.2. Data Summary</a></li>
+<li class="toctree-l2"><a class="reference internal" href="guides/data/data_prepare.html">2.3. Data Prepare</a></li>
+<li class="toctree-l2"><a class="reference internal" href="guides/data/data_eda.html">2.4. Exploratory Analysis</a></li>
+<li class="toctree-l2"><a class="reference internal" href="guides/data/data_quality.html">2.5. Data Quality</a></li>
+<li class="toctree-l2"><a class="reference internal" href="guides/data/feature_select.html">2.6. Feature Selection</a></li>
+<li class="toctree-l2"><a class="reference internal" href="guides/data/twosample_test.html">2.7. Two Sample Test</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="guides/extmodels.html">3. Black-box Models</a><ul>
@@ -364,11 +372,37 @@
 </li>
 <li class="toctree-l1"><a class="reference internal" href="guides/explainability.html">4. Post-hoc Explainability</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="guides/explainability.html#global-explainability">4.1. Global Explainability</a></li>
+<li class="toctree-l2"><a class="reference internal" href="guides/explainability.html#local-explainability">4.2. Local Explainability</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="guides/models.html">5. Interpretable Models</a></li>
-<li class="toctree-l1"><a class="reference internal" href="guides/testing.html">6. Outcome Testing</a></li>
-<li class="toctree-l1"><a class="reference internal" href="guides/comparison.html">7. Model Comparison</a></li>
+<li class="toctree-l1"><a class="reference internal" href="guides/models.html">5. Interpretable Models</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="guides/models/glm.html">5.1. Generalized Linear Models</a></li>
+<li class="toctree-l2"><a class="reference internal" href="guides/models/gam.html">5.2. Generalized Additive Model</a></li>
+<li class="toctree-l2"><a class="reference internal" href="guides/models/tree.html">5.3. Decision Tree</a></li>
+<li class="toctree-l2"><a class="reference internal" href="guides/models/figs.html">5.4. Fast Interpretable Greedy-tree Sums</a></li>
+<li class="toctree-l2"><a class="reference internal" href="guides/models/xgb1.html">5.5. XGBoost Depth 1</a></li>
+<li class="toctree-l2"><a class="reference internal" href="guides/models/xgb2.html">5.6. XGBoost Depth 2</a></li>
+<li class="toctree-l2"><a class="reference internal" href="guides/models/ebm.html">5.7. Explainable Boosting Machines</a></li>
+<li class="toctree-l2"><a class="reference internal" href="guides/models/gaminet.html">5.8. GAMI-Net</a></li>
+<li class="toctree-l2"><a class="reference internal" href="guides/models/reludnn.html">5.9. ReLU Neural Network</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="guides/testing.html">6. Diagnostic Suite</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="guides/testing/accuracy.html">6.1. Accuracy</a></li>
+<li class="toctree-l2"><a class="reference internal" href="guides/testing/weakspot.html">6.2. WeakSpot</a></li>
+<li class="toctree-l2"><a class="reference internal" href="guides/testing/overfit.html">6.3. Overfit</a></li>
+<li class="toctree-l2"><a class="reference internal" href="guides/testing/reliability.html">6.4. Reliability</a></li>
+<li class="toctree-l2"><a class="reference internal" href="guides/testing/robustness.html">6.5. Robustness</a></li>
+<li class="toctree-l2"><a class="reference internal" href="guides/testing/resilience.html">6.6. Resilience</a></li>
+<li class="toctree-l2"><a class="reference internal" href="guides/testing/fairness.html">6.7. Fairness</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="guides/comparison.html">7. Model Comparison</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="guides/comparison/compare_regression.html">7.1. Comparison for Regression</a></li>
+<li class="toctree-l2"><a class="reference internal" href="guides/comparison/compare_classification.html">7.2. Comparison for Classification</a></li>
+<li class="toctree-l2"><a class="reference internal" href="guides/comparison/compare_fairness.html">7.3. Fairness Comparison</a></li>
+</ul>
+</li>
 <li class="toctree-l1"><a class="reference internal" href="guides/cases.html">8. Case Studies</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="guides/cases/Example_BikeSharing.html">8.1. BikeSharing Data</a></li>
 <li class="toctree-l2"><a class="reference internal" href="guides/cases/Example_CaliforniaHousing.html">8.2. CaliforniaHousing Data</a></li>
@@ -377,7 +411,6 @@
 <li class="toctree-l2"><a class="reference internal" href="guides/cases/Example_Fairness_SimuStudy2.html">8.5. Fairness Simulation Study 2</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="guides/conclusion.html">9. Conclusion</a></li>
 </ul>
 </div>
 </section>

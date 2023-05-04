@@ -10,7 +10,7 @@
     .. note::
         :class: sphx-glr-download-link-note
 
-        Click :ref:`here <sphx_glr_download_auto_examples_models_plot_1_gam_reg.py>`
+        :ref:`Go to the end <sphx_glr_download_auto_examples_models_plot_1_gam_reg.py>`
         to download the full example code or to run this example in your browser via Binder
 
 .. rst-class:: sphx-glr-example-title
@@ -18,12 +18,14 @@
 .. _sphx_glr_auto_examples_models_plot_1_gam_reg.py:
 
 
-Generalized Additive Model
+GAM Regression (California Housing)
 =====================================
 
-GAM Regression
+.. GENERATED FROM PYTHON SOURCE LINES 8-9
 
-.. GENERATED FROM PYTHON SOURCE LINES 10-17
+Experiment initialization and data preparation
+
+.. GENERATED FROM PYTHON SOURCE LINES 9-16
 
 .. code-block:: default
 
@@ -31,56 +33,21 @@ GAM Regression
     from piml.models import GAMRegressor
 
     exp = Experiment()
-    exp.data_loader(data="CaliforniaHousing_trim2")
-    exp.data_prepare()
+    exp.data_loader(data="CaliforniaHousing_trim2", silent=True)
+    exp.data_prepare(target="MedHouseVal", task_type="regression", silent=True)
 
 
 
 
 
-.. rst-class:: sphx-glr-script-out
-
- .. code-block:: none
-
-           MedInc  HouseAge  AveRooms  AveBedrms  Population  AveOccup  Latitude  \
-    0      8.3252      41.0  6.984127   1.023810       322.0  2.555556     37.88   
-    1      8.3014      21.0  6.238137   0.971880      2401.0  2.109842     37.86   
-    2      7.2574      52.0  8.288136   1.073446       496.0  2.802260     37.85   
-    3      5.6431      52.0  5.817352   1.073059       558.0  2.547945     37.85   
-    4      3.8462      52.0  6.281853   1.081081       565.0  2.181467     37.85   
-    ...       ...       ...       ...        ...         ...       ...       ...   
-    20635  1.5603      25.0  5.045455   1.133333       845.0  2.560606     39.48   
-    20636  2.5568      18.0  6.114035   1.315789       356.0  3.122807     39.49   
-    20637  1.7000      17.0  5.205543   1.120092      1007.0  2.325635     39.43   
-    20638  1.8672      18.0  5.329513   1.171920       741.0  2.123209     39.43   
-    20639  2.3886      16.0  5.254717   1.162264      1387.0  2.616981     39.37   
-
-           Longitude  MedHouseVal  
-    0        -122.23        4.526  
-    1        -122.22        3.585  
-    2        -122.24        3.521  
-    3        -122.25        3.413  
-    4        -122.25        3.422  
-    ...          ...          ...  
-    20635    -121.09        0.781  
-    20636    -121.21        0.771  
-    20637    -121.22        0.923  
-    20638    -121.32        0.847  
-    20639    -121.24        0.894  
-
-    [20640 rows x 9 columns]
-            <IPython.core.display.HTML object>
-            HTML(value="\n        <table class='ptable striped'>\n            <thead class='pthead'>\n            </thead>\n\n            <tbody class='ptbody'>\n                <tr class='ptr'><td class='ptd'>Excluded columns</td><td class='ptd'>[]</td></tr><tr class='ptr'><td class='ptd'>Target variable</td><td class='ptd'>MedHouseVal</td></tr><tr class='ptr'><td class='ptd'>Sample weight</td><td class='ptd'>None</td></tr><tr class='ptr'><td class='ptd'>Task type</td><td class='ptd'>Regression</td></tr><tr class='ptr'><td class='ptd'>Split method</td><td class='ptd'>Random</td></tr><tr class='ptr'><td class='ptd'>Test ratio</td><td class='ptd'>0.2</td></tr><tr class='ptr'><td class='ptd'>Random state</td><td class='ptd'>0</td></tr>\n            </tbody>\n        </table>\n        ")
-    VBox(children=(HBox(children=(VBox(children=(HTML(value='<p>Target Variable:</p>'), HTML(value='<p>Test Ratio:</p>')), layout=Layout(width='100px')), VBox(children=(Dropdown(index=8, options=('MedInc', 'HouseAge', 'AveRooms', 'AveBedrms', 'Population', 'AveOccup', 'Latitude', 'Longitude', 'MedHouseVal'), style=DescriptionStyle(description_width='initial'), value='MedHouseVal'), BoundedFloatText(value=0.2, layout=Layout(width='auto'), max=1.0, step=0.01, style=DescriptionStyle(description_width='initial'))), layout=Layout(width='15%')), HTML(value="<div style='margin-right: 10px'></div>"), VBox(children=(HTML(value='<p>Task Type:</p>'), HTML(value='<p>Random Seed:</p>')), layout=Layout(width='100px')), VBox(children=(Dropdown(index=1, options=('Classification', 'Regression'), style=DescriptionStyle(description_width='initial'), value='Regression'), BoundedIntText(value=0, layout=Layout(justify_content='flex-end', width='auto'), style=DescriptionStyle(description_width='initial'))), layout=Layout(width='15%')), HTML(value="<div style='margin-right: 10px'></div>"), VBox(children=(HTML(value='<p>Sample Weight:</p>'),), layout=Layout(width='100px')), VBox(children=(Dropdown(options=('None', 'MedInc', 'HouseAge', 'AveRooms', 'AveBedrms', 'Population', 'AveOccup', 'Latitude', 'Longitude', 'MedHouseVal'), style=DescriptionStyle(description_width='initial'), value='None'), HTML(value="<div style='margin-right: 2px'></div>"), HBox(children=(HTML(value="<div style='margin-right: 10px'></div>"), Button(button_style='danger', description='UPDATE', layout=Layout(height='80%', width='60%'), style=ButtonStyle(), _dom_classes=('pbtn',))), layout=Layout(justify_content='space-between', width='100%'), _dom_classes=('split-btn',))), layout=Layout(width='15%')), HTML(value="<div style='margin-right: 10px'></div>")), layout=Layout(width='100%'), _dom_classes=('form',)), HTML(value="<div class='divider'></div>"), Output(), Output()), _dom_classes=('input-width-with-parent',))
 
 
 
+.. GENERATED FROM PYTHON SOURCE LINES 17-18
 
-.. GENERATED FROM PYTHON SOURCE LINES 18-19
+Train Model
 
-Model Training
-
-.. GENERATED FROM PYTHON SOURCE LINES 19-21
+.. GENERATED FROM PYTHON SOURCE LINES 18-20
 
 .. code-block:: default
 
@@ -90,24 +57,46 @@ Model Training
 
 
 
+
+
+
+.. GENERATED FROM PYTHON SOURCE LINES 21-22
+
+Evaluate predictive performance
+
+.. GENERATED FROM PYTHON SOURCE LINES 22-24
+
+.. code-block:: default
+
+    exp.model_diagnose(model="GAM", show="accuracy_table")
+
+
+
+
+
 .. rst-class:: sphx-glr-script-out
 
  .. code-block:: none
 
-    HTML(value="<p class='notification info'>Register GAM Done</p>")
+              MSE     MAE       R2
+                              
+    Train  0.0145  0.0867   0.7453
+    Test   0.0152  0.0883   0.7257
+    Gap    0.0007  0.0017  -0.0196
 
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 22-23
+.. GENERATED FROM PYTHON SOURCE LINES 25-26
 
 Global interpretation: effect plot
 
-.. GENERATED FROM PYTHON SOURCE LINES 23-25
+.. GENERATED FROM PYTHON SOURCE LINES 26-29
 
 .. code-block:: default
 
-    exp.model_interpret(model='GAM', show='global_effect_plot', uni_feature="MedInc", original_scale=True, figsize=(6, 5))
+    exp.model_interpret(model="GAM", show="global_effect_plot", uni_feature="MedInc",
+                        original_scale=True, figsize=(5, 4))
 
 
 
@@ -121,15 +110,15 @@ Global interpretation: effect plot
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 26-27
+.. GENERATED FROM PYTHON SOURCE LINES 30-31
 
 Global interpretation: feature importance
 
-.. GENERATED FROM PYTHON SOURCE LINES 27-29
+.. GENERATED FROM PYTHON SOURCE LINES 31-33
 
 .. code-block:: default
 
-    exp.model_interpret(model='GAM',show='global_fi', figsize=(6, 5))
+    exp.model_interpret(model="GAM",show="global_fi", figsize=(5, 4))
 
 
 
@@ -143,15 +132,15 @@ Global interpretation: feature importance
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 30-31
+.. GENERATED FROM PYTHON SOURCE LINES 34-35
 
 Local interpretation
 
-.. GENERATED FROM PYTHON SOURCE LINES 31-32
+.. GENERATED FROM PYTHON SOURCE LINES 35-36
 
 .. code-block:: default
 
-    exp.model_interpret(model='GAM',show='local_fi', sample_id=0, figsize=(6, 5))
+    exp.model_interpret(model="GAM",show="local_fi", sample_id=0, original_scale=True, figsize=(5, 4))
 
 
 
@@ -167,9 +156,7 @@ Local interpretation
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** ( 0 minutes  24.371 seconds)
-
-**Estimated memory usage:**  151 MB
+   **Total running time of the script:** ( 0 minutes  4.312 seconds)
 
 
 .. _sphx_glr_download_auto_examples_models_plot_1_gam_reg.py:
@@ -185,6 +172,8 @@ Local interpretation
         :target: https://mybinder.org/v2/gh/selfexplainml/piml-toolbox/main?urlpath=lab/tree/./docs/_build/html/notebooks/auto_examples/models/plot_1_gam_reg.ipynb
         :alt: Launch binder
         :width: 150 px
+
+
 
     .. container:: sphx-glr-download sphx-glr-download-python
 

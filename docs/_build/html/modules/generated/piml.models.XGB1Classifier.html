@@ -1,0 +1,848 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+
+  <meta charset="utf-8">
+  <meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  
+  <title>PiML Toolbox</title>
+  
+
+  
+  <link rel="shortcut icon" href="../../_static/favicon.ico"/>
+  
+
+  <link rel="stylesheet" href="../../_static/css/vendor/bootstrap.min.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/plot_directive.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/jupyter-sphinx.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/thebelab.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/sg_gallery.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/sg_gallery-binder.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/sg_gallery-dataframe.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/sg_gallery-rendered-html.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
+<script id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+<script src="../../_static/jquery.js"></script>
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="../../_static/doctools.js"></script>
+        <script src="../../_static/sphinx_highlight.js"></script>
+        <script src="../../_static/thebelab-helper.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/@jupyter-widgets/html-manager@^1.0.1/dist/embed-amd.js"></script>
+        <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="../../_static/js/theme.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav">
+
+  
+
+
+<nav id="navbar" class="sk-docs-navbar navbar navbar-expand-md navbar-light bg-light py-0">
+  <div class="container-fluid sk-docs-container px-0">
+      <a class="navbar-brand py-0" href="../../index.html">
+        <img
+          class="sk-brand-img"
+          src="../../_static/piml-logo.png"
+          alt="logo"/>
+      </a>
+    <button
+      id="sk-navbar-toggler"
+      class="navbar-toggler"
+      type="button"
+      data-toggle="collapse"
+      data-target="#navbarSupportedContent"
+      aria-controls="navbarSupportedContent"
+      aria-expanded="false"
+      aria-label="Toggle navigation"
+    >
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="sk-navbar-collapse collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item">
+          <a class="sk-nav-link nav-link" href="../../install.html">Install</a>
+        </li>
+		<li class="nav-item">
+          <a class="sk-nav-link nav-link" href="../classes.html">API</a>
+        </li>
+        <li class="nav-item">
+          <a class="sk-nav-link nav-link" href="../../user_guide.html">User Guide</a>
+        </li>
+        <li class="nav-item">
+          <a class="sk-nav-link nav-link" href="../../auto_examples/index.html">Examples</a>
+        </li>
+        <li class="nav-item">
+          <a class="sk-nav-link nav-link" href="../../faq.html">FAQ</a>
+        </li>      </ul>
+      <div id="searchbox" role="search">
+          <div class="searchformwrapper">
+          <form class="search" action="../../search.html" method="get">
+            <input class="sk-search-text-input" type="text" name="q" aria-labelledby="searchlabel" />
+            <input class="sk-search-text-btn" type="submit" value="Go" />
+          </form>
+          </div>
+      </div>
+    </div>
+  </div>
+</nav>
+  <div class="d-flex" id="sk-doc-wrapper">
+      <input type="checkbox" name="sk-toggle-checkbox" id="sk-toggle-checkbox">
+      <label id="sk-sidemenu-toggle" class="sk-btn-toggle-toc btn sk-btn-primary" for="sk-toggle-checkbox">Toggle Menu</label>
+      <div id="sk-sidebar-wrapper" class="border-right">
+        <div class="sk-sidebar-toc-wrapper">
+          <div class="sk-sidebar-toc-logo">
+            <a href="../../index.html">
+              <img
+                class="sk-brand-img"
+                src="../../_static/piml-logo.png"
+                alt="logo"/>
+            </a>
+          </div>
+          <!--div class="btn-group w-100 mb-2" role="group" aria-label="rellinks">
+              <a href="piml.models.FIGSClassifier.html" role="button" class="btn sk-btn-rellink py-1" sk-rellink-tooltip="piml.models.FIGSClassifier">Prev</a><a href="../classes.html" role="button" class="btn sk-btn-rellink py-1" sk-rellink-tooltip="API Reference">Up</a>
+              <a href="piml.models.XGB1Regressor.html" role="button" class="btn sk-btn-rellink py-1" sk-rellink-tooltip="piml.models.XGB1Regressor">Next</a>
+          </div-->
+              <div class="sk-sidebar-toc">
+                <ul>
+<li><a class="reference internal" href="#"><code class="xref py py-mod docutils literal notranslate"><span class="pre">piml.models</span></code>.XGB1Classifier</a><ul>
+<li><a class="reference internal" href="#piml.models.XGB1Classifier"><code class="docutils literal notranslate"><span class="pre">XGB1Classifier</span></code></a><ul>
+<li><a class="reference internal" href="#piml.models.XGB1Classifier.decision_function"><code class="docutils literal notranslate"><span class="pre">XGB1Classifier.decision_function</span></code></a></li>
+<li><a class="reference internal" href="#piml.models.XGB1Classifier.fit"><code class="docutils literal notranslate"><span class="pre">XGB1Classifier.fit</span></code></a></li>
+<li><a class="reference internal" href="#piml.models.XGB1Classifier.get_main_effect"><code class="docutils literal notranslate"><span class="pre">XGB1Classifier.get_main_effect</span></code></a></li>
+<li><a class="reference internal" href="#piml.models.XGB1Classifier.get_params"><code class="docutils literal notranslate"><span class="pre">XGB1Classifier.get_params</span></code></a></li>
+<li><a class="reference internal" href="#piml.models.XGB1Classifier.interpret_fi"><code class="docutils literal notranslate"><span class="pre">XGB1Classifier.interpret_fi</span></code></a></li>
+<li><a class="reference internal" href="#piml.models.XGB1Classifier.interpret_iv"><code class="docutils literal notranslate"><span class="pre">XGB1Classifier.interpret_iv</span></code></a></li>
+<li><a class="reference internal" href="#piml.models.XGB1Classifier.interpret_local_fi"><code class="docutils literal notranslate"><span class="pre">XGB1Classifier.interpret_local_fi</span></code></a></li>
+<li><a class="reference internal" href="#piml.models.XGB1Classifier.local_feature_explain"><code class="docutils literal notranslate"><span class="pre">XGB1Classifier.local_feature_explain</span></code></a></li>
+<li><a class="reference internal" href="#piml.models.XGB1Classifier.plot_fi"><code class="docutils literal notranslate"><span class="pre">XGB1Classifier.plot_fi</span></code></a></li>
+<li><a class="reference internal" href="#piml.models.XGB1Classifier.plot_iv"><code class="docutils literal notranslate"><span class="pre">XGB1Classifier.plot_iv</span></code></a></li>
+<li><a class="reference internal" href="#piml.models.XGB1Classifier.plot_local_fi"><code class="docutils literal notranslate"><span class="pre">XGB1Classifier.plot_local_fi</span></code></a></li>
+<li><a class="reference internal" href="#piml.models.XGB1Classifier.plot_woe"><code class="docutils literal notranslate"><span class="pre">XGB1Classifier.plot_woe</span></code></a></li>
+<li><a class="reference internal" href="#piml.models.XGB1Classifier.predict"><code class="docutils literal notranslate"><span class="pre">XGB1Classifier.predict</span></code></a></li>
+<li><a class="reference internal" href="#piml.models.XGB1Classifier.predict_proba"><code class="docutils literal notranslate"><span class="pre">XGB1Classifier.predict_proba</span></code></a></li>
+<li><a class="reference internal" href="#piml.models.XGB1Classifier.score"><code class="docutils literal notranslate"><span class="pre">XGB1Classifier.score</span></code></a></li>
+<li><a class="reference internal" href="#piml.models.XGB1Classifier.set_params"><code class="docutils literal notranslate"><span class="pre">XGB1Classifier.set_params</span></code></a></li>
+<li><a class="reference internal" href="#piml.models.XGB1Classifier.update_feature_importance"><code class="docutils literal notranslate"><span class="pre">XGB1Classifier.update_feature_importance</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#examples-using-piml-models-xgb1classifier">Examples using <code class="docutils literal notranslate"><span class="pre">piml.models.XGB1Classifier</span></code></a></li>
+</ul>
+</li>
+</ul>
+
+              </div>
+        </div>
+      </div>
+      <div id="sk-page-content-wrapper">
+        <div class="sk-page-content container-fluid body px-md-3" role="main">
+          
+  <section id="piml-models-xgb1classifier">
+<h1><code class="xref py py-mod docutils literal notranslate"><span class="pre">piml.models</span></code>.XGB1Classifier<a class="headerlink" href="#piml-models-xgb1classifier" title="Permalink to this heading">¶</a></h1>
+<dl class="py class">
+<dt class="sig sig-object py" id="piml.models.XGB1Classifier">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">piml.models.</span></span><span class="sig-name descname"><span class="pre">XGB1Classifier</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">n_estimators</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">100</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">eta</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.3</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">refit_method</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'glm'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tree_method</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'auto'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">max_bin</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">256</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">reg_lambda</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">reg_alpha</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">gamma</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">feature_names</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">feature_types</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">min_bin_size</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.01</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">max_bin_size</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mono_increasing_list</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">()</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mono_decreasing_list</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">()</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">true_to_data</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">random_state</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#piml.models.XGB1Classifier" title="Permalink to this definition">¶</a></dt>
+<dd><p>Depth-1 XGBoostClassifier with optimal binning.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>n_estimators</strong><span class="classifier">int, default=100</span></dt><dd><p>Number of gradient boosted trees.</p>
+</dd>
+<dt><strong>eta</strong><span class="classifier">float, default=0.3</span></dt><dd><p>Boosting learning rate.</p>
+</dd>
+<dt><strong>refit_method</strong><span class="classifier">{“glm”, “xgb”}, default=”glm”</span></dt><dd><p>The method for refit the overall model using the optimized bins.</p>
+</dd>
+<dt><strong>tree_method</strong><span class="classifier">{“exact”, “hist”, “approx”, “gpu_hist”, “auto”}, default=”auto”</span></dt><dd><p>Specify which tree method to use.</p>
+</dd>
+<dt><strong>max_bin</strong><span class="classifier">int, default=20</span></dt><dd><p>If using histogram-based algorithm, maximum number of bins per feature.</p>
+</dd>
+<dt><strong>reg_alpha</strong><span class="classifier">float, default=0</span></dt><dd><p>L1 regularization term on weights.</p>
+</dd>
+<dt><strong>reg_lambda</strong><span class="classifier">float, default=0</span></dt><dd><p>L2 regularization term on weights.</p>
+</dd>
+<dt><strong>gamma</strong><span class="classifier">float, default=0</span></dt><dd><p>Minimum loss reduction required to make a further partition on a leaf node of the tree.</p>
+</dd>
+<dt><strong>feature_names</strong><span class="classifier">list or None, default=None</span></dt><dd><p>The list of feature names.</p>
+</dd>
+<dt><strong>feature_types</strong><span class="classifier">list or None, default=None</span></dt><dd><p>The list of feature types. Available types include “numerical” and “categorical”.</p>
+</dd>
+<dt><strong>min_bin_size</strong><span class="classifier">float, default=0.01</span></dt><dd><p>The fraction of minimum number of records for each bin.</p>
+</dd>
+<dt><strong>max_bin_size</strong><span class="classifier">float, default=1.0</span></dt><dd><p>The fraction of maximum number of records for each bin.</p>
+</dd>
+<dt><strong>mono_increasing_list</strong><span class="classifier">tuple of str, default=()</span></dt><dd><p>The feature name tuple subject to monotonic increasing constraint.</p>
+</dd>
+<dt><strong>mono_decreasing_list</strong><span class="classifier">tuple of str, default=()</span></dt><dd><p>The feature name tuple subject to monotonic decreasing constraint.</p>
+</dd>
+<dt><strong>true_to_data</strong><span class="classifier">bool, default=True</span></dt><dd><p>If True, interpret the model using training sample, otherwise using uniform distribution.</p>
+</dd>
+<dt><strong>random_state</strong><span class="classifier">int, default=0</span></dt><dd><p>The random seed.</p>
+</dd>
+</dl>
+</dd>
+<dt class="field-even">Attributes<span class="colon">:</span></dt>
+<dd class="field-even"><dl class="simple">
+<dt><strong>n_features_in_</strong><span class="classifier">int</span></dt><dd><p>The number of input features.</p>
+</dd>
+<dt><strong>is_fitted_</strong><span class="classifier">bool</span></dt><dd><p>Indicator of whether the model is fitted.</p>
+</dd>
+<dt><strong>feature_names_</strong><span class="classifier">list of str</span></dt><dd><p>The feature name list of all input features.</p>
+</dd>
+<dt><strong>feature_types_</strong><span class="classifier">list of str</span></dt><dd><p>The feature type list of all input features.</p>
+</dd>
+<dt><strong>min_value_</strong><span class="classifier">np.ndarray of shape (n_features, )</span></dt><dd><p>The min values of input features (obtained from training data).</p>
+</dd>
+<dt><strong>max_value_</strong><span class="classifier">np.ndarray of shape (n_features, )</span></dt><dd><p>The max values of input features (obtained from training data).</p>
+</dd>
+<dt><strong>split_info_: dict</strong></dt><dd><p>The split points per feature.</p>
+</dd>
+<dt><strong>n_splits_raw_</strong><span class="classifier">int</span></dt><dd><p>The totoal number of splits in the raw XGB model.</p>
+</dd>
+<dt><strong>n_splits_</strong><span class="classifier">int</span></dt><dd><p>The total number of splits.</p>
+</dd>
+<dt><strong>xgb_params_</strong><span class="classifier">dict</span></dt><dd><p>The parameter dict of XGB model.</p>
+</dd>
+<dt><strong>effects_: dict</strong></dt><dd><p>The main effects of the final functional ANOVA model.</p>
+</dd>
+<dt><strong>intercept_</strong><span class="classifier">int</span></dt><dd><p>The overall intercept of the final functional ANOVA model.</p>
+</dd>
+<dt><strong>feature_importance_</strong><span class="classifier">np.ndarray of shape (n_features, )</span></dt><dd><p>The importance of features.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+<p class="rubric">Methods</p>
+<table class="autosummary longtable docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#piml.models.XGB1Classifier.decision_function" title="piml.models.XGB1Classifier.decision_function"><code class="xref py py-obj docutils literal notranslate"><span class="pre">decision_function</span></code></a>(X)</p></td>
+<td><p>Returns numpy array of raw predictions.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#piml.models.XGB1Classifier.fit" title="piml.models.XGB1Classifier.fit"><code class="xref py py-obj docutils literal notranslate"><span class="pre">fit</span></code></a>(X, y[, sample_weight])</p></td>
+<td><p>Fit the model.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#piml.models.XGB1Classifier.get_main_effect" title="piml.models.XGB1Classifier.get_main_effect"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_main_effect</span></code></a>(feature[, scaler])</p></td>
+<td><p>Return the raw main effects after aggregation, purification and attribution.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#piml.models.XGB1Classifier.get_params" title="piml.models.XGB1Classifier.get_params"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_params</span></code></a>([deep])</p></td>
+<td><p>Get parameters for this estimator.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#piml.models.XGB1Classifier.interpret_fi" title="piml.models.XGB1Classifier.interpret_fi"><code class="xref py py-obj docutils literal notranslate"><span class="pre">interpret_fi</span></code></a>()</p></td>
+<td><p>Interpret feature importance.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#piml.models.XGB1Classifier.interpret_iv" title="piml.models.XGB1Classifier.interpret_iv"><code class="xref py py-obj docutils literal notranslate"><span class="pre">interpret_iv</span></code></a>()</p></td>
+<td><p>Interpret feature importance.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#piml.models.XGB1Classifier.interpret_local_fi" title="piml.models.XGB1Classifier.interpret_local_fi"><code class="xref py py-obj docutils literal notranslate"><span class="pre">interpret_local_fi</span></code></a>(x_, y_[, centered])</p></td>
+<td><p>Interpret local feature importance</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#piml.models.XGB1Classifier.local_feature_explain" title="piml.models.XGB1Classifier.local_feature_explain"><code class="xref py py-obj docutils literal notranslate"><span class="pre">local_feature_explain</span></code></a>(X[, y, include_intercept])</p></td>
+<td><p>Extract the feature contribution of given samples.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#piml.models.XGB1Classifier.plot_fi" title="piml.models.XGB1Classifier.plot_fi"><code class="xref py py-obj docutils literal notranslate"><span class="pre">plot_fi</span></code></a>(interpret_result[, max_show, ...])</p></td>
+<td><p>The plot function for display feature importance result.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#piml.models.XGB1Classifier.plot_iv" title="piml.models.XGB1Classifier.plot_iv"><code class="xref py py-obj docutils literal notranslate"><span class="pre">plot_iv</span></code></a>(interpret_result[, max_show, ...])</p></td>
+<td><p>The plot function for display information value result.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#piml.models.XGB1Classifier.plot_local_fi" title="piml.models.XGB1Classifier.plot_local_fi"><code class="xref py py-obj docutils literal notranslate"><span class="pre">plot_local_fi</span></code></a>(interpret_result[, max_show, ...])</p></td>
+<td><p>The plot function for display local feature importance result.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#piml.models.XGB1Classifier.plot_woe" title="piml.models.XGB1Classifier.plot_woe"><code class="xref py py-obj docutils literal notranslate"><span class="pre">plot_woe</span></code></a>(binning_result[, return_fig, figsize])</p></td>
+<td><p>The plot function for display weight of evidence result.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#piml.models.XGB1Classifier.predict" title="piml.models.XGB1Classifier.predict"><code class="xref py py-obj docutils literal notranslate"><span class="pre">predict</span></code></a>(X)</p></td>
+<td><p>Returns numpy array of predicted class.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#piml.models.XGB1Classifier.predict_proba" title="piml.models.XGB1Classifier.predict_proba"><code class="xref py py-obj docutils literal notranslate"><span class="pre">predict_proba</span></code></a>(X)</p></td>
+<td><p>Returns numpy array of predicted probabilities of each class.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#piml.models.XGB1Classifier.score" title="piml.models.XGB1Classifier.score"><code class="xref py py-obj docutils literal notranslate"><span class="pre">score</span></code></a>(X, y[, sample_weight])</p></td>
+<td><p>Return the mean accuracy on the given test data and labels.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#piml.models.XGB1Classifier.set_params" title="piml.models.XGB1Classifier.set_params"><code class="xref py py-obj docutils literal notranslate"><span class="pre">set_params</span></code></a>(**params)</p></td>
+<td><p>Set the parameters of this estimator.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#piml.models.XGB1Classifier.update_feature_importance" title="piml.models.XGB1Classifier.update_feature_importance"><code class="xref py py-obj docutils literal notranslate"><span class="pre">update_feature_importance</span></code></a>(X)</p></td>
+<td><p>Update the feature importance using custom data.</p></td>
+</tr>
+</tbody>
+</table>
+<table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p><strong>get_binning_result</strong></p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p><strong>get_global_effects</strong></p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p><strong>get_interaction_effect</strong></p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p><strong>global_interpret</strong></p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p><strong>global_visualize_dict</strong></p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p><strong>interpret_effect</strong></p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p><strong>interpret_ei</strong></p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p><strong>interpret_local_ei</strong></p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p><strong>plot_ei</strong></p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p><strong>plot_interaction_effect</strong></p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p><strong>plot_local_ei</strong></p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p><strong>plot_main_effect</strong></p></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<dl class="py method">
+<dt class="sig sig-object py" id="piml.models.XGB1Classifier.decision_function">
+<span class="sig-name descname"><span class="pre">decision_function</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">X</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#piml.models.XGB1Classifier.decision_function" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns numpy array of raw predictions.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>X</strong><span class="classifier">np.ndarray of shape (n_samples, n_features)</span></dt><dd><p>Data features.</p>
+</dd>
+</dl>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><dl class="simple">
+<dt><strong>predictions</strong><span class="classifier">np.ndarray of shape (n_samples, )</span></dt><dd><p>numpy array of raw predictions.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="piml.models.XGB1Classifier.fit">
+<span class="sig-name descname"><span class="pre">fit</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">X</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sample_weight</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#piml.models.XGB1Classifier.fit" title="Permalink to this definition">¶</a></dt>
+<dd><p>Fit the model.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>X</strong><span class="classifier">np.ndarray of shape (n_samples, n_features)</span></dt><dd><p>Data features.</p>
+</dd>
+<dt><strong>y</strong><span class="classifier">np.ndarray of shape (n_samples, )</span></dt><dd><p>Target response.</p>
+</dd>
+<dt><strong>sample_weight</strong><span class="classifier">np.ndarray of shape (n_samples, )</span></dt><dd><p>Sample weight.</p>
+</dd>
+</dl>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><dl class="simple">
+<dt><strong>self</strong><span class="classifier">object</span></dt><dd><p>Fitted Estimator.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="piml.models.XGB1Classifier.get_main_effect">
+<span class="sig-name descname"><span class="pre">get_main_effect</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">feature</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">scaler</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#piml.models.XGB1Classifier.get_main_effect" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the raw main effects after aggregation, purification and attribution.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>feature</strong><span class="classifier">str</span></dt><dd><p>The name of a feature.</p>
+</dd>
+<dt><strong>scaler</strong><span class="classifier">scaler object, default=None</span></dt><dd><p>Whether to scale it to the original scale.</p>
+</dd>
+</dl>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><dl class="simple">
+<dt><strong>result</strong><span class="classifier">TestDataResult</span></dt><dd><p>The main effect results.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="piml.models.XGB1Classifier.get_params">
+<span class="sig-name descname"><span class="pre">get_params</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">deep</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#piml.models.XGB1Classifier.get_params" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get parameters for this estimator.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>deep</strong><span class="classifier">bool, default=True</span></dt><dd><p>If True, will return the parameters for this estimator and
+contained subobjects that are estimators.</p>
+</dd>
+</dl>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><dl class="simple">
+<dt><strong>params</strong><span class="classifier">dict</span></dt><dd><p>Parameter names mapped to their values.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="piml.models.XGB1Classifier.interpret_fi">
+<span class="sig-name descname"><span class="pre">interpret_fi</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#piml.models.XGB1Classifier.interpret_fi" title="Permalink to this definition">¶</a></dt>
+<dd><p>Interpret feature importance.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><dl class="simple">
+<dt>TestDataResult</dt><dd><p>The feature importance result.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="piml.models.XGB1Classifier.interpret_iv">
+<span class="sig-name descname"><span class="pre">interpret_iv</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#piml.models.XGB1Classifier.interpret_iv" title="Permalink to this definition">¶</a></dt>
+<dd><p>Interpret feature importance.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><dl class="simple">
+<dt>TestDataResult</dt><dd><p>The feature importance result.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="piml.models.XGB1Classifier.interpret_local_fi">
+<span class="sig-name descname"><span class="pre">interpret_local_fi</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x_</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">array</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y_</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">array</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">centered</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Optional" title="(in Python v3.11)"><span class="pre">Optional</span></a><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.11)"><span class="pre">bool</span></a><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#piml.models.XGB1Classifier.interpret_local_fi" title="Permalink to this definition">¶</a></dt>
+<dd><p>Interpret local feature importance</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>x_</strong><span class="classifier">np.array</span></dt><dd><p>The data to interpret, should be shape(1, :).</p>
+</dd>
+<dt><strong>y_</strong><span class="classifier">np.array</span></dt><dd><p>The response to interpret, should be shape(1, :).</p>
+</dd>
+<dt><strong>centered</strong><span class="classifier">bool, default=None</span></dt><dd><p>Whether to centerize the importance.</p>
+</dd>
+</dl>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><dl class="simple">
+<dt>TestDataResult</dt><dd><p>The local feature importance result.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="piml.models.XGB1Classifier.local_feature_explain">
+<span class="sig-name descname"><span class="pre">local_feature_explain</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">X</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">include_intercept</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">args</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#piml.models.XGB1Classifier.local_feature_explain" title="Permalink to this definition">¶</a></dt>
+<dd><p>Extract the feature contribution of given samples.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>X</strong><span class="classifier">np.ndarray of shape (n_samples, n_features)</span></dt><dd><p>Data features.</p>
+</dd>
+<dt><strong>y</strong><span class="classifier">np.ndarray of shape (n_samples, ), default=None.</span></dt><dd><p>Target response.</p>
+</dd>
+<dt><strong>include_intercept</strong><span class="classifier">bool, default=False</span></dt><dd><p>Whether to show the intercept term.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="piml.models.XGB1Classifier.plot_fi">
+<span class="sig-name descname"><span class="pre">plot_fi</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">interpret_result</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">max_show</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">10</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">return_fig</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">figsize</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">(8,</span> <span class="pre">6)</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#piml.models.XGB1Classifier.plot_fi" title="Permalink to this definition">¶</a></dt>
+<dd><p>The plot function for display feature importance result.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>interpret_result</strong><span class="classifier">TestDataResult</span></dt><dd><p>The result of function “interpret_fi”</p>
+</dd>
+<dt><strong>max_show</strong><span class="classifier">int, optional</span></dt><dd><p>The max number of features to show, by default 10</p>
+</dd>
+<dt><strong>return_fig</strong><span class="classifier">bool, optional</span></dt><dd><p>Whether to return the fig object, by default False</p>
+</dd>
+<dt><strong>figsize</strong><span class="classifier">tuple, optional</span></dt><dd><p>Figure size, by default (8, 6)</p>
+</dd>
+</dl>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><dl class="simple">
+<dt>plt.Figure</dt><dd><p>Matplotlib pyplot figure object.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="piml.models.XGB1Classifier.plot_iv">
+<span class="sig-name descname"><span class="pre">plot_iv</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">interpret_result</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">max_show</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">10</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">return_fig</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">figsize</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">(8,</span> <span class="pre">6)</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#piml.models.XGB1Classifier.plot_iv" title="Permalink to this definition">¶</a></dt>
+<dd><p>The plot function for display information value result.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>interpret_result</strong><span class="classifier">TestDataResult</span></dt><dd><p>The result of function “interpret_iv”.</p>
+</dd>
+<dt><strong>max_show</strong><span class="classifier">int, default=10</span></dt><dd><p>The max number of features to show, default=10</p>
+</dd>
+<dt><strong>return_fig</strong><span class="classifier">bool, default=False</span></dt><dd><p>Whether to return the figure.</p>
+</dd>
+<dt><strong>figsize</strong><span class="classifier">tuple, optional</span></dt><dd><p>Figure size, by default (8, 6)</p>
+</dd>
+</dl>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><dl class="simple">
+<dt>plt.Figure</dt><dd><p>Matplotlib pyplot figure object.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="piml.models.XGB1Classifier.plot_local_fi">
+<span class="sig-name descname"><span class="pre">plot_local_fi</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">interpret_result</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">TestDataResult</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">max_show</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.11)"><span class="pre">int</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">10</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">return_fig</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.11)"><span class="pre">bool</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">figsize</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#tuple" title="(in Python v3.11)"><span class="pre">tuple</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">(8,</span> <span class="pre">6)</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#piml.models.XGB1Classifier.plot_local_fi" title="Permalink to this definition">¶</a></dt>
+<dd><p>The plot function for display local feature importance result.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>interpret_result</strong><span class="classifier">TestDataResult</span></dt><dd><p>The result of function “interpret_local_fi”</p>
+</dd>
+<dt><strong>max_show</strong><span class="classifier">int, optional</span></dt><dd><p>The max number of features to show, by default 10</p>
+</dd>
+<dt><strong>figsize</strong><span class="classifier">tuple, optional</span></dt><dd><p>Figure size, by default (8, 6)</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="piml.models.XGB1Classifier.plot_woe">
+<span class="sig-name descname"><span class="pre">plot_woe</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">binning_result</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">return_fig</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">figsize</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">(8,</span> <span class="pre">6)</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#piml.models.XGB1Classifier.plot_woe" title="Permalink to this definition">¶</a></dt>
+<dd><p>The plot function for display weight of evidence result.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>binning_result</strong><span class="classifier">optbinning results object</span></dt><dd><p>The result of weight of evidence.</p>
+</dd>
+<dt><strong>return_fig</strong><span class="classifier">bool, default=False</span></dt><dd><p>Whether to return the figure.</p>
+</dd>
+<dt><strong>figsize</strong><span class="classifier">tuple, optional</span></dt><dd><p>Figure size, by default (8, 6)</p>
+</dd>
+</dl>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><dl class="simple">
+<dt>plt.Figure</dt><dd><p>Matplotlib pyplot figure object.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="piml.models.XGB1Classifier.predict">
+<span class="sig-name descname"><span class="pre">predict</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">X</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#piml.models.XGB1Classifier.predict" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns numpy array of predicted class.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>X</strong><span class="classifier">np.ndarray of shape (n_samples, n_features)</span></dt><dd><p>Data features</p>
+</dd>
+</dl>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><dl class="simple">
+<dt><strong>pred</strong><span class="classifier">np.ndarray of shape (n_samples, )</span></dt><dd><p>numpy array of predicted class values.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="piml.models.XGB1Classifier.predict_proba">
+<span class="sig-name descname"><span class="pre">predict_proba</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">X</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#piml.models.XGB1Classifier.predict_proba" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns numpy array of predicted probabilities of each class.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>X</strong><span class="classifier">np.ndarray of shape (n_samples, n_features)</span></dt><dd><p>Data features.</p>
+</dd>
+</dl>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><dl class="simple">
+<dt><strong>pred_proba</strong><span class="classifier">np.ndarray of shape (n_samples, 2)</span></dt><dd><p>numpy array of predicted proba values.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="piml.models.XGB1Classifier.score">
+<span class="sig-name descname"><span class="pre">score</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">X</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sample_weight</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#piml.models.XGB1Classifier.score" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the mean accuracy on the given test data and labels.</p>
+<p>In multi-label classification, this is the subset accuracy
+which is a harsh metric since you require for each sample that
+each label set be correctly predicted.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>X</strong><span class="classifier">array-like of shape (n_samples, n_features)</span></dt><dd><p>Test samples.</p>
+</dd>
+<dt><strong>y</strong><span class="classifier">array-like of shape (n_samples,) or (n_samples, n_outputs)</span></dt><dd><p>True labels for <code class="docutils literal notranslate"><span class="pre">X</span></code>.</p>
+</dd>
+<dt><strong>sample_weight</strong><span class="classifier">array-like of shape (n_samples,), default=None</span></dt><dd><p>Sample weights.</p>
+</dd>
+</dl>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><dl class="simple">
+<dt><strong>score</strong><span class="classifier">float</span></dt><dd><p>Mean accuracy of <code class="docutils literal notranslate"><span class="pre">self.predict(X)</span></code> w.r.t. <code class="docutils literal notranslate"><span class="pre">y</span></code>.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="piml.models.XGB1Classifier.set_params">
+<span class="sig-name descname"><span class="pre">set_params</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">params</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#piml.models.XGB1Classifier.set_params" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set the parameters of this estimator.</p>
+<p>The method works on simple estimators as well as on nested objects
+(such as <code class="xref py py-class docutils literal notranslate"><span class="pre">Pipeline</span></code>). The latter have
+parameters of the form <code class="docutils literal notranslate"><span class="pre">&lt;component&gt;__&lt;parameter&gt;</span></code> so that it’s
+possible to update each component of a nested object.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>**params</strong><span class="classifier">dict</span></dt><dd><p>Estimator parameters.</p>
+</dd>
+</dl>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><dl class="simple">
+<dt><strong>self</strong><span class="classifier">estimator instance</span></dt><dd><p>Estimator instance.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="piml.models.XGB1Classifier.update_feature_importance">
+<span class="sig-name descname"><span class="pre">update_feature_importance</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">X</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#piml.models.XGB1Classifier.update_feature_importance" title="Permalink to this definition">¶</a></dt>
+<dd><p>Update the feature importance using custom data.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>X</strong><span class="classifier">np.ndarray of shape (n_samples, n_features)</span></dt><dd><p>Data features.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<section id="examples-using-piml-models-xgb1classifier">
+<h2>Examples using <code class="docutils literal notranslate"><span class="pre">piml.models.XGB1Classifier</span></code><a class="headerlink" href="#examples-using-piml-models-xgb1classifier" title="Permalink to this heading">¶</a></h2>
+<div class="sphx-glr-thumbnails"><div class="sphx-glr-thumbcontainer" tooltip="XGB-1 Classification (CoCircles)"><img alt="" src="../../_images/sphx_glr_plot_4_xgb1_cls_thumb.png" />
+<p><a class="reference internal" href="../../auto_examples/models/plot_4_xgb1_cls.html#sphx-glr-auto-examples-models-plot-4-xgb1-cls-py"><span class="std std-ref">XGB-1 Classification (CoCircles)</span></a></p>
+  <div class="sphx-glr-thumbnail-title">XGB-1 Classification (CoCircles)</div>
+</div></div><div class="clearer"></div></section>
+</section>
+
+
+        </div>
+      <div class="container">
+        <footer class="sk-content-footer">
+              &copy; Copyright 2022-, PiML-Toolbox authors.
+            <a href="../../_sources/modules/generated/piml.models.XGB1Classifier.rst.txt" rel="nofollow">Show this page source</a>
+        </footer>
+      </div>
+    </div>
+  </div>
+
+
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(false);
+      });
+      
+      const tooltipTriggerList = document.querySelectorAll('[data-bs-toggle="tooltip"]')
+      const tooltipList = [...tooltipTriggerList].map(tooltipTriggerEl => new bootstrap.Tooltip(tooltipTriggerEl))
+  </script>
+
+<script>
+$(document).ready(function() {
+    /* Add a [>>>] button on the top-right corner of code samples to hide
+     * the >>> and ... prompts and the output and thus make the code
+     * copyable. */
+    var div = $('.highlight-python .highlight,' +
+                '.highlight-python3 .highlight,' +
+                '.highlight-pycon .highlight,' +
+		'.highlight-default .highlight')
+    var pre = div.find('pre');
+
+    // get the styles from the current theme
+    pre.parent().parent().css('position', 'relative');
+    var hide_text = 'Hide prompts and outputs';
+    var show_text = 'Show prompts and outputs';
+
+    // create and add the button to all the code blocks that contain >>>
+    div.each(function(index) {
+        var jthis = $(this);
+        if (jthis.find('.gp').length > 0) {
+            var button = $('<span class="copybutton">&gt;&gt;&gt;</span>');
+            button.attr('title', hide_text);
+            button.data('hidden', 'false');
+            jthis.prepend(button);
+        }
+        // tracebacks (.gt) contain bare text elements that need to be
+        // wrapped in a span to work with .nextUntil() (see later)
+        jthis.find('pre:has(.gt)').contents().filter(function() {
+            return ((this.nodeType == 3) && (this.data.trim().length > 0));
+        }).wrap('<span>');
+    });
+
+    // define the behavior of the button when it's clicked
+    $('.copybutton').click(function(e){
+        e.preventDefault();
+        var button = $(this);
+        if (button.data('hidden') === 'false') {
+            // hide the code output
+            button.parent().find('.go, .gp, .gt').hide();
+            button.next('pre').find('.gt').nextUntil('.gp, .go').css('visibility', 'hidden');
+            button.css('text-decoration', 'line-through');
+            button.attr('title', show_text);
+            button.data('hidden', 'true');
+        } else {
+            // show the code output
+            button.parent().find('.go, .gp, .gt').show();
+            button.next('pre').find('.gt').nextUntil('.gp, .go').css('visibility', 'visible');
+            button.css('text-decoration', 'none');
+            button.attr('title', hide_text);
+            button.data('hidden', 'false');
+        }
+    });
+
+	/*** Add permalink buttons next to glossary terms ***/
+	$('dl.glossary > dt[id]').append(function() {
+		return ('<a class="headerlink" href="#' +
+			    this.getAttribute('id') +
+			    '" title="Permalink to this term">¶</a>');
+	});
+  /*** Hide navbar when scrolling down ***/
+  // Returns true when headerlink target matches hash in url
+  (function() {
+    hashTargetOnTop = function() {
+        var hash = window.location.hash;
+        if ( hash.length < 2 ) { return false; }
+
+        var target = document.getElementById( hash.slice(1) );
+        if ( target === null ) { return false; }
+
+        var top = target.getBoundingClientRect().top;
+        return (top < 2) && (top > -2);
+    };
+
+    // Hide navbar on load if hash target is on top
+    var navBar = document.getElementById("navbar");
+    var navBarToggler = document.getElementById("sk-navbar-toggler");
+    var navBarHeightHidden = "-" + navBar.getBoundingClientRect().height + "px";
+    var $window = $(window);
+
+    hideNavBar = function() {
+        navBar.style.top = navBarHeightHidden;
+    };
+
+    showNavBar = function() {
+        navBar.style.top = "0";
+    }
+
+    if (hashTargetOnTop()) {
+        hideNavBar()
+    }
+
+    var prevScrollpos = window.pageYOffset;
+    hideOnScroll = function(lastScrollTop) {
+        if (($window.width() < 768) && (navBarToggler.getAttribute("aria-expanded") === 'true')) {
+            return;
+        }
+        if (lastScrollTop > 2 && (prevScrollpos <= lastScrollTop) || hashTargetOnTop()){
+            hideNavBar()
+        } else {
+            showNavBar()
+        }
+        prevScrollpos = lastScrollTop;
+    };
+
+    /*** high performance scroll event listener***/
+    var raf = window.requestAnimationFrame ||
+        window.webkitRequestAnimationFrame ||
+        window.mozRequestAnimationFrame ||
+        window.msRequestAnimationFrame ||
+        window.oRequestAnimationFrame;
+    var lastScrollTop = $window.scrollTop();
+
+    if (raf) {
+        loop();
+    }
+
+    function loop() {
+        var scrollTop = $window.scrollTop();
+        if (lastScrollTop === scrollTop) {
+            raf(loop);
+            return;
+        } else {
+            lastScrollTop = scrollTop;
+            hideOnScroll(lastScrollTop);
+            raf(loop);
+        }
+    }
+  })();
+});
+
+</script>
+    
+
+<script src="_static/js/vendor/bootstrap.min.js"></script>
+
+</body>
+</html>

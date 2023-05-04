@@ -1,0 +1,615 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+
+  <meta charset="utf-8">
+  <meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  
+  <title>PiML Toolbox</title>
+  
+
+  
+  <link rel="shortcut icon" href="../../_static/favicon.ico"/>
+  
+
+  <link rel="stylesheet" href="../../_static/css/vendor/bootstrap.min.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/plot_directive.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/jupyter-sphinx.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/thebelab.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/sg_gallery.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/sg_gallery-binder.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/sg_gallery-dataframe.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/sg_gallery-rendered-html.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
+<script id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+<script src="../../_static/jquery.js"></script>
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="../../_static/doctools.js"></script>
+        <script src="../../_static/sphinx_highlight.js"></script>
+        <script src="../../_static/thebelab-helper.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/@jupyter-widgets/html-manager@^1.0.1/dist/embed-amd.js"></script>
+        <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+        <script>window.MathJax = {"tex": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true}, "options": {"ignoreHtmlClass": "tex2jax_ignore|mathjax_ignore|document", "processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+        <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
+    <script src="../../_static/js/theme.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav">
+
+  
+
+
+<nav id="navbar" class="sk-docs-navbar navbar navbar-expand-md navbar-light bg-light py-0">
+  <div class="container-fluid sk-docs-container px-0">
+      <a class="navbar-brand py-0" href="../../index.html">
+        <img
+          class="sk-brand-img"
+          src="../../_static/piml-logo.png"
+          alt="logo"/>
+      </a>
+    <button
+      id="sk-navbar-toggler"
+      class="navbar-toggler"
+      type="button"
+      data-toggle="collapse"
+      data-target="#navbarSupportedContent"
+      aria-controls="navbarSupportedContent"
+      aria-expanded="false"
+      aria-label="Toggle navigation"
+    >
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="sk-navbar-collapse collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item">
+          <a class="sk-nav-link nav-link" href="../../install.html">Install</a>
+        </li>
+		<li class="nav-item">
+          <a class="sk-nav-link nav-link" href="../../modules/classes.html">API</a>
+        </li>
+        <li class="nav-item">
+          <a class="sk-nav-link nav-link" href="../../user_guide.html">User Guide</a>
+        </li>
+        <li class="nav-item">
+          <a class="sk-nav-link nav-link" href="../../auto_examples/index.html">Examples</a>
+        </li>
+        <li class="nav-item">
+          <a class="sk-nav-link nav-link" href="../../faq.html">FAQ</a>
+        </li>      </ul>
+      <div id="searchbox" role="search">
+          <div class="searchformwrapper">
+          <form class="search" action="../../search.html" method="get">
+            <input class="sk-search-text-input" type="text" name="q" aria-labelledby="searchlabel" />
+            <input class="sk-search-text-btn" type="submit" value="Go" />
+          </form>
+          </div>
+      </div>
+    </div>
+  </div>
+</nav>
+  <div class="d-flex" id="sk-doc-wrapper">
+      <input type="checkbox" name="sk-toggle-checkbox" id="sk-toggle-checkbox">
+      <label id="sk-sidemenu-toggle" class="sk-btn-toggle-toc btn sk-btn-primary" for="sk-toggle-checkbox">Toggle Menu</label>
+      <div id="sk-sidebar-wrapper" class="border-right">
+        <div class="sk-sidebar-toc-wrapper">
+          <div class="sk-sidebar-toc-logo">
+            <a href="../../index.html">
+              <img
+                class="sk-brand-img"
+                src="../../_static/piml-logo.png"
+                alt="logo"/>
+            </a>
+          </div>
+          <!--div class="btn-group w-100 mb-2" role="group" aria-label="rellinks">
+              <a href="../comparison.html" role="button" class="btn sk-btn-rellink py-1" sk-rellink-tooltip="7. Model Comparison">Prev</a><a href="../comparison.html" role="button" class="btn sk-btn-rellink py-1" sk-rellink-tooltip="7. Model Comparison">Up</a>
+              <a href="compare_classification.html" role="button" class="btn sk-btn-rellink py-1" sk-rellink-tooltip="7.2. Comparison for Classification">Next</a>
+          </div-->
+              <div class="sk-sidebar-toc">
+              
+                <ul>
+                
+                
+                
+                
+                
+                
+                <li>
+                  <a href="../../user_guide.html" class="sk-toc-active">User Guide</a>
+                </li>
+                <ul>
+                
+                  <li>
+                    <a href="../introduction.html" class="">1. Introduction</a>
+                    
+                  </li>
+                
+                  <li>
+                    <a href="../data.html" class="">2. Data Pipeline</a>
+                    
+                  </li>
+                
+                  <li>
+                    <a href="../extmodels.html" class="">3. Black-box Models</a>
+                    
+                  </li>
+                
+                  <li>
+                    <a href="../explainability.html" class="">4. Post-hoc Explainability</a>
+                    
+                  </li>
+                
+                  <li>
+                    <a href="../models.html" class="">5. Interpretable Models</a>
+                    
+                  </li>
+                
+                  <li>
+                    <a href="../testing.html" class="">6. Diagnostic Suite</a>
+                    
+                  </li>
+                
+                  <li>
+                    <a href="../comparison.html" class="sk-toc-active">7. Model Comparison</a>
+                    
+                    <ul>
+                      
+                        <li class="sk-toctree-l3">
+                          <a href="">7.1. Comparison for Regression</a>
+                        </li>
+                      
+                        <li class="sk-toctree-l3">
+                          <a href="compare_classification.html">7.2. Comparison for Classification</a>
+                        </li>
+                      
+                        <li class="sk-toctree-l3">
+                          <a href="compare_fairness.html">7.3. Fairness Comparison</a>
+                        </li>
+                      
+                    </ul>
+                    
+                  </li>
+                
+                  <li>
+                    <a href="../cases.html" class="">8. Case Studies</a>
+                    
+                  </li>
+                
+                </ul>
+                
+                
+                
+                
+                </ul>
+              </div>
+        </div>
+      </div>
+      <div id="sk-page-content-wrapper">
+        <div class="sk-page-content container-fluid body px-md-3" role="main">
+          
+  <style type="text/css">
+  div.body div.toctree-wrapper ul {
+      padding-left: 0;
+  }
+
+  div.body li.toctree-l1 {
+      padding: 0 0 0.5em 0;
+      list-style-type: none;
+      font-size: 150%;
+      font-weight: bold;
+  }
+
+  div.body li.toctree-l2 {
+      font-size: 70%;
+      list-style-type: square;
+      font-weight: normal;
+      margin-left: 40px;
+  }
+
+  div.body li.toctree-l3 {
+      font-size: 85%;
+      list-style-type: circle;
+      font-weight: normal;
+      margin-left: 40px;
+  }
+
+  div.body li.toctree-l4 {
+      margin-left: 40px;
+  }
+
+</style><section id="comparison-for-regression">
+<h1><span class="section-number">7.1. </span>Comparison for Regression<a class="headerlink" href="#comparison-for-regression" title="Permalink to this heading">¶</a></h1>
+<p>This section compares models from various perspectives. This can be done by using the <code class="docutils literal notranslate"><span class="pre">model_compare</span></code> function in PiML. For demonstration, we consider a regression task on the BikeSharing data.</p>
+<section id="accuracy-comparison">
+<h2><span class="section-number">7.1.1. </span>Accuracy Comparison<a class="headerlink" href="#accuracy-comparison" title="Permalink to this heading">¶</a></h2>
+<p>The keyword for argument <code class="docutils literal notranslate"><span class="pre">show</span></code> is “accuracy_plot”. The <code class="docutils literal notranslate"><span class="pre">metric</span></code> can be chosen from “MSE”, “MAE”, and “R2”.</p>
+<section id="mean-squared-error">
+<h3><span class="section-number">7.1.1.1. </span>Mean Squared Error<a class="headerlink" href="#mean-squared-error" title="Permalink to this heading">¶</a></h3>
+<p>The first plot compares models based on the squared error, with <code class="docutils literal notranslate"><span class="pre">metric</span></code> set to “MSE”. For each model, the plot includes the squared error boxplots for both testing and training data. In addition, the mean squared error (MSE) is marked using the circle. From the plot, FIGS and XGB2 have similar perform and they both outperform the Tree model.</p>
+<div class="jupyter_cell jupyter_container docutils container">
+<div class="cell_input code_cell docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">exp</span><span class="o">.</span><span class="n">model_compare</span><span class="p">(</span><span class="n">models</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;GLM&quot;</span><span class="p">,</span> <span class="s2">&quot;XGB2&quot;</span><span class="p">,</span> <span class="s2">&quot;XGB7&quot;</span><span class="p">],</span> <span class="n">show</span><span class="o">=</span><span class="s2">&quot;accuracy_plot&quot;</span><span class="p">,</span>
+                  <span class="n">metric</span><span class="o">=</span><span class="s2">&quot;MSE&quot;</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">4</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+</div>
+</div>
+<figure class="align-left">
+<a class="reference external image-reference" href="../../auto_examples/testing_compare/plot_0_compare_regression.html"><img alt="../../_images/sphx_glr_plot_0_compare_regression_001.png" src="../../_images/sphx_glr_plot_0_compare_regression_001.png" /></a>
+</figure>
+</section>
+<section id="mean-absoluate-error">
+<h3><span class="section-number">7.1.1.2. </span>Mean Absoluate Error<a class="headerlink" href="#mean-absoluate-error" title="Permalink to this heading">¶</a></h3>
+<p>This bar plot compares models based on the absolute error, with <code class="docutils literal notranslate"><span class="pre">metric</span></code> set to “MAE”.</p>
+<div class="jupyter_cell jupyter_container docutils container">
+<div class="cell_input code_cell docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">exp</span><span class="o">.</span><span class="n">model_compare</span><span class="p">(</span><span class="n">models</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;GLM&quot;</span><span class="p">,</span> <span class="s2">&quot;XGB2&quot;</span><span class="p">,</span> <span class="s2">&quot;XGB7&quot;</span><span class="p">],</span> <span class="n">show</span><span class="o">=</span><span class="s2">&quot;accuracy_plot&quot;</span><span class="p">,</span>
+                  <span class="n">metric</span><span class="o">=</span><span class="s2">&quot;MAE&quot;</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">4</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+</div>
+</div>
+<figure class="align-left">
+<a class="reference external image-reference" href="../../auto_examples/testing_compare/plot_0_compare_regression.html"><img alt="../../_images/sphx_glr_plot_0_compare_regression_002.png" src="../../_images/sphx_glr_plot_0_compare_regression_002.png" /></a>
+</figure>
+</section>
+<section id="r-squared-score">
+<h3><span class="section-number">7.1.1.3. </span>R-squared Score<a class="headerlink" href="#r-squared-score" title="Permalink to this heading">¶</a></h3>
+<p>The bar plot below shows the R2 score for each model, with <code class="docutils literal notranslate"><span class="pre">metric</span></code> set to “R2”.</p>
+<div class="jupyter_cell jupyter_container docutils container">
+<div class="cell_input code_cell docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">exp</span><span class="o">.</span><span class="n">model_compare</span><span class="p">(</span><span class="n">models</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;GLM&quot;</span><span class="p">,</span> <span class="s2">&quot;XGB2&quot;</span><span class="p">,</span> <span class="s2">&quot;XGB7&quot;</span><span class="p">],</span> <span class="n">show</span><span class="o">=</span><span class="s2">&quot;accuracy_plot&quot;</span><span class="p">,</span>
+                  <span class="n">metric</span><span class="o">=</span><span class="s2">&quot;R2&quot;</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">4</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+</div>
+</div>
+<figure class="align-left">
+<a class="reference external image-reference" href="../../auto_examples/testing_compare/plot_0_compare_regression.html"><img alt="../../_images/sphx_glr_plot_0_compare_regression_003.png" src="../../_images/sphx_glr_plot_0_compare_regression_003.png" /></a>
+</figure>
+<p>The bar chart above compares models based on R2.</p>
+</section>
+</section>
+<section id="overfit-comparison">
+<h2><span class="section-number">7.1.2. </span>Overfit Comparison<a class="headerlink" href="#overfit-comparison" title="Permalink to this heading">¶</a></h2>
+<p>Overfit comparison is to compare the overfit regions of different models. The overfit detection algorithm can be found in the <a class="reference external" href="../testing/overfit.html">overfit</a> testing section. The keyword for overfit comparison is “overfit”. Similar to the overfit test for a single model, the following arguments are required to run the overfit comparison.</p>
+<p>Different from the overfit for a single model, the argument for selecting slicing features is <code class="docutils literal notranslate"><span class="pre">slice_feature</span></code> (instead of <code class="docutils literal notranslate"><span class="pre">slice_features</span></code>), which is a string representing the feature name. The following example illustrates how to compare models’ overfit regions, using the keyword “overfit”, in which we consider a binary classification task on the TaiwanCredit data for demonstration.</p>
+<div class="jupyter_cell jupyter_container docutils container">
+<div class="cell_input code_cell docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">exp</span><span class="o">.</span><span class="n">model_compare</span><span class="p">(</span><span class="n">models</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;GLM&quot;</span><span class="p">,</span> <span class="s2">&quot;XGB2&quot;</span><span class="p">,</span> <span class="s2">&quot;XGB7&quot;</span><span class="p">],</span> <span class="n">show</span><span class="o">=</span><span class="s2">&quot;overfit&quot;</span><span class="p">,</span>
+                  <span class="n">slice_method</span><span class="o">=</span><span class="s2">&quot;historgram&quot;</span><span class="p">,</span> <span class="n">slice_feature</span><span class="o">=</span><span class="s2">&quot;hr&quot;</span><span class="p">,</span> <span class="n">threshold</span><span class="o">=</span><span class="mf">1.05</span><span class="p">,</span>
+                  <span class="n">bins</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">metricmetric</span><span class="o">=</span><span class="s2">&quot;MSE&quot;</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">4</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+</div>
+</div>
+<figure class="align-left">
+<a class="reference external image-reference" href="../../auto_examples/testing_compare/plot_0_compare_regression.html"><img alt="../../_images/sphx_glr_plot_0_compare_regression_004.png" src="../../_images/sphx_glr_plot_0_compare_regression_004.png" /></a>
+</figure>
+<div class="jupyter_cell jupyter_container docutils container">
+<div class="cell_input code_cell docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">exp</span><span class="o">.</span><span class="n">model_compare</span><span class="p">(</span><span class="n">models</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;GLM&quot;</span><span class="p">,</span> <span class="s2">&quot;XGB2&quot;</span><span class="p">,</span> <span class="s2">&quot;XGB7&quot;</span><span class="p">],</span> <span class="n">show</span><span class="o">=</span><span class="s2">&quot;overfit&quot;</span><span class="p">,</span>
+                  <span class="n">slice_method</span><span class="o">=</span><span class="s2">&quot;tree&quot;</span><span class="p">,</span> <span class="n">slice_feature</span><span class="o">=</span><span class="s2">&quot;atemp&quot;</span><span class="p">,</span> <span class="n">threshold</span><span class="o">=</span><span class="mf">1.05</span><span class="p">,</span>
+                  <span class="n">metricmetric</span><span class="o">=</span><span class="s2">&quot;ACC&quot;</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">4</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+</div>
+</div>
+<figure class="align-left">
+<a class="reference external image-reference" href="../../auto_examples/testing_compare/plot_0_compare_regression.html"><img alt="../../_images/sphx_glr_plot_0_compare_regression_005.png" src="../../_images/sphx_glr_plot_0_compare_regression_005.png" /></a>
+</figure>
+</section>
+<section id="reliability-comparison">
+<h2><span class="section-number">7.1.3. </span>Reliability Comparison<a class="headerlink" href="#reliability-comparison" title="Permalink to this heading">¶</a></h2>
+<p>Reliability comparison is to compare models under input perturbation. The algorithm details of robustness test can be found in the <a class="reference external" href="../testing/reliability.html">reliability</a> testing section.</p>
+<section id="coverage-comparison">
+<h3><span class="section-number">7.1.3.1. </span>Coverage Comparison<a class="headerlink" href="#coverage-comparison" title="Permalink to this heading">¶</a></h3>
+<p>For demonstration purpose, we consider 3 models on the BikeSharing data. By setting <code class="docutils literal notranslate"><span class="pre">show</span></code> to “reliability_coverage”, we can get the average coverage comparison plot of the prediction intervals on test set. The argument <code class="docutils literal notranslate"><span class="pre">alpha</span></code> is the expected proportion of test samples to be outside the prediction intervals.</p>
+<div class="jupyter_cell jupyter_container docutils container">
+<div class="cell_input code_cell docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">exp</span><span class="o">.</span><span class="n">model_compare</span><span class="p">(</span><span class="n">models</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;GLM&quot;</span><span class="p">,</span> <span class="s2">&quot;XGB2&quot;</span><span class="p">,</span> <span class="s2">&quot;XGB7&quot;</span><span class="p">],</span> <span class="n">show</span><span class="o">=</span><span class="s2">&quot;reliability_coverage&quot;</span><span class="p">,</span>
+                  <span class="n">alpha</span><span class="o">=</span><span class="mf">0.1</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">4</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+</div>
+</div>
+<figure class="align-left">
+<a class="reference external image-reference" href="../../auto_examples/testing_compare/plot_0_compare_regression.html"><img alt="../../_images/sphx_glr_plot_0_compare_regression_006.png" src="../../_images/sphx_glr_plot_0_compare_regression_006.png" /></a>
+</figure>
+</section>
+<section id="bandwidth-comparison">
+<h3><span class="section-number">7.1.3.2. </span>Bandwidth Comparison<a class="headerlink" href="#bandwidth-comparison" title="Permalink to this heading">¶</a></h3>
+<p>The example below illustrates how to compare models’ prediciton invertal bandwidth. The argument <code class="docutils literal notranslate"><span class="pre">alpha</span></code> is set to 0.1, which means the expected coverage is 90%.</p>
+<div class="jupyter_cell jupyter_container docutils container">
+<div class="cell_input code_cell docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">exp</span><span class="o">.</span><span class="n">model_compare</span><span class="p">(</span><span class="n">models</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;GLM&quot;</span><span class="p">,</span> <span class="s2">&quot;XGB2&quot;</span><span class="p">,</span> <span class="s2">&quot;XGB7&quot;</span><span class="p">],</span> <span class="n">show</span><span class="o">=</span><span class="s2">&quot;reliability_bandwidth&quot;</span><span class="p">,</span>
+                  <span class="n">alpha</span><span class="o">=</span><span class="mf">0.1</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">4</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+</div>
+</div>
+<figure class="align-left">
+<a class="reference external image-reference" href="../../auto_examples/testing_compare/plot_0_compare_regression.html"><img alt="../../_images/sphx_glr_plot_0_compare_regression_007.png" src="../../_images/sphx_glr_plot_0_compare_regression_007.png" /></a>
+</figure>
+</section>
+</section>
+<section id="robustness-comparison">
+<h2><span class="section-number">7.1.4. </span>Robustness Comparison<a class="headerlink" href="#robustness-comparison" title="Permalink to this heading">¶</a></h2>
+<p>Robustness comparison is to compare models under input perturbation. This section illustrates how to compare models under input perturbation. The algorithm details of robustness test can be found in the <a class="reference external" href="../testing/robustness.html">robustness</a> testing section.</p>
+<section id="robustness-perforformance">
+<h3><span class="section-number">7.1.4.1. </span>Robustness Perforformance<a class="headerlink" href="#robustness-perforformance" title="Permalink to this heading">¶</a></h3>
+<p>The example below illustrates how to compare models’ robustness performance using the keyword “robustness_perf”. The perturbation method is set to “raw”, which means we add normal noise on the raw data of numerical features. The perturbation step size is set to 0.2. By default, the perturbation features are all features. The performance metric is set to “AUC”. The following example illustrates how to compare models’ robustness performance.</p>
+<div class="jupyter_cell jupyter_container docutils container">
+<div class="cell_input code_cell docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">exp</span><span class="o">.</span><span class="n">model_compare</span><span class="p">(</span><span class="n">models</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;GLM&quot;</span><span class="p">,</span> <span class="s2">&quot;XGB2&quot;</span><span class="p">,</span> <span class="s2">&quot;XGB7&quot;</span><span class="p">],</span> <span class="n">show</span><span class="o">=</span><span class="s2">&quot;robustness_perf&quot;</span><span class="p">,</span>
+                  <span class="n">perturb_method</span><span class="o">=</span><span class="s2">&quot;raw&quot;</span><span class="p">,</span> <span class="n">perturb_size</span><span class="o">=</span><span class="mf">0.2</span><span class="p">,</span> <span class="n">metric</span><span class="o">=</span><span class="s2">&quot;MSE&quot;</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">4</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+</div>
+</div>
+<figure class="align-left">
+<a class="reference external image-reference" href="../../auto_examples/testing_compare/plot_0_compare_regression.html"><img alt="../../_images/sphx_glr_plot_0_compare_regression_008.png" src="../../_images/sphx_glr_plot_0_compare_regression_008.png" /></a>
+</figure>
+<p>In the plot above, the perturbation is applied on all variables. On the x-axis, we have the perturbation size, and on the y-axis, the model performance. Model XGB2 recorded the best robustness performance, followed by XGB7. The worst performing is GLM.</p>
+</section>
+<section id="robustness-performance-on-worst-samples">
+<h3><span class="section-number">7.1.4.2. </span>Robustness Performance on Worst Samples<a class="headerlink" href="#robustness-performance-on-worst-samples" title="Permalink to this heading">¶</a></h3>
+<p>The keyword “robustness_perf_worst” is used to evaluate the models’ performance against perturbation size based on the worst sample. For this option, in addition to the arguments <code class="docutils literal notranslate"><span class="pre">metric</span></code>, <code class="docutils literal notranslate"><span class="pre">perturb_method</span></code>, <code class="docutils literal notranslate"><span class="pre">perturb_size</span></code>, and <code class="docutils literal notranslate"><span class="pre">perturb_features</span></code>, we have an additional argument <code class="docutils literal notranslate"><span class="pre">alpha</span></code>, which is the proportion of worst samples to consider. The following example illustrates how to compare models’ robustness performance on worst samples.</p>
+<div class="jupyter_cell jupyter_container docutils container">
+<div class="cell_input code_cell docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">exp</span><span class="o">.</span><span class="n">model_compare</span><span class="p">(</span><span class="n">models</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;GLM&quot;</span><span class="p">,</span> <span class="s2">&quot;XGB2&quot;</span><span class="p">,</span> <span class="s2">&quot;XGB7&quot;</span><span class="p">],</span> <span class="n">show</span><span class="o">=</span><span class="s2">&quot;robustness_perf_worst&quot;</span><span class="p">,</span>
+                  <span class="n">perturb_method</span><span class="o">=</span><span class="s2">&quot;quantile&quot;</span><span class="p">,</span> <span class="n">perturb_size</span><span class="o">=</span><span class="mf">0.1</span><span class="p">,</span> <span class="n">metric</span><span class="o">=</span><span class="s2">&quot;R2&quot;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.3</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">4</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+</div>
+</div>
+<figure class="align-left">
+<a class="reference external image-reference" href="../../auto_examples/testing_compare/plot_0_compare_regression.html"><img alt="../../_images/sphx_glr_plot_0_compare_regression_009.png" src="../../_images/sphx_glr_plot_0_compare_regression_009.png" /></a>
+</figure>
+<p>The plot shows that XGB2 performs well on the unperturbed data (noise = 0) and it is also the most robust model against perturbation. GAM is the second best model, followed by GLM.</p>
+</section>
+</section>
+<section id="resilience-comparison">
+<h2><span class="section-number">7.1.5. </span>Resilience Comparison<a class="headerlink" href="#resilience-comparison" title="Permalink to this heading">¶</a></h2>
+<p>Resilience comparison is to compare models under input perturbation. This section illustrates how to compare models under input perturbation. The algorithm details of resilience test can be found in the <a class="reference external" href="../testing/resilience.html">resilience</a> testing section.</p>
+<section id="resilience-perforformance">
+<h3><span class="section-number">7.1.5.1. </span>Resilience Perforformance<a class="headerlink" href="#resilience-perforformance" title="Permalink to this heading">¶</a></h3>
+<p>The example below illustrates how to compare models’ resilience performance using the keyword “resilience_perf”. The perturbation method is set to “worst-sample”. The performance metric is set to “AUC”. The following example illustrates how to compare models’ resilience performance.</p>
+<div class="jupyter_cell jupyter_container docutils container">
+<div class="cell_input code_cell docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">exp</span><span class="o">.</span><span class="n">model_compare</span><span class="p">(</span><span class="n">models</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;GLM&quot;</span><span class="p">,</span> <span class="s2">&quot;XGB2&quot;</span><span class="p">,</span> <span class="s2">&quot;XGB7&quot;</span><span class="p">],</span> <span class="n">show</span><span class="o">=</span><span class="s2">&quot;resilience_perf&quot;</span><span class="p">,</span>
+                  <span class="n">resilience_method</span><span class="o">=</span><span class="s2">&quot;worst-sample&quot;</span><span class="p">,</span> <span class="n">immu_feature</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">metric</span><span class="o">=</span><span class="s2">&quot;MSE&quot;</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">4</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+</div>
+</div>
+<figure class="align-left">
+<a class="reference external image-reference" href="../../auto_examples/testing_compare/plot_0_compare_regression.html"><img alt="../../_images/sphx_glr_plot_0_compare_regression_010.png" src="../../_images/sphx_glr_plot_0_compare_regression_010.png" /></a>
+</figure>
+</section>
+<section id="resilience-performance-on-worst-samples">
+<h3><span class="section-number">7.1.5.2. </span>Resilience Performance on Worst Samples<a class="headerlink" href="#resilience-performance-on-worst-samples" title="Permalink to this heading">¶</a></h3>
+<p>The keyword <code class="docutils literal notranslate"><span class="pre">resilience_perf_worst</span></code> is used to evaluate the models’ resilience performance on the worst sample. For this option, in addition to the arguments <code class="docutils literal notranslate"><span class="pre">resilience_method</span></code>, <code class="docutils literal notranslate"><span class="pre">immu_feature</span></code>, and <code class="docutils literal notranslate"><span class="pre">metric</span></code>, we have an additional argument <code class="docutils literal notranslate"><span class="pre">alpha</span></code>, which is the proportion of worst samples to consider, as <code class="docutils literal notranslate"><span class="pre">resilience_method</span></code> is “worst-sample”, “hard-sample”, or “outer-sample”; or <code class="docutils literal notranslate"><span class="pre">n_clusters</span></code> the value of <span class="math notranslate nohighlight">\(K\)</span> in Kmean clustering as <code class="docutils literal notranslate"><span class="pre">resilience_method</span></code> is “worst-cluster”. The following example illustrates how to compare models’ robustness performance on worst samples.</p>
+<div class="jupyter_cell jupyter_container docutils container">
+<div class="cell_input code_cell docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">exp</span><span class="o">.</span><span class="n">model_compare</span><span class="p">(</span><span class="n">models</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;GLM&quot;</span><span class="p">,</span> <span class="s2">&quot;XGB2&quot;</span><span class="p">,</span> <span class="s2">&quot;XGB7&quot;</span><span class="p">],</span> <span class="n">show</span><span class="o">=</span><span class="s2">&quot;resilience_perf_worst&quot;</span><span class="p">,</span>
+                  <span class="n">resilience_method</span><span class="o">=</span><span class="s2">&quot;worst-sample&quot;</span><span class="p">,</span> <span class="n">immu_feature</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">metric</span><span class="o">=</span><span class="s2">&quot;MSE&quot;</span><span class="p">,</span>
+                  <span class="n">alpha</span><span class="o">=</span><span class="mf">0.3</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">4</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+</div>
+</div>
+<figure class="align-left">
+<a class="reference external image-reference" href="../../auto_examples/testing_compare/plot_0_compare_regression.html"><img alt="../../_images/sphx_glr_plot_0_compare_regression_011.png" src="../../_images/sphx_glr_plot_0_compare_regression_011.png" /></a>
+</figure>
+</section>
+</section>
+<section id="examples">
+<h2><span class="section-number">7.1.6. </span>Examples<a class="headerlink" href="#examples" title="Permalink to this heading">¶</a></h2>
+<aside class="topic">
+<p class="topic-title">Example 1: BikeSharing</p>
+<blockquote>
+<div><p>The first example below demonstrates how to use PiML with its high-code APIs for developing machine learning models for the BikeSharing data from the UCI repository, which consists of 17,389 samples of hourly counts of rental bikes in Capital bikeshare system; see details. The response <code class="docutils literal notranslate"><span class="pre">cnt</span></code> (hourly bike rental counts) is continuous and it is a regression problem.</p>
+</div></blockquote>
+<ul class="simple">
+<li><p><a class="reference internal" href="../../auto_examples/testing_compare/plot_0_compare_regression.html#sphx-glr-auto-examples-testing-compare-plot-0-compare-regression-py"><span class="std std-ref">Model Comparison: Regression</span></a></p></li>
+</ul>
+</aside>
+</section>
+</section>
+
+
+        </div>
+      <div class="container">
+        <footer class="sk-content-footer">
+              &copy; Copyright 2022-, PiML-Toolbox authors.
+            <a href="../../_sources/guides/comparison/compare_regression.rst.txt" rel="nofollow">Show this page source</a>
+        </footer>
+      </div>
+    </div>
+  </div>
+
+
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(false);
+      });
+      
+      const tooltipTriggerList = document.querySelectorAll('[data-bs-toggle="tooltip"]')
+      const tooltipList = [...tooltipTriggerList].map(tooltipTriggerEl => new bootstrap.Tooltip(tooltipTriggerEl))
+  </script>
+
+<script>
+$(document).ready(function() {
+    /* Add a [>>>] button on the top-right corner of code samples to hide
+     * the >>> and ... prompts and the output and thus make the code
+     * copyable. */
+    var div = $('.highlight-python .highlight,' +
+                '.highlight-python3 .highlight,' +
+                '.highlight-pycon .highlight,' +
+		'.highlight-default .highlight')
+    var pre = div.find('pre');
+
+    // get the styles from the current theme
+    pre.parent().parent().css('position', 'relative');
+    var hide_text = 'Hide prompts and outputs';
+    var show_text = 'Show prompts and outputs';
+
+    // create and add the button to all the code blocks that contain >>>
+    div.each(function(index) {
+        var jthis = $(this);
+        if (jthis.find('.gp').length > 0) {
+            var button = $('<span class="copybutton">&gt;&gt;&gt;</span>');
+            button.attr('title', hide_text);
+            button.data('hidden', 'false');
+            jthis.prepend(button);
+        }
+        // tracebacks (.gt) contain bare text elements that need to be
+        // wrapped in a span to work with .nextUntil() (see later)
+        jthis.find('pre:has(.gt)').contents().filter(function() {
+            return ((this.nodeType == 3) && (this.data.trim().length > 0));
+        }).wrap('<span>');
+    });
+
+    // define the behavior of the button when it's clicked
+    $('.copybutton').click(function(e){
+        e.preventDefault();
+        var button = $(this);
+        if (button.data('hidden') === 'false') {
+            // hide the code output
+            button.parent().find('.go, .gp, .gt').hide();
+            button.next('pre').find('.gt').nextUntil('.gp, .go').css('visibility', 'hidden');
+            button.css('text-decoration', 'line-through');
+            button.attr('title', show_text);
+            button.data('hidden', 'true');
+        } else {
+            // show the code output
+            button.parent().find('.go, .gp, .gt').show();
+            button.next('pre').find('.gt').nextUntil('.gp, .go').css('visibility', 'visible');
+            button.css('text-decoration', 'none');
+            button.attr('title', hide_text);
+            button.data('hidden', 'false');
+        }
+    });
+
+	/*** Add permalink buttons next to glossary terms ***/
+	$('dl.glossary > dt[id]').append(function() {
+		return ('<a class="headerlink" href="#' +
+			    this.getAttribute('id') +
+			    '" title="Permalink to this term">¶</a>');
+	});
+  /*** Hide navbar when scrolling down ***/
+  // Returns true when headerlink target matches hash in url
+  (function() {
+    hashTargetOnTop = function() {
+        var hash = window.location.hash;
+        if ( hash.length < 2 ) { return false; }
+
+        var target = document.getElementById( hash.slice(1) );
+        if ( target === null ) { return false; }
+
+        var top = target.getBoundingClientRect().top;
+        return (top < 2) && (top > -2);
+    };
+
+    // Hide navbar on load if hash target is on top
+    var navBar = document.getElementById("navbar");
+    var navBarToggler = document.getElementById("sk-navbar-toggler");
+    var navBarHeightHidden = "-" + navBar.getBoundingClientRect().height + "px";
+    var $window = $(window);
+
+    hideNavBar = function() {
+        navBar.style.top = navBarHeightHidden;
+    };
+
+    showNavBar = function() {
+        navBar.style.top = "0";
+    }
+
+    if (hashTargetOnTop()) {
+        hideNavBar()
+    }
+
+    var prevScrollpos = window.pageYOffset;
+    hideOnScroll = function(lastScrollTop) {
+        if (($window.width() < 768) && (navBarToggler.getAttribute("aria-expanded") === 'true')) {
+            return;
+        }
+        if (lastScrollTop > 2 && (prevScrollpos <= lastScrollTop) || hashTargetOnTop()){
+            hideNavBar()
+        } else {
+            showNavBar()
+        }
+        prevScrollpos = lastScrollTop;
+    };
+
+    /*** high performance scroll event listener***/
+    var raf = window.requestAnimationFrame ||
+        window.webkitRequestAnimationFrame ||
+        window.mozRequestAnimationFrame ||
+        window.msRequestAnimationFrame ||
+        window.oRequestAnimationFrame;
+    var lastScrollTop = $window.scrollTop();
+
+    if (raf) {
+        loop();
+    }
+
+    function loop() {
+        var scrollTop = $window.scrollTop();
+        if (lastScrollTop === scrollTop) {
+            raf(loop);
+            return;
+        } else {
+            lastScrollTop = scrollTop;
+            hideOnScroll(lastScrollTop);
+            raf(loop);
+        }
+    }
+  })();
+});
+
+</script>
+    
+
+<script src="_static/js/vendor/bootstrap.min.js"></script>
+
+</body>
+</html>

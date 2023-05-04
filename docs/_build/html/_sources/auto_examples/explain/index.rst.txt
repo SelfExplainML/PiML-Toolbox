@@ -16,137 +16,103 @@ Post hoc Explainability
 
 .. raw:: html
 
-    <div class="sphx-glr-thumbcontainer" tooltip="ICE plot on Classification problem">
+    <div class="sphx-glr-thumbcontainer" tooltip="Permutation Feature Importance">
 
 .. only:: html
 
-  .. image:: /auto_examples/explain/images/thumb/sphx_glr_plot_7_ICE_thumb.png
-    :alt: ICE:  Classification
+  .. image:: /auto_examples/explain/images/thumb/sphx_glr_plot_0_pfi_thumb.png
+    :alt:
 
-  :ref:`sphx_glr_auto_examples_explain_plot_7_ICE.py`
+  :ref:`sphx_glr_auto_examples_explain_plot_0_pfi.py`
 
 .. raw:: html
 
-      <div class="sphx-glr-thumbnail-title">ICE:  Classification</div>
+      <div class="sphx-glr-thumbnail-title">Permutation Feature Importance</div>
     </div>
 
 
 .. raw:: html
 
-    <div class="sphx-glr-thumbcontainer" tooltip="Local Interpretable Model-Agnostic Explanation for Classification groblem.">
+    <div class="sphx-glr-thumbcontainer" tooltip="Partial Dependence Plot">
 
 .. only:: html
 
-  .. image:: /auto_examples/explain/images/thumb/sphx_glr_plot_6_LIME_thumb.png
-    :alt: LIME:  Classification
+  .. image:: /auto_examples/explain/images/thumb/sphx_glr_plot_1_pdp_thumb.png
+    :alt:
 
-  :ref:`sphx_glr_auto_examples_explain_plot_6_LIME.py`
+  :ref:`sphx_glr_auto_examples_explain_plot_1_pdp.py`
 
 .. raw:: html
 
-      <div class="sphx-glr-thumbnail-title">LIME:  Classification</div>
+      <div class="sphx-glr-thumbnail-title">Partial Dependence Plot</div>
     </div>
 
 
 .. raw:: html
 
-    <div class="sphx-glr-thumbcontainer" tooltip="Permutation Feature Importance plot on a Classification problem">
+    <div class="sphx-glr-thumbcontainer" tooltip="Individual Conditional Expectation">
 
 .. only:: html
 
-  .. image:: /auto_examples/explain/images/thumb/sphx_glr_plot_4_pfi_thumb.png
-    :alt: PFI:  Classification
+  .. image:: /auto_examples/explain/images/thumb/sphx_glr_plot_2_ice_thumb.png
+    :alt:
 
-  :ref:`sphx_glr_auto_examples_explain_plot_4_pfi.py`
+  :ref:`sphx_glr_auto_examples_explain_plot_2_ice.py`
 
 .. raw:: html
 
-      <div class="sphx-glr-thumbnail-title">PFI:  Classification</div>
+      <div class="sphx-glr-thumbnail-title">Individual Conditional Expectation</div>
     </div>
 
 
 .. raw:: html
 
-    <div class="sphx-glr-thumbcontainer" tooltip="Partial Dependence Plot on Classification problem">
+    <div class="sphx-glr-thumbcontainer" tooltip="Accumulated Local Effects">
 
 .. only:: html
 
-  .. image:: /auto_examples/explain/images/thumb/sphx_glr_plot_3_pdp_thumb.png
-    :alt: PDP:  Classification
+  .. image:: /auto_examples/explain/images/thumb/sphx_glr_plot_3_ale_thumb.png
+    :alt:
 
-  :ref:`sphx_glr_auto_examples_explain_plot_3_pdp.py`
+  :ref:`sphx_glr_auto_examples_explain_plot_3_ale.py`
 
 .. raw:: html
 
-      <div class="sphx-glr-thumbnail-title">PDP:  Classification</div>
+      <div class="sphx-glr-thumbnail-title">Accumulated Local Effects</div>
     </div>
 
 
 .. raw:: html
 
-    <div class="sphx-glr-thumbcontainer" tooltip="Global ALE on BikeSharing data ">
+    <div class="sphx-glr-thumbcontainer" tooltip="Local Interpretable Model-Agnostic Explanation">
 
 .. only:: html
 
-  .. image:: /auto_examples/explain/images/thumb/sphx_glr_plot_0_ale_thumb.png
-    :alt: ALE:  Regression
+  .. image:: /auto_examples/explain/images/thumb/sphx_glr_plot_4_lime_thumb.png
+    :alt:
 
-  :ref:`sphx_glr_auto_examples_explain_plot_0_ale.py`
+  :ref:`sphx_glr_auto_examples_explain_plot_4_lime.py`
 
 .. raw:: html
 
-      <div class="sphx-glr-thumbnail-title">ALE:  Regression</div>
+      <div class="sphx-glr-thumbnail-title">Local Interpretable Model-Agnostic Explanation</div>
     </div>
 
 
 .. raw:: html
 
-    <div class="sphx-glr-thumbcontainer" tooltip="SHAP plots on classification problem">
+    <div class="sphx-glr-thumbcontainer" tooltip="SHapley Additive exPlanations">
 
 .. only:: html
 
   .. image:: /auto_examples/explain/images/thumb/sphx_glr_plot_5_shap_thumb.png
-    :alt: SHAP:  Classification
+    :alt:
 
   :ref:`sphx_glr_auto_examples_explain_plot_5_shap.py`
 
 .. raw:: html
 
-      <div class="sphx-glr-thumbnail-title">SHAP:  Classification</div>
-    </div>
-
-
-.. raw:: html
-
-    <div class="sphx-glr-thumbcontainer" tooltip="Partial Dependence Plot (PDP) on  Regression problem ">
-
-.. only:: html
-
-  .. image:: /auto_examples/explain/images/thumb/sphx_glr_plot_2_pdp_thumb.png
-    :alt: PDP:  Regression
-
-  :ref:`sphx_glr_auto_examples_explain_plot_2_pdp.py`
-
-.. raw:: html
-
-      <div class="sphx-glr-thumbnail-title">PDP:  Regression</div>
-    </div>
-
-
-.. raw:: html
-
-    <div class="sphx-glr-thumbcontainer" tooltip="Global ALE on TaiwanCredit data from UCI repository">
-
-.. only:: html
-
-  .. image:: /auto_examples/explain/images/thumb/sphx_glr_plot_1_ale_thumb.png
-    :alt: ALE:  Classification
-
-  :ref:`sphx_glr_auto_examples_explain_plot_1_ale.py`
-
-.. raw:: html
-
-      <div class="sphx-glr-thumbnail-title">ALE:  Classification</div>
+      <div class="sphx-glr-thumbnail-title">SHapley Additive exPlanations</div>
     </div>
 
 
@@ -158,12 +124,10 @@ Post hoc Explainability
 .. toctree::
    :hidden:
 
-   /auto_examples/explain/plot_7_ICE
-   /auto_examples/explain/plot_6_LIME
-   /auto_examples/explain/plot_4_pfi
-   /auto_examples/explain/plot_3_pdp
-   /auto_examples/explain/plot_0_ale
+   /auto_examples/explain/plot_0_pfi
+   /auto_examples/explain/plot_1_pdp
+   /auto_examples/explain/plot_2_ice
+   /auto_examples/explain/plot_3_ale
+   /auto_examples/explain/plot_4_lime
    /auto_examples/explain/plot_5_shap
-   /auto_examples/explain/plot_2_pdp
-   /auto_examples/explain/plot_1_ale
 

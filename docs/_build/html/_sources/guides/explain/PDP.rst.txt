@@ -4,21 +4,17 @@
 
 .. include:: ../../includes/big_toc_css.rst
 
-
+=================================
 PDP (Partial Dependence Plot)
 =================================
 
-A Partial Dependence Plot (PDP) [H2009]_ is a model-agnostic tool that helps visualize the relationship between a subset of features and the predicted response. 
-This allows us to determine whether the relationship between the target and an input feature is linear, monotonic, or more complex. 
-However, one key assumption of PDP is that the features in the complement set are not correlated with the features of interest.
+A partial dependence plot (PDP) [Hastie2015]_ is a model-agnostic tool that helps visualize the relationship between a subset of features and the predicted response. This allows us to determine whether the relationship between the target and an input feature is linear, monotonic, or more complex. However, one key assumption of PDP is that the features in the complement set are not correlated with the features of interest.
 
 
-Introduction
+Algorithm Details
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Consider a set of features, represented by :math:X, and a fitted model, represented by :math:\hat{f}. 
-Suppose we partition :math:`X` into two sets: :math:`X_S`, which represents the features of interest, and :math:`X_C`, which represents the complement of :math:`X_S`. 
-In this context, the partial function is defined as follows:
+Consider a set of features, represented by :math:`X`, and a fitted model, represented by :math:`\hat{f}`. Note that for binary classificaiton, we use the predicted log odds instead of the probability as the output function. Suppose we partition :math:`X` into two sets: :math:`X_S`, which represents the features of interest, and :math:`X_C`, which represents the complement of :math:`X_S`. In this context, the partial function is defined as follows:
 
 .. math::
    \begin{align}     
@@ -32,78 +28,72 @@ where the integral above can be approximated using the training data,
       \mathrm{PD}_{S}(x_{S}) = \frac{1}{n}\sum_{i=1}^n \hat{f}(x_{S}, x_{C}^{(i)}), \tag{2}
     \end{align}
 
+where :math:`x_{C}^{(i)}` is the complement features of the :math:`i`-th training sample. The integral approximation described above is commonly referred to as the "brute" method. However, for some tree-based estimators, a faster recursive method is also available. In PiML, the PDP is obtained by calling the `partial_dependence`_ function of the scikit-learn package, and see more details here_.
 
-where :math:`x_{C}^{(i)}` is the complement features of the :math:`i`-th training sample. 
-The integral approximation described above is commonly referred to as the 'brute' method. 
-However, for some tree-based estimators, a faster recursive method is also available. 
-You can find more details about this method in the `PDP`_ reference.
+.. _partial_dependence: https://scikit-learn.org/stable/modules/generated/sklearn.inspection.partial_dependence.html
 
-.. _pdp: https://scikit-learn.org/stable/modules/partial_dependence.html
+.. _here: https://scikit-learn.org/stable/modules/partial_dependence.html
+
+
+.. warning::
+
+   PDPs also have a few limitations, inlcuding:
+
+   - Assumption of independence: PDPs assume that the features of interest are independent of each other. If the features are highly correlated, the results can be inaccurate, as they require extrapolation of the response at predictor values that are far outside the multivariate envelope of the training data.
+
+   - Inconsistent global and local explanation: PDPs provide an average view of features' effect on the predicted response. Local effects or effects specific to certain subsets of data may be different from global ones.
+
 
 
 Usage
 ^^^^^^^^^^^^^^^^^
 
-Visualizing PDPs using PiML is a straightforward process that can be accomplished with the `exp.model_explain` function. 
-PiML is built on top of sklearn, and it supports both one-way and two-way PDPs. 
-The one-way PDP describes the relationship between the predicted response and a single feature, while the two-way PDP shows the interaction between two features. 
-Below is an illustration using PDPs to explain a fitted two-hidden-layer ReLU network on the BikeSharing dataset.
+Visualizing PDPs using PiML is a straightforward process that can be accomplished with the `model_explain` function. The keyword for PDP is "pdp", i.e., we should set `show` = "pdp". For illustration purpose, we use PDPs to explain a fitted XGB2 model fitted on the BikeSharing dataset. 
 
-.. jupyter-input::
-	
-    from piml import Experiment
-    from piml.models import ReluDNNRegressor
-    exp = Experiment()
-    exp.data_loader(data='BikeSharing')
-    exp.data_summary(feature_exclude=["season", "workingday", "atemp"])
-    exp.data_prepare(target='cnt', task_type='Regression', test_ratio=0.2, random_state=0)
-    exp.model_train(model=ReluDNNRegressor(hidden_layer_sizes=(40, 40), l1_reg=1e-05,
-					 batch_size=500, learning_rate=0.001), name='ReLU_DNN')
+One-way PDPs
+""""""""""""""""""""""""""""""""
 
-Suppose we are interested in the hourly bike rental counts (`cnt`). 
-The following plot provides an example of one-way partial dependence plots for a continuous feature,
-which suggests a non-linear relationship between the predicted response and the input feature of interest (`hr`).
-The `original_scale` is set to `True` if we want the original scale of the data to be used on the plot, by default, it is set to `False`.
+The one-way PDP describes the relationship between the predicted response and a single feature. To trigger one-way PDP, we need to specify a feature name in `uni_feature`. The following code shows how to visualize the one-way PDP for the numerical feature `hr`.
 
 .. jupyter-input::
 
-    exp.model_explain(model='ReLU_DNN', show='pdp', original_scale=True, uni_feature='hr', figsize=(6, 5))
+    exp.model_explain(model="XGB2", show="pdp", uni_feature="hr", 
+                      original_scale=True, figsize=(5, 4))
 
-For categorical features, the PDP is a bar chart.
-The plot below indicates that bike sharing tends to be more substantial on non-holidays compared to holidays.
+.. figure:: ../../auto_examples/explain/images/sphx_glr_plot_1_pdp_001.png
+   :target: ../../auto_examples/explain/plot_1_pdp.html
+   :align: left
 
-.. jupyter-input::
-
-    exp.model_explain(model='ReLU_DNN', show='pdp', original_scale=True, uni_feature='holiday', figsize=(6, 5))
-
-On the other hand, the plot below shows the dependence of bike rental counts on the joint values of `weathersit` and `hr` using a two-way PDP. 
-We observe a stronger dependence when `hr` falls within the range [4.6, 6.9] and weathersit falls within the range [2.3, 3]. 
-Additionally, the plot indicates that bike rental counts are significantly low for hours beyond 15:00. 
+The plot above suggests a non-linear relationship between the predicted response and the input feature of interest (`hr`). The `original_scale` is set to True if we want to use the original scale of that feature. 
 
 .. jupyter-input::
 
-    exp.model_explain(model='ReLU_DNN', show='pdp', original_scale=True,
-					  bi_features=['hr', 'weathersit'], figsize=(6, 5))
+    exp.model_explain(model="XGB2", show="pdp", uni_feature="season",
+                     original_scale=True, figsize=(5, 4))
 
-.. figure:: images_exp/PDP.png
-   :align: center
-   :scale: 30
+.. figure:: ../../auto_examples/explain/images/sphx_glr_plot_1_pdp_002.png
+   :target: ../../auto_examples/explain/plot_1_pdp.html
+   :align: left
 
-Limitations of PDPs
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
-PDPs have a few limitations:
+The plot below indicates that bike sharing tends to be more substantial on the 4-th season.
 
 
-- Assumption of independence：PDPs assume that the features of interest are independent of each other. If the features are highly correlated, the results can be inaccurate.
+Two-way PDPs
+""""""""""""""""""""""""""""""""
 
-- Limited to low-dimensional features: PDPs provide an estimate of the average effect of a feature or two features on the predicted response, but they do not capture the high-order interactions.
+The two-way PDP shows the interaction between two features, which is useful for visualizing the joint effect of two features on the predicted response. To trigger two-way PDP, we need to specify two feature names in `bi_features`. The argument `pdp_size` is used for speedup the computation of 2D PDP, which works by subsampling a subset of the data, and the default value is 2000. If the sample size is less than `pdp_size`, then the entire dataset will be used. For categorical features, the PDP is a bar chart.
 
-- Inconsistent global and local explanation: PDPs provide an average view of features' effect on the predicted response. Local effects or effects specific to certain subsets of data may be different from global ones.
+.. jupyter-input::
 
+    exp.model_explain(model="XGB2", show="pdp", bi_features=["hr", "workingday"],
+                      pdp_size=10000, original_scale=True, figsize=(5, 4))
 
-Therefore, it is important to use PDPs in conjunction with other techniques, such as permutation feature importance (PFI), accumulated local effects (ALE),
-individual conditional expectation (ICE) plots, etc, to gain a more comprehensive understanding of the relationships between features and the predicted response. 
+.. figure:: ../../auto_examples/explain/images/sphx_glr_plot_1_pdp_003.png
+   :target: ../../auto_examples/explain/plot_1_pdp.html
+   :align: left
+
+The plot above shows the dependence of bike rental counts on the joint values of `workingday` and `hr` using a two-way PDP. We observe that the bike rental counts are higher during the working days (i.e., `workingday` = 1) than the non-working days (i.e., `workingday` = 0). The bike rental counts are also higher during the daytime than the nighttime. The interaction between `workingday` and `hr` is also observed in the plot.
+
 
 
 Examples 
@@ -113,18 +103,4 @@ Examples
 
   The first example below demonstrates how to use PiML with its high-code APIs for developing machine learning models for the BikeSharing data from the UCI repository, which consists of 17,389 samples of hourly counts of rental bikes in Capital bikeshare system; see details. The response `cnt` (hourly bike rental counts) is continuous and it is a regression problem.
  
- * :ref:`sphx_glr_auto_examples_explain_plot_2_pdp.py`
-
-.. topic:: Example 2: Taiwan Credit
-
-  The second example below demonstrates how to use PiML’s high-code APIs for the TaiwanCredit dataset from the UCI repository. 
-  This dataset comprises the credit card details of 30,000 clients in Taiwan from April 2005 to September 2005, and more information can be found on the TaiwanCreditData website. The data can be loaded directly into PiML, although it requires some preprocessing. The FlagDefault variable serves as the response for this classification problem.
-                          
- * :ref:`sphx_glr_auto_examples_explain_plot_3_pdp.py`
-
-.. topic:: References
-
-     .. [H2009] T. Hastie, R. Tibshirani and J. Friedman,
-                `The Elements of Statistical Learning, Second Edition
-                <https://link.springer.com/book/10.1007/978-0-387-21606-5>`_,
-                Section 10.13.2, Springer, 2009.
+ * :ref:`sphx_glr_auto_examples_explain_plot_1_pdp.py`

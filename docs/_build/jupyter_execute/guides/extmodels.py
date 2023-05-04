@@ -1,13 +1,13 @@
 #!/usr/bin/env python
 # coding: utf-8
 
-# In[1]:
+# In[ ]:
 
 
 from piml import Experiment
 exp = Experiment()
 exp.data_loader(data='CaliforniaHousing_raw')
-exp.data_prepare(target='MedHouseVal', task_type='Regression', test_ratio=0.2, random_state=0)
+exp.data_prepare(target='MedHouseVal', task_type='regression', random_state=0)
 
 
 # In[ ]:

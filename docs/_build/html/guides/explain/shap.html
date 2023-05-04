@@ -1,0 +1,531 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+
+  <meta charset="utf-8">
+  <meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  
+  <title>PiML Toolbox</title>
+  
+
+  
+  <link rel="shortcut icon" href="../../_static/favicon.ico"/>
+  
+
+  <link rel="stylesheet" href="../../_static/css/vendor/bootstrap.min.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/plot_directive.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/jupyter-sphinx.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/thebelab.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/sg_gallery.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/sg_gallery-binder.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/sg_gallery-dataframe.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/sg_gallery-rendered-html.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
+<script id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+<script src="../../_static/jquery.js"></script>
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="../../_static/doctools.js"></script>
+        <script src="../../_static/sphinx_highlight.js"></script>
+        <script src="../../_static/thebelab-helper.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/@jupyter-widgets/html-manager@^1.0.1/dist/embed-amd.js"></script>
+        <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+        <script>window.MathJax = {"tex": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true}, "options": {"ignoreHtmlClass": "tex2jax_ignore|mathjax_ignore|document", "processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+        <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
+    <script src="../../_static/js/theme.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav">
+
+  
+
+
+<nav id="navbar" class="sk-docs-navbar navbar navbar-expand-md navbar-light bg-light py-0">
+  <div class="container-fluid sk-docs-container px-0">
+      <a class="navbar-brand py-0" href="../../index.html">
+        <img
+          class="sk-brand-img"
+          src="../../_static/piml-logo.png"
+          alt="logo"/>
+      </a>
+    <button
+      id="sk-navbar-toggler"
+      class="navbar-toggler"
+      type="button"
+      data-toggle="collapse"
+      data-target="#navbarSupportedContent"
+      aria-controls="navbarSupportedContent"
+      aria-expanded="false"
+      aria-label="Toggle navigation"
+    >
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="sk-navbar-collapse collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item">
+          <a class="sk-nav-link nav-link" href="../../install.html">Install</a>
+        </li>
+		<li class="nav-item">
+          <a class="sk-nav-link nav-link" href="../../modules/classes.html">API</a>
+        </li>
+        <li class="nav-item">
+          <a class="sk-nav-link nav-link" href="../../user_guide.html">User Guide</a>
+        </li>
+        <li class="nav-item">
+          <a class="sk-nav-link nav-link" href="../../auto_examples/index.html">Examples</a>
+        </li>
+        <li class="nav-item">
+          <a class="sk-nav-link nav-link" href="../../faq.html">FAQ</a>
+        </li>      </ul>
+      <div id="searchbox" role="search">
+          <div class="searchformwrapper">
+          <form class="search" action="../../search.html" method="get">
+            <input class="sk-search-text-input" type="text" name="q" aria-labelledby="searchlabel" />
+            <input class="sk-search-text-btn" type="submit" value="Go" />
+          </form>
+          </div>
+      </div>
+    </div>
+  </div>
+</nav>
+  <div class="d-flex" id="sk-doc-wrapper">
+      <input type="checkbox" name="sk-toggle-checkbox" id="sk-toggle-checkbox">
+      <label id="sk-sidemenu-toggle" class="sk-btn-toggle-toc btn sk-btn-primary" for="sk-toggle-checkbox">Toggle Menu</label>
+      <div id="sk-sidebar-wrapper" class="border-right">
+        <div class="sk-sidebar-toc-wrapper">
+          <div class="sk-sidebar-toc-logo">
+            <a href="../../index.html">
+              <img
+                class="sk-brand-img"
+                src="../../_static/piml-logo.png"
+                alt="logo"/>
+            </a>
+          </div>
+          <!--div class="btn-group w-100 mb-2" role="group" aria-label="rellinks">
+              <a href="lime.html" role="button" class="btn sk-btn-rellink py-1" sk-rellink-tooltip="4.2.1. LIME (Local Interpretable Model-Agnostic Explanation)">Prev</a><a href="../explainability.html" role="button" class="btn sk-btn-rellink py-1" sk-rellink-tooltip="4. Post-hoc Explainability">Up</a>
+              <a href="../models.html" role="button" class="btn sk-btn-rellink py-1" sk-rellink-tooltip="5. Interpretable Models">Next</a>
+          </div-->
+              <div class="sk-sidebar-toc">
+              
+                <ul>
+                
+                
+                
+                
+                
+                
+                <li>
+                  <a href="../../user_guide.html" class="sk-toc-active">User Guide</a>
+                </li>
+                <ul>
+                
+                  <li>
+                    <a href="../introduction.html" class="">1. Introduction</a>
+                    
+                  </li>
+                
+                  <li>
+                    <a href="../data.html" class="">2. Data Pipeline</a>
+                    
+                  </li>
+                
+                  <li>
+                    <a href="../extmodels.html" class="">3. Black-box Models</a>
+                    
+                  </li>
+                
+                  <li>
+                    <a href="../explainability.html" class="sk-toc-active">4. Post-hoc Explainability</a>
+                    
+                  </li>
+                
+                  <li>
+                    <a href="../models.html" class="">5. Interpretable Models</a>
+                    
+                  </li>
+                
+                  <li>
+                    <a href="../testing.html" class="">6. Diagnostic Suite</a>
+                    
+                  </li>
+                
+                  <li>
+                    <a href="../comparison.html" class="">7. Model Comparison</a>
+                    
+                  </li>
+                
+                  <li>
+                    <a href="../cases.html" class="">8. Case Studies</a>
+                    
+                  </li>
+                
+                </ul>
+                
+                
+                
+                
+                </ul>
+              </div>
+        </div>
+      </div>
+      <div id="sk-page-content-wrapper">
+        <div class="sk-page-content container-fluid body px-md-3" role="main">
+          
+  <style type="text/css">
+  div.body div.toctree-wrapper ul {
+      padding-left: 0;
+  }
+
+  div.body li.toctree-l1 {
+      padding: 0 0 0.5em 0;
+      list-style-type: none;
+      font-size: 150%;
+      font-weight: bold;
+  }
+
+  div.body li.toctree-l2 {
+      font-size: 70%;
+      list-style-type: square;
+      font-weight: normal;
+      margin-left: 40px;
+  }
+
+  div.body li.toctree-l3 {
+      font-size: 85%;
+      list-style-type: circle;
+      font-weight: normal;
+      margin-left: 40px;
+  }
+
+  div.body li.toctree-l4 {
+      margin-left: 40px;
+  }
+
+</style><section id="shap-shapley-additive-explanations">
+<h1><span class="section-number">4.2.2. </span>SHAP (SHapley Additive exPlanations)<a class="headerlink" href="#shap-shapley-additive-explanations" title="Permalink to this heading">¶</a></h1>
+<p>SHAP (Shapley Additive Explanations; <a class="reference internal" href="../introduction.html#lundberg2017" id="id1"><span>[Lundberg2017]</span></a>, <a class="reference internal" href="#lundberg2018" id="id2"><span>[Lundberg2018]</span></a>) is a machine learning tool that can explain the output of any model by computing the contribution of each feature to the final prediction. The concept of SHAP can be explained with a sports analogy. Suppose you have just won a soccer game and want to distribute a winner’s bonus fairly among the team members. You know that the five players who scored the goals played a significant role in the victory, but you also recognize that the team could not have won without the contributions of other players. To determine the individual value of each player, you need to consider their contribution in the context of the entire team. This is where Shapley values come in - they help to quantify the contribution of each player to the team’s success. For a detailed explanation of Shapley values and how they work, please refer to the <a class="reference external" href="https://christophm.github.io/interpretable-ml-book/shap.html">IMLbook</a> and <a class="reference external" href="https://hughchen.github.io/its_blog/index.html">SHAPBlog</a>.</p>
+<section id="algorithm-details">
+<h2><span class="section-number">4.2.2.1. </span>Algorithm Details<a class="headerlink" href="#algorithm-details" title="Permalink to this heading">¶</a></h2>
+<p>The Shapley value explanation method possesses several attractive properties, such as local accuracy, missingness, and consistency. It decomposes the prediction into a linear combination of feature contributions, as illustrated below.</p>
+<div class="math notranslate nohighlight">
+\[\begin{align}
+   g\left(z^{\prime}\right)=\phi_0+\sum_{j=1}^p \phi_j z_j^{\prime}, \tag{1}
+\end{align}\]</div>
+<p>where <span class="math notranslate nohighlight">\(g\)</span> is the explanation method, <span class="math notranslate nohighlight">\(p\)</span> is the number of features, and <span class="math notranslate nohighlight">\(z^{\prime} \in \{0, 1\}^p\)</span> is the coalition vector that indicates the on or off state of each feature. The Shapley value of the <span class="math notranslate nohighlight">\(j\)</span>-th feature is denoted as <span class="math notranslate nohighlight">\(\phi_{j}\)</span>, which can be estimated using various approaches. In PiML, the Shapley values are computed based on the <a class="reference external" href="https://pypi.org/project/shap/">shap</a> Python package, which offers several methods for estimating Shapley values. The following sections will introduce these estimation algorithms in detail. <strong>In particular, we use the `shap.Explainer` if the estimator is a supported by the shap_ Python package. Otherwise, we will use the exact solution if the number of features is less than or equals to 15, and otherwise KernelSHAP.</strong></p>
+<section id="exact-solution">
+<h3><span class="section-number">4.2.2.1.1. </span>Exact Solution<a class="headerlink" href="#exact-solution" title="Permalink to this heading">¶</a></h3>
+<p>The exact solution is obtained using the Shapley value formula, which requires evaluating all possible coalitions of features with and without the <span class="math notranslate nohighlight">\(j\)</span>-th feature.</p>
+<div class="math notranslate nohighlight">
+\[\begin{align}
+  \phi_{i}= \sum_{S \subseteq \{1, \ldots, p\} \{ i \}} \frac{|S|!(p-|S|-1)!}{p!}(val(S \cup \{i\}) - val(S)).  \tag{2}
+\end{align}\]</div>
+<p>where <span class="math notranslate nohighlight">\(val\)</span> is the value function that returns the prediction of each coalition. The marginal contribution of feature <span class="math notranslate nohighlight">\(j\)</span> to coalition <span class="math notranslate nohighlight">\(S\)</span> is calculated as the difference between the value of the coalition with the addition of feature <span class="math notranslate nohighlight">\(j\)</span> and the value of the original coalition, i.e., <span class="math notranslate nohighlight">\(val(S \cup \{j\}) - val(S)\)</span>. The term <span class="math notranslate nohighlight">\(\frac{|S|!(p-|S|-1)!}{p!}\)</span> is a normalization factor. When the number of features is small, this exact estimation approach is acceptable. However, as the number of features increases, the exact solution may become problematic.</p>
+<p>It’s worth noting that the value function <span class="math notranslate nohighlight">\(val`\)</span> takes the feature coalition <span class="math notranslate nohighlight">\(S\)</span> as input. However, in machine learning models, the prediction is not solely based on the feature coalition but on the entire feature vector. Therefore, we need to specify how removing a feature from the feature vector affects the prediction. Two common approaches are available, both of which depend on a pre-defined background distribution instead of merely replacing the “missing” features with a fixed value.</p>
+<p>The former conditions on the set of features in the coalition and uses the remaining features to estimate the missing features, but it can be challenging to obtain the conditional expectation in practice. The latter approach breaks the dependency among features and intervenes directly on the missing features of the sample being explained, using corresponding features from the background sample. This approach is used in the KernelSHAP algorithm.</p>
+<ul class="simple">
+<li><p>Conditional expectation: This approach conditions on the set of features in the coalition and uses the remaining features to estimate the missing features. However, obtaining the conditional expectation can be challenging in practice.</p></li>
+<li><p>Interventional conditional expectation (the option used in PiML): This approach breaks the dependency among features and intervenes directly on the missing features of the sample being explained, using corresponding features from the background sample.</p></li>
+</ul>
+</section>
+<section id="kernelshap">
+<h3><span class="section-number">4.2.2.1.2. </span>KernelSHAP<a class="headerlink" href="#kernelshap" title="Permalink to this heading">¶</a></h3>
+<p>KernelSHAP is a kernel-based approach for estimating Shapley values that is inspired by local surrogate models. It is particularly useful for computing Shapley values with a large number of features. Given an instance <span class="math notranslate nohighlight">\(x\)</span>, KernelSHAP estimates the contributions of each feature using the following steps:</p>
+<ul class="simple">
+<li><p>Randomly sample coalitions and compute the output of these simulated coalitions.</p></li>
+<li><p>Calculate the weight of each feature in the coalition using the SHAP Kernel (see the details in the reference <a class="reference internal" href="../introduction.html#lundberg2017" id="id3"><span>[Lundberg2017]</span></a>).</p></li>
+<li><p>Fit a weighted linear model to the sampled coalitions.</p></li>
+<li><p>Return the Shapley values which are the coefficients of the linear model.</p></li>
+</ul>
+<p>KernelSHAP ignores feature dependence. Sampling from the marginal distribution means ignoring the dependence structure between features, which may result in an estimation that puts too much weight on unlikely instances. Moreover, KernelSHAP is not guaranteed to be consistent with the exact solution, and it also requires a lot of computation time. In practice, we usually do downsampling to reduce the computation time (by default 500 in PiML).</p>
+</section>
+<section id="algorithms-for-specific-models">
+<h3><span class="section-number">4.2.2.1.3. </span>Algorithms for specific models<a class="headerlink" href="#algorithms-for-specific-models" title="Permalink to this heading">¶</a></h3>
+<p>In addition to exact solution and KernelSHAP, <a class="reference external" href="https://pypi.org/project/shap/">shap</a> package also provides specific estimation algorithms for certain models, e.g., LinearSHAP and TreeSHAP. The following paragraphs will introduce these algorithms in detail. However, most of the built-in models in PiML (except for <code class="docutils literal notranslate"><span class="pre">TreeRegressor</span></code> and <code class="docutils literal notranslate"><span class="pre">TreeClassifier</span></code>) do not benefit from these algorithms for the moment, and we instead use the exact solution or KernelSHAP.</p>
+<p><strong>LinearShap</strong> computes the SHAP values for a linear model and can account for the correlations among the input features.</p>
+<ul class="simple">
+<li><p>Conditional expectation: Accounts for the correlation of features, and a subsample of data is used to estimate a transformation that can then be applied to explain any prediction of the model.</p></li>
+<li><p>Interventional conditional expectation (default): Assumes features are independent, and the SHAP values for a linear model is <span class="math notranslate nohighlight">\(coef * (x - \bar{x})\)</span>.</p></li>
+</ul>
+<p><strong>TreeSHAP</strong> is a model-specific algorithm designed for tree-based models. In decision trees, each leaf node explicitly defines a feature interaction, allowing interactions not present in the tree structure to be ignored and reducing the number of coalitions. This reduction in coalitions greatly reduces computation time for tree-based models. TreeSHAP offers two ways to compute Shapley values:</p>
+<ul class="simple">
+<li><p>Path-dependent tree explainer, which approximates interventional conditional expectation based on the number of training samples that went down paths in the tree.</p></li>
+<li><p>Interventional tree explainer (the default), which computes interventional conditional expectation exactly, but is a bit slower than the path-dependent method.</p></li>
+</ul>
+</section>
+</section>
+<section id="usage">
+<h2><span class="section-number">4.2.2.2. </span>Usage<a class="headerlink" href="#usage" title="Permalink to this heading">¶</a></h2>
+<p>To do local explanations using SHAP in PiML, we’ll illustrate with the XGB2 model on BikeSharing data. For regression tasks, we’ll use the predicted value as the model output, and for binary classification tasks, we’ll use the predicted probability as the model output. The following code shows how to use the <code class="docutils literal notranslate"><span class="pre">model_explain</span></code> function to get various SHAP plots.</p>
+<section id="the-waterfall-plot">
+<h3><span class="section-number">4.2.2.2.1. </span>The Waterfall plot<a class="headerlink" href="#the-waterfall-plot" title="Permalink to this heading">¶</a></h3>
+<p>The Waterfall plot shows the Shapley values of a single sample point. It can be generated by setting the parameter <code class="docutils literal notranslate"><span class="pre">show</span></code> to “shap_waterfall”.</p>
+<div class="jupyter_cell jupyter_container docutils container">
+<div class="cell_input code_cell docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">exp</span><span class="o">.</span><span class="n">model_explain</span><span class="p">(</span><span class="n">model</span><span class="o">=</span><span class="s2">&quot;XGB2&quot;</span><span class="p">,</span> <span class="n">show</span><span class="o">=</span><span class="s2">&quot;shap_waterfall&quot;</span><span class="p">,</span> <span class="n">sample_id</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">4</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+</div>
+</div>
+<figure class="align-left">
+<a class="reference external image-reference" href="../../auto_examples/explain/plot_5_shap.html"><img alt="../../_images/sphx_glr_plot_5_shap_001.png" src="../../_images/sphx_glr_plot_5_shap_001.png" /></a>
+</figure>
+<p>In the waterfall plot, the y-axis displays the feature names, and the x-axis shows the contribution of each feature. For the first training sample (<code class="docutils literal notranslate"><span class="pre">sample_id=0</span></code>), the predicted output is denoted as <span class="math notranslate nohighlight">\(f(x)\)</span>, while <span class="math notranslate nohighlight">\(E(f(x))\)</span> represents the average predicted output over the background data. In the example provided above, <code class="docutils literal notranslate"><span class="pre">atemp</span></code> has a SHAP value of -0.07 and contributes the most, followed by <code class="docutils literal notranslate"><span class="pre">season</span></code>, which has a SHAP value of -0.04, and so on.</p>
+</section>
+<section id="shap-feature-importance">
+<h3><span class="section-number">4.2.2.2.2. </span>SHAP Feature importance<a class="headerlink" href="#shap-feature-importance" title="Permalink to this heading">¶</a></h3>
+<p>The SHAP feature importance plot provides a summary of the contribution of each feature over a set of samples. The importance of each feature is calculated by taking the average of the absolute Shapley values per feature across all samples, using the following formula:</p>
+<div class="math notranslate nohighlight">
+\[\begin{align}
+  I_j=\frac{1}{n} \sum_{i=1}^n\left|\phi_j^{(i)}\right|.  \tag{3}
+\end{align}\]</div>
+<p>To generate this plot, we set the argument <code class="docutils literal notranslate"><span class="pre">show</span></code> to “shap_fi” as shown below. As the calculation of Shapley values is time-consuming, we only use 100 samples (<code class="docutils literal notranslate"><span class="pre">sample_size=100</span></code>) to generate the plot for demonstration purpose.</p>
+<div class="jupyter_cell jupyter_container docutils container">
+<div class="cell_input code_cell docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">exp</span><span class="o">.</span><span class="n">model_explain</span><span class="p">(</span><span class="n">model</span><span class="o">=</span><span class="s2">&quot;XGB2&quot;</span><span class="p">,</span> <span class="n">show</span><span class="o">=</span><span class="s2">&quot;shap_fi&quot;</span><span class="p">,</span> <span class="n">sample_size</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">4</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+</div>
+</div>
+<figure class="align-left">
+<a class="reference external image-reference" href="../../auto_examples/explain/plot_5_shap.html"><img alt="../../_images/sphx_glr_plot_5_shap_002.png" src="../../_images/sphx_glr_plot_5_shap_002.png" /></a>
+</figure>
+<p>From the plot displayed above, it seems that <code class="docutils literal notranslate"><span class="pre">hr</span></code> has the highest level of importance, followed by <code class="docutils literal notranslate"><span class="pre">atemp</span></code> in second place.</p>
+</section>
+<section id="shap-summary-plot">
+<h3><span class="section-number">4.2.2.2.3. </span>SHAP Summary plot<a class="headerlink" href="#shap-summary-plot" title="Permalink to this heading">¶</a></h3>
+<p>The summary plot, identified by the keyword “shap_summary,” displays the Shapley values of multiple samples. Similar to the feature importance plot, we also use 100 samples to generate the plot for demonstration purpose.</p>
+<div class="jupyter_cell jupyter_container docutils container">
+<div class="cell_input code_cell docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">exp</span><span class="o">.</span><span class="n">model_explain</span><span class="p">(</span><span class="n">model</span><span class="o">=</span><span class="s2">&quot;XGB2&quot;</span><span class="p">,</span> <span class="n">show</span><span class="o">=</span><span class="s2">&quot;shap_summary&quot;</span><span class="p">,</span> <span class="n">original_scale</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">sample_size</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">4</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+</div>
+</div>
+<figure class="align-left">
+<a class="reference external image-reference" href="../../auto_examples/explain/plot_5_shap.html"><img alt="../../_images/sphx_glr_plot_5_shap_003.png" src="../../_images/sphx_glr_plot_5_shap_003.png" /></a>
+</figure>
+<p>The summary plot, with feature names displayed on the y-axis and Shapley values on the x-axis, uses blue and red to indicate low and high feature values, respectively. The plot suggests that <code class="docutils literal notranslate"><span class="pre">hr`</span></code> had the greatest impact on the model output, followed by <code class="docutils literal notranslate"><span class="pre">atemp</span></code>, <code class="docutils literal notranslate"><span class="pre">season</span></code>, and <code class="docutils literal notranslate"><span class="pre">hum</span></code>.</p>
+</section>
+<section id="shap-dependence-plot">
+<h3><span class="section-number">4.2.2.2.4. </span>SHAP Dependence Plot<a class="headerlink" href="#shap-dependence-plot" title="Permalink to this heading">¶</a></h3>
+<p>To display the relationship between a feature’s values and its Shapley values, use the SHAP dependence plot and set <code class="docutils literal notranslate"><span class="pre">show</span></code> to “shap_scatter” as shown below. Also, we draw the scatter plot using 100 samples.</p>
+<div class="jupyter_cell jupyter_container docutils container">
+<div class="cell_input code_cell docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">exp</span><span class="o">.</span><span class="n">model_explain</span><span class="p">(</span><span class="n">model</span><span class="o">=</span><span class="s2">&quot;XGB2&quot;</span><span class="p">,</span> <span class="n">show</span><span class="o">=</span><span class="s2">&quot;shap_scatter&quot;</span><span class="p">,</span> <span class="n">uni_feature</span><span class="o">=</span><span class="s2">&quot;hr&quot;</span><span class="p">,</span>
+                  <span class="n">sample_size</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span>  <span class="n">original_scale</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">4</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+</div>
+</div>
+<figure class="align-left">
+<a class="reference external image-reference" href="../../auto_examples/explain/plot_5_shap.html"><img alt="../../_images/sphx_glr_plot_5_shap_004.png" src="../../_images/sphx_glr_plot_5_shap_004.png" /></a>
+</figure>
+<p>This plot can be viewed as an alternative to PDP and ALE. In addition to the average effects, shown on the PDF and ALE, the SPAP dependence plot also shows the variance on the y-axis. The plot suggests that the Shapley values of <code class="docutils literal notranslate"><span class="pre">hr</span></code> are highly variable, and the model output is most sensitive to <code class="docutils literal notranslate"><span class="pre">hr</span></code> when <code class="docutils literal notranslate"><span class="pre">hr</span></code> is between 8 and 20.</p>
+</section>
+</section>
+<section id="examples">
+<h2><span class="section-number">4.2.2.3. </span>Examples<a class="headerlink" href="#examples" title="Permalink to this heading">¶</a></h2>
+<aside class="topic">
+<p class="topic-title">Example 1: Bike Sharing</p>
+<blockquote>
+<div><p>The first example below demonstrates how to use PiML with its high-code APIs for developing machine learning models for the BikeSharing data from the UCI repository, which consists of 17,389 samples of hourly counts of rental bikes in Capital bikeshare system; see details. The response <code class="docutils literal notranslate"><span class="pre">cnt</span></code> (hourly bike rental counts) is continuous and it is a regression problem.</p>
+</div></blockquote>
+<ul class="simple">
+<li><p><a class="reference internal" href="../../auto_examples/explain/plot_5_shap.html#sphx-glr-auto-examples-explain-plot-5-shap-py"><span class="std std-ref">SHapley Additive exPlanations</span></a></p></li>
+</ul>
+</aside>
+<aside class="topic">
+<p class="topic-title">References</p>
+<div role="list" class="citation-list">
+<div class="citation" id="lundberg2018" role="doc-biblioentry">
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id2">Lundberg2018</a><span class="fn-bracket">]</span></span>
+<p>Lundberg, Scott M., Gabriel G. Erion, and Su-In Lee.
+<a class="reference external" href="https://arxiv.org/pdf/1802.03888.pdf">Consistent individualized feature attribution for tree ensembles.</a>,
+arXiv preprint arXiv:1802.03888 (2018).</p>
+</div>
+</div>
+</aside>
+</section>
+</section>
+
+
+        </div>
+      <div class="container">
+        <footer class="sk-content-footer">
+              &copy; Copyright 2022-, PiML-Toolbox authors.
+            <a href="../../_sources/guides/explain/shap.rst.txt" rel="nofollow">Show this page source</a>
+        </footer>
+      </div>
+    </div>
+  </div>
+
+
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(false);
+      });
+      
+      const tooltipTriggerList = document.querySelectorAll('[data-bs-toggle="tooltip"]')
+      const tooltipList = [...tooltipTriggerList].map(tooltipTriggerEl => new bootstrap.Tooltip(tooltipTriggerEl))
+  </script>
+
+<script>
+$(document).ready(function() {
+    /* Add a [>>>] button on the top-right corner of code samples to hide
+     * the >>> and ... prompts and the output and thus make the code
+     * copyable. */
+    var div = $('.highlight-python .highlight,' +
+                '.highlight-python3 .highlight,' +
+                '.highlight-pycon .highlight,' +
+		'.highlight-default .highlight')
+    var pre = div.find('pre');
+
+    // get the styles from the current theme
+    pre.parent().parent().css('position', 'relative');
+    var hide_text = 'Hide prompts and outputs';
+    var show_text = 'Show prompts and outputs';
+
+    // create and add the button to all the code blocks that contain >>>
+    div.each(function(index) {
+        var jthis = $(this);
+        if (jthis.find('.gp').length > 0) {
+            var button = $('<span class="copybutton">&gt;&gt;&gt;</span>');
+            button.attr('title', hide_text);
+            button.data('hidden', 'false');
+            jthis.prepend(button);
+        }
+        // tracebacks (.gt) contain bare text elements that need to be
+        // wrapped in a span to work with .nextUntil() (see later)
+        jthis.find('pre:has(.gt)').contents().filter(function() {
+            return ((this.nodeType == 3) && (this.data.trim().length > 0));
+        }).wrap('<span>');
+    });
+
+    // define the behavior of the button when it's clicked
+    $('.copybutton').click(function(e){
+        e.preventDefault();
+        var button = $(this);
+        if (button.data('hidden') === 'false') {
+            // hide the code output
+            button.parent().find('.go, .gp, .gt').hide();
+            button.next('pre').find('.gt').nextUntil('.gp, .go').css('visibility', 'hidden');
+            button.css('text-decoration', 'line-through');
+            button.attr('title', show_text);
+            button.data('hidden', 'true');
+        } else {
+            // show the code output
+            button.parent().find('.go, .gp, .gt').show();
+            button.next('pre').find('.gt').nextUntil('.gp, .go').css('visibility', 'visible');
+            button.css('text-decoration', 'none');
+            button.attr('title', hide_text);
+            button.data('hidden', 'false');
+        }
+    });
+
+	/*** Add permalink buttons next to glossary terms ***/
+	$('dl.glossary > dt[id]').append(function() {
+		return ('<a class="headerlink" href="#' +
+			    this.getAttribute('id') +
+			    '" title="Permalink to this term">¶</a>');
+	});
+  /*** Hide navbar when scrolling down ***/
+  // Returns true when headerlink target matches hash in url
+  (function() {
+    hashTargetOnTop = function() {
+        var hash = window.location.hash;
+        if ( hash.length < 2 ) { return false; }
+
+        var target = document.getElementById( hash.slice(1) );
+        if ( target === null ) { return false; }
+
+        var top = target.getBoundingClientRect().top;
+        return (top < 2) && (top > -2);
+    };
+
+    // Hide navbar on load if hash target is on top
+    var navBar = document.getElementById("navbar");
+    var navBarToggler = document.getElementById("sk-navbar-toggler");
+    var navBarHeightHidden = "-" + navBar.getBoundingClientRect().height + "px";
+    var $window = $(window);
+
+    hideNavBar = function() {
+        navBar.style.top = navBarHeightHidden;
+    };
+
+    showNavBar = function() {
+        navBar.style.top = "0";
+    }
+
+    if (hashTargetOnTop()) {
+        hideNavBar()
+    }
+
+    var prevScrollpos = window.pageYOffset;
+    hideOnScroll = function(lastScrollTop) {
+        if (($window.width() < 768) && (navBarToggler.getAttribute("aria-expanded") === 'true')) {
+            return;
+        }
+        if (lastScrollTop > 2 && (prevScrollpos <= lastScrollTop) || hashTargetOnTop()){
+            hideNavBar()
+        } else {
+            showNavBar()
+        }
+        prevScrollpos = lastScrollTop;
+    };
+
+    /*** high performance scroll event listener***/
+    var raf = window.requestAnimationFrame ||
+        window.webkitRequestAnimationFrame ||
+        window.mozRequestAnimationFrame ||
+        window.msRequestAnimationFrame ||
+        window.oRequestAnimationFrame;
+    var lastScrollTop = $window.scrollTop();
+
+    if (raf) {
+        loop();
+    }
+
+    function loop() {
+        var scrollTop = $window.scrollTop();
+        if (lastScrollTop === scrollTop) {
+            raf(loop);
+            return;
+        } else {
+            lastScrollTop = scrollTop;
+            hideOnScroll(lastScrollTop);
+            raf(loop);
+        }
+    }
+  })();
+});
+
+</script>
+    
+
+<script src="_static/js/vendor/bootstrap.min.js"></script>
+
+</body>
+</html>

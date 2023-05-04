@@ -3,7 +3,7 @@
 <head>
 
   <meta charset="utf-8">
-  <meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+  <meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
@@ -41,7 +41,7 @@
         <script src="../../_static/sphinx_highlight.js"></script>
         <script src="../../_static/thebelab-helper.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
-        <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.20.1/dist/embed-amd.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/@jupyter-widgets/html-manager@^1.0.1/dist/embed-amd.js"></script>
         <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
         <script>window.MathJax = {"tex": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true}, "options": {"ignoreHtmlClass": "tex2jax_ignore|mathjax_ignore|document", "processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
         <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
@@ -117,8 +117,8 @@
             </a>
           </div>
           <!--div class="btn-group w-100 mb-2" role="group" aria-label="rellinks">
-              <a href="../data.html" role="button" class="btn sk-btn-rellink py-1" sk-rellink-tooltip="2. Data Pipeline">Prev</a><a href="../data.html" role="button" class="btn sk-btn-rellink py-1" sk-rellink-tooltip="2. Data Pipeline">Up</a>
-              <a href="../extmodels.html" role="button" class="btn sk-btn-rellink py-1" sk-rellink-tooltip="3. Black-box Models">Next</a>
+              <a href="data_quality.html" role="button" class="btn sk-btn-rellink py-1" sk-rellink-tooltip="2.5. Data Quality">Prev</a><a href="../data.html" role="button" class="btn sk-btn-rellink py-1" sk-rellink-tooltip="2. Data Pipeline">Up</a>
+              <a href="twosample_test.html" role="button" class="btn sk-btn-rellink py-1" sk-rellink-tooltip="2.7. Two Sample Test">Next</a>
           </div-->
               <div class="sk-sidebar-toc">
               
@@ -145,7 +145,31 @@
                     <ul>
                       
                         <li class="sk-toctree-l3">
-                          <a href="">2.1. Feature Selection</a>
+                          <a href="data_load.html">2.1. Data Load</a>
+                        </li>
+                      
+                        <li class="sk-toctree-l3">
+                          <a href="data_summary.html">2.2. Data Summary</a>
+                        </li>
+                      
+                        <li class="sk-toctree-l3">
+                          <a href="data_prepare.html">2.3. Data Prepare</a>
+                        </li>
+                      
+                        <li class="sk-toctree-l3">
+                          <a href="data_eda.html">2.4. Exploratory Analysis</a>
+                        </li>
+                      
+                        <li class="sk-toctree-l3">
+                          <a href="data_quality.html">2.5. Data Quality</a>
+                        </li>
+                      
+                        <li class="sk-toctree-l3">
+                          <a href="">2.6. Feature Selection</a>
+                        </li>
+                      
+                        <li class="sk-toctree-l3">
+                          <a href="twosample_test.html">2.7. Two Sample Test</a>
                         </li>
                       
                     </ul>
@@ -168,7 +192,7 @@
                   </li>
                 
                   <li>
-                    <a href="../testing.html" class="">6. Outcome Testing</a>
+                    <a href="../testing.html" class="">6. Diagnostic Suite</a>
                     
                   </li>
                 
@@ -179,11 +203,6 @@
                 
                   <li>
                     <a href="../cases.html" class="">8. Case Studies</a>
-                    
-                  </li>
-                
-                  <li>
-                    <a href="../conclusion.html" class="">9. Conclusion</a>
                     
                   </li>
                 
@@ -230,24 +249,23 @@
   }
 
 </style><section id="feature-selection">
-<h1><span class="section-number">2.1. </span>Feature Selection<a class="headerlink" href="#feature-selection" title="Permalink to this heading">¶</a></h1>
-<p>Feature selection aims at selecting a subset of covariates that are most relevant to the response.
-When the number of features is large, feature selection can help mitigate computational burden and avoid overfitting.
-Moreover, reducing the number of modeling features is also beneficial for enhancing model interpretability.</p>
-<p>In this section, four built-in feature selection strategies in PiML would be briefly introduced.
-For demonstration purposes, we run the following example codes to initialize a PiML experiment for the BikeSharing dataset.
-Note that feature selection is based on training data, and hence the <code class="docutils literal notranslate"><span class="pre">exp.data_prepare</span></code> function should be executed before running <code class="docutils literal notranslate"><span class="pre">exp.feature_select</span></code>.</p>
-<section id="pearson-correlation">
-<h2><span class="section-number">2.1.1. </span>Pearson Correlation<a class="headerlink" href="#pearson-correlation" title="Permalink to this heading">¶</a></h2>
-<p>Pearson correlation is a measure of linear correlation between two variables.
-Mathematically, the correlation coefficient of <span class="math notranslate nohighlight">\(X\)</span> and <span class="math notranslate nohighlight">\(Y\)</span> can be calculated in the following way.</p>
+<h1><span class="section-number">2.6. </span>Feature Selection<a class="headerlink" href="#feature-selection" title="Permalink to this heading">¶</a></h1>
+<p>Feature selection aims at selecting a subset of covariates that are most relevant to the response. When the number of features is large, feature selection can help mitigate computational burden and avoid overfitting. Moreover, reducing the number of modeling features is also beneficial for enhancing model interpretability.</p>
+<p>In this section, four built-in feature selection strategies in PiML would be briefly introduced. For demonstration purposes, we run the following example codes to initialize a PiML experiment for the BikeSharing dataset. Note that feature selection is based on training data, and hence the <code class="docutils literal notranslate"><span class="pre">exp.data_prepare</span></code> function should be executed before running <code class="docutils literal notranslate"><span class="pre">exp.feature_select</span></code>.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>In all the four strategies, we treat binary responses as continuous variables.
+However, this treatment is not very rigourous, especially for pearson correlation, distance correlation, and rcit tests.</p>
+</div>
+<section id="correlations">
+<h2><span class="section-number">2.6.1. </span>Correlations<a class="headerlink" href="#correlations" title="Permalink to this heading">¶</a></h2>
+<p><strong>Pearson correlation</strong> is a measure of linear correlation between two variables. Mathematically, the correlation coefficient of <span class="math notranslate nohighlight">\(X\)</span> and <span class="math notranslate nohighlight">\(Y\)</span> can be calculated in the following way.</p>
 <div class="math notranslate nohighlight">
 \[\begin{align}
 \rho_{X Y}=\frac{\sum_{i=1}^n\left(X_i-\bar{X}\right)\left(Y_i-\bar{Y}\right)}
                      {\sqrt{\sum_{i=1}^n\left(X_i-\bar{X}\right)^2} \sqrt{\sum_{i=1}^n\left(Y_i-\bar{Y}\right)^2}}
 \end{align}\]</div>
-<p>The value of <span class="math notranslate nohighlight">\(\rho_{X Y}\)</span> ranges from -1 to 1, where the sign denotes the direction of the relationship, and the magnitude represents the correlation strength.
-The corresponding feature selection strategy is straightforward:</p>
+<p>The value of <span class="math notranslate nohighlight">\(\rho_{X Y}\)</span> ranges from -1 to 1, where the sign denotes the direction of the relationship, and the magnitude represents the correlation strength. The corresponding feature selection strategy is straightforward:</p>
 <blockquote>
 <div><ul class="simple">
 <li><p>Calculate the Pearson correlation coefficient between each covariate and the response.</p></li>
@@ -257,7 +275,7 @@ The corresponding feature selection strategy is straightforward:</p>
 <p>These two steps are wrapped up and can be called in a single-line command in PiML, as follows,</p>
 <div class="jupyter_cell jupyter_container docutils container">
 <div class="cell_input code_cell docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">exp</span><span class="o">.</span><span class="n">feature_select</span><span class="p">(</span><span class="n">method</span><span class="o">=</span><span class="s1">&#39;cor&#39;</span><span class="p">,</span> <span class="n">threshold</span><span class="o">=</span><span class="mf">0.1</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">exp</span><span class="o">.</span><span class="n">feature_select</span><span class="p">(</span><span class="n">method</span><span class="o">=</span><span class="s2">&quot;cor&quot;</span><span class="p">,</span> <span class="n">corr_algorithm</span><span class="o">=</span><span class="s2">&quot;pearson&quot;</span><span class="p">,</span> <span class="n">threshold</span><span class="o">=</span><span class="mf">0.1</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">4</span><span class="p">))</span>
 </pre></div>
 </div>
 </div>
@@ -265,10 +283,9 @@ The corresponding feature selection strategy is straightforward:</p>
 </div>
 </div>
 <figure class="align-left">
-<a class="reference external image-reference" href="../../auto_examples/data/plot_0_feature_select.html"><img alt="../../_images/sphx_glr_plot_0_feature_select_001.png" src="../../_images/sphx_glr_plot_0_feature_select_001.png" style="width: 400.0px; height: 300.0px;" /></a>
+<a class="reference external image-reference" href="../../auto_examples/data/plot_5_feature_select.html"><img alt="../../_images/sphx_glr_plot_5_feature_select_001.png" src="../../_images/sphx_glr_plot_5_feature_select_001.png" /></a>
 </figure>
-<p>where <code class="docutils literal notranslate"><span class="pre">cor</span></code> is the keyword of the Pearson correlation strategy, and 0.1 is the user-defined threshold.
-The output results include:</p>
+<p>where “cor” is the keyword of the correlation strategy, “pearson” specifies the Pearson correlation, and 0.1 is the user-defined threshold. The output results include:</p>
 <blockquote>
 <div><ul class="simple">
 <li><p>The upper-left figure shows the top 10 most important features, where the blue and orange bars denote the positive and negative correlations, respectively.</p></li>
@@ -276,14 +293,29 @@ The output results include:</p>
 <li><p>The bottom line text highlights the selected features.</p></li>
 </ul>
 </div></blockquote>
-<p>Pearson correlation is easy to compute and interpret.
-However, as it cannot measure non-linear relationships, its usage is limited and we may use the following three methods when dealing with complicated data.</p>
+<p>Pearson correlation is easy to compute and interpret. However, as it cannot measure non-linear relationships, its usage is limited and we may use the following three methods when dealing with complicated data.</p>
+<p><strong>Spearman correlation</strong> is defined as the Pearson correlation between the rank variables, which can be calculated as follows,</p>
+<div class="math notranslate nohighlight">
+\[\begin{align}
+r_{s}=\rho_{\mathrm{R}(X), \mathrm{R}(Y)}= 1-\frac{6 \sum d_i^2}{n\left(n^2-1\right)}
+\end{align}\]</div>
+<p>where <span class="math notranslate nohighlight">\(\mathrm{R}(X), \mathrm{R}(Y)\)</span> are the ranking variables of <span class="math notranslate nohighlight">\(X, Y\)</span>, respectively. <span class="math notranslate nohighlight">\(d_i=\mathrm{R}\left(X_i\right)-\mathrm{R}\left(Y_i\right)\)</span> denotes the difference between the two ranks of the <span class="math notranslate nohighlight">\(i\)</span>-th observation. The Spearman correlation measures the strength and direction of the relationship between two variables by evaluating how well the relationship between them can be described by a monotonic function. A perfect Spearman correlation of +1 or -1 occurs when each variable is a perfect monotonic function of the other, assuming there are no repeated data values. The corresponding feature selection strategy is similar to the Pearson correlation, except that we replace the keyword “pearson” with “spearman” in the <code class="docutils literal notranslate"><span class="pre">corr_algorithm</span></code> argument.</p>
+<div class="jupyter_cell jupyter_container docutils container">
+<div class="cell_input code_cell docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">exp</span><span class="o">.</span><span class="n">feature_select</span><span class="p">(</span><span class="n">method</span><span class="o">=</span><span class="s2">&quot;cor&quot;</span><span class="p">,</span> <span class="n">corr_algorithm</span><span class="o">=</span><span class="s2">&quot;spearman&quot;</span><span class="p">,</span> <span class="n">threshold</span><span class="o">=</span><span class="mf">0.1</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">4</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+</div>
+</div>
+<figure class="align-left">
+<a class="reference external image-reference" href="../../auto_examples/data/plot_5_feature_select.html"><img alt="../../_images/sphx_glr_plot_5_feature_select_002.png" src="../../_images/sphx_glr_plot_5_feature_select_002.png" /></a>
+</figure>
 </section>
 <section id="distance-correlation">
-<h2><span class="section-number">2.1.2. </span>Distance Correlation<a class="headerlink" href="#distance-correlation" title="Permalink to this heading">¶</a></h2>
-<p>The distance correlation is a measure of dependence between two paired random vectors.
-It can be viewed as an advanced correlation measurement that can handle both linear and non-linear relationships.
-Given two features <span class="math notranslate nohighlight">\(X\)</span> and <span class="math notranslate nohighlight">\(Y\)</span>, we first calculate their pairwise Euclidean distance matrix, as follows,</p>
+<h2><span class="section-number">2.6.2. </span>Distance Correlation<a class="headerlink" href="#distance-correlation" title="Permalink to this heading">¶</a></h2>
+<p>The distance correlation is a measure of dependence between two paired random vectors. It can be viewed as an advanced correlation measurement that can handle both linear and non-linear relationships. Given two features <span class="math notranslate nohighlight">\(X\)</span> and <span class="math notranslate nohighlight">\(Y\)</span>, we first calculate their pairwise Euclidean distance matrix, as follows,</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}\begin{aligned}
         &amp; a_{j, k}=\left\|X_j-X_k\right\|, \quad j, k=1,2, \ldots, n \\
@@ -305,12 +337,10 @@ Given two features <span class="math notranslate nohighlight">\(X\)</span> and <
 \[\begin{aligned}
              \mathrm{dCor}^2(X, Y) = \frac{\mathrm{dCov}^2(X, Y)}{\sqrt{\mathrm{dVar}^2(X) \operatorname{dVar}^2(Y)}}.
      \end{aligned}\]</div>
-<p>Similar to that of Pearson correlation, we first calculate the distance correlation of each covariate and the response and then use a <code class="docutils literal notranslate"><span class="pre">threshold</span></code> to determine which features are selected.
-Note that the distance correlation is always positive, ranging from 0 to 1, and hence we don’t need to take the absolute value of these coefficients.
-In PiML, this method can be called using the following command.</p>
+<p>Similar to that of Pearson correlation, we first calculate the distance correlation of each covariate and the response and then use a <code class="docutils literal notranslate"><span class="pre">threshold</span></code> to determine which features are selected. Note that the distance correlation is always positive, ranging from 0 to 1, and hence we don”t need to take the absolute value of these coefficients. In PiML, this method can be called using the following command,</p>
 <div class="jupyter_cell jupyter_container docutils container">
 <div class="cell_input code_cell docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">exp</span><span class="o">.</span><span class="n">feature_select</span><span class="p">(</span><span class="n">method</span><span class="o">=</span><span class="s1">&#39;dcor&#39;</span><span class="p">,</span> <span class="n">threshold</span><span class="o">=</span><span class="mf">0.1</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">exp</span><span class="o">.</span><span class="n">feature_select</span><span class="p">(</span><span class="n">method</span><span class="o">=</span><span class="s2">&quot;dcor&quot;</span><span class="p">,</span> <span class="n">threshold</span><span class="o">=</span><span class="mf">0.1</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">4</span><span class="p">))</span>
 </pre></div>
 </div>
 </div>
@@ -318,27 +348,25 @@ In PiML, this method can be called using the following command.</p>
 </div>
 </div>
 <figure class="align-left">
-<a class="reference external image-reference" href="../../auto_examples/data/plot_0_feature_select.html"><img alt="../../_images/sphx_glr_plot_0_feature_select_002.png" src="../../_images/sphx_glr_plot_0_feature_select_002.png" style="width: 400.0px; height: 300.0px;" /></a>
+<a class="reference external image-reference" href="../../auto_examples/data/plot_5_feature_select.html"><img alt="../../_images/sphx_glr_plot_5_feature_select_003.png" src="../../_images/sphx_glr_plot_5_feature_select_003.png" /></a>
 </figure>
-<p>where the keyword is <code class="docutils literal notranslate"><span class="pre">dcor</span></code>, and the distance correlation is calculated using the <code class="docutils literal notranslate"><span class="pre">dcor</span></code> package, see the source code at <a class="reference external" href="https://github.com/vnmabus/dcor">https://github.com/vnmabus/dcor</a>.
-The main advantage of distance correlation lies in that it is flexible in capturing non-linear relationships.
-However, its calculation requires the pairwise distance matrix, which can be computationally very expensive as the sample size is large.</p>
+<p>where the keyword is “dcor”. The main advantage of distance correlation lies in that it is flexible in capturing non-linear relationships. However, its calculation requires the pairwise distance matrix, which can be computationally very expensive as the sample size is large. To make the computation scalable for big data, we downsample 5000 samples from the original data and use them to calculate the distance correlation. The distance correlation is calculated using the <code class="docutils literal notranslate"><span class="pre">statsmodels</span></code> package by default. Alternatively, if the <code class="docutils literal notranslate"><span class="pre">dcor</span></code> package is installed, then the <code class="docutils literal notranslate"><span class="pre">dcor</span></code> package will be used automatically due to speed consideration.</p>
 </section>
 <section id="feature-importance">
-<h2><span class="section-number">2.1.3. </span>Feature Importance<a class="headerlink" href="#feature-importance" title="Permalink to this heading">¶</a></h2>
+<h2><span class="section-number">2.6.3. </span>Feature Importance<a class="headerlink" href="#feature-importance" title="Permalink to this heading">¶</a></h2>
 <p>This strategy is composed of the following four steps:</p>
 <blockquote>
 <div><ul class="simple">
-<li><p>Fit an LGBM model using all the covariates and the response.</p></li>
-<li><p>Run permutation feature importance test for the fitted LGBM model, and get the importance of each feature.</p></li>
+<li><p>Fit a XGB model using all the covariates and the response.</p></li>
+<li><p>Run permutation feature importance test for the fitted XGB model, and get the importance of each feature.</p></li>
 <li><p>Sort features in the descending order of importance (normalized such that all values sum to 1).</p></li>
 <li><p>Select the top features with accumulated importance greater than a pre-defined threshold.</p></li>
 </ul>
 </div></blockquote>
-<p>See the example usage below.</p>
+<p>See the example usage below,</p>
 <div class="jupyter_cell jupyter_container docutils container">
 <div class="cell_input code_cell docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">exp</span><span class="o">.</span><span class="n">feature_select</span><span class="p">(</span><span class="n">method</span><span class="o">=</span><span class="s1">&#39;pfi&#39;</span><span class="p">,</span> <span class="n">threshold</span><span class="o">=</span><span class="mf">0.95</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">exp</span><span class="o">.</span><span class="n">feature_select</span><span class="p">(</span><span class="n">method</span><span class="o">=</span><span class="s2">&quot;pfi&quot;</span><span class="p">,</span> <span class="n">threshold</span><span class="o">=</span><span class="mf">0.95</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">4</span><span class="p">))</span>
 </pre></div>
 </div>
 </div>
@@ -346,24 +374,17 @@ However, its calculation requires the pairwise distance matrix, which can be com
 </div>
 </div>
 <figure class="align-left">
-<a class="reference external image-reference" href="../../auto_examples/data/plot_0_feature_select.html"><img alt="../../_images/sphx_glr_plot_0_feature_select_003.png" src="../../_images/sphx_glr_plot_0_feature_select_003.png" style="width: 400.0px; height: 300.0px;" /></a>
+<a class="reference external image-reference" href="../../auto_examples/data/plot_5_feature_select.html"><img alt="../../_images/sphx_glr_plot_5_feature_select_004.png" src="../../_images/sphx_glr_plot_5_feature_select_004.png" /></a>
 </figure>
-<p>where the keyword here is <code class="docutils literal notranslate"><span class="pre">pfi</span></code>, and this test is based on the implementation of scikit-learn, and the details can be found at <a class="reference external" href="https://scikit-learn.org/stable/modules/generated/sklearn.inspection.permutation_importance.html">https://scikit-learn.org/stable/modules/generated/sklearn.inspection.permutation_importance.html</a>.
-The setting <code class="docutils literal notranslate"><span class="pre">threshold=0.95</span></code> means selecting the top features with the sum of feature importance greater than 95%.
-The valid range of <code class="docutils literal notranslate"><span class="pre">threshold</span></code> is 0 to 1, representing the percentage of accumulated importance.
-As we increase the threshold, more features would be selected.</p>
-<p>By using LGBM and PFI to rank features, the selected features are most relevant for predicting the response.
-The potential concern of this method is that the fitted model can be overfitting to noisy features, and thus the resulting feature ranking can be incorrect.</p>
+<p>where the keyword here is “pfi”, and this test is based on the implementation of scikit-learn, and the details can be found at <a class="reference external" href="https://scikit-learn.org/stable/modules/generated/sklearn.inspection.permutation_importance.html">https://scikit-learn.org/stable/modules/generated/sklearn.inspection.permutation_importance.html</a>. The setting <code class="docutils literal notranslate"><span class="pre">threshold=0.95</span></code> means selecting the top features with the sum of feature importance greater than 95%. The valid range of <code class="docutils literal notranslate"><span class="pre">threshold</span></code> is 0 to 1, representing the percentage of accumulated importance. As we increase the threshold, more features would be selected.</p>
+<p>By using XGB and PFI to rank features, the selected features are most relevant for predicting the response. The potential concern of this method is that the fitted model can be overfitting to noisy features, and thus the resulting feature ranking can be incorrect.</p>
 </section>
 <section id="randomized-conditional-independence-test">
-<h2><span class="section-number">2.1.4. </span>Randomized Conditional Independence Test<a class="headerlink" href="#randomized-conditional-independence-test" title="Permalink to this heading">¶</a></h2>
-<p>This strategy aims to identify a Markov boundary of the response variable, where the Markov boundary is defined as the minimal feature subset with maximum predictive power.
-In particular, the randomized conditional independence test (RCIT) is used to test whether a variable is probabilistically independent of the response variable, conditioning on the Markov boundary.
-A forward-backward selection strategy is incorporated with RCIT to generate the Markov boundary.</p>
+<h2><span class="section-number">2.6.4. </span>Randomized Conditional Independence Test<a class="headerlink" href="#randomized-conditional-independence-test" title="Permalink to this heading">¶</a></h2>
+<p>This strategy aims to identify a Markov boundary of the response variable, where the Markov boundary is defined as the minimal feature subset with maximum predictive power. In particular, the randomized conditional independence test (RCIT) is used to test whether a variable is probabilistically independent of the response variable, conditioning on the Markov boundary. A forward-backward selection strategy is incorporated with RCIT to generate the Markov boundary.</p>
 <section id="rcit-test">
-<h3><span class="section-number">2.1.4.1. </span>RCIT Test<a class="headerlink" href="#rcit-test" title="Permalink to this heading">¶</a></h3>
-<p>Given a Markov boundary set <span class="math notranslate nohighlight">\(Z\)</span>, the goal is to test whether a feature <span class="math notranslate nohighlight">\(X\)</span> is independent of the response variable <span class="math notranslate nohighlight">\(Y\)</span>, namely <span class="math notranslate nohighlight">\(X \perp Y \mid Z\)</span>..
-The RCIT test is highly related to KCIT, see follows.</p>
+<h3><span class="section-number">2.6.4.1. </span>RCIT Test<a class="headerlink" href="#rcit-test" title="Permalink to this heading">¶</a></h3>
+<p>Given a Markov boundary set <span class="math notranslate nohighlight">\(Z\)</span>, the goal is to test whether a feature <span class="math notranslate nohighlight">\(X\)</span> is independent of the response variable <span class="math notranslate nohighlight">\(Y\)</span>, namely <span class="math notranslate nohighlight">\(X \perp Y \mid Z\)</span>. The RCIT test is highly related to KCIT, see follows.</p>
 <blockquote>
 <div><ul class="simple">
 <li><p>KCIT <a class="reference internal" href="#zhang2012" id="id1"><span>[Zhang2012]</span></a>: kernel conditional independent test, works for non-linear and arbitrary data distribution; but not scalable.</p></li>
@@ -384,9 +405,8 @@ A detailed introduction to RCIT is given below:</p>
 <p>In PiML, the number of random Fourier features is set to 100 (<span class="math notranslate nohighlight">\(Z\)</span>) and 5 (<span class="math notranslate nohighlight">\(X\)</span> and <span class="math notranslate nohighlight">\(Y\)</span>), respectively.</p>
 </section>
 <section id="forward-backward-selection-with-early-dropping-fbedk">
-<h3><span class="section-number">2.1.4.2. </span>Forward-Backward selection with Early Dropping (FBEDk):<a class="headerlink" href="#forward-backward-selection-with-early-dropping-fbedk" title="Permalink to this heading">¶</a></h3>
-<p>The FBEDk <a class="reference internal" href="#borboudakis2019" id="id4"><span>[Borboudakis2019]</span></a> algorithm is a combination of forward selection and backward elimination.
-Here we first run forward selection with a user-defined Markov boundary set as initial and then conduct backward elimination to further delete insignificant features.</p>
+<h3><span class="section-number">2.6.4.2. </span>Forward-Backward selection with Early Dropping (FBEDk):<a class="headerlink" href="#forward-backward-selection-with-early-dropping-fbedk" title="Permalink to this heading">¶</a></h3>
+<p>The FBEDk <a class="reference internal" href="#borboudakis2019" id="id4"><span>[Borboudakis2019]</span></a> algorithm is a combination of forward selection and backward elimination. Here we first run forward selection with a user-defined Markov boundary set as initial and then conduct backward elimination to further delete insignificant features.</p>
 <p><strong>Forward Selection</strong></p>
 <blockquote>
 <div><ul class="simple">
@@ -397,8 +417,7 @@ Here we first run forward selection with a user-defined Markov boundary set as i
 <li><p>Repeat the last three steps, and the algorithm stops as the candidate set is empty.</p></li>
 </ul>
 </div></blockquote>
-<p>The above steps describe one run of the forward phase. To increase accuracy, the overall forward phase is repeated for <code class="docutils literal notranslate"><span class="pre">k</span></code> times, i.e., the character “k” in “FBEDk”.
-As recommended by <a class="reference internal" href="#yu2020" id="id5"><span>[Yu2020]</span></a>, the forward phase is repeated twice, i.e., the value of <code class="docutils literal notranslate"><span class="pre">k</span></code> is 2, and you may change this parameter by specifying the argument <code class="docutils literal notranslate"><span class="pre">n_forward_phase</span></code>.</p>
+<p>The above steps describe one run of the forward phase. To increase accuracy, the overall forward phase is repeated for <code class="docutils literal notranslate"><span class="pre">k</span></code> times, i.e., the character “k” in “FBEDk”. As recommended by <a class="reference internal" href="#yu2020" id="id5"><span>[Yu2020]</span></a>, the forward phase is repeated twice, i.e., the value of <code class="docutils literal notranslate"><span class="pre">k</span></code> is 2, and you may change this parameter by specifying the argument <code class="docutils literal notranslate"><span class="pre">n_forward_phase</span></code>.</p>
 <p><strong>Backward Elimination</strong></p>
 <blockquote>
 <div><ul class="simple">
@@ -409,7 +428,7 @@ As recommended by <a class="reference internal" href="#yu2020" id="id5"><span>[Y
 </div></blockquote>
 <div class="jupyter_cell jupyter_container docutils container">
 <div class="cell_input code_cell docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">exp</span><span class="o">.</span><span class="n">feature_select</span><span class="p">(</span><span class="n">method</span><span class="o">=</span><span class="s1">&#39;rcit&#39;</span><span class="p">,</span> <span class="n">threshold</span><span class="o">=</span><span class="mf">0.001</span><span class="p">,</span> <span class="n">n_forward_phase</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">kernel_size</span><span class="o">=</span><span class="mi">100</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">exp</span><span class="o">.</span><span class="n">feature_select</span><span class="p">(</span><span class="n">method</span><span class="o">=</span><span class="s2">&quot;rcit&quot;</span><span class="p">,</span> <span class="n">threshold</span><span class="o">=</span><span class="mf">0.001</span><span class="p">,</span> <span class="n">n_forward_phase</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">kernel_size</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">4</span><span class="p">))</span>
 </pre></div>
 </div>
 </div>
@@ -417,18 +436,15 @@ As recommended by <a class="reference internal" href="#yu2020" id="id5"><span>[Y
 </div>
 </div>
 <figure class="align-left">
-<a class="reference external image-reference" href="../../auto_examples/data/plot_0_feature_select.html"><img alt="../../_images/sphx_glr_plot_0_feature_select_004.png" src="../../_images/sphx_glr_plot_0_feature_select_004.png" style="width: 400.0px; height: 300.0px;" /></a>
+<a class="reference external image-reference" href="../../auto_examples/data/plot_5_feature_select.html"><img alt="../../_images/sphx_glr_plot_5_feature_select_005.png" src="../../_images/sphx_glr_plot_5_feature_select_005.png" /></a>
 </figure>
-<p>where the upper-left figure shows the step-by-step formulation of the Markov boundary set.
-The value of the <code class="docutils literal notranslate"><span class="pre">threshold</span></code> should be between 0 to 1. The smaller its value, the fewer features would be marked as significant and then selected.</p>
+<p>The keyword here is “rcit”. The upper-left figure shows the step-by-step formulation of the Markov boundary set. The value of the <code class="docutils literal notranslate"><span class="pre">threshold</span></code> should be between 0 to 1. The smaller its value, the fewer features would be marked as significant and then selected.</p>
 <p>In the beginning, the Markov boundary set is empty, and the RCIT test is run over each feature and the response.
-As shown in iteration zero, some features are marked as significant if the corresponding <code class="docutils literal notranslate"><span class="pre">p_value</span> <span class="pre">&lt;=</span> <span class="pre">threshold</span></code>, e.g., <code class="docutils literal notranslate"><span class="pre">hr</span></code> and <code class="docutils literal notranslate"><span class="pre">temp</span></code>; while <code class="docutils literal notranslate"><span class="pre">workingday</span></code> and <code class="docutils literal notranslate"><span class="pre">weekday</span></code> are shown to be insignificant.
-In iteration one, the most significant feature <code class="docutils literal notranslate"><span class="pre">temp</span></code> is added to the Markov boundary set, while <code class="docutils literal notranslate"><span class="pre">workingday</span></code> and <code class="docutils literal notranslate"><span class="pre">weekday</span></code> are then removed from the candidate feature list.
-This procedure will be repeated, and in the end, seven features are selected, including, <code class="docutils literal notranslate"><span class="pre">temp</span></code>, <code class="docutils literal notranslate"><span class="pre">hr</span></code>, <code class="docutils literal notranslate"><span class="pre">yr</span></code>, <code class="docutils literal notranslate"><span class="pre">weathersit</span></code>, <code class="docutils literal notranslate"><span class="pre">season</span></code>, <code class="docutils literal notranslate"><span class="pre">hum</span></code>, and <code class="docutils literal notranslate"><span class="pre">mnth</span></code>.</p>
+As shown in iteration zero, some features are marked as significant if the corresponding <code class="docutils literal notranslate"><span class="pre">p_value</span> <span class="pre">&lt;=</span> <span class="pre">threshold</span></code>, e.g., <code class="docutils literal notranslate"><span class="pre">hr</span></code> and <code class="docutils literal notranslate"><span class="pre">temp</span></code>; while <code class="docutils literal notranslate"><span class="pre">workingday</span></code> and <code class="docutils literal notranslate"><span class="pre">weekday</span></code> are shown to be insignificant. In iteration one, the most significant feature <code class="docutils literal notranslate"><span class="pre">temp</span></code> is added to the Markov boundary set, while <code class="docutils literal notranslate"><span class="pre">workingday</span></code> and <code class="docutils literal notranslate"><span class="pre">weekday</span></code> are then removed from the candidate feature list. This procedure will be repeated, and in the end, seven features are selected, including, <code class="docutils literal notranslate"><span class="pre">temp</span></code>, <code class="docutils literal notranslate"><span class="pre">hr</span></code>, <code class="docutils literal notranslate"><span class="pre">yr</span></code>, <code class="docutils literal notranslate"><span class="pre">weathersit</span></code>, <code class="docutils literal notranslate"><span class="pre">season</span></code>, <code class="docutils literal notranslate"><span class="pre">hum</span></code>, and <code class="docutils literal notranslate"><span class="pre">mnth</span></code>.</p>
 <p>As the FBEDk algorithm can start with an arbitrary Markov boundary set, users may define a non-empty Markov boundary set as the start point, see the following example.</p>
 <div class="jupyter_cell jupyter_container docutils container">
 <div class="cell_input code_cell docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">exp</span><span class="o">.</span><span class="n">feature_select</span><span class="p">(</span><span class="n">method</span><span class="o">=</span><span class="s1">&#39;rcit&#39;</span><span class="p">,</span> <span class="n">threshold</span><span class="o">=</span><span class="mf">0.001</span><span class="p">,</span> <span class="n">preset</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;hr&quot;</span><span class="p">,</span> <span class="s2">&quot;temp&quot;</span><span class="p">])</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">exp</span><span class="o">.</span><span class="n">feature_select</span><span class="p">(</span><span class="n">method</span><span class="o">=</span><span class="s2">&quot;rcit&quot;</span><span class="p">,</span> <span class="n">threshold</span><span class="o">=</span><span class="mf">0.001</span><span class="p">,</span> <span class="n">preset</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;hr&quot;</span><span class="p">,</span> <span class="s2">&quot;temp&quot;</span><span class="p">],</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">4</span><span class="p">))</span>
 </pre></div>
 </div>
 </div>
@@ -436,51 +452,46 @@ This procedure will be repeated, and in the end, seven features are selected, in
 </div>
 </div>
 <figure class="align-left">
-<a class="reference external image-reference" href="../auto_examples/data/plot_0_feature_select.html"><img alt="../../_images/sphx_glr_plot_0_feature_select_005.png" src="../../_images/sphx_glr_plot_0_feature_select_005.png" style="width: 400.0px; height: 300.0px;" /></a>
+<a class="reference external image-reference" href="../auto_examples/data/plot_5_feature_select.html"><img alt="../../_images/sphx_glr_plot_5_feature_select_006.png" src="../../_images/sphx_glr_plot_5_feature_select_006.png" /></a>
 </figure>
 <p>This time, two features <code class="docutils literal notranslate"><span class="pre">hr</span></code> and <code class="docutils literal notranslate"><span class="pre">temp</span></code> are selected as the initialization, and they are shown in deep blue in iteration 0.</p>
-<p>The RCIT-based feature selection method is capable of handling non-linear relationships, and the selected features are all causally related to the response, subject to the pre-defined significance level.
-The disadvantages of this method include: a) the computational burden is relatively high; b) as it is a sequential selection approach, the results may be slightly different as we use different initial Markov boundary sets.</p>
-<div class="admonition warning">
-<p class="admonition-title">Warning</p>
-<p>In all the four strategies, we treat binary responses as continuous variables.
-However, this treatment is not very rigourous, especially for pearson correlation, distance correlation, and rcit tests.</p>
-</div>
+<p>The RCIT-based feature selection method is capable of handling non-linear relationships, and the selected features are all causally related to the response, subject to the pre-defined significance level. The disadvantages of this method include: a) the computational burden is relatively high; b) as it is a sequential selection approach, the results may be slightly different as we use different initial Markov boundary sets.</p>
 </section>
 </section>
 <section id="full-example">
-<h2><span class="section-number">2.1.5. </span>Full Example<a class="headerlink" href="#full-example" title="Permalink to this heading">¶</a></h2>
+<h2><span class="section-number">2.6.5. </span>Full Example<a class="headerlink" href="#full-example" title="Permalink to this heading">¶</a></h2>
 <p>The full example codes of this section can be found in the following link.</p>
-<div class="topic">
+<aside class="topic">
 <p class="topic-title">Example</p>
 <ul class="simple">
-<li><p><a class="reference internal" href="../../auto_examples/data/plot_0_feature_select.html#sphx-glr-auto-examples-data-plot-0-feature-select-py"><span class="std std-ref">Feature Selection</span></a></p></li>
+<li><p><a class="reference internal" href="../../auto_examples/data/plot_5_feature_select.html#sphx-glr-auto-examples-data-plot-5-feature-select-py"><span class="std std-ref">Feature Selection</span></a></p></li>
 </ul>
-</div>
-<div class="topic">
+</aside>
+<aside class="topic">
 <p class="topic-title">References</p>
-<blockquote>
-<div><dl class="citation">
-<dt class="label" id="zhang2012"><span class="brackets"><a class="fn-backref" href="#id1">Zhang2012</a></span></dt>
-<dd><p>Zhang, K., Peters, J., Janzing, D. and Schölkopf, B., 2012. Kernel-based conditional independence test and application in causal discovery. arXiv preprint arXiv:1202.3775.</p>
-</dd>
-<dt class="label" id="strobl2019"><span class="brackets"><a class="fn-backref" href="#id2">Strobl2019</a></span></dt>
-<dd><p>Strobl, E.V., Zhang, K. and Visweswaran, S., 2019. Approximate kernel-based conditional independence tests for fast non-parametric causal discovery. Journal of Causal Inference, 7(1).</p>
-</dd>
-<dt class="label" id="lindsayl2000"><span class="brackets"><a class="fn-backref" href="#id3">Lindsayl2000</a></span></dt>
-<dd><p>Lindsay, B.G., Pilla, R.S. and Basak, P., 2000. Moment-based approximations of distributions using mixtures: Theory and applications. Annals of the Institute of Statistical Mathematics, 52(2), pp.215-230.</p>
-</dd>
-<dt class="label" id="borboudakis2019"><span class="brackets"><a class="fn-backref" href="#id4">Borboudakis2019</a></span></dt>
-<dd><p>Borboudakis, G. and Ioannis T., 2019. Forward-backward selection with early dropping. The Journal of Machine Learning Research 20(1), pp.276-314.</p>
-</dd>
-</dl>
-</div></blockquote>
-<dl class="citation">
-<dt class="label" id="yu2020"><span class="brackets"><a class="fn-backref" href="#id5">Yu2020</a></span></dt>
-<dd><p>Yu, K., Guo, X., Liu, L., Li, J., Wang, H., Ling, Z. and Wu, X., 2020. Causality-based feature selection: Methods and evaluations. ACM Computing Surveys (CSUR), 53(5), pp.1-36.</p>
-</dd>
-</dl>
+<div role="list" class="citation-list">
+<div class="citation" id="zhang2012" role="doc-biblioentry">
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id1">Zhang2012</a><span class="fn-bracket">]</span></span>
+<p>Kun Zhang, Jonas Peters, Dominik Janzing, Bernhard Schoelkopf (2012). <a class="reference external" href="https://arxiv.org/ftp/arxiv/papers/1202/1202.3775.pdf">Kernel-based conditional independence test and application in causal discovery</a>, arXiv preprint arXiv:1202.3775.</p>
 </div>
+<div class="citation" id="strobl2019" role="doc-biblioentry">
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id2">Strobl2019</a><span class="fn-bracket">]</span></span>
+<p>Eric V. Strobl, Kun Zhang, Shyam Visweswaran (2019). <a class="reference external" href="https://arxiv.org/pdf/1702.03877.pdf">Approximate kernel-based conditional independence tests for fast non-parametric causal discovery</a>, Journal of Causal Inference, 7(1).</p>
+</div>
+<div class="citation" id="lindsayl2000" role="doc-biblioentry">
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id3">Lindsayl2000</a><span class="fn-bracket">]</span></span>
+<p>Bruce G. Lindsay, Ramani S. Pilla &amp; Prasanta Basak (2000). <a class="reference external" href="https://link.springer.com/article/10.1023/A:1004105603806">Moment-based approximations of distributions using mixtures: Theory and applications</a>, Annals of the Institute of Statistical Mathematics, 52(2), pp.215-230.</p>
+</div>
+<div class="citation" id="borboudakis2019" role="doc-biblioentry">
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id4">Borboudakis2019</a><span class="fn-bracket">]</span></span>
+<p>Giorgos Borboudakis, Ioannis Tsamardinos (2019). <a class="reference external" href="https://www.jmlr.org/papers/volume20/17-334/17-334.pdf">Forward-backward selection with early dropping</a>, The Journal of Machine Learning Research 20(1), pp.276-314.</p>
+</div>
+<div class="citation" id="yu2020" role="doc-biblioentry">
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id5">Yu2020</a><span class="fn-bracket">]</span></span>
+<p>Kui Yu, Xianjie Guo, Lin Liu, Jiuyong Li, Hao Wang, Zhaolong Ling, Xindong Wu (2020). <a class="reference external" href="https://arxiv.org/pdf/1911.07147.pdf">Causality-based feature selection: Methods and evaluations</a>. ACM Computing Surveys (CSUR), 53(5), pp.1-36.</p>
+</div>
+</div>
+</aside>
 </section>
 </section>
 

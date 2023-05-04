@@ -10,13 +10,12 @@ Black-box Models
 
 Assume you have already prepared the data.
  
-.. jupyter-execute::
-	:hide-output:
+.. jupyter-input::
 
 	from piml import Experiment
 	exp = Experiment()
 	exp.data_loader(data='CaliforniaHousing_raw')
-	exp.data_prepare(target='MedHouseVal', task_type='Regression', test_ratio=0.2, random_state=0)
+	exp.data_prepare(target='MedHouseVal', task_type='regression', random_state=0)
 
 
 Train and Register Models

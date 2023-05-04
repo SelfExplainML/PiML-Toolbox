@@ -3,7 +3,7 @@
 <head>
 
   <meta charset="utf-8">
-  <meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+  <meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
@@ -41,7 +41,7 @@
         <script src="../../_static/sphinx_highlight.js"></script>
         <script src="../../_static/thebelab-helper.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
-        <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.20.1/dist/embed-amd.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/@jupyter-widgets/html-manager@^1.0.1/dist/embed-amd.js"></script>
         <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
         <script>window.MathJax = {"tex": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true}, "options": {"ignoreHtmlClass": "tex2jax_ignore|mathjax_ignore|document", "processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
         <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
@@ -118,7 +118,7 @@
           </div>
           <!--div class="btn-group w-100 mb-2" role="group" aria-label="rellinks">
               <a href="../explainability.html" role="button" class="btn sk-btn-rellink py-1" sk-rellink-tooltip="4. Post-hoc Explainability">Prev</a><a href="../explainability.html" role="button" class="btn sk-btn-rellink py-1" sk-rellink-tooltip="4. Post-hoc Explainability">Up</a>
-              <a href="PDP.html" role="button" class="btn sk-btn-rellink py-1" sk-rellink-tooltip="4.1.2. PDP (Partial Dependence Plot)">Next</a>
+              <a href="pdp.html" role="button" class="btn sk-btn-rellink py-1" sk-rellink-tooltip="4.1.2. PDP (Partial Dependence Plot)">Next</a>
           </div-->
               <div class="sk-sidebar-toc">
               
@@ -160,7 +160,7 @@
                   </li>
                 
                   <li>
-                    <a href="../testing.html" class="">6. Outcome Testing</a>
+                    <a href="../testing.html" class="">6. Diagnostic Suite</a>
                     
                   </li>
                 
@@ -171,11 +171,6 @@
                 
                   <li>
                     <a href="../cases.html" class="">8. Case Studies</a>
-                    
-                  </li>
-                
-                  <li>
-                    <a href="../conclusion.html" class="">9. Conclusion</a>
                     
                   </li>
                 
@@ -223,78 +218,58 @@
 
 </style><section id="pfi-permutation-feature-importance">
 <h1><span class="section-number">4.1.1. </span>PFI (Permutation Feature Importance)<a class="headerlink" href="#pfi-permutation-feature-importance" title="Permalink to this heading">¶</a></h1>
-<p>The Permutation feature importance (PFI) of a model is defined as the increase in loss <span class="math notranslate nohighlight">\(L\)</span> when the feature set (usually just one feature) is permuted <a class="reference internal" href="#l2001" id="id1"><span>[L2001]</span></a>.
-In other words, it is the decrease in a model score when a single feature value is randomly shuffled, breaking the relationship between the feature and the target. The drop in the model performance
-is indicative of how much the model depends on the feature. With different permutations of the feature, such a technique can be used to evaluate how the model depends on each feature of the input
-set. However, features of low importance for a bad model (low cross-validation score) could be very important for a good model. Therefore, evaluating our model using techniques such as cross-validation before computing importance is
-strongly recommended.</p>
-<section id="algorithm-description">
-<h2><span class="section-number">4.1.1.1. </span>Algorithm Description<a class="headerlink" href="#algorithm-description" title="Permalink to this heading">¶</a></h2>
+<p>The permutation feature importance (PFI) measures the influence of individual features on the model by calculating the increase in loss <span class="math notranslate nohighlight">\(L`\)</span> when the feature set, typically one feature, is permuted <a class="reference internal" href="#l2001" id="id1"><span>[L2001]</span></a>. When a feature value is randomly shuffled, the relationship between the feature and the target is broken, and the resulting drop in model performance indicates the feature’s significance. PFI can be used to assess the model’s reliance on each feature in the input set. However, it should be noted that different models can have very different feature importance rankings, the PFI results can only reveal the importance of each feature to that specific model.</p>
+<section id="algorithm-details">
+<h2><span class="section-number">4.1.1.1. </span>Algorithm Details<a class="headerlink" href="#algorithm-details" title="Permalink to this heading">¶</a></h2>
+<p>Assuming we have a fully trained model, denoted by <span class="math notranslate nohighlight">\(f(x)\)</span>, and a dataset either training or testing data. For the time being, PiML only uses training data for the PFI calculation, and more flexible options will be provided in the future release.</p>
+<p>First of all, we evaluate the performance of the model the data and record the resulting performance score. Next, for each feature <span class="math notranslate nohighlight">\(k\)</span>, do the following:</p>
 <ul class="simple">
-<li><p>Assume we have a fully trained model, <span class="math notranslate nohighlight">\(\textbf{m}\)</span> and a dataset <span class="math notranslate nohighlight">\(\textbf{D}\)</span> (training or validation data)</p></li>
-<li><p>Evaluate your model, <span class="math notranslate nohighlight">\(\textbf{m}\)</span> on <span class="math notranslate nohighlight">\(\textbf{D}\)</span>, and record your model performance, <span class="math notranslate nohighlight">\(\textbf{s}\)</span>.</p></li>
-<li><p>For each feature <span class="math notranslate nohighlight">\(\textbf{k}\)</span> of the data <span class="math notranslate nohighlight">\(\textbf{D}\)</span>, do the following:</p>
-<ol class="arabic simple">
-<li><p>Perform a random shuffling of the values of feature <span class="math notranslate nohighlight">\(\textbf{k}\)</span> in the dataset <span class="math notranslate nohighlight">\(\textbf{D}\)</span>, and call the shuffled data <span class="math notranslate nohighlight">\(\textbf{D}^{'}\)</span>.</p></li>
-<li><p>Evaluate <span class="math notranslate nohighlight">\(\textbf{m}\)</span> on <span class="math notranslate nohighlight">\(\textbf{D}^{'}\)</span> and record your mode performance <span class="math notranslate nohighlight">\(\textbf{s}^{'}\)</span>.</p></li>
-<li><p>Compute <span class="math notranslate nohighlight">\(\textbf{S}_{i} = \textbf{s} - \textbf{s}^{'}\)</span></p></li>
-</ol>
-</li>
-<li><p>Repeat steps 1, 2 and 3  multiple times, then record the average of the <span class="math notranslate nohighlight">\(\textbf{S}_{i}\)</span>’s.</p></li>
+<li><p>Randomly shuffle the values of feature <span class="math notranslate nohighlight">\(k`\)</span> in the original dataset, while the rest feature values keep unchanged. By doing so, we generate a shuffled dataset.</p></li>
+<li><p>Evaluate the model performance on the shuffled dataset, and record the resulting performance score.</p></li>
+<li><p>Compute the performance degradation, and this is viewed as the importance of feature <span class="math notranslate nohighlight">\(k\)</span>.</p></li>
 </ul>
+<p>Finally, as the above steps invove some randomness, we usually repeat these steps for some iterations and calculate the average.</p>
+<p>The larger the average performance degradation, the more important the feature is considered to be. Note that it is possible the performance degradation is negative, which means that the model achieves better performance as that feature is removed. In this case, we truncate the negative importance to zero. In PiML, the above calculations are based on the <a class="reference external" href="https://scikit-learn.org/stable/modules/generated/sklearn.inspection.permutation_importance.html#sklearn.inspection.permutation_importance">permutation_importance</a> function of scikit-learn. For regression tasks, the performance metric is set to MSE; and for binary classification, the AUC metric is used. For more analysis of this algoritm, please refer to the documentation of <a class="reference external" href="https://scikit-learn.org/stable/modules/permutation_importance.html">here</a>.</p>
 </section>
-<section id="high-code">
-<h2><span class="section-number">4.1.1.2. </span>High-code<a class="headerlink" href="#high-code" title="Permalink to this heading">¶</a></h2>
-<p>PiML offers a straightforward approach to visualizing the PFI plots. In <code class="docutils literal notranslate"><span class="pre">exp.model_explain</span></code> , we set the  parameter <code class="docutils literal notranslate"><span class="pre">show</span></code> to <code class="docutils literal notranslate"><span class="pre">global_pfi</span></code>. The example below demonstrates how to use PiML with its high-code APIs to develop
-machine learning models for the BikeSharing data from UCI repository, consisting of 17,389 samples of hourly counts of rental bikes in Capital bikeshare system; see details <a class="reference external" href="https://archive.ics.uci.edu/ml/datasets/bike+sharing+dataset">BikeshareData</a>. The response <code class="docutils literal notranslate"><span class="pre">cnt</span></code> (hourly bike rental counts)
-is continuous, and we are dealing with a regression problem. Below is an illustration of the PFI plot. Please refer to the examples for additional details on a classification problem.</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">piml</span> <span class="kn">import</span> <span class="n">Experiment</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">piml.models</span> <span class="kn">import</span> <span class="n">ReluDNNRegressor</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">exp</span> <span class="o">=</span> <span class="n">Experiment</span><span class="p">()</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">exp</span><span class="o">.</span><span class="n">data_loader</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="s1">&#39;BikeSharing&#39;</span><span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">exp</span><span class="o">.</span><span class="n">data_prepare</span><span class="p">(</span><span class="n">target</span><span class="o">=</span><span class="s1">&#39;cnt&#39;</span><span class="p">,</span> <span class="n">task_type</span><span class="o">=</span><span class="s1">&#39;Regression&#39;</span><span class="p">,</span> <span class="n">test_ratio</span><span class="o">=</span><span class="mf">0.2</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">reludnn_model</span> <span class="o">=</span> <span class="n">ReluDNNRegressor</span><span class="p">(</span><span class="n">hidden_layer_sizes</span><span class="o">=</span><span class="p">(</span><span class="mi">40</span><span class="p">,</span> <span class="mi">40</span><span class="p">),</span> <span class="n">l1_reg</span><span class="o">=</span><span class="mf">1e-05</span><span class="p">,</span>
-<span class="gp">... </span>                      <span class="n">batch_size</span><span class="o">=</span><span class="mi">500</span><span class="p">,</span> <span class="n">learning_rate</span><span class="o">=</span><span class="mf">0.001</span><span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">exp</span><span class="o">.</span><span class="n">model_train</span><span class="p">(</span><span class="n">model</span><span class="o">=</span><span class="n">reludnn_model</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s1">&#39;ReLU_DNN&#39;</span><span class="p">)</span>
+<section id="usage">
+<h2><span class="section-number">4.1.1.2. </span>Usage<a class="headerlink" href="#usage" title="Permalink to this heading">¶</a></h2>
+<p>As the data and model are already prepared in PiML, we can directly use the <code class="docutils literal notranslate"><span class="pre">model_explain</span></code> function to show the PFI plot. Note that this function is the one-site API for all the post-hoc explainability methods. For PFI, we can specify the explainability method by setting the parameter <code class="docutils literal notranslate"><span class="pre">show</span></code> to “pfi”. The example below demonstrates how to use PiML with its high-code APIs to develop machine learning models for the BikeSharing data. The argument <code class="docutils literal notranslate"><span class="pre">n_repeats</span></code> defines the number of repetition for reducing the randomness. To reduce the computation time, its default value is 1, both in the low-code and high-code modes.</p>
+<div class="jupyter_cell jupyter_container docutils container">
+<div class="cell_input code_cell docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">exp</span><span class="o">.</span><span class="n">model_explain</span><span class="p">(</span><span class="n">model</span><span class="o">=</span><span class="s2">&quot;XGB2&quot;</span><span class="p">,</span> <span class="n">show</span><span class="o">=</span><span class="s2">&quot;pfi&quot;</span><span class="p">,</span> <span class="n">n_repeats</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">4</span><span class="p">))</span>
 </pre></div>
 </div>
-<p>Our variable of intrest is <code class="docutils literal notranslate"><span class="pre">hr</span></code> so we set <code class="docutils literal notranslate"><span class="pre">uni_feature</span></code> to <code class="docutils literal notranslate"><span class="pre">hr</span></code> as follow.</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">exp</span><span class="o">.</span><span class="n">model_explain</span><span class="p">(</span><span class="n">model</span><span class="o">=</span><span class="s1">&#39;ReLU_DNN&#39;</span><span class="p">,</span> <span class="n">show</span><span class="o">=</span><span class="s1">&#39;pfi&#39;</span><span class="p">,</span> <span class="n">uni_feature</span><span class="o">=</span><span class="s1">&#39;hr&#39;</span><span class="p">,</span>
-<span class="go">                      original_scale=True, figsize=(6,5))</span>
-</pre></div>
 </div>
-<figure class="align-center">
-<a class="reference internal image-reference" href="../../_images/pfi_1.png"><img alt="../../_images/pfi_1.png" src="../../_images/pfi_1.png" style="width: 258.0px; height: 216.0px;" /></a>
+<div class="cell_output docutils container">
+</div>
+</div>
+<figure class="align-left">
+<a class="reference external image-reference" href="../../auto_examples/explain/plot_0_pfi.html"><img alt="../../_images/sphx_glr_plot_0_pfi_001.png" src="../../_images/sphx_glr_plot_0_pfi_001.png" /></a>
 </figure>
-<p>This analysis gives us valuable insights on how our model makes predictions. We see that the variable <strong>hr</strong> is the most important feature. <strong>yr</strong>, <strong>temp</strong>, <strong>workingday</strong>, and <strong>atemp</strong> also
-appear to be important predictors. Therefore,  permuting the values of these features will lead to the most decrease in the accuracy score of the model on the test set.</p>
-</section>
-<section id="additional-details-and-misleading-values">
-<h2><span class="section-number">4.1.1.3. </span>Additional details and  Misleading values<a class="headerlink" href="#additional-details-and-misleading-values" title="Permalink to this heading">¶</a></h2>
-<p>If features <strong>a</strong> and <strong>b</strong> are correlated, and we permute either <strong>a</strong> or <strong>b</strong>, this permutation will reduce the importance values for both <strong>a</strong> and <strong>b</strong>. For more information on Tree-based models, please refer to this page
-<a class="reference external" href="https://scikit-learn.org/stable/modules/permutation_importance.html">here</a>.</p>
+<p>This analysis gives us valuable insights on how our model makes predictions. We see that the variable <code class="docutils literal notranslate"><span class="pre">hr</span></code> is the most important feature. <code class="docutils literal notranslate"><span class="pre">atemp</span></code>, and <code class="docutils literal notranslate"><span class="pre">workingday</span></code> also appear to be important predictors. The variable <code class="docutils literal notranslate"><span class="pre">holiday</span></code> seems to have zero contribution to the model. This is not surprising, as the dataset does not contain any holiday data.</p>
 </section>
 <section id="example">
-<h2><span class="section-number">4.1.1.4. </span>Example<a class="headerlink" href="#example" title="Permalink to this heading">¶</a></h2>
-<p>The second example below demonstrates how to use PiML with its high-code APIs for the TaiwanCredit data from the UCI repository, which consists of 30,000 credit card clients in Taiwan
-from 200504 to 200509; see details here <a class="reference external" href="https://archive.ics.uci.edu/ml/datasets/default+of+credit+card+clients">TaiwanCreditData</a> . The data can be loaded from PiML, and it is subject to slight preprocessing. The response to this classification problem is
-<code class="docutils literal notranslate"><span class="pre">FlagDefault</span></code>.</p>
-<div class="topic">
-<p class="topic-title">Example</p>
+<h2><span class="section-number">4.1.1.3. </span>Example<a class="headerlink" href="#example" title="Permalink to this heading">¶</a></h2>
+<aside class="topic">
+<p class="topic-title">Example 1: Bike Sharing</p>
+<blockquote>
+<div><p>The first example below demonstrates how to use PiML with its high-code APIs for developing machine learning models for the BikeSharing data from the UCI repository, which consists of 17,389 samples of hourly counts of rental bikes in Capital bikeshare system; see details. The response <code class="docutils literal notranslate"><span class="pre">cnt</span></code> (hourly bike rental counts) is continuous and it is a regression problem.</p>
+</div></blockquote>
 <ul class="simple">
-<li><p><a class="reference internal" href="../../auto_examples/explain/plot_4_pfi.html#sphx-glr-auto-examples-explain-plot-4-pfi-py"><span class="std std-ref">PFI:  Classification</span></a></p></li>
+<li><p><a class="reference internal" href="../../auto_examples/explain/plot_0_pfi.html#sphx-glr-auto-examples-explain-plot-0-pfi-py"><span class="std std-ref">Permutation Feature Importance</span></a></p></li>
 </ul>
-</div>
-<div class="topic">
+</aside>
+<aside class="topic">
 <p class="topic-title">References</p>
-<dl class="citation">
-<dt class="label" id="l2001"><span class="brackets"><a class="fn-backref" href="#id1">L2001</a></span></dt>
-<dd><p>Breiman L,
+<div role="list" class="citation-list">
+<div class="citation" id="l2001" role="doc-biblioentry">
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id1">L2001</a><span class="fn-bracket">]</span></span>
+<p>Breiman L,
 <a class="reference external" href="https://link.springer.com/article/10.1023/a:1010933404324">(2001) Random forests. Machine Learning</a>,
 45(1):5–32</p>
-</dd>
-</dl>
 </div>
+</div>
+</aside>
 </section>
 </section>
 
@@ -303,7 +278,7 @@ from 200504 to 200509; see details here <a class="reference external" href="http
       <div class="container">
         <footer class="sk-content-footer">
               &copy; Copyright 2022-, PiML-Toolbox authors.
-            <a href="../../_sources/guides/explain/PFI.rst.txt" rel="nofollow">Show this page source</a>
+            <a href="../../_sources/guides/explain/pfi.rst.txt" rel="nofollow">Show this page source</a>
         </footer>
       </div>
     </div>

@@ -1,0 +1,287 @@
+.. Places parent toc into the sidebar
+
+:parenttoc: True
+
+.. include:: ../../includes/big_toc_css.rst
+
+======================================
+Data Load
+======================================
+
+In this section, I will introduce the data loader module of PiML. Data loader is usually the first step of
+the whole experiment, which supports choosing a built-in dataset or external dataset to start your experiment.
+
+
+Built-in Dataset
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+In PiML, we put several classic datasets, including:
+
+   - 'CoCircles': Gaussian data with a spherical decision boundary for binary classification, generated via Scikit-Learn.
+   - 'Friedman': 'Friedman #1' regression problem, generated via Scikit-Learn.
+   - 'BikeSharing': Refer to https://archive.ics.uci.edu/ml/datasets/bike+sharing+dataset.
+   - 'TaiwanCredit': Refer to https://archive.ics.uci.edu/ml/datasets/default+of+credit+card+clients.
+   - 'CaliforniaHousing_raw': Refer to https://developers.google.com/machine-learning/crash-course/california-housing-data-description.
+   - 'CaliforniaHousing_trim1': 'CaliforniaHousing_raw' dataset with the feature 'AveOccup' trimmed by upper threshold 5.
+   - 'CaliforniaHousing_trim2': 'CaliforniaHousing_raw' dataset with the features 'AveRooms', 'AveBedrms', 'Population', 'AveOccup' trimed by upper threshold quantile (0.98).
+   - 'SimuCredit': A credit simulation data for fairness testing.
+   - 'SolasSimu1': A simulated dataset, modified from the 'Friedman #1' regression problem. The covariates used for modeling are 'Segment', 'x1', 'x2', ..., 'x5', the response 'Label' is binary and it is a classification problem. The rest variables are demographic variables used for testing fairness. The data is contributed by Solas-AI (https://github.com/SolasAI/solas-ai-disparity).
+   - 'SolasHMDA': A preprocessed sample of the 2018 Home Mortgage Disclosure Act (HMDA) data. The HMDA dataset includes information about nearly every home mortgage application in the United States.
+
+You could load these datasets easily by:
+
+   .. jupyter-input::
+
+        exp.data_loader(data="CoCircles")
+
+.. raw:: html
+
+    <div class="output_subarea output_html rendered_html output_result">
+    <div>
+    <style scoped>
+        .dataframe tbody tr th:only-of-type {
+            vertical-align: middle;
+        }
+
+        .dataframe tbody tr th {
+            vertical-align: top;
+        }
+
+        .dataframe thead th {
+            text-align: right;
+        }
+    </style>
+    <table border="1" class="dataframe">
+      <thead>
+        <tr style="text-align: right;">
+          <th></th>
+          <th>X0</th>								
+          <th>X1</th>
+          <th>target</th>	
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <th>0</th>		
+          <td>-0.783526</td>
+          <td>0.502161</td>
+          <td>0.0</td>											
+        </tr>
+        <tr>
+          <th>1</th>		
+          <td>0.297809</td>
+          <td>0.658405</td>
+          <td>1.0</td>
+        </tr>
+        <tr>
+          <th>2</th>		
+          <td>0.468272</td>
+          <td>0.500653</td>
+          <td>1.0</td>
+        </tr>
+        <tr>
+          <th></th>
+          <td>...</td>
+          <td>...</td>
+          <td>...</td>
+        </tr>
+        <tr>
+          <th>1997</th>
+          <td>-0.542930</td>			
+          <td>-0.583517</td>
+          <td>1.0</td>												
+        </tr>
+        <tr>
+          <th>1998</th>
+          <td>-0.871481</td>
+          <td>-0.491301</td>			
+          <td>0.0</td>											
+        </tr>
+        <tr>
+          <th>1999</th>			
+          <td>-0.323963</td>
+          <td>-0.719150</td>
+          <td>0.0</td>																
+        </tr>
+      </tbody>
+    </table>
+    </div>
+    </div>
+	
+
+External Dataset
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+There are two approaches to loading external datasets in PiML.
+
+In low-code mode, you could just click the upload new data button to upload your own data in PiML.
+In high-code mode, you can use pandas to wrap your data and input it to the data loader.
+For example:
+
+   .. jupyter-input::
+
+        data_pandas = pd.read_csv('https://github.com/SelfExplainML/PiML-Toolbox/blob/main/datasets/BikeSharing.csv?raw=true')
+        exp.data_loader(data=data_pandas)
+
+.. raw:: html
+
+    <div class="output_subarea output_html rendered_html output_result">
+    <div>
+    <style scoped>
+        .dataframe tbody tr th:only-of-type {
+            vertical-align: middle;
+        }
+
+        .dataframe tbody tr th {
+            vertical-align: top;
+        }
+
+        .dataframe thead th {
+            text-align: right;
+        }
+    </style>
+    <table border="1" class="dataframe">
+      <thead>
+        <tr style="text-align: right;">
+          <th></th>
+          <th>season</th>								
+          <th>yr</th>
+          <th>mnth</th>
+          <th>hr</th>
+          <th>holiday</th>
+          <th>weekday</th>
+          <th>workingday</th>
+          <th>weathersit</th>
+          <th>temp</th>
+          <th>atemp</th>
+          <th>hum</th>
+          <th>windspeed</th>
+          <th>cnt</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <th>0</th>
+          <td>1.0</td>
+          <td>0.0</td>
+          <td>1.0</td>								
+          <td>0.0</td>
+          <td>0.0</td>
+          <td>6.0</td>
+          <td>0.0</td>
+          <td>1.0</td>
+          <td>0.24</td>
+          <td>0.2879</td>
+          <td>0.81</td>
+          <td>0.0000</td>
+          <td>16.0</td>												
+        </tr>
+        <tr>
+          <th>1</th>
+          <td>1.0</td>
+          <td>0.0</td>
+          <td>1.0</td>
+          <td>1.0</td>
+          <td>0.0</td>
+          <td>6.0</td>
+          <td>0.0</td>
+          <td>1.0</td>
+          <td>0.22</td>
+          <td>0.2727</td>
+          <td>0.80</td>
+          <td>0.0000</td>
+          <td>40.0</td>
+        </tr>
+        <tr>
+          <th>2</th>
+          <td>1.0</td>
+          <td>0.0</td>
+          <td>1.0</td>
+          <td>2.0</td>
+          <td>0.0</td>
+          <td>6.0</td>
+          <td>0.0</td>
+          <td>1.0</td>
+          <td>0.22</td>
+          <td>0.2727</td>
+          <td>0.80</td>
+          <td>0.0000</td>
+          <td>32.0</td>
+        </tr>
+        <tr>
+          <th></th>
+          <td>...</td>
+          <td>...</td>
+          <td>...</td>
+          <td>...</td>
+          <td>...</td>
+          <td>...</td>
+          <td>...</td>
+          <td>...</td>
+          <td>...</td>
+          <td>...</td>
+          <td>...</td>
+          <td>...</td>
+          <td>...</td>
+        </tr>
+        <tr>
+          <th>17377</th>
+          <td>1.0</td>
+          <td>1.0</td>
+          <td>12.0</td>
+          <td>21.0</td>
+          <td>1.0</td>
+          <td>1.0</td>
+          <td>1.0</td>
+          <td>1.0</td>
+          <td>0.26</td>
+          <td>0.2576</td>
+          <td>0.60</td>
+          <td>0.1642</td>
+          <td>90.0</td>													
+        </tr>
+        <tr>
+          <th>17378</th>
+          <td>1.0</td>
+          <td>1.0</td>
+          <td>12.0</td>
+          <td>22.0</td>
+          <td>1.0</td>
+          <td>1.0</td>
+          <td>1.0</td>
+          <td>1.0</td>
+          <td>0.26</td>
+          <td>0.2727</td>
+          <td>0.56</td>
+          <td>0.1343</td>
+          <td>61.0</td>												
+        </tr>
+        <tr>
+          <th>17379</th>
+          <td>1.0</td>
+          <td>1.0</td>
+          <td>12.0</td>
+          <td>23.0</td>
+          <td>0.0</td>
+          <td>1.0</td>
+          <td>1.0</td>
+          <td>1.0</td>
+          <td>0.26</td>
+          <td>0.2727</td>
+          <td>0.65</td>
+          <td>0.1343</td>
+          <td>49.0</td>																	
+        </tr>
+      </tbody>
+    </table>
+    </div>
+    </div>
+
+Full Example
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+The full example codes of this section can be found in the following link.
+
+.. topic:: Example
+
+	* :ref:`sphx_glr_auto_examples_data_plot_0_data_loader.py`

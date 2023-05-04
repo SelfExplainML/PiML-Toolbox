@@ -1,0 +1,138 @@
+.. Places parent toc into the sidebar
+
+:parenttoc: True
+
+.. include:: ../../includes/big_toc_css.rst
+
+======================================
+Data Quality
+======================================
+
+Data quality check is the process of validating that the key characteristics of a dataset match what is anticipated prior to its consumption.
+In PiML, we only focus on the outliers of the dataset. We support four different outlier detection methods and analysis results to help users locate and remove the outliers.
+
+
+Method
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+We support four outlier detection methods, Isolation Forest, Cluster-Based Local Outlier Factor, Principle Component Analysis and Kmeans Tree.
+
+
+Isolation Forest
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+The Isolation Forest 'isolates' observations by randomly selecting a feature and then randomly selecting a split value between the maximum and minimum values of the selected feature.
+
+Since recursive partitioning can be represented by a tree structure, the number of splittings required to isolate a sample is equivalent to the path length from the root node to the terminating node.
+This path length averaged over a forest of such random trees, is a measure of normality and our decision function.
+Random partitioning produces noticeably shorter paths for anomalies. Hence, when a forest of random trees collectively produces shorter path lengths for particular samples, they are highly likely to be anomalies.
+
+This method is imported from scikit-learn package: https://scikit-learn.org/stable/modules/generated/sklearn.ensemble.IsolationForest.html
+It is based on an ensemble of trees.ExtraTreeRegressor. And the maximum depth of each tree is set to less than :math:`log_{2}(n)`
+where n is the number of samples used to build the tree (see (Liu et al., 2008) for more details).
+
+
+Cluster-Based Local Outlier Factor
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+CBLOF(Clustering-Based Local Outlier Factor) is an outlier detection method based on clusters, which was proposed by He, Xu, and Deng, (2002) [1] for its unique merit in capturing outliers.
+The formula for CBLOF can be broken down into several steps:
+
+1. Clustering: First, the dataset is divided into clusters using a clustering algorithm such as k-means or DBSCAN.
+2. Cluster sizes: For each cluster, the size of the cluster (number of points) is calculated.
+3. Intra distance: If the cluster size is larger than the threshold, the scores of samples in this cluster are the distance between them and their cluster centroid.
+4. Inter distance: If the cluster size is smaller than the threshold, the scores of samples in this cluster are the distance between them and the nearest cluster centroid.
+5. CBLOF score: The related distance multiplied by the cluster size.
+
+- `use_weights`: If false, the outlier score will not multiply the cluster size to calculate CBLOF.
+
+- `clustering_method:`: We support 'Kmeans' and 'Gaussian Mixture Model' for getting the initial clusters.
+
+
+Principle Component Analysis
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+PCA and other dimensionality reduction methods can be used to detect outliers.
+
+In our implementation, we support two dimensionality reduction methods, PCA and sparse PCA.
+And two different methods to calculate the outlier score, Mahalanobis distance and error reconstruction.
+
+- `Mahalanobis distance`: The Mahalanobis distance is equal to the sum of squares of the scores of all non-zero standardized principal components.
+
+The Mahalanobis distance can be got easily with PCA under the formula.
+
+    .. math::
+        MD(x) = sqrt(sum((zi)^2 / lambda_i))
+
+where :math:`zi` are the ith principal component scores, and :math:`lambda_i` is the ith eigenvalue of the covariance matrix which can be explained as the variance. 
+But this is precisely the sum of squared distances in the transformed PCA space, which gives us the desired result.
+
+- `Error reconstruction`: Use XGBoost regressor to reconstruct the new data and compare the error between the original data.
+
+The only difference with Mahalanobis distance is using residual instead of PCA value to calculate scores.
+
+The formula is:
+
+    .. math::
+        score(x) = sqrt(sum((X_{new} - X_{old})^2 / lambda_i))
+        
+where :math:`X_new` is the reconstructed value, :math:`X_old` is the old value, and lambda_i is the ith eigenvalue of the covariance matrix which can be explained as variance.
+
+KmeansTree
+"""""""""""""""""""""""""""""""""
+To absorb the advantage of the cluster-based method and PCA-based method, we proposed a new outlier detection method called KmeansTree.
+
+The Algorithm is below:
+    1. Use the K-means cluster method with K equal to 2 to split the dataset iteratively
+    2. Stop splitting until certain conditions are met (max depth, data distance...)
+    3. For samples in each cluster, we just use the reconstruction error of the PCA-based method as the outlier score.
+
+Because the condition we use to stop splitting and the splitting way is similar to the decision tree, we call this method KmeansTree.
+
+Because PCA can only handle linear relationships and is sensitive to the outlier,
+the homogeneity of the data is increased after clustering which could improve the outlier detection performance.
+
+Analysis and Comparison
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+After getting the scores of each outlier detection method, we need to choose a proper threshold to define whether a sample is an outlier.
+And we also need to compare different methods to decide which to use.
+PiML supports two functions to visualize the od result, a score distribution plot and marginal outlier distribution plot and one t-SNE plot to compare results of different methods.
+
+Here is an example of displaying the score distribution of the OD method PCA.
+.. jupyter-input::
+
+    from piml.data.outlier_detection import PCA
+    exp.data_quality_check(method=PCA(), show='score_distribution', threshold=0.999)
+
+.. figure:: ../../auto_examples/data/images/sphx_glr_plot_4_data_quality_001.png
+   :target: ../../auto_examples/data/plot_4_data_quality.html
+   :align: left
+
+Here is an example of displaying the marginal outliers distribution of the OD method PCA.
+
+.. jupyter-input::
+
+    from piml.data.outlier_detection import PCA
+    exp.data_quality_check(method=PCA(), show='marginal_outlier_distribution', threshold=0.999)
+
+.. figure:: ../../auto_examples/data/images/sphx_glr_plot_4_data_quality_002.png
+   :target: ../../auto_examples/data/plot_4_data_quality.html
+   :align: left
+
+We use t-SNE to deduce the dimension of data to 2D for better visualization.
+Here is an example of comparing different methods:
+
+.. jupyter-input::
+
+    from piml.data.outlier_detection import PCA, CBLOF
+    exp.data_quality_check(method=[PCA(), CBLOF()], show='tsne_comparison', threshold=[0.999, 0.999])
+
+.. figure:: ../../auto_examples/data/images/sphx_glr_plot_4_data_quality_003.png
+   :target: ../../auto_examples/data/plot_4_data_quality.html
+   :align: left
+
+Full Example
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+The full example codes of this section can be found in the following link.
+
+.. topic:: Example
+
+	* :ref:`sphx_glr_auto_examples_data_plot_4_data_quality.py`

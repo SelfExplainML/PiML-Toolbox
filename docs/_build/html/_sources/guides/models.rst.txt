@@ -9,3 +9,16 @@
 Interpretable Models
 --------------------------
 
+.. toctree::
+   :maxdepth: 2
+
+   models/glm.rst
+   models/gam.rst
+   models/tree.rst
+   models/figs.rst
+   models/xgb1.rst
+   models/xgb2.rst
+   models/ebm.rst
+   models/gaminet.rst
+   models/reludnn.rst
+	

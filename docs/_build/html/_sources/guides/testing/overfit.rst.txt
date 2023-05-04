@@ -1,0 +1,241 @@
+.. Places parent toc into the sidebar
+
+:parenttoc: True
+
+.. include:: ../../includes/big_toc_css.rst
+
+============================
+Overfit
+============================
+Overfitting is a common problem in machine learning where a model performs well on the training data, but fails to generalize to test or unseen data. Overfit detection is the process of identifying when a model is overfitting to the training data so that model developers can take further steps to prevent or mitigate it.
+
+
+
+Algorithm Details
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+The overfit detection is similar but a bit different to weakspot detection. Given a fitted model, we need to deine the the degree of overfitting for each test sample, using the following algorithm:
+
+- Find the nearest neighbors of each test sample in the training set;
+- Calculate the performance gap between each test sample and its nearest neighbor in the training set.
+
+After that, we obtain a list of performance gaps for each test sample, and we can use the performance gap list to identify the overfit regions of 1 or 2 features of interest. The detection algorithm is similar to that of weakspot_. In overfit, we have two built-in methods, i.e., histogram slicing and tree slicing. The ensemble tree approach is not used here. In practice, the computational cost can be very large as the training sample size is large. To avoid this, we do random downsampling for training set, such that the set used for selecting the nearest neighbors has at most 10000 samples.
+
+.. _weakspot: weakspot.html#algorithm-details
+
+
+
+Usage
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Overfit assessment can be done using `model_diagnose`. The keyword is "overfit", and additional parameters are listed below. Compared to the weakspot test, the overfit test does not have the argument `use_test`, as it is always performed on the test set.
+
+- `slice_method`: This option is used to chose which slcing method to use, avaible options includes "histogram" and "tree", which corresponds the three previously mentioned slicing methods. The default is "histogram".
+
+- `slice_features`: This is the argument for specifying the list of slicing features. 1 or 2 slicing features should be specified, otherwise, a warning message would show up. 
+
+- `bins`: This is the number of bins for histogram slicing. By default, it is set to 10.
+
+- `metric`: The performance metrics, including "MSE", "MAE", and "R2" for regression; "ACC", "AUC", and "F1" for classification. The default metric is "MSE" for regression tasks and "ACC" for classification tasks.
+
+- `threshold`: This is the performance gap threshold ratio. By default, it is set to 1.1, which means 10% greater than the average performance gap.
+
+- `min_samples`: The minimum sample size for a weak region, and the default value is 20. Regions with sample size less than 20 will be ignored.
+
+
+One-way Overfit Plot
+""""""""""""""""""""""""""
+We consider a regression task on the BiksSharing data. In the following demo, we identify overfit regions using histogram method, and focus on a single variable `hr`.
+
+.. jupyter-input::
+
+   results = exp.model_diagnose(model="XGB2", show="overfit", slice_method="histogram", 
+                              slice_features=["hr"], threshold=1.05, min_samples=100,
+                              original_scale=True, return_data=True, figsize=(5, 4))
+
+.. figure:: ../../auto_examples/testing/images/sphx_glr_plot_2_overfit_reg_001.png
+   :target: ../../auto_examples/testing/plot_2_overfit_reg.html 
+   :align: left
+
+.. jupyter-input::
+
+    results.data
+
+.. raw:: html
+
+    <div class="output_subarea output_html rendered_html output_result">
+    <div>
+    <style scoped>
+        .dataframe tbody tr th:only-of-type {
+            vertical-align: middle;
+        }
+
+        .dataframe tbody tr th {
+            vertical-align: top;
+        }
+
+        .dataframe thead th {
+            text-align: right;
+        }
+    </style>
+    <table border="1" class="dataframe">
+      <thead>
+        <tr style="text-align: right;">
+          <th></th>
+          <th>[hr</th>
+          <th>hr)</th>
+          <th>#Test</th>
+          <th>#Train</th>
+          <th>test_MSE</th>
+          <th>train_MSE</th>
+          <th>Gap</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <th>0</th>
+          <td>0.3</td>
+          <td>0.4</td>
+          <td>445</td>
+          <td>1736</td>
+          <td>0.017079</td>
+          <td>0.015575</td>
+          <td>0.001504</td>
+        </tr>
+        <tr>
+          <th>1</th>
+          <td>0.8</td>
+          <td>0.9</td>
+          <td>285</td>
+          <td>1171</td>
+          <td>0.005226</td>
+          <td>0.004305</td>
+          <td>0.000921</td>
+        </tr>
+        <tr>
+          <th>2</th>
+          <td>0.6</td>
+          <td>0.7</td>
+          <td>445</td>
+          <td>1743</td>
+          <td>0.006050</td>
+          <td>0.005585</td>
+          <td>0.000465</td>
+        </tr>
+      </tbody>
+    </table>
+    </div>
+    </div>
+
+The most significant overfit region is the one with `hr` in the range of (7am, 9am), where the test set has a MSE of 0.0171, while the train set has a MSE of 0.0156. The gap is 0.0015, which is larger than the threshold around 0.0004. Note that the original scale argument only affect the plot, the returned table still uses the scaled values.
+
+
+Two-way Overfit Plot
+""""""""""""""""""""""""""
+In the follows, we identify overfit regions with `hr` and `atemp` using tree slicing. The minimum sample size is set to 100 and the threshold ratio is 1.05.
+
+.. jupyter-input::
+
+   results=exp.model_diagnose(model="XGB2", show="overfit", slice_method="tree", 
+                              slice_features=["hr", "atemp"], threshold=1.05, min_samples=100,
+                              original_scale=True, return_data=True, figsize=(5, 4))
+
+.. figure:: ../../auto_examples/testing/images/sphx_glr_plot_2_overfit_reg_002.png
+   :target: ../../auto_examples/testing/plot_2_overfit_reg.html 
+   :align: left
+
+From the plot, it can be seen that 3 overfit regions are detected, where 2 regions are purely determined by `hr` (from 7am to 9am), and the third region is an interaction of these two features (`hr` less than 2am and `atemp` less than 0.55). For the detailed information, see the table below.
+
+.. jupyter-input::
+
+    results.data
+
+.. raw:: html
+
+    <div class="output_subarea output_html rendered_html output_result">
+    <div>
+    <style scoped>
+        .dataframe tbody tr th:only-of-type {
+            vertical-align: middle;
+        }
+
+        .dataframe tbody tr th {
+            vertical-align: top;
+        }
+
+        .dataframe thead th {
+            text-align: right;
+        }
+    </style>
+    <table border="1" class="dataframe">
+      <thead>
+        <tr style="text-align: right;">
+          <th></th>
+          <th>[hr</th>
+          <th>hr)</th>
+          <th>[atemp</th>
+          <th>atemp)</th>
+          <th>#Test</th>
+          <th>#Train</th>
+          <th>test_MSE</th>
+          <th>train_MSE</th>
+          <th>Gap</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <th>0</th>
+          <td>0.326087</td>
+          <td>0.369565</td>
+          <td>0.0</td>
+          <td>0.98480</td>
+          <td>135</td>
+          <td>592</td>
+          <td>0.036693</td>
+          <td>0.029954</td>
+          <td>0.006739</td>
+        </tr>
+        <tr>
+          <th>1</th>
+          <td>0.282609</td>
+          <td>0.326087</td>
+          <td>0.0</td>
+          <td>0.98480</td>
+          <td>148</td>
+          <td>579</td>
+          <td>0.013106</td>
+          <td>0.011935</td>
+          <td>0.001172</td>
+        </tr>
+        <tr>
+          <th>2</th>
+          <td>0.000000</td>
+          <td>0.065217</td>
+          <td>0.0</td>
+          <td>0.55305</td>
+          <td>197</td>
+          <td>831</td>
+          <td>0.001208</td>
+          <td>0.000855</td>
+          <td>0.000353</td>
+        </tr>
+      </tbody>
+    </table>
+    </div>
+    </div>
+
+
+
+Examples
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+    
+.. topic:: Example 1: BikeSharing
+
+  The first example below demonstrates how to use PiML with its high-code APIs for developing machine learning models for the BikeSharing data from the UCI repository, which consists of 17,389 samples of hourly counts of rental bikes in Capital bikeshare system; see details. The response `cnt` (hourly bike rental counts) is continuous and it is a regression problem.
+ 
+ * :ref:`sphx_glr_auto_examples_testing_plot_2_overfit_reg.py`
+
+.. topic:: Examples 2: Taiwan Credit
+
+  The second example below demonstrates how to use PiML’s high-code APIs for the TaiwanCredit dataset from the UCI repository. This dataset comprises the credit card details of 30,000 clients in Taiwan from April 2005 to September 2005, and more information can be found on the TaiwanCreditData website. The data can be loaded directly into PiML, although it requires some preprocessing. The FlagDefault variable serves as the response for this classification problem.
+    
+ * :ref:`sphx_glr_auto_examples_testing_plot_2_overfit_cls.py`

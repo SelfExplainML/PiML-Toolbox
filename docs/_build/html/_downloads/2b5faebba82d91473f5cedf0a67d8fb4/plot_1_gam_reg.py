@@ -1,31 +1,35 @@
 # -*- coding: utf-8 -*-
 """
-Generalized Additive Model
+GAM Regression (California Housing)
 =====================================
-
-GAM Regression
 """
 
 #%%
+# Experiment initialization and data preparation
 from piml import Experiment
 from piml.models import GAMRegressor
 
 exp = Experiment()
-exp.data_loader(data="CaliforniaHousing_trim2")
-exp.data_prepare()
+exp.data_loader(data="CaliforniaHousing_trim2", silent=True)
+exp.data_prepare(target="MedHouseVal", task_type="regression", silent=True)
 
 #%%
-# Model Training
+# Train Model
 exp.model_train(model=GAMRegressor(spline_order=1, n_splines=20, lam=0.6), name="GAM")
 
 #%%
+# Evaluate predictive performance
+exp.model_diagnose(model="GAM", show="accuracy_table")
+
+#%%
 # Global interpretation: effect plot
-exp.model_interpret(model='GAM', show='global_effect_plot', uni_feature="MedInc", original_scale=True, figsize=(6, 5))
+exp.model_interpret(model="GAM", show="global_effect_plot", uni_feature="MedInc",
+                    original_scale=True, figsize=(5, 4))
 
 #%%
 # Global interpretation: feature importance
-exp.model_interpret(model='GAM',show='global_fi', figsize=(6, 5))
+exp.model_interpret(model="GAM",show="global_fi", figsize=(5, 4))
 
 #%%
 # Local interpretation
-exp.model_interpret(model='GAM',show='local_fi', sample_id=0, figsize=(6, 5))
+exp.model_interpret(model="GAM",show="local_fi", sample_id=0, original_scale=True, figsize=(5, 4))

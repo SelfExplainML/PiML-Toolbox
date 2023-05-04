@@ -28,4 +28,3 @@ User Guide
    guides/testing.rst
    guides/comparison.rst
    guides/cases.rst 
-   guides/conclusion.rst 

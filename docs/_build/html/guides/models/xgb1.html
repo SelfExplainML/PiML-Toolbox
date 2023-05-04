@@ -1,0 +1,596 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+
+  <meta charset="utf-8">
+  <meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  
+  <title>PiML Toolbox</title>
+  
+
+  
+  <link rel="shortcut icon" href="../../_static/favicon.ico"/>
+  
+
+  <link rel="stylesheet" href="../../_static/css/vendor/bootstrap.min.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/plot_directive.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/jupyter-sphinx.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/thebelab.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/sg_gallery.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/sg_gallery-binder.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/sg_gallery-dataframe.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/sg_gallery-rendered-html.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
+<script id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+<script src="../../_static/jquery.js"></script>
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="../../_static/doctools.js"></script>
+        <script src="../../_static/sphinx_highlight.js"></script>
+        <script src="../../_static/thebelab-helper.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/@jupyter-widgets/html-manager@^1.0.1/dist/embed-amd.js"></script>
+        <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+        <script>window.MathJax = {"tex": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true}, "options": {"ignoreHtmlClass": "tex2jax_ignore|mathjax_ignore|document", "processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+        <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
+    <script src="../../_static/js/theme.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav">
+
+  
+
+
+<nav id="navbar" class="sk-docs-navbar navbar navbar-expand-md navbar-light bg-light py-0">
+  <div class="container-fluid sk-docs-container px-0">
+      <a class="navbar-brand py-0" href="../../index.html">
+        <img
+          class="sk-brand-img"
+          src="../../_static/piml-logo.png"
+          alt="logo"/>
+      </a>
+    <button
+      id="sk-navbar-toggler"
+      class="navbar-toggler"
+      type="button"
+      data-toggle="collapse"
+      data-target="#navbarSupportedContent"
+      aria-controls="navbarSupportedContent"
+      aria-expanded="false"
+      aria-label="Toggle navigation"
+    >
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="sk-navbar-collapse collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item">
+          <a class="sk-nav-link nav-link" href="../../install.html">Install</a>
+        </li>
+		<li class="nav-item">
+          <a class="sk-nav-link nav-link" href="../../modules/classes.html">API</a>
+        </li>
+        <li class="nav-item">
+          <a class="sk-nav-link nav-link" href="../../user_guide.html">User Guide</a>
+        </li>
+        <li class="nav-item">
+          <a class="sk-nav-link nav-link" href="../../auto_examples/index.html">Examples</a>
+        </li>
+        <li class="nav-item">
+          <a class="sk-nav-link nav-link" href="../../faq.html">FAQ</a>
+        </li>      </ul>
+      <div id="searchbox" role="search">
+          <div class="searchformwrapper">
+          <form class="search" action="../../search.html" method="get">
+            <input class="sk-search-text-input" type="text" name="q" aria-labelledby="searchlabel" />
+            <input class="sk-search-text-btn" type="submit" value="Go" />
+          </form>
+          </div>
+      </div>
+    </div>
+  </div>
+</nav>
+  <div class="d-flex" id="sk-doc-wrapper">
+      <input type="checkbox" name="sk-toggle-checkbox" id="sk-toggle-checkbox">
+      <label id="sk-sidemenu-toggle" class="sk-btn-toggle-toc btn sk-btn-primary" for="sk-toggle-checkbox">Toggle Menu</label>
+      <div id="sk-sidebar-wrapper" class="border-right">
+        <div class="sk-sidebar-toc-wrapper">
+          <div class="sk-sidebar-toc-logo">
+            <a href="../../index.html">
+              <img
+                class="sk-brand-img"
+                src="../../_static/piml-logo.png"
+                alt="logo"/>
+            </a>
+          </div>
+          <!--div class="btn-group w-100 mb-2" role="group" aria-label="rellinks">
+              <a href="figs.html" role="button" class="btn sk-btn-rellink py-1" sk-rellink-tooltip="5.4. Fast Interpretable Greedy-tree Sums">Prev</a><a href="../models.html" role="button" class="btn sk-btn-rellink py-1" sk-rellink-tooltip="5. Interpretable Models">Up</a>
+              <a href="xgb2.html" role="button" class="btn sk-btn-rellink py-1" sk-rellink-tooltip="5.6. XGBoost Depth 2">Next</a>
+          </div-->
+              <div class="sk-sidebar-toc">
+              
+                <ul>
+                
+                
+                
+                
+                
+                
+                <li>
+                  <a href="../../user_guide.html" class="sk-toc-active">User Guide</a>
+                </li>
+                <ul>
+                
+                  <li>
+                    <a href="../introduction.html" class="">1. Introduction</a>
+                    
+                  </li>
+                
+                  <li>
+                    <a href="../data.html" class="">2. Data Pipeline</a>
+                    
+                  </li>
+                
+                  <li>
+                    <a href="../extmodels.html" class="">3. Black-box Models</a>
+                    
+                  </li>
+                
+                  <li>
+                    <a href="../explainability.html" class="">4. Post-hoc Explainability</a>
+                    
+                  </li>
+                
+                  <li>
+                    <a href="../models.html" class="sk-toc-active">5. Interpretable Models</a>
+                    
+                    <ul>
+                      
+                        <li class="sk-toctree-l3">
+                          <a href="glm.html">5.1. Generalized Linear Models</a>
+                        </li>
+                      
+                        <li class="sk-toctree-l3">
+                          <a href="gam.html">5.2. Generalized Additive Model</a>
+                        </li>
+                      
+                        <li class="sk-toctree-l3">
+                          <a href="tree.html">5.3. Decision Tree</a>
+                        </li>
+                      
+                        <li class="sk-toctree-l3">
+                          <a href="figs.html">5.4. Fast Interpretable Greedy-tree Sums</a>
+                        </li>
+                      
+                        <li class="sk-toctree-l3">
+                          <a href="">5.5. XGBoost Depth 1</a>
+                        </li>
+                      
+                        <li class="sk-toctree-l3">
+                          <a href="xgb2.html">5.6. XGBoost Depth 2</a>
+                        </li>
+                      
+                        <li class="sk-toctree-l3">
+                          <a href="ebm.html">5.7. Explainable Boosting Machines</a>
+                        </li>
+                      
+                        <li class="sk-toctree-l3">
+                          <a href="gaminet.html">5.8. GAMI-Net</a>
+                        </li>
+                      
+                        <li class="sk-toctree-l3">
+                          <a href="reludnn.html">5.9. ReLU Neural Network</a>
+                        </li>
+                      
+                    </ul>
+                    
+                  </li>
+                
+                  <li>
+                    <a href="../testing.html" class="">6. Diagnostic Suite</a>
+                    
+                  </li>
+                
+                  <li>
+                    <a href="../comparison.html" class="">7. Model Comparison</a>
+                    
+                  </li>
+                
+                  <li>
+                    <a href="../cases.html" class="">8. Case Studies</a>
+                    
+                  </li>
+                
+                </ul>
+                
+                
+                
+                
+                </ul>
+              </div>
+        </div>
+      </div>
+      <div id="sk-page-content-wrapper">
+        <div class="sk-page-content container-fluid body px-md-3" role="main">
+          
+  <style type="text/css">
+  div.body div.toctree-wrapper ul {
+      padding-left: 0;
+  }
+
+  div.body li.toctree-l1 {
+      padding: 0 0 0.5em 0;
+      list-style-type: none;
+      font-size: 150%;
+      font-weight: bold;
+  }
+
+  div.body li.toctree-l2 {
+      font-size: 70%;
+      list-style-type: square;
+      font-weight: normal;
+      margin-left: 40px;
+  }
+
+  div.body li.toctree-l3 {
+      font-size: 85%;
+      list-style-type: circle;
+      font-weight: normal;
+      margin-left: 40px;
+  }
+
+  div.body li.toctree-l4 {
+      margin-left: 40px;
+  }
+
+</style><section id="xgboost-depth-1">
+<h1><span class="section-number">5.5. </span>XGBoost Depth 1<a class="headerlink" href="#xgboost-depth-1" title="Permalink to this heading">¶</a></h1>
+<p>XGBoost depth 1 (XGB1) is a tree-based model that is suitable for both regression and classification problems. It is a special variant of XGB that restricts the maximum depth of the tree to 1, which is also referred to as boosted stumps <a class="reference internal" href="../introduction.html#lengerich2020" id="id1"><span>[Lengerich2020]</span></a>. Actually, XGB1 is interpretable since it can be interpreted as a GAM with piecewise constant main effects, as follows,</p>
+<div class="math notranslate nohighlight">
+\[\begin{align}
+   g(\mathbb{E}(y|\textbf{x})) = \mu + \sum\limits_{j} h_{j}(x_{j}),  \tag{1}
+\end{align}\]</div>
+<p>where <span class="math notranslate nohighlight">\(\mu\)</span> is the global intercept, <span class="math notranslate nohighlight">\(h_{j}(x_{j})\)</span> is the main effect of the <span class="math notranslate nohighlight">\(j\)</span>-th feature, and <span class="math notranslate nohighlight">\(x_{j}\)</span> is the <span class="math notranslate nohighlight">\(j\)</span>-th feature. The model is derived in the following steps.</p>
+<p><strong>Stage 1: Initial Model Fitting</strong></p>
+<p>In the first step, we fit a XGB model with a maximum depth of 1. The resulting model can be interpreted as a GAM with piecewise constant main effects, with following procedures.</p>
+<ul class="simple">
+<li><p>Collecting the unique splits for each feature.</p></li>
+<li><p>Calculating the accumulated leaf node values for each bin generated by the unique splits.</p></li>
+</ul>
+<p>The key features of XGB1 is that it selects split points adaptively. This allows the model to achieve better predictive performance compared to spline-based GAMs, while still being interpretable. In addition to the above steps, we also perform the following two steps to further improve interpretabilty and model performance.</p>
+<p><strong>Stage 2: Binning Optimization</strong></p>
+<p>To improve interpretability and simplify the shape functions of XGB1, we optimize the binning of each feature. Specifically, we start by using the split points obtained from the raw XGB fitting results as the initial binning points. We then apply the <a class="reference external" href="http://gnpalencia.org/optbinning/">optbinning</a> package, a Python package for optimal binning, to optimize the binning points. The optimization process is based on the weight of evidence (WOE) of the binning and several constraints, such as the minimum bin size and the maximum number of bins. This step enables us to obtain a more interpretable model with simpler and easier-to-understand shape functions.</p>
+<p><strong>Stage 3: Refit the GAM with Optimized Bins</strong></p>
+<p>The final step involves refitting the GAM with the optimized bins. We provide two options for this step:</p>
+<ul class="simple">
+<li><p>GLM with one-hot encoding: Firstly, we transform each feature using one-hot encoding based on the binning results. Next, we fit a GLM using the one-hot-encoded features and the response. Finally, we re-arrange the fitted GLM coefficients into GAM format. If monotonic constraints are specified, we use the constrained GLM instead.</p></li>
+<li><p>XGB with ordinal encoding: Firstly, we transform each feature using ordinal encoding based on the binning results. Next, we fit another XGB model on the ordinal-encoded features and the response. Finally, we re-arrange the fitted XGB leaf values into GAM format. If monotonic constraints are specified, we turn on the corresponding monotonic constraints in XGB.</p></li>
+</ul>
+<section id="model-training">
+<h2><span class="section-number">5.5.1. </span>Model Training<a class="headerlink" href="#model-training" title="Permalink to this heading">¶</a></h2>
+<p>Here, we will use the California Housing dataset to demonstrate the training of the XGB1 model using the PiML workflow. The following steps can be taken to train the model:</p>
+<div class="jupyter_cell jupyter_container docutils container">
+<div class="cell_input code_cell docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">piml.models</span> <span class="kn">import</span> <span class="n">XGB1Regressor</span>
+<span class="n">exp</span><span class="o">.</span><span class="n">model_train</span><span class="p">(</span><span class="n">model</span><span class="o">=</span><span class="n">XGB1Regressor</span><span class="p">(</span><span class="n">n_estimators</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">max_bin</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span> <span class="n">min_bin_size</span><span class="o">=</span><span class="mf">0.01</span><span class="p">),</span> <span class="n">name</span><span class="o">=</span><span class="s2">&quot;XGB1&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+</div>
+</div>
+<p>The <a class="reference external" href="../../modules/generated/piml.models.XGB1Regressor.html">XGB1Regressor</a> (as well as <a class="reference external" href="../../modules/generated/piml.models.XGB1Classifier.html">XGB1Classifier</a>) is developed based on the <a class="reference external" href="https://xgboost.readthedocs.io/en/stable/python/python_api.html">xgboost</a> Python package and hence it inherits some commonly used hyperparameters in XGB, e.g., <code class="docutils literal notranslate"><span class="pre">n_estimators</span></code>, <code class="docutils literal notranslate"><span class="pre">eta</span></code>, <code class="docutils literal notranslate"><span class="pre">tree_method</span></code>, <code class="docutils literal notranslate"><span class="pre">max_bin</span></code>, <code class="docutils literal notranslate"><span class="pre">gamma</span></code>, <code class="docutils literal notranslate"><span class="pre">reg_lambda</span></code>, and <code class="docutils literal notranslate"><span class="pre">reg_alpha</span></code>.</p>
+<p>The XGB1 model also supports monotonic constraints. However, instead of manually typing in 0, 1, or -1 to indicate the direction of monotonicity for each feature in XGB, you can directly specify the feature names with their desired monotonic constraints using the following arguments in the XGB1 model.</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">mono_increasing_list</span></code>: the monotonic increasing constraient.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">mono_decreasing_list</span></code>: the monotonic decreasing constraient.</p></li>
+</ul>
+<p>With <code class="docutils literal notranslate"><span class="pre">exp.model_train</span></code>, the feature names are automatically inferred from the data. However, if you are using the XGB1 model separately, you may need to specify the <code class="docutils literal notranslate"><span class="pre">feature_names</span></code> parameter to ensure that the feature names are correctly identified; otherwise, the feature names will be set to “X0”, “X1”, etc.</p>
+<p>In addition to the hyperparameters for XGB, we also provide hyperparameters for the binning optimization step. For example, you can control the binning results using the following two hyperparameters:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">max_n_bins</span></code>: This hyperparameter specifies the maximum number of bins allowed for each feature during the binning optimization process. Increasing this value can result in more flexible binning, but may also increase the risk of overfitting.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">min_bin_size</span></code>: This hyperparameter specifies the minimum number of samples allowed in each bin during the binning optimization process. Increasing this value can result in more stable binning, but may also lead to information loss if there are too few samples in a bin.</p></li>
+</ul>
+<p>By tuning these hyperparameters, you can optimize the binning results to strike a balance between model complexity and interpretability. Increasing the <code class="docutils literal notranslate"><span class="pre">max_bin</span></code> hyperparameter or decreasing the <code class="docutils literal notranslate"><span class="pre">min_bin_size</span></code> hyperparameter may improve the model performance, but it may also increase the difficulty of model interpretation. Finding the right balance between these hyperparameters can help ensure that the model is both accurate and interpretable.</p>
+<p>Finally, to switch between the two options for the refit step, we provide a hyperparameter called <code class="docutils literal notranslate"><span class="pre">fit_method</span></code>. Setting <code class="docutils literal notranslate"><span class="pre">fit_method</span></code> to “glm” will use the GLM + one hot encoding option, while setting it to “xgb” will use the XGB + ordinal encoding option. This allows you to choose the method that works best for your particular use case.</p>
+</section>
+<section id="global-interpretation">
+<h2><span class="section-number">5.5.2. </span>Global Interpretation<a class="headerlink" href="#global-interpretation" title="Permalink to this heading">¶</a></h2>
+<p>Similar to a GAM, there are multiple options available for interpreting a fitted XGB1 model, including main effect plots and feature importance plots. Additionally, we also provide options for drawing the Weight of Evidence (WoE) and Information Value (IV), which can further aid in the interpretation of the model.</p>
+<section id="main-effect-plot">
+<h3><span class="section-number">5.5.2.1. </span>Main Effect Plot<a class="headerlink" href="#main-effect-plot" title="Permalink to this heading">¶</a></h3>
+<p>This plot shows the estimated effect of each feature on the predicted response while controlling for the effects of other features in the model.</p>
+<div class="jupyter_cell jupyter_container docutils container">
+<div class="cell_input code_cell docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">exp</span><span class="o">.</span><span class="n">model_interpret</span><span class="p">(</span><span class="n">model</span><span class="o">=</span><span class="s2">&quot;XGB1&quot;</span><span class="p">,</span> <span class="n">show</span><span class="o">=</span><span class="s2">&quot;global_effect_plot&quot;</span><span class="p">,</span> <span class="n">uni_feature</span><span class="o">=</span><span class="s2">&quot;MedInc&quot;</span><span class="p">,</span>
+                    <span class="n">original_scale</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">4</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+</div>
+</div>
+<figure class="align-left">
+<a class="reference external image-reference" href="../../auto_examples/models/plot_4_xgb1_reg.html"><img alt="../../_images/sphx_glr_plot_4_xgb1_reg_001.png" src="../../_images/sphx_glr_plot_4_xgb1_reg_001.png" /></a>
+</figure>
+<p>The above figure displays the estimated shape functions for the feature <code class="docutils literal notranslate"><span class="pre">MedInc</span></code>, accompanied by a histogram plot at the bottom. The estimated shape function appears to be piecewise constant, with an increasing trend for values of <code class="docutils literal notranslate"><span class="pre">MedInc</span></code> less than approximately 9.2, followed by a plateau.</p>
+</section>
+<section id="feature-importance">
+<h3><span class="section-number">5.5.2.2. </span>Feature Importance<a class="headerlink" href="#feature-importance" title="Permalink to this heading">¶</a></h3>
+<p>The keyword “global_fi” corresponds to the feature importance plot. Consistent with the rest additive models, the feature importance is calculated as the normalized variance of feature contributions, which gives us a measure of the relative importance of each feature in the model.</p>
+<div class="jupyter_cell jupyter_container docutils container">
+<div class="cell_input code_cell docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">exp</span><span class="o">.</span><span class="n">model_interpret</span><span class="p">(</span><span class="n">model</span><span class="o">=</span><span class="s2">&quot;XGB1&quot;</span><span class="p">,</span> <span class="n">show</span><span class="o">=</span><span class="s2">&quot;global_fi&quot;</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">4</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+</div>
+</div>
+<figure class="align-left">
+<a class="reference external image-reference" href="../../auto_examples/models/plot_4_xgb1_reg.html"><img alt="../../_images/sphx_glr_plot_4_xgb1_reg_002.png" src="../../_images/sphx_glr_plot_4_xgb1_reg_002.png" /></a>
+</figure>
+<p>The two geographical features <code class="docutils literal notranslate"><span class="pre">latitude</span></code> and <code class="docutils literal notranslate"><span class="pre">longtitude</span></code> are the most important features in the model, followed by <code class="docutils literal notranslate"><span class="pre">MedInc</span></code> and <code class="docutils literal notranslate"><span class="pre">AveOccup</span></code>. The feature <code class="docutils literal notranslate"><span class="pre">Population</span></code> is the least important feature in the model. Note that this plot only shows the top-10 features with the largest importance. To get the full results, you can set the parameter <code class="docutils literal notranslate"><span class="pre">return_data</span></code> to True.</p>
+</section>
+<section id="weight-of-evidence-plot">
+<h3><span class="section-number">5.5.2.3. </span>Weight of Evidence Plot<a class="headerlink" href="#weight-of-evidence-plot" title="Permalink to this heading">¶</a></h3>
+<p>The weight of evidence tells the predictive power of an independent variable in relation to the dependent variable. It is a measure of the strength of the relationship between the independent variable and the dependent variable. The WoE for a continuous target is computed as</p>
+<div class="math notranslate nohighlight">
+\[\begin{align}
+   \mathrm{WoE} = |U - \mu|,
+\end{align}\]</div>
+<p>where <span class="math notranslate nohighlight">\(U\)</span> is the target mean value for each bin, <span class="math notranslate nohighlight">\(\mu\)</span> is the total target mean. The WoE for a binary target is computed as</p>
+<div class="math notranslate nohighlight">
+\[\begin{align}
+   \mathrm{WoE} = \log\frac{P(X|Y=0)}{P(X|Y=1)}.
+\end{align}\]</div>
+<p>In PiML, you can draw the WoE plot of a given feature using the keyword “xgb1_woe” followed by the name of the univariate feature specified in <code class="docutils literal notranslate"><span class="pre">uni_feature</span></code>. The argument <code class="docutils literal notranslate"><span class="pre">original_scale</span></code> controls whether the feature values are displayed in the original scale or the transformed scale.</p>
+<div class="jupyter_cell jupyter_container docutils container">
+<div class="cell_input code_cell docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">exp</span><span class="o">.</span><span class="n">model_interpret</span><span class="p">(</span><span class="n">model</span><span class="o">=</span><span class="s2">&quot;XGB1&quot;</span><span class="p">,</span> <span class="n">show</span><span class="o">=</span><span class="s2">&quot;xgb1_woe&quot;</span><span class="p">,</span> <span class="n">uni_feature</span><span class="o">=</span><span class="s2">&quot;MedInc&quot;</span><span class="p">,</span>
+                   <span class="n">original_scale</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">4</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+</div>
+</div>
+<figure class="align-left">
+<a class="reference external image-reference" href="../../auto_examples/models/plot_4_xgb1_reg.html"><img alt="../../_images/sphx_glr_plot_4_xgb1_reg_003.png" src="../../_images/sphx_glr_plot_4_xgb1_reg_003.png" /></a>
+</figure>
+<p>Comparing the WoE of <code class="docutils literal notranslate"><span class="pre">MedInc</span></code> to its main effect plot, it is evident that they are quite similar. However, the main effect plot has a smaller range compared to WoE. This is because WoE only displays the effect of <code class="docutils literal notranslate"><span class="pre">MedInc</span></code> on the target variable, while the main effect function factors in the impact of other features in the model, controlling for their effects while measuring the effect of <code class="docutils literal notranslate"><span class="pre">MedInc</span></code> on the target variable.</p>
+</section>
+<section id="information-value-plot">
+<h3><span class="section-number">5.5.2.4. </span>Information Value Plot<a class="headerlink" href="#information-value-plot" title="Permalink to this heading">¶</a></h3>
+<p>The information value is a valuable technique for selecting important variables in a predictive model by ranking them according to their importance. For a continuous target, the IV is the weighted average of WoE, which takes into account the sample size. For a binary target, the IV is also the weighted sum of WoE, as illustrated below.</p>
+<div class="math notranslate nohighlight">
+\[\begin{align}
+   \mathrm{IV} = \sum (P(X|Y=0) - P(X|Y=1)) \mathrm{WoE},
+\end{align}\]</div>
+<p>The code below show the usage of drawing top-10 features’ IV with the keyword “xgb1_iv”.</p>
+<div class="jupyter_cell jupyter_container docutils container">
+<div class="cell_input code_cell docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">exp</span><span class="o">.</span><span class="n">model_interpret</span><span class="p">(</span><span class="n">model</span><span class="o">=</span><span class="s2">&quot;XGB1&quot;</span><span class="p">,</span> <span class="n">show</span><span class="o">=</span><span class="s2">&quot;xgb1_iv&quot;</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">4</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+</div>
+</div>
+<figure class="align-left">
+<a class="reference external image-reference" href="../../auto_examples/models/plot_4_xgb1_reg.html"><img alt="../../_images/sphx_glr_plot_4_xgb1_reg_004.png" src="../../_images/sphx_glr_plot_4_xgb1_reg_004.png" /></a>
+</figure>
+<p>It can be found that the ranking order of IV plot is different from that of feature importance plot. The feature <code class="docutils literal notranslate"><span class="pre">MedInc</span></code> is ranked as the most important feature in IV, followed by <code class="docutils literal notranslate"><span class="pre">latitude</span></code>, <code class="docutils literal notranslate"><span class="pre">AveRooms</span></code>, and <code class="docutils literal notranslate"><span class="pre">longtitude</span></code>. The feature <code class="docutils literal notranslate"><span class="pre">Population</span></code> is still ranked as the least important feature. As <code class="docutils literal notranslate"><span class="pre">latitude</span></code> and <code class="docutils literal notranslate"><span class="pre">longtitude</span></code> are highly correlated, the model may amplify the effect of <code class="docutils literal notranslate"><span class="pre">latitude</span></code> and <code class="docutils literal notranslate"><span class="pre">longtitude</span></code>, which explains why they are ranked as the most important features in feature importance plot. In contrast, the IV plot shows that <code class="docutils literal notranslate"><span class="pre">MedInc</span></code> is the most important feature, since the IV plot only considers the effect of each feature on the target variable. Note that this plot only shows the top-10 features with the largest information value. To get the full results, you can set the parameter <code class="docutils literal notranslate"><span class="pre">return_data</span></code> to True.</p>
+</section>
+</section>
+<section id="local-interpretation">
+<h2><span class="section-number">5.5.3. </span>Local Interpretation<a class="headerlink" href="#local-interpretation" title="Permalink to this heading">¶</a></h2>
+<p>Similar to other additive models, the local interpretation can be triggered by the keyword “local_fi”.</p>
+<div class="jupyter_cell jupyter_container docutils container">
+<div class="cell_input code_cell docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">exp</span><span class="o">.</span><span class="n">model_interpret</span><span class="p">(</span><span class="n">model</span><span class="o">=</span><span class="s2">&quot;XGB1&quot;</span><span class="p">,</span> <span class="n">show</span><span class="o">=</span><span class="s2">&quot;local_fi&quot;</span><span class="p">,</span> <span class="n">sample_id</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">original_scale</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">4</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+</div>
+</div>
+<figure class="align-left">
+<a class="reference external image-reference" href="../../auto_examples/models/plot_4_xgb1_reg.html"><img alt="../../_images/sphx_glr_plot_4_xgb1_reg_005.png" src="../../_images/sphx_glr_plot_4_xgb1_reg_005.png" /></a>
+</figure>
+<p>The title shows the actual resonse value and the predicted value of the chosen sample. Each bar in the plot represents the estimated effect value <span class="math notranslate nohighlight">\(\hat{f}_j(x)\)</span> of the chosen sample, which is actually the additive decomposition of the prediction. The right axis shows the feature values of the chosen sample. The feature <code class="docutils literal notranslate"><span class="pre">Lontitude</span></code> has the largest negative effect on the prediction, followed by <code class="docutils literal notranslate"><span class="pre">Latitude</span></code> and <code class="docutils literal notranslate"><span class="pre">AveRooms</span></code>. The feature <code class="docutils literal notranslate"><span class="pre">Population</span></code> has the least effect on the prediction. Note that this plot only shows the top-10 features with the largest contribution. To get the full results, you can set the parameter <code class="docutils literal notranslate"><span class="pre">return_data</span></code> to True.</p>
+</section>
+<section id="examples">
+<h2><span class="section-number">5.5.4. </span>Examples<a class="headerlink" href="#examples" title="Permalink to this heading">¶</a></h2>
+<aside class="topic">
+<p class="topic-title">Example 1: BikeSharing</p>
+<blockquote>
+<div><p>The first example below demonstrates how to use PiML with its high-code APIs for developing machine learning models for the BikeSharing data from the UCI repository, which consists of 17,389 samples of hourly counts of rental bikes in Capital bikeshare system; see details. The response <code class="docutils literal notranslate"><span class="pre">cnt</span></code> (hourly bike rental counts) is continuous and it is a regression problem.</p>
+</div></blockquote>
+<ul class="simple">
+<li><p><a class="reference internal" href="../../auto_examples/models/plot_4_xgb1_reg.html#sphx-glr-auto-examples-models-plot-4-xgb1-reg-py"><span class="std std-ref">XGB-1 Regression (California Housing)</span></a></p></li>
+</ul>
+</aside>
+<aside class="topic">
+<p class="topic-title">Example 2: CoCircles</p>
+<blockquote>
+<div><p>The example below demonstrates how to use PiML with the CoCircles data, which is a simulated binary classification data with two features exactly follows the GAM assumptions.</p>
+</div></blockquote>
+<ul class="simple">
+<li><p><a class="reference internal" href="../../auto_examples/models/plot_4_xgb1_cls.html#sphx-glr-auto-examples-models-plot-4-xgb1-cls-py"><span class="std std-ref">XGB-1 Classification (CoCircles)</span></a></p></li>
+</ul>
+</aside>
+</section>
+</section>
+
+
+        </div>
+      <div class="container">
+        <footer class="sk-content-footer">
+              &copy; Copyright 2022-, PiML-Toolbox authors.
+            <a href="../../_sources/guides/models/xgb1.rst.txt" rel="nofollow">Show this page source</a>
+        </footer>
+      </div>
+    </div>
+  </div>
+
+
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(false);
+      });
+      
+      const tooltipTriggerList = document.querySelectorAll('[data-bs-toggle="tooltip"]')
+      const tooltipList = [...tooltipTriggerList].map(tooltipTriggerEl => new bootstrap.Tooltip(tooltipTriggerEl))
+  </script>
+
+<script>
+$(document).ready(function() {
+    /* Add a [>>>] button on the top-right corner of code samples to hide
+     * the >>> and ... prompts and the output and thus make the code
+     * copyable. */
+    var div = $('.highlight-python .highlight,' +
+                '.highlight-python3 .highlight,' +
+                '.highlight-pycon .highlight,' +
+		'.highlight-default .highlight')
+    var pre = div.find('pre');
+
+    // get the styles from the current theme
+    pre.parent().parent().css('position', 'relative');
+    var hide_text = 'Hide prompts and outputs';
+    var show_text = 'Show prompts and outputs';
+
+    // create and add the button to all the code blocks that contain >>>
+    div.each(function(index) {
+        var jthis = $(this);
+        if (jthis.find('.gp').length > 0) {
+            var button = $('<span class="copybutton">&gt;&gt;&gt;</span>');
+            button.attr('title', hide_text);
+            button.data('hidden', 'false');
+            jthis.prepend(button);
+        }
+        // tracebacks (.gt) contain bare text elements that need to be
+        // wrapped in a span to work with .nextUntil() (see later)
+        jthis.find('pre:has(.gt)').contents().filter(function() {
+            return ((this.nodeType == 3) && (this.data.trim().length > 0));
+        }).wrap('<span>');
+    });
+
+    // define the behavior of the button when it's clicked
+    $('.copybutton').click(function(e){
+        e.preventDefault();
+        var button = $(this);
+        if (button.data('hidden') === 'false') {
+            // hide the code output
+            button.parent().find('.go, .gp, .gt').hide();
+            button.next('pre').find('.gt').nextUntil('.gp, .go').css('visibility', 'hidden');
+            button.css('text-decoration', 'line-through');
+            button.attr('title', show_text);
+            button.data('hidden', 'true');
+        } else {
+            // show the code output
+            button.parent().find('.go, .gp, .gt').show();
+            button.next('pre').find('.gt').nextUntil('.gp, .go').css('visibility', 'visible');
+            button.css('text-decoration', 'none');
+            button.attr('title', hide_text);
+            button.data('hidden', 'false');
+        }
+    });
+
+	/*** Add permalink buttons next to glossary terms ***/
+	$('dl.glossary > dt[id]').append(function() {
+		return ('<a class="headerlink" href="#' +
+			    this.getAttribute('id') +
+			    '" title="Permalink to this term">¶</a>');
+	});
+  /*** Hide navbar when scrolling down ***/
+  // Returns true when headerlink target matches hash in url
+  (function() {
+    hashTargetOnTop = function() {
+        var hash = window.location.hash;
+        if ( hash.length < 2 ) { return false; }
+
+        var target = document.getElementById( hash.slice(1) );
+        if ( target === null ) { return false; }
+
+        var top = target.getBoundingClientRect().top;
+        return (top < 2) && (top > -2);
+    };
+
+    // Hide navbar on load if hash target is on top
+    var navBar = document.getElementById("navbar");
+    var navBarToggler = document.getElementById("sk-navbar-toggler");
+    var navBarHeightHidden = "-" + navBar.getBoundingClientRect().height + "px";
+    var $window = $(window);
+
+    hideNavBar = function() {
+        navBar.style.top = navBarHeightHidden;
+    };
+
+    showNavBar = function() {
+        navBar.style.top = "0";
+    }
+
+    if (hashTargetOnTop()) {
+        hideNavBar()
+    }
+
+    var prevScrollpos = window.pageYOffset;
+    hideOnScroll = function(lastScrollTop) {
+        if (($window.width() < 768) && (navBarToggler.getAttribute("aria-expanded") === 'true')) {
+            return;
+        }
+        if (lastScrollTop > 2 && (prevScrollpos <= lastScrollTop) || hashTargetOnTop()){
+            hideNavBar()
+        } else {
+            showNavBar()
+        }
+        prevScrollpos = lastScrollTop;
+    };
+
+    /*** high performance scroll event listener***/
+    var raf = window.requestAnimationFrame ||
+        window.webkitRequestAnimationFrame ||
+        window.mozRequestAnimationFrame ||
+        window.msRequestAnimationFrame ||
+        window.oRequestAnimationFrame;
+    var lastScrollTop = $window.scrollTop();
+
+    if (raf) {
+        loop();
+    }
+
+    function loop() {
+        var scrollTop = $window.scrollTop();
+        if (lastScrollTop === scrollTop) {
+            raf(loop);
+            return;
+        } else {
+            lastScrollTop = scrollTop;
+            hideOnScroll(lastScrollTop);
+            raf(loop);
+        }
+    }
+  })();
+});
+
+</script>
+    
+
+<script src="_static/js/vendor/bootstrap.min.js"></script>
+
+</body>
+</html>

@@ -40,7 +40,7 @@
         <script src="_static/sphinx_highlight.js"></script>
         <script src="_static/thebelab-helper.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
-        <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.20.1/dist/embed-amd.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/@jupyter-widgets/html-manager@^1.0.1/dist/embed-amd.js"></script>
         <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
     <script src="_static/js/theme.js"></script>
 
@@ -113,8 +113,8 @@
       <div class="col-md-6 d-flex">
         <ul class="sk-landing-header-body text-white">
           <li>A Python toolbox for interpretable machine learning</li>
-		  <li>Supports a growing list of inherently interpretable models</li>
-		  <li>Supports a whole spectrum of model testing and validation</li>
+		      <li>Supports a growing list of inherently interpretable models</li>
+		      <li>Supports a diagnostic suite for model testing and validation</li>
           <li>Provides easy to use low-code interface and high-code APIs</li>
         </ul>
       </div>
@@ -128,12 +128,13 @@
       <div class="card h-100">
         <div class="card-body">
           <a href="guides/data.html"><h4 class="sk-card-title card-title">Data Pipeline</h4></a>
-          <p class="card-text">Load, summarize, and prepare data</p>
+          <p class="card-text">Load, check, and prepare data</p>
           <ul style="margin-left:-20px;">
-			  <li><a href="#" data-bs-toggle="tooltip" data-bs-title="Under development">PiML Data Pipeline</a></li>
-			  <li><a href="#" data-bs-toggle="tooltip" data-bs-title="Under development">Exploratory Data Visualization</a></li>
-			  <li><a href="guides/data/feature_select.html">Feature Selection</a></li>
-			  <li><a href="#" data-bs-toggle="tooltip" data-bs-title="Under development">Custom Data Loading into PiML</a></li>
+            <li><a href="guides/data/data_load.html">Load built-in or external dataset</a></li>
+            <li><a href="guides/data/data_eda.html">Exploratory data analysis</a></li>
+            <li><a href="guides/data/data_quality.html">Data quality check</a></li>
+            <li><a href="guides/data/feature_select.html">Feature selection</a></li>
+            <li><a href="guides/data/twosample_test.html">Train-test distribution distance</a></li>
 		  </ul>
         </div>
       </div>
@@ -142,11 +143,23 @@
       <div class="card h-100">
         <div class="card-body">
           <a href="guides/models.html"><h4 class="sk-card-title card-title">Interpretable Models</h4></a>
-          <p class="card-text">Inherently interpretable machine learning</p>
+          <p class="card-text">Inherent interpretability</p>
           <ul style="margin-left:-20px;">
-			  <li><a href="#" data-bs-toggle="tooltip" data-bs-title="Under development">Classic Statistics Models</a></li>
-			  <li><a href="#" data-bs-toggle="tooltip" data-bs-title="Under development">GAMI Neural Networks</a></li>
-			  <li><a href="#" data-bs-toggle="tooltip" data-bs-title="Under development">XGBoosted Trees of Depth 2</a></li>
+			  <li>Classic statistics models:
+          <a href="guides/models/glm.html">GLM</a>,
+          <a href="guides/models/gam.html">GAM</a>,
+          <a href="guides/models/tree.html">Tree</a>
+        </li>
+			  <li> Ensemble trees:
+          <a href="guides/models/figs.html">FIGS</a>,
+          <a href="guides/models/xgb1.html">XGB1</a>,
+          <a href="guides/models/xgb2.html">XGB2</a>,
+          <a href="guides/models/ebm.html">EBM</a>
+        </li>
+			  <li> Neural networks:
+          <a href="guides/models/gaminet.html">GAMI-Net</a>,
+          <a href="guides/models/reludnn.html">ReLU-DNN</a>
+        </li>
 		  </ul>
         </div>
       </div>
@@ -157,24 +170,32 @@
           <a href="guides/explainability.html"><h4 class="sk-card-title card-title">Post-hoc Explainability</h4></a>
           <p class="card-text">Global and local explainability</p>
           <ul style="margin-left:-20px;">
-			  <li><a href="#" data-bs-toggle="tooltip" data-bs-title="Under development">Global Methods: PFI, PDP, ALE</a></li>
-			  <li><a href="#" data-bs-toggle="tooltip" data-bs-title="Under development">Local Methods: LIME, SHAP</a></li>
-			  <li><a href="#" data-bs-toggle="tooltip" data-bs-title="Under development">Post-hoc Explainability Disagreement</a></li>
-		</ul>
+            <li><a href="guides/explain/pfi.html">Permutation feature importance</a></li>
+            <li><a href="guides/explain/pdp.html">Partial dependence plot</a></li>
+            <li> Other global methods:
+              <a href="guides/explain/ice.html">ICE</a>,
+              <a href="guides/explain/ale.html">ALE</a>
+            </li>
+            <li> Local Methods:
+              <a href="guides/explain/lime.html">LIME</a>,
+              <a href="guides/explain/shap.html">SHAP</a>
+            </li>
+          </ul>
         </div>
       </div>
     </div>
     <div class="col-md-4 mb-3 px-md-2 sk-px-xl-4">
       <div class="card h-100">
         <div class="card-body">
-          <a href="guides/testing.html"><h4 class="sk-card-title card-title">Outcome Testing</h4></a>
-          <p class="card-text">Model diagnostics</p>
+          <a href="guides/testing.html"><h4 class="sk-card-title card-title">Diagnostic Suite</h4></a>
+          <p class="card-text">Model validation and outcome testing</p>
           <ul style="margin-left:-20px;">
-			  <li><a href="#" data-bs-toggle="tooltip" data-bs-title="Under development">WeakSpot by Slicing Techniques</a></li>
-			  <li><a href="#" data-bs-toggle="tooltip" data-bs-title="Under development">Reliability Test by Conformal Prediction</a></li>			  
-			  <li><a href="#" data-bs-toggle="tooltip" data-bs-title="Under development">Robustness Test by X-Perturbation</a></li>
-			  <li><a href="#" data-bs-toggle="tooltip" data-bs-title="Under development">Resilience Test under OOD Scenarios</a></li>			  
-		  </ul>
+            <li><a href="guides/testing/accuracy.html">Accuracy and residual plot</a></li>
+            <li><a href="guides/testing/weakspot.html">Model weakness identification</a></li>
+            <li><a href="guides/testing/reliability.html">Prediction uncertainty quantification</a></li>
+            <li><a href="guides/testing/robustness.html">Robustness test under covariate perturbation</a></li>
+            <li><a href="guides/testing/fairness.html">Model fairness, disparity test and debias</a></li>      
+          </ul>
         </div>
       </div>
     </div>
@@ -182,11 +203,11 @@
       <div class="card h-100">
         <div class="card-body">
           <a href="guides/comparison.html"><h4 class="sk-card-title card-title">Model Comparison</h4></a>
-          <p class="card-text">Benchmarking</p>
+          <p class="card-text">Benchmarking through diagnostics</p>
           <ul style="margin-left:-20px;">
-			  <li><a href="#" data-bs-toggle="tooltip" data-bs-title="Under development">Black-box vs. Glass-box Models</a> </li>
-			  <li><a href="#" data-bs-toggle="tooltip" data-bs-title="Under development">Is XGBoost Benign Overfitting?</a> </li>
-			  <li><a href="#" data-bs-toggle="tooltip" data-bs-title="Under development">Multi-objective Model Selection</a></li>
+			  <li><a href="guides/comparison/compare_regression.html">Regression models</a> </li>
+			  <li><a href="guides/comparison/compare_classification.html">Binary classification models</a> </li>
+        <li><a href="guides/comparison/compare_fairness.html">Model fairness comparison</a> </li>
 		  </ul>
         </div>
       </div>

@@ -11,4 +11,10 @@ Data Pipeline
 .. toctree::
    :maxdepth: 2
   
+   data/data_load.rst
+   data/data_summary.rst
+   data/data_prepare.rst
+   data/data_eda.rst
+   data/data_quality.rst
    data/feature_select.rst
+   data/twosample_test.rst

@@ -1,0 +1,312 @@
+.. Places parent toc into the sidebar
+
+:parenttoc: True
+
+.. include:: ../../includes/big_toc_css.rst
+
+===============================    
+Accuracy
+===============================
+
+This section serves as a user guide for utilizing PiML to assess the performance of our model using essential metrics for regression and binary classification tasks. In PiML, we can use the `model_diagnose` function to assess the performance of our model. Note that all the metrics mentioned in this section are based on the functions provided by sklearn_metrics_.
+
+.. _sklearn_metrics: https://scikit-learn.org/stable/modules/model_evaluation.html
+
+
+
+Regression Tasks 
+^^^^^^^^^^^^^^^^^^^^^^
+Available metrics for regression tasks include mean squared error (MSE), mean absolute error (MAE), and R-squared (R2).
+
+- **Mean Squared Error** (MSE): The squared difference between the actual and predicted values. The mean squared error is the average of the squared errors.
+
+.. math::
+   \begin{align}
+       MSE = \frac{1}{n}\sum_{i=1}^{n}(y_{i} - \hat{y}_{i})^{2} \tag{1}
+   \end{align}
+   
+- **Mean absolute Error** (MAE): The absolute value of the difference between the actual and predicted values. The mean absolute error is the average of the absolute errors.
+
+.. math::
+   \begin{align}
+       MAE = \frac{1}{n}\sum_{i=1}^{n}|y_{i} - \hat{y}_{i}|. \tag{2}
+   \end{align}
+   
+- **R-squared** (R2): The proportion of variance of the response variable that can be explained by the model. 
+
+.. math::
+   \begin{align}
+       R2 = 1-\frac{\sum_{i=1}^{n}(y_{i} - \hat{y}_{i})^{2} } {\sum_{i=1}^{n}(y_{i} - \bar{y})^{2} }\tag{3}
+   \end{align}
+
+
+Accuracy Table
+""""""""""""""""""""
+By setting `show` to "accuracy_table", we can generate a summary table for different metrics. The code below shows how to generate the accuracy table for a fitted XGB2 model on the bike sharing dataset.
+
+.. jupyter-input::
+
+   exp.model_diagnose(model="XGB2", show='accuracy_table')
+
+.. raw:: html
+
+    <div class="output_subarea output_html rendered_html output_result">
+    <div>
+    <style scoped>
+        .dataframe tbody tr th:only-of-type {
+            vertical-align: middle;
+        }
+
+        .dataframe tbody tr th {
+            vertical-align: top;
+        }
+
+        .dataframe thead th {
+            text-align: right;
+        }
+    </style>
+    <table border="1" class="dataframe">
+      <thead>
+        <tr style="text-align: right;">
+          <th></th>
+          <th>MSE</th>
+          <th>MAE</th>
+          <th>R2</th>
+        </tr>
+        <tr>
+          <th></th>
+          <th></th>
+          <th></th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <th>Train</th>
+          <td>0.0087</td>
+          <td>0.0649</td>
+          <td>0.7469</td>
+        </tr>
+        <tr>
+          <th>Test</th>
+          <td>0.0092</td>
+          <td>0.0668</td>
+          <td>0.7368</td>
+        </tr>
+        <tr>
+          <th>Gap</th>
+          <td>0.0005</td>
+          <td>0.0018</td>
+          <td>-0.0101</td>
+        </tr>
+      </tbody>
+    </table>
+
+In this table, we show the metrics for train and test sets, respectively, as well as the gap between these two sets. A good model is characterized by a low MAE or MSE (close to zero) and R2 value close to 1. Ideally, the gap should be small, indicating that the model is not overfitting. Note that the value of R2 is always between 0 and 1 for training set. However, it is possible to have negative values for testing set.
+
+
+Residual Plot
+""""""""""""""""""""
+Residual is the difference between the actual response and the predicted response values. A residual plot displays the relationship of residuals against a feature of interest. The ideal residual plot, called the null residual plot, shows a random scatter of points forming an approximately constant-width band around the identity line. In PiML, we can generate residual plots for the testing set by setting `show` to "residual_plot" and specifying the `target_feature` of interest, as shown below. In addition, we can also set `original_scale` to True to display the residual values in the original scale. And the argument `use_test` (default=False means using training set) can be set to True to use the testing set for generating the residual plot.
+
+**Numerical Features**
+
+The first example below displays the residual plot for a numerical feature, i.e., `hr`, which is a line chart. Upon analyzing the plot, it becomes apparent that there is a notable heterogeneity in the residuals across different hours of the day. Specifically, the range of residuals observed during rush hours is significantly greater than that of non-peak hours. That is reasonable as the demand for bike sharing is much higher during rush hours than non-peak hours, and it is relatively hard to make predictions for rush hours.
+
+.. jupyter-input::
+   
+   exp.model_diagnose(model="XGB2", show="accuracy_residual", target_feature="hr",
+                      use_test=False, original_scale=True, figsize=(5, 4))
+
+.. figure:: ../../auto_examples/testing/images/sphx_glr_plot_0_accuracy_reg_001.png
+   :target: ../../auto_examples/testing/plot_0_accuracy_reg.html
+   :align: left 
+
+**Categorical Features**
+
+The next example below displays the residual plot for a categorical feature, i.e., `season`, which is a bar chart. The plot shows that the residuals are more or less evenly distributed across different seasons, which is a good sign.
+
+.. jupyter-input::
+   
+   exp.model_diagnose(model="XGB2", show="accuracy_residual", target_feature="season",
+                      use_test=False, original_scale=True, figsize=(5, 4))
+
+.. figure:: ../../auto_examples/testing/images/sphx_glr_plot_0_accuracy_reg_002.png
+   :target: ../../auto_examples/testing/plot_0_accuracy_reg.html
+   :align: left 
+
+**Response Feature**
+
+In addition to generating residual plots for input features, we can also generate residual plots against the response feature (`cnt` in the BikeSharing data), as shown below. The plot illustrates a noteworthy disparity in the residuals across various values of the response feature. Specifically, there appears to be a positive correlation between the residuals and the response, indicating that additional features may be necessary to enhance model performance.
+
+.. jupyter-input::
+   
+   exp.model_diagnose(model="XGB2", show="accuracy_residual", target_feature="cnt",
+                      use_test=False, figsize=(5, 4))
+
+.. figure:: ../../auto_examples/testing/images/sphx_glr_plot_0_accuracy_reg_003.png
+   :target: ../../auto_examples/testing/plot_0_accuracy_reg.html
+   :align: left 
+
+**Predicted Value**
+
+Finally, the residual plot against the predicted values is shown below. To generate this plot, the argument `target_feature` should be set as the response feature name + "_predict". From this plot, we can observe a positive relationship between the predicted value and the variation of residuals. This finding is consistent with the observations made from the previous residual plot, which suggested that predicting bike sharing during rush hours is more challenging than during non-peak hours. Additionally, we notice that the scatter plot appears to be bounded at the bottom by the line :math:`x+y=0`. This boundary exists because the predicted values (:math:`x`) plus the residuals (:math:`y`) equal the response variable, and the minimum value of bike sharing is zero.
+
+.. jupyter-input::
+   
+   exp.model_diagnose(model="XGB2", show="accuracy_residual", target_feature="cnt_predict",
+                      use_test=False, figsize=(5, 4))
+
+.. figure:: ../../auto_examples/testing/images/sphx_glr_plot_0_accuracy_reg_004.png
+   :target: ../../auto_examples/testing/plot_0_accuracy_reg.html
+   :align: left 
+
+
+
+Binary Classification
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+For binary classification tasks, the following metrics are available. 
+
+- **Accuracy-score (ACC)**: The accuracy score is a widely used metric for evaluating classification models, computed by dividing the number of correctly classified samples by the total number of samples. However, when dealing with imbalanced datasets, accuracy alone may not be the best metric to evaluate model performance. In such cases, we need to consider additional metrics such as AUC and F1-score.
+
+- **Area Under the ROC Curve (AUC)**: is a valuable metric for summarizing the performance of a classifier. Its values range from 0 to 1, with a model whose predictions are entirely incorrect having an AUC of 0.0, and a model whose predictions are entirely accurate having an AUC of 1.0. A random classifier would have an AUC of approximately 0.5, indicating that it is no better than guessing. AUC provides a helpful measure of how well the classifier distinguishes between positive and negative classes and can be used to compare the performance of different models.
+
+- **F1-score (F1)**: The F1 score is the harmonic mean of precision and recall, as follows.
+
+.. math::
+   \begin{align}
+      F1 = 2\frac{Precision \cdot Recall}{Precision+Recall}=\frac{2TP}{2TP+FP+FN} \tag{4}
+   \end{align}
+
+
+Accuracy Table
+""""""""""""""""""""
+The accuracy table for a binary classification task includes three metrics, i.e., "ACC", "AUC", and "F1". The following example shows the usage of the accuracy table for a fitted XGB2 model on the TaiwanCredit dataset.
+
+.. jupyter-input::
+
+   exp.model_diagnose(model="XGB2", show="accuracy_table")
+
+.. raw:: html
+
+    <div class="output_subarea output_html rendered_html output_result">
+    <div>
+    <style scoped>
+        .dataframe tbody tr th:only-of-type {
+            vertical-align: middle;
+        }
+
+        .dataframe tbody tr th {
+            vertical-align: top;
+        }
+
+        .dataframe thead th {
+            text-align: right;
+        }
+    </style>
+    <table border="1" class="dataframe">
+      <thead>
+        <tr style="text-align: right;">
+          <th></th>
+          <th>ACC</th>
+          <th>AUC</th>
+          <th>Recall</th>
+          <th>Precision</th>
+          <th>F1</th>
+        </tr>
+        <tr>
+          <th></th>
+          <th></th>
+          <th></th>
+          <th></th>
+          <th></th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <th>Train</th>
+          <td>0.8223</td>
+          <td>0.7970</td>
+          <td>0.3617</td>
+          <td>0.6924</td>
+          <td>0.4751</td>
+        </tr>
+        <tr>
+          <th>Test</th>
+          <td>0.8288</td>
+          <td>0.7732</td>
+          <td>0.3624</td>
+          <td>0.7015</td>
+          <td>0.4779</td>
+        </tr>
+        <tr>
+          <th>Gap</th>
+          <td>0.0066</td>
+          <td>-0.0237</td>
+          <td>0.0007</td>
+          <td>0.0091</td>
+          <td>0.0027</td>
+        </tr>
+      </tbody>
+    </table>
+    </div>
+    </div>
+
+The table resembles that of regression tasks, but instead uses "ACC", "AUC", and "F1" metrics for binary classification. In all cases, a larger value indicates a better model. The "Gap" column shows the difference between the training and testing metrics, with a smaller gap indicating less overfitting and a more reliable model.
+
+
+Residual Plot
+""""""""""""""""""""
+This plot shows prediction residual against a variable of interest. Similar to the residual plot of regression tasks, we set parameter `show` to "residual_plot" and also input the feature name in `target_feature`.
+
+.. jupyter-input::
+      
+   exp.model_diagnose(model="XGB2", show="residual_plot", target_feature="PAY_1",
+                      use_test=False, original_scale=True, figsize=(5, 4))
+
+.. figure:: ../../auto_examples/testing/images/sphx_glr_plot_0_accuracy_cls_002.png
+   :target: ../../auto_examples/testing/plot_0_accuracy_cls.html
+   :align: left
+
+This plot shows the absoluate difference between the predicted probability and the actual response (0 or 1). As the response variable is binary, we plot the absoluate residuals for class 0 and class 1 separately. Moreover, a smoothing curve is added for each class, which is estimated by the locally weighted scatterplot smoothing (Lowess_) estimator. Note that the feature of interest can be either input feature, the response variable, or the predicted probability. See the example in the regression_ task above for more details.
+
+.. _Lowess: https://en.wikipedia.org/wiki/Local_regression
+.. _regression: accuracy.html#residual-plot
+
+
+Accuracy Plot
+""""""""""""""""""""
+To evaluate the performance of a binary classification model, we present an additional plot in addition to the accuracy table and residual plot used in regression tasks. This plot can be generated by setting `show` to "accuracy_plot". It consists of three subplots that display the confusion matrix, ROC curve, and precision-recall curve on the testing set. This plot provides a comprehensive view of the model's performance, enabling a more thorough evaluation of its accuracy, sensitivity, and specificity.
+
+.. jupyter-input::
+      
+   exp.model_diagnose(model="XGB2", show="accuracy_plot")
+
+.. figure:: ../../auto_examples/testing/images/sphx_glr_plot_0_accuracy_cls_001.png
+   :target: ../../auto_examples/testing/plot_0_accuracy_cls.html
+   :align: left
+
+- The left panel shows the confusion matrix, a valuable tool for evaluating classification model performance. The diagonal elements indicate the number of instances where the predicted label is the same as the true label, while the off-diagonal elements represent mislabeled instances. A higher value on the diagonal indicates better performance and more accurate predictions.
+
+- In the middle panel, the ROC curve illustrates the diagnostic ability of a binary classifier by plotting the true positive rate (TPR) against the false positive rate (FPR) at various threshold settings. This plot helps determine the optimal threshold for classifying instances and assessing the tradeoff between sensitivity and specificity.
+
+- The right panel displays the precision-recall curve, a useful measure for evaluating models when classes are imbalanced. High recall but low precision means that the model is correctly identifying a large number of positive instances (true positives), but it also includes many irrelevant instances. In contrast, low recall but high precision means that the model is correctly identifying a smaller proportion of positive instances (true positives), but the instances it identifies as positive are more likely to be true positives. This plot helps determine the optimal threshold for classifying instances and assessing the tradeoff between precision and recall.
+
+
+
+Examples
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    
+.. topic:: Example 1: BikeSharing
+
+  The first example below demonstrates how to use PiML with its high-code APIs for developing machine learning models for the BikeSharing data from the UCI repository, which consists of 17,389 samples of hourly counts of rental bikes in Capital bikeshare system; see details. The response `cnt` (hourly bike rental counts) is continuous and it is a regression problem.
+ 
+ * :ref:`sphx_glr_auto_examples_testing_plot_0_accuracy_reg.py`
+
+.. topic:: Examples 2: Taiwan Credit
+
+  The second example below demonstrates how to use PiML’s high-code APIs for the TaiwanCredit dataset from the UCI repository. This dataset comprises the credit card details of 30,000 clients in Taiwan from April 2005 to September 2005, and more information can be found on the TaiwanCreditData website. The data can be loaded directly into PiML, although it requires some preprocessing. The FlagDefault variable serves as the response for this classification problem.
+    
+ * :ref:`sphx_glr_auto_examples_testing_plot_0_accuracy_cls.py`
+    

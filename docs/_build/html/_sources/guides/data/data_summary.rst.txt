@@ -1,0 +1,261 @@
+.. Places parent toc into the sidebar
+
+:parenttoc: True
+
+.. include:: ../../includes/big_toc_css.rst
+
+==========================
+Data Summary
+==========================
+
+Data summary is the process to summarize basic data statistics and setting the meta info of features.
+In this function, you could not only get the summary information of data based on its data type, but also you can change the feature type and remove features.
+
+Summary Statistics
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+For numerical features and categorical features, we provide different statistics.
+
+For numerical:
+
+   - n_missing: Number of missing value
+   - mean: Mean value
+   - std: Standard deviation
+   - min: Min value
+   - q1: First quantile value
+   - median: Median value
+   - q3: Third quantile value
+   - max: Max value
+
+For categorical:
+
+   - n_missing: Number of missing value
+   - n_unique: Number of unique value
+   - top1: The value with the highest frequency and its frequency
+   - top2: The value with the second highest frequency and its frequency
+   - top3: The value with the third highest frequency and its frequency
+   - n_others: The number of samples other than the top 1-3.
+
+Here is an example of the data summary:
+
+.. jupyter-input::
+
+      exp.data_summary(feature_type={},feature_exclude=[])
+
+.. raw:: html
+
+    <div class="output_subarea output_html rendered_html output_result">
+    <div>
+    <style scoped>
+        .dataframe tbody tr th:only-of-type {
+            vertical-align: middle;
+        }
+
+        .dataframe tbody tr th {
+            vertical-align: top;
+        }
+
+        .dataframe thead th {
+            text-align: right;
+        }
+    </style>
+    <table border="1" class="dataframe">
+      <thead>
+        <tr style="text-align: right;">
+          <th></th>
+          <th>name</th>								
+          <th>n_missing</th>
+          <th>mean</th>
+          <th>std</th>
+          <th>min</th>
+          <th>q1</th>
+          <th>median</th>
+          <th>q3</th>
+          <th>max</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <th></th>
+          <td>mnth</td>
+          <td>0.0</td>
+          <td>6.537775</td>								
+          <td>3.438776</td>
+          <td>1.00</td>
+          <td>4.0000</td>
+          <td>7.0000</td>
+          <td>10.0000</td>
+          <td>12.0000</td>
+        </tr>
+        <tr>
+          <th></th>
+          <td>hr</td>
+          <td>0.0</td>
+          <td>11.546752</td>
+          <td>6.914405</td>
+          <td>0.00</td>
+          <td>6.0000</td>
+          <td>12.0000</td>
+          <td>18.0000</td>
+          <td>23.0000</td>
+        </tr>
+        <tr>
+          <th></th>
+          <td>weekday</td>
+          <td>0.0</td>
+          <td>3.003683</td>
+          <td>2.005771</td>
+          <td>0.00</td>
+          <td>1.0000</td>
+          <td>3.0000</td>
+          <td>5.0000</td>
+          <td>6.0000</td>						
+        </tr>
+        <tr>
+          <th></th>
+          <td>temp</td>
+          <td>0.0</td>
+          <td>0.496987</td>
+          <td>0.192556</td>
+          <td>0.02</td>
+          <td>0.3400</td>
+          <td>0.5000</td>
+          <td>0.6600</td>
+          <td>1.0000</td>						
+
+        </tr>
+        <tr>
+          <th></th>
+          <td>hum</td>
+          <td>0.0</td>
+          <td>0.627229</td>
+          <td>0.192930</td>
+          <td>0.00</td>
+          <td>0.4800</td>
+          <td>0.6300</td>
+          <td>0.7800</td>
+          <td>1.0000</td>							
+        </tr>
+        <tr>
+          <th></th>
+          <td>windspeed</td>
+          <td>0.0</td>
+          <td>0.190098</td>
+          <td>0.122340</td>
+          <td>0.00</td>
+          <td>0.1045</td>
+          <td>0.1940</td>
+          <td>0.2537</td>
+          <td>0.8507</td>							
+        </tr>
+        <tr>
+          <th></th>
+          <td>cnt</td>
+          <td>0.0</td>
+          <td>189.463088</td>
+          <td>181.387599</td>
+          <td>1.00</td>
+          <td>40.0000</td>
+          <td>142.0000</td>
+          <td>281.0000</td>
+          <td>977.0000</td>							
+        </tr>
+      </tbody>
+    </table>
+    </div>
+    </div>
+
+.. raw:: html
+
+    <div class="output_subarea output_html rendered_html output_result">
+    <div>
+    <style scoped>
+        .dataframe tbody tr th:only-of-type {
+            vertical-align: middle;
+        }
+
+        .dataframe tbody tr th {
+            vertical-align: top;
+        }
+
+        .dataframe thead th {
+            text-align: right;
+        }
+    </style>
+    <table border="1" class="dataframe">
+      <thead>
+        <tr style="text-align: right;">
+          <th></th>
+          <th>name</th>								
+          <th>n_missing</th>
+          <th>n_unique</th>
+          <th>top1</th>
+          <th>top2</th>
+          <th>top3</th>
+          <th>n_others</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <th></th>
+          <td>season</td>
+          <td>0</td>
+          <td>4</td>								
+          <td>3.0 : 4496</td>
+          <td>2.0 : 4409</td>
+          <td>1.0 : 4242</td>
+          <td>4232</td>				
+        </tr>
+        <tr>
+          <th></th>
+          <td>yr</td>
+          <td>0</td>
+          <td>2</td>
+          <td>1.0 : 8734</td>
+          <td>0.0 : 8645</td>
+          <td>0</td>
+          <td>0</td>		 			
+        </tr>
+        <tr>
+          <th></th>
+          <td>holiday</td>
+          <td>0</td>
+          <td>2</td>
+          <td>0.0 : 16879</td>
+          <td>1.0 : 500</td>
+          <td>0</td>
+          <td>0</td>				
+        </tr>
+        <tr>
+          <th></th>
+          <td>workingday</td>
+          <td>0</td>
+          <td>2</td>
+          <td>1.0 : 11865</td>
+          <td>0.0 : 5514</td>
+          <td>0</td>
+          <td>0</td>			
+
+        </tr>
+        <tr>
+          <th></th>
+          <td>weathersit</td>
+          <td>0</td>
+          <td>4</td>
+          <td>1.0 : 11413</td>
+          <td>2.0 : 4544</td>
+          <td>3.0 : 1419</td>
+          <td>3</td>												
+        </tr>
+      </tbody>
+    </table>
+    </div>
+    </div>
+
+Full Example
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+The full example codes of this section can be found in the following link.
+
+.. topic:: Example
+
+	* :ref:`sphx_glr_auto_examples_data_plot_1_data_summary.py`

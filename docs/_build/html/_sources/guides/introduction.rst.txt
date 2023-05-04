@@ -8,39 +8,205 @@
 Introduction
 =======================
 
-PiML (or π-ML, /ˈpaɪ·ˈem·ˈel/) is a new Python toolbox for interpretable machine learning model development and validation. Through low-code interface and high-code APIs, PiML supports a growing list of inherently interpretable ML models:
-
-- **GLM**: Linear/Logistic Regression with L1 ∨ L2 Regularization
-
-- **GAM**: Generalized Additive Models using B-splines
-
-- **Tree**: Decision Tree for Classification and Regression
-
-- **FIGS**: Fast Interpretable Greedy-Tree Sums (Tan, et al. 2022)
-
-- **XGB2**: Extreme Gradient Boosted Trees of Depth 2 (Chen and Guestrin, 2016; Lengerich, et al. 2020)
-
-- **EBM**: Explainable Boosting Machine (Nori, et al. 2019; Lou, et al. 2013)
-
-- **GAMI-Net**: Generalized Additive Model with Structured Interactions (Yang, Zhang and Sudjianto, 2021)
-
-- **ReLU-DNN**: Deep ReLU Networks using Aletheia Unwrapper and Sparsification (Sudjianto, et al. 2020)
+PiML (read :math:`\pi`-ML, \/\`pai\·\`em\·\`el\/) is an integrated open-access Python toolbox for interpretable machine learning model development and model diagnostics. It is designed with machine learning workflows in both low-code and high-code modes, including data pipeline, model training, model interpretation and explanation, and model diagnostics and comparison. The toolbox supports a growing list of interpretable models (e.g., GAM, GAMI-Net, XGB2) with inherent local and/or global interpretability. It also supports model-agnostic explainability tools (e.g., PFI, PDP, LIME, SHAP) and a powerful suite of model-agnostic diagnostics (e.g., weakness, uncertainty, robustness, fairness). Integration of PiML models and tests to existing MLOps platforms for quality assurance are enabled by flexible high-code APIs. Furthermore, PiML toolbox comes with comprehensive user guide and hands-on examples, including its applications for model development and validation in banking. The project is available at https://github.com/SelfExplainML/PiML-Toolbox.
 
 
-PiML also works for arbitrary supervised ML models under regression and binary classification settings. It supports a whole spectrum of outcome testing, including but not limited to the following:
+Introduction
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Supervised machine learning has being increasingly used in domains where decision making can have significant consequences. However, the lack of interpretability of many machine learning models makes it difficult to understand and trust the model-based decisions. This leads to growing interest in interpretable machine learning and model diagnostics. There emerge algorithms and packages for model-agnostic explainability, including the inspect module (including permutation feature importance, partial dependence) in `scikit-learn` [Pedregosa2011]_ and various others, e.g., [Kokhlikyan2020]_, [Klaise2021]_, [Baniecki2021]_, [Li2022]_.
 
-- **Accuracy**: popular metrics like MSE, MAE for regression tasks and ACC, AUC, Recall, Precision, F1-score for binary classification tasks.
+Post-hoc explainability tools are useful for black-box models, but they are known to have general pitfalls [Rudin2019]_, [Molnar2020]_. Inherently interpretable models are suggested for machine learning model development  [Yang2021a]_, [Yang2021b]_, [Sudjianto2020]_. The `InterpretML` package [Nori2013]_ by Microsoft Research is such a package of promoting the use of inherently interpretable models, in particular their explainable boosting machine (EBM) based on the GA2M model [Lou2013]_. One may also refer to [Sudjianto2021]_ for discussion about how to design inherently interpretable machine learning models. 
 
-- **Explainability**: post-hoc global explainers (PFI, PDP, ALE) and local explainers (LIME, SHAP).
+In the meantime, model diagnostic tools becomes increasingly important for model validation and outcome testing. New tools or platforms are developed for model weakness detection and error analysis, e.g., [Chung2019]_, PyCaret package, TensorFlow model analysis, FINRA's model validation toolkit, and Microsoft's responsible AI toolbox. They can be used for arbitrary pre-trained models, in the same way as the post-hoc explainability tools. Such type of model diagnostics or validation is sometimes referred to as black-box testing, and there is an increasing demand for quality assurance of machine learning models.
 
-- **Fairness**: disparity test and segmented analysis by integrating the solas-ai package.
+It is our goal to design an integrated Python toolbox for interpretable machine learning, both model development and model diagnostics. This is particularly needed for model risk management in banking, where it is a routine exercise to run model validation including evaluation of model conceptual soundness and outcome testing from various angles. An inherently interpretable machine learning model tends to be more conceptually sound, while it is subject to model diagnostics in terms of accuracy, weakness detection, fairness, uncertainty, robustness and resilience. The PiML toolbox we develop is such a unique Python tool that supports not only a growing list of interpretable models, but also an enhanced suite of multiple diagnostic tests. It has been adopted by multiple banks since its first launch on May 4, 2022.
 
-- **WeakSpot**: identification of weak regions with high residuals by slicing techniques.
 
-- **Overfit**: identification of overfitting regions according to train-test performance gap.
+Toolbox Design
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+PiML toolbox is designed to support machine learning workflows by both low-code interface and high-code APIs; see the figure below for the overall design. 
 
-- **Reliability**: assessment of prediction uncertainty by split conformal prediction techniques.
+.. figure:: ../images/PiML_Workflow.png
+   :width: 600 
+   :align: center
+   :alt: Design of PiML Workflows with Low-code and High-code Modes
 
-- **Robustness**: evaluation of performance degradation under covariate noise perturbation.
+- **Low-code panels**: interactive widgets or dashboards are developed for Jupyter notebook or Jupyter lab users. A minimum level of Python coding is required. The data pipeline consists of convenient `exp.data_load()`, `exp.data_summary()`, `exp.eda()`, `exp.data_quality()`, `exp.feature_select()`, `exp.data_prepare()`, each calling an interactive panel with choices of parameterization and actions.   
+- **High-code APIs**: each low-code panel can be also executed through one or more Python functions with manually specified  options and parameters. Such high-code APIs are flexible to be called both in Jupyter notebook cells and by Terminal command lines. High-code APIs usually provide more options than their default use in low-code panels. End-to-end pipeline automation can be enabled with appropriate high-code settings.  
+- **Existing models**: a pre-trained model can be loaded to PiML experimentation through pipeline registration. It is mandatory to include both training and testing datasets, in order for the model to take the full advantage of PiML explanation and diagnostic capabilities. It can be an arbitrary model in supervised learning settings, including regression and binary classification.
+
+
+For PiML-trained models by either low-code interface or high-code APIs, there are four follow-up actions to be executed:
+
+- `model_interpret()`: this unified API works only for inherently interpretable models (a.k.a., glass models) to be discussed in section_3_. It provides model-specific interpretation in both global and local ways. For example, a linear model is interpreted locally through model coefficients or marginal effects, while a decision tree is interpreted locally through the tree path.  
+- `model_explain()`: this unified API works for arbitrary models including black-box models and glass-box models. It provides post-hoc global explainability through permutation feature importance (PFI) and partial dependence plot (PDP) through `sklearn.inspect` module, accumulated local effects [Apley2016]_, and post-hoc local explainability through LIME [Ribeiro2016]_ and SHAP [Lundberg2017]_.  
+- `model_diagnose()`: this unified API works for arbitrary models and performs model diagnostics to be discussed in section_4_. It is designed to cover standardized general-purpose tests based on model data and predictions, i.e. model-agnostic tests. There is no need to access the model internals.  
+- `model_compare()`: this unified API is to compare two or three models at the same time, in terms of model performance and other diagnostic aspects. By inspecting the dashboard of graphical plots, one can easily rank models under comparison.
+
+.. _section_3: introduction.html#interpretable-models
+
+.. _section_4: introduction.html#diagnostic-suite
+
+For registered models that are not trained from PiML, they are automatically treated as black-box models, even though such a model may be inherently interpretable (e.g., linear regression model). This is due to simplification of pipeline registration, where only the model prediction method is considered. For these models, `model_interpret()` is not valid, while the other three unified APIs are fully functional. 
+
+Regarding PiML high-code APIs, it is worthwhile to mention that these APIs are flexible enough for integration into existing MLOps platforms. After PiML installation to MLOps backend, the high-code APIs can be called not only to train interpretable models, but also to perform arbitrary model testing for quality assurance. 
+
+
+Interpretable Models
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+PiML supports a growing list of inherently interpretable models. For simplicity, we only list the models and the references. The following list of interpretable models are included in PiML toolbox as of April 2023. 
+
+- **GLM**: Linear/logistic regression with :math:`\ell_1` and/or :math:`\ell_2` regularization [Hastie2015]_
+
+- **GAM**: Generalized additive models using B-splines [Serven2018]_
+
+- **Tree**: Decision tree for classification and regression [Pedregosa2011]_
+
+- **FIGS**: Fast interpretable greedy-tree sums [Tan2022]_
+
+- **XGB2**: Extreme gradient boosted trees of depth 2 [Chen2015]_, [Lengerich2020]_
+
+- **EBM**: Explainable boosting machine [Lou2013]_, [Nori2013]_
+
+- **GAMI-Net**: Generalized additive model with structured interactions [Yang2021b]_
+
+- **ReLU-DNN**: Deep ReLU networks using Aletheia unwrapper and sparsification [Sudjianto2020]_
+
+
+Diagnostic Suite
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+PiML comes with a continuously enhanced suite of diagnostic tests for arbitrary supervised machine learning models under regression and binary classification settings. Below is a list of the supported general-purpose tests with brief descriptions.
+
+- **Accuracy**: popular metrics like MSE, MAE for regression tasks and ACC, AUC, Recall, Precision, F1-score for binary classification tasks. 
+
+- **WeakSpot**: identification of weak regions with high magnitude of residuals by 1D and 2D slicing techniques.
+
+- **Overfit/Underfit**: identification of overfitting/underfitting regions according to train-test performance gap, also by 1D and 2D slicing techniques. 
+
+- **Reliability**: quantification of prediction uncertainty by split conformal prediction techniques [Wang2023]_.
+
+- **Robustness**: evaluation of performance degradation under different sizes of covariate noise perturbation [Cui2023]_.
 
 - **Resilience**: evaluation of performance degradation under different out-of-distribution scenarios.
+
+- **Fairness**: disparity test, segmented analysis and model de-bias through binning and thresholding techniques.
+
+ 
+Future Plan
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+PiML toolbox is our new initiative of integrating state-of-the-art methods in interpretable machine learning and model diagnostics. It provides convenient user interfaces and flexible APIs for easy use  of model interpretation, explanation, testing and comparison. Our future plan is to continuously improve the user experience, add new interpretable models, and expand the diagnostic suite. It is also our plan to enhance PiML experimentation with tracking and reporting.
+
+
+.. topic:: References
+
+    .. [Pedregosa2011] Fabian Pedregosa, Gaël Varoquaux, Alexandre Gramfort, Vincent Michel, Bertrand Thirion, Olivier Grisel, Mathieu Blondel, Peter Prettenhofer, Ron Weiss, Vincent Dubourg, Jake Vanderplas, Alexandre Passos, David Cournapeau, Matthieu Brucher, Matthieu Perrot, Édouard Duchesnay (2011). 
+                    `Scikit-learn: Machine learning in Python
+                    <https://www.jmlr.org/papers/volume12/pedregosa11a/pedregosa11a.pdf>`_,
+                    Journal of machine Learning research, 12, 2825-2830.
+
+    .. [Kokhlikyan2020] Narine Kokhlikyan, Vivek Miglani, Miguel Martin, Edward Wang, Bilal Alsallakh, Jonathan Reynolds,Alexander Melnikov, Natalia Kliushkina, Carlos Araya, Siqi Yan, Orion Reblitz-Richardson (2020). 
+                    `Captum: A unified and generic model interpretability library for pytorch
+                    <https://arxiv.org/pdf/2009.07896.pdf>`_,
+                    arXiv preprint arXiv:2009.07896.
+
+    .. [Klaise2021] Janis Klaise, Arnaud Van Looveren, Giovanni Vacanti, Alexandru Coca (2021). 
+                    `Alibi explain: Algorithms for explaining machine learning models
+                    <https://www.jmlr.org/papers/volume22/21-0017/21-0017.pdf>`_,
+                    Journal of Machine Learning Research, 22(1), 8194-8200.
+
+    .. [Baniecki2021] Hubert Baniecki, Wojciech Kretowicz, Piotr Piatyszek, Jakub Wisniewski, Przemyslaw Biecek (2021). 
+                    `Dalex: responsible machine learning with interactive explainability and fairness in python
+                    <https://www.jmlr.org/papers/volume22/20-1473/20-1473.pdf>`_,
+                    Journal of Machine Learning Research, 22(1), 9759-9765.
+
+    .. [Li2022] Xuhong Li, Haoyi Xiong, Xingjian Li, Xuanyu Wu, Zeyu Chen, Dejing Dou (2022). 
+                `InterpretDL: Explaining Deep Models in PaddlePaddle
+                <https://www.jmlr.org/papers/volume23/21-0738/21-0738.pdf>`_,
+                Journal of Machine Learning Research, 23(197), 1-6.
+
+    .. [Rudin2019] Cynthia Rudin (2019). 
+                `Stop explaining black box machine learning models for high stakes decisions and use interpretable models instead 
+                <https://arxiv.org/pdf/1811.10154.pdf>`_,
+                Nature Machine ntelligence, 1(5), 206-215.
+ 
+    .. [Molnar2020] Christoph Molnar, Gunnar König, Julia Herbinger, Timo Freiesleben, Susanne Dandl, Christian A. Scholbeck, Giuseppe Casalicchio, Moritz Grosse-Wentrup, Bernd Bischl (2022, April). 
+                `General pitfalls of model-agnostic interpretation methods for machine learning models 
+                <https://link.springer.com/chapter/10.1007/978-3-031-04083-2_4>`_,
+                In xxAI-Beyond Explainable AI: International Workshop, Held in Conjunction with ICML 2020, July 18, 2020, Vienna, Austria, Revised and Extended Papers (pp. 39-68). Cham: Springer International Publishing.
+
+    .. [Nori2013] Harsha Nori, Samuel Jenkins, Paul Koch, Rich Caruana (2019). `InterpretML A Unified Framework for Machine Learning Interpretability <https://arxiv.org/pdf/1909.09223.pdf>`_, arXiv preprint arXiv:1909.09223.
+
+    .. [Lou2013] Yin Lou, Rich Caruana, Johannes Gehrke, Giles Hooker (2013).
+                `Accurate intelligible models with pairwise interactions
+                <https://dl.acm.org/doi/abs/10.1145/2487575.2487579>`_,
+                In Proceedings of the 19th ACM SIGKDD international conference on Knowledge discovery and data mining (pp. 623-631).
+
+    .. [Sudjianto2021] Agus Sudjianto, Aijun Zhang (2021).
+                `Designing Inherently Interpretable Machine Learning Models
+                <https://arxiv.org/pdf/2111.01743.pdf>`_,
+                arXiv preprint arXiv:2111.01743.
+
+    .. [Chung2019] Yeounoh Chung, Tim Kraska, Neoklis Polyzotis, Ki Hyun Tae, Steven Euijong Whang (2019, April).
+                `Slice finder: Automated data slicing for model validation
+                <https://ieeexplore.ieee.org/abstract/document/8731353>`_,
+                In 2019 IEEE 35th International Conference on Data Engineering (ICDE) (pp. 1550-1553). IEEE.
+
+    .. [Apley2016] Daniel W. Apley, Jingyu Zhu. (2016)
+                `Visualizing the effects of predictor variables in black box supervised learning models
+                <https://arxiv.org/pdf/1612.08468.pdf>`_,
+                arXiv preprint arXiv:1612.08468.
+    
+    .. [Ribeiro2016] Marco Tulio Ribeiro, Sameer Singh, Carlos Guestrin. (2016)
+                `Why should i trust you?" Explaining the predictions of any classifier
+                <https://dl.acm.org/doi/abs/10.1145/2939672.2939778>`_,
+                Proceedings of the 22nd ACM SIGKDD international conference on knowledge discovery and data mining.
+
+    .. [Lundberg2017] Lundberg, Scott M., and Su-In Lee. (2017)
+               `A unified approach to interpreting model predictions
+               <https://proceedings.neurips.cc/paper/2017/hash/8a20a8621978632d76c43dfd28b67767-Abstract.html>`_,
+               Advances in neural information processing systems 30.
+
+    .. [Hastie2015] Trevor Hastie, Robert Tibshirani, Martin Wainwright (2015).
+                `Statistical learning with sparsity: the lasso and generalizations 
+                <https://d1wqtxts1xzle7.cloudfront.net/55629907/statistical_learning_with_sparsity_the_lasso_and_generalizations-libre.pdf?1516867357=&response-content-disposition=inline%3B+filename%3DStatistical_Learning_with_Sparsity_Monog.pdf&Expires=1683035641&Signature=PhMEiYSkWMHsF~xXoDOeI31SmEOEkraGmpC4r17FKIIZz6QoDgwjC21y-ZEoX0EfFruKwedg-i8WNgQm6sohW-IH742G2hsVDtpU3ZriSW5t0YxNcNhLIElzixximdQ63zVhJladyUOkjrPgCL3NDWQ2x9mBKZmxIIrM5cENDtp7GOW4847OF67eWe0zF70r~i~PUN1fWpGWjgBB0XZGLcBwthxodigec3pOQESXFt4O2iM8FEVc0r43Tl1zV91zqCubn5uFgxWBkcdI8qIeddiKIw3LZ05QvCEXMtOehdD5hqCtks6PO8zoH82w2IyTz3sXlkZKHn-idW5p49~75A__&Key-Pair-Id=APKAJLOHF5GGSLRBV4ZA>`_,
+                CRC press.
+
+    .. [Serven2018] Daniel Servén; Charlie Brummitt (2018).
+                `pyGAM: Generalized Additive Models in Python
+                <https://zenodo.org/record/1476122#.ZFEIeXZBzEY>`_,
+                Zenodo. DOI: 10.5281/zenodo.1208723
+
+    .. [Tan2022] Yan Shuo Tan, Chandan Singh, Keyan Nasseri, Abhineet Agarwal, and Bin Yu (2022). 
+                `Fast interpretable greedy-tree sums (FIGS) <https://arxiv.org/pdf/2201.11931.pdf>`_,
+                arXiv preprint arXiv:2201.11931.
+
+    .. [Lengerich2020] Benjamin Lengerich, Sarah Tan, Chun-Hao Chang, Giles Hooker, Rich Caruana (2020, June).
+                `Purifying interaction effects with the functional anova: An efficient algorithm for recovering identifiable additive models <http://proceedings.mlr.press/v108/lengerich20a.html>`_,
+                In International Conference on Artificial Intelligence and Statistics (pp. 2402-2412). PMLR.
+
+    .. [Chen2015] Tianqi Chen, Tong He (2015).
+                `Xgboost: extreme gradient boosting
+                <https://cran.microsoft.com/snapshot/2017-12-11/web/packages/xgboost/vignettes/xgboost.pdf>`_, R package version 0.4-2, 1(4), 1-4.
+
+    .. [Sudjianto2020] Agus Sudjianto, William Knauth, Rahul Singh, Zebin Yang, and Aijun Zhang. (2020)
+                `Unwrapping the black box of deep ReLU networks: interpretability, diagnostics, and simplification
+                <https://arxiv.org/pdf/2011.04041.pdf>`_,
+                arXiv preprint arXiv:2011.04041.
+
+    .. [Cui2023] Shijie Cui, Agus Sudjianto, Aijun Zhang, Runze Li (2023).
+                `Enhancing Robustness of Gradient-Boosted Decision Trees through One-Hot Encoding and Regularization
+                <https://arxiv.org/pdf/2304.13761.pdf>`_, 
+                arXiv preprint arXiv:2304.13761.
+
+    .. [Wang2023] Yaqun Wang, et al, (2023).
+                `Model Weakness Analysis via Conformal Prediction and Uncertainty Quantification`,
+                arXiv preprint arXiv:TBD.
+
+    .. [Yang2021a] Zebin Yang, Aijun Zhang, Agus Sudjianto (2021).
+                `Enhancing explainability of neural networks through architecture constraints
+                <https://ieeexplore.ieee.org/abstract/document/9149804>`_,
+                IEEE Transactions on Neural Networks and Learning Systems, 32(6), 2610-2621.
+
+    .. [Yang2021b] Zebin Yang, Aijun Zhang, Agus Sudjianto (2021).
+                `GAMI-Net: An explainable neural network based on generalized additive models with structured interactions <https://www.sciencedirect.com/science/article/abs/pii/S0031320321003484>`_,
+                Pattern Recognition, 120, 108192.

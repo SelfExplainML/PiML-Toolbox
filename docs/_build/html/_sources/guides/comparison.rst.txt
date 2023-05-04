@@ -9,3 +9,10 @@ Model Comparison
 =======================
 
 Comparing different explanation methods and diagnostic results of multiple machine learning models.
+
+.. toctree::
+   :maxdepth: 2
+
+   comparison/compare_regression.rst
+   comparison/compare_classification.rst
+   comparison/compare_fairness.rst

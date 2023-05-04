@@ -8,68 +8,53 @@
 ICE (Individual Conditional Expectation)  
 ==============================================
 
-Individual Conditional Expectation (ICE) plots [G2015]_ are similar to PDPs in that they visualize the relationship between a feature of interest and the predicted response. 
-However, whereas PDPs show the average effect of the feature on the response across all instances in the dataset, 
-ICE plots show the dependence of the predicted response on the feature for each instance.
+Individual Conditional Expectation (ICE) plots [G2015]_ and PDPs both visualize the relationship between a feature of interest and the predicted response. However, ICE plots focus on the dependence of the predicted response on the feature for each instance, while PDPs show the average effect of the feature on the response across all instances in the dataset.
 
 
-Introduction
+
+Algorithm Details
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Let :math:`X` represent the set of input features of a predictor function, and :math:`\hat{f}` be a fitted model to be explained. 
-We partition :math:`X` into two sets, i.e., :math:`X_{S}` (features of interest) and its complement :math:`X_{C}`.
-To be specific, an ICE plot for a feature :math:`x_{S}` and an instance :math:`i` can be defined as:
+Let :math:`X` represent the set of input features of a predictor function, and :math:`\hat{f}` be a fitted model to be explained. We partition :math:`X` into two sets, i.e., :math:`X_{S}` (features of interest) and its complement :math:`X_{C}`. To be specific, an ICE plot for a feature :math:`x_{S}` and an instance :math:`i` can be defined as:
+
+Let :math:`X` denotes the set of input features for a predictor function, and :math:`\hat{f}` be a fitted model that needs to be explained. We partition :math:`X` into two subsets, namely :math:`X_{S}` (the features of interest) and its complement :math:`X_{C}`. Specifically, an ICE plot for a feature :math:`x_{S}` and an instance :math:`i` is defined as follows:
 
 .. math::
    \begin{align}  
-	 \mathrm{ICE}_{S}^{i}(x_{S}) = \hat{f}(x_{S}, x_{C}^{(i)})   
+	 \mathrm{ICE}_{S}^{i}(x_{S}) = \hat{f}(x_{S}, x_{C}^{(i)})
    \end{align}
+
+In PiML, the ICE plot is implemented using the scikit-learn package. For a more detailed analysis of this algorithm, please refer to the documentation available here_.
+
+.. _here: https://scikit-learn.org/stable/auto_examples/inspection/plot_partial_dependence.html 
+
 
 
 Usage
 ^^^^^^^^^^^^^^^^^
 
-Below we still use a fitted two-hidden-layer ReLU network on the BikeSharing dataset for illustration.
+Below we still use a fitted XGB2 model on the BikeSharing dataset for illustration. The code snippet below provides an example of how to generate an ICE plot using PiML. The `show` parameter is set to "global_ice", while the `uni_feature` parameter is set to "hr". This configuration will produce a line plot, with each line representing an instance in the dataset. The plot shows how the predicted response varies when the value of "hr" changes, while all other features remain constant. By examining the individual lines in the ICE plot, we can better understand how the model makes predictions for each instance in the dataset. We can also identify any patterns or interactions that may be relevant to our analysis.
 
-.. code-block:: default
-	
-    from piml import Experiment
-    from piml.models import ReluDNNRegressor
-    exp = Experiment()
-    exp.data_loader(data='BikeSharing')
-    exp.data_summary(feature_exclude=["season", "workingday", "atemp"])
-    exp.data_prepare(target='cnt', task_type='Regression', test_ratio=0.2, random_state=0)
-    exp.model_train(model=ReluDNNRegressor(hidden_layer_sizes=(40, 40), l1_reg=1e-05,
-					 batch_size=500, learning_rate=0.001), name='ReLU_DNN')
+.. jupyter-input::
 
-The following code snippet shows an example of how to generate an ICE plot using PiML in Python.
-The `show` parameter is set to "global_ice", and the `uni_feature` parameter is set to `hr`.
-This will generate a line plot with one line for each instance in the dataset, showing how the predicted response varies as the value of `hr` changes while holding all other features constant.
-By examining the individual lines in the ICE plot, we can gain a better understanding of how the model is making predictions for each instance in the dataset, 
-and identify any patterns or interactions that may be relevant to our analysis.
+    exp.model_explain(model="XGB2", show="ice", uni_feature="hr", original_scale=True, figsize=(6, 5))
 
-.. code-block:: default
+.. figure:: ../../auto_examples/explain/images/sphx_glr_plot_2_ice_001.png
+   :target: ../../auto_examples/explain/plot_2_ice.html
+   :align: left
 
-    exp.model_explain(model='ReLU_DNN', show='ice', original_scale=True, uni_feature='hr', figsize=(6, 5))
+From the plot, we observer a similar pattern as the value of `hr` increases for all instances, which is also consistent with the PDP plot generated in the previous section. The predicted values are generally lower when `hr` is less than 4.6. For values of `hr` between 4.6 and 8.3, and between 10 and 18, most of the instances record an increase in prediction as the value of `hr` increases. Apart from that, we also observe that the bandwidth of the predicted response is much larger as `hr` is greater than around 9. This indicates that the rest variables have more contributions to the final prediciton during that period of a day.  
 
-The rows predictions are lower when :math:`hr < 4.6`. However, most rows
-record an increase in prediction with the increase of `hr` when :math:`4.6 < hr < 8.3` and :math:`10 < hr < 18.0`. 
-
-.. _ice: https://scikit-learn.org/stable/auto_examples/inspection/plot_partial_dependence.html 
 
 
 Examples
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
     
-The example below demonstrates how to use PiML with its high-code APIs for the TaiwanCredit data from the UCI repository, which consists of 30,000 clients' credit cards in Taiwan
-from 200504 to 200509; see details here `TaiwanCreditData`_. The data can be loaded from PiML and is subject to slight preprocessing. The response to this classification problem is
-`FlagDefault`.
-   
-.. _TaiwanCreditData: https://archive.ics.uci.edu/ml/datasets/default+of+credit+card+clients
+.. topic:: Example 1: Bike Sharing
 
-.. topic:: Example
+  The first example below demonstrates how to use PiML with its high-code APIs for developing machine learning models for the BikeSharing data from the UCI repository, which consists of 17,389 samples of hourly counts of rental bikes in Capital bikeshare system; see details. The response `cnt` (hourly bike rental counts) is continuous and it is a regression problem.
                           
- * :ref:`sphx_glr_auto_examples_explain_plot_7_ICE.py`
+ * :ref:`sphx_glr_auto_examples_explain_plot_2_ice.py`
 
 
 .. topic:: References
@@ -78,5 +63,3 @@ from 200504 to 200509; see details here `TaiwanCreditData`_. The data can be loa
                 `Visualizing statistical learning with plots of individual conditional expectation.
                 <https://www.tandfonline.com/doi/abs/10.1080/10618600.2014.907095>`_,
                 Journal of Computational and Graphical Statistics 24, no. 1 (2015): 44-65
-
-

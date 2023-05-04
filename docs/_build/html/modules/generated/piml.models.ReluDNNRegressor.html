@@ -3,7 +3,7 @@
 <head>
 
   <meta charset="utf-8">
-  <meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+  <meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
@@ -41,7 +41,7 @@
         <script src="../../_static/sphinx_highlight.js"></script>
         <script src="../../_static/thebelab-helper.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
-        <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.20.1/dist/embed-amd.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/@jupyter-widgets/html-manager@^1.0.1/dist/embed-amd.js"></script>
         <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
         <script>window.MathJax = {"tex": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true}, "options": {"ignoreHtmlClass": "tex2jax_ignore|mathjax_ignore|document", "processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
         <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
@@ -117,7 +117,7 @@
             </a>
           </div>
           <!--div class="btn-group w-100 mb-2" role="group" aria-label="rellinks">
-              <a href="piml.models.FIGSClassifier.html" role="button" class="btn sk-btn-rellink py-1" sk-rellink-tooltip="piml.models.FIGSClassifier">Prev</a><a href="../classes.html" role="button" class="btn sk-btn-rellink py-1" sk-rellink-tooltip="API Reference">Up</a>
+              <a href="piml.models.GAMINetClassifier.html" role="button" class="btn sk-btn-rellink py-1" sk-rellink-tooltip="piml.models.GAMINetClassifier">Prev</a><a href="../classes.html" role="button" class="btn sk-btn-rellink py-1" sk-rellink-tooltip="API Reference">Up</a>
               <a href="piml.models.ReluDNNClassifier.html" role="button" class="btn sk-btn-rellink py-1" sk-rellink-tooltip="piml.models.ReluDNNClassifier">Next</a>
           </div-->
               <div class="sk-sidebar-toc">
@@ -127,6 +127,7 @@
 <li><a class="reference internal" href="#piml.models.ReluDNNRegressor.fit"><code class="docutils literal notranslate"><span class="pre">ReluDNNRegressor.fit</span></code></a></li>
 <li><a class="reference internal" href="#piml.models.ReluDNNRegressor.get_params"><code class="docutils literal notranslate"><span class="pre">ReluDNNRegressor.get_params</span></code></a></li>
 <li><a class="reference internal" href="#piml.models.ReluDNNRegressor.get_raw_output"><code class="docutils literal notranslate"><span class="pre">ReluDNNRegressor.get_raw_output</span></code></a></li>
+<li><a class="reference internal" href="#piml.models.ReluDNNRegressor.model_unwrapper"><code class="docutils literal notranslate"><span class="pre">ReluDNNRegressor.model_unwrapper</span></code></a></li>
 <li><a class="reference internal" href="#piml.models.ReluDNNRegressor.predict"><code class="docutils literal notranslate"><span class="pre">ReluDNNRegressor.predict</span></code></a></li>
 <li><a class="reference internal" href="#piml.models.ReluDNNRegressor.score"><code class="docutils literal notranslate"><span class="pre">ReluDNNRegressor.score</span></code></a></li>
 <li><a class="reference internal" href="#piml.models.ReluDNNRegressor.set_params"><code class="docutils literal notranslate"><span class="pre">ReluDNNRegressor.set_params</span></code></a></li>
@@ -147,11 +148,15 @@
 <h1><code class="xref py py-mod docutils literal notranslate"><span class="pre">piml.models</span></code>.ReluDNNRegressor<a class="headerlink" href="#piml-models-reludnnregressor" title="Permalink to this heading">¶</a></h1>
 <dl class="py class">
 <dt class="sig sig-object py" id="piml.models.ReluDNNRegressor">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">piml.models.</span></span><span class="sig-name descname"><span class="pre">ReluDNNRegressor</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">hidden_layer_sizes</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">(40,</span> <span class="pre">40)</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dropout_prob</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">max_epochs</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1000</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">learning_rate</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.001</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">batch_size</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">500</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">batch_size_inference</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">10000</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">l1_reg</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1e-05</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">val_ratio</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.2</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n_epoch_no_change</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">20</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">iht</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">phase_epochs</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">50</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">threshold</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">device</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'cpu'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">verbose</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">random_state</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#piml.models.ReluDNNRegressor" title="Permalink to this definition">¶</a></dt>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">piml.models.</span></span><span class="sig-name descname"><span class="pre">ReluDNNRegressor</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">feature_names</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">feature_types</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">hidden_layer_sizes</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">(40,</span> <span class="pre">40)</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dropout_prob</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">max_epochs</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1000</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">learning_rate</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.001</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">batch_size</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">500</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">batch_size_inference</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">10000</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">l1_reg</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1e-05</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">val_ratio</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.2</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n_epoch_no_change</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">20</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">iht</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">phase_epochs</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">50</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">threshold</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">device</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'cpu'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">verbose</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">random_state</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#piml.models.ReluDNNRegressor" title="Permalink to this definition">¶</a></dt>
 <dd><p>Multi-layer perceptron regressor with ReLU activation function.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><dl class="simple">
+<dt><strong>feature_names</strong><span class="classifier">list or None, default=None</span></dt><dd><p>The list of feature names.</p>
+</dd>
+<dt><strong>feature_types</strong><span class="classifier">list or None, default=None</span></dt><dd><p>The list of feature types. Available types include “numerical” and “categorical”.</p>
+</dd>
 <dt><strong>hidden_layer_sizes</strong><span class="classifier">tuple of int, default=(40, 40)</span></dt><dd><p>A list of hidden layer sizes.</p>
 </dd>
 <dt><strong>dropout_prob</strong><span class="classifier">float, default=0.0</span></dt><dd><p>Dropout probability.</p>
@@ -190,9 +195,13 @@ initialization.</p>
 </dd>
 </dl>
 </dd>
-<dt class="field-even">Attributes</dt>
+<dt class="field-even">Attributes<span class="colon">:</span></dt>
 <dd class="field-even"><dl class="simple">
-<dt><strong>n_features_</strong><span class="classifier">int</span></dt><dd><p>The number of input features.</p>
+<dt><strong>feature_names_</strong><span class="classifier">list of str</span></dt><dd><p>The feature name list of all input features.</p>
+</dd>
+<dt><strong>feature_types_</strong><span class="classifier">list of str</span></dt><dd><p>The feature type list of all input features.</p>
+</dd>
+<dt><strong>n_features_in_</strong><span class="classifier">int</span></dt><dd><p>The number of input features.</p>
 </dd>
 <dt><strong>coefs_</strong><span class="classifier">list of shape (len(hidden_layer_sizes) + 1,)</span></dt><dd><p>The ith element in the list represents the weight matrix corresponding to layer i.</p>
 </dd>
@@ -213,10 +222,6 @@ initialization.</p>
 </dl>
 <p class="rubric">Methods</p>
 <table class="autosummary longtable docutils align-default">
-<colgroup>
-<col style="width: 10%" />
-<col style="width: 90%" />
-</colgroup>
 <tbody>
 <tr class="row-odd"><td><p><a class="reference internal" href="#piml.models.ReluDNNRegressor.fit" title="piml.models.ReluDNNRegressor.fit"><code class="xref py py-obj docutils literal notranslate"><span class="pre">fit</span></code></a>(x, y[, sample_weight])</p></td>
 <td><p>Fit ReluDNN model.</p></td>
@@ -227,13 +232,16 @@ initialization.</p>
 <tr class="row-odd"><td><p><a class="reference internal" href="#piml.models.ReluDNNRegressor.get_raw_output" title="piml.models.ReluDNNRegressor.get_raw_output"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_raw_output</span></code></a>(x)</p></td>
 <td><p>Returns numpy array of raw predicted value before softmax.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#piml.models.ReluDNNRegressor.predict" title="piml.models.ReluDNNRegressor.predict"><code class="xref py py-obj docutils literal notranslate"><span class="pre">predict</span></code></a>(x)</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#piml.models.ReluDNNRegressor.model_unwrapper" title="piml.models.ReluDNNRegressor.model_unwrapper"><code class="xref py py-obj docutils literal notranslate"><span class="pre">model_unwrapper</span></code></a>(X, y[, sample_weight])</p></td>
+<td><p>Interpret the model using Aletheia Unwrapper.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#piml.models.ReluDNNRegressor.predict" title="piml.models.ReluDNNRegressor.predict"><code class="xref py py-obj docutils literal notranslate"><span class="pre">predict</span></code></a>(x)</p></td>
 <td><p>Predict funciton.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#piml.models.ReluDNNRegressor.score" title="piml.models.ReluDNNRegressor.score"><code class="xref py py-obj docutils literal notranslate"><span class="pre">score</span></code></a>(X, y[, sample_weight])</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#piml.models.ReluDNNRegressor.score" title="piml.models.ReluDNNRegressor.score"><code class="xref py py-obj docutils literal notranslate"><span class="pre">score</span></code></a>(X, y[, sample_weight])</p></td>
 <td><p>Return the coefficient of determination of the prediction.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#piml.models.ReluDNNRegressor.set_params" title="piml.models.ReluDNNRegressor.set_params"><code class="xref py py-obj docutils literal notranslate"><span class="pre">set_params</span></code></a>(**params)</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#piml.models.ReluDNNRegressor.set_params" title="piml.models.ReluDNNRegressor.set_params"><code class="xref py py-obj docutils literal notranslate"><span class="pre">set_params</span></code></a>(**params)</p></td>
 <td><p>Set the parameters of this estimator.</p></td>
 </tr>
 </tbody>
@@ -243,7 +251,7 @@ initialization.</p>
 <span class="sig-name descname"><span class="pre">fit</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sample_weight</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#piml.models.ReluDNNRegressor.fit" title="Permalink to this definition">¶</a></dt>
 <dd><p>Fit ReluDNN model.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><dl class="simple">
 <dt><strong>x</strong><span class="classifier">np.ndarray of shape (n_samples, n_features)</span></dt><dd><p>Data features.</p>
 </dd>
@@ -253,7 +261,7 @@ initialization.</p>
 </dd>
 </dl>
 </dd>
-<dt class="field-even">Returns</dt>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
 <dd class="field-even"><dl class="simple">
 <dt><strong>self</strong><span class="classifier">object</span></dt><dd><p>Fitted Estimator.</p>
 </dd>
@@ -267,14 +275,14 @@ initialization.</p>
 <span class="sig-name descname"><span class="pre">get_params</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">deep</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#piml.models.ReluDNNRegressor.get_params" title="Permalink to this definition">¶</a></dt>
 <dd><p>Get parameters for this estimator.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><dl class="simple">
 <dt><strong>deep</strong><span class="classifier">bool, default=True</span></dt><dd><p>If True, will return the parameters for this estimator and
 contained subobjects that are estimators.</p>
 </dd>
 </dl>
 </dd>
-<dt class="field-even">Returns</dt>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
 <dd class="field-even"><dl class="simple">
 <dt><strong>params</strong><span class="classifier">dict</span></dt><dd><p>Parameter names mapped to their values.</p>
 </dd>
@@ -288,15 +296,39 @@ contained subobjects that are estimators.</p>
 <span class="sig-name descname"><span class="pre">get_raw_output</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#piml.models.ReluDNNRegressor.get_raw_output" title="Permalink to this definition">¶</a></dt>
 <dd><p>Returns numpy array of raw predicted value before softmax.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><dl class="simple">
 <dt><strong>x</strong><span class="classifier">np.ndarray of shape (n_samples, n_features)</span></dt><dd><p>Data features.</p>
 </dd>
 </dl>
 </dd>
-<dt class="field-even">Returns</dt>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
 <dd class="field-even"><dl class="simple">
 <dt><strong>pred</strong><span class="classifier">np.ndarray of shape (n_samples, )</span></dt><dd><p>The raw predicted value.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="piml.models.ReluDNNRegressor.model_unwrapper">
+<span class="sig-name descname"><span class="pre">model_unwrapper</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">X</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sample_weight</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#piml.models.ReluDNNRegressor.model_unwrapper" title="Permalink to this definition">¶</a></dt>
+<dd><p>Interpret the model using Aletheia Unwrapper.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>X</strong><span class="classifier">np.ndarray of shape (n_samples, n_features)</span></dt><dd><p>Data features.</p>
+</dd>
+<dt><strong>y</strong><span class="classifier">np.ndarray of shape (n_samples, )</span></dt><dd><p>Target response.</p>
+</dd>
+<dt><strong>sample_weight</strong><span class="classifier">np.ndarray of shape (n_samples, ), default=None</span></dt><dd><p>Sample weight.</p>
+</dd>
+</dl>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><dl class="simple">
+<dt><strong>unp</strong><span class="classifier">an instance of UnwrapperRegressor</span></dt><dd><p>The interpretation results.</p>
 </dd>
 </dl>
 </dd>
@@ -308,7 +340,7 @@ contained subobjects that are estimators.</p>
 <span class="sig-name descname"><span class="pre">predict</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#piml.models.ReluDNNRegressor.predict" title="Permalink to this definition">¶</a></dt>
 <dd><p>Predict funciton.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><dl class="simple">
 <dt><strong>x</strong><span class="classifier">np.ndarray of shape (n_samples, n_features)</span></dt><dd><p>Data features.</p>
 </dd>
@@ -334,7 +366,7 @@ model can be arbitrarily worse). A constant model that always predicts
 the expected value of <code class="docutils literal notranslate"><span class="pre">y</span></code>, disregarding the input features, would get
 a <span class="math notranslate nohighlight">\(R^2\)</span> score of 0.0.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><dl class="simple">
 <dt><strong>X</strong><span class="classifier">array-like of shape (n_samples, n_features)</span></dt><dd><p>Test samples. For some estimators this may be a precomputed
 kernel matrix or a list of generic objects instead with shape
@@ -347,9 +379,9 @@ is the number of samples used in the fitting for the estimator.</p>
 </dd>
 </dl>
 </dd>
-<dt class="field-even">Returns</dt>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
 <dd class="field-even"><dl class="simple">
-<dt><strong>score</strong><span class="classifier">float</span></dt><dd><p><span class="math notranslate nohighlight">\(R^2\)</span> of <code class="docutils literal notranslate"><span class="pre">self.predict(X)</span></code> wrt. <code class="docutils literal notranslate"><span class="pre">y</span></code>.</p>
+<dt><strong>score</strong><span class="classifier">float</span></dt><dd><p><span class="math notranslate nohighlight">\(R^2\)</span> of <code class="docutils literal notranslate"><span class="pre">self.predict(X)</span></code> w.r.t. <code class="docutils literal notranslate"><span class="pre">y</span></code>.</p>
 </dd>
 </dl>
 </dd>
@@ -372,13 +404,13 @@ regressors (except for
 parameters of the form <code class="docutils literal notranslate"><span class="pre">&lt;component&gt;__&lt;parameter&gt;</span></code> so that it’s
 possible to update each component of a nested object.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><dl class="simple">
 <dt><strong>**params</strong><span class="classifier">dict</span></dt><dd><p>Estimator parameters.</p>
 </dd>
 </dl>
 </dd>
-<dt class="field-even">Returns</dt>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
 <dd class="field-even"><dl class="simple">
 <dt><strong>self</strong><span class="classifier">estimator instance</span></dt><dd><p>Estimator instance.</p>
 </dd>
@@ -391,15 +423,12 @@ possible to update each component of a nested object.</p>
 
 <section id="examples-using-piml-models-reludnnregressor">
 <h2>Examples using <code class="docutils literal notranslate"><span class="pre">piml.models.ReluDNNRegressor</span></code><a class="headerlink" href="#examples-using-piml-models-reludnnregressor" title="Permalink to this heading">¶</a></h2>
-<div class="sphx-glr-thumbnails"><div class="sphx-glr-thumbcontainer" tooltip="Model evaluation"><img alt="Accuracy:  Regression" src="../../_images/sphx_glr_plot_1_accuracy_thumb.png" />
-<p><a class="reference internal" href="../../auto_examples/diagnostics/plot_1_accuracy.html#sphx-glr-auto-examples-diagnostics-plot-1-accuracy-py"><span class="std std-ref">Accuracy:  Regression</span></a></p>
-  <div class="sphx-glr-thumbnail-title">Accuracy:  Regression</div>
-</div><div class="sphx-glr-thumbcontainer" tooltip="Evaluate model robustness"><img alt="Robustness:  Regression" src="../../_images/sphx_glr_plot_2_robustness_thumb.png" />
-<p><a class="reference internal" href="../../auto_examples/diagnostics/plot_2_robustness.html#sphx-glr-auto-examples-diagnostics-plot-2-robustness-py"><span class="std std-ref">Robustness:  Regression</span></a></p>
-  <div class="sphx-glr-thumbnail-title">Robustness:  Regression</div>
-</div><div class="sphx-glr-thumbcontainer" tooltip="Partial Dependence Plot (PDP) on  Regression problem "><img alt="PDP:  Regression" src="../../_images/sphx_glr_plot_2_pdp_thumb.png" />
-<p><a class="reference internal" href="../../auto_examples/explain/plot_2_pdp.html#sphx-glr-auto-examples-explain-plot-2-pdp-py"><span class="std std-ref">PDP:  Regression</span></a></p>
-  <div class="sphx-glr-thumbnail-title">PDP:  Regression</div>
+<div class="sphx-glr-thumbnails"><div class="sphx-glr-thumbcontainer" tooltip="Accumulated Local Effects"><img alt="" src="../../_images/sphx_glr_plot_3_ale_thumb.png" />
+<p><a class="reference internal" href="../../auto_examples/explain/plot_3_ale.html#sphx-glr-auto-examples-explain-plot-3-ale-py"><span class="std std-ref">Accumulated Local Effects</span></a></p>
+  <div class="sphx-glr-thumbnail-title">Accumulated Local Effects</div>
+</div><div class="sphx-glr-thumbcontainer" tooltip="ReLU DNN Regression (Friedman)"><img alt="" src="../../_images/sphx_glr_plot_8_reludnn_reg_thumb.png" />
+<p><a class="reference internal" href="../../auto_examples/models/plot_8_reludnn_reg.html#sphx-glr-auto-examples-models-plot-8-reludnn-reg-py"><span class="std std-ref">ReLU DNN Regression (Friedman)</span></a></p>
+  <div class="sphx-glr-thumbnail-title">ReLU DNN Regression (Friedman)</div>
 </div></div><div class="clearer"></div></section>
 </section>
 

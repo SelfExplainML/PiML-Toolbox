@@ -1,26 +1,34 @@
 # -*- coding: utf-8 -*-
 """
-SHAP:  Classification
+SHapley Additive exPlanations
 =====================================
 
-SHAP plots on classification problem
 """
 
 #%%
+# Experiment initialization and data preparation
 from piml import Experiment
-from piml.models import ReluDNNClassifier
+from piml.models import XGB2Regressor
+
 exp = Experiment()
-exp.data_loader(data='TaiwanCredit')
-exp.data_summary(feature_exclude=["LIMIT_BAL", "SEX", "EDUCATION", "MARRIAGE", "AGE"], feature_type={})
-exp.data_prepare(target='FlagDefault', task_type='Classification', test_ratio=0.2, random_state=0)
-classifier = ReluDNNClassifier(hidden_layer_sizes=(20, 20), l1_reg=0.0008, batch_size=500, learning_rate=0.001)
-exp.model_train(model=classifier, name='ReLU-DNN')
+exp.data_loader(data="BikeSharing", silent=True)
+exp.data_summary(feature_exclude=["yr", "mnth", "temp"], silent=True)
+exp.data_prepare(target="cnt", task_type="regression", silent=True)
+
 #%%
-# Plot SHAP 
-exp.model_explain(model='ReLU-DNN', show='shap_waterfall')
+# Train Model
+exp.model_train(model=XGB2Regressor(), name="XGB2")
+
 #%%
-exp.model_explain(model='ReLU-DNN', show='shap_fi', sample_size=10)
+# SHAP Waterfall plot
+exp.model_explain(model="XGB2", show="shap_waterfall", sample_id=0, figsize=(5, 4))
 #%%
-exp.model_explain(model='ReLU-DNN', show='shap_summary', sample_size=10)
+# SHAP feature importance
+exp.model_explain(model="XGB2", show="shap_fi", sample_size=100, figsize=(5, 4))
 #%%
-exp.model_explain(model='ReLU-DNN', uni_feature='BILL_AMT1', show='shap_scatter', sample_size=10)
+# SHAP summary plot
+exp.model_explain(model="XGB2", show="shap_summary", sample_size=100, figsize=(5, 4))
+#%%
+# SHAP scatter plot
+exp.model_explain(model="XGB2", show="shap_scatter", uni_feature="hr", 
+                  sample_size=100, figsize=(5, 4))

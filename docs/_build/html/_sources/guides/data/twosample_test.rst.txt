@@ -1,0 +1,85 @@
+.. Places parent toc into the sidebar
+
+:parenttoc: True
+
+.. include:: ../../includes/big_toc_css.rst
+
+======================================
+Two Sample Test 
+======================================
+
+In PiML, we provide the following metrics to measure the distributional shift between two samples, i.e., the train and test sets.
+
+
+Distance Metrics
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+- **Population Stability Index (PSI)**: PSI is a statistical measure used to determine the extent to which a variable has changed. It is based on the proportions of samples in each bucket of the target vs. base population.
+
+.. math::
+   \begin{align}     
+      PSI = \sum^{B}_{i=1} (p(x) - q(x))ln (\frac{p(x)}{q(x)}),
+   \end{align}
+
+where :math:`B` is the number of bins, :math:`p(x)` and :math:`q(x)` are the empirical density function of the base and target population, respectively. Note that the PSI calculation is related to the binning method, and we have two options for binning, i.e., "uniform" and "quantile". The number of bins is fidxed to 10.
+
+- **Wasserstein distance 1D (WD1)**: WD1 calculates the absoluate difference between the cumulative distribution functions of the two samples.
+
+.. math::
+   \begin{align}
+      WD_{1} = \sum^{B}_{i=1} |P(x) - Q(x)|,
+   \end{align}
+
+where and :math:`P(x)` and :math:`Q(x)` are the cumulative distribution of the target and base population. 
+
+- **Kolmogorov-Smirnov (KS)**: KS calculates the maximum absolute distance between the cumulative distribution functions of the two samples. In PiML, the WD1 statistics is calculated by the function from `scipy.stats`.
+
+.. math::
+   \begin{align}     
+      KS = \max |P(x) - q(x)|,
+   \end{align}
+
+In PiML, the WD1 and KS statistics are calculated by the `wasserstein_distance` and `ks_2samp` functions from `scipy.stats`, where the we don't need to specify the binning method. 
+ 
+
+Usage
+^^^^^^^^^^^^^^^^^^^^^^^^^
+
+In PiML, we have a function `twosample_test` to compare train and test sets. 
+
+Distance Metric Plot
+""""""""""""""""""""""""""""""""
+By setting `metric` to "PSI", we can get the PSI statistics for each feature. The alternative options include "WD1" and "KS". Due to space limit, only the top-30 features with the largest PSI statistics are shown in the figure. The `psi_buckets` argument determines the binning type of "PSI" metric only, which can be "uniform" or "quantile". 
+
+ .. jupyter-input::
+
+   exp.twosample_test(metric="PSI", psi_buckets="uniform", figsize=(5, 4))
+
+.. figure:: ../../auto_examples/data/images/sphx_glr_plot_6_twosample_test_001.png
+   :target: ../../auto_examples/data/plot_6_twosample_test.html
+   :align: left
+
+
+Marginal Density Comparison
+""""""""""""""""""""""""""""""""
+
+As we set a feature name to `feature`, we can get the marginal density comparison between the train and test sets. We can also change `metric` and `psi_buckets`, to change the distance metric displayed on the plot.
+
+ .. jupyter-input::
+
+   exp.twosample_test(metric="PSI", psi_buckets='quantile', feature="atamp", figsize=(5, 4))
+
+.. figure:: ../../auto_examples/data/images/sphx_glr_plot_6_twosample_test_004.png
+   :target: ../../auto_examples/data/plot_6_twosample_test.html
+   :align: left
+
+
+
+Full Example
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+The full example codes of this section can be found in the following link.
+
+.. topic:: Example
+
+	* :ref:`sphx_glr_auto_examples_data_plot_6_twosample_test.py`

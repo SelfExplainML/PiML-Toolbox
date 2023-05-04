@@ -1,4 +1,6 @@
-Thanks to the following people for their contributions to the PiML toolbox!
+Thanks to the following people for their contributions and valuable comments to the development of PiML toolbox!
+
+Contributors from Wells Fargo: 
 
 - Vijay Nair
 - William Knauth
@@ -10,3 +12,11 @@ Thanks to the following people for their contributions to the PiML toolbox!
 - Shijie Cui
 - Modeste Atsague
  
+External Contributors:
+
+- Patrick Hall
+- Parul Pandey
+- Nick Schmit
+- Sri Krishnamurthy
+
+Our thanks also go to countless feedbacks from Model Risk Management communities of various Financial Institutions! 

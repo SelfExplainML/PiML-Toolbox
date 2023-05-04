@@ -11,6 +11,7 @@ Contributors from Wells Fargo:
 - Yaqun Wang
 - Shijie Cui
 - Modeste Atsague
+- Daniel Kern
  
 External Contributors:
 

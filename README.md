@@ -6,6 +6,8 @@
 
 `pip install PiML`
   
+:rocket: **May 4, 2023:**  V0.5.0 is released with PiML user guide.
+
 :rocket: **October 31, 2022:**  V0.4.0 is released with enriched models and enhanced diagnostics.
 
 :rocket: **July 26, 2022:**  V0.3.0 is released with classic statistical models.
@@ -21,7 +23,8 @@ PiML (or π-ML, /ˈpaɪ·ˈem·ˈel/) is a new Python toolbox for interpretable 
 1. **GAM**: Generalized Additive Models using B-splines
 1. **Tree**: Decision Tree for Classification and Regression
 2. **FIGS**: Fast Interpretable Greedy-Tree Sums (Tan, et al. 2022)
-3. **XGB2**: Extreme Gradient Boosted Trees of Depth 2 (Chen and Guestrin, 2016; Lengerich, et al. 2020)
+3. **XGB1**: Extreme Gradient Boosted Trees of Depth 1, with optimal binning (Chen and Guestrin, 2016; Navas-Palencia, 2020)
+3. **XGB2**: Extreme Gradient Boosted Trees of Depth 2, with effect purification (Chen and Guestrin, 2016; Lengerich, et al. 2020)
 4. **EBM**: Explainable Boosting Machine (Nori, et al. 2019; Lou, et al. 2013)
 5. **GAMI-Net**: Generalized Additive Model with Structured Interactions (Yang, Zhang and Sudjianto, 2021)
 6. **ReLU-DNN**: Deep ReLU Networks using Aletheia Unwrapper and Sparsification (Sudjianto, et al. 2020)

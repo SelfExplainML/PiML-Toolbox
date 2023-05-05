@@ -1,0 +1,439 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+
+  <meta charset="utf-8">
+  <meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  
+  <title>PiML Toolbox</title>
+  
+
+  
+  <link rel="shortcut icon" href="../../_static/favicon.ico"/>
+  
+
+  <link rel="stylesheet" href="../../_static/css/vendor/bootstrap.min.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/plot_directive.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/jupyter-sphinx.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/thebelab.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/sg_gallery.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/sg_gallery-binder.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/sg_gallery-dataframe.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/sg_gallery-rendered-html.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
+<script id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+<script src="../../_static/jquery.js"></script>
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="../../_static/doctools.js"></script>
+        <script src="../../_static/sphinx_highlight.js"></script>
+        <script src="../../_static/thebelab-helper.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/@jupyter-widgets/html-manager@^1.0.1/dist/embed-amd.js"></script>
+        <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+        <script>window.MathJax = {"tex": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true}, "options": {"ignoreHtmlClass": "tex2jax_ignore|mathjax_ignore|document", "processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+        <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
+    <script src="../../_static/js/theme.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav">
+
+  
+
+
+<nav id="navbar" class="sk-docs-navbar navbar navbar-expand-md navbar-light bg-light py-0">
+  <div class="container-fluid sk-docs-container px-0">
+      <a class="navbar-brand py-0" href="../../index.html">
+        <img
+          class="sk-brand-img"
+          src="../../_static/piml-logo.png"
+          alt="logo"/>
+      </a>
+    <button
+      id="sk-navbar-toggler"
+      class="navbar-toggler"
+      type="button"
+      data-toggle="collapse"
+      data-target="#navbarSupportedContent"
+      aria-controls="navbarSupportedContent"
+      aria-expanded="false"
+      aria-label="Toggle navigation"
+    >
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="sk-navbar-collapse collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item">
+          <a class="sk-nav-link nav-link" href="../../install.html">Install</a>
+        </li>
+        <li class="nav-item">
+          <a class="sk-nav-link nav-link" href="../../user_guide.html">User Guide</a>
+        </li>
+        <li class="nav-item">
+          <a class="sk-nav-link nav-link" href="../../modules/classes.html">API</a>
+        </li>
+        <li class="nav-item">
+          <a class="sk-nav-link nav-link" href="../../auto_examples/index.html">Examples</a>
+        </li>
+     </ul>
+      <div id="searchbox" role="search">
+          <div class="searchformwrapper">
+          <form class="search" action="../../search.html" method="get">
+            <input class="sk-search-text-input" type="text" name="q" aria-labelledby="searchlabel" />
+            <input class="sk-search-text-btn" type="submit" value="Go" />
+          </form>
+          </div>
+      </div>
+    </div>
+  </div>
+</nav>
+  <div class="d-flex" id="sk-doc-wrapper">
+      <input type="checkbox" name="sk-toggle-checkbox" id="sk-toggle-checkbox">
+      <label id="sk-sidemenu-toggle" class="sk-btn-toggle-toc btn sk-btn-primary" for="sk-toggle-checkbox">Toggle Menu</label>
+      <div id="sk-sidebar-wrapper" class="border-right">
+        <div class="sk-sidebar-toc-wrapper">
+          <div class="sk-sidebar-toc-logo">
+            <a href="../../index.html">
+              <img
+                class="sk-brand-img"
+                src="../../_static/piml-logo.png"
+                alt="logo"/>
+            </a>
+          </div>
+          <!--div class="btn-group w-100 mb-2" role="group" aria-label="rellinks">
+              <a href="ale.html" role="button" class="btn sk-btn-rellink py-1" sk-rellink-tooltip="4.1.4. ALE (Accumulated Local Effects)">Prev</a><a href="../explainability.html" role="button" class="btn sk-btn-rellink py-1" sk-rellink-tooltip="4. Post-hoc Explainability">Up</a>
+              <a href="shap.html" role="button" class="btn sk-btn-rellink py-1" sk-rellink-tooltip="4.2.2. SHAP (SHapley Additive exPlanations)">Next</a>
+          </div-->
+              <div class="sk-sidebar-toc">
+              
+                <ul>
+                
+                
+                
+                
+                
+                
+                <li>
+                  <a href="../../user_guide.html" class="sk-toc-active">User Guide</a>
+                </li>
+                <ul>
+                
+                  <li>
+                    <a href="../introduction.html" class="">1. Introduction</a>
+                    
+                  </li>
+                
+                  <li>
+                    <a href="../data.html" class="">2. Data Pipeline</a>
+                    
+                  </li>
+                
+                  <li>
+                    <a href="../extmodels.html" class="">3. Black-box Models</a>
+                    
+                  </li>
+                
+                  <li>
+                    <a href="../explainability.html" class="sk-toc-active">4. Post-hoc Explainability</a>
+                    
+                  </li>
+                
+                  <li>
+                    <a href="../models.html" class="">5. Interpretable Models</a>
+                    
+                  </li>
+                
+                  <li>
+                    <a href="../testing.html" class="">6. Diagnostic Suite</a>
+                    
+                  </li>
+                
+                  <li>
+                    <a href="../comparison.html" class="">7. Model Comparison</a>
+                    
+                  </li>
+                
+                  <li>
+                    <a href="../cases.html" class="">8. Case Studies</a>
+                    
+                  </li>
+                
+                </ul>
+                
+                
+                
+                
+                </ul>
+              </div>
+        </div>
+      </div>
+      <div id="sk-page-content-wrapper">
+        <div class="sk-page-content container-fluid body px-md-3" role="main">
+          
+  <style type="text/css">
+  div.body div.toctree-wrapper ul {
+      padding-left: 0;
+  }
+
+  div.body li.toctree-l1 {
+      padding: 0 0 0.5em 0;
+      list-style-type: none;
+      font-size: 150%;
+      font-weight: bold;
+  }
+
+  div.body li.toctree-l2 {
+      font-size: 70%;
+      list-style-type: square;
+      font-weight: normal;
+      margin-left: 40px;
+  }
+
+  div.body li.toctree-l3 {
+      font-size: 85%;
+      list-style-type: circle;
+      font-weight: normal;
+      margin-left: 40px;
+  }
+
+  div.body li.toctree-l4 {
+      margin-left: 40px;
+  }
+
+</style><section id="lime-local-interpretable-model-agnostic-explanation">
+<h1><span class="section-number">4.2.1. </span>LIME (Local Interpretable Model-Agnostic Explanation)<a class="headerlink" href="#lime-local-interpretable-model-agnostic-explanation" title="Permalink to this heading">¶</a></h1>
+<p>LIME (Local Interpretable Model-Agnostic Explanation; <a class="reference internal" href="../introduction.html#ribeiro2016" id="id1"><span>[Ribeiro2016]</span></a>) is a model agnostic explanation tool. It does so by creating a surrogate interpretable model, such as a Lasso or decision tree, to explain how the original model makes predictions for a given input sample.</p>
+<section id="algorithm-details">
+<h2><span class="section-number">4.2.1.1. </span>Algorithm Details<a class="headerlink" href="#algorithm-details" title="Permalink to this heading">¶</a></h2>
+<p>The process is straightforward:</p>
+<ul class="simple">
+<li><p>Create a simulated dataset by randomly perturbing the input sample with noises (as <span class="math notranslate nohighlight">\(x\)</span>), and then evaluate the output of the original model on these perturbed samples (as <span class="math notranslate nohighlight">\(y\)</span>).</p></li>
+<li><p>An interpretable model (Lasso in our case) is fitted on this simulated data, with weights assigned to each perturbed sample based on its proximity to the original input sample.</p></li>
+</ul>
+<p>The PiML implementation of LIME is based on the <a class="reference external" href="https://lime-ml.readthedocs.io/en/latest/lime.html">LIME</a> package. For binary classification problems, it uses predict_proba as the response.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>The explanation of two very close points varied greatly in a simulated setting. In addition, the randomness during the sampling may lead to different LIME interpretations if we repeat the sampling process. Therefore, we must use our judgment to see if the result makes sense.</p>
+</div>
+</section>
+<section id="usage">
+<h2><span class="section-number">4.2.1.2. </span>Usage<a class="headerlink" href="#usage" title="Permalink to this heading">¶</a></h2>
+<p>The LIME explanation is also integrated into the <code class="docutils literal notranslate"><span class="pre">model_explain</span></code> function of PiML, with the keyword “lime” for the argument <code class="docutils literal notranslate"><span class="pre">show</span></code>. Below, we will demonstrate how to use LIME to explain the first training sample (<code class="docutils literal notranslate"><span class="pre">sample_id=0</span></code>) of a fitted XGB2 model on the BikeSharing dataset. In particular, we compare the centered and uncentered results by setting <code class="docutils literal notranslate"><span class="pre">centered</span></code> to True and False, respectively.</p>
+<p><strong>Uncentered predictors</strong></p>
+<div class="jupyter_cell jupyter_container docutils container">
+<div class="cell_input code_cell docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">exp</span><span class="o">.</span><span class="n">model_explain</span><span class="p">(</span><span class="n">model</span><span class="o">=</span><span class="s2">&quot;XGB2&quot;</span><span class="p">,</span> <span class="n">show</span><span class="o">=</span><span class="s2">&quot;lime&quot;</span><span class="p">,</span> <span class="n">sample_id</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">centered</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+                  <span class="n">original_scale</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">4</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+</div>
+</div>
+<figure class="align-left">
+<a class="reference external image-reference" href="../../auto_examples/explain/plot_4_lime.html"><img alt="../../_images/sphx_glr_plot_4_lime_001.png" src="../../_images/sphx_glr_plot_4_lime_001.png" /></a>
+</figure>
+<p>This plot is similar to the local interpretation of <a class="reference external" href="glm.html#local-interpretation">GLM</a>, as we use Lasso as the surrogate model. It shows the linear regression coefficients and marginal effects of the top-10 features (with feature values on the right axis) that contribute to the prediction of bike counts. The <code class="docutils literal notranslate"><span class="pre">Weight</span></code> represents the regression coefficients, and <code class="docutils literal notranslate"><span class="pre">Effect</span></code> represents the marginal effects. From top to bottom, <code class="docutils literal notranslate"><span class="pre">hr</span></code> contributes the most to the prediction of bike counts, followed by <code class="docutils literal notranslate"><span class="pre">atemp</span></code>, then <code class="docutils literal notranslate"><span class="pre">hum</span></code>, and so on. Note that this plot only shows the top 10 features with the largest contributions. To get the full results, you can set the parameter <code class="docutils literal notranslate"><span class="pre">return_data</span></code> to True.</p>
+<p><strong>Centered predictors</strong></p>
+<p>Centering is crucial when group effects are of interest and can be done by subtracting the mean attribute from each attribute element.</p>
+<div class="jupyter_cell jupyter_container docutils container">
+<div class="cell_input code_cell docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">exp</span><span class="o">.</span><span class="n">model_explain</span><span class="p">(</span><span class="n">model</span><span class="o">=</span><span class="s2">&quot;XGB2&quot;</span><span class="p">,</span> <span class="n">show</span><span class="o">=</span><span class="s2">&quot;lime&quot;</span><span class="p">,</span> <span class="n">sample_id</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">centered</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+                  <span class="n">original_scale</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">6</span><span class="p">,</span><span class="mi">5</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+</div>
+</div>
+<figure class="align-left">
+<a class="reference external image-reference" href="../../auto_examples/explain/plot_4_lime.html"><img alt="../../_images/sphx_glr_plot_4_lime_002.png" src="../../_images/sphx_glr_plot_4_lime_002.png" /></a>
+</figure>
+<p>By centering the data and calculating the marginal effects, the model itself remains unchanged, but the interpretation of the marginal effects may change significantly, as we are essentially comparing the contribution of each feature to the average population, rather than the individual sample values. For instance, <code class="docutils literal notranslate"><span class="pre">hr</span></code> has a large contribution to the prediction in the uncentered data. However, when the data is centered, its contribution becomes negligible. This is because the feature value of this sample (11 am) is close to the population mean, and its contribution is now mainly captured by the intercept term.</p>
+</section>
+<section id="examples">
+<h2><span class="section-number">4.2.1.3. </span>Examples<a class="headerlink" href="#examples" title="Permalink to this heading">¶</a></h2>
+<div class="topic">
+<p class="topic-title">Example 1: Bike Sharing</p>
+<blockquote>
+<div><p>The first example below demonstrates how to use PiML with its high-code APIs for developing machine learning models for the BikeSharing data from the UCI repository, which consists of 17,389 samples of hourly counts of rental bikes in Capital bikeshare system; see details. The response <code class="docutils literal notranslate"><span class="pre">cnt</span></code> (hourly bike rental counts) is continuous and it is a regression problem.</p>
+</div></blockquote>
+<ul class="simple">
+<li><p><a class="reference internal" href="../../auto_examples/explain/plot_4_lime.html#sphx-glr-auto-examples-explain-plot-4-lime-py"><span class="std std-ref">Local Interpretable Model-Agnostic Explanation</span></a></p></li>
+</ul>
+</div>
+</section>
+</section>
+
+
+        </div>
+      <div class="container">
+        <footer class="sk-content-footer">
+              &copy; Copyright 2022-, PiML-Toolbox authors.
+            <a href="../../_sources/guides/explain/lime.rst.txt" rel="nofollow">Show this page source</a>
+        </footer>
+      </div>
+    </div>
+  </div>
+
+
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(false);
+      });
+      
+      const tooltipTriggerList = document.querySelectorAll('[data-bs-toggle="tooltip"]')
+      const tooltipList = [...tooltipTriggerList].map(tooltipTriggerEl => new bootstrap.Tooltip(tooltipTriggerEl))
+  </script>
+
+<script>
+$(document).ready(function() {
+    /* Add a [>>>] button on the top-right corner of code samples to hide
+     * the >>> and ... prompts and the output and thus make the code
+     * copyable. */
+    var div = $('.highlight-python .highlight,' +
+                '.highlight-python3 .highlight,' +
+                '.highlight-pycon .highlight,' +
+		'.highlight-default .highlight')
+    var pre = div.find('pre');
+
+    // get the styles from the current theme
+    pre.parent().parent().css('position', 'relative');
+    var hide_text = 'Hide prompts and outputs';
+    var show_text = 'Show prompts and outputs';
+
+    // create and add the button to all the code blocks that contain >>>
+    div.each(function(index) {
+        var jthis = $(this);
+        if (jthis.find('.gp').length > 0) {
+            var button = $('<span class="copybutton">&gt;&gt;&gt;</span>');
+            button.attr('title', hide_text);
+            button.data('hidden', 'false');
+            jthis.prepend(button);
+        }
+        // tracebacks (.gt) contain bare text elements that need to be
+        // wrapped in a span to work with .nextUntil() (see later)
+        jthis.find('pre:has(.gt)').contents().filter(function() {
+            return ((this.nodeType == 3) && (this.data.trim().length > 0));
+        }).wrap('<span>');
+    });
+
+    // define the behavior of the button when it's clicked
+    $('.copybutton').click(function(e){
+        e.preventDefault();
+        var button = $(this);
+        if (button.data('hidden') === 'false') {
+            // hide the code output
+            button.parent().find('.go, .gp, .gt').hide();
+            button.next('pre').find('.gt').nextUntil('.gp, .go').css('visibility', 'hidden');
+            button.css('text-decoration', 'line-through');
+            button.attr('title', show_text);
+            button.data('hidden', 'true');
+        } else {
+            // show the code output
+            button.parent().find('.go, .gp, .gt').show();
+            button.next('pre').find('.gt').nextUntil('.gp, .go').css('visibility', 'visible');
+            button.css('text-decoration', 'none');
+            button.attr('title', hide_text);
+            button.data('hidden', 'false');
+        }
+    });
+
+	/*** Add permalink buttons next to glossary terms ***/
+	$('dl.glossary > dt[id]').append(function() {
+		return ('<a class="headerlink" href="#' +
+			    this.getAttribute('id') +
+			    '" title="Permalink to this term">¶</a>');
+	});
+  /*** Hide navbar when scrolling down ***/
+  // Returns true when headerlink target matches hash in url
+  (function() {
+    hashTargetOnTop = function() {
+        var hash = window.location.hash;
+        if ( hash.length < 2 ) { return false; }
+
+        var target = document.getElementById( hash.slice(1) );
+        if ( target === null ) { return false; }
+
+        var top = target.getBoundingClientRect().top;
+        return (top < 2) && (top > -2);
+    };
+
+    // Hide navbar on load if hash target is on top
+    var navBar = document.getElementById("navbar");
+    var navBarToggler = document.getElementById("sk-navbar-toggler");
+    var navBarHeightHidden = "-" + navBar.getBoundingClientRect().height + "px";
+    var $window = $(window);
+
+    hideNavBar = function() {
+        navBar.style.top = navBarHeightHidden;
+    };
+
+    showNavBar = function() {
+        navBar.style.top = "0";
+    }
+
+    if (hashTargetOnTop()) {
+        hideNavBar()
+    }
+
+    var prevScrollpos = window.pageYOffset;
+    hideOnScroll = function(lastScrollTop) {
+        if (($window.width() < 768) && (navBarToggler.getAttribute("aria-expanded") === 'true')) {
+            return;
+        }
+        if (lastScrollTop > 2 && (prevScrollpos <= lastScrollTop) || hashTargetOnTop()){
+            hideNavBar()
+        } else {
+            showNavBar()
+        }
+        prevScrollpos = lastScrollTop;
+    };
+
+    /*** high performance scroll event listener***/
+    var raf = window.requestAnimationFrame ||
+        window.webkitRequestAnimationFrame ||
+        window.mozRequestAnimationFrame ||
+        window.msRequestAnimationFrame ||
+        window.oRequestAnimationFrame;
+    var lastScrollTop = $window.scrollTop();
+
+    if (raf) {
+        loop();
+    }
+
+    function loop() {
+        var scrollTop = $window.scrollTop();
+        if (lastScrollTop === scrollTop) {
+            raf(loop);
+            return;
+        } else {
+            lastScrollTop = scrollTop;
+            hideOnScroll(lastScrollTop);
+            raf(loop);
+        }
+    }
+  })();
+});
+
+</script>
+    
+
+<script src="_static/js/vendor/bootstrap.min.js"></script>
+
+</body>
+</html>

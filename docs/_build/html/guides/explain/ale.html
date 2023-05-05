@@ -1,0 +1,481 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+
+  <meta charset="utf-8">
+  <meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  
+  <title>PiML Toolbox</title>
+  
+
+  
+  <link rel="shortcut icon" href="../../_static/favicon.ico"/>
+  
+
+  <link rel="stylesheet" href="../../_static/css/vendor/bootstrap.min.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/plot_directive.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/jupyter-sphinx.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/thebelab.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/sg_gallery.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/sg_gallery-binder.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/sg_gallery-dataframe.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/sg_gallery-rendered-html.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
+<script id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+<script src="../../_static/jquery.js"></script>
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="../../_static/doctools.js"></script>
+        <script src="../../_static/sphinx_highlight.js"></script>
+        <script src="../../_static/thebelab-helper.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/@jupyter-widgets/html-manager@^1.0.1/dist/embed-amd.js"></script>
+        <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+        <script>window.MathJax = {"tex": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true}, "options": {"ignoreHtmlClass": "tex2jax_ignore|mathjax_ignore|document", "processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+        <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
+    <script src="../../_static/js/theme.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav">
+
+  
+
+
+<nav id="navbar" class="sk-docs-navbar navbar navbar-expand-md navbar-light bg-light py-0">
+  <div class="container-fluid sk-docs-container px-0">
+      <a class="navbar-brand py-0" href="../../index.html">
+        <img
+          class="sk-brand-img"
+          src="../../_static/piml-logo.png"
+          alt="logo"/>
+      </a>
+    <button
+      id="sk-navbar-toggler"
+      class="navbar-toggler"
+      type="button"
+      data-toggle="collapse"
+      data-target="#navbarSupportedContent"
+      aria-controls="navbarSupportedContent"
+      aria-expanded="false"
+      aria-label="Toggle navigation"
+    >
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="sk-navbar-collapse collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item">
+          <a class="sk-nav-link nav-link" href="../../install.html">Install</a>
+        </li>
+        <li class="nav-item">
+          <a class="sk-nav-link nav-link" href="../../user_guide.html">User Guide</a>
+        </li>
+        <li class="nav-item">
+          <a class="sk-nav-link nav-link" href="../../modules/classes.html">API</a>
+        </li>
+        <li class="nav-item">
+          <a class="sk-nav-link nav-link" href="../../auto_examples/index.html">Examples</a>
+        </li>
+     </ul>
+      <div id="searchbox" role="search">
+          <div class="searchformwrapper">
+          <form class="search" action="../../search.html" method="get">
+            <input class="sk-search-text-input" type="text" name="q" aria-labelledby="searchlabel" />
+            <input class="sk-search-text-btn" type="submit" value="Go" />
+          </form>
+          </div>
+      </div>
+    </div>
+  </div>
+</nav>
+  <div class="d-flex" id="sk-doc-wrapper">
+      <input type="checkbox" name="sk-toggle-checkbox" id="sk-toggle-checkbox">
+      <label id="sk-sidemenu-toggle" class="sk-btn-toggle-toc btn sk-btn-primary" for="sk-toggle-checkbox">Toggle Menu</label>
+      <div id="sk-sidebar-wrapper" class="border-right">
+        <div class="sk-sidebar-toc-wrapper">
+          <div class="sk-sidebar-toc-logo">
+            <a href="../../index.html">
+              <img
+                class="sk-brand-img"
+                src="../../_static/piml-logo.png"
+                alt="logo"/>
+            </a>
+          </div>
+          <!--div class="btn-group w-100 mb-2" role="group" aria-label="rellinks">
+              <a href="ice.html" role="button" class="btn sk-btn-rellink py-1" sk-rellink-tooltip="4.1.3. ICE (Individual Conditional Expectation)">Prev</a><a href="../explainability.html" role="button" class="btn sk-btn-rellink py-1" sk-rellink-tooltip="4. Post-hoc Explainability">Up</a>
+              <a href="lime.html" role="button" class="btn sk-btn-rellink py-1" sk-rellink-tooltip="4.2.1. LIME (Local Interpretable Model-Agnostic Explanation)">Next</a>
+          </div-->
+              <div class="sk-sidebar-toc">
+              
+                <ul>
+                
+                
+                
+                
+                
+                
+                <li>
+                  <a href="../../user_guide.html" class="sk-toc-active">User Guide</a>
+                </li>
+                <ul>
+                
+                  <li>
+                    <a href="../introduction.html" class="">1. Introduction</a>
+                    
+                  </li>
+                
+                  <li>
+                    <a href="../data.html" class="">2. Data Pipeline</a>
+                    
+                  </li>
+                
+                  <li>
+                    <a href="../extmodels.html" class="">3. Black-box Models</a>
+                    
+                  </li>
+                
+                  <li>
+                    <a href="../explainability.html" class="sk-toc-active">4. Post-hoc Explainability</a>
+                    
+                  </li>
+                
+                  <li>
+                    <a href="../models.html" class="">5. Interpretable Models</a>
+                    
+                  </li>
+                
+                  <li>
+                    <a href="../testing.html" class="">6. Diagnostic Suite</a>
+                    
+                  </li>
+                
+                  <li>
+                    <a href="../comparison.html" class="">7. Model Comparison</a>
+                    
+                  </li>
+                
+                  <li>
+                    <a href="../cases.html" class="">8. Case Studies</a>
+                    
+                  </li>
+                
+                </ul>
+                
+                
+                
+                
+                </ul>
+              </div>
+        </div>
+      </div>
+      <div id="sk-page-content-wrapper">
+        <div class="sk-page-content container-fluid body px-md-3" role="main">
+          
+  <style type="text/css">
+  div.body div.toctree-wrapper ul {
+      padding-left: 0;
+  }
+
+  div.body li.toctree-l1 {
+      padding: 0 0 0.5em 0;
+      list-style-type: none;
+      font-size: 150%;
+      font-weight: bold;
+  }
+
+  div.body li.toctree-l2 {
+      font-size: 70%;
+      list-style-type: square;
+      font-weight: normal;
+      margin-left: 40px;
+  }
+
+  div.body li.toctree-l3 {
+      font-size: 85%;
+      list-style-type: circle;
+      font-weight: normal;
+      margin-left: 40px;
+  }
+
+  div.body li.toctree-l4 {
+      margin-left: 40px;
+  }
+
+</style><section id="ale-accumulated-local-effects">
+<h1><span class="section-number">4.1.4. </span>ALE (Accumulated Local Effects)<a class="headerlink" href="#ale-accumulated-local-effects" title="Permalink to this heading">¶</a></h1>
+<p>Accumulated Local Effects (ALE; <a class="reference internal" href="../introduction.html#apley2016" id="id1"><span>[Apley2016]</span></a>) is a model-agnostic method for explaining how features impact a model’s prediction. Its aim is similar to that of PDP, but PDP results may be biased when features are correlated. ALE overcomes this limitation and offers a quicker and unbiased alternative to PDP.</p>
+<section id="algorithm-details">
+<h2><span class="section-number">4.1.4.1. </span>Algorithm Details<a class="headerlink" href="#algorithm-details" title="Permalink to this heading">¶</a></h2>
+<p>ALE plots, by definition, accumulate the local effects over the range of features. Here we just describe the one-way ALE for a single numerical feature, i.e., one-way ALE. It first divides the feature of interest into <span class="math notranslate nohighlight">\(K\)</span> intervals (bins). The local effect of each bin is computed as the difference in prediction between the first and last values. Let <span class="math notranslate nohighlight">\(N_{j}(k) = (z_{k-1,j} , z_{k,j}]\)</span> be the <span class="math notranslate nohighlight">\(k\)</span>-th interval for the <span class="math notranslate nohighlight">\(j\)</span>-th feature. The split point <span class="math notranslate nohighlight">\(z_{k,j}\)</span> is usually set as the <span class="math notranslate nohighlight">\(\frac{k}{K}\)</span> quantile of the <span class="math notranslate nohighlight">\(j\)</span>-th feature. Based on the binning results, we can compute the uncentered effect of the feature <span class="math notranslate nohighlight">\(j\)</span> as follows:</p>
+<blockquote>
+<div><div class="math notranslate nohighlight">
+\[\begin{align}
+   \hat{h}_{j,ALE}(x) = \sum_{k=1}^{k_{j}(x)}\frac{1}{n_{j}(k)}\sum_{i:x_{j}^{(i)}\in N_{j}(k)}[\hat{f}(z_{k,j},\textbf{x}_{-j}^{(i)})- \hat{f}(z_{k-1,j},\textbf{x}_{-j}^{(i)}))], \tag{1}
+\end{align}\]</div>
+</div></blockquote>
+<p>where <span class="math notranslate nohighlight">\(k_{j}(x)\)</span> is the index of the interval, <span class="math notranslate nohighlight">\(n_{j}(k)\)</span> is the number of samples in <span class="math notranslate nohighlight">\(N_{j}(k)\)</span>, and <span class="math notranslate nohighlight">\(\hat{f}\)</span> is the model being explained. Finally, the ALE is centered using the following formula:</p>
+<div class="math notranslate nohighlight">
+\[\begin{align}
+   \hat{f}_{j,ALE}(x) = \hat{h}_{j,ALE}(x)-\frac{1}{n} \sum_{i=1}^{n} \hat{h}_{j, ALE}(x_{j}^{(i)}). \tag{2}
+\end{align}\]</div>
+<p>Note that the computation of ALE is faster than that of PDP, as it requires less number of function calls to <span class="math notranslate nohighlight">\(\hat{f}\)</span>. Moreover, there is no standard for selecting the number of intervals. If the number of intervals is too small, the ALE plots might not be very accurate. On the other hand, If the number is too high, the curve will have many small ups and downs. For additional details on the two-way ALE, please refer to the original paper <a class="reference internal" href="../introduction.html#apley2016" id="id2"><span>[Apley2016]</span></a>. In PiML, the ALE plot is generated based on the Python package <a class="reference external" href="https://github.com/DanaJomar/PyALE">PyALE</a>.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>When features are strongly correlated, it is not suggested to do the interpretation of the effect across intervals. That is because the effects are computed per interval (locally), and require no extrapolation beyond the data envelope. If fix one feature and move another feature (highly correlated with the fixed one) from one interval to another one, the model being explained <span class="math notranslate nohighlight">\(\hat{f}\)</span> may output unreliable predictions, which will lead to unreliable ALE values. In other words, the ALE values are not reliable when the model is extrapolating outside
+of the data envelope. Therefore, as features are strongly correlated, we should interpret ALE plots locally for each bin.</p>
+</div>
+</section>
+<section id="usage">
+<h2><span class="section-number">4.1.4.2. </span>Usage<a class="headerlink" href="#usage" title="Permalink to this heading">¶</a></h2>
+<p>This section illustrates how to use PiML to get the ALE plots. Similar to the visualization of PDPs, the visualization of ALE plots vias PiML can be done using the <code class="docutils literal notranslate"><span class="pre">model_explain</span></code> function. The keyword for ALE plot is “ale”, i.e., we should set <code class="docutils literal notranslate"><span class="pre">show</span></code> = “ale”. For illustration purposes, we fitted the ReLUDNN model on the Bike Sharing dataset.</p>
+<section id="one-way-ale">
+<h3><span class="section-number">4.1.4.2.1. </span>One-way ALE<a class="headerlink" href="#one-way-ale" title="Permalink to this heading">¶</a></h3>
+<p>The one-way ALE tells us about the relationship between the target response and an input feature of interest. To generate an ALE plot of a single feature, we should specify the feature’s name in <code class="docutils literal notranslate"><span class="pre">uni_feature</span></code>.</p>
+<div class="jupyter_cell jupyter_container docutils container">
+<div class="cell_input code_cell docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">exp</span><span class="o">.</span><span class="n">model_explain</span><span class="p">(</span><span class="n">model</span><span class="o">=</span><span class="s2">&quot;ReLUDNN&quot;</span><span class="p">,</span> <span class="n">show</span><span class="o">=</span><span class="s2">&quot;ale&quot;</span><span class="p">,</span> <span class="n">uni_feature</span><span class="o">=</span><span class="s2">&quot;hr&quot;</span><span class="p">,</span>
+                  <span class="n">original_scale</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">4</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+</div>
+</div>
+<figure class="align-left">
+<a class="reference external image-reference" href="../../auto_examples/explain/plot_3_ale.html"><img alt="../../_images/sphx_glr_plot_3_ale_001.png" src="../../_images/sphx_glr_plot_3_ale_001.png" /></a>
+</figure>
+<p>The hourly bike counts have two peaks in the rush hours of the day, which is consistent with that of PDP. From the plot, we can see that the range of ALE values is centered around zero, this is because the ALE plot is centered using the mean of the local effects.</p>
+<p>In addition to the feature <code class="docutils literal notranslate"><span class="pre">hr</span></code>, we also draw the ALE plot for the feature <code class="docutils literal notranslate"><span class="pre">atemp</span></code>, as shown below.</p>
+<div class="jupyter_cell jupyter_container docutils container">
+<div class="cell_input code_cell docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">exp</span><span class="o">.</span><span class="n">model_explain</span><span class="p">(</span><span class="n">model</span><span class="o">=</span><span class="s2">&quot;ReLUDNN&quot;</span><span class="p">,</span> <span class="n">show</span><span class="o">=</span><span class="s2">&quot;ale&quot;</span><span class="p">,</span> <span class="n">uni_feature</span><span class="o">=</span><span class="s2">&quot;atemp&quot;</span><span class="p">,</span>
+                  <span class="n">original_scale</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">4</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+</div>
+</div>
+<figure class="align-left">
+<a class="reference external image-reference" href="../../auto_examples/explain/plot_3_ale.html"><img alt="../../_images/sphx_glr_plot_3_ale_002.png" src="../../_images/sphx_glr_plot_3_ale_002.png" /></a>
+</figure>
+<p>The plot above shows that the bike sharing counts reach the highest as <code class="docutils literal notranslate"><span class="pre">atemp</span></code> is around 0.6. The ALE plot is also centered around zero, which is consistent with the previous plot. ALE plot also supports categorical features. As the categorical feature has no ordering, we need to create an ordering for each category. In specific, we order the categories by their similarity (or distance) based on the rest features. Once we have the distances between all categories, we can reduce the pairwise distance matrix to a distance-vector, in which each element represents the distance score of a category. After that, we can order the categories using the distance score, and then calculate the ALE just like the numerical features.</p>
+<div class="jupyter_cell jupyter_container docutils container">
+<div class="cell_input code_cell docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">exp</span><span class="o">.</span><span class="n">model_explain</span><span class="p">(</span><span class="n">model</span><span class="o">=</span><span class="s2">&quot;ReLUDNN&quot;</span><span class="p">,</span> <span class="n">show</span><span class="o">=</span><span class="s2">&quot;ale&quot;</span><span class="p">,</span> <span class="n">uni_feature</span><span class="o">=</span><span class="s2">&quot;weathersit&quot;</span><span class="p">,</span>
+                  <span class="n">original_scale</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">4</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+</div>
+</div>
+<figure class="align-left">
+<a class="reference external image-reference" href="../../auto_examples/explain/plot_3_ale.html"><img alt="../../_images/sphx_glr_plot_3_ale_003.png" src="../../_images/sphx_glr_plot_3_ale_003.png" /></a>
+</figure>
+<p>This is the ALE plot for the categorical feature <code class="docutils literal notranslate"><span class="pre">weathersit</span></code>. From this plot, we can see that <code class="docutils literal notranslate"><span class="pre">weathersit</span></code> with values 3 (Light Rain, etc) and 4 (Heavy Rain, etc) have a significantly negative effect on the final prediction, as compared to 1.0 (Clear, etc). Although the simple average of these four bars is negative, the average ALE over the full sample is still zero. That is because the density of category 1.0 is much larger than that of 3.0 and 4.0.</p>
+</section>
+<section id="two-way-ale">
+<h3><span class="section-number">4.1.4.2.2. </span>Two-way ALE<a class="headerlink" href="#two-way-ale" title="Permalink to this heading">¶</a></h3>
+<p>The two-way ALE (two inputs features of interest) shows the interaction between the two features. It estimates the interaction effect of two features, excluding the individual main effects. Technically, this is done by first estimating the uncentered two-way ALE, and then estimating and subtracting the main effects for the uncentered two-way ALE (instead of the model being explained). To generate ALE for two features, we will need to specify the <code class="docutils literal notranslate"><span class="pre">bi_features</span></code> parameter with two feature names.</p>
+<div class="jupyter_cell jupyter_container docutils container">
+<div class="cell_input code_cell docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">exp</span><span class="o">.</span><span class="n">model_explain</span><span class="p">(</span><span class="n">model</span><span class="o">=</span><span class="s2">&quot;ReLUDNN&quot;</span><span class="p">,</span> <span class="n">show</span><span class="o">=</span><span class="s2">&quot;ale&quot;</span><span class="p">,</span> <span class="n">bi_features</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;hr&quot;</span><span class="p">,</span> <span class="s2">&quot;atemp&quot;</span><span class="p">]</span>
+                  <span class="n">original_scale</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">4</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+</div>
+</div>
+<figure class="align-left">
+<a class="reference external image-reference" href="../../auto_examples/explain/plot_3_ale.html"><img alt="../../_images/sphx_glr_plot_3_ale_004.png" src="../../_images/sphx_glr_plot_3_ale_004.png" /></a>
+</figure>
+<p>In the plot above, lighter shade indicates an above average, while darker shade indicates a below average. In addition to adjusting for the overall mean effect, two-way ALE also adjusts for the main effects of both features. Therefore, the two-way ALE plot can be quite different from the two-way PDP, and one must keep the main effects in mind during the interpretation.</p>
+</section>
+</section>
+<section id="examples">
+<h2><span class="section-number">4.1.4.3. </span>Examples<a class="headerlink" href="#examples" title="Permalink to this heading">¶</a></h2>
+<div class="topic">
+<p class="topic-title">Example 1: Bike Sharing</p>
+<blockquote>
+<div><p>The first example below demonstrates how to use PiML with its high-code APIs for developing machine learning models for the BikeSharing data from the UCI repository, which consists of 17,389 samples of hourly counts of rental bikes in Capital bikeshare system; see details. The response <code class="docutils literal notranslate"><span class="pre">cnt</span></code> (hourly bike rental counts) is continuous and it is a regression problem.</p>
+</div></blockquote>
+<ul class="simple">
+<li><p><a class="reference internal" href="../../auto_examples/explain/plot_3_ale.html#sphx-glr-auto-examples-explain-plot-3-ale-py"><span class="std std-ref">Accumulated Local Effects</span></a></p></li>
+</ul>
+</div>
+</section>
+</section>
+
+
+        </div>
+      <div class="container">
+        <footer class="sk-content-footer">
+              &copy; Copyright 2022-, PiML-Toolbox authors.
+            <a href="../../_sources/guides/explain/ale.rst.txt" rel="nofollow">Show this page source</a>
+        </footer>
+      </div>
+    </div>
+  </div>
+
+
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(false);
+      });
+      
+      const tooltipTriggerList = document.querySelectorAll('[data-bs-toggle="tooltip"]')
+      const tooltipList = [...tooltipTriggerList].map(tooltipTriggerEl => new bootstrap.Tooltip(tooltipTriggerEl))
+  </script>
+
+<script>
+$(document).ready(function() {
+    /* Add a [>>>] button on the top-right corner of code samples to hide
+     * the >>> and ... prompts and the output and thus make the code
+     * copyable. */
+    var div = $('.highlight-python .highlight,' +
+                '.highlight-python3 .highlight,' +
+                '.highlight-pycon .highlight,' +
+		'.highlight-default .highlight')
+    var pre = div.find('pre');
+
+    // get the styles from the current theme
+    pre.parent().parent().css('position', 'relative');
+    var hide_text = 'Hide prompts and outputs';
+    var show_text = 'Show prompts and outputs';
+
+    // create and add the button to all the code blocks that contain >>>
+    div.each(function(index) {
+        var jthis = $(this);
+        if (jthis.find('.gp').length > 0) {
+            var button = $('<span class="copybutton">&gt;&gt;&gt;</span>');
+            button.attr('title', hide_text);
+            button.data('hidden', 'false');
+            jthis.prepend(button);
+        }
+        // tracebacks (.gt) contain bare text elements that need to be
+        // wrapped in a span to work with .nextUntil() (see later)
+        jthis.find('pre:has(.gt)').contents().filter(function() {
+            return ((this.nodeType == 3) && (this.data.trim().length > 0));
+        }).wrap('<span>');
+    });
+
+    // define the behavior of the button when it's clicked
+    $('.copybutton').click(function(e){
+        e.preventDefault();
+        var button = $(this);
+        if (button.data('hidden') === 'false') {
+            // hide the code output
+            button.parent().find('.go, .gp, .gt').hide();
+            button.next('pre').find('.gt').nextUntil('.gp, .go').css('visibility', 'hidden');
+            button.css('text-decoration', 'line-through');
+            button.attr('title', show_text);
+            button.data('hidden', 'true');
+        } else {
+            // show the code output
+            button.parent().find('.go, .gp, .gt').show();
+            button.next('pre').find('.gt').nextUntil('.gp, .go').css('visibility', 'visible');
+            button.css('text-decoration', 'none');
+            button.attr('title', hide_text);
+            button.data('hidden', 'false');
+        }
+    });
+
+	/*** Add permalink buttons next to glossary terms ***/
+	$('dl.glossary > dt[id]').append(function() {
+		return ('<a class="headerlink" href="#' +
+			    this.getAttribute('id') +
+			    '" title="Permalink to this term">¶</a>');
+	});
+  /*** Hide navbar when scrolling down ***/
+  // Returns true when headerlink target matches hash in url
+  (function() {
+    hashTargetOnTop = function() {
+        var hash = window.location.hash;
+        if ( hash.length < 2 ) { return false; }
+
+        var target = document.getElementById( hash.slice(1) );
+        if ( target === null ) { return false; }
+
+        var top = target.getBoundingClientRect().top;
+        return (top < 2) && (top > -2);
+    };
+
+    // Hide navbar on load if hash target is on top
+    var navBar = document.getElementById("navbar");
+    var navBarToggler = document.getElementById("sk-navbar-toggler");
+    var navBarHeightHidden = "-" + navBar.getBoundingClientRect().height + "px";
+    var $window = $(window);
+
+    hideNavBar = function() {
+        navBar.style.top = navBarHeightHidden;
+    };
+
+    showNavBar = function() {
+        navBar.style.top = "0";
+    }
+
+    if (hashTargetOnTop()) {
+        hideNavBar()
+    }
+
+    var prevScrollpos = window.pageYOffset;
+    hideOnScroll = function(lastScrollTop) {
+        if (($window.width() < 768) && (navBarToggler.getAttribute("aria-expanded") === 'true')) {
+            return;
+        }
+        if (lastScrollTop > 2 && (prevScrollpos <= lastScrollTop) || hashTargetOnTop()){
+            hideNavBar()
+        } else {
+            showNavBar()
+        }
+        prevScrollpos = lastScrollTop;
+    };
+
+    /*** high performance scroll event listener***/
+    var raf = window.requestAnimationFrame ||
+        window.webkitRequestAnimationFrame ||
+        window.mozRequestAnimationFrame ||
+        window.msRequestAnimationFrame ||
+        window.oRequestAnimationFrame;
+    var lastScrollTop = $window.scrollTop();
+
+    if (raf) {
+        loop();
+    }
+
+    function loop() {
+        var scrollTop = $window.scrollTop();
+        if (lastScrollTop === scrollTop) {
+            raf(loop);
+            return;
+        } else {
+            lastScrollTop = scrollTop;
+            hideOnScroll(lastScrollTop);
+            raf(loop);
+        }
+    }
+  })();
+});
+
+</script>
+    
+
+<script src="_static/js/vendor/bootstrap.min.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,428 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+
+  <meta charset="utf-8">
+  <meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  
+  <title>PiML Toolbox</title>
+  
+
+  
+  <link rel="shortcut icon" href="../../_static/favicon.ico"/>
+  
+
+  <link rel="stylesheet" href="../../_static/css/vendor/bootstrap.min.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/plot_directive.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/jupyter-sphinx.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/thebelab.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/sg_gallery.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/sg_gallery-binder.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/sg_gallery-dataframe.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/sg_gallery-rendered-html.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
+<script id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+<script src="../../_static/jquery.js"></script>
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="../../_static/doctools.js"></script>
+        <script src="../../_static/sphinx_highlight.js"></script>
+        <script src="../../_static/thebelab-helper.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/@jupyter-widgets/html-manager@^1.0.1/dist/embed-amd.js"></script>
+        <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+        <script>window.MathJax = {"tex": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true}, "options": {"ignoreHtmlClass": "tex2jax_ignore|mathjax_ignore|document", "processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+        <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
+    <script src="../../_static/js/theme.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav">
+
+  
+
+
+<nav id="navbar" class="sk-docs-navbar navbar navbar-expand-md navbar-light bg-light py-0">
+  <div class="container-fluid sk-docs-container px-0">
+      <a class="navbar-brand py-0" href="../../index.html">
+        <img
+          class="sk-brand-img"
+          src="../../_static/piml-logo.png"
+          alt="logo"/>
+      </a>
+    <button
+      id="sk-navbar-toggler"
+      class="navbar-toggler"
+      type="button"
+      data-toggle="collapse"
+      data-target="#navbarSupportedContent"
+      aria-controls="navbarSupportedContent"
+      aria-expanded="false"
+      aria-label="Toggle navigation"
+    >
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="sk-navbar-collapse collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item">
+          <a class="sk-nav-link nav-link" href="../../install.html">Install</a>
+        </li>
+        <li class="nav-item">
+          <a class="sk-nav-link nav-link" href="../../user_guide.html">User Guide</a>
+        </li>
+        <li class="nav-item">
+          <a class="sk-nav-link nav-link" href="../../modules/classes.html">API</a>
+        </li>
+        <li class="nav-item">
+          <a class="sk-nav-link nav-link" href="../../auto_examples/index.html">Examples</a>
+        </li>
+     </ul>
+      <div id="searchbox" role="search">
+          <div class="searchformwrapper">
+          <form class="search" action="../../search.html" method="get">
+            <input class="sk-search-text-input" type="text" name="q" aria-labelledby="searchlabel" />
+            <input class="sk-search-text-btn" type="submit" value="Go" />
+          </form>
+          </div>
+      </div>
+    </div>
+  </div>
+</nav>
+  <div class="d-flex" id="sk-doc-wrapper">
+      <input type="checkbox" name="sk-toggle-checkbox" id="sk-toggle-checkbox">
+      <label id="sk-sidemenu-toggle" class="sk-btn-toggle-toc btn sk-btn-primary" for="sk-toggle-checkbox">Toggle Menu</label>
+      <div id="sk-sidebar-wrapper" class="border-right">
+        <div class="sk-sidebar-toc-wrapper">
+          <div class="sk-sidebar-toc-logo">
+            <a href="../../index.html">
+              <img
+                class="sk-brand-img"
+                src="../../_static/piml-logo.png"
+                alt="logo"/>
+            </a>
+          </div>
+          <!--div class="btn-group w-100 mb-2" role="group" aria-label="rellinks">
+              <a href="pdp.html" role="button" class="btn sk-btn-rellink py-1" sk-rellink-tooltip="4.1.2. PDP (Partial Dependence Plot)">Prev</a><a href="../explainability.html" role="button" class="btn sk-btn-rellink py-1" sk-rellink-tooltip="4. Post-hoc Explainability">Up</a>
+              <a href="ale.html" role="button" class="btn sk-btn-rellink py-1" sk-rellink-tooltip="4.1.4. ALE (Accumulated Local Effects)">Next</a>
+          </div-->
+              <div class="sk-sidebar-toc">
+              
+                <ul>
+                
+                
+                
+                
+                
+                
+                <li>
+                  <a href="../../user_guide.html" class="sk-toc-active">User Guide</a>
+                </li>
+                <ul>
+                
+                  <li>
+                    <a href="../introduction.html" class="">1. Introduction</a>
+                    
+                  </li>
+                
+                  <li>
+                    <a href="../data.html" class="">2. Data Pipeline</a>
+                    
+                  </li>
+                
+                  <li>
+                    <a href="../extmodels.html" class="">3. Black-box Models</a>
+                    
+                  </li>
+                
+                  <li>
+                    <a href="../explainability.html" class="sk-toc-active">4. Post-hoc Explainability</a>
+                    
+                  </li>
+                
+                  <li>
+                    <a href="../models.html" class="">5. Interpretable Models</a>
+                    
+                  </li>
+                
+                  <li>
+                    <a href="../testing.html" class="">6. Diagnostic Suite</a>
+                    
+                  </li>
+                
+                  <li>
+                    <a href="../comparison.html" class="">7. Model Comparison</a>
+                    
+                  </li>
+                
+                  <li>
+                    <a href="../cases.html" class="">8. Case Studies</a>
+                    
+                  </li>
+                
+                </ul>
+                
+                
+                
+                
+                </ul>
+              </div>
+        </div>
+      </div>
+      <div id="sk-page-content-wrapper">
+        <div class="sk-page-content container-fluid body px-md-3" role="main">
+          
+  <style type="text/css">
+  div.body div.toctree-wrapper ul {
+      padding-left: 0;
+  }
+
+  div.body li.toctree-l1 {
+      padding: 0 0 0.5em 0;
+      list-style-type: none;
+      font-size: 150%;
+      font-weight: bold;
+  }
+
+  div.body li.toctree-l2 {
+      font-size: 70%;
+      list-style-type: square;
+      font-weight: normal;
+      margin-left: 40px;
+  }
+
+  div.body li.toctree-l3 {
+      font-size: 85%;
+      list-style-type: circle;
+      font-weight: normal;
+      margin-left: 40px;
+  }
+
+  div.body li.toctree-l4 {
+      margin-left: 40px;
+  }
+
+</style><section id="ice-individual-conditional-expectation">
+<h1><span class="section-number">4.1.3. </span>ICE (Individual Conditional Expectation)<a class="headerlink" href="#ice-individual-conditional-expectation" title="Permalink to this heading">¶</a></h1>
+<p>Individual Conditional Expectation (ICE) plots <a class="reference internal" href="#g2015" id="id1"><span>[G2015]</span></a> and PDPs both visualize the relationship between a feature of interest and the predicted response. However, ICE plots focus on the dependence of the predicted response on the feature for each instance, while PDPs show the average effect of the feature on the response across all instances in the dataset.</p>
+<section id="algorithm-details">
+<h2><span class="section-number">4.1.3.1. </span>Algorithm Details<a class="headerlink" href="#algorithm-details" title="Permalink to this heading">¶</a></h2>
+<p>Let <span class="math notranslate nohighlight">\(X\)</span> represent the set of input features of a predictor function, and <span class="math notranslate nohighlight">\(\hat{f}\)</span> be a fitted model to be explained. We partition <span class="math notranslate nohighlight">\(X\)</span> into two sets, i.e., <span class="math notranslate nohighlight">\(X_{S}\)</span> (features of interest) and its complement <span class="math notranslate nohighlight">\(X_{C}\)</span>. To be specific, an ICE plot for a feature <span class="math notranslate nohighlight">\(x_{S}\)</span> and an instance <span class="math notranslate nohighlight">\(i\)</span> can be defined as:</p>
+<p>Let <span class="math notranslate nohighlight">\(X\)</span> denote the set of input features for a predictor function, and <span class="math notranslate nohighlight">\(\hat{f}\)</span> be a fitted model that needs to be explained. We partition <span class="math notranslate nohighlight">\(X\)</span> into two subsets, namely <span class="math notranslate nohighlight">\(X_{S}\)</span> (the features of interest) and its complement <span class="math notranslate nohighlight">\(X_{C}\)</span>. Specifically, an ICE plot for a feature <span class="math notranslate nohighlight">\(x_{S}\)</span> and an instance <span class="math notranslate nohighlight">\(i\)</span> is defined as follows:</p>
+<div class="math notranslate nohighlight">
+\[\begin{align}
+ \mathrm{ICE}_{S}^{i}(x_{S}) = \hat{f}(x_{S}, x_{C}^{(i)})
+\end{align}\]</div>
+<p>In PiML, the ICE plot is implemented using the scikit-learn package. For a more detailed analysis of this algorithm, please refer to the documentation available <a class="reference external" href="https://scikit-learn.org/stable/auto_examples/inspection/plot_partial_dependence.html">here</a>.</p>
+</section>
+<section id="usage">
+<h2><span class="section-number">4.1.3.2. </span>Usage<a class="headerlink" href="#usage" title="Permalink to this heading">¶</a></h2>
+<p>Below we still use a fitted XGB2 model on the BikeSharing dataset for illustration. The code snippet below provides an example of how to generate an ICE plot using PiML. The <code class="docutils literal notranslate"><span class="pre">show</span></code> parameter is set to “global_ice”, while the <code class="docutils literal notranslate"><span class="pre">uni_feature</span></code> parameter is set to “hr”. This configuration will produce a line plot, with each line representing an instance in the dataset. The plot shows how the predicted response varies when the value of “hr” changes, while all other features remain constant. By examining the individual lines in the ICE plot, we can better understand how the model makes predictions for each instance in the dataset. We can also identify any patterns or interactions that may be relevant to our analysis.</p>
+<div class="jupyter_cell jupyter_container docutils container">
+<div class="cell_input code_cell docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">exp</span><span class="o">.</span><span class="n">model_explain</span><span class="p">(</span><span class="n">model</span><span class="o">=</span><span class="s2">&quot;XGB2&quot;</span><span class="p">,</span> <span class="n">show</span><span class="o">=</span><span class="s2">&quot;ice&quot;</span><span class="p">,</span> <span class="n">uni_feature</span><span class="o">=</span><span class="s2">&quot;hr&quot;</span><span class="p">,</span> <span class="n">original_scale</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">6</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+</div>
+</div>
+<figure class="align-left">
+<a class="reference external image-reference" href="../../auto_examples/explain/plot_2_ice.html"><img alt="../../_images/sphx_glr_plot_2_ice_001.png" src="../../_images/sphx_glr_plot_2_ice_001.png" /></a>
+</figure>
+<p>From the plot, we observe a similar pattern as the value of <code class="docutils literal notranslate"><span class="pre">hr</span></code> increases for all instances, which is also consistent with the PDP plot generated in the previous section. The predicted values are generally lower when <code class="docutils literal notranslate"><span class="pre">hr</span></code> is less than 4.6. For values of <code class="docutils literal notranslate"><span class="pre">hr</span></code> between 4.6 and 8.3, and between 10 and 18, most of the instances record an increase in prediction as the value of <code class="docutils literal notranslate"><span class="pre">hr</span></code> increases. Apart from that, we also observe that the bandwidth of the predicted response is much larger as <code class="docutils literal notranslate"><span class="pre">hr</span></code> is greater than around 9. This indicates that the rest variables have more contributions to the final prediction during that period of the day.</p>
+</section>
+<section id="examples">
+<h2><span class="section-number">4.1.3.3. </span>Examples<a class="headerlink" href="#examples" title="Permalink to this heading">¶</a></h2>
+<div class="topic">
+<p class="topic-title">Example 1: Bike Sharing</p>
+<blockquote>
+<div><p>The first example below demonstrates how to use PiML with its high-code APIs for developing machine learning models for the BikeSharing data from the UCI repository, which consists of 17,389 samples of hourly counts of rental bikes in Capital bikeshare system; see details. The response <code class="docutils literal notranslate"><span class="pre">cnt</span></code> (hourly bike rental counts) is continuous and it is a regression problem.</p>
+</div></blockquote>
+<ul class="simple">
+<li><p><a class="reference internal" href="../../auto_examples/explain/plot_2_ice.html#sphx-glr-auto-examples-explain-plot-2-ice-py"><span class="std std-ref">Individual Conditional Expectation</span></a></p></li>
+</ul>
+</div>
+<div class="topic">
+<p class="topic-title">References</p>
+<dl class="citation">
+<dt class="label" id="g2015"><span class="brackets"><a class="fn-backref" href="#id1">G2015</a></span></dt>
+<dd><p>Goldstein, Alex, Adam Kapelner, Justin Bleich, and Emil Pitkin.
+<a class="reference external" href="https://www.tandfonline.com/doi/abs/10.1080/10618600.2014.907095">Visualizing statistical learning with plots of individual conditional expectation.</a>,
+Journal of Computational and Graphical Statistics 24, no. 1 (2015): 44-65</p>
+</dd>
+</dl>
+</div>
+</section>
+</section>
+
+
+        </div>
+      <div class="container">
+        <footer class="sk-content-footer">
+              &copy; Copyright 2022-, PiML-Toolbox authors.
+            <a href="../../_sources/guides/explain/ice.rst.txt" rel="nofollow">Show this page source</a>
+        </footer>
+      </div>
+    </div>
+  </div>
+
+
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(false);
+      });
+      
+      const tooltipTriggerList = document.querySelectorAll('[data-bs-toggle="tooltip"]')
+      const tooltipList = [...tooltipTriggerList].map(tooltipTriggerEl => new bootstrap.Tooltip(tooltipTriggerEl))
+  </script>
+
+<script>
+$(document).ready(function() {
+    /* Add a [>>>] button on the top-right corner of code samples to hide
+     * the >>> and ... prompts and the output and thus make the code
+     * copyable. */
+    var div = $('.highlight-python .highlight,' +
+                '.highlight-python3 .highlight,' +
+                '.highlight-pycon .highlight,' +
+		'.highlight-default .highlight')
+    var pre = div.find('pre');
+
+    // get the styles from the current theme
+    pre.parent().parent().css('position', 'relative');
+    var hide_text = 'Hide prompts and outputs';
+    var show_text = 'Show prompts and outputs';
+
+    // create and add the button to all the code blocks that contain >>>
+    div.each(function(index) {
+        var jthis = $(this);
+        if (jthis.find('.gp').length > 0) {
+            var button = $('<span class="copybutton">&gt;&gt;&gt;</span>');
+            button.attr('title', hide_text);
+            button.data('hidden', 'false');
+            jthis.prepend(button);
+        }
+        // tracebacks (.gt) contain bare text elements that need to be
+        // wrapped in a span to work with .nextUntil() (see later)
+        jthis.find('pre:has(.gt)').contents().filter(function() {
+            return ((this.nodeType == 3) && (this.data.trim().length > 0));
+        }).wrap('<span>');
+    });
+
+    // define the behavior of the button when it's clicked
+    $('.copybutton').click(function(e){
+        e.preventDefault();
+        var button = $(this);
+        if (button.data('hidden') === 'false') {
+            // hide the code output
+            button.parent().find('.go, .gp, .gt').hide();
+            button.next('pre').find('.gt').nextUntil('.gp, .go').css('visibility', 'hidden');
+            button.css('text-decoration', 'line-through');
+            button.attr('title', show_text);
+            button.data('hidden', 'true');
+        } else {
+            // show the code output
+            button.parent().find('.go, .gp, .gt').show();
+            button.next('pre').find('.gt').nextUntil('.gp, .go').css('visibility', 'visible');
+            button.css('text-decoration', 'none');
+            button.attr('title', hide_text);
+            button.data('hidden', 'false');
+        }
+    });
+
+	/*** Add permalink buttons next to glossary terms ***/
+	$('dl.glossary > dt[id]').append(function() {
+		return ('<a class="headerlink" href="#' +
+			    this.getAttribute('id') +
+			    '" title="Permalink to this term">¶</a>');
+	});
+  /*** Hide navbar when scrolling down ***/
+  // Returns true when headerlink target matches hash in url
+  (function() {
+    hashTargetOnTop = function() {
+        var hash = window.location.hash;
+        if ( hash.length < 2 ) { return false; }
+
+        var target = document.getElementById( hash.slice(1) );
+        if ( target === null ) { return false; }
+
+        var top = target.getBoundingClientRect().top;
+        return (top < 2) && (top > -2);
+    };
+
+    // Hide navbar on load if hash target is on top
+    var navBar = document.getElementById("navbar");
+    var navBarToggler = document.getElementById("sk-navbar-toggler");
+    var navBarHeightHidden = "-" + navBar.getBoundingClientRect().height + "px";
+    var $window = $(window);
+
+    hideNavBar = function() {
+        navBar.style.top = navBarHeightHidden;
+    };
+
+    showNavBar = function() {
+        navBar.style.top = "0";
+    }
+
+    if (hashTargetOnTop()) {
+        hideNavBar()
+    }
+
+    var prevScrollpos = window.pageYOffset;
+    hideOnScroll = function(lastScrollTop) {
+        if (($window.width() < 768) && (navBarToggler.getAttribute("aria-expanded") === 'true')) {
+            return;
+        }
+        if (lastScrollTop > 2 && (prevScrollpos <= lastScrollTop) || hashTargetOnTop()){
+            hideNavBar()
+        } else {
+            showNavBar()
+        }
+        prevScrollpos = lastScrollTop;
+    };
+
+    /*** high performance scroll event listener***/
+    var raf = window.requestAnimationFrame ||
+        window.webkitRequestAnimationFrame ||
+        window.mozRequestAnimationFrame ||
+        window.msRequestAnimationFrame ||
+        window.oRequestAnimationFrame;
+    var lastScrollTop = $window.scrollTop();
+
+    if (raf) {
+        loop();
+    }
+
+    function loop() {
+        var scrollTop = $window.scrollTop();
+        if (lastScrollTop === scrollTop) {
+            raf(loop);
+            return;
+        } else {
+            lastScrollTop = scrollTop;
+            hideOnScroll(lastScrollTop);
+            raf(loop);
+        }
+    }
+  })();
+});
+
+</script>
+    
+
+<script src="_static/js/vendor/bootstrap.min.js"></script>
+
+</body>
+</html>

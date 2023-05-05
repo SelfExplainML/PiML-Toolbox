@@ -6,7 +6,7 @@
 
 `pip install PiML`
   
-:rocket: **May 4, 2023:**  V0.5.0 is released with PiML user guide.
+:rocket: **May 4, 2023:**  V0.5.0 is released together with PiML user guide.
 
 :rocket: **October 31, 2022:**  V0.4.0 is released with enriched models and enhanced diagnostics.
 

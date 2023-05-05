@@ -151,17 +151,17 @@ PiML toolbox is our new initiative of integrating state-of-the-art methods in in
                 <https://ieeexplore.ieee.org/abstract/document/8731353>`_,
                 In 2019 IEEE 35th International Conference on Data Engineering (ICDE) (pp. 1550-1553). IEEE.
 
-    .. [Apley2016] Daniel W. Apley, Jingyu Zhu. (2016)
+    .. [Apley2016] Daniel W. Apley, Jingyu Zhu (2016).
                 `Visualizing the effects of predictor variables in black box supervised learning models
                 <https://arxiv.org/pdf/1612.08468.pdf>`_,
                 arXiv preprint arXiv:1612.08468.
     
-    .. [Ribeiro2016] Marco Tulio Ribeiro, Sameer Singh, Carlos Guestrin. (2016)
+    .. [Ribeiro2016] Marco Tulio Ribeiro, Sameer Singh, Carlos Guestrin (2016).
                 `Why should i trust you?" Explaining the predictions of any classifier
                 <https://dl.acm.org/doi/abs/10.1145/2939672.2939778>`_,
                 Proceedings of the 22nd ACM SIGKDD international conference on knowledge discovery and data mining.
 
-    .. [Lundberg2017] Lundberg, Scott M., and Su-In Lee. (2017)
+    .. [Lundberg2017] Scott Lundberg, Su-In Lee (2017).
                `A unified approach to interpreting model predictions
                <https://proceedings.neurips.cc/paper/2017/hash/8a20a8621978632d76c43dfd28b67767-Abstract.html>`_,
                Advances in neural information processing systems 30.
@@ -176,7 +176,7 @@ PiML toolbox is our new initiative of integrating state-of-the-art methods in in
                 <https://zenodo.org/record/1476122#.ZFEIeXZBzEY>`_,
                 Zenodo. DOI: 10.5281/zenodo.1208723
 
-    .. [Tan2022] Yan Shuo Tan, Chandan Singh, Keyan Nasseri, Abhineet Agarwal, and Bin Yu (2022). 
+    .. [Tan2022] Yan Shuo Tan, Chandan Singh, Keyan Nasseri, Abhineet Agarwal, Bin Yu (2022). 
                 `Fast interpretable greedy-tree sums (FIGS) <https://arxiv.org/pdf/2201.11931.pdf>`_,
                 arXiv preprint arXiv:2201.11931.
 
@@ -188,7 +188,7 @@ PiML toolbox is our new initiative of integrating state-of-the-art methods in in
                 `Xgboost: extreme gradient boosting
                 <https://cran.microsoft.com/snapshot/2017-12-11/web/packages/xgboost/vignettes/xgboost.pdf>`_, R package version 0.4-2, 1(4), 1-4.
 
-    .. [Sudjianto2020] Agus Sudjianto, William Knauth, Rahul Singh, Zebin Yang, and Aijun Zhang. (2020)
+    .. [Sudjianto2020] Agus Sudjianto, William Knauth, Rahul Singh, Zebin Yang, Aijun Zhang. (2020)
                 `Unwrapping the black box of deep ReLU networks: interpretability, diagnostics, and simplification
                 <https://arxiv.org/pdf/2011.04041.pdf>`_,
                 arXiv preprint arXiv:2011.04041.

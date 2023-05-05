@@ -27,6 +27,87 @@ Split method: PiML supports three different kinds of methods for split training 
    - random: Random split.
    - outer-sample: Split samples based on Euclidean distance between each sample to the mean center. Choose the samples farthest away from the center as the test samples.
    - kmeans: Split samples based on kmeans cluster method. After training kmeans cluster, set the test ratio of each cluster and do the random split in each cluster.
+   - manual: Split samples based on given training and testing sample index.
+
+Here is an example of using the custom sample index to split training testing datasets:
+
+  .. jupyter-input::
+
+      custom_train_idx = np.arange(0,16000)
+      custom_test_idx = np.arange(16000, 17379)
+      exp.data_prepare(train_idx=custom_train_idx, test_idx=custom_test_idx)
+
+.. raw:: html
+
+    <div class="output_subarea output_html rendered_html output_result">
+    <div>
+    <style scoped>
+        .dataframe tbody tr th:only-of-type {
+            vertical-align: middle;
+        }
+
+        .dataframe tbody tr th {
+            vertical-align: top;
+        }
+
+        .dataframe thead th {
+            text-align: right;
+        }
+    </style>
+    <table border="1" class="dataframe">
+      <thead>
+        <tr style="text-align: right;">
+          <th></th>
+          <th>Config</th>
+          <th>Value</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <th></th>
+          <td>Excluded columns</td>
+          <td>[]</td>
+        </tr>
+        <tr>
+          <th></th>
+          <td>Target variable</td>
+          <td>cnt</td>
+        </tr>
+        <tr>
+          <th></th>
+          <td>Sample weight</td>
+          <td>None</td>
+        </tr>
+        <tr>
+          <th></th>
+          <td>Task type</td>
+          <td>Regression</td>
+        </tr>
+        <tr>
+          <th></th>
+          <td>Split method</td>
+          <td>Manual</td>
+        </tr>
+        <tr>
+          <th></th>
+          <td>Test ratio</td>
+          <td>0.079296</td>
+        </tr>
+        <tr>
+          <th></th>
+          <td>Random state</td>
+          <td>0</td>
+        </tr>
+        <tr>
+          <th></th>
+          <td>Train test energy distance</td>
+          <td>0.542358</td>
+        </tr>
+
+      </tbody>
+    </table>
+    </div>
+    </div>
 
 Split ratio: To set how much ratio of data as the test data. When using kmeans method, it can be set as a list of ratios of each cluster.
 
@@ -45,7 +126,7 @@ The energy distance measures the distance between the empirical distribution fun
 where n is the total number of observations in both datasets. The first term represents the contribution of cross-dataset distances, the second term represents the average of within-dataset distances, and the last two terms represent the contributions of within-dataset distances for X and Y, respectively.
 To generalize the distance result, before calculating distance, we did the ordinal encoder for categorical features and 0-1 min max scaler transformation.
 
-For example:
+Here is a complete example of data preparation:
 
    .. jupyter-input::
 

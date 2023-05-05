@@ -199,9 +199,9 @@ correlation graph
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** ( 1 minutes  52.574 seconds)
+   **Total running time of the script:** ( 1 minutes  24.895 seconds)
 
-**Estimated memory usage:**  31 MB
+**Estimated memory usage:**  36 MB
 
 
 .. _sphx_glr_download_auto_examples_data_plot_2_data_eda.py:

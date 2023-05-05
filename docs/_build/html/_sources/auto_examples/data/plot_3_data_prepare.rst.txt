@@ -27,7 +27,7 @@ Display data prepare result using the BikeSharing dataset as example.
 
 Experiment initialization and data preparation
 
-.. GENERATED FROM PYTHON SOURCE LINES 11-17
+.. GENERATED FROM PYTHON SOURCE LINES 11-22
 
 .. code-block:: default
 
@@ -38,6 +38,11 @@ Experiment initialization and data preparation
 
     exp.data_prepare(target='cnt', task_type='Regression', sample_weight=None,
                            split_method='random', test_ratio=0.2, random_state=0)
+
+    import numpy as np
+    custom_train_idx = np.arange(0,16000)
+    custom_test_idx = np.arange(16000, 17379)
+    exp.data_prepare(train_idx=custom_train_idx, test_idx=custom_test_idx)
 
 
 
@@ -54,6 +59,15 @@ Experiment initialization and data preparation
     5                  Test ratio         0.2
     6                Random state           0
     7  Train test energy distance    0.000586
+                           Config       Value
+    0            Excluded columns          []
+    1             Target variable         cnt
+    2               Sample weight        None
+    3                   Task type  Regression
+    4                Split method      Manual
+    5                  Test ratio         0.2
+    6                Random state           0
+    7  Train test energy distance    0.542053
 
 
 
@@ -61,7 +75,9 @@ Experiment initialization and data preparation
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** ( 0 minutes  2.327 seconds)
+   **Total running time of the script:** ( 0 minutes  4.597 seconds)
+
+**Estimated memory usage:**  1260 MB
 
 
 .. _sphx_glr_download_auto_examples_data_plot_3_data_prepare.py:

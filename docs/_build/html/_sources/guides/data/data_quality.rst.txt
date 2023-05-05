@@ -30,7 +30,7 @@ This method is implemented by `IsolationForest`_ from scikit-learn package.
 
 .. _`IsolationForest`: https://scikit-learn.org/stable/modules/generated/sklearn.ensemble.IsolationForest.html
 
-It is based on an ensemble of trees.ExtraTreeRegressor. And the maximum depth of each tree is set to less than :math:`log_{2}(n)` where n is the number of samples used to build the tree (see (Liu et al., 2008) for more details).
+It is based on an ensemble of trees.ExtraTreeRegressor. And the maximum depth of each tree is set to less than :math:`log_{2}(n)` where n is the number of samples used to build the tree (see [Liu2008]_ for more details).
 
 
 Cluster-Based Local Outlier Factor
@@ -128,3 +128,8 @@ The full example codes of this section can be found in the following link.
 .. topic:: Example
 
 	* :ref:`sphx_glr_auto_examples_data_plot_4_data_quality.py`
+
+
+.. topic:: References
+
+    .. [Liu2008] Fei Tony Liu; Kai Ming Ting; Zhi-Hua Zhou (2008). `Isolation Forest <https://ieeexplore.ieee.org/abstract/document/4781136>`_, 2008 Eighth IEEE International Conference on Data Mining, Pisa, Italy, 2008, pp. 413-422, doi: 10.1109/ICDM.2008.17.

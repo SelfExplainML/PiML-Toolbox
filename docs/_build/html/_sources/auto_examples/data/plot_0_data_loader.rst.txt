@@ -95,9 +95,9 @@ Experiment initialization and data preparation
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** ( 0 minutes  12.248 seconds)
+   **Total running time of the script:** ( 0 minutes  11.791 seconds)
 
-**Estimated memory usage:**  22 MB
+**Estimated memory usage:**  21 MB
 
 
 .. _sphx_glr_download_auto_examples_data_plot_0_data_loader.py:

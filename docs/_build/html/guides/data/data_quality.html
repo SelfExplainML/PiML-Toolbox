@@ -260,7 +260,7 @@ In PiML, we only focus on the outliers of the dataset. We support four different
 This path length averaged over a forest of such random trees, is a measure of normality and our decision function.
 Random partitioning produces noticeably shorter paths for anomalies. Hence, when a forest of random trees collectively produces shorter path lengths for particular samples, they are highly likely to be anomalies.</p>
 <p>This method is implemented by <a class="reference external" href="https://scikit-learn.org/stable/modules/generated/sklearn.ensemble.IsolationForest.html">IsolationForest</a> from scikit-learn package.</p>
-<p>It is based on an ensemble of trees.ExtraTreeRegressor. And the maximum depth of each tree is set to less than <span class="math notranslate nohighlight">\(log_{2}(n)\)</span> where n is the number of samples used to build the tree (see (Liu et al., 2008) for more details).</p>
+<p>It is based on an ensemble of trees.ExtraTreeRegressor. And the maximum depth of each tree is set to less than <span class="math notranslate nohighlight">\(log_{2}(n)\)</span> where n is the number of samples used to build the tree (see <a class="reference internal" href="#liu2008" id="id1"><span>[Liu2008]</span></a> for more details).</p>
 </section>
 <section id="cluster-based-local-outlier-factor">
 <h3><span class="section-number">2.5.1.2. </span>Cluster-Based Local Outlier Factor<a class="headerlink" href="#cluster-based-local-outlier-factor" title="Permalink to this heading">¶</a></h3>
@@ -370,6 +370,14 @@ Here is an example of comparing different methods:</p>
 <ul class="simple">
 <li><p><a class="reference internal" href="../../auto_examples/data/plot_4_data_quality.html#sphx-glr-auto-examples-data-plot-4-data-quality-py"><span class="std std-ref">Data Quality Check</span></a></p></li>
 </ul>
+</div>
+<div class="topic">
+<p class="topic-title">References</p>
+<dl class="citation">
+<dt class="label" id="liu2008"><span class="brackets"><a class="fn-backref" href="#id1">Liu2008</a></span></dt>
+<dd><p>Fei Tony Liu; Kai Ming Ting; Zhi-Hua Zhou (2008). <a class="reference external" href="https://ieeexplore.ieee.org/abstract/document/4781136">Isolation Forest</a>, 2008 Eighth IEEE International Conference on Data Mining, Pisa, Italy, 2008, pp. 413-422, doi: 10.1109/ICDM.2008.17.</p>
+</dd>
+</dl>
 </div>
 </section>
 </section>

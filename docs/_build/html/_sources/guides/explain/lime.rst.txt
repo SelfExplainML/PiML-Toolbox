@@ -4,13 +4,11 @@
 
 .. include:: ../../includes/big_toc_css.rst
 
-
 ======================================================
 LIME (Local Interpretable Model-Agnostic Explanation)
 ======================================================
 
-LIME (Local Interpretable Model-Agnostic Explanation; [Ribeiro2016]_) is an model agnostic explanation tool. It does so by creating a surrogate interpretable model, such as a Lasso or decision tree, to explain how the original model makes predictions for a given input sample. 
-
+LIME (Local Interpretable Model-Agnostic Explanation; [Ribeiro2016]_) is a model agnostic explanation tool. It does so by creating a surrogate interpretable model, such as a Lasso or decision tree, to explain how the original model makes predictions for a given input sample. 
 
 
 Algorithm Details
@@ -29,10 +27,9 @@ The PiML implementation of LIME is based on the `LIME`_ package. For binary clas
   The explanation of two very close points varied greatly in a simulated setting. In addition, the randomness during the sampling may lead to different LIME interpretations if we repeat the sampling process. Therefore, we must use our judgment to see if the result makes sense. 
 
 
-
 Usage
 ^^^^^^^^^^^^^^^^^
-LIME explanation is also integrated in the `model_explain` function of PiML, with the keyword is "lime" for the argument `show`. Below, we will demonstrate how to use LIME to explain the first training sample (`sample_id=0`) of a fitted XGB2 model on the BikeSharing dataset. In partiular, we compare the centered and uncerterd results by setting `centered` to True and False, respectively.
+The LIME explanation is also integrated into the `model_explain` function of PiML, with the keyword "lime" for the argument `show`. Below, we will demonstrate how to use LIME to explain the first training sample (`sample_id=0`) of a fitted XGB2 model on the BikeSharing dataset. In particular, we compare the centered and uncentered results by setting `centered` to True and False, respectively.
 
 **Uncentered predictors**
 
@@ -45,10 +42,9 @@ LIME explanation is also integrated in the `model_explain` function of PiML, wit
    :target: ../../auto_examples/explain/plot_4_lime.html
    :align: left
 
-This plot is similar to the local interpretation of `GLM`_, as we use Lasso as the surrogate model. It shows the linear regression coefficients and marginal effects of the top-10 features (with feature values on the right axis) that contributes to the prediction of bike counts. The `Weight` represents the regression coefficients, and `Effect` represents the marginal effects. From top to bottom, `hr` contributes the most to the prediction of bike counts, followed by `atemp`, then `hum` and so on. Note that this plot only shows the top-10 features with the largest contributions. To get the full results, you can set the parameter `return_data` to True.
+This plot is similar to the local interpretation of `GLM`_, as we use Lasso as the surrogate model. It shows the linear regression coefficients and marginal effects of the top-10 features (with feature values on the right axis) that contribute to the prediction of bike counts. The `Weight` represents the regression coefficients, and `Effect` represents the marginal effects. From top to bottom, `hr` contributes the most to the prediction of bike counts, followed by `atemp`, then `hum`, and so on. Note that this plot only shows the top 10 features with the largest contributions. To get the full results, you can set the parameter `return_data` to True.
 
 .. _GLM: glm.html#local-interpretation
-
 
 **Centered predictors**
 
@@ -64,7 +60,6 @@ Centering is crucial when group effects are of interest and can be done by subtr
    :align: left
 
 By centering the data and calculating the marginal effects, the model itself remains unchanged, but the interpretation of the marginal effects may change significantly, as we are essentially comparing the contribution of each feature to the average population, rather than the individual sample values. For instance, `hr` has a large contribution to the prediction in the uncentered data. However, when the data is centered, its contribution becomes negligible. This is because the feature value of this sample (11 am) is close to the population mean, and its contribution is now mainly captured by the intercept term.
-
 
 
 Examples

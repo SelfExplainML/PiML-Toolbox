@@ -249,8 +249,8 @@
 </style><section id="fairness">
 <h1><span class="section-number">6.7. </span>Fairness<a class="headerlink" href="#fairness" title="Permalink to this heading">¶</a></h1>
 <p>Fairness is the model’s quality or state of being fair or impartial. Decisions made by computers after a machine-learning process may be considered unfair if they were based on variables considered sensitive.
-Examples of these kinds of variables include gender, ethnicity, sexual orientation, disability and more.</p>
-<p>In this section, the model fairness test will be introduced. For demonstration purposes, we run the following example codes to initialize a PiML experiment for the Credit Simulation dataset. In the model training process, we cannot use demographic features like “Race” and “Gender”. So we need to remove them from training data. We use monotonic depth 2 xgboost to train the data.</p>
+Examples of these kinds of variables include gender, ethnicity, sexual orientation, disability, and more.</p>
+<p>In this section, the model fairness test will be introduced. For demonstration purposes, we run the following example codes to initialize a PiML experiment for the Credit Simulation dataset. In the model training process, we cannot use demographic features like “Race” and “Gender”. So we need to remove them from the training data. We use monotonic depth 2 xgboost to train the data.</p>
 <section id="fairness-metric">
 <h2><span class="section-number">6.7.1. </span>Fairness Metric<a class="headerlink" href="#fairness-metric" title="Permalink to this heading">¶</a></h2>
 <p>PIML support showing the fairness result for different metrics.</p>
@@ -262,7 +262,7 @@ Examples of these kinds of variables include gender, ethnicity, sexual orientati
 \[\begin{align}
 AIR = \frac{(TP_{p}+FN_{p}) / n_{r}}{(TP_{r}+FN_{r}) / n_{p}}
 \end{align}\]</div>
-<p>The value of <span class="math notranslate nohighlight">\(TP\)</span>, <span class="math notranslate nohighlight">\(FN\)</span>, <span class="math notranslate nohighlight">\(n\)</span> refers to the count of True Positive samples, False negative samples and all samples,
+<p>The value of <span class="math notranslate nohighlight">\(TP\)</span>, <span class="math notranslate nohighlight">\(FN\)</span>, <span class="math notranslate nohighlight">\(n\)</span> refers to the count of True Positive samples, False negative samples, and all samples,
 respectively. The <span class="math notranslate nohighlight">\(p\)</span> and <span class="math notranslate nohighlight">\(r\)</span> refers to the group samples belong to.</p>
 <ul class="simple">
 <li><p>“SMD”: Standardized mean difference. (Usually used for continuous response)</p></li>
@@ -313,7 +313,7 @@ Recall Ratio = \frac{(TP_{p}) / (TP_{p}+FN_{p})}{(TP_{r}) / (TP_{r}+FN_{r})}
 </section>
 <section id="fairness-segmented">
 <h2><span class="section-number">6.7.2. </span>Fairness Segmented<a class="headerlink" href="#fairness-segmented" title="Permalink to this heading">¶</a></h2>
-<p>PIML also supports showing the segmented fairness result for different metrics. Given the segmented features and the number of bins, if the feature is categorical, the samples will be segmented according to the unique categories of the feature. And if the feature is continuous, the samples will be segmented by the equal space binning method. After binning, PIML will show the fairness result in each bucket. The metric types in this section are the same as in the “Fairness Metric” section. In PIML, you can use <code class="docutils literal notranslate"><span class="pre">model_fairness`</span></code> API to get the segmented metric result, as follows,</p>
+<p>PIML also supports showing the segmented fairness result for different metrics. Given the segmented features and the number of bins, if the feature is categorical, the samples will be segmented according to the unique categories of the feature. And if the feature is continuous, the samples will be segmented by the equal space binning method. After binning, PIML will show the fairness result in each bucket. The metric types in this section are the same as in the “Fairness Metric” section. In PIML, you can use the <code class="docutils literal notranslate"><span class="pre">model_fairness</span></code> API to get the segmented metric result, as follows,</p>
 <div class="jupyter_cell jupyter_container docutils container">
 <div class="cell_input code_cell docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">segmented_result</span> <span class="o">=</span> <span class="n">exp</span><span class="o">.</span><span class="n">model_fairness</span><span class="p">(</span><span class="n">model</span><span class="o">=</span><span class="s2">&quot;XGB2_monotonic&quot;</span><span class="p">,</span> <span class="n">show</span><span class="o">=</span><span class="s2">&quot;segmented&quot;</span><span class="p">,</span> <span class="n">metric</span><span class="o">=</span><span class="s2">&quot;AIR&quot;</span><span class="p">,</span> <span class="n">segmented_feature</span><span class="o">=</span><span class="s2">&quot;Balance&quot;</span><span class="p">,</span>
@@ -342,7 +342,7 @@ which means the data is segmented into 5 buckets by feature <code class="docutil
 <p>PIML supports binning the data to adjust the fairness and performance results.
 Different from the “Fairness Segmented” section, there is not only segmenting the data to show metrics but also changing the data to get better predictions.
 The fairness and Performance metric types in this section are the same as the “Fairness Thresholding” section.</p>
-<p>There are three binning methods, <code class="docutils literal notranslate"><span class="pre">quantile</span></code>, <code class="docutils literal notranslate"><span class="pre">uniform</span></code> and <code class="docutils literal notranslate"><span class="pre">customize</span></code>.</p>
+<p>There are three binning methods, <code class="docutils literal notranslate"><span class="pre">quantile</span></code>, <code class="docutils literal notranslate"><span class="pre">uniform</span></code>, and <code class="docutils literal notranslate"><span class="pre">customize</span></code>.</p>
 <blockquote>
 <div><ul class="simple">
 <li><p>Quantile binning: Assign the same number of observations to each bin.</p></li>
@@ -404,7 +404,7 @@ the fairness and performance result to get a better trade-off result. This funct
 <figure class="align-center">
 <a class="reference external image-reference" href="../../auto_examples/testing/plot_6_fairness.html"><img alt="../../_images/sphx_glr_plot_6_fairness_004.png" src="../../_images/sphx_glr_plot_6_fairness_004.png" /></a>
 </figure>
-<p>where the keyword here is <code class="docutils literal notranslate"><span class="pre">thresholding</span></code>. The <code class="docutils literal notranslate"><span class="pre">favorable_threshold</span></code> is the classification threshold value, which controls the dashed line position in the plots. The two y axes is controlled by <code class="docutils literal notranslate"><span class="pre">metric</span></code> and <code class="docutils literal notranslate"><span class="pre">performance_metric</span></code>, respectively. If <code class="docutils literal notranslate"><span class="pre">return_data</span></code> is true, the output results include:</p>
+<p>where the keyword here is <code class="docutils literal notranslate"><span class="pre">thresholding</span></code>. The <code class="docutils literal notranslate"><span class="pre">favorable_threshold</span></code> is the classification threshold value, which controls the dashed line position in the plots. The two y axes are controlled by <code class="docutils literal notranslate"><span class="pre">metric</span></code> and <code class="docutils literal notranslate"><span class="pre">performance_metric</span></code>, respectively. If <code class="docutils literal notranslate"><span class="pre">return_data</span></code> is true, the output results include:</p>
 <ul class="simple">
 <li><p>The plot of the fairness metric and performance metric results with a different threshold for each group.</p></li>
 <li><p>The detailed table of fairness metric and performance metric results with a different threshold for each group.</p></li>

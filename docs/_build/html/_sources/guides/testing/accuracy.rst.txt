@@ -13,7 +13,6 @@ This section serves as a user guide for utilizing PiML to assess the performance
 .. _sklearn_metrics: https://scikit-learn.org/stable/modules/model_evaluation.html
 
 
-
 Regression Tasks 
 ^^^^^^^^^^^^^^^^^^^^^^
 Available metrics for regression tasks include mean squared error (MSE), mean absolute error (MAE), and R-squared (R2).
@@ -38,7 +37,6 @@ Available metrics for regression tasks include mean squared error (MSE), mean ab
    \begin{align}
        R2 = 1-\frac{\sum_{i=1}^{n}(y_{i} - \hat{y}_{i})^{2} } {\sum_{i=1}^{n}(y_{i} - \bar{y})^{2} }\tag{3}
    \end{align}
-
 
 Accuracy Table
 """"""""""""""""""""
@@ -102,16 +100,15 @@ By setting `show` to "accuracy_table", we can generate a summary table for diffe
       </tbody>
     </table>
 
-In this table, we show the metrics for train and test sets, respectively, as well as the gap between these two sets. A good model is characterized by a low MAE or MSE (close to zero) and R2 value close to 1. Ideally, the gap should be small, indicating that the model is not overfitting. Note that the value of R2 is always between 0 and 1 for training set. However, it is possible to have negative values for testing set.
-
+In this table, we show the metrics for train and test sets, respectively, as well as the gap between these two sets. A good model is characterized by a low MAE or MSE (close to zero) and an R2 value close to 1. Ideally, the gap should be small, indicating that the model is not overfitting. Note that the value of R2 is always between 0 and 1 for the training set. However, it is possible to have negative values for the testing set.
 
 Residual Plot
 """"""""""""""""""""
-Residual is the difference between the actual response and the predicted response values. A residual plot displays the relationship of residuals against a feature of interest. The ideal residual plot, called the null residual plot, shows a random scatter of points forming an approximately constant-width band around the identity line. In PiML, we can generate residual plots for the testing set by setting `show` to "residual_plot" and specifying the `target_feature` of interest, as shown below. In addition, we can also set `original_scale` to True to display the residual values in the original scale. And the argument `use_test` (default=False means using training set) can be set to True to use the testing set for generating the residual plot.
+Residual is the difference between the actual response and the predicted response values. A residual plot displays the relationship of residuals against a feature of interest. The ideal residual plot called the null residual plot, shows a random scatter of points forming an approximately constant-width band around the identity line. In PiML, we can generate residual plots for the testing set by setting `show` to "residual_plot" and specifying the `target_feature` of interest, as shown below. In addition, we can also set `original_scale` to True to display the residual values in the original scale. And the argument `use_test` (default=False means using training set) can be set to True to use the testing set for generating the residual plot.
 
 **Numerical Features**
 
-The first example below displays the residual plot for a numerical feature, i.e., `hr`, which is a line chart. Upon analyzing the plot, it becomes apparent that there is a notable heterogeneity in the residuals across different hours of the day. Specifically, the range of residuals observed during rush hours is significantly greater than that of non-peak hours. That is reasonable as the demand for bike sharing is much higher during rush hours than non-peak hours, and it is relatively hard to make predictions for rush hours.
+The first example below displays the residual plot for a numerical feature, i.e., `hr`, which is a line chart. Upon analyzing the plot, it becomes apparent that there is a notable heterogeneity in the residuals across different hours of the day. Specifically, the range of residuals observed during rush hours is significantly greater than that of non-peak hours. That is reasonable as the demand for bike sharing is much higher during rush hours than during non-peak hours, and it is relatively hard to make predictions for rush hours.
 
 .. jupyter-input::
    
@@ -162,14 +159,13 @@ Finally, the residual plot against the predicted values is shown below. To gener
    :align: left 
 
 
-
 Binary Classification
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 For binary classification tasks, the following metrics are available. 
 
 - **Accuracy-score (ACC)**: The accuracy score is a widely used metric for evaluating classification models, computed by dividing the number of correctly classified samples by the total number of samples. However, when dealing with imbalanced datasets, accuracy alone may not be the best metric to evaluate model performance. In such cases, we need to consider additional metrics such as AUC and F1-score.
 
-- **Area Under the ROC Curve (AUC)**: is a valuable metric for summarizing the performance of a classifier. Its values range from 0 to 1, with a model whose predictions are entirely incorrect having an AUC of 0.0, and a model whose predictions are entirely accurate having an AUC of 1.0. A random classifier would have an AUC of approximately 0.5, indicating that it is no better than guessing. AUC provides a helpful measure of how well the classifier distinguishes between positive and negative classes and can be used to compare the performance of different models.
+- **Area Under the ROC Curve (AUC)**: is a valuable metric for summarizing the performance of a classifier. Its values range from 0 to 1, with a model whose predictions are entirely incorrect having an AUC of 0.0 and a model whose predictions are entirely accurate having an AUC of 1.0. A random classifier would have an AUC of approximately 0.5, indicating that it is no better than guessing. AUC provides a helpful measure of how well the classifier distinguishes between positive and negative classes and can be used to compare the performance of different models.
 
 - **F1-score (F1)**: The F1 score is the harmonic mean of precision and recall, as follows.
 
@@ -177,7 +173,6 @@ For binary classification tasks, the following metrics are available.
    \begin{align}
       F1 = 2\frac{Precision \cdot Recall}{Precision+Recall}=\frac{2TP}{2TP+FP+FN} \tag{4}
    \end{align}
-
 
 Accuracy Table
 """"""""""""""""""""
@@ -253,12 +248,11 @@ The accuracy table for a binary classification task includes three metrics, i.e.
     </div>
     </div>
 
-The table resembles that of regression tasks, but instead uses "ACC", "AUC", and "F1" metrics for binary classification. In all cases, a larger value indicates a better model. The "Gap" column shows the difference between the training and testing metrics, with a smaller gap indicating less overfitting and a more reliable model.
-
+The table resembles that of regression tasks but instead uses "ACC", "AUC", and "F1" metrics for binary classification. In all cases, a larger value indicates a better model. The "Gap" column shows the difference between the training and testing metrics, with a smaller gap indicating less overfitting and a more reliable model.
 
 Residual Plot
 """"""""""""""""""""
-This plot shows prediction residual against a variable of interest. Similar to the residual plot of regression tasks, we set parameter `show` to "residual_plot" and also input the feature name in `target_feature`.
+This plot shows the prediction residual against a variable of interest. Similar to the residual plot of regression tasks, we set the parameter `show` to "residual_plot" and also input the feature name in `target_feature`.
 
 .. jupyter-input::
       
@@ -269,11 +263,10 @@ This plot shows prediction residual against a variable of interest. Similar to t
    :target: ../../auto_examples/testing/plot_0_accuracy_cls.html
    :align: left
 
-This plot shows the absoluate difference between the predicted probability and the actual response (0 or 1). As the response variable is binary, we plot the absoluate residuals for class 0 and class 1 separately. Moreover, a smoothing curve is added for each class, which is estimated by the locally weighted scatterplot smoothing (Lowess_) estimator. Note that the feature of interest can be either input feature, the response variable, or the predicted probability. See the example in the regression_ task above for more details.
+This plot shows the absolute difference between the predicted probability and the actual response (0 or 1). As the response variable is binary, we plot the absolute residuals for class 0 and class 1 separately. Moreover, a smoothing curve is added for each class, which is estimated by the locally weighted scatterplot smoothing (Lowess_) estimator. Note that the feature of interest can be either the input feature, the response variable, or the predicted probability. See the example in the regression_ task above for more details.
 
 .. _Lowess: https://en.wikipedia.org/wiki/Local_regression
 .. _regression: accuracy.html#residual-plot
-
 
 Accuracy Plot
 """"""""""""""""""""
@@ -294,7 +287,6 @@ To evaluate the performance of a binary classification model, we present an addi
 - The right panel displays the precision-recall curve, a useful measure for evaluating models when classes are imbalanced. High recall but low precision means that the model is correctly identifying a large number of positive instances (true positives), but it also includes many irrelevant instances. In contrast, low recall but high precision means that the model is correctly identifying a smaller proportion of positive instances (true positives), but the instances it identifies as positive are more likely to be true positives. This plot helps determine the optimal threshold for classifying instances and assessing the tradeoff between precision and recall.
 
 
-
 Examples
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
     
@@ -309,4 +301,3 @@ Examples
   The second example below demonstrates how to use PiML’s high-code APIs for the TaiwanCredit dataset from the UCI repository. This dataset comprises the credit card details of 30,000 clients in Taiwan from April 2005 to September 2005, and more information can be found on the TaiwanCreditData website. The data can be loaded directly into PiML, although it requires some preprocessing. The FlagDefault variable serves as the response for this classification problem.
     
  * :ref:`sphx_glr_auto_examples_testing_plot_0_accuracy_cls.py`
-    

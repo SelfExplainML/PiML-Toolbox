@@ -8,8 +8,7 @@
 ReLU Neural Network
 ===================================================
 
-In the field of deep learning, deep neural networks (DNNs) that use rectified linear unit (ReLU) activation functions have achieved remarkable success. Due to its simple functional form, ReLU offers many appealing properties, such as a fast convergence rate, excellent predictive performance, and intrinsic interpretability. In this section, we will give a brief overview of the ReLU-DNN model and how it is used in PiML.
-
+In the field of deep learning, deep neural networks (DNNs) that use the rectified linear unit (ReLU) activation functions have achieved remarkable success. Due to its simple functional form, ReLU offers many appealing properties, such as a fast convergence rate, excellent predictive performance, and intrinsic interpretability. In this section, we will give a brief overview of the ReLU-DNN model and how it is used in PiML.
 
 Model Formulation
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -37,7 +36,6 @@ Finally, the output layer (i.e., the layer :math:`L + 1`) is given by
 
 where :math:`\textbf{b}^{(L)}` is the bias of the output layer, and :math:`\sigma` is the activation function, which can be identity (regression) or sigmoid (binary classification).
 
-
 Local Linear Models 
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
@@ -48,11 +46,11 @@ Despite the complex model form, the black box of deep ReLU networks can be unwra
 The length of the activation pattern is :math:`\sum_{i=1}^L n_l`, i.e., the total number of hidden neurons in the network. Each sample :math:`\textbf{x}` corresponds to a particular activation pattern of the form
 
 .. math::
-	\begin{equation}
-		C(\textbf{x}) = [C^{(1)}(\textbf{x}); \ldots; C^{(L)}(\textbf{x})].
-	\end{equation}
+   \begin{equation}
+      C(\textbf{x}) = [C^{(1)}(\textbf{x}); \ldots; C^{(L)}(\textbf{x})].
+   \end{equation}
 
-Data points that exhibit the same activation pattern can be grouped together, and their input-output relationship can be simplified using a linear model, known as the local linear model (LLM). By disentangling the network, an equivalent set of LLMs can be obtained.
+Data points that exhibit the same activation pattern can be grouped, and their input-output relationship can be simplified using a linear model, known as the local linear model (LLM). By disentangling the network, an equivalent set of LLMs can be obtained.
 
 .. math::
    \begin{align} 
@@ -63,17 +61,16 @@ where :math:`\tilde{\textbf{w}}^{C(\textbf{x})}` and :math:`\tilde{b}^{C(\textbf
 
 .. _Aletheia: https://github.com/SelfExplainML/Aletheia
 
-
 Model Training
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-In this section, we demonstrate how to train a ReLU-DNN model using PiML. Assume the data is already prepared, then the ReLU-DNN model can be imported and fitted using PiML's built-in workflow, as shown below.
+In this section, we demonstrate how to train a ReLU-DNN model using PiML. Assuming the data is already prepared, then the ReLU-DNN model can be imported and fitted using PiML's built-in workflow, as shown below.
 
 .. jupyter-input::
-	 
+    
     from piml.models import ReluDNNClassifier
     exp.model_train(model=ReluDNNClassifier(hidden_layer_sizes=(40, 40), l1_reg=0.0002, learning_rate=0.001),
-				        name="ReLUDNN")
+                    name="ReLUDNN")
 
 Below we briefly introduce some of the most important hyperparameters in the ReLU-DNN model. 
 
@@ -89,7 +86,6 @@ For the full list of hyperparameters, please see the API of `ReluDNNRegressor`_ 
 
 .. _ReluDNNClassifier: ../../modules/generated/piml.models.ReluDNNClassifier.html
 
-
 Global Interpretation
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
@@ -101,8 +97,8 @@ LLM Summary Table
 In `exp.model_interpret`, we can set the parameter `show` to "llm_summary" to get the summary statistics for each LLM. 
 
 .. jupyter-input::
-	
-	exp.model_interpret(model="ReLUDNN", show="llm_summary")
+   
+   exp.model_interpret(model="ReLUDNN", show="llm_summary")
 
 In the summary table above, each row represents an LLM with the following statistics.
  
@@ -111,8 +107,7 @@ In the summary table above, each row represents an LLM with the following statis
  * `Local AUC`: The local performance of this LLM in its local region
  * `Global AUC`: The global performance when using this LLM for all training samples
 
-Such information can help model developers to have a better understanding of the fitted ReLU-DNN model. For example, the first row indicates that the largest LLM has 5153 training samples, with an average response value of 0.105570, local AUC of 0.584421, and global AUC of 0.735054. From the results, we find that this LLM's global performance is even better than its local performance, and a simpler model like GLM may be good enough.  
-
+Such information can help model developers to have a better understanding of the fitted ReLU-DNN model. For example, the first row indicates that the largest LLM has 5153 training samples, with an average response value of 0.105570, a local AUC of 0.584421, and a global AUC of 0.735054. From the results, we find that this LLM's global performance is even better than its local performance, and a simpler model like GLM may be good enough.  
 
 Parallel Coordinate Plot 
 """""""""""""""""""""""""""""""""
@@ -129,13 +124,11 @@ The parallel coordinate plot can be used by setting `show` to "llm_pc".
 
 This plot is used for visualizing coefficients of different LLMs, where each line represents a single LLM. The x-axis shows feature names and the y-axis shows the coefficient values. As this is a static plot, we only plot the top 10 important features, see the `Feature Importance Plot` section for details. From the figure above, we can see that `Pay_1` is the most important feature, with a wide range of coefficient values. The second and the third important variables are `PAY_AMT1` and `PAY_3`, respectively. 
 
-
 In general, this plot can be roughly interpreted in the following way.
 
 - A feature is important when most of its coefficients (absolute values) are large. A feature is shown to have a monotonic increasing effect if all of its coefficients are positive and vice versa. 
 - When most of the coefficients of a feature are close to zero, it is implied that this feature is trivial and probably can be removed. 
 - When the range of the coefficients of a feature is large, it is implied that this feature may have a nonlinear effect on the final prediction.
-
 
 LLM Violin Plot
 """"""""""""""""""""""""""""""""
@@ -144,7 +137,7 @@ The violin plot corresponds to the keyword "llm_violin".
 
 .. jupyter-input::
 
-	exp.model_interpret(model="ReLUDNN", show="llm_violin", figsize=(5, 4))                            
+   exp.model_interpret(model="ReLUDNN", show="llm_violin", figsize=(5, 4))                            
 
 .. figure:: ../../auto_examples/models/images/sphx_glr_plot_8_reludnn_cls_002.png
    :target: ../../auto_examples/models/plot_plot_8_reludnn_cls.html
@@ -152,15 +145,14 @@ The violin plot corresponds to the keyword "llm_violin".
 
 Similar to the parallel coordinate plot, this plot shows the LLM coefficient distribution per feature weighted by the sample size of each LLM.
 
-
 Feature Importance Plot
 """""""""""""""""""""""""""""""""
 
 This global feature importance plot (with the keyword "global_fi") visualizes the most important features in descending order.
 
 .. jupyter-input::
-	
-	exp.model_interpret(model="ReLUDNN", show="global_fi", figsize=(5, 4))
+   
+   exp.model_interpret(model="ReLUDNN", show="global_fi", figsize=(5, 4))
 
 .. figure:: ../../auto_examples/models/images/sphx_glr_plot_8_reludnn_cls_003.png
    :target: ../../auto_examples/models/plot_plot_8_reludnn_cls.html
@@ -168,22 +160,20 @@ This global feature importance plot (with the keyword "global_fi") visualizes th
 
 To calculate the feature importance, we first calculate the squared sum of LLM coefficients per feature; then the importance values are normalized such that their sum equals one.
 
-
 LLM profile plot
 """"""""""""""""""""""""""""""""
 
-The local linear profile plot (with keyword "global_effect_plot") shows the marginal linear functions upon centering, and it should be used together with the parameter `uni_feature`.
+The local linear profile plot (with the keyword "global_effect_plot") shows the marginal linear functions upon centering, and it should be used together with the parameter `uni_feature`.
 
 .. jupyter-input::
 
-	exp.model_interpret(model="ReLUDNN", show="global_effect_plot", uni_feature="PAY_1", original_scale=True, figsize=(5, 4))
+   exp.model_interpret(model="ReLUDNN", show="global_effect_plot", uni_feature="PAY_1", original_scale=True, figsize=(5, 4))
 
 .. figure:: ../../auto_examples/models/images/sphx_glr_plot_8_reludnn_cls_004.png
    :target: ../../auto_examples/models/plot_plot_8_reludnn_cls.html
    :align: left
 
 In this plot, each line represents an LLM. The x-axis shows unique values of the specified feature (`PAY_1` in this example), and the y-axis is the marginal effect (coefficient times feature values) of that feature. To make this plot more elegant, we only visualize the top 30 LLMs and the marginal effects are all de-meaned. 
-
 
 LLM pairwise plot
 """"""""""""""""""""""""""""""""
@@ -192,15 +182,14 @@ This plot also uses the keyword "global_effect_plot", and it will be triggered a
 
 .. jupyter-input::
 
-	exp.model_interpret(model="ReLUDNN", show="global_effect_plot", bi_features=["PAY_1", "PAY_3"], original_scale=True, figsize=(5, 4))
+   exp.model_interpret(model="ReLUDNN", show="global_effect_plot", bi_features=["PAY_1", "PAY_3"], original_scale=True, figsize=(5, 4))
 
 .. figure:: ../../auto_examples/models/images/sphx_glr_plot_8_reludnn_cls_005.png
    :target: ../../auto_examples/models/plot_plot_8_reludnn_cls.html
    :align: left
 
 The plot above consists of 2 * 2 subplots, which are used to show how the coefficient would change as the feature value changes.
-In particular, each point represents an LLM, and the x-axis is calculated as the average of samples belonging to that LLM. The diagonal subplots show the main effect of the selected two features, and the off-diagonal subplots show the interaction effects.	
-
+In particular, each point represents an LLM, and the x-axis is calculated as the average of samples belonging to that LLM. The diagonal subplots show the main effect of the selected two features, and the off-diagonal subplots show the interaction effects.   
 
 Local Interpretation
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -214,8 +203,8 @@ This plot is similar to that of GLM, see the local interpretation of `GLM`_.
 .. _GLM: glm.html#local-interpretation
 
 .. jupyter-input::
-	
-	exp.model_interpret(model="ReLUDNN", show="local_fi", sample_id=0, centered=False, original_scale=True, figsize=(5, 4))
+   
+   exp.model_interpret(model="ReLUDNN", show="local_fi", sample_id=0, centered=False, original_scale=True, figsize=(5, 4))
 
 .. figure:: ../../auto_examples/models/images/sphx_glr_plot_8_reludnn_cls_006.png
    :target: ../../auto_examples/models/plot_plot_8_reludnn_cls.html
@@ -225,14 +214,13 @@ The definition of `Weight` and `Effect` can be found in the introduction for GLM
 
 .. jupyter-input::
 
-	exp.model_interpret(model="ReLUDNN", show="local_fi", sample_id=0, centered=True, original_scale=True, figsize=(5, 4))
+   exp.model_interpret(model="ReLUDNN", show="local_fi", sample_id=0, centered=True, original_scale=True, figsize=(5, 4))
 
 .. figure:: ../../auto_examples/models/images/sphx_glr_plot_8_reludnn_cls_007.png
    :target: ../../auto_examples/models/plot_plot_8_reludnn_cls.html
    :align: left
 
 After centering, we find that `PAY_3` contributes the most to the final prediction, while `PAY_1` is still the most sensitive feature.
-
 
 Examples
 ^^^^^^^^^^^
@@ -247,7 +235,7 @@ Examples
          y(x) = 10\ \sin(\pi x_{0} x_{1}) + 20 (x_{2} - 0.5)^{2} + 10 x_{3} + 5 x_{4} + \epsilon.
       \end{align}
 
-   Out of the n_features features, only 5 are actually used to compute y. The remaining features are independent of y.
+   Out of the n_features features, only 5 are used to compute y. The remaining features are independent of y.
 
  * :ref:`sphx_glr_auto_examples_models_plot_8_reludnn_reg.py`
 

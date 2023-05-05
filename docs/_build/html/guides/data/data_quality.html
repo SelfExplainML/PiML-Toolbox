@@ -318,11 +318,16 @@ the homogeneity of the data is increased after clustering which could improve th
 <p>After getting the scores of each outlier detection method, we need to choose a proper threshold to define whether a sample is an outlier.
 And we also need to compare different methods to decide which to use.
 PiML supports two functions to visualize the od result, a score distribution plot and marginal outlier distribution plot and one t-SNE plot to compare results of different methods.</p>
-<p>Here is an example of displaying the score distribution of the OD method PCA.
-.. jupyter-input:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">piml.data.outlier_detection</span> <span class="kn">import</span> <span class="n">PCA</span>
+<p>Here is an example of displaying the score distribution of the OD method PCA.</p>
+<div class="jupyter_cell jupyter_container docutils container">
+<div class="cell_input code_cell docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">piml.data.outlier_detection</span> <span class="kn">import</span> <span class="n">PCA</span>
 <span class="n">exp</span><span class="o">.</span><span class="n">data_quality_check</span><span class="p">(</span><span class="n">method</span><span class="o">=</span><span class="n">PCA</span><span class="p">(),</span> <span class="n">show</span><span class="o">=</span><span class="s1">&#39;score_distribution&#39;</span><span class="p">,</span> <span class="n">threshold</span><span class="o">=</span><span class="mf">0.999</span><span class="p">)</span>
 </pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+</div>
 </div>
 <figure class="align-left">
 <a class="reference external image-reference" href="../../auto_examples/data/plot_4_data_quality.html"><img alt="../../_images/sphx_glr_plot_4_data_quality_001.png" src="../../_images/sphx_glr_plot_4_data_quality_001.png" /></a>

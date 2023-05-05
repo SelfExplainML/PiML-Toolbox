@@ -4,12 +4,10 @@
 
 .. include:: ../../includes/big_toc_css.rst
 
-
 ICE (Individual Conditional Expectation)  
 ==============================================
 
 Individual Conditional Expectation (ICE) plots [G2015]_ and PDPs both visualize the relationship between a feature of interest and the predicted response. However, ICE plots focus on the dependence of the predicted response on the feature for each instance, while PDPs show the average effect of the feature on the response across all instances in the dataset.
-
 
 
 Algorithm Details
@@ -17,17 +15,16 @@ Algorithm Details
 
 Let :math:`X` represent the set of input features of a predictor function, and :math:`\hat{f}` be a fitted model to be explained. We partition :math:`X` into two sets, i.e., :math:`X_{S}` (features of interest) and its complement :math:`X_{C}`. To be specific, an ICE plot for a feature :math:`x_{S}` and an instance :math:`i` can be defined as:
 
-Let :math:`X` denotes the set of input features for a predictor function, and :math:`\hat{f}` be a fitted model that needs to be explained. We partition :math:`X` into two subsets, namely :math:`X_{S}` (the features of interest) and its complement :math:`X_{C}`. Specifically, an ICE plot for a feature :math:`x_{S}` and an instance :math:`i` is defined as follows:
+Let :math:`X` denote the set of input features for a predictor function, and :math:`\hat{f}` be a fitted model that needs to be explained. We partition :math:`X` into two subsets, namely :math:`X_{S}` (the features of interest) and its complement :math:`X_{C}`. Specifically, an ICE plot for a feature :math:`x_{S}` and an instance :math:`i` is defined as follows:
 
 .. math::
    \begin{align}  
-	 \mathrm{ICE}_{S}^{i}(x_{S}) = \hat{f}(x_{S}, x_{C}^{(i)})
+    \mathrm{ICE}_{S}^{i}(x_{S}) = \hat{f}(x_{S}, x_{C}^{(i)})
    \end{align}
 
 In PiML, the ICE plot is implemented using the scikit-learn package. For a more detailed analysis of this algorithm, please refer to the documentation available here_.
 
 .. _here: https://scikit-learn.org/stable/auto_examples/inspection/plot_partial_dependence.html 
-
 
 
 Usage
@@ -43,8 +40,7 @@ Below we still use a fitted XGB2 model on the BikeSharing dataset for illustrati
    :target: ../../auto_examples/explain/plot_2_ice.html
    :align: left
 
-From the plot, we observer a similar pattern as the value of `hr` increases for all instances, which is also consistent with the PDP plot generated in the previous section. The predicted values are generally lower when `hr` is less than 4.6. For values of `hr` between 4.6 and 8.3, and between 10 and 18, most of the instances record an increase in prediction as the value of `hr` increases. Apart from that, we also observe that the bandwidth of the predicted response is much larger as `hr` is greater than around 9. This indicates that the rest variables have more contributions to the final prediciton during that period of a day.  
-
+From the plot, we observe a similar pattern as the value of `hr` increases for all instances, which is also consistent with the PDP plot generated in the previous section. The predicted values are generally lower when `hr` is less than 4.6. For values of `hr` between 4.6 and 8.3, and between 10 and 18, most of the instances record an increase in prediction as the value of `hr` increases. Apart from that, we also observe that the bandwidth of the predicted response is much larger as `hr` is greater than around 9. This indicates that the rest variables have more contributions to the final prediction during that period of the day.  
 
 
 Examples
@@ -55,7 +51,6 @@ Examples
   The first example below demonstrates how to use PiML with its high-code APIs for developing machine learning models for the BikeSharing data from the UCI repository, which consists of 17,389 samples of hourly counts of rental bikes in Capital bikeshare system; see details. The response `cnt` (hourly bike rental counts) is continuous and it is a regression problem.
                           
  * :ref:`sphx_glr_auto_examples_explain_plot_2_ice.py`
-
 
 .. topic:: References
 

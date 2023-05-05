@@ -264,7 +264,7 @@
 <p>In this equation, <span class="math notranslate nohighlight">\(f\)</span> represents the shape function, which is an unknown, smooth transformation of the features. This function can be estimated using a variety of methods, including smoothing splines, ensemble trees, or neural networks. Compared to the GLM, the use of shape functions in GAMs allows for a more flexible and predictive model, as smooth functions can capture non-linear patterns in the data. However, to ensure model identifiability, the output of each shape function is assumed to have a zero mean.</p>
 <section id="model-training">
 <h2><span class="section-number">5.2.1. </span>Model Training<a class="headerlink" href="#model-training" title="Permalink to this heading">¶</a></h2>
-<p>Let’s see how to train a GAM using PiML. Here we use the <code class="docutils literal notranslate"><span class="pre">CaliforniaHousing</span></code> dataset as an example and assume that this data has been well prepared. Next, we import the corresponding estimators, i.e., <a class="reference external" href="../../modules/generated/piml.models.GAMRegressor.html">GAMRegressor</a> or <a class="reference external" href="../../modules/generated/piml.models.GAMClassifier.html">GAMClassifier</a>, which are both based on the Python package <a class="reference external" href="https://pygam.readthedocs.io/en/latest/">pygam</a>. As it is a regression problem, we use <a class="reference external" href="../../modules/generated/piml.models.GAMRegressor.html">GAMRegressor</a> object with some customized hyperparameter settings.</p>
+<p>Let’s see how to train a GAM using PiML. Here we use the <code class="docutils literal notranslate"><span class="pre">CaliforniaHousing</span></code> dataset as an example and assume that this data has been well prepared. Next, we import the corresponding estimators, i.e., <a class="reference external" href="../../modules/generated/piml.models.GAMRegressor.html">GAMRegressor</a> or <a class="reference external" href="../../modules/generated/piml.models.GAMClassifier.html">GAMClassifier</a>, which are both based on the Python package <a class="reference external" href="https://pygam.readthedocs.io/en/latest/">pygam</a>. As it is a regression problem, we use the <a class="reference external" href="../../modules/generated/piml.models.GAMRegressor.html">GAMRegressor</a> object with some customized hyperparameter settings.</p>
 <div class="jupyter_cell jupyter_container docutils container">
 <div class="cell_input code_cell docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">piml.models</span> <span class="kn">import</span> <span class="n">GAMRegressor</span>
@@ -332,8 +332,8 @@
 <figure class="align-left">
 <a class="reference external image-reference" href="../../auto_examples/models/plot_1_gam_reg.html"><img alt="../../_images/sphx_glr_plot_1_gam_reg_002.png" src="../../_images/sphx_glr_plot_1_gam_reg_002.png" /></a>
 </figure>
-<p>Due to space limitations, we only draw the top 10 important features. To get the results of all features, you can manually set <code class="docutils literal notranslate"><span class="pre">return_data=True</span></code> and then a dataframe containing all features’ importance will be returned.
-From the plot above, we can see that the most important features are <code class="docutils literal notranslate"><span class="pre">Latitude</span></code> and <code class="docutils literal notranslate"><span class="pre">Lontitude</span></code>, followed by <code class="docutils literal notranslate"><span class="pre">MedInc</span></code> and <code class="docutils literal notranslate"><span class="pre">AveOccup</span></code>.</p>
+<p>Due to space limitations, we only draw the top 10 important features. To get the results of all features, you can manually set <code class="docutils literal notranslate"><span class="pre">return_data=True</span></code>, and then a data frame containing all features’ importance will be returned.
+From the plot above, we can see that the most important features are <code class="docutils literal notranslate"><span class="pre">Latitude</span></code> and <code class="docutils literal notranslate"><span class="pre">Longitude</span></code>, followed by <code class="docutils literal notranslate"><span class="pre">MedInc</span></code> and <code class="docutils literal notranslate"><span class="pre">AveOccup</span></code>.</p>
 </section>
 </section>
 <section id="local-interpretation">
@@ -351,8 +351,8 @@ From the plot above, we can see that the most important features are <code class
 <figure class="align-left">
 <a class="reference external image-reference" href="../../auto_examples/models/plot_1_gam_reg.html"><img alt="../../_images/sphx_glr_plot_1_gam_reg_003.png" src="../../_images/sphx_glr_plot_1_gam_reg_003.png" /></a>
 </figure>
-<p>In this plot, the predicted value is 0.3804, while the actual response is 1.0. The bars represent the estimated effect values <span class="math notranslate nohighlight">\(\hat{f}_j(x)\)</span> of the chosen sample. The feature <code class="docutils literal notranslate"><span class="pre">Latitude</span></code> shows the largest positive contribution to the final prediction, while <code class="docutils literal notranslate"><span class="pre">MedInc</span></code>, <code class="docutils literal notranslate"><span class="pre">Lontitude</span></code>, and  <code class="docutils literal notranslate"><span class="pre">AveOccup</span></code> all have negative contribution.
-Note that this plot only shows the top-10 features with the largest contribution. To get the full results, you can set the parameter <code class="docutils literal notranslate"><span class="pre">return_data</span></code> to True.</p>
+<p>In this plot, the predicted value is 0.3804, while the actual response is 1.0. The bars represent the estimated effect values <span class="math notranslate nohighlight">\(\hat{f}_j(x)\)</span> of the chosen sample. The feature <code class="docutils literal notranslate"><span class="pre">Latitude</span></code> shows the largest positive contribution to the final prediction, while <code class="docutils literal notranslate"><span class="pre">MedInc</span></code>, <code class="docutils literal notranslate"><span class="pre">Longitude</span></code>, and  <code class="docutils literal notranslate"><span class="pre">AveOccup</span></code> all have negative contributions.
+Note that this plot only shows the top 10 features with the largest contribution. To get the full results, you can set the parameter <code class="docutils literal notranslate"><span class="pre">return_data</span></code> to True.</p>
 </section>
 <section id="example">
 <h2><span class="section-number">5.2.4. </span>Example<a class="headerlink" href="#example" title="Permalink to this heading">¶</a></h2>
@@ -368,7 +368,7 @@ Note that this plot only shows the top-10 features with the largest contribution
 <div class="topic">
 <p class="topic-title">Example 2: CoCircles</p>
 <blockquote>
-<div><p>The example below demonstrates how to use PiML with the CoCircles data, which is a simulated binary classification data with two features exactly follows the GAM assumptions.</p>
+<div><p>The example below demonstrates how to use PiML with the CoCircles data, which is a simulated binary classification data with two features exactly follow the GAM assumptions.</p>
 </div></blockquote>
 <ul class="simple">
 <li><p><a class="reference internal" href="../../auto_examples/models/plot_1_gam_cls.html#sphx-glr-auto-examples-models-plot-1-gam-cls-py"><span class="std std-ref">GAM Classification (CoCircles)</span></a></p></li>

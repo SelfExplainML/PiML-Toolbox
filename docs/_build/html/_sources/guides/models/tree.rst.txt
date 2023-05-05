@@ -11,7 +11,6 @@ Decision Tree
 The decision tree is a well-known supervised machine learning algorithm that operates by recursively dividing the dataset into smaller subsets based on the most influential features that can accurately predict the response. As the algorithm splits the data, it forms a tree diagram, rendering it highly interpretable.
 
 
-
 Model Training
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
@@ -22,7 +21,7 @@ In this section, we will discuss the process of training a decision tree model i
     from piml.models import TreeRegressor
     exp.model_train(model=TreeRegressor(max_depth=6), name="Tree")
 
-Note that `TreeRegressor`_ (`TreeClassifier`_) is a wrapper of `sklearn.tree.DecisionTreeRegressor`_ (`sklearn.tree.DecisionTreeRegressor`_) in sklearn, in which we provide additional interpretation functionalities. When using decision trees, `max_depth` is often considered the most crucial hyperparameter. This parameter is commonly used for controlling the model complexity. Shallow trees are easy to interpret, but their predictive power might be limited. Deep trees in general would have better predictive performance, but can also suffer from overfitting and low model interpretability.
+Note that `TreeRegressor`_ (`TreeClassifier`_) is a wrapper of `sklearn.tree.DecisionTreeRegressor`_ (`sklearn.tree.DecisionTreeRegressor`_) in sklearn, in which we provide additional interpretation functionalities. When using decision trees, `max_depth` is often considered the most crucial hyperparameter. This parameter is commonly used for controlling the model complexity. Shallow trees are easy to interpret, but their predictive power might be limited. Deep trees, in general, would have better predictive performance, but can also suffer from overfitting and low model interpretability.
 
 .. _TreeRegressor: ../../modules/generated/piml.models.TreeRegressor.html
 
@@ -31,7 +30,6 @@ Note that `TreeRegressor`_ (`TreeClassifier`_) is a wrapper of `sklearn.tree.Dec
 .. _sklearn.tree.DecisionTreeRegressor: https://scikit-learn.org/stable/modules/generated/sklearn.tree.DecisionTreeRegressor.html
 
 .. _sklearn.tree.DecisionTreeClassifier: https://scikit-learn.org/stable/modules/generated/sklearn.tree.DecisionTreeClassifier.html
-
 
 Global Interpretation
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -52,7 +50,6 @@ To ensure the tree diagram is useful for deep trees, we offer two parameters tha
 Each box in the diagram represents a node in the decision tree. It includes information such as the node ID, the splitting rule used to split the dataset, the criterion value, the sample size, and the average value of the response.
 
 
-
 Local Interpretation
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
@@ -67,7 +64,6 @@ When using the "tree_Local" keyword, the decision path of a specific sample is h
    :align: left
 
 Note that this plot may be a subset of the overall tree. Only the branches relevant to the selected sample are shown in the plot, making it easier to interpret the decision path of that particular sample within the context of the entire decision tree.
-
 
 Examples
 ^^^^^^^^^^^^^^^^^^^^^

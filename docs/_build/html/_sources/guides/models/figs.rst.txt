@@ -8,7 +8,7 @@
 Fast Interpretable Greedy-tree Sums
 ==========================================
 
-Fast Interpretable Greedy-tree Sums (FIGS; [Tan2022]_) is a recently proposed machine-learning algorithm that extends classification and regression trees (CART). FIGS can also be viewed as a special case boosted tree models, as a fitted FIGS usually consists of multiple additive trees. The prediction of a fitted FIGS is a linear combination of the predictions of all trees, as follows,
+Fast Interpretable Greedy-tree Sums (FIGS; [Tan2022]_) is a recently proposed machine-learning algorithm that extends classification and regression trees (CART). FIGS can also be viewed as a special case boosted tree model, as a fitted FIGS usually consists of multiple additive trees. The prediction of a fitted FIGS is a linear combination of the predictions of all trees, as follows,
 
 .. math::
    \begin{align}
@@ -19,22 +19,20 @@ where :math:`\mu` is the intercept, :math:`K` is the number of trees, and :math:
 
 - Compared with CART, FIGS has a more expressive model form, and also its predictive performance. CART is a single tree, while FIGS is an ensemble of multiple trees.
 
-- Compared with boosted trees, FIGS can have a larger search space, given the same number of split iterations. In boosted trees, the search space is limited to boosting a new tree. In contrast, FIGS can either boost a new tree or grow existing trees, whichever reduce the loss most. However, the training of FIGS is slower than that of boosted trees, especially when the number of split iterations is large. 
+- Compared with boosted trees, FIGS can have a larger search space, given the same number of split iterations. In boosted trees, the search space is limited to boosting a new tree. In contrast, FIGS can either boost a new tree or grow existing trees, whichever reduces the loss most. However, the training of FIGS is slower than that of boosted trees, especially when the number of split iterations is large. 
 
-- The fitted model can be easily interpretable, if the value of :math:`K` is small. In practice, we usually limit the maximum iteration of FIGS to be within 1000.
-
+- The fitted model can be easily interpretable if the value of :math:`K` is small. In practice, we usually limit the maximum iteration of FIGS to within 1000.
 
 Model Training
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-The authors of FIGS provided an Python implementation in the `imodels`_ package. In PiML, we re-implement this model, which is much faster and with more interpretation functionalities, see the corresponding API reference in `FIGSRegressor`_ and `FIGSClassifier`_.
+The authors of FIGS provided a Python implementation in the `imodels`_ package. In PiML, we re-implement this model, which is much faster and with more interpretation functionalities, see the corresponding API reference in `FIGSRegressor`_ and `FIGSClassifier`_.
 
 .. _imodels: https://github.com/csinva/imodels
 
 .. _FIGSRegressor: ../../modules/generated/piml.models.FIGSRegressor.html
 
 .. _FIGSClassifier: ../../modules/generated/piml.models.FIGSClassifier.html
-
 
 The training of FIGS is similar to that of the other interpretable models, as shown below.
 
@@ -47,15 +45,13 @@ In our implementation, `max_iter` and `max_depth` are the two most important hyp
 
 - `max_iter`: an integer limiting the max number of split iterations, by default 20.
  
-- `max_depth`: an integer limiting the max depth of the tree, by default None, which means unlimited of max tree depth.
+- `max_depth`: an integer limiting the max depth of the tree, by default None, which means unlimited max tree depth.
 
-Both of them are stopping criteria, and we can use them collectively to control the complexity of overall model and each single tree. For instance, if without any limit on `max_depth`, the fitted trees can be extremely deep, and the results can be hardly interpretable. On the other hand, if without any limit on `max_iter`, then the overall model can become even more complicated than ensemble tree models.
-
+Both of them are stopping criteria, and we can use them collectively to control the complexity of the overall model and every single tree. For instance, without any limit on `max_depth`, the fitted trees can be extremely deep, and the results can be hardly interpretable. On the other hand, without any limit on `max_iter`, then the overall model can become even more complicated than ensemble tree models.
 
 Global Interpretation
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 Once FIGS has been fitted and registered in PiML, we are able to gain a global interpretation of each tree by utilizing both the feature importance heatmap and tree diagram.
-
 
 Feature Importance Heatmap
 """"""""""""""""""""""""""""""""
@@ -70,12 +66,11 @@ To generate the heatmap plot displaying the importance of each feature, we will 
    :target: ../../auto_examples/models/plot_3_figs_reg.html
    :align: left
 
-This plot is a summary of the leaf node information for the first tree in FIGS (`tree_idx` = 0). The title tells the importance of this tree, which is calculated by the normalized variance of :math:`\hat{f_{k}}`, using the training data. The x-axis represents the feature names, while the y-axis represents the leaf node ID. In the leat column, the color scheme used represents the value of the leaf node. Blue shades are used for smaller values, while red shades are used for larger values. The hierarchical clustering dendrogram demonstrates how these leaf nodes are related to each other. 
+This plot is a summary of the leaf node information for the first tree in FIGS (`tree_idx` = 0). The title tells the importance of this tree, which is calculated by the normalized variance of :math:`\hat{f_{k}}`, using the training data. The x-axis represents the feature names, while the y-axis represents the leaf node ID. In the left column, the color scheme used represents the value of the leaf node. Blue shades are used for smaller values, while red shades are used for larger values. The hierarchical clustering dendrogram demonstrates how these leaf nodes are related to each other. 
 
-The subplot in the middle displays the importance (sum of gain) of each feature in the decision path of each leaf node. The importance of each feature is represented by a color scale, where darker colors indicate higher importance. Thus, the deeper the color, the more important the feature on the leaf node. For example, the feature `MedInc` is the most important feature in this tree, as it is multiple times in spliting the tree and also reduces the loss the most.
+The subplot in the middle displays the importance (sum of gain) of each feature in the decision path of each leaf node. The importance of each feature is represented by a color scale, where darker colors indicate higher importance. Thus, the deeper the color, the more important the feature on the leaf node. For example, the feature `MedInc` is the most important feature in this tree, as it is multiple times in splitting the tree and also reduces the loss the most.
 
 The rightmost subplot of the visualization displays the number of samples in each leaf node of the decision tree. This information is conveyed through a color scale, where darker colors represent a higher number of samples. For instance, the leaf node with ID 11 contains the most samples, followed by leaf nodes 5 and 7. The color scale ranges from light to dark, with darker shades indicating a higher number of samples.
-
 
 Tree Diagram
 """"""""""""""""""""""""""""""""
@@ -110,11 +105,10 @@ Next, we can also draw the diagram for the rest trees in FIGS. For instance, by 
 
 In this tree, `AveOccup` instead is the most important feature.
 
-
 Local Interpretation
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-By using the "tree_local" keyword, the decision path of a chosen sample can be easily distinguished within the tree diagram. In addtion, we need to specify the sample index to be interpreted in `sample_id`, as well as the `tree_idx` argument. The `original_scale` argument is also used to control whether the feature values are scaled to the original scale. For example, the following codes shows the local interpretation of the first training sample on the first two trees.
+By using the "tree_local" keyword, the decision path of a chosen sample can be easily distinguished within the tree diagram. In addition, we need to specify the sample index to be interpreted in `sample_id`, as well as the `tree_idx` argument. The `original_scale` argument is also used to control whether the feature values are scaled to the original scale. For example, the following codes show the local interpretation of the first training sample on the first two trees.
 
 .. jupyter-input::
 
@@ -135,7 +129,6 @@ By using the "tree_local" keyword, the decision path of a chosen sample can be e
    :align: left
 
 The predicted values of this sample on the first two trees are 0.099 and -0.094, respectively. Similarly, we can use the same approach to get the local interpretation of the first sample on the rest trees.
-
 
 
 Examples

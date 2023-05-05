@@ -256,7 +256,7 @@
 <h3><span class="section-number">6.5.1.1. </span>Perturbation For Numerical Features<a class="headerlink" href="#perturbation-for-numerical-features" title="Permalink to this heading">¶</a></h3>
 <p>For numerical features, we provide the following two perturbation options.</p>
 <p><strong>Raw perturbation</strong>
-We added random gaussian noise with mean 0 and variance <span class="math notranslate nohighlight">\(\lambda\)</span> (Var(<span class="math notranslate nohighlight">\(x\)</span>)) to the input <span class="math notranslate nohighlight">\(x\)</span>.  <span class="math notranslate nohighlight">\(\lambda\)</span> is the perturbation size (<code class="docutils literal notranslate"><span class="pre">perturb_size</span></code>) used to vary the variance, hence the noise level.</p>
+We added random Gaussian noise with mean 0 and variance <span class="math notranslate nohighlight">\(\lambda\)</span> (Var(<span class="math notranslate nohighlight">\(x\)</span>)) to the input <span class="math notranslate nohighlight">\(x\)</span>.  <span class="math notranslate nohighlight">\(\lambda\)</span> is the perturbation size (<code class="docutils literal notranslate"><span class="pre">perturb_size</span></code>) used to vary the variance, hence the noise level.</p>
 <p><strong>Quantile Perturbation</strong>
 Assume a discrete variable <span class="math notranslate nohighlight">\(x\)</span>. We sort <span class="math notranslate nohighlight">\(x\)</span> and compute the quantile (<span class="math notranslate nohighlight">\(Q\)</span>) of each element of <span class="math notranslate nohighlight">\(x\)</span>, leading to the following table.</p>
 <table class="colwidths-given docutils align-default">
@@ -302,7 +302,7 @@ Assume a discrete variable <span class="math notranslate nohighlight">\(x\)</spa
 </tr>
 </tbody>
 </table>
-<p>Consider the data point with value 3, with corresponding quantile value 0.6. Three (3) can be perturbed to 40 as below. Perform perturbation in quantile scale, which consists of adding a small noise to each quantile the round to the nearest available value. For instance, in the case of 3, let’s say we perturb 0.6 and get 0.86. We round 0.86 to 0.9, which is the quantile of 40 (according to the table above). Therefore, we perturbed 3 with 40.</p>
+<p>Consider the data point with value 3, with a corresponding quantile value of 0.6. Three (3) can be perturbed to 40 as below. Perform perturbation in quantile scale, which consists of adding a small noise to each quantile the round to the nearest available value. For instance, in the case of 3, let’s say we perturb 0.6 and get 0.86. We round 0.86 to 0.9, which is the quantile of 40 (according to the table above). Therefore, we perturbed 3 with 40.</p>
 </section>
 <section id="perturbation-for-categorical-variable">
 <h3><span class="section-number">6.5.1.2. </span>Perturbation for Categorical Variable<a class="headerlink" href="#perturbation-for-categorical-variable" title="Permalink to this heading">¶</a></h3>
@@ -344,17 +344,17 @@ Assume a discrete variable <span class="math notranslate nohighlight">\(x\)</spa
 </section>
 <section id="usage">
 <h2><span class="section-number">6.5.2. </span>Usage<a class="headerlink" href="#usage" title="Permalink to this heading">¶</a></h2>
-<p>Robustness test can be used by the <code class="docutils literal notranslate"><span class="pre">model_diagnose</span></code> function, of which two options are provided, i.e., “robustness_perf” and “robustness_perf_worst”. The former is used to evaluate model’s robustness under perturbation, while the latter is used to evaluate the model’s performance against perturbation size based on the worst sample. The following arguments are required to run the robustness test.</p>
+<p>Robustness test can be used by the <code class="docutils literal notranslate"><span class="pre">model_diagnose</span></code> function, of which two options are provided, i.e., “robustness_perf” and “robustness_perf_worst”. The former is used to evaluate the model’s robustness under perturbation, while the latter is used to evaluate the model’s performance against perturbation size based on the worst sample. The following arguments are required to run the robustness test.</p>
 <ul class="simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">perturb_method</span></code>: The perturbation method, by default “raw”, which means adding normal noise to the covariates for perturbation. The alternative option is “quantile”, which means first transforming the data to quantile scale, and then add uniform noise to the quantiles, and finally inversely transform the perturbed data to the raw scale.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">perturb_method</span></code>: The perturbation method, by default “raw”, which means adding normal noise to the covariates for perturbation. The alternative option is “quantile”, which means first transforming the data to a quantile scale, then adding uniform noise to the quantiles, and finally inversely transforming the perturbed data to the raw scale.</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">perturb_features</span></code>: The features to be perturbed, by default None, which means all features will be perturbed.</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">perturb_size</span></code>: The perturbation step.</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">metric</span></code>: The performance metric to be used. Supported metrics are “ACC”, “AUC”, and “F1” for binary classification; “MSE”, “MAE”, and “R2” for regression.</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">alpha</span></code>: The proportion of worst samples to consider.</p></li>
 </ul>
 <p>For illustration, we consider a FIGS model on the BikeSharing data.</p>
-<section id="robustness-on-whole-test-sample">
-<h3><span class="section-number">6.5.2.1. </span>Robustness on whole test sample<a class="headerlink" href="#robustness-on-whole-test-sample" title="Permalink to this heading">¶</a></h3>
+<section id="robustness-on-the-whole-test-sample">
+<h3><span class="section-number">6.5.2.1. </span>Robustness on the whole test sample<a class="headerlink" href="#robustness-on-the-whole-test-sample" title="Permalink to this heading">¶</a></h3>
 <p>To assess the models’ performance against noise, we set the parameter <code class="docutils literal notranslate"><span class="pre">show</span></code> to “robustness_perf”. By default, all the features will be perturbed, and you may choose the set of features to perturb as specified in the examples below.</p>
 <div class="jupyter_cell jupyter_container docutils container">
 <div class="cell_input code_cell docutils container">
@@ -369,8 +369,8 @@ Assume a discrete variable <span class="math notranslate nohighlight">\(x\)</spa
 <figure class="align-left">
 <a class="reference external image-reference" href="../../auto_examples/testing/plot_4_robustness_reg.html"><img alt="../../_images/sphx_glr_plot_4_robustness_reg_001.png" src="../../_images/sphx_glr_plot_4_robustness_reg_001.png" /></a>
 </figure>
-<p>In the figure above, the x-axis represents the noise level and the y-axis shows the test set performance upon perturbation. The box plot displays the results over ten repetitions. That is, we add different random noises for each repetition, evaluate and record the metrics. The noise level of 0.0 indicates no perturbation, and hence there is no variation on the performance. The full plot above encapsulate the model performance at each noise level. As expected, we observe a degradation in model performance as the noise level increases.</p>
-<p>The second example perturbs two features <code class="docutils literal notranslate"><span class="pre">hr</span></code> and <code class="docutils literal notranslate"><span class="pre">atemp</span></code>, while the rest settings remain the same as the first example, as shown below. As less number of features are perturbed, the performance degradation looks smaller than the first example.</p>
+<p>In the figure above, the x-axis represents the noise level and the y-axis shows the test set performance upon perturbation. The box plot displays the results over ten repetitions. That is, we add different random noises for each repetition and evaluate and record the metrics. The noise level of 0.0 indicates no perturbation, and hence there is no variation in the performance. The full plot above encapsulate the model performance at each noise level. As expected, we observe a degradation in model performance as the noise level increases.</p>
+<p>The second example perturbs two features <code class="docutils literal notranslate"><span class="pre">hr</span></code> and <code class="docutils literal notranslate"><span class="pre">atemp</span></code>, while the rest settings remain the same as the first example, as shown below. As less number of features are perturbed, the performance degradation looks smaller than in the first example.</p>
 <div class="jupyter_cell jupyter_container docutils container">
 <div class="cell_input code_cell docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">exp</span><span class="o">.</span><span class="n">model_diagnose</span><span class="p">(</span><span class="n">model</span><span class="o">=</span><span class="s2">&quot;FIGS&quot;</span><span class="p">,</span> <span class="n">show</span><span class="o">=</span><span class="s2">&quot;robustness_perf&quot;</span><span class="p">,</span> <span class="n">perturb_features</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;hr&quot;</span><span class="p">,</span> <span class="s2">&quot;atemp&quot;</span><span class="p">],</span>
@@ -388,7 +388,7 @@ Assume a discrete variable <span class="math notranslate nohighlight">\(x\)</spa
 </section>
 <section id="robustness-on-worst-test-samples">
 <h3><span class="section-number">6.5.2.2. </span>Robustness on worst test samples<a class="headerlink" href="#robustness-on-worst-test-samples" title="Permalink to this heading">¶</a></h3>
-<p>This section illustrates how to evaluate model robustness under the worst-performing test samples. In this context, we identify the <span class="math notranslate nohighlight">\(30\%\)</span> (<code class="docutils literal notranslate"><span class="pre">alpha=0.3</span></code>) worst test samples, i.e., the 30% test samples with the largest absoluate residuals), then apply the perturbations to these worst samples.</p>
+<p>This section illustrates how to evaluate model robustness under the worst-performing test samples. In this context, we identify the <span class="math notranslate nohighlight">\(30\%\)</span> (<code class="docutils literal notranslate"><span class="pre">alpha=0.3</span></code>) worst test samples, i.e., the 30% test samples with the largest absolute residuals), then apply the perturbations to these worst samples.</p>
 <div class="jupyter_cell jupyter_container docutils container">
 <div class="cell_input code_cell docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">exp</span><span class="o">.</span><span class="n">model_diagnose</span><span class="p">(</span><span class="n">model</span><span class="o">=</span><span class="s2">&quot;FIGS&quot;</span><span class="p">,</span> <span class="n">show</span><span class="o">=</span><span class="s2">&quot;robustness_perf_worst&quot;</span><span class="p">,</span> <span class="n">perturb_features</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>

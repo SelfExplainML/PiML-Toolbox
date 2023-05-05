@@ -23,7 +23,7 @@ exp.model_compare(models=["Tree", "FIGS", "XGB2"], show="accuracy_plot", metric=
 
 
 exp.model_compare(models=["Tree", "FIGS", "XGB2"], show="overfit",
-                  slice_method="historgram", slice_feature="PAY_1", threshold=1.05,
+                  slice_method="histogram", slice_feature="PAY_1", threshold=1.05,
                   bins=10, metricmetric="ACC", figsize=(5, 4))
 
 

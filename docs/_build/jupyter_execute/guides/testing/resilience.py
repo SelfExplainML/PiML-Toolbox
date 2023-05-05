@@ -5,28 +5,28 @@
 
 
 exp.model_diagnose(model="XGB2", show="resilience_perf", resilience_method="worst-sample",
-              metric="AUC", figsize=(5, 4))
+                   metric="AUC", figsize=(5, 4))
 
 
 # In[ ]:
 
 
 exp.model_diagnose(model="XGB2", show="resilience_perf", resilience_method="hard-sample",
-              metric="AUC", figsize=(5, 4))
+                   metric="AUC", figsize=(5, 4))
 
 
 # In[ ]:
 
 
 exp.model_diagnose(model="XGB2", show="resilience_perf", resilience_method="outer-sample",
-              metric="AUC", figsize=(5, 4))
+                   metric="AUC", figsize=(5, 4))
 
 
 # In[ ]:
 
 
 exp.model_diagnose(model="XGB2", show="resilience_perf", resilience_method="worst-cluster",
-              metric="AUC", figsize=(5, 4))
+                   metric="AUC", figsize=(5, 4))
 
 
 # In[ ]:
@@ -54,12 +54,12 @@ exp.model_diagnose(model="XGB2", show="resilience_distance", resilience_method="
 
 
 exp.model_diagnose(model="XGB2", show="resilience_shift_density",
-                                target_feature="Pay_1", original_scale=True, figsize=(5, 4))
+                   target_feature="Pay_1", original_scale=True, figsize=(5, 4))
 
 
 # In[ ]:
 
 
 exp.model_diagnose(model="XGB2", show="resilience_shift_histogram",
-                                target_feature="Pay_1", original_scale=True, figsize=(5, 4))
+                   target_feature="Pay_1", original_scale=True, figsize=(5, 4))
 

@@ -9,11 +9,9 @@ Fairness
 ======================================
 
 Fairness is the model's quality or state of being fair or impartial. Decisions made by computers after a machine-learning process may be considered unfair if they were based on variables considered sensitive. 
-Examples of these kinds of variables include gender, ethnicity, sexual orientation, disability and more.
+Examples of these kinds of variables include gender, ethnicity, sexual orientation, disability, and more.
 
-
-In this section, the model fairness test will be introduced. For demonstration purposes, we run the following example codes to initialize a PiML experiment for the Credit Simulation dataset. In the model training process, we cannot use demographic features like "Race" and "Gender". So we need to remove them from training data. We use monotonic depth 2 xgboost to train the data.
-
+In this section, the model fairness test will be introduced. For demonstration purposes, we run the following example codes to initialize a PiML experiment for the Credit Simulation dataset. In the model training process, we cannot use demographic features like "Race" and "Gender". So we need to remove them from the training data. We use monotonic depth 2 xgboost to train the data.
 
 Fairness Metric
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -30,7 +28,7 @@ Metric types:
    AIR = \frac{(TP_{p}+FN_{p}) / n_{r}}{(TP_{r}+FN_{r}) / n_{p}}
    \end{align}
 
-The value of :math:`TP`, :math:`FN`, :math:`n` refers to the count of True Positive samples, False negative samples and all samples,
+The value of :math:`TP`, :math:`FN`, :math:`n` refers to the count of True Positive samples, False negative samples, and all samples,
 respectively. The :math:`p` and :math:`r` refers to the group samples belong to.
 
 - "SMD": Standardized mean difference. (Usually used for continuous response)
@@ -77,14 +75,13 @@ In PIML, you can use the `model_fairness` API to get the metric result, as follo
 
 where `metrics` is the keyword for showing metrics, and you also need to set the protected group and the reference group. If `return_data` is true, the output results include:
 
-	- The plot of fairness metric result for each group.
-	- The detailed table of fairness metric results for each group.
-
+   - The plot of fairness metric result for each group.
+   - The detailed table of fairness metric results for each group.
 
 Fairness Segmented
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-PIML also supports showing the segmented fairness result for different metrics. Given the segmented features and the number of bins, if the feature is categorical, the samples will be segmented according to the unique categories of the feature. And if the feature is continuous, the samples will be segmented by the equal space binning method. After binning, PIML will show the fairness result in each bucket. The metric types in this section are the same as in the "Fairness Metric" section. In PIML, you can use `model_fairness`` API to get the segmented metric result, as follows,
+PIML also supports showing the segmented fairness result for different metrics. Given the segmented features and the number of bins, if the feature is categorical, the samples will be segmented according to the unique categories of the feature. And if the feature is continuous, the samples will be segmented by the equal space binning method. After binning, PIML will show the fairness result in each bucket. The metric types in this section are the same as in the "Fairness Metric" section. In PIML, you can use the `model_fairness` API to get the segmented metric result, as follows,
 
 .. jupyter-input::
    
@@ -99,9 +96,8 @@ PIML also supports showing the segmented fairness result for different metrics. 
 where the keyword is "segmented", the segmented feature is `Balance` and the `segmented_bins` is 5,
 which means the data is segmented into 5 buckets by feature `Balance`. If `return_data` is true, the output results include:
 
-	- The plot of segmented fairness metric results for each group.
-	- The detailed table of segmented fairness metric results for each group.
-
+   - The plot of segmented fairness metric results for each group.
+   - The detailed table of segmented fairness metric results for each group.
 
 Fairness Binning
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -110,7 +106,7 @@ PIML supports binning the data to adjust the fairness and performance results.
 Different from the "Fairness Segmented" section, there is not only segmenting the data to show metrics but also changing the data to get better predictions.
 The fairness and Performance metric types in this section are the same as the "Fairness Thresholding" section. 
 
-There are three binning methods, `quantile`, `uniform` and `customize`.
+There are three binning methods, `quantile`, `uniform`, and `customize`.
 
    - Quantile binning: Assign the same number of observations to each bin.
    - Uniform binning: Assign the same width in the span of possible values for the variable to each bin.
@@ -137,9 +133,8 @@ Each binning setting is a key-value pair, see the example below. If binning type
 where the keyword is "binning", and the parameter `binning_dict` is for the dictionary of binning settings.
 If "return_data" is true, the output results include:
 
-	- The plot of fairness and performance metric results with different binning settings.
-	- The detailed table of fairness and performance metric results with different binning settings.
-
+   - The plot of fairness and performance metric results with different binning settings.
+   - The detailed table of fairness and performance metric results with different binning settings.
 
 Fairness Thresholding
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -164,11 +159,10 @@ See the example usage below.
    :target: ../../auto_examples/testing/plot_6_fairness.html
    :align: center
 
-where the keyword here is `thresholding`. The `favorable_threshold` is the classification threshold value, which controls the dashed line position in the plots. The two y axes is controlled by `metric` and `performance_metric`, respectively. If `return_data` is true, the output results include:
+where the keyword here is `thresholding`. The `favorable_threshold` is the classification threshold value, which controls the dashed line position in the plots. The two y axes are controlled by `metric` and `performance_metric`, respectively. If `return_data` is true, the output results include:
 
 - The plot of the fairness metric and performance metric results with a different threshold for each group.
 - The detailed table of fairness metric and performance metric results with a different threshold for each group.
-
 
 Examples
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -177,4 +171,4 @@ The full example codes of this section can be found in the following link.
 
 .. topic:: Example
 
-	* :ref:`sphx_glr_auto_examples_testing_plot_6_fairness.py`
+   * :ref:`sphx_glr_auto_examples_testing_plot_6_fairness.py`

@@ -258,9 +258,9 @@
 \[\begin{align}
    PSI = \sum^{B}_{i=1} (p(x) - q(x))ln (\frac{p(x)}{q(x)}),
 \end{align}\]</div>
-<p>where <span class="math notranslate nohighlight">\(B\)</span> is the number of bins, <span class="math notranslate nohighlight">\(p(x)\)</span> and <span class="math notranslate nohighlight">\(q(x)\)</span> are the empirical density function of the base and target population, respectively. Note that the PSI calculation is related to the binning method, and we have two options for binning, i.e., “uniform” and “quantile”. The number of bins is fidxed to 10.</p>
+<p>where <span class="math notranslate nohighlight">\(B\)</span> is the number of bins, <span class="math notranslate nohighlight">\(p(x)\)</span> and <span class="math notranslate nohighlight">\(q(x)\)</span> is the empirical density function of the base and target population, respectively. Note that the PSI calculation is related to the binning method, and we have two options for binning, i.e., “uniform” and “quantile”. The number of bins is fixed at 10.</p>
 <ul class="simple">
-<li><p><strong>Wasserstein distance 1D (WD1)</strong>: WD1 calculates the absoluate difference between the cumulative distribution functions of the two samples.</p></li>
+<li><p><strong>Wasserstein distance 1D (WD1)</strong>: WD1 calculates the absolute difference between the cumulative distribution functions of the two samples.</p></li>
 </ul>
 <div class="math notranslate nohighlight">
 \[\begin{align}
@@ -268,20 +268,20 @@
 \end{align}\]</div>
 <p>where and <span class="math notranslate nohighlight">\(P(x)\)</span> and <span class="math notranslate nohighlight">\(Q(x)\)</span> are the cumulative distribution of the target and base population.</p>
 <ul class="simple">
-<li><p><strong>Kolmogorov-Smirnov (KS)</strong>: KS calculates the maximum absolute distance between the cumulative distribution functions of the two samples. In PiML, the WD1 statistics is calculated by the function from <code class="docutils literal notranslate"><span class="pre">scipy.stats</span></code>.</p></li>
+<li><p><strong>Kolmogorov-Smirnov (KS)</strong>: KS calculates the maximum absolute distance between the cumulative distribution functions of the two samples. In PiML, the WD1 statistics are calculated by the function from <code class="docutils literal notranslate"><span class="pre">scipy.stats</span></code>.</p></li>
 </ul>
 <div class="math notranslate nohighlight">
 \[\begin{align}
-   KS = \max |P(x) - q(x)|,
+   KS = \max |P(x) - Q(x)|,
 \end{align}\]</div>
-<p>In PiML, the WD1 and KS statistics are calculated by the <code class="docutils literal notranslate"><span class="pre">wasserstein_distance</span></code> and <code class="docutils literal notranslate"><span class="pre">ks_2samp</span></code> functions from <code class="docutils literal notranslate"><span class="pre">scipy.stats</span></code>, where the we don’t need to specify the binning method.</p>
+<p>In PiML, the WD1 and KS statistics are calculated by the <code class="docutils literal notranslate"><span class="pre">wasserstein_distance</span></code> and <code class="docutils literal notranslate"><span class="pre">ks_2samp</span></code> functions from <code class="docutils literal notranslate"><span class="pre">scipy.stats</span></code>, where we don’t need to specify the binning method.</p>
 </section>
 <section id="usage">
 <h2><span class="section-number">2.7.2. </span>Usage<a class="headerlink" href="#usage" title="Permalink to this heading">¶</a></h2>
 <p>In PiML, we have a function <code class="docutils literal notranslate"><span class="pre">twosample_test</span></code> to compare train and test sets.</p>
 <section id="distance-metric-plot">
 <h3><span class="section-number">2.7.2.1. </span>Distance Metric Plot<a class="headerlink" href="#distance-metric-plot" title="Permalink to this heading">¶</a></h3>
-<p>By setting <code class="docutils literal notranslate"><span class="pre">metric</span></code> to “PSI”, we can get the PSI statistics for each feature. The alternative options include “WD1” and “KS”. Due to space limit, only the top-30 features with the largest PSI statistics are shown in the figure. The <code class="docutils literal notranslate"><span class="pre">psi_buckets</span></code> argument determines the binning type of “PSI” metric only, which can be “uniform” or “quantile”.</p>
+<p>By setting <code class="docutils literal notranslate"><span class="pre">metric</span></code> to “PSI”, we can get the PSI statistics for each feature. The alternative options include “WD1” and “KS”. Due to space limitations, only the top 30 features with the largest PSI statistics are shown in the figure. The <code class="docutils literal notranslate"><span class="pre">psi_buckets</span></code> argument determines the binning type of “PSI” metric only, which can be “uniform” or “quantile”.</p>
 <blockquote>
 <div><div class="jupyter_cell jupyter_container docutils container">
 <div class="cell_input code_cell docutils container">
@@ -303,7 +303,7 @@
 <blockquote>
 <div><div class="jupyter_cell jupyter_container docutils container">
 <div class="cell_input code_cell docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">exp</span><span class="o">.</span><span class="n">twosample_test</span><span class="p">(</span><span class="n">metric</span><span class="o">=</span><span class="s2">&quot;PSI&quot;</span><span class="p">,</span> <span class="n">psi_buckets</span><span class="o">=</span><span class="s1">&#39;quantile&#39;</span><span class="p">,</span> <span class="n">feature</span><span class="o">=</span><span class="s2">&quot;atamp&quot;</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">4</span><span class="p">))</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">exp</span><span class="o">.</span><span class="n">twosample_test</span><span class="p">(</span><span class="n">metric</span><span class="o">=</span><span class="s2">&quot;PSI&quot;</span><span class="p">,</span> <span class="n">psi_buckets</span><span class="o">=</span><span class="s1">&#39;quantile&#39;</span><span class="p">,</span> <span class="n">feature</span><span class="o">=</span><span class="s2">&quot;atemp&quot;</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">4</span><span class="p">))</span>
 </pre></div>
 </div>
 </div>

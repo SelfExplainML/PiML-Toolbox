@@ -87,6 +87,7 @@ And we also need to compare different methods to decide which to use.
 PiML supports two functions to visualize the od result, a score distribution plot and marginal outlier distribution plot and one t-SNE plot to compare results of different methods.
 
 Here is an example of displaying the score distribution of the OD method PCA.
+
 .. jupyter-input::
 
     from piml.data.outlier_detection import PCA

@@ -7,52 +7,49 @@
 ======================================
 Resilience
 ======================================
-Resilience test is designed to measure a model's ability to maintain its performance when the distribution of inputs changes. This testing is essential to ensure that a model can handle unexpected scenarios that may differ from the data it was trained on. Additionally, resilience testing can also help identify areas where a model can be improved. In PiML, we offer various out-of-distribution scenarios to evaluate a model's resilience, providing insight into its robustness in challenging situations.
-
+The resilience test is designed to measure a model's ability to maintain its performance when the distribution of inputs changes. This testing is essential to ensure that a model can handle unexpected scenarios that may differ from the data it was trained on. Additionally, resilience testing can also help identify areas where a model can be improved. In PiML, we offer various out-of-distribution scenarios to evaluate a model's resilience, providing insight into its robustness in challenging situations.
 
 
 Algorithm Details
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 We have implemented four out-of-distribution scenarios, as follows.
 
-**Worst sample**: Selects the worst samples according to the error of each sample. That is, we calculate the residual of each test set sample (use predicted probability for binary classification as metric is "AUC" or "F1"), and then sort them in the descending order of absoluate residuals. The samples with the largest residuals are selected as the worst samples. Note that the worst samples are related to the model being tested, and they can be very different for different models.
+**Worst sample**: Select the worst samples according to the error of each sample. That is, we calculate the residual of each test set sample (use predicted probability for binary classification as metric is "AUC" or "F1"), and then sort them in the descending order of absolute residuals. The samples with the largest residuals are selected as the worst samples. Note that the worst samples are related to the model being tested, and they can be very different for different models.
 
-**Hard sample**: Instead of directly selects the worst sample using the residuals, this method uses a surrogate model to rank the hardness of samples, i.e., the likelihood of having bad performance. In particular, we do the following
+**Hard sample**: Instead of directly selecting the worst sample using the residuals, this method uses a surrogate model to rank the hardness of samples, i.e., the likelihood of having bad performance. In particular, we do the following
 
 - Fit a complicated XGB model (XGB-A) on the training data;
-- Evaluate its performance of model XGB-A and find the worst 30% test samples;
+- Evaluate the performance of model XGB-A and find the worst 30% of test samples;
 - Mark the worst test samples as 1, and the rest test samples as 0;
 - Fit another XGB Classifier (XGB-B) using the data created in the step. 
 - Use XGB-B as a surrogate to rank the hardness of samples (samples with large predicted probability are hard samples).
 
 Note that in this scenario, the worst samples are the same across different models.
 
-**Outer sample**: Use the Euclidean distance of each test sample to the mean of features in the training set as a surrogate of worstness. Samples with large distance would be marked as outer samples. Note that the outer samples are model agnostic, and the worst samples are the same across different models.
+**Outer sample**: Use the Euclidean distance of each test sample to the mean of features in the training set as a surrogate of worstness. Samples with large distances would be marked as outer samples. Note that the outer samples are model agnostic, and the worst samples are the same across different models.
 
 **Worst cluster**: Fit a K-means (:math:`K=2,\ldots,10`) clustering algorithm using the features of training data, and then select the worst performing cluster in the test set as the worst samples. Note that the worst samples are related to models.
 
-In addition to these four scenarios, we also provide an option to select worst samples by conditioning on one immutable feature. That is done by performing equal-quantile binning on the immutable feature, and then selecting the worst samples in each slice. This is useful when we want to control the effect of one feature.
-
+In addition to these four scenarios, we also provide an option to select the worst samples by conditioning on one immutable feature. That is done by performing equal-quantile binning on the immutable feature and then selecting the worst samples in each slice. This is useful when we want to control the effect of one feature.
 
 
 Usage
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-Resilience test can be run by using `model_diagnose`. In total, we have 4 different plots for resilience test, including "resilience_perf", "resilience_distance", "resilience_shift_density", and "resilience_shift_histogram". For demonstration purposes, we will train a XGB2 model using the TaiwanCredit data.
+The resilience test can be run by using `model_diagnose`. In total, we have 4 different plots for the resilience test, including "resilience_perf", "resilience_distance", "resilience_shift_density", and "resilience_shift_histogram". For demonstration purposes, we will train an XGB2 model using the TaiwanCredit data.
 
-- `resilience_method`: The method to select worst samples. It can be one of "worst-sample", "hard-sample", "outer-sample", and "worst-cluster". The default is "worst-sample".
-- `immu_feature`: The immutable feature to condition on when selecting worst samples. The default is None.
+- `resilience_method`: The method to select the worst samples. It can be one of "worst-sample", "hard-sample", "outer-sample", and "worst-cluster". The default is "worst-sample".
+- `immu_feature`: The immutable feature when selecting the worst samples. The default is None.
 - `metric`: The performance metric to be used. Supported metrics are "ACC", "AUC", and "F1" for binary classification; "MSE", "MAE", and "R2" for regression.
-- `distance_metrics`: The distance metric for comparing the worst test sample and full test sample; available options includes "PSI", "WD1", and "KS", and the details can be found here_.
+- `distance_metrics`: The distance metric for comparing the worst test sample and full test sample; available options include "PSI", "WD1", and "KS", and the details can be found here_.
 - `alpha`: The worst-sample ratio to be used as `resilience_method` is "worst-sample", "hard-sample", or "outer-sample", which can be 0.1, 0.2, ..., 1.0. Used when `show` is "resilience_distance", "resilience_shift_density", or "resilience_shift_histogram".
 - `n_clusters`: The number of clusters to be used as `resilience_method` is "worst-cluster", available values are 1, 2, ..., 10. Used when `show` is "resilience_distance", "resilience_shift_density", or "resilience_shift_histogram".
 - `psi_buckets`: The binning method for calculating the PSI value.
 
-.. _here: reliability.html#distance-of-reliable-and-un-reliable-data
-
+.. _here: ../data/twosample_test.html
 
 Resilience Performance
 """"""""""""""""""""""""""""""""""
-Using resilience test, you can check the worst sample performance of a model under different out-distribution scenarios. The keyword for this plot is "resilience_perf". 
+Using the resilience test, you can check the worst sample performance of a model under different out-distribution scenarios. The keyword for this plot is "resilience_perf". 
 
 **worst-sample**
 
@@ -60,7 +57,7 @@ The example below illustrates the performance of the model in the "worst-sample"
 
 .. jupyter-input::
    
-	exp.model_diagnose(model="XGB2", show="resilience_perf", resilience_method="worst-sample", 
+   exp.model_diagnose(model="XGB2", show="resilience_perf", resilience_method="worst-sample", 
                       metric="AUC", figsize=(5, 4))
 
 .. figure:: ../../auto_examples/testing/images/sphx_glr_plot_5_resilience_cls_001.png
@@ -73,7 +70,7 @@ When the worst sample ratio is less than 0.4, the AUC values are approximately 0
 
 .. jupyter-input::
 
-	exp.model_diagnose(model="XGB2", show="resilience_perf", resilience_method="hard-sample",
+   exp.model_diagnose(model="XGB2", show="resilience_perf", resilience_method="hard-sample",
                       metric="AUC", figsize=(5, 4))
    
 .. figure:: ../../auto_examples/testing/images/sphx_glr_plot_5_resilience_cls_002.png
@@ -82,25 +79,24 @@ When the worst sample ratio is less than 0.4, the AUC values are approximately 0
 
 **outer-sample**
 
-Based on the plot below, it appears that even in the worst-10% test sample scenario, the model's performance is relatively good, with an AUC above 0.7. The performance peaks at a worst sample ratio of around 0.7 and then begins to decline. This may be because the scenario is unsupervised, and the samples identified as "worst" may not necessarily be the worst in all cases. In some instances, the "worst samples" may actually have better performance than the full test samples.
+Based on the plot below, it appears that even in the worst-10% test sample scenario, the model's performance is relatively good, with an AUC above 0.7. The performance peaks at a worst sample ratio of around 0.7 and then begins to decline. This may be because the scenario is unsupervised, and the samples identified as "worst" may not necessarily be the worst in all cases. In some instances, the "worst samples" may have better performance than the full test samples.
 
 .. jupyter-input::
    
-	exp.model_diagnose(model="XGB2", show="resilience_perf", resilience_method="outer-sample",
+   exp.model_diagnose(model="XGB2", show="resilience_perf", resilience_method="outer-sample",
                       metric="AUC", figsize=(5, 4))
 
 .. figure:: ../../auto_examples/testing/images/sphx_glr_plot_5_resilience_cls_003.png
    :target: ../../auto_examples/testing/plot_5_resilience_cls.html
    :align: left
 
-
 **worst-cluster**
 
-The last approach is the "worst-cluster" method, which differs slightly from the previous three methods. In this approach, the x-axis of the plot represents the number of clusters, which ranges from 1 to 10. This involves varying the value of  :math:`K` in KMeans and identifying the worst cluster as the worst samples. The worst cluster is defined as the cluster with the lowest performance metric. Notably, :math:`K=1` represents the entire test sample. As this is also an unsupervised method, the performance may not be monotonic as the number of clusters increases.
+The last approach is the "worst-cluster" method, which differs slightly from the previous three methods. In this approach, the x-axis of the plot represents the number of clusters, which ranges from 1 to 10. This involves varying the value of :math:`K` in KMeans and identifying the worst cluster as the worst sample. The worst cluster is defined as the cluster with the lowest performance metric. Notably, :math:`K=1` represents the entire test sample. As this is also an unsupervised method, the performance may not be monotonic as the number of clusters increases.
 
 .. jupyter-input::
 
-	exp.model_diagnose(model="XGB2", show="resilience_perf", resilience_method="worst-cluster",
+   exp.model_diagnose(model="XGB2", show="resilience_perf", resilience_method="worst-cluster",
                       metric="AUC", figsize=(5, 4))
 
 .. figure:: ../../auto_examples/testing/images/sphx_glr_plot_5_resilience_cls_004.png
@@ -108,12 +104,11 @@ The last approach is the "worst-cluster" method, which differs slightly from the
    :align: left
 
 
-
 Resilience Distance
 """""""""""""""""""""""""""""""""""""
-By setting `show` to "resilience_distance", the distributional distance between the worst test sample and full test sample will be calculated for each feature. Then the features will be ranked by the distance, and the top-10 features with the largest distances will be displayed.
+By setting `show` to "resilience_distance", the distributional distance between the worst test sample and the full test sample will be calculated for each feature. Then the features will be ranked by distance, and the top 10 features with the largest distances will be displayed.
 
-In the first example, we set the `distance_metrics` to "PSI", and you can also use "WD1" and "KS" instead. The worst sample ratio `alpha` is set to 0.3. The plot suggests the variable `Pay_1` has the largest PSI (around 0.55), whihc is usually thought as a significant distribution change.
+In the first example, we set the `distance_metrics` to "PSI", and you can also use "WD1" and "KS" instead. The worst sample ratio `alpha` is set to 0.3. The plot suggests the variable `Pay_1` has the largest PSI (around 0.55), which is usually thought of as a significant distribution change.
 
 .. jupyter-input::
 
@@ -123,7 +118,6 @@ In the first example, we set the `distance_metrics` to "PSI", and you can also u
 .. figure:: ../../auto_examples/testing/images/sphx_glr_plot_5_resilience_cls_005.png
    :target: ../../auto_examples/testing/plot_5_resilience_cls.html
    :align: left
-
 
 In the second example, we still use the same setting, but with `immu_feature` not None. By conditioning on  `PAY_1`, we recalculate the resilience distance. It can be found that the PSI distance of that immutable feature becomes much smaller.
 
@@ -136,8 +130,7 @@ In the second example, we still use the same setting, but with `immu_feature` no
    :target: ../../auto_examples/testing/plot_5_resilience_cls.html
    :align: left
 
-
-The third example shows the resilience distance plot for the "worst-cluster" scenario. The `n_clusters` is set to 10, and the `distance_metrics` is set to "WD1". The plot suggests the variable `Pay_1` has the largest WD1 (0.12), which is usually thought as a moderate distribution change.
+The third example shows the resilience distance plot for the "worst-cluster" scenario. The `n_clusters` is set to 10, and the `distance_metrics` is set to "WD1". The plot suggests the variable `Pay_1` has the largest WD1 (0.12), which is usually thought of as a moderate distribution change.
 
 .. jupyter-input::
 
@@ -148,20 +141,18 @@ The third example shows the resilience distance plot for the "worst-cluster" sce
    :target: ../../auto_examples/testing/plot_5_resilience_cls.html
    :align: left
 
-
 Marginal Density Comparison
 """"""""""""""""""""""""""""""""""""""""""
-The marginal density plot that shows the distributional difference of the worst test samples and full test samples for a single feature. To generate this plot, set `show` to "resilience_shift_density", and also specify the `target_feature` to be plotted.
+The marginal density plot shows the distributional difference between the worst test samples and full test samples for a single feature. To generate this plot, set `show` to "resilience_shift_density", and also specify the `target_feature` to be plotted.
 
 .. jupyter-input::
 
-    	exp.model_diagnose(model="XGB2", show="resilience_shift_density",  
-			                target_feature="Pay_1", original_scale=True, figsize=(5, 4))
+      exp.model_diagnose(model="XGB2", show="resilience_shift_density",  
+                         target_feature="Pay_1", original_scale=True, figsize=(5, 4))
    
 .. figure:: ../../auto_examples/testing/images/sphx_glr_plot_5_resilience_cls_008.png
    :target: ../../auto_examples/testing/plot_5_resilience_cls.html
    :align: left
-
 
 Marginal Histogram Comparison
 """"""""""""""""""""""""""""""""""""""""""
@@ -169,13 +160,12 @@ Similar to the density plot, we also provide the option to draw the histogram co
 
 .. jupyter-input::
 
-    	exp.model_diagnose(model="XGB2", show="resilience_shift_histogram",  
-			                target_feature="Pay_1", original_scale=True, figsize=(5, 4))
+      exp.model_diagnose(model="XGB2", show="resilience_shift_histogram",  
+                         target_feature="Pay_1", original_scale=True, figsize=(5, 4))
 
 .. figure:: ../../auto_examples/testing/images/sphx_glr_plot_5_resilience_cls_009.png
    :target: ../../auto_examples/testing/plot_5_resilience_cls.html
    :align: left
-
 
 
 Examples

@@ -249,27 +249,27 @@
 <p>Overfitting is a common problem in machine learning where a model performs well on the training data, but fails to generalize to test or unseen data. Overfit detection is the process of identifying when a model is overfitting to the training data so that model developers can take further steps to prevent or mitigate it.</p>
 <section id="algorithm-details">
 <h2><span class="section-number">6.3.1. </span>Algorithm Details<a class="headerlink" href="#algorithm-details" title="Permalink to this heading">¶</a></h2>
-<p>The overfit detection is similar but a bit different to weakspot detection. Given a fitted model, we need to deine the the degree of overfitting for each test sample, using the following algorithm:</p>
+<p>The overfit detection is similar but a bit different from weakspot detection. Given a fitted model, we need to define the degree of overfitting for each test sample, using the following algorithm:</p>
 <ul class="simple">
 <li><p>Find the nearest neighbors of each test sample in the training set;</p></li>
 <li><p>Calculate the performance gap between each test sample and its nearest neighbor in the training set.</p></li>
 </ul>
-<p>After that, we obtain a list of performance gaps for each test sample, and we can use the performance gap list to identify the overfit regions of 1 or 2 features of interest. The detection algorithm is similar to that of <a class="reference external" href="weakspot.html#algorithm-details">weakspot</a>. In overfit, we have two built-in methods, i.e., histogram slicing and tree slicing. The ensemble tree approach is not used here. In practice, the computational cost can be very large as the training sample size is large. To avoid this, we do random downsampling for training set, such that the set used for selecting the nearest neighbors has at most 10000 samples.</p>
+<p>After that, we obtain a list of performance gaps for each test sample, and we can use the performance gap list to identify the overfit regions of 1 or 2 features of interest. The detection algorithm is similar to that of <a class="reference external" href="weakspot.html#algorithm-details">weakspot</a>. In overfit, we have two built-in methods, i.e., histogram slicing and tree slicing. The ensemble tree approach is not used here. In practice, the computational cost can be very large as the training sample size is large. To avoid this, we do random downsampling for the training set, such that the set used for selecting the nearest neighbors has at most 10000 samples.</p>
 </section>
 <section id="usage">
 <h2><span class="section-number">6.3.2. </span>Usage<a class="headerlink" href="#usage" title="Permalink to this heading">¶</a></h2>
 <p>Overfit assessment can be done using <code class="docutils literal notranslate"><span class="pre">model_diagnose</span></code>. The keyword is “overfit”, and additional parameters are listed below. Compared to the weakspot test, the overfit test does not have the argument <code class="docutils literal notranslate"><span class="pre">use_test</span></code>, as it is always performed on the test set.</p>
 <ul class="simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">slice_method</span></code>: This option is used to chose which slcing method to use, avaible options includes “histogram” and “tree”, which corresponds the three previously mentioned slicing methods. The default is “histogram”.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">slice_method</span></code>: This option is used to choose which slicing method to use, available options include “histogram” and “tree”, which corresponds to the three previously mentioned slicing methods. The default is “histogram”.</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">slice_features</span></code>: This is the argument for specifying the list of slicing features. 1 or 2 slicing features should be specified, otherwise, a warning message would show up.</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">bins</span></code>: This is the number of bins for histogram slicing. By default, it is set to 10.</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">metric</span></code>: The performance metrics, including “MSE”, “MAE”, and “R2” for regression; “ACC”, “AUC”, and “F1” for classification. The default metric is “MSE” for regression tasks and “ACC” for classification tasks.</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">threshold</span></code>: This is the performance gap threshold ratio. By default, it is set to 1.1, which means 10% greater than the average performance gap.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">min_samples</span></code>: The minimum sample size for a weak region, and the default value is 20. Regions with sample size less than 20 will be ignored.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">min_samples</span></code>: The minimum sample size for a weak region, and the default value is 20. Regions with a sample size of less than 20 will be ignored.</p></li>
 </ul>
 <section id="one-way-overfit-plot">
 <h3><span class="section-number">6.3.2.1. </span>One-way Overfit Plot<a class="headerlink" href="#one-way-overfit-plot" title="Permalink to this heading">¶</a></h3>
-<p>We consider a regression task on the BiksSharing data. In the following demo, we identify overfit regions using histogram method, and focus on a single variable <code class="docutils literal notranslate"><span class="pre">hr</span></code>.</p>
+<p>We consider a regression task on the BiksSharing data. In the following demo, we identify overfit regions using the histogram method, and focus on a single variable <code class="docutils literal notranslate"><span class="pre">hr</span></code>.</p>
 <div class="jupyter_cell jupyter_container docutils container">
 <div class="cell_input code_cell docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">results</span> <span class="o">=</span> <span class="n">exp</span><span class="o">.</span><span class="n">model_diagnose</span><span class="p">(</span><span class="n">model</span><span class="o">=</span><span class="s2">&quot;XGB2&quot;</span><span class="p">,</span> <span class="n">show</span><span class="o">=</span><span class="s2">&quot;overfit&quot;</span><span class="p">,</span> <span class="n">slice_method</span><span class="o">=</span><span class="s2">&quot;histogram&quot;</span><span class="p">,</span>
@@ -355,7 +355,7 @@
   </tbody>
 </table>
 </div>
-</div><p>The most significant overfit region is the one with <code class="docutils literal notranslate"><span class="pre">hr</span></code> in the range of (7am, 9am), where the test set has a MSE of 0.0171, while the train set has a MSE of 0.0156. The gap is 0.0015, which is larger than the threshold around 0.0004. Note that the original scale argument only affect the plot, the returned table still uses the scaled values.</p>
+</div><p>The most significant overfit region is the one with <code class="docutils literal notranslate"><span class="pre">hr</span></code> in the range of (7am, 9am), where the test set has an MSE of 0.0171, while the train set has an MSE of 0.0156. The gap is 0.0015, which is larger than the threshold of around 0.0004. Note that the original scale argument only affects the plot, the returned table still uses the scaled values.</p>
 </section>
 <section id="two-way-overfit-plot">
 <h3><span class="section-number">6.3.2.2. </span>Two-way Overfit Plot<a class="headerlink" href="#two-way-overfit-plot" title="Permalink to this heading">¶</a></h3>

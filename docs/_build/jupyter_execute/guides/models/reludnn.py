@@ -6,7 +6,7 @@
 
 from piml.models import ReluDNNClassifier
 exp.model_train(model=ReluDNNClassifier(hidden_layer_sizes=(40, 40), l1_reg=0.0002, learning_rate=0.001),
-                                    name="ReLUDNN")
+                name="ReLUDNN")
 
 
 # In[ ]:

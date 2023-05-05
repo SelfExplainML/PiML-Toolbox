@@ -256,7 +256,7 @@
 
 </style><section id="relu-neural-network">
 <h1><span class="section-number">5.9. </span>ReLU Neural Network<a class="headerlink" href="#relu-neural-network" title="Permalink to this heading">¶</a></h1>
-<p>In the field of deep learning, deep neural networks (DNNs) that use rectified linear unit (ReLU) activation functions have achieved remarkable success. Due to its simple functional form, ReLU offers many appealing properties, such as a fast convergence rate, excellent predictive performance, and intrinsic interpretability. In this section, we will give a brief overview of the ReLU-DNN model and how it is used in PiML.</p>
+<p>In the field of deep learning, deep neural networks (DNNs) that use the rectified linear unit (ReLU) activation functions have achieved remarkable success. Due to its simple functional form, ReLU offers many appealing properties, such as a fast convergence rate, excellent predictive performance, and intrinsic interpretability. In this section, we will give a brief overview of the ReLU-DNN model and how it is used in PiML.</p>
 <section id="model-formulation">
 <h2><span class="section-number">5.9.1. </span>Model Formulation<a class="headerlink" href="#model-formulation" title="Permalink to this heading">¶</a></h2>
 <p>Consider a feedforward ReLU network with inputs <span class="math notranslate nohighlight">\(\textbf{x} \in \mathbb{R}^{d}\)</span>, <span class="math notranslate nohighlight">\(L\)</span> hidden layers, and one output neuron. Assume the <span class="math notranslate nohighlight">\(l\)</span>-th hidden layer has <span class="math notranslate nohighlight">\(n_{l}\)</span> neurons. In particular, we mark the input layer as a special hidden layer with index 0 (<span class="math notranslate nohighlight">\(n_{0}=d\)</span>). The weight matrix and bias vector of the <span class="math notranslate nohighlight">\(l\)</span>-th hidden layer to the  <span class="math notranslate nohighlight">\((l+1)\)</span>-th hidden layer are denoted by <span class="math notranslate nohighlight">\(\textbf{W}^{(l)}\)</span> of size <span class="math notranslate nohighlight">\(n_{l+1}\times n_{l}\)</span>, and <span class="math notranslate nohighlight">\(\textbf{b}^{l}\)</span> of size <span class="math notranslate nohighlight">\(n_{l+1}\)</span>, respectively. Let <span class="math notranslate nohighlight">\(\textbf{z}^{(l)}\)</span> denotes the input of the <span class="math notranslate nohighlight">\(l\)</span>-th hidden layer. Then, the network can be recursively expressed by</p>
@@ -283,9 +283,9 @@
 <p>The length of the activation pattern is <span class="math notranslate nohighlight">\(\sum_{i=1}^L n_l\)</span>, i.e., the total number of hidden neurons in the network. Each sample <span class="math notranslate nohighlight">\(\textbf{x}\)</span> corresponds to a particular activation pattern of the form</p>
 <div class="math notranslate nohighlight">
 \[\begin{equation}
-        C(\textbf{x}) = [C^{(1)}(\textbf{x}); \ldots; C^{(L)}(\textbf{x})].
+   C(\textbf{x}) = [C^{(1)}(\textbf{x}); \ldots; C^{(L)}(\textbf{x})].
 \end{equation}\]</div>
-<p>Data points that exhibit the same activation pattern can be grouped together, and their input-output relationship can be simplified using a linear model, known as the local linear model (LLM). By disentangling the network, an equivalent set of LLMs can be obtained.</p>
+<p>Data points that exhibit the same activation pattern can be grouped, and their input-output relationship can be simplified using a linear model, known as the local linear model (LLM). By disentangling the network, an equivalent set of LLMs can be obtained.</p>
 <div class="math notranslate nohighlight">
 \[\begin{align}
     \eta(\textbf{x}) = \tilde{\textbf{w}}^{C(\textbf{x})}\textbf{x} + \tilde{b}^{C(\textbf{x})}, \tag{4}
@@ -294,12 +294,12 @@
 </section>
 <section id="model-training">
 <h2><span class="section-number">5.9.3. </span>Model Training<a class="headerlink" href="#model-training" title="Permalink to this heading">¶</a></h2>
-<p>In this section, we demonstrate how to train a ReLU-DNN model using PiML. Assume the data is already prepared, then the ReLU-DNN model can be imported and fitted using PiML’s built-in workflow, as shown below.</p>
+<p>In this section, we demonstrate how to train a ReLU-DNN model using PiML. Assuming the data is already prepared, then the ReLU-DNN model can be imported and fitted using PiML’s built-in workflow, as shown below.</p>
 <div class="jupyter_cell jupyter_container docutils container">
 <div class="cell_input code_cell docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">piml.models</span> <span class="kn">import</span> <span class="n">ReluDNNClassifier</span>
 <span class="n">exp</span><span class="o">.</span><span class="n">model_train</span><span class="p">(</span><span class="n">model</span><span class="o">=</span><span class="n">ReluDNNClassifier</span><span class="p">(</span><span class="n">hidden_layer_sizes</span><span class="o">=</span><span class="p">(</span><span class="mi">40</span><span class="p">,</span> <span class="mi">40</span><span class="p">),</span> <span class="n">l1_reg</span><span class="o">=</span><span class="mf">0.0002</span><span class="p">,</span> <span class="n">learning_rate</span><span class="o">=</span><span class="mf">0.001</span><span class="p">),</span>
-                                    <span class="n">name</span><span class="o">=</span><span class="s2">&quot;ReLUDNN&quot;</span><span class="p">)</span>
+                <span class="n">name</span><span class="o">=</span><span class="s2">&quot;ReLUDNN&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -338,7 +338,7 @@
 <li><p><code class="docutils literal notranslate"><span class="pre">Global</span> <span class="pre">AUC</span></code>: The global performance when using this LLM for all training samples</p></li>
 </ul>
 </div></blockquote>
-<p>Such information can help model developers to have a better understanding of the fitted ReLU-DNN model. For example, the first row indicates that the largest LLM has 5153 training samples, with an average response value of 0.105570, local AUC of 0.584421, and global AUC of 0.735054. From the results, we find that this LLM’s global performance is even better than its local performance, and a simpler model like GLM may be good enough.</p>
+<p>Such information can help model developers to have a better understanding of the fitted ReLU-DNN model. For example, the first row indicates that the largest LLM has 5153 training samples, with an average response value of 0.105570, a local AUC of 0.584421, and a global AUC of 0.735054. From the results, we find that this LLM’s global performance is even better than its local performance, and a simpler model like GLM may be good enough.</p>
 </section>
 <section id="parallel-coordinate-plot">
 <h3><span class="section-number">5.9.4.2. </span>Parallel Coordinate Plot<a class="headerlink" href="#parallel-coordinate-plot" title="Permalink to this heading">¶</a></h3>
@@ -399,7 +399,7 @@
 </section>
 <section id="llm-profile-plot">
 <h3><span class="section-number">5.9.4.5. </span>LLM profile plot<a class="headerlink" href="#llm-profile-plot" title="Permalink to this heading">¶</a></h3>
-<p>The local linear profile plot (with keyword “global_effect_plot”) shows the marginal linear functions upon centering, and it should be used together with the parameter <code class="docutils literal notranslate"><span class="pre">uni_feature</span></code>.</p>
+<p>The local linear profile plot (with the keyword “global_effect_plot”) shows the marginal linear functions upon centering, and it should be used together with the parameter <code class="docutils literal notranslate"><span class="pre">uni_feature</span></code>.</p>
 <div class="jupyter_cell jupyter_container docutils container">
 <div class="cell_input code_cell docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">exp</span><span class="o">.</span><span class="n">model_interpret</span><span class="p">(</span><span class="n">model</span><span class="o">=</span><span class="s2">&quot;ReLUDNN&quot;</span><span class="p">,</span> <span class="n">show</span><span class="o">=</span><span class="s2">&quot;global_effect_plot&quot;</span><span class="p">,</span> <span class="n">uni_feature</span><span class="o">=</span><span class="s2">&quot;PAY_1&quot;</span><span class="p">,</span> <span class="n">original_scale</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">4</span><span class="p">))</span>
@@ -478,7 +478,7 @@ Inputs X are independent features uniformly distributed on the interval [0, 1]. 
 \[\begin{align}
    y(x) = 10\ \sin(\pi x_{0} x_{1}) + 20 (x_{2} - 0.5)^{2} + 10 x_{3} + 5 x_{4} + \epsilon.
 \end{align}\]</div>
-<p>Out of the n_features features, only 5 are actually used to compute y. The remaining features are independent of y.</p>
+<p>Out of the n_features features, only 5 are used to compute y. The remaining features are independent of y.</p>
 </div></blockquote>
 <ul class="simple">
 <li><p><a class="reference internal" href="../../auto_examples/models/plot_8_reludnn_reg.html#sphx-glr-auto-examples-models-plot-8-reludnn-reg-py"><span class="std std-ref">ReLU DNN Regression (Friedman)</span></a></p></li>

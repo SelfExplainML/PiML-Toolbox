@@ -10,7 +10,6 @@ Comparison for Classification
 This section compares models from various perspectives. This can be done by using the `model_compare` function in PiML. For demonstration, we consider a regression task on the BikeSharing data.
 
 
-
 Accuracy Comparison
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 We consider a binary classification task on the Taiwan Credit. The `metric` can be chosen from "ACC", "AUC", and "F1".
@@ -27,7 +26,6 @@ The bar chart below compares models based on ACC score, with `metric` = "ACC". A
    :target: ../../auto_examples/testing_compare/plot_0_compare_classification.html
    :align: left
 
-
 AUC Score
 """"""""""""""""""""""""""
 The second plot compares models based on AUC score, with `metric` = "AUC". The results indicate that the XGB2 model has slightly better performance.
@@ -40,10 +38,9 @@ The second plot compares models based on AUC score, with `metric` = "AUC". The r
    :target: ../../auto_examples/testing_compare/plot_0_compare_classification.html
    :align: left
 
-
 F1 Score
 """"""""""""""""""""""""""
-The last plot compares modes based on F1 score, with `metric` = "F1". All these three models have similar performance under this metric.
+The last plot compares modes based on the F1 score, with `metric` = "F1". All these three models have similar performance under this metric.
 
 .. jupyter-input::
 
@@ -52,7 +49,6 @@ The last plot compares modes based on F1 score, with `metric` = "F1". All these 
 .. figure:: ../../auto_examples/testing_compare/images/sphx_glr_plot_0_compare_classification_003.png
    :target: ../../auto_examples/testing_compare/plot_0_compare_classification.html
    :align: left
-
 
 
 Overfit Comparison
@@ -66,13 +62,12 @@ Different from the overfit for a single model, the argument for selecting slicin
 .. jupyter-input::
 
    exp.model_compare(models=["Tree", "FIGS", "XGB2"], show="overfit",
-                     slice_method="historgram", slice_feature="PAY_1", threshold=1.05, 
+                     slice_method="histogram", slice_feature="PAY_1", threshold=1.05, 
                      bins=10, metricmetric="ACC", figsize=(5, 4))
 
 .. figure:: ../../auto_examples/testing_compare/images/sphx_glr_plot_0_compare_classification_004.png
    :target: ../../auto_examples/testing_compare/plot_0_compare_classification.html
    :align: left
-
 
 .. jupyter-input::
 
@@ -85,15 +80,13 @@ Different from the overfit for a single model, the argument for selecting slicin
    :align: left
 
 
-
 Reliability Comparison
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 For binary classification tasks, the reliability comparison includes bandwidth comparison and reliability diagram comparison.
 
-
 Bandwidth Comparison
 """"""""""""""""""""""""""""""
-The prediction interval bandwidth for binary classfication is quantified by the squared root of :math:`\hat{p}(1 - \hat{p})`, and hence the argument `alpha` is not used. The example below illustrates how to compare models' prediciton invertal bandwidth. 
+The prediction interval bandwidth for binary classification is quantified by the squared root of :math:`\hat{p}(1 - \hat{p})`, and hence the argument `alpha` is not used. The example below illustrates how to compare models' prediction interval bandwidth. 
 
 .. jupyter-input::
 
@@ -103,10 +96,9 @@ The prediction interval bandwidth for binary classfication is quantified by the 
    :target: ../../auto_examples/testing_compare/plot_0_compare_classification.html
    :align: left
 
-
 Reliability Diagram Comparison
 """"""""""""""""""""""""""""""
-The keyword for reliability diagram is "reliability_perf", and it generates a reliability diagram for each model, as shown below. The argument `bins` is the number of bins of predicted probability, used for calculating the calibrated probability using the actual label.
+The keyword for the reliability diagram is "reliability_perf", and it generates a reliability diagram for each model, as shown below. The argument `bins` is the number of bins of predicted probability, used for calculating the calibrated probability using the actual label.
 
 .. jupyter-input::
 
@@ -118,17 +110,15 @@ The keyword for reliability diagram is "reliability_perf", and it generates a re
    :align: left
 
 
-
 Robustness Comparison
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-Robustness comparison is to compare models under input perturbation. This section illustrates how to compare models under input perturbation. The algorithm details of robustness test can be found in the robustness_ testing section.
+Robustness comparison is to compare models under input perturbation. This section illustrates how to compare models under input perturbation. The algorithm details of the robustness test can be found in the robustness_ testing section.
 
 .. _robustness: ../testing/robustness.html
 
-
-Robustness Perforformance
+Robustness Performance
 """"""""""""""""""""""""""""""
-The example below illustrates how to compare models' robustness performance using the keyword "robustness_perf". The perturbation method is set to "raw", which means we add normal noise on the raw data of numerical features. The perturbation step size is set to 0.2. By default, the perturbation features are all features. The performance metric is set to "AUC". The following example illustrates how to compare models' robustness performance.
+The example below illustrates how to compare models' robustness performance using the keyword "robustness_perf". The perturbation method is set to "raw", which means we add normal noise to the raw data of numerical features. The perturbation step size is set to 0.2. By default, the perturbation features are all features. The performance metric is set to "AUC". The following example illustrates how to compare models' robustness performance.
 
 .. jupyter-input::
 
@@ -139,8 +129,7 @@ The example below illustrates how to compare models' robustness performance usin
    :target: ../../auto_examples/testing_compare/plot_0_compare_classification.html
    :align: left
 
-In the plot above, the perturbation is applied on all variables. On the x-axis, we have the perturbation size, and on the y-axis, the model performance. Model XGB2 recorded the best robustness performance, followed by XGB7. The worst performing is GLM. 
-
+In the plot above, the perturbation is applied to all variables. On the x-axis, we have the perturbation size, and on the y-axis, the model performance. Model XGB2 recorded the best robustness performance, followed by XGB7. The worst performing is GLM. 
 
 Robustness Performance on Worst Samples
 """""""""""""""""""""""""""""""""""""""""""
@@ -155,18 +144,16 @@ The keyword "robustness_perf_worst" is used to evaluate the models' performance 
    :target: ../../auto_examples/testing_compare/plot_0_compare_classification.html
    :align: left
 
-The plot shows that XGB2 performs well on the unperturbed data (noise = 0) and it is also the most robust model against perturbation. GAM is the second best model, followed by GLM. 
-
+The plot shows that XGB2 performs well on unperturbed data (noise = 0) and it is also the most robust model against perturbation. GAM is the second-best model, followed by GLM. 
 
 
 Resilience Comparison
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-Resilience comparison is to compare models under input perturbation. This section illustrates how to compare models under input perturbation. The algorithm details of resilience test can be found in the resilience_ testing section.
+Resilience comparison is to compare models under input perturbation. This section illustrates how to compare models under input perturbation. The algorithm details of the resilience test can be found in the resilience_ testing section.
 
 .. _resilience: ../testing/resilience.html
 
-
-Resilience Perforformance
+Resilience Performance
 """"""""""""""""""""""""""""""
 The example below illustrates how to compare models' resilience performance using the keyword "resilience_perf". The perturbation method is set to "worst-sample". The performance metric is set to "AUC". The following example illustrates how to compare models' resilience performance.
 
@@ -178,7 +165,6 @@ The example below illustrates how to compare models' resilience performance usin
 .. figure:: ../../auto_examples/testing_compare/images/sphx_glr_plot_0_compare_classification_010.png
    :target: ../../auto_examples/testing_compare/plot_0_compare_classification.html
    :align: left
-
 
 
 
@@ -195,7 +181,6 @@ The keyword `resilience_perf_worst` is used to evaluate the models' resilience p
 .. figure:: ../../auto_examples/testing_compare/images/sphx_glr_plot_0_compare_classification_011.png
    :target: ../../auto_examples/testing_compare/plot_0_compare_classification.html
    :align: left
-
 
 
 Examples

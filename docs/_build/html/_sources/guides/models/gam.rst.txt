@@ -18,11 +18,10 @@ A generalized additive model (GAM) can be conceptualized as a non-linear extensi
 In this equation, :math:`f` represents the shape function, which is an unknown, smooth transformation of the features. This function can be estimated using a variety of methods, including smoothing splines, ensemble trees, or neural networks. Compared to the GLM, the use of shape functions in GAMs allows for a more flexible and predictive model, as smooth functions can capture non-linear patterns in the data. However, to ensure model identifiability, the output of each shape function is assumed to have a zero mean.
 
 
-
 Model Training
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Let's see how to train a GAM using PiML. Here we use the `CaliforniaHousing` dataset as an example and assume that this data has been well prepared. Next, we import the corresponding estimators, i.e., `GAMRegressor`_ or `GAMClassifier`_, which are both based on the Python package `pygam`_. As it is a regression problem, we use `GAMRegressor`_ object with some customized hyperparameter settings.
+Let's see how to train a GAM using PiML. Here we use the `CaliforniaHousing` dataset as an example and assume that this data has been well prepared. Next, we import the corresponding estimators, i.e., `GAMRegressor`_ or `GAMClassifier`_, which are both based on the Python package `pygam`_. As it is a regression problem, we use the `GAMRegressor`_ object with some customized hyperparameter settings.
 
 .. jupyter-input::
 
@@ -39,15 +38,14 @@ Below we briefly introduce some of its key hyperparameters.
 
 - `spline_order`: The degree of the piecewise polynomial representation. 
     
-	- order 0: piecewise constant spline
-	- order 1: piecewise linear spline
-	- order 2: piecewise quadratic spline
-	- order 3: piecewise cubic spline
+   - order 0: piecewise constant spline
+   - order 1: piecewise linear spline
+   - order 2: piecewise quadratic spline
+   - order 3: piecewise cubic spline
 
 - `n_splines`: The number of knots in spline transformation refers to the number of anchor points used in estimating the shape function. With a larger number of knots, the estimated shape function tends to be more complex and able to capture more intricate patterns in the data. However, a higher number of knots also leads to a less smooth estimated function, which may result in overfitting the training data and poorer generalization to new data.
 
 - `lam`: The regularization strength hyperparameter that controls the smoothness of the estimated shape function. This penalty term helps to prevent overfitting of the training data and encourages the model to learn simpler and more generalizable patterns in the data. By increasing the value of `lam`, the estimated shape function becomes smoother, which can capture more general patterns in the data. However, a smoother shape function may also result in a less predictive model. Conversely, a lower value of `lam` leads to a rougher shape function, which can capture more intricate patterns in the data, potentially resulting in overfitting.
-
 
 
 Global Interpretation
@@ -77,7 +75,6 @@ Below we show how to generate the global effect plot for GAMs, using the keyword
 The figure above shows the estimated shape functions for the feature `MedInc`, together with the histogram plot on the bottom. It can be observed that the estimated shape function is piecewise linear as the order of spline is set to 1. The estimated shape function is relatively flat for most of the range of `MedInc`, except for a steep increase in the beginning. This suggests that the median house price is relatively stable for most values of `MedInc`, but there is a sharp increase in median house price for low values of MedInc (less than 9.2). This indicates that `MedInc` is an important predictor for predicting the median house price, especially for low-income areas.
 
 
-
 Feature Importance
 """"""""""""""""""""""""""""""""
 
@@ -91,8 +88,8 @@ The keyword "global_fi" corresponds to the feature importance plot. The importan
    :target: ../../auto_examples/models/plot_1_gam_reg.html
    :align: left
 
-Due to space limitations, we only draw the top 10 important features. To get the results of all features, you can manually set `return_data=True` and then a dataframe containing all features' importance will be returned.
-From the plot above, we can see that the most important features are `Latitude` and `Lontitude`, followed by `MedInc` and `AveOccup`.
+Due to space limitations, we only draw the top 10 important features. To get the results of all features, you can manually set `return_data=True`, and then a data frame containing all features' importance will be returned.
+From the plot above, we can see that the most important features are `Latitude` and `Longitude`, followed by `MedInc` and `AveOccup`.
 
 Local Interpretation
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -107,9 +104,8 @@ This plot is useful for understanding how the model makes predictions for a part
    :target: ../../auto_examples/models/plot_1_gam_reg.html
    :align: left
 
-In this plot, the predicted value is 0.3804, while the actual response is 1.0. The bars represent the estimated effect values :math:`\hat{f}_j(x)` of the chosen sample. The feature `Latitude` shows the largest positive contribution to the final prediction, while `MedInc`, `Lontitude`, and  `AveOccup` all have negative contribution.
-Note that this plot only shows the top-10 features with the largest contribution. To get the full results, you can set the parameter `return_data` to True.
-
+In this plot, the predicted value is 0.3804, while the actual response is 1.0. The bars represent the estimated effect values :math:`\hat{f}_j(x)` of the chosen sample. The feature `Latitude` shows the largest positive contribution to the final prediction, while `MedInc`, `Longitude`, and  `AveOccup` all have negative contributions.
+Note that this plot only shows the top 10 features with the largest contribution. To get the full results, you can set the parameter `return_data` to True.
 
 
 Example
@@ -123,6 +119,6 @@ Example
 
 .. topic:: Example 2: CoCircles
 
-  The example below demonstrates how to use PiML with the CoCircles data, which is a simulated binary classification data with two features exactly follows the GAM assumptions. 
+  The example below demonstrates how to use PiML with the CoCircles data, which is a simulated binary classification data with two features exactly follow the GAM assumptions. 
 
  * :ref:`sphx_glr_auto_examples_models_plot_1_gam_cls.py`

@@ -10,25 +10,23 @@ Overfit
 Overfitting is a common problem in machine learning where a model performs well on the training data, but fails to generalize to test or unseen data. Overfit detection is the process of identifying when a model is overfitting to the training data so that model developers can take further steps to prevent or mitigate it.
 
 
-
 Algorithm Details
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-The overfit detection is similar but a bit different to weakspot detection. Given a fitted model, we need to deine the the degree of overfitting for each test sample, using the following algorithm:
+The overfit detection is similar but a bit different from weakspot detection. Given a fitted model, we need to define the degree of overfitting for each test sample, using the following algorithm:
 
 - Find the nearest neighbors of each test sample in the training set;
 - Calculate the performance gap between each test sample and its nearest neighbor in the training set.
 
-After that, we obtain a list of performance gaps for each test sample, and we can use the performance gap list to identify the overfit regions of 1 or 2 features of interest. The detection algorithm is similar to that of weakspot_. In overfit, we have two built-in methods, i.e., histogram slicing and tree slicing. The ensemble tree approach is not used here. In practice, the computational cost can be very large as the training sample size is large. To avoid this, we do random downsampling for training set, such that the set used for selecting the nearest neighbors has at most 10000 samples.
+After that, we obtain a list of performance gaps for each test sample, and we can use the performance gap list to identify the overfit regions of 1 or 2 features of interest. The detection algorithm is similar to that of weakspot_. In overfit, we have two built-in methods, i.e., histogram slicing and tree slicing. The ensemble tree approach is not used here. In practice, the computational cost can be very large as the training sample size is large. To avoid this, we do random downsampling for the training set, such that the set used for selecting the nearest neighbors has at most 10000 samples.
 
 .. _weakspot: weakspot.html#algorithm-details
-
 
 
 Usage
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 Overfit assessment can be done using `model_diagnose`. The keyword is "overfit", and additional parameters are listed below. Compared to the weakspot test, the overfit test does not have the argument `use_test`, as it is always performed on the test set.
 
-- `slice_method`: This option is used to chose which slcing method to use, avaible options includes "histogram" and "tree", which corresponds the three previously mentioned slicing methods. The default is "histogram".
+- `slice_method`: This option is used to choose which slicing method to use, available options include "histogram" and "tree", which corresponds to the three previously mentioned slicing methods. The default is "histogram".
 
 - `slice_features`: This is the argument for specifying the list of slicing features. 1 or 2 slicing features should be specified, otherwise, a warning message would show up. 
 
@@ -38,12 +36,11 @@ Overfit assessment can be done using `model_diagnose`. The keyword is "overfit",
 
 - `threshold`: This is the performance gap threshold ratio. By default, it is set to 1.1, which means 10% greater than the average performance gap.
 
-- `min_samples`: The minimum sample size for a weak region, and the default value is 20. Regions with sample size less than 20 will be ignored.
-
+- `min_samples`: The minimum sample size for a weak region, and the default value is 20. Regions with a sample size of less than 20 will be ignored.
 
 One-way Overfit Plot
 """"""""""""""""""""""""""
-We consider a regression task on the BiksSharing data. In the following demo, we identify overfit regions using histogram method, and focus on a single variable `hr`.
+We consider a regression task on the BiksSharing data. In the following demo, we identify overfit regions using the histogram method, and focus on a single variable `hr`.
 
 .. jupyter-input::
 
@@ -125,8 +122,7 @@ We consider a regression task on the BiksSharing data. In the following demo, we
     </div>
     </div>
 
-The most significant overfit region is the one with `hr` in the range of (7am, 9am), where the test set has a MSE of 0.0171, while the train set has a MSE of 0.0156. The gap is 0.0015, which is larger than the threshold around 0.0004. Note that the original scale argument only affect the plot, the returned table still uses the scaled values.
-
+The most significant overfit region is the one with `hr` in the range of (7am, 9am), where the test set has an MSE of 0.0171, while the train set has an MSE of 0.0156. The gap is 0.0015, which is larger than the threshold of around 0.0004. Note that the original scale argument only affects the plot, the returned table still uses the scaled values.
 
 Two-way Overfit Plot
 """"""""""""""""""""""""""
@@ -221,7 +217,6 @@ From the plot, it can be seen that 3 overfit regions are detected, where 2 regio
     </table>
     </div>
     </div>
-
 
 
 Examples

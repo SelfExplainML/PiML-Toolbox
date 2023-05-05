@@ -252,8 +252,8 @@
 <p>In this section, four built-in feature selection strategies in PiML would be briefly introduced. For demonstration purposes, we run the following example codes to initialize a PiML experiment for the BikeSharing dataset. Note that feature selection is based on training data, and hence the <code class="docutils literal notranslate"><span class="pre">exp.data_prepare</span></code> function should be executed before running <code class="docutils literal notranslate"><span class="pre">exp.feature_select</span></code>.</p>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
-<p>In all the four strategies, we treat binary responses as continuous variables.
-However, this treatment is not very rigourous, especially for pearson correlation, distance correlation, and rcit tests.</p>
+<p>In all four strategies, we treat binary responses as continuous variables.
+However, this treatment is not very rigorous, especially for pearson correlation, distance correlation, and rcit tests.</p>
 </div>
 <section id="correlations">
 <h2><span class="section-number">2.6.1. </span>Correlations<a class="headerlink" href="#correlations" title="Permalink to this heading">¶</a></h2>
@@ -261,7 +261,7 @@ However, this treatment is not very rigourous, especially for pearson correlatio
 <div class="math notranslate nohighlight">
 \[\begin{align}
 \rho_{X Y}=\frac{\sum_{i=1}^n\left(X_i-\bar{X}\right)\left(Y_i-\bar{Y}\right)}
-                     {\sqrt{\sum_{i=1}^n\left(X_i-\bar{X}\right)^2} \sqrt{\sum_{i=1}^n\left(Y_i-\bar{Y}\right)^2}}
+         {\sqrt{\sum_{i=1}^n\left(X_i-\bar{X}\right)^2} \sqrt{\sum_{i=1}^n\left(Y_i-\bar{Y}\right)^2}}
 \end{align}\]</div>
 <p>The value of <span class="math notranslate nohighlight">\(\rho_{X Y}\)</span> ranges from -1 to 1, where the sign denotes the direction of the relationship, and the magnitude represents the correlation strength. The corresponding feature selection strategy is straightforward:</p>
 <blockquote>
@@ -316,26 +316,26 @@ r_{s}=\rho_{\mathrm{R}(X), \mathrm{R}(Y)}= 1-\frac{6 \sum d_i^2}{n\left(n^2-1\ri
 <p>The distance correlation is a measure of dependence between two paired random vectors. It can be viewed as an advanced correlation measurement that can handle both linear and non-linear relationships. Given two features <span class="math notranslate nohighlight">\(X\)</span> and <span class="math notranslate nohighlight">\(Y\)</span>, we first calculate their pairwise Euclidean distance matrix, as follows,</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}\begin{aligned}
-        &amp; a_{j, k}=\left\|X_j-X_k\right\|, \quad j, k=1,2, \ldots, n \\
-        &amp; b_{j, k}=\left\|Y_j-Y_k\right\|, \quad j, k=1,2, \ldots, n.
+    &amp; a_{j, k}=\left\|X_j-X_k\right\|, \quad j, k=1,2, \ldots, n \\
+    &amp; b_{j, k}=\left\|Y_j-Y_k\right\|, \quad j, k=1,2, \ldots, n.
 \end{aligned}\end{split}\]</div>
 <p>Then, these two matrices are centered,</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}\begin{aligned}
-        &amp; A_{j, k}:=a_{j, k}-\bar{a}_{j \cdot}-\bar{a}_{\cdot k}+\bar{a}_{\cdot \cdot} \\
-        &amp; B_{j, k}:=b_{j, k}-\bar{b}_{j \cdot}-\bar{b}_{\cdot k}+\bar{b}_{\cdot \cdot}.
+    &amp; A_{j, k}:=a_{j, k}-\bar{a}_{j \cdot}-\bar{a}_{\cdot k}+\bar{a}_{\cdot \cdot} \\
+    &amp; B_{j, k}:=b_{j, k}-\bar{b}_{j \cdot}-\bar{b}_{\cdot k}+\bar{b}_{\cdot \cdot}.
 \end{aligned}\end{split}\]</div>
 <p>The squared sample distance covariance is then defined as the arithmetic average of the products of <span class="math notranslate nohighlight">\(A_{j, k}\)</span> and <span class="math notranslate nohighlight">\(A_{j, k}\)</span></p>
 <div class="math notranslate nohighlight">
 \[\begin{aligned}
-             \mathrm{dCov}^2(X, Y):=\frac{1}{n^2} \sum_{j=1}^n \sum_{k=1}^n A_{j, k} B_{j, k}.
+     \mathrm{dCov}^2(X, Y):=\frac{1}{n^2} \sum_{j=1}^n \sum_{k=1}^n A_{j, k} B_{j, k}.
 \end{aligned}\]</div>
 <p>Finally, the distance correlation between <span class="math notranslate nohighlight">\(X\)</span> and <span class="math notranslate nohighlight">\(Y\)</span> can be calculated via the following formula.</p>
 <div class="math notranslate nohighlight">
 \[\begin{aligned}
-             \mathrm{dCor}^2(X, Y) = \frac{\mathrm{dCov}^2(X, Y)}{\sqrt{\mathrm{dVar}^2(X) \operatorname{dVar}^2(Y)}}.
-     \end{aligned}\]</div>
-<p>Similar to that of Pearson correlation, we first calculate the distance correlation of each covariate and the response and then use a <code class="docutils literal notranslate"><span class="pre">threshold</span></code> to determine which features are selected. Note that the distance correlation is always positive, ranging from 0 to 1, and hence we don”t need to take the absolute value of these coefficients. In PiML, this method can be called using the following command,</p>
+     \mathrm{dCor}^2(X, Y) = \frac{\mathrm{dCov}^2(X, Y)}{\sqrt{\mathrm{dVar}^2(X) \operatorname{dVar}^2(Y)}}.
+ \end{aligned}\]</div>
+<p>Similar to that of Pearson correlation, we first calculate the distance correlation of each covariate and the response and then use a <code class="docutils literal notranslate"><span class="pre">threshold</span></code> to determine which features are selected. Note that the distance correlation is always positive, ranging from 0 to 1, and hence we don’t need to take the absolute value of these coefficients. In PiML, this method can be called using the following command,</p>
 <div class="jupyter_cell jupyter_container docutils container">
 <div class="cell_input code_cell docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">exp</span><span class="o">.</span><span class="n">feature_select</span><span class="p">(</span><span class="n">method</span><span class="o">=</span><span class="s2">&quot;dcor&quot;</span><span class="p">,</span> <span class="n">threshold</span><span class="o">=</span><span class="mf">0.1</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">4</span><span class="p">))</span>
@@ -355,7 +355,7 @@ r_{s}=\rho_{\mathrm{R}(X), \mathrm{R}(Y)}= 1-\frac{6 \sum d_i^2}{n\left(n^2-1\ri
 <p>This strategy is composed of the following four steps:</p>
 <blockquote>
 <div><ul class="simple">
-<li><p>Fit a XGB model using all the covariates and the response.</p></li>
+<li><p>Fit an XGB model using all the covariates and the response.</p></li>
 <li><p>Run permutation feature importance test for the fitted XGB model, and get the importance of each feature.</p></li>
 <li><p>Sort features in the descending order of importance (normalized such that all values sum to 1).</p></li>
 <li><p>Select the top features with accumulated importance greater than a pre-defined threshold.</p></li>

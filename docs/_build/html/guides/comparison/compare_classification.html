@@ -270,7 +270,7 @@
 </section>
 <section id="f1-score">
 <h3><span class="section-number">7.2.1.3. </span>F1 Score<a class="headerlink" href="#f1-score" title="Permalink to this heading">¶</a></h3>
-<p>The last plot compares modes based on F1 score, with <code class="docutils literal notranslate"><span class="pre">metric</span></code> = “F1”. All these three models have similar performance under this metric.</p>
+<p>The last plot compares modes based on the F1 score, with <code class="docutils literal notranslate"><span class="pre">metric</span></code> = “F1”. All these three models have similar performance under this metric.</p>
 <div class="jupyter_cell jupyter_container docutils container">
 <div class="cell_input code_cell docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">exp</span><span class="o">.</span><span class="n">model_compare</span><span class="p">(</span><span class="n">models</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;Tree&quot;</span><span class="p">,</span> <span class="s2">&quot;FIGS&quot;</span><span class="p">,</span> <span class="s2">&quot;XGB2&quot;</span><span class="p">],</span> <span class="n">show</span><span class="o">=</span><span class="s2">&quot;accuracy_plot&quot;</span><span class="p">,</span> <span class="n">metric</span><span class="o">=</span><span class="s2">&quot;F1&quot;</span><span class="p">)</span>
@@ -292,7 +292,7 @@
 <div class="jupyter_cell jupyter_container docutils container">
 <div class="cell_input code_cell docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">exp</span><span class="o">.</span><span class="n">model_compare</span><span class="p">(</span><span class="n">models</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;Tree&quot;</span><span class="p">,</span> <span class="s2">&quot;FIGS&quot;</span><span class="p">,</span> <span class="s2">&quot;XGB2&quot;</span><span class="p">],</span> <span class="n">show</span><span class="o">=</span><span class="s2">&quot;overfit&quot;</span><span class="p">,</span>
-                  <span class="n">slice_method</span><span class="o">=</span><span class="s2">&quot;historgram&quot;</span><span class="p">,</span> <span class="n">slice_feature</span><span class="o">=</span><span class="s2">&quot;PAY_1&quot;</span><span class="p">,</span> <span class="n">threshold</span><span class="o">=</span><span class="mf">1.05</span><span class="p">,</span>
+                  <span class="n">slice_method</span><span class="o">=</span><span class="s2">&quot;histogram&quot;</span><span class="p">,</span> <span class="n">slice_feature</span><span class="o">=</span><span class="s2">&quot;PAY_1&quot;</span><span class="p">,</span> <span class="n">threshold</span><span class="o">=</span><span class="mf">1.05</span><span class="p">,</span>
                   <span class="n">bins</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">metricmetric</span><span class="o">=</span><span class="s2">&quot;ACC&quot;</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">4</span><span class="p">))</span>
 </pre></div>
 </div>
@@ -323,7 +323,7 @@
 <p>For binary classification tasks, the reliability comparison includes bandwidth comparison and reliability diagram comparison.</p>
 <section id="bandwidth-comparison">
 <h3><span class="section-number">7.2.3.1. </span>Bandwidth Comparison<a class="headerlink" href="#bandwidth-comparison" title="Permalink to this heading">¶</a></h3>
-<p>The prediction interval bandwidth for binary classfication is quantified by the squared root of <span class="math notranslate nohighlight">\(\hat{p}(1 - \hat{p})\)</span>, and hence the argument <code class="docutils literal notranslate"><span class="pre">alpha</span></code> is not used. The example below illustrates how to compare models’ prediciton invertal bandwidth.</p>
+<p>The prediction interval bandwidth for binary classification is quantified by the squared root of <span class="math notranslate nohighlight">\(\hat{p}(1 - \hat{p})\)</span>, and hence the argument <code class="docutils literal notranslate"><span class="pre">alpha</span></code> is not used. The example below illustrates how to compare models’ prediction interval bandwidth.</p>
 <div class="jupyter_cell jupyter_container docutils container">
 <div class="cell_input code_cell docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">exp</span><span class="o">.</span><span class="n">model_compare</span><span class="p">(</span><span class="n">models</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;Tree&quot;</span><span class="p">,</span> <span class="s2">&quot;FIGS&quot;</span><span class="p">,</span> <span class="s2">&quot;XGB2&quot;</span><span class="p">],</span> <span class="n">show</span><span class="o">=</span><span class="s2">&quot;reliability_bandwidth&quot;</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">4</span><span class="p">))</span>
@@ -339,7 +339,7 @@
 </section>
 <section id="reliability-diagram-comparison">
 <h3><span class="section-number">7.2.3.2. </span>Reliability Diagram Comparison<a class="headerlink" href="#reliability-diagram-comparison" title="Permalink to this heading">¶</a></h3>
-<p>The keyword for reliability diagram is “reliability_perf”, and it generates a reliability diagram for each model, as shown below. The argument <code class="docutils literal notranslate"><span class="pre">bins</span></code> is the number of bins of predicted probability, used for calculating the calibrated probability using the actual label.</p>
+<p>The keyword for the reliability diagram is “reliability_perf”, and it generates a reliability diagram for each model, as shown below. The argument <code class="docutils literal notranslate"><span class="pre">bins</span></code> is the number of bins of predicted probability, used for calculating the calibrated probability using the actual label.</p>
 <div class="jupyter_cell jupyter_container docutils container">
 <div class="cell_input code_cell docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">exp</span><span class="o">.</span><span class="n">model_compare</span><span class="p">(</span><span class="n">models</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;Tree&quot;</span><span class="p">,</span> <span class="s2">&quot;FIGS&quot;</span><span class="p">,</span> <span class="s2">&quot;XGB2&quot;</span><span class="p">],</span> <span class="n">show</span><span class="o">=</span><span class="s2">&quot;reliability_perf&quot;</span><span class="p">,</span>
@@ -357,10 +357,10 @@
 </section>
 <section id="robustness-comparison">
 <h2><span class="section-number">7.2.4. </span>Robustness Comparison<a class="headerlink" href="#robustness-comparison" title="Permalink to this heading">¶</a></h2>
-<p>Robustness comparison is to compare models under input perturbation. This section illustrates how to compare models under input perturbation. The algorithm details of robustness test can be found in the <a class="reference external" href="../testing/robustness.html">robustness</a> testing section.</p>
-<section id="robustness-perforformance">
-<h3><span class="section-number">7.2.4.1. </span>Robustness Perforformance<a class="headerlink" href="#robustness-perforformance" title="Permalink to this heading">¶</a></h3>
-<p>The example below illustrates how to compare models’ robustness performance using the keyword “robustness_perf”. The perturbation method is set to “raw”, which means we add normal noise on the raw data of numerical features. The perturbation step size is set to 0.2. By default, the perturbation features are all features. The performance metric is set to “AUC”. The following example illustrates how to compare models’ robustness performance.</p>
+<p>Robustness comparison is to compare models under input perturbation. This section illustrates how to compare models under input perturbation. The algorithm details of the robustness test can be found in the <a class="reference external" href="../testing/robustness.html">robustness</a> testing section.</p>
+<section id="robustness-performance">
+<h3><span class="section-number">7.2.4.1. </span>Robustness Performance<a class="headerlink" href="#robustness-performance" title="Permalink to this heading">¶</a></h3>
+<p>The example below illustrates how to compare models’ robustness performance using the keyword “robustness_perf”. The perturbation method is set to “raw”, which means we add normal noise to the raw data of numerical features. The perturbation step size is set to 0.2. By default, the perturbation features are all features. The performance metric is set to “AUC”. The following example illustrates how to compare models’ robustness performance.</p>
 <div class="jupyter_cell jupyter_container docutils container">
 <div class="cell_input code_cell docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">exp</span><span class="o">.</span><span class="n">model_compare</span><span class="p">(</span><span class="n">models</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;Tree&quot;</span><span class="p">,</span> <span class="s2">&quot;FIGS&quot;</span><span class="p">,</span> <span class="s2">&quot;XGB2&quot;</span><span class="p">],</span> <span class="n">show</span><span class="o">=</span><span class="s2">&quot;robustness_perf&quot;</span><span class="p">,</span>
@@ -374,7 +374,7 @@
 <figure class="align-left">
 <a class="reference external image-reference" href="../../auto_examples/testing_compare/plot_0_compare_classification.html"><img alt="../../_images/sphx_glr_plot_0_compare_classification_008.png" src="../../_images/sphx_glr_plot_0_compare_classification_008.png" /></a>
 </figure>
-<p>In the plot above, the perturbation is applied on all variables. On the x-axis, we have the perturbation size, and on the y-axis, the model performance. Model XGB2 recorded the best robustness performance, followed by XGB7. The worst performing is GLM.</p>
+<p>In the plot above, the perturbation is applied to all variables. On the x-axis, we have the perturbation size, and on the y-axis, the model performance. Model XGB2 recorded the best robustness performance, followed by XGB7. The worst performing is GLM.</p>
 </section>
 <section id="robustness-performance-on-worst-samples">
 <h3><span class="section-number">7.2.4.2. </span>Robustness Performance on Worst Samples<a class="headerlink" href="#robustness-performance-on-worst-samples" title="Permalink to this heading">¶</a></h3>
@@ -392,14 +392,14 @@
 <figure class="align-left">
 <a class="reference external image-reference" href="../../auto_examples/testing_compare/plot_0_compare_classification.html"><img alt="../../_images/sphx_glr_plot_0_compare_classification_009.png" src="../../_images/sphx_glr_plot_0_compare_classification_009.png" /></a>
 </figure>
-<p>The plot shows that XGB2 performs well on the unperturbed data (noise = 0) and it is also the most robust model against perturbation. GAM is the second best model, followed by GLM.</p>
+<p>The plot shows that XGB2 performs well on unperturbed data (noise = 0) and it is also the most robust model against perturbation. GAM is the second-best model, followed by GLM.</p>
 </section>
 </section>
 <section id="resilience-comparison">
 <h2><span class="section-number">7.2.5. </span>Resilience Comparison<a class="headerlink" href="#resilience-comparison" title="Permalink to this heading">¶</a></h2>
-<p>Resilience comparison is to compare models under input perturbation. This section illustrates how to compare models under input perturbation. The algorithm details of resilience test can be found in the <a class="reference external" href="../testing/resilience.html">resilience</a> testing section.</p>
-<section id="resilience-perforformance">
-<h3><span class="section-number">7.2.5.1. </span>Resilience Perforformance<a class="headerlink" href="#resilience-perforformance" title="Permalink to this heading">¶</a></h3>
+<p>Resilience comparison is to compare models under input perturbation. This section illustrates how to compare models under input perturbation. The algorithm details of the resilience test can be found in the <a class="reference external" href="../testing/resilience.html">resilience</a> testing section.</p>
+<section id="resilience-performance">
+<h3><span class="section-number">7.2.5.1. </span>Resilience Performance<a class="headerlink" href="#resilience-performance" title="Permalink to this heading">¶</a></h3>
 <p>The example below illustrates how to compare models’ resilience performance using the keyword “resilience_perf”. The perturbation method is set to “worst-sample”. The performance metric is set to “AUC”. The following example illustrates how to compare models’ resilience performance.</p>
 <div class="jupyter_cell jupyter_container docutils container">
 <div class="cell_input code_cell docutils container">

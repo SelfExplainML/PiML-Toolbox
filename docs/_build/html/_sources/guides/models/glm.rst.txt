@@ -17,7 +17,6 @@ In statistics, generalized linear models (GLMs) are the most well-known interpre
 
 where :math:`\mu` is the intercept term, :math:`w_1, w_2, \ldots, w_d` are model coefficients (also called weights), and :math:`g(\cdot)` is the link function. The most popular link functions are the identity function :math:`g(x)=x` for continuous responses, and the logit function :math:`g(x)=\log(x/(1-x))` for binary responses. 
 
-
 Model Training
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
@@ -29,7 +28,6 @@ There are many existing packages for fitting GLMs under various settings and opt
 
 Both of these two regularizations shrink the regression coefficients toward zero. With large L1 regularization, the fitted coefficients would become sparse. In contrast, with large L2 regularization, the fitted coefficients tend to be closer to zero.
 The different combinations of these two hyperparameters would lead to different variants of GLMs.
-
 
 In particular, `GLMRegressor`_ calls the following modules of scikit-learn.
 
@@ -48,7 +46,6 @@ In particular, `GLMRegressor`_ calls the following modules of scikit-learn.
 
 .. _sklearn.linear_model.ElasticNet: https://scikit-learn.org/stable/modules/generated/sklearn.linear_model.ElasticNet.html#sklearn.linear_model.ElasticNet
 
-
 For binary classification tasks, `GLMClassifier`_ directly uses the LogisticRegression class of scikit-learn.
 
 .. _GLMClassifier: ../../modules/generated/piml.models.GLMClassifier.html
@@ -56,7 +53,6 @@ For binary classification tasks, `GLMClassifier`_ directly uses the LogisticRegr
 - `sklearn.linear_model.LogisticRegression`_: Logistic regression classifier with both L1 and L2 regularizers.
 
 .. _sklearn.linear_model.LogisticRegression: https://scikit-learn.org/stable/modules/generated/sklearn.linear_model.LogisticRegression.html#sklearn.linear_model.LogisticRegression
-
 
 As the data is prepared, the following codes can be used to do model training.
 
@@ -72,7 +68,6 @@ As the model is fitted and registered into the PiML workflow, we can test its pe
     exp.model_diagnose(model="GLM", show="accuracy_table")
 
 Using this command, a table would be generated, showing the model performance on both train and test sets, see :ref:`sphx_glr_auto_examples_models_plot_0_glm_reg.py`.
-
 
 Global Interpretation
 ^^^^^^^^^^^^^^^^^^^^^^^
@@ -117,13 +112,11 @@ It's important to note that, in GLM, categorical variables are preprocessed by o
 In this example, the categorical variable season has four categories, which are represented by four binary dummy variables: `season_1`, `season_2`, `season_3`, and `season_4`. To avoid multicollinearity issues and overparameterization, only three of the four dummy variables are used for model fitting, and the fourth one (`season_1`) is dropped and assigned a coefficient of zero.
 Note that the choice of which dummy variable to drop can affect the interpretation of the coefficients for the remaining variables, especially if there are interactions or nonlinear effects between categories.
 
-
-To get the results of all features, you can use the keyword "glm_coef_table", and a dataframe containing all features' importance will be displayed. Instead of printing the table to the screen, you can also export the results to a data object by setting `return_data` to True.
+To get the results of all features, you can use the keyword "glm_coef_table", and a data frame containing all features' importance will be displayed. Instead of printing the table to the screen, you can also export the results to a data object by setting `return_data` to True.
 
 .. jupyter-input::
 
    exp.model_interpret(model="GLM", show="glm_coef_table")
-
 
 
 Feature Importance
@@ -145,11 +138,11 @@ In order to interpret the relative importance of each feature as a proportion of
 Local Interpretation
 ^^^^^^^^^^^^^^^^^^^^^^^
 
-Local interpretation refers to the local feature contribution of each feature for a particular prediction on a single training sample. In PiML, we can generate the local interpretation plot by keyword "local_fi", together with the sample id to be interpreted, as follows.
+Local interpretation refers to the local feature contribution of each feature for a particular prediction on a single sample. In PiML, we can generate the local interpretation plot by keyword "local_fi", together with the sample id to be interpreted, as follows.
 
 .. jupyter-input::
 
-	exp.model_interpret(model="GLM", show="local_fi", sample_id=0, centered=False, original_scale=False, figsize=(5, 4))
+   exp.model_interpret(model="GLM", show="local_fi", sample_id=0, centered=False, original_scale=False, figsize=(5, 4))
 
 .. figure:: ../../auto_examples/models/images/sphx_glr_plot_0_glm_reg_004.png
    :target: ../../auto_examples/models/plot_0_glm_reg.html
@@ -161,8 +154,7 @@ In this plot,
 
 - The stems marked as `Effect` represent the marginal effects. The longer the stem, the larger the marginal effect, and the more contribution the corresponding feature has on the prediction.
 
-The `sample_id=0` indicates that the plot is showing the coefficients and marginal effects for the first sample in the training set, and the feature values for this sample are shown on the right axis. Note that this plot only shows the top-10 features with the largest contributions. To get the full results, you can set the parameter `return_data` to True.
-
+The `sample_id=0` indicates that the plot is showing the coefficients and marginal effects for the first sample in the training set, and the feature values for this sample are shown on the right axis. Note that this plot only shows the top 10 features with the largest contributions. To get the full results, you can set the parameter `return_data` to True.
 
 Original Scale Option
 """"""""""""""""""""""""""
@@ -171,7 +163,7 @@ The right axis of the local interpretation plot shows the scaled feature values.
 
 .. jupyter-input::
 
-	exp.model_interpret(model="GLM", show="local_fi", sample_id=0, centered=False, original_scale=True, figsize=(5, 4))
+   exp.model_interpret(model="GLM", show="local_fi", sample_id=0, centered=False, original_scale=True, figsize=(5, 4))
 
 .. figure:: ../../auto_examples/models/images/sphx_glr_plot_0_glm_reg_005.png
    :target: ../../auto_examples/models/plot_0_glm_reg.html
@@ -186,14 +178,13 @@ To address this issue, a common approach is to center the features by subtractin
 
 .. jupyter-input::
 
-	exp.model_interpret(model="GLM", show="local_fi", sample_id=0, centered=True, original_scale=True, figsize=(5, 4))
+   exp.model_interpret(model="GLM", show="local_fi", sample_id=0, centered=True, original_scale=True, figsize=(5, 4))
 
 .. figure:: ../../auto_examples/models/images/sphx_glr_plot_0_glm_reg_006.png
    :target: ../../auto_examples/models/plot_0_glm_reg.html
    :align: left
 
 By centering the data and calculating the marginal effects, the model itself remains unchanged, but the interpretation of the marginal effects may change significantly, as we are essentially comparing the contribution of each feature to the average population, rather than the individual sample values. For instance, `hum` has a large contribution to the prediction in the uncentered data. However, when the data is centered, its contribution becomes negligible. This is because the feature value of this sample is close to the population mean, and its contribution is now mainly captured by the intercept term.
-
 
 Examples
 ^^^^^^^^^^^^^^^^^^

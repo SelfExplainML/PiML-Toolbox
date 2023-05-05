@@ -9,7 +9,7 @@ Exploratory Analysis
 ======================================
 
 In PiML, we support three types of plots for users to understand the data better,
-including univariate plots, bivariate plots and multivariate plots.
+including univariate plots, bivariate plots, and multivariate plots.
 
 Univariate Plots
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -63,7 +63,7 @@ For numerical & categorical, we use the box plot to show the relationship by dis
    :target: ../../auto_examples/data/plot_2_data_eda.html
    :align: left
 
-For categorical & categorical, we use the stack bar plot, each bar represents a category in one variable, and is divided into segments representing the frequency of the second variable within that category. 
+For categorical & categorical, we use the stack bar plot, each bar represents a category in one variable and is divided into segments representing the frequency of the second variable within that category. 
 
 .. jupyter-input::
 
@@ -76,7 +76,7 @@ For categorical & categorical, we use the stack bar plot, each bar represents a 
 Multivariate Plots
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 The multivariate plot is a graphical representation of the relationship between multiple variables in a dataset.
-There are two types of charts in PiML, correlation heatmap and correlation graph.
+There are two types of charts in PiML, correlation heatmap, and correlation graph.
 
 Both the correlation heatmap and correlation graph display the information of Pearson correlation, with different representation approaches.
 
@@ -107,4 +107,4 @@ The full example codes of this section can be found in the following link.
 
 .. topic:: Example
 
-	* :ref:`sphx_glr_auto_examples_data_plot_2_data_eda.py`
+    * :ref:`sphx_glr_auto_examples_data_plot_2_data_eda.py`

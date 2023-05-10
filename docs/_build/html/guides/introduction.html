@@ -220,8 +220,8 @@
 <section id="id1">
 <h2><span class="section-number">1.1. </span>Introduction<a class="headerlink" href="#id1" title="Permalink to this heading">¶</a></h2>
 <p>Supervised machine learning has being increasingly used in domains where decision making can have significant consequences. However, the lack of interpretability of many machine learning models makes it difficult to understand and trust the model-based decisions. This leads to growing interest in interpretable machine learning and model diagnostics. There emerge algorithms and packages for model-agnostic explainability, including the <strong>inspection</strong> module (including permutation feature importance, partial dependence) in <strong>scikit-learn</strong> <a class="reference internal" href="#pedregosa2011" id="id2"><span>[Pedregosa2011]</span></a> and various others, e.g., <a class="reference internal" href="#kokhlikyan2020" id="id3"><span>[Kokhlikyan2020]</span></a>, <a class="reference internal" href="#klaise2021" id="id4"><span>[Klaise2021]</span></a>, <a class="reference internal" href="#baniecki2021" id="id5"><span>[Baniecki2021]</span></a>, <a class="reference internal" href="#li2022" id="id6"><span>[Li2022]</span></a>.</p>
-<p>Post-hoc explainability tools are useful for black-box models, but they are known to have general pitfalls <a class="reference internal" href="#rudin2019" id="id7"><span>[Rudin2019]</span></a>, <a class="reference internal" href="#molnar2020" id="id8"><span>[Molnar2020]</span></a>. Inherently interpretable models are suggested for machine learning model development citep{yang2020enhancing, yang2021gami, sudjianto2020unwrapping}. The <strong>InterpretML</strong> package <a class="reference internal" href="#nori2013" id="id9"><span>[Nori2013]</span></a> by Microsoft Research is such a package of promoting the use of inherently interpretable models, in particular their explainable boosting machine (EBM) based on the GA2M model <a class="reference internal" href="#lou2013" id="id10"><span>[Lou2013]</span></a>. One may also refer to <a class="reference internal" href="#sudjianto2021" id="id11"><span>[Sudjianto2021]</span></a> for discussion about how to design inherently interpretable machine learning models.</p>
-<p>In the meantime, model diagnostic tools become increasingly important for model validation and outcome testing. New tools and platforms are developed for model weakness detection and error analysis, e.g., <a class="reference internal" href="#chung2019" id="id12"><span>[Chung2019]</span></a>, PyCaret package, TensorFlow model analysis, FINRA’s model validation toolkit, and Microsoft’s responsible AI toolbox. They can be used for arbitrary pre-trained models, in the same way as the post-hoc explainability tools. Such type of model diagnostics or validation is sometimes referred to as black-box testing, and there is an increasing demand of diagnostic tests for quality assurance of machine learning models.</p>
+<p>Post-hoc explainability tools are useful for black-box models, but they are known to have general pitfalls <a class="reference internal" href="#rudin2019" id="id7"><span>[Rudin2019]</span></a>, <a class="reference internal" href="#molnar2020" id="id8"><span>[Molnar2020]</span></a>. Inherently interpretable models are suggested for machine learning model development <a class="reference internal" href="#yang2021a" id="id9"><span>[Yang2021a]</span></a>, <a class="reference internal" href="#yang2021b" id="id10"><span>[Yang2021b]</span></a>, <a class="reference internal" href="#sudjianto2020" id="id11"><span>[Sudjianto2020]</span></a>. The <strong>InterpretML</strong> package <a class="reference internal" href="#nori2013" id="id12"><span>[Nori2013]</span></a> by Microsoft Research is such a package of promoting the use of inherently interpretable models, in particular their explainable boosting machine (EBM) based on the GA2M model <a class="reference internal" href="#lou2013" id="id13"><span>[Lou2013]</span></a>. One may also refer to <a class="reference internal" href="#sudjianto2021" id="id14"><span>[Sudjianto2021]</span></a> for discussion about how to design inherently interpretable machine learning models.</p>
+<p>In the meantime, model diagnostic tools become increasingly important for model validation and outcome testing. New tools and platforms are developed for model weakness detection and error analysis, e.g., <a class="reference internal" href="#chung2019" id="id15"><span>[Chung2019]</span></a>, PyCaret package, TensorFlow model analysis, FINRA’s model validation toolkit, and Microsoft’s responsible AI toolbox. They can be used for arbitrary pre-trained models, in the same way as the post-hoc explainability tools. Such type of model diagnostics or validation is sometimes referred to as black-box testing, and there is an increasing demand of diagnostic tests for quality assurance of machine learning models.</p>
 <p>It is our goal to design an integrated Python toolbox for interpretable machine learning, for both model development and model diagnostics. This is particularly needed for model risk management in banking, where it is a routine exercise to run model validation including evaluation of model conceptual soundness and outcome testing from various angles. An inherently interpretable machine learning model tends to be more conceptually sound, while it is subject to model diagnostics in terms of accuracy, weakness detection, fairness, uncertainty, robustness and resilience. The PiML toolbox we develop is such a unique Python tool that supports not only a growing list of interpretable models, but also an enhanced suite of multiple diagnostic tests. It has been adopted by multiple banks since its first launch on May 4, 2022.</p>
 </section>
 <section id="toolbox-design">
@@ -238,7 +238,7 @@
 <p>For PiML-trained models by either low-code interface or high-code APIs, there are four follow-up actions to be executed:</p>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">model_interpret()</span></code>: this unified API works only for inherently interpretable models (a.k.a., glass models) to be discussed in <a class="reference external" href="introduction.html#interpretable-models">section_3</a>. It provides model-specific interpretation in both global and local ways. For example, a linear model is interpreted locally through model coefficients or marginal effects, while a decision tree is interpreted locally through the tree path.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">model_explain()</span></code>: this unified API works for arbitrary models including black-box models and glass-box models. It provides post-hoc global explainability through permutation feature importance (PFI) and partial dependence plot (PDP) through <code class="docutils literal notranslate"><span class="pre">sklearn.inspect</span></code> module, accumulated local effects <a class="reference internal" href="#apley2016" id="id13"><span>[Apley2016]</span></a>, and post-hoc local explainability through LIME <a class="reference internal" href="#ribeiro2016" id="id14"><span>[Ribeiro2016]</span></a> and SHAP <a class="reference internal" href="#lundberg2017" id="id15"><span>[Lundberg2017]</span></a>.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">model_explain()</span></code>: this unified API works for arbitrary models including black-box models and glass-box models. It provides post-hoc global explainability through permutation feature importance (PFI) and partial dependence plot (PDP) through <code class="docutils literal notranslate"><span class="pre">sklearn.inspect</span></code> module, accumulated local effects <a class="reference internal" href="#apley2016" id="id16"><span>[Apley2016]</span></a>, and post-hoc local explainability through LIME <a class="reference internal" href="#ribeiro2016" id="id17"><span>[Ribeiro2016]</span></a> and SHAP <a class="reference internal" href="#lundberg2017" id="id18"><span>[Lundberg2017]</span></a>.</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">model_diagnose()</span></code>: this unified API works for arbitrary models and performs model diagnostics to be discussed in <a class="reference external" href="introduction.html#diagnostic-suite">section_4</a>. It is designed to cover standardized general-purpose tests based on model data and predictions, i.e., model-agnostic tests. There is no need to access the model internals.</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">model_compare()</span></code>: this unified API is to compare two or three models at the same time, in terms of model performance and other diagnostic aspects. By inspecting the dashboard of graphical plots, one can easily rank models under comparison.</p></li>
 </ul>
@@ -250,15 +250,15 @@
 <p>PiML supports a growing list of inherently interpretable models. For simplicity, we only list the models and the references. One may refer to the PiML user guide citep{PiMLdoc} for details of each model use and hands-on examples. The following list of interpretable models are included PiML toolbox V0.5 (latest update: May 4, 2023).</p>
 <p>PiML supports a growing list of inherently interpretable models. For simplicity, we only list the models and the references. The following list of interpretable models are included PiML toolbox V0.5 (latest update: May 4, 2023).</p>
 <ul class="simple">
-<li><p><strong>GLM</strong>: Linear/logistic regression with <span class="math notranslate nohighlight">\(\ell_1\)</span> and/or <span class="math notranslate nohighlight">\(\ell_2\)</span> regularization <a class="reference internal" href="#hastie2015" id="id16"><span>[Hastie2015]</span></a></p></li>
-<li><p><strong>GAM</strong>: Generalized additive models using B-splines <a class="reference internal" href="#serven2018" id="id17"><span>[Serven2018]</span></a></p></li>
-<li><p><strong>Tree</strong>: Decision tree for classification and regression <a class="reference internal" href="#pedregosa2011" id="id18"><span>[Pedregosa2011]</span></a></p></li>
-<li><p><strong>FIGS</strong>: Fast interpretable greedy-tree sums <a class="reference internal" href="#tan2022" id="id19"><span>[Tan2022]</span></a></p></li>
-<li><p><strong>XGB1</strong>: Extreme gradient boosted trees of depth 1, using optimal binning <a class="reference internal" href="#chen2015" id="id20"><span>[Chen2015]</span></a>, <a class="reference internal" href="#guillermo2020" id="id21"><span>[Guillermo2020]</span></a></p></li>
-<li><p><strong>XGB2</strong>: Extreme gradient boosted trees of depth 2, with purified effects <a class="reference internal" href="#chen2015" id="id22"><span>[Chen2015]</span></a>, <a class="reference internal" href="#lengerich2020" id="id23"><span>[Lengerich2020]</span></a></p></li>
-<li><p><strong>EBM</strong>: Explainable boosting machine <a class="reference internal" href="#lou2013" id="id24"><span>[Lou2013]</span></a>, <a class="reference internal" href="#nori2013" id="id25"><span>[Nori2013]</span></a></p></li>
-<li><p><strong>GAMI-Net</strong>: Generalized additive model with structured interactions <a class="reference internal" href="#yang2021b" id="id26"><span>[Yang2021b]</span></a></p></li>
-<li><p><strong>ReLU-DNN</strong>: Deep ReLU networks using Aletheia unwrapper and sparsification <a class="reference internal" href="#sudjianto2020" id="id27"><span>[Sudjianto2020]</span></a></p></li>
+<li><p><strong>GLM</strong>: Linear/logistic regression with <span class="math notranslate nohighlight">\(\ell_1\)</span> and/or <span class="math notranslate nohighlight">\(\ell_2\)</span> regularization <a class="reference internal" href="#hastie2015" id="id19"><span>[Hastie2015]</span></a></p></li>
+<li><p><strong>GAM</strong>: Generalized additive models using B-splines <a class="reference internal" href="#serven2018" id="id20"><span>[Serven2018]</span></a></p></li>
+<li><p><strong>Tree</strong>: Decision tree for classification and regression <a class="reference internal" href="#pedregosa2011" id="id21"><span>[Pedregosa2011]</span></a></p></li>
+<li><p><strong>FIGS</strong>: Fast interpretable greedy-tree sums <a class="reference internal" href="#tan2022" id="id22"><span>[Tan2022]</span></a></p></li>
+<li><p><strong>XGB1</strong>: Extreme gradient boosted trees of depth 1, using optimal binning <a class="reference internal" href="#chen2015" id="id23"><span>[Chen2015]</span></a>, <a class="reference internal" href="#guillermo2020" id="id24"><span>[Guillermo2020]</span></a></p></li>
+<li><p><strong>XGB2</strong>: Extreme gradient boosted trees of depth 2, with purified effects <a class="reference internal" href="#chen2015" id="id25"><span>[Chen2015]</span></a>, <a class="reference internal" href="#lengerich2020" id="id26"><span>[Lengerich2020]</span></a></p></li>
+<li><p><strong>EBM</strong>: Explainable boosting machine <a class="reference internal" href="#lou2013" id="id27"><span>[Lou2013]</span></a>, <a class="reference internal" href="#nori2013" id="id28"><span>[Nori2013]</span></a></p></li>
+<li><p><strong>GAMI-Net</strong>: Generalized additive model with structured interactions <a class="reference internal" href="#yang2021b" id="id29"><span>[Yang2021b]</span></a></p></li>
+<li><p><strong>ReLU-DNN</strong>: Deep ReLU networks using Aletheia unwrapper and sparsification <a class="reference internal" href="#sudjianto2020" id="id30"><span>[Sudjianto2020]</span></a></p></li>
 </ul>
 </section>
 <section id="diagnostic-suite">
@@ -269,7 +269,7 @@
 <li><p><strong>WeakSpot</strong>: identification of weak regions with high magnitude of residuals by 1D and 2D slicing techniques.</p></li>
 <li><p><strong>Overfit/Underfit</strong>: identification of overfitting/underfitting regions according to train-test performance gap, also by 1D and 2D slicing techniques.</p></li>
 <li><p><strong>Reliability</strong>: quantification of prediction uncertainty by split conformal prediction and slicing techniques.</p></li>
-<li><p><strong>Robustness</strong>: evaluation of performance degradation under different sizes of covariate noise perturbation <a class="reference internal" href="#cui2023" id="id28"><span>[Cui2023]</span></a>.</p></li>
+<li><p><strong>Robustness</strong>: evaluation of performance degradation under different sizes of covariate noise perturbation <a class="reference internal" href="#cui2023" id="id31"><span>[Cui2023]</span></a>.</p></li>
 <li><p><strong>Resilience</strong>: evaluation of performance degradation under different out-of-distribution scenarios.</p></li>
 <li><p><strong>Fairness</strong>: disparity test, segmented analysis and model de-bias through binning and thresholding techniques.</p></li>
 </ul>
@@ -280,7 +280,7 @@
 <div class="topic">
 <p class="topic-title">References</p>
 <dl class="citation">
-<dt class="label" id="pedregosa2011"><span class="brackets">Pedregosa2011</span><span class="fn-backref">(<a href="#id2">1</a>,<a href="#id18">2</a>)</span></dt>
+<dt class="label" id="pedregosa2011"><span class="brackets">Pedregosa2011</span><span class="fn-backref">(<a href="#id2">1</a>,<a href="#id21">2</a>)</span></dt>
 <dd><p>Fabian Pedregosa, Gaël Varoquaux, Alexandre Gramfort, Vincent Michel, Bertrand Thirion, Olivier Grisel, Mathieu Blondel, Peter Prettenhofer, Ron Weiss, Vincent Dubourg, Jake Vanderplas, Alexandre Passos, David Cournapeau, Matthieu Brucher, Matthieu Perrot, Édouard Duchesnay (2011).
 <a class="reference external" href="https://www.jmlr.org/papers/volume12/pedregosa11a/pedregosa11a.pdf">Scikit-learn: Machine learning in Python</a>,
 Journal of machine Learning research, 12, 2825-2830.</p>
@@ -315,84 +315,84 @@ Nature Machine ntelligence, 1(5), 206-215.</p>
 <a class="reference external" href="https://link.springer.com/chapter/10.1007/978-3-031-04083-2_4">General pitfalls of model-agnostic interpretation methods for machine learning models</a>,
 In xxAI-Beyond Explainable AI: International Workshop, Held in Conjunction with ICML 2020, July 18, 2020, Vienna, Austria, Revised and Extended Papers (pp. 39-68). Cham: Springer International Publishing.</p>
 </dd>
-<dt class="label" id="nori2013"><span class="brackets">Nori2013</span><span class="fn-backref">(<a href="#id9">1</a>,<a href="#id25">2</a>)</span></dt>
+<dt class="label" id="nori2013"><span class="brackets">Nori2013</span><span class="fn-backref">(<a href="#id12">1</a>,<a href="#id28">2</a>)</span></dt>
 <dd><p>Harsha Nori, Samuel Jenkins, Paul Koch, Rich Caruana (2019). <a class="reference external" href="https://arxiv.org/pdf/1909.09223.pdf">InterpretML A Unified Framework for Machine Learning Interpretability</a>, arXiv preprint arXiv:1909.09223.</p>
 </dd>
-<dt class="label" id="lou2013"><span class="brackets">Lou2013</span><span class="fn-backref">(<a href="#id10">1</a>,<a href="#id24">2</a>)</span></dt>
+<dt class="label" id="lou2013"><span class="brackets">Lou2013</span><span class="fn-backref">(<a href="#id13">1</a>,<a href="#id27">2</a>)</span></dt>
 <dd><p>Yin Lou, Rich Caruana, Johannes Gehrke, Giles Hooker (2013).
 <a class="reference external" href="https://dl.acm.org/doi/abs/10.1145/2487575.2487579">Accurate intelligible models with pairwise interactions</a>,
 In Proceedings of the 19th ACM SIGKDD international conference on Knowledge discovery and data mining (pp. 623-631).</p>
 </dd>
-<dt class="label" id="sudjianto2021"><span class="brackets"><a class="fn-backref" href="#id11">Sudjianto2021</a></span></dt>
+<dt class="label" id="sudjianto2021"><span class="brackets"><a class="fn-backref" href="#id14">Sudjianto2021</a></span></dt>
 <dd><p>Agus Sudjianto, Aijun Zhang (2021).
 <a class="reference external" href="https://arxiv.org/pdf/2111.01743.pdf">Designing Inherently Interpretable Machine Learning Models</a>,
 arXiv preprint arXiv:2111.01743.</p>
 </dd>
-<dt class="label" id="chung2019"><span class="brackets"><a class="fn-backref" href="#id12">Chung2019</a></span></dt>
+<dt class="label" id="chung2019"><span class="brackets"><a class="fn-backref" href="#id15">Chung2019</a></span></dt>
 <dd><p>Yeounoh Chung, Tim Kraska, Neoklis Polyzotis, Ki Hyun Tae, Steven Euijong Whang (2019, April).
 <a class="reference external" href="https://ieeexplore.ieee.org/abstract/document/8731353">Slice finder: Automated data slicing for model validation</a>,
 In 2019 IEEE 35th International Conference on Data Engineering (ICDE) (pp. 1550-1553). IEEE.</p>
 </dd>
-<dt class="label" id="apley2016"><span class="brackets"><a class="fn-backref" href="#id13">Apley2016</a></span></dt>
+<dt class="label" id="apley2016"><span class="brackets"><a class="fn-backref" href="#id16">Apley2016</a></span></dt>
 <dd><p>Daniel W. Apley, Jingyu Zhu (2016).
 <a class="reference external" href="https://arxiv.org/pdf/1612.08468.pdf">Visualizing the effects of predictor variables in black box supervised learning models</a>,
 arXiv preprint arXiv:1612.08468.</p>
 </dd>
-<dt class="label" id="ribeiro2016"><span class="brackets"><a class="fn-backref" href="#id14">Ribeiro2016</a></span></dt>
+<dt class="label" id="ribeiro2016"><span class="brackets"><a class="fn-backref" href="#id17">Ribeiro2016</a></span></dt>
 <dd><p>Marco Tulio Ribeiro, Sameer Singh, Carlos Guestrin (2016).
 <a class="reference external" href="https://dl.acm.org/doi/abs/10.1145/2939672.2939778">Why should i trust you?” Explaining the predictions of any classifier</a>,
 Proceedings of the 22nd ACM SIGKDD international conference on knowledge discovery and data mining.</p>
 </dd>
-<dt class="label" id="lundberg2017"><span class="brackets"><a class="fn-backref" href="#id15">Lundberg2017</a></span></dt>
+<dt class="label" id="lundberg2017"><span class="brackets"><a class="fn-backref" href="#id18">Lundberg2017</a></span></dt>
 <dd><p>Scott Lundberg, Su-In Lee (2017).
 <a class="reference external" href="https://proceedings.neurips.cc/paper/2017/hash/8a20a8621978632d76c43dfd28b67767-Abstract.html">A unified approach to interpreting model predictions</a>,
 Advances in neural information processing systems 30.</p>
 </dd>
-<dt class="label" id="hastie2015"><span class="brackets"><a class="fn-backref" href="#id16">Hastie2015</a></span></dt>
+<dt class="label" id="hastie2015"><span class="brackets"><a class="fn-backref" href="#id19">Hastie2015</a></span></dt>
 <dd><p>Trevor Hastie, Robert Tibshirani, Martin Wainwright (2015).
 <a class="reference external" href="https://d1wqtxts1xzle7.cloudfront.net/55629907/statistical_learning_with_sparsity_the_lasso_and_generalizations-libre.pdf?1516867357=&amp;response-content-disposition=inline%3B+filename%3DStatistical_Learning_with_Sparsity_Monog.pdf&amp;Expires=1683035641&amp;Signature=PhMEiYSkWMHsF~xXoDOeI31SmEOEkraGmpC4r17FKIIZz6QoDgwjC21y-ZEoX0EfFruKwedg-i8WNgQm6sohW-IH742G2hsVDtpU3ZriSW5t0YxNcNhLIElzixximdQ63zVhJladyUOkjrPgCL3NDWQ2x9mBKZmxIIrM5cENDtp7GOW4847OF67eWe0zF70r~i~PUN1fWpGWjgBB0XZGLcBwthxodigec3pOQESXFt4O2iM8FEVc0r43Tl1zV91zqCubn5uFgxWBkcdI8qIeddiKIw3LZ05QvCEXMtOehdD5hqCtks6PO8zoH82w2IyTz3sXlkZKHn-idW5p49~75A__&amp;Key-Pair-Id=APKAJLOHF5GGSLRBV4ZA">Statistical learning with sparsity: the lasso and generalizations</a>,
 CRC press.</p>
 </dd>
-<dt class="label" id="serven2018"><span class="brackets"><a class="fn-backref" href="#id17">Serven2018</a></span></dt>
+<dt class="label" id="serven2018"><span class="brackets"><a class="fn-backref" href="#id20">Serven2018</a></span></dt>
 <dd><p>Daniel Servén; Charlie Brummitt (2018).
 <a class="reference external" href="https://zenodo.org/record/1476122#.ZFEIeXZBzEY">pyGAM: Generalized Additive Models in Python</a>,
 Zenodo. DOI: 10.5281/zenodo.1208723</p>
 </dd>
-<dt class="label" id="tan2022"><span class="brackets"><a class="fn-backref" href="#id19">Tan2022</a></span></dt>
+<dt class="label" id="tan2022"><span class="brackets"><a class="fn-backref" href="#id22">Tan2022</a></span></dt>
 <dd><p>Yan Shuo Tan, Chandan Singh, Keyan Nasseri, Abhineet Agarwal, Bin Yu (2022).
 <a class="reference external" href="https://arxiv.org/pdf/2201.11931.pdf">Fast interpretable greedy-tree sums (FIGS)</a>,
 arXiv preprint arXiv:2201.11931.</p>
 </dd>
-<dt class="label" id="lengerich2020"><span class="brackets"><a class="fn-backref" href="#id23">Lengerich2020</a></span></dt>
+<dt class="label" id="lengerich2020"><span class="brackets"><a class="fn-backref" href="#id26">Lengerich2020</a></span></dt>
 <dd><p>Benjamin Lengerich, Sarah Tan, Chun-Hao Chang, Giles Hooker, Rich Caruana (2020, June).
 <a class="reference external" href="http://proceedings.mlr.press/v108/lengerich20a.html">Purifying interaction effects with the functional anova: An efficient algorithm for recovering identifiable additive models</a>,
 In International Conference on Artificial Intelligence and Statistics (pp. 2402-2412). PMLR.</p>
 </dd>
-<dt class="label" id="chen2015"><span class="brackets">Chen2015</span><span class="fn-backref">(<a href="#id20">1</a>,<a href="#id22">2</a>)</span></dt>
+<dt class="label" id="chen2015"><span class="brackets">Chen2015</span><span class="fn-backref">(<a href="#id23">1</a>,<a href="#id25">2</a>)</span></dt>
 <dd><p>Tianqi Chen, Tong He (2015).
 <a class="reference external" href="https://cran.microsoft.com/snapshot/2017-12-11/web/packages/xgboost/vignettes/xgboost.pdf">Xgboost: extreme gradient boosting</a>, R package version 0.4-2, 1(4), 1-4.</p>
 </dd>
-<dt class="label" id="sudjianto2020"><span class="brackets"><a class="fn-backref" href="#id27">Sudjianto2020</a></span></dt>
+<dt class="label" id="sudjianto2020"><span class="brackets">Sudjianto2020</span><span class="fn-backref">(<a href="#id11">1</a>,<a href="#id30">2</a>)</span></dt>
 <dd><p>Agus Sudjianto, William Knauth, Rahul Singh, Zebin Yang, Aijun Zhang. (2020)
 <a class="reference external" href="https://arxiv.org/pdf/2011.04041.pdf">Unwrapping the black box of deep ReLU networks: interpretability, diagnostics, and simplification</a>,
 arXiv preprint arXiv:2011.04041.</p>
 </dd>
-<dt class="label" id="cui2023"><span class="brackets"><a class="fn-backref" href="#id28">Cui2023</a></span></dt>
+<dt class="label" id="cui2023"><span class="brackets"><a class="fn-backref" href="#id31">Cui2023</a></span></dt>
 <dd><p>Shijie Cui, Agus Sudjianto, Aijun Zhang, Runze Li (2023).
 <a class="reference external" href="https://arxiv.org/pdf/2304.13761.pdf">Enhancing Robustness of Gradient-Boosted Decision Trees through One-Hot Encoding and Regularization</a>,
 arXiv preprint arXiv:2304.13761.</p>
 </dd>
-<dt class="label" id="yang2021a"><span class="brackets">Yang2021a</span></dt>
+<dt class="label" id="yang2021a"><span class="brackets"><a class="fn-backref" href="#id9">Yang2021a</a></span></dt>
 <dd><p>Zebin Yang, Aijun Zhang, Agus Sudjianto (2021).
 <a class="reference external" href="https://ieeexplore.ieee.org/abstract/document/9149804">Enhancing explainability of neural networks through architecture constraints</a>,
 IEEE Transactions on Neural Networks and Learning Systems, 32(6), 2610-2621.</p>
 </dd>
-<dt class="label" id="yang2021b"><span class="brackets"><a class="fn-backref" href="#id26">Yang2021b</a></span></dt>
+<dt class="label" id="yang2021b"><span class="brackets">Yang2021b</span><span class="fn-backref">(<a href="#id10">1</a>,<a href="#id29">2</a>)</span></dt>
 <dd><p>Zebin Yang, Aijun Zhang, Agus Sudjianto (2021).
 <a class="reference external" href="https://www.sciencedirect.com/science/article/abs/pii/S0031320321003484">GAMI-Net: An explainable neural network based on generalized additive models with structured interactions</a>,
 Pattern Recognition, 120, 108192.</p>
 </dd>
-<dt class="label" id="guillermo2020"><span class="brackets"><a class="fn-backref" href="#id21">Guillermo2020</a></span></dt>
+<dt class="label" id="guillermo2020"><span class="brackets"><a class="fn-backref" href="#id24">Guillermo2020</a></span></dt>
 <dd><p>Navas-Palencia, Guillermo (2020). <a class="reference external" href="https://arxiv.org/pdf/2001.08025.pdf">Optimal binning: mathematical programming formulation.</a>, arXiv preprint arXiv:2001.08025.</p>
 </dd>
 </dl>

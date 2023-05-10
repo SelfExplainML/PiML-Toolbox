@@ -8,28 +8,30 @@
 Introduction
 =======================
 
-PiML (read :math:`\pi`-ML, \/\`pai\·\`em\·\`el\/) is an integrated open-access Python toolbox for interpretable machine learning model development and model diagnostics. It is designed with machine learning workflows in both low-code and high-code modes, including data pipeline, model training, model interpretation and explanation, and model diagnostics and comparison. The toolbox supports a growing list of interpretable models (e.g., GAM, GAMI-Net, XGB2) with inherent local and/or global interpretability. It also supports model-agnostic explainability tools (e.g., PFI, PDP, LIME, SHAP) and a powerful suite of model-agnostic diagnostics (e.g., weakness, uncertainty, robustness, fairness). Integration of PiML models and tests to existing MLOps platforms for quality assurance are enabled by flexible high-code APIs. Furthermore, PiML toolbox comes with comprehensive user guide and hands-on examples, including its applications for model development and validation in banking. The project is available at https://github.com/SelfExplainML/PiML-Toolbox.
+PiML (read :math:`\pi`-ML, \/\`pai\·\`em\·\`el\/) is an integrated and open-access Python toolbox for interpretable machine learning model development and model diagnostics. It is designed with machine learning workflows in both low-code and high-code modes, including data pipeline, model training, model interpretation and explanation, and model diagnostics and comparison. The toolbox supports a growing list of interpretable models (e.g., GAM, GAMI-Net, XGB2) with inherent local and/or global interpretability. It also supports model-agnostic explainability tools (e.g., PFI, PDP, LIME, SHAP) and a powerful suite of model-agnostic diagnostics (e.g., weakness, uncertainty, robustness, fairness). Integration of PiML models and tests to existing MLOps platforms for quality assurance are enabled by flexible high-code APIs. Furthermore, PiML toolbox comes with a comprehensive user guide and hands-on examples, including the applications for model development and validation in banking. The project is available at https://github.com/SelfExplainML/PiML-Toolbox.
+
 
 
 Introduction
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-Supervised machine learning has being increasingly used in domains where decision making can have significant consequences. However, the lack of interpretability of many machine learning models makes it difficult to understand and trust the model-based decisions. This leads to growing interest in interpretable machine learning and model diagnostics. There emerge algorithms and packages for model-agnostic explainability, including the inspect module (including permutation feature importance, partial dependence) in `scikit-learn` [Pedregosa2011]_ and various others, e.g., [Kokhlikyan2020]_, [Klaise2021]_, [Baniecki2021]_, [Li2022]_.
+Supervised machine learning has being increasingly used in domains where decision making can have significant consequences. However, the lack of interpretability of many machine learning models makes it difficult to understand and trust the model-based decisions. This leads to growing interest in interpretable machine learning and model diagnostics. There emerge algorithms and packages for model-agnostic explainability, including the **inspection** module (including permutation feature importance, partial dependence) in **scikit-learn** [Pedregosa2011]_ and various others, e.g., [Kokhlikyan2020]_, [Klaise2021]_, [Baniecki2021]_, [Li2022]_. 
 
-Post-hoc explainability tools are useful for black-box models, but they are known to have general pitfalls [Rudin2019]_, [Molnar2020]_. Inherently interpretable models are suggested for machine learning model development  [Yang2021a]_, [Yang2021b]_, [Sudjianto2020]_. The `InterpretML` package [Nori2013]_ by Microsoft Research is such a package of promoting the use of inherently interpretable models, in particular their explainable boosting machine (EBM) based on the GA2M model [Lou2013]_. One may also refer to [Sudjianto2021]_ for discussion about how to design inherently interpretable machine learning models. 
+Post-hoc explainability tools are useful for black-box models, but they are known to have general pitfalls [Rudin2019]_, [Molnar2020]_. Inherently interpretable models are suggested for machine learning model development \citep{yang2020enhancing, yang2021gami, sudjianto2020unwrapping}. The **InterpretML** package [Nori2013]_ by Microsoft Research is such a package of promoting the use of inherently interpretable models, in particular their explainable boosting machine (EBM) based on the GA2M model [Lou2013]_. One may also refer to [Sudjianto2021]_ for discussion about how to design inherently interpretable machine learning models. 
 
-In the meantime, model diagnostic tools becomes increasingly important for model validation and outcome testing. New tools or platforms are developed for model weakness detection and error analysis, e.g., [Chung2019]_, PyCaret package, TensorFlow model analysis, FINRA's model validation toolkit, and Microsoft's responsible AI toolbox. They can be used for arbitrary pre-trained models, in the same way as the post-hoc explainability tools. Such type of model diagnostics or validation is sometimes referred to as black-box testing, and there is an increasing demand for quality assurance of machine learning models.
+In the meantime, model diagnostic tools become increasingly important for model validation and outcome testing. New tools and platforms are developed for model weakness detection and error analysis, e.g., [Chung2019]_, PyCaret package, TensorFlow model analysis, FINRA's model validation toolkit, and Microsoft's responsible AI toolbox. They can be used for arbitrary pre-trained models, in the same way as the post-hoc explainability tools. Such type of model diagnostics or validation is sometimes referred to as black-box testing, and there is an increasing demand of diagnostic tests for quality assurance of machine learning models. 
 
-It is our goal to design an integrated Python toolbox for interpretable machine learning, both model development and model diagnostics. This is particularly needed for model risk management in banking, where it is a routine exercise to run model validation including evaluation of model conceptual soundness and outcome testing from various angles. An inherently interpretable machine learning model tends to be more conceptually sound, while it is subject to model diagnostics in terms of accuracy, weakness detection, fairness, uncertainty, robustness and resilience. The PiML toolbox we develop is such a unique Python tool that supports not only a growing list of interpretable models, but also an enhanced suite of multiple diagnostic tests. It has been adopted by multiple banks since its first launch on May 4, 2022.
+It is our goal to design an integrated Python toolbox for interpretable machine learning, for both model development and model diagnostics. This is particularly needed for model risk management in banking, where it is a routine exercise to run model validation including evaluation of model conceptual soundness and outcome testing from various angles. An inherently interpretable machine learning model tends to be more conceptually sound, while it is subject to model diagnostics in terms of accuracy, weakness detection, fairness, uncertainty, robustness and resilience. The PiML toolbox we develop is such a unique Python tool that supports not only a growing list of interpretable models, but also an enhanced suite of multiple diagnostic tests. It has been adopted by multiple banks since its first launch on May 4, 2022.
+
 
 
 Toolbox Design
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-PiML toolbox is designed to support machine learning workflows by both low-code interface and high-code APIs; see the figure below for the overall design. 
+PiML toolbox is designed to support machine learning workflows by both low-code interface and high-code APIs; see Figure below for the overall design. 
 
 .. figure:: ../images/PiML_Workflow.png
    :width: 600 
    :align: center
-   :alt: Design of PiML Workflows with Low-code and High-code Modes
+   :alt: Design of PiML workflows with low-code interface and high-code APIs
 
 - **Low-code panels**: interactive widgets or dashboards are developed for Jupyter notebook or Jupyter lab users. A minimum level of Python coding is required. The data pipeline consists of convenient `exp.data_load()`, `exp.data_summary()`, `exp.eda()`, `exp.data_quality()`, `exp.feature_select()`, `exp.data_prepare()`, each calling an interactive panel with choices of parameterization and actions.   
 - **High-code APIs**: each low-code panel can be also executed through one or more Python functions with manually specified  options and parameters. Such high-code APIs are flexible to be called both in Jupyter notebook cells and by Terminal command lines. High-code APIs usually provide more options than their default use in low-code panels. End-to-end pipeline automation can be enabled with appropriate high-code settings.  
@@ -40,7 +42,7 @@ For PiML-trained models by either low-code interface or high-code APIs, there ar
 
 - `model_interpret()`: this unified API works only for inherently interpretable models (a.k.a., glass models) to be discussed in section_3_. It provides model-specific interpretation in both global and local ways. For example, a linear model is interpreted locally through model coefficients or marginal effects, while a decision tree is interpreted locally through the tree path.  
 - `model_explain()`: this unified API works for arbitrary models including black-box models and glass-box models. It provides post-hoc global explainability through permutation feature importance (PFI) and partial dependence plot (PDP) through `sklearn.inspect` module, accumulated local effects [Apley2016]_, and post-hoc local explainability through LIME [Ribeiro2016]_ and SHAP [Lundberg2017]_.  
-- `model_diagnose()`: this unified API works for arbitrary models and performs model diagnostics to be discussed in section_4_. It is designed to cover standardized general-purpose tests based on model data and predictions, i.e. model-agnostic tests. There is no need to access the model internals.  
+- `model_diagnose()`: this unified API works for arbitrary models and performs model diagnostics to be discussed in section_4_. It is designed to cover standardized general-purpose tests based on model data and predictions, i.e., model-agnostic tests. There is no need to access the model internals.  
 - `model_compare()`: this unified API is to compare two or three models at the same time, in terms of model performance and other diagnostic aspects. By inspecting the dashboard of graphical plots, one can easily rank models under comparison.
 
 .. _section_3: introduction.html#interpretable-models
@@ -54,7 +56,9 @@ Regarding PiML high-code APIs, it is worthwhile to mention that these APIs are f
 
 Interpretable Models
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-PiML supports a growing list of inherently interpretable models. For simplicity, we only list the models and the references. The following list of interpretable models are included in PiML toolbox as of April 2023. 
+PiML supports a growing list of inherently interpretable models. For simplicity, we only list the models and the references. One may refer to the PiML user guide \citep{PiMLdoc} for details of each model use and hands-on examples. The following list of interpretable models are included PiML toolbox V0.5 (latest update: May 4, 2023). 
+
+PiML supports a growing list of inherently interpretable models. For simplicity, we only list the models and the references. The following list of interpretable models are included PiML toolbox V0.5 (latest update: May 4, 2023). 
 
 - **GLM**: Linear/logistic regression with :math:`\ell_1` and/or :math:`\ell_2` regularization [Hastie2015]_
 
@@ -64,7 +68,9 @@ PiML supports a growing list of inherently interpretable models. For simplicity,
 
 - **FIGS**: Fast interpretable greedy-tree sums [Tan2022]_
 
-- **XGB2**: Extreme gradient boosted trees of depth 2 [Chen2015]_, [Lengerich2020]_
+- **XGB1**: Extreme gradient boosted trees of depth 1, using optimal binning [Chen2015]_, [Guillermo2020]_
+
+- **XGB2**: Extreme gradient boosted trees of depth 2, with purified effects [Chen2015]_, [Lengerich2020]_
 
 - **EBM**: Explainable boosting machine [Lou2013]_, [Nori2013]_
 
@@ -83,7 +89,7 @@ PiML comes with a continuously enhanced suite of diagnostic tests for arbitrary 
 
 - **Overfit/Underfit**: identification of overfitting/underfitting regions according to train-test performance gap, also by 1D and 2D slicing techniques. 
 
-- **Reliability**: quantification of prediction uncertainty by split conformal prediction techniques [Wang2023]_.
+- **Reliability**: quantification of prediction uncertainty by split conformal prediction and slicing techniques.
 
 - **Robustness**: evaluation of performance degradation under different sizes of covariate noise perturbation [Cui2023]_.
 
@@ -94,8 +100,7 @@ PiML comes with a continuously enhanced suite of diagnostic tests for arbitrary 
  
 Future Plan
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-PiML toolbox is our new initiative of integrating state-of-the-art methods in interpretable machine learning and model diagnostics. It provides convenient user interfaces and flexible APIs for easy use  of model interpretation, explanation, testing and comparison. Our future plan is to continuously improve the user experience, add new interpretable models, and expand the diagnostic suite. It is also our plan to enhance PiML experimentation with tracking and reporting.
-
+PiML toolbox is our new initiative of integrating state-of-the-art methods in interpretable machine learning and model diagnostics. It provides convenient user interfaces and flexible APIs for easy use  of model interpretation, explanation, testing and comparison. Our future plan is to continuously improve the user experience, add new interpretable models, and expand the diagnostic suite. It is also our plan to enhance PiML experimentation with tracking and reporting. 
 
 .. topic:: References
 
@@ -198,10 +203,6 @@ PiML toolbox is our new initiative of integrating state-of-the-art methods in in
                 <https://arxiv.org/pdf/2304.13761.pdf>`_, 
                 arXiv preprint arXiv:2304.13761.
 
-    .. [Wang2023] Yaqun Wang, et al, (2023).
-                `Model Weakness Analysis via Conformal Prediction and Uncertainty Quantification`,
-                arXiv preprint arXiv:TBD.
-
     .. [Yang2021a] Zebin Yang, Aijun Zhang, Agus Sudjianto (2021).
                 `Enhancing explainability of neural networks through architecture constraints
                 <https://ieeexplore.ieee.org/abstract/document/9149804>`_,
@@ -210,3 +211,5 @@ PiML toolbox is our new initiative of integrating state-of-the-art methods in in
     .. [Yang2021b] Zebin Yang, Aijun Zhang, Agus Sudjianto (2021).
                 `GAMI-Net: An explainable neural network based on generalized additive models with structured interactions <https://www.sciencedirect.com/science/article/abs/pii/S0031320321003484>`_,
                 Pattern Recognition, 120, 108192.
+
+    .. [Guillermo2020] Navas-Palencia, Guillermo (2020). `Optimal binning: mathematical programming formulation. <https://arxiv.org/pdf/2001.08025.pdf>`_, arXiv preprint arXiv:2001.08025.

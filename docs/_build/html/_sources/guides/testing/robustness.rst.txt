@@ -20,7 +20,7 @@ Perturbation For Numerical Features
 For numerical features, we provide the following two perturbation options. 
 
 **Raw perturbation**
-We added random Gaussian noise with mean 0 and variance :math:`\lambda` (Var(:math:`x`)) to the input :math:`x`.  :math:`\lambda` is the perturbation size (`perturb_size`) used to vary the variance, hence the noise level. 
+We added random Gaussian noise with mean 0 and variance :math:`\lambda^2` Var(:math:`x`) to the input :math:`x`.  :math:`\lambda` is the perturbation size (`perturb_size`) used to vary the variance, hence the noise level. 
 
 **Quantile Perturbation**
 Assume a discrete variable :math:`x`. We sort :math:`x` and compute the quantile (:math:`Q`) of each element of :math:`x`, leading to the following table.

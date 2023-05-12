@@ -17,7 +17,7 @@ Distance Metrics
 
 .. math::
    \begin{align}     
-      PSI = \sum^{B}_{i=1} (p(x) - q(x))ln (\frac{p(x)}{q(x)}),
+      PSI = \sum^{B}_{i=1} (p(x_i) - q(x_i))ln \frac{p(x_i)}{q(x_i)},
    \end{align}
 
 where :math:`B` is the number of bins, :math:`p(x)` and :math:`q(x)` is the empirical density function of the base and target population, respectively. Note that the PSI calculation is related to the binning method, and we have two options for binning, i.e., "uniform" and "quantile". The number of bins is fixed at 10.
@@ -26,7 +26,7 @@ where :math:`B` is the number of bins, :math:`p(x)` and :math:`q(x)` is the empi
 
 .. math::
    \begin{align}
-      WD_{1} = \sum^{B}_{i=1} |P(x) - Q(x)|,
+      WD_{1} = \int |P(x) - Q(x)| dx,
    \end{align}
 
 where and :math:`P(x)` and :math:`Q(x)` are the cumulative distribution of the target and base population. 
@@ -35,11 +35,11 @@ where and :math:`P(x)` and :math:`Q(x)` are the cumulative distribution of the t
 
 .. math::
    \begin{align}     
-      KS = \max |P(x) - Q(x)|,
+      KS = \sup_x |P(x) - Q(x)|.
    \end{align}
 
-In PiML, the WD1 and KS statistics are calculated by the `wasserstein_distance` and `ks_2samp` functions from `scipy.stats`, where we don't need to specify the binning method. 
- 
+In PiML, the WD1 and KS statistics are calculated by the `wasserstein_distance` and `ks_2samp` functions from `scipy.stats`.
+
 
 Usage
 ^^^^^^^^^^^^^^^^^^^^^^^^^

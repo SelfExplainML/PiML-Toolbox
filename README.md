@@ -161,7 +161,7 @@ exp.model_compare()
 
   ```latex
   @article{sudjianto2023piml,
-  title={PiML Toolbox for Interpretable Machine Learning Model Development and Validation},
+  title={PiML Toolbox for Interpretable Machine Learning Model Development and Diagnostics},
   author={Sudjianto, Agus and Zhang, Aijun and Yang, Zebin and Su, Yu and Zeng, Ningzhou},
   journal={arXiv:2305.04214},
   year={2023}

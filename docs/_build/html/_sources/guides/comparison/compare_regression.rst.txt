@@ -7,15 +7,17 @@
 ========================================
 Comparison for Regression
 ========================================
-This section compares models from various perspectives. This can be done by using the `model_compare` function in PiML. For demonstration, we consider a regression task on the BikeSharing data.
+This section describes how different regression models for continuous responses can be compared on the basis of different metrics. In PiML, this can be done by using the `model_compare` function. We use results from the BikeSharing data for illustration.
+
+
 
 Accuracy Comparison
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-The keyword for argument `show` is "accuracy_plot". The `metric` can be chosen from "MSE", "MAE", and "R2". 
+The metric can be chosen to be one of "MSE", "MAE",  or "R2". Comparisons are shown on "accuracy_plot".
 
 Mean Squared Error
 """"""""""""""""""""""""""
-The first plot compares models based on the squared error, with `metric` set to "MSE". For each model, the plot includes the squared error boxplots for both testing and training data. In addition, the mean squared error (MSE) is marked using the circle. From the plot, FIGS and XGB2 have similar performance and they both outperform the Tree model.
+The first plotFirst, we compare models based on the squared error of the observations on training and test data: :math:`SE = (y_i-\hat{y}_i)^2`. This is done with metric set to "MSE" in the function. The plot displays boxplots for SE for both testing and training data. In addition, the mean squared error (MSE) is marked using the a circle.
 
 .. jupyter-input::
 
@@ -28,7 +30,7 @@ The first plot compares models based on the squared error, with `metric` set to 
 
 Mean Absolute Error
 """"""""""""""""""""""""""
-This bar plot compares models based on the absolute error, with `metric` set to "MAE".
+In this case, we compare the models based on the absolute error :math:`|y_i-\hat{y}_i|`. The PiML code should have `metric` set to "MAE".
 
 .. jupyter-input::
 
@@ -39,9 +41,11 @@ This bar plot compares models based on the absolute error, with `metric` set to 
    :target: ../../auto_examples/testing_compare/plot_0_compare_regression.html
    :align: left
 
+The relative comparisons of the three models results are the same as before.
+
 R-squared Score
 """"""""""""""""""""""""""
-The bar plot below shows the R2 score for each model, with `metric` set to "R2".
+The third comparison is in terms of the R2 score.
 
 .. jupyter-input::
 
@@ -52,16 +56,14 @@ The bar plot below shows the R2 score for each model, with `metric` set to "R2".
    :target: ../../auto_examples/testing_compare/plot_0_compare_regression.html
    :align: left
 
-The bar chart above compares models based on R2. 
+The bar chart above compares models based on R2. Note that there is only a single R2 score for the entire dataset, so there are no box plots. The conclusions from R2 is again the same as SE and AE.
 
 
 Overfit Comparison
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-Overfit comparison is to compare the overfit regions of different models. The overfit detection algorithm can be found in the overfit_ testing section. The keyword for overfit comparison is "overfit". Similar to the overfit test for a single model, the following arguments are required to run the overfit comparison. 
+Overfit comparison displays the overfit regions of different models against a feature of interest. The detection algorithm can be found in the overfit_ section. Different from the overfit for a single model, the argument for selecting slicing features is `slice_feature` (instead of `slice_features`), which is a string representing the feature name. The following example illustrates how to compare models' overfit regions, using the keyword "overfit", in which we consider a regression task on the BikeSharing data.
 
 .. _overfit: ../testing/overfit.html
-
-Different from the overfit for a single model, the argument for selecting slicing features is `slice_feature` (instead of `slice_features`), which is a string representing the feature name. The following example illustrates how to compare models' overfit regions, using the keyword "overfit", in which we consider a binary classification task on the TaiwanCredit data for demonstration.
 
 .. jupyter-input::
 

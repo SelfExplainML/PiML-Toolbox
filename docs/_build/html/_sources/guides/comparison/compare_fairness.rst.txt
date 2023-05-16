@@ -7,20 +7,17 @@
 ============================
 Fairness Comparison
 ============================
+This section deals with the module for assessing/comparing bias and fairness of models. We use the "SimuCredit" dataset and illustrate the results on two models, GLMClassifier (GLM) and ExplainableBoostingClassifier (EBM). The model performance of EBM is better than GLM because the former is a more complex machine learning model. But we will see a different view based on fairness comparison.
 
-We have introduced the fairness test of PiML in the testing section. 
-In this section, I will compare the fairness testing result of different models by the fairness compare module of PiML.
 
-We used the 'SimuCredit' dataset and trained two models, GLMClassifier and ExplainableBoostingClassifier in PiML to compare.
-Because of the complexity of the EBM model, compared with GLM, the test performance is much better.
-But we will see a different view based on fairness comparison.
 
-Metric
+Fairness Metrics
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+In fairness comparison, each fairness testing result of the single model is from the fairness test module. See the definition_ of each fairness metric.
 
-In fairness comparison, each fairness testing result of the single model is from the fairness test module.
+.. _definition: ../testing/fairness.html#fairness-metric
 
-Here is an example of comparing the fairness metrics between models:
+Below, we compare the fairness of EBM against GLM on the (simulated) credit scoring dataset. The comparisons are made on two different protected attributes: race and gender. Note that such protected attributes cannot be directly used in the model. So any differences in fairness is likely due to the effects of surrogate variables that are related to the protected attributes. The PiML code for comparison is shown below. 
 
 .. jupyter-input::
 
@@ -31,16 +28,16 @@ Here is an example of comparing the fairness metrics between models:
                                                figsize=(6, 4), return_data=True)
 
 .. figure:: ../../auto_examples/testing_compare/images/sphx_glr_plot_1_compare_fairness_001.png
-   :target: ../../auto_examples/testing_compare/plot_1_compare_fairness.py
+   :target: ../../auto_examples/testing_compare/plot_1_compare_fairness.html
    :align: center
 
-From the plot, you can see the AIR result of GLM is better than EBM,
-which means although the model performance of EBM is better, its result is more unfair compared to GLM.
+This plot shows the AIR comparisons for two protected attributes. The bar plots on the left show AIRs for Race (African Americans) against whites (not shown) for the two models. The ones on the right are for Gender (women) against men (not shown). The y-axis shows the AIR values. A value of 1 indicates no discrimination. In practice, any value of AIR less than 0.8 is considered discriminative. In the above figure, the AIR values for African Americans and Women are less than 1 for both models, indicating they both discriminate. In particular, the values for EBM model are lower than those for GLM.
+
+
 
 Segmented
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
-Similar to the metric, Each of the segmented results in fairness comparison is got from the single model fairness testing.
+In addition to an overall comparison based on the entire dataset, we can also compare the models within appropriately segmented subsets of the dataset. The results below provide comparisons within segments of the predictor "Balance".
 
 .. jupyter-input::
    
@@ -52,11 +49,12 @@ Similar to the metric, Each of the segmented results in fairness comparison is g
                                                   return_data=True, figsize=(8, 4))
 
 .. figure:: ../../auto_examples/testing_compare/images/sphx_glr_plot_1_compare_fairness_002.png
-   :target: ../../auto_examples/testing_compare/plot_1_compare_fairness.py
+   :target: ../../auto_examples/testing_compare/plot_1_compare_fairness.html
    :align: center
 
-From the plot, you can see the AIR difference is especially large in the low-balance area.
-That means the EBM model is more unfair to low-balance people.
+From the plots, we can see the AIR differences between the two models is especially large for Race – American African applicants with low balance. That means the EBM model is more unfair in this region. The relative performances change as balance increases. A similar conclusion holds for Gender (women).
+
+
 
 Examples
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^

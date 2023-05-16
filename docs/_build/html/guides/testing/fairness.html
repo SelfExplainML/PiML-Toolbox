@@ -248,11 +248,10 @@
 
 </style><section id="fairness">
 <h1><span class="section-number">6.7. </span>Fairness<a class="headerlink" href="#fairness" title="Permalink to this heading">¶</a></h1>
-<p>Fairness is the model’s quality or state of being fair or impartial. Decisions made by computers after a machine-learning process may be considered unfair if they were based on variables considered sensitive.
-Examples of these kinds of variables include gender, ethnicity, sexual orientation, disability, and more.</p>
+<p>Fairness is the model’s quality or state of being fair or impartial. Decisions made by computers after a machine-learning process may be considered unfair if they were based on variables considered sensitive. Examples of these kinds of variables include gender, ethnicity, sexual orientation, disability, and more.</p>
 <p>In this section, the model fairness test will be introduced. For demonstration purposes, we run the following example codes to initialize a PiML experiment for the Credit Simulation dataset. In the model training process, we cannot use demographic features like “Race” and “Gender”. So we need to remove them from the training data. We use monotonic depth 2 xgboost to train the data.</p>
-<section id="fairness-metric">
-<h2><span class="section-number">6.7.1. </span>Fairness Metric<a class="headerlink" href="#fairness-metric" title="Permalink to this heading">¶</a></h2>
+<section id="fairness-metrics">
+<h2><span class="section-number">6.7.1. </span>Fairness Metrics<a class="headerlink" href="#fairness-metrics" title="Permalink to this heading">¶</a></h2>
 <p>PIML support showing the fairness result for different metrics.</p>
 <p>Metric types:</p>
 <ul class="simple">

@@ -121,9 +121,13 @@
                 <ul>
 <li><a class="reference internal" href="#">API Reference</a><ul>
 <li><a class="reference internal" href="#experiment-class">Experiment Class</a></li>
-<li><a class="reference internal" href="#data-pipeline">Data Pipeline</a></li>
+<li><a class="reference internal" href="#data-pipeline">Data Pipeline</a><ul>
+<li><a class="reference internal" href="#functions">Functions</a></li>
+<li><a class="reference internal" href="#outlier-detection-methods">Outlier Detection Methods</a></li>
+</ul>
+</li>
 <li><a class="reference internal" href="#interpretable-models">Interpretable Models</a><ul>
-<li><a class="reference internal" href="#high-code-apis">High Code APIs</a></li>
+<li><a class="reference internal" href="#id1">Functions</a></li>
 <li><a class="reference internal" href="#model-classes">Model Classes</a></li>
 </ul>
 </li>
@@ -159,6 +163,8 @@ Please refer to the user guide for further details, as the class and function ra
 </section>
 <section id="data-pipeline">
 <h2>Data Pipeline<a class="headerlink" href="#data-pipeline" title="Permalink to this heading">¶</a></h2>
+<section id="functions">
+<h3>Functions<a class="headerlink" href="#functions" title="Permalink to this heading">¶</a></h3>
 <table class="autosummary longtable docutils align-default">
 <colgroup>
 <col style="width: 10%" />
@@ -204,10 +210,34 @@ Please refer to the user guide for further details, as the class and function ra
 </tbody>
 </table>
 </section>
+<section id="outlier-detection-methods">
+<h3>Outlier Detection Methods<a class="headerlink" href="#outlier-detection-methods" title="Permalink to this heading">¶</a></h3>
+<table class="autosummary longtable docutils align-default">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/piml.data.outlier_detection.PCA.html#piml.data.outlier_detection.PCA" title="piml.data.outlier_detection.PCA"><code class="xref py py-obj docutils literal notranslate"><span class="pre">data.outlier_detection.PCA</span></code></a></p></td>
+<td><p>PCA basd outlier detection.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="generated/piml.data.outlier_detection.CBLOF.html#piml.data.outlier_detection.CBLOF" title="piml.data.outlier_detection.CBLOF"><code class="xref py py-obj docutils literal notranslate"><span class="pre">data.outlier_detection.CBLOF</span></code></a></p></td>
+<td><p>Cluster-based local outlier factor.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/piml.data.outlier_detection.KMeansTree.html#piml.data.outlier_detection.KMeansTree" title="piml.data.outlier_detection.KMeansTree"><code class="xref py py-obj docutils literal notranslate"><span class="pre">data.outlier_detection.KMeansTree</span></code></a></p></td>
+<td><p>Recursive unsupervised spliting tree via Kmeans (K=2).</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="generated/piml.data.outlier_detection.IsolationForest.html#piml.data.outlier_detection.IsolationForest" title="piml.data.outlier_detection.IsolationForest"><code class="xref py py-obj docutils literal notranslate"><span class="pre">data.outlier_detection.IsolationForest</span></code></a></p></td>
+<td><p>A wrapper of Isolation Forest in scikit-learn.</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+</section>
 <section id="interpretable-models">
 <h2>Interpretable Models<a class="headerlink" href="#interpretable-models" title="Permalink to this heading">¶</a></h2>
-<section id="high-code-apis">
-<h3>High Code APIs<a class="headerlink" href="#high-code-apis" title="Permalink to this heading">¶</a></h3>
+<section id="id1">
+<h3>Functions<a class="headerlink" href="#id1" title="Permalink to this heading">¶</a></h3>
 <table class="autosummary longtable docutils align-default">
 <colgroup>
 <col style="width: 10%" />

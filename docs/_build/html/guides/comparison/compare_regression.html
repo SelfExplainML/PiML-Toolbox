@@ -232,13 +232,13 @@
 
 </style><section id="comparison-for-regression">
 <h1><span class="section-number">7.1. </span>Comparison for Regression<a class="headerlink" href="#comparison-for-regression" title="Permalink to this heading">¶</a></h1>
-<p>This section compares models from various perspectives. This can be done by using the <code class="docutils literal notranslate"><span class="pre">model_compare</span></code> function in PiML. For demonstration, we consider a regression task on the BikeSharing data.</p>
+<p>This section describes how different regression models for continuous responses can be compared on the basis of different metrics. In PiML, this can be done by using the <code class="docutils literal notranslate"><span class="pre">model_compare</span></code> function. We use results from the BikeSharing data for illustration.</p>
 <section id="accuracy-comparison">
 <h2><span class="section-number">7.1.1. </span>Accuracy Comparison<a class="headerlink" href="#accuracy-comparison" title="Permalink to this heading">¶</a></h2>
-<p>The keyword for argument <code class="docutils literal notranslate"><span class="pre">show</span></code> is “accuracy_plot”. The <code class="docutils literal notranslate"><span class="pre">metric</span></code> can be chosen from “MSE”, “MAE”, and “R2”.</p>
+<p>The metric can be chosen to be one of “MSE”, “MAE”,  or “R2”. Comparisons are shown on “accuracy_plot”.</p>
 <section id="mean-squared-error">
 <h3><span class="section-number">7.1.1.1. </span>Mean Squared Error<a class="headerlink" href="#mean-squared-error" title="Permalink to this heading">¶</a></h3>
-<p>The first plot compares models based on the squared error, with <code class="docutils literal notranslate"><span class="pre">metric</span></code> set to “MSE”. For each model, the plot includes the squared error boxplots for both testing and training data. In addition, the mean squared error (MSE) is marked using the circle. From the plot, FIGS and XGB2 have similar performance and they both outperform the Tree model.</p>
+<p>The first plotFirst, we compare models based on the squared error of the observations on training and test data: <span class="math notranslate nohighlight">\(SE = (y_i-\hat{y}_i)^2\)</span>. This is done with metric set to “MSE” in the function. The plot displays boxplots for SE for both testing and training data. In addition, the mean squared error (MSE) is marked using the a circle.</p>
 <div class="jupyter_cell jupyter_container docutils container">
 <div class="cell_input code_cell docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">exp</span><span class="o">.</span><span class="n">model_compare</span><span class="p">(</span><span class="n">models</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;GLM&quot;</span><span class="p">,</span> <span class="s2">&quot;XGB2&quot;</span><span class="p">,</span> <span class="s2">&quot;XGB7&quot;</span><span class="p">],</span> <span class="n">show</span><span class="o">=</span><span class="s2">&quot;accuracy_plot&quot;</span><span class="p">,</span>
@@ -255,7 +255,7 @@
 </section>
 <section id="mean-absolute-error">
 <h3><span class="section-number">7.1.1.2. </span>Mean Absolute Error<a class="headerlink" href="#mean-absolute-error" title="Permalink to this heading">¶</a></h3>
-<p>This bar plot compares models based on the absolute error, with <code class="docutils literal notranslate"><span class="pre">metric</span></code> set to “MAE”.</p>
+<p>In this case, we compare the models based on the absolute error <span class="math notranslate nohighlight">\(|y_i-\hat{y}_i|\)</span>. The PiML code should have <code class="docutils literal notranslate"><span class="pre">metric</span></code> set to “MAE”.</p>
 <div class="jupyter_cell jupyter_container docutils container">
 <div class="cell_input code_cell docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">exp</span><span class="o">.</span><span class="n">model_compare</span><span class="p">(</span><span class="n">models</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;GLM&quot;</span><span class="p">,</span> <span class="s2">&quot;XGB2&quot;</span><span class="p">,</span> <span class="s2">&quot;XGB7&quot;</span><span class="p">],</span> <span class="n">show</span><span class="o">=</span><span class="s2">&quot;accuracy_plot&quot;</span><span class="p">,</span>
@@ -269,10 +269,11 @@
 <figure class="align-left">
 <a class="reference external image-reference" href="../../auto_examples/testing_compare/plot_0_compare_regression.html"><img alt="../../_images/sphx_glr_plot_0_compare_regression_002.png" src="../../_images/sphx_glr_plot_0_compare_regression_002.png" /></a>
 </figure>
+<p>The relative comparisons of the three models results are the same as before.</p>
 </section>
 <section id="r-squared-score">
 <h3><span class="section-number">7.1.1.3. </span>R-squared Score<a class="headerlink" href="#r-squared-score" title="Permalink to this heading">¶</a></h3>
-<p>The bar plot below shows the R2 score for each model, with <code class="docutils literal notranslate"><span class="pre">metric</span></code> set to “R2”.</p>
+<p>The third comparison is in terms of the R2 score.</p>
 <div class="jupyter_cell jupyter_container docutils container">
 <div class="cell_input code_cell docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">exp</span><span class="o">.</span><span class="n">model_compare</span><span class="p">(</span><span class="n">models</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;GLM&quot;</span><span class="p">,</span> <span class="s2">&quot;XGB2&quot;</span><span class="p">,</span> <span class="s2">&quot;XGB7&quot;</span><span class="p">],</span> <span class="n">show</span><span class="o">=</span><span class="s2">&quot;accuracy_plot&quot;</span><span class="p">,</span>
@@ -286,13 +287,12 @@
 <figure class="align-left">
 <a class="reference external image-reference" href="../../auto_examples/testing_compare/plot_0_compare_regression.html"><img alt="../../_images/sphx_glr_plot_0_compare_regression_003.png" src="../../_images/sphx_glr_plot_0_compare_regression_003.png" /></a>
 </figure>
-<p>The bar chart above compares models based on R2.</p>
+<p>The bar chart above compares models based on R2. Note that there is only a single R2 score for the entire dataset, so there are no box plots. The conclusions from R2 is again the same as SE and AE.</p>
 </section>
 </section>
 <section id="overfit-comparison">
 <h2><span class="section-number">7.1.2. </span>Overfit Comparison<a class="headerlink" href="#overfit-comparison" title="Permalink to this heading">¶</a></h2>
-<p>Overfit comparison is to compare the overfit regions of different models. The overfit detection algorithm can be found in the <a class="reference external" href="../testing/overfit.html">overfit</a> testing section. The keyword for overfit comparison is “overfit”. Similar to the overfit test for a single model, the following arguments are required to run the overfit comparison.</p>
-<p>Different from the overfit for a single model, the argument for selecting slicing features is <code class="docutils literal notranslate"><span class="pre">slice_feature</span></code> (instead of <code class="docutils literal notranslate"><span class="pre">slice_features</span></code>), which is a string representing the feature name. The following example illustrates how to compare models’ overfit regions, using the keyword “overfit”, in which we consider a binary classification task on the TaiwanCredit data for demonstration.</p>
+<p>Overfit comparison displays the overfit regions of different models against a feature of interest. The detection algorithm can be found in the <a class="reference external" href="../testing/overfit.html">overfit</a> section. Different from the overfit for a single model, the argument for selecting slicing features is <code class="docutils literal notranslate"><span class="pre">slice_feature</span></code> (instead of <code class="docutils literal notranslate"><span class="pre">slice_features</span></code>), which is a string representing the feature name. The following example illustrates how to compare models’ overfit regions, using the keyword “overfit”, in which we consider a regression task on the BikeSharing data.</p>
 <div class="jupyter_cell jupyter_container docutils container">
 <div class="cell_input code_cell docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">exp</span><span class="o">.</span><span class="n">model_compare</span><span class="p">(</span><span class="n">models</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;GLM&quot;</span><span class="p">,</span> <span class="s2">&quot;XGB2&quot;</span><span class="p">,</span> <span class="s2">&quot;XGB7&quot;</span><span class="p">],</span> <span class="n">show</span><span class="o">=</span><span class="s2">&quot;overfit&quot;</span><span class="p">,</span>

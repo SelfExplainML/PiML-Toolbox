@@ -8,16 +8,15 @@
 Exploratory Analysis
 ======================================
 
-In PiML, we support three types of plots for users to understand the data better,
-including univariate plots, bivariate plots, and multivariate plots.
+PiML supports three types of plots for exploratory analysis:  univariate plots, bivariate plots, and multivariate plots.
+
+
 
 Univariate Plots
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
-The univariate plot is a graphical representation of a single variable in a dataset.
 We use different plots for numerical features and categorical features.
 
-For numerical features, we show their density and histogram chart:
+For numerical features, we show density and histogram chart:
 
 .. jupyter-input::
 
@@ -27,7 +26,7 @@ For numerical features, we show their density and histogram chart:
    :target: ../../auto_examples/data/plot_2_data_eda.html
    :align: left
 
-For categorical features, we show the bar chart to show the frequency of values.
+For categorical features, we show the bar chart that displays the frequency of values.
 
 .. jupyter-input::
 
@@ -36,6 +35,8 @@ For categorical features, we show the bar chart to show the frequency of values.
 .. figure:: ../../auto_examples/data/images/sphx_glr_plot_2_data_eda_002.png
    :target: ../../auto_examples/data/plot_2_data_eda.html
    :align: left
+
+
 
 Bivariate Plots
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -53,7 +54,7 @@ For numerical & numerical, we use the scatter plot to show the relationship betw
    :target: ../../auto_examples/data/plot_2_data_eda.html
    :align: left
    
-For numerical & categorical, we use the box plot to show the relationship by displaying the numerical feature distribution conditional on each category of categorical features.
+If the pair is numerical & categorical, we use the box plot to show the relationship by displaying the numerical feature distribution conditional on each category of categorical feature.
 
 .. jupyter-input::
 
@@ -63,7 +64,7 @@ For numerical & categorical, we use the box plot to show the relationship by dis
    :target: ../../auto_examples/data/plot_2_data_eda.html
    :align: left
 
-For categorical & categorical, we use the stack bar plot, each bar represents a category in one variable and is divided into segments representing the frequency of the second variable within that category. 
+If the pair is categorical & categorical, we use the stack bar plot, each bar represents a category in one variable and is divided into segments representing the frequency of the second variable within that category. 
 
 .. jupyter-input::
 
@@ -73,12 +74,12 @@ For categorical & categorical, we use the stack bar plot, each bar represents a 
    :target: ../../auto_examples/data/plot_2_data_eda.html
    :align: left
 
+
+
 Multivariate Plots
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-The multivariate plot is a graphical representation of the relationship between multiple variables in a dataset.
-There are two types of charts in PiML, correlation heatmap, and correlation graph.
+There are two types of multivariate charts in PiML: correlation heatmap, and correlation graph. Both the correlation heatmap and correlation graph display  pairwisePearson correlations, using different representations. 
 
-Both the correlation heatmap and correlation graph display the information of Pearson correlation, with different representation approaches.
 
 Here is an example of the correlation heatmap:
 
@@ -100,7 +101,9 @@ Here is an example of the correlation graph:
    :target: ../../auto_examples/data/plot_2_data_eda.html
    :align: left
 
-Full Example
+
+
+Examples
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 The full example codes of this section can be found in the following link.

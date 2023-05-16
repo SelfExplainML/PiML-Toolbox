@@ -5,7 +5,7 @@
 .. include:: ../../includes/big_toc_css.rst
 
 ======================================
-Data Prepare
+Data Preparation
 ======================================
 
 In this section, I will introduce the data preparation module of PiML. In data preparing function, you are allowed
@@ -13,16 +13,20 @@ to set the detailed config of the model training procedure, including task confi
 And there is the data split setting such as split method, split ratio, and random seed in the data preparing setting to decide how to split data for the experiment.
 Besides the setting, you can also get train test data distance results.
 
-Config setting
+This section introduces the data preparation module of PiML. In this function, you can set the detailed configuration of the model training procedure, including task configurations like target variable, task type, and sample_weight. Further, there is the data split setting such as split method, split ratio, and random seed to decide how to split data for the experiment. Besides the setting, you can also get results on the distances between train test datasets.
+
+
+
+Setting
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Target variable: The target variable for training.
+- **Target variable**: The target variable for training
 
-Task type: PiML supports two different types of tasks, regression, and classification.
+- **Task type**: PiML supports two different types of tasks, (continuous) regression, and classification or binary regression
 
-Sample weight: To choose a variable as the sample weight for training.
+- **Sample weight**: variable that defines the sample weights for training
 
-Split method: PiML supports three different kinds of methods for split training and testing datasets.
+- **Split method**: PiML supports three different kinds of methods for split training and testing datasets.
    
    - random: Random split.
    - outer-sample: Split samples based on Euclidean distance between each sample to the mean center. Choose the samples farthest away from the center as the test samples.
@@ -109,22 +113,21 @@ Here is an example of using the custom sample index to split training testing da
     </div>
     </div>
 
-Split ratio: To set how much ratio of data as the test data. When using kmeans method, it can be set as a list of ratios of each cluster.
+Split ratio: Fraction of dataset to be set as the test data. When using kmeans method, it can be set as a list of ratios of each cluster.
 
 Random Seed: The random seed for the random split.
 
-Train Test Distance 
+
+
+Train-Test Distance 
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-After setting the config, there is the related train test distance result based on the data split setting.
-For overall understanding, we support energy distance.
-The energy distance measures the distance between the empirical distribution functions (EDFs) of the two data sets
+After setting the configuration, there is the related train test distance result based on the data split setting. For overall understanding, we use energy distance. The energy distance measures the distance between the empirical distribution functions (EDFs) of two data sets as defined below
 
 .. math::
-   ED(X,Y) = 2T/n^2 - S/n + (1/n^2) * sum(D(X,X)) + (1/n^2) * sum(D(Y,Y))
+   ED(X,Y) = \frac{2T}{n^2} - \frac{S}{n} + \frac{1}{n^2} \sum{D(X,X)} + \frac{1}{n^2} \sum{D(Y,Y)}
 
-where n is the total number of observations in both datasets. The first term represents the contribution of cross-dataset distances, the second term represents the average of within-dataset distances, and the last two terms represent the contributions of within-dataset distances for X and Y, respectively.
-To generalize the distance result, before calculating distance, we did the ordinal encoder for categorical features and 0-1 min max scaler transformation.
+where n is the total number of observations in both datasets. The first term represents the contribution of cross-dataset distances, the second term represents the average of within-dataset distances, and the last two terms represent the contributions of within-dataset distances for X and Y, respectively. To generalize the distance result, before calculating distance, we use the ordinal encoder for categorical features and 0-1 min max scaler transformation.
 
 Here is a complete example of data preparation:
 
@@ -205,7 +208,9 @@ Here is a complete example of data preparation:
     </div>
     </div>
 
-Full Example
+
+
+Examples
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 The full example codes of this section can be found in the following link.

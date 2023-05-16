@@ -8,7 +8,7 @@
 XGBoost Depth 2
 =================================
 
-XGBoost depth 2 (XGB2) is a tree-based model that is built on top of XGBoost but with a maximum tree depth of 2. The model fitting process for XGB2 is the same as for raw XGBoost models. However, the main difference between XGB2 and XGBoost lies in their interpretation. In the context of functional ANOVA, an XGB2 model can be expressed as a GAM with pairwise interactions (GAMI). Once an XGB2 model is well-trained, we can extract the leaf node information from all the trees and restructure the model into an equivalent GAMI model.
+XGBoost depth 2 (XGB2) uses the XGBoost algorithm but with a maximum tree depth of 2. The model fitting process for XGB2 is the same as for raw XGBoost models. However, the main difference between XGB2 and XGBoost lies in their interpretation. In the context of functional ANOVA, an XGB2 model can be expressed as a GAM with pairwise interactions (GAMI). Once an XGB2 model is well-trained, we can extract the leaf node information from all the trees and restructure the model into an equivalent GAMI model.
 
 .. math::
    \begin{align}
@@ -116,7 +116,7 @@ Here we only plot the top-10 effect importance. It can be observed that the main
 Feature Importance
 """""""""""""""""""""""""""""""""
 
-The feature importance of XGB2 is a bit different from that of GAM. Due to the existence of interaction effects, we need to aggregate the effects of each feature. This is done by summing the effects of each feature over the main effect and all related pairwise interactions. 
+The feature importance of XGB2 is different from that of GAM. Due to the existence of interaction effects, we need to aggregate the effects of each feature. This is done by summing the effects of each feature over the main effect and all related pairwise interactions. 
 
 .. math::
    \begin{align}

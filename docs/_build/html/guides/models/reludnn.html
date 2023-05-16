@@ -162,7 +162,7 @@
                         </li>
                       
                         <li class="sk-toctree-l3">
-                          <a href="gam.html">5.2. Generalized Additive Model</a>
+                          <a href="gam.html">5.2. Generalized Additive Model (GAM)</a>
                         </li>
                       
                         <li class="sk-toctree-l3">
@@ -256,7 +256,7 @@
 
 </style><section id="relu-neural-network">
 <h1><span class="section-number">5.9. </span>ReLU Neural Network<a class="headerlink" href="#relu-neural-network" title="Permalink to this heading">¶</a></h1>
-<p>In the field of deep learning, deep neural networks (DNNs) that use the rectified linear unit (ReLU) activation functions have achieved remarkable success. Due to its simple functional form, ReLU offers many appealing properties, such as a fast convergence rate, excellent predictive performance, and intrinsic interpretability. In this section, we will give a brief overview of the ReLU-DNN model and how it is used in PiML.</p>
+<p>Deep neural networks (DNNs) that use the rectified linear unit (ReLU) activation functions have achieved remarkable success. Due to its simple functional form, ReLU offers many appealing properties, such as a fast convergence rate, excellent predictive performance, and intrinsic interpretability. In this section, we will give a brief overview of the ReLU-DNN model and how it is used in PiML.</p>
 <section id="model-formulation">
 <h2><span class="section-number">5.9.1. </span>Model Formulation<a class="headerlink" href="#model-formulation" title="Permalink to this heading">¶</a></h2>
 <p>Consider a feedforward ReLU network with inputs <span class="math notranslate nohighlight">\(\textbf{x} \in \mathbb{R}^{d}\)</span>, <span class="math notranslate nohighlight">\(L\)</span> hidden layers, and one output neuron. Assume the <span class="math notranslate nohighlight">\(l\)</span>-th hidden layer has <span class="math notranslate nohighlight">\(n_{l}\)</span> neurons. In particular, we mark the input layer as a special hidden layer with index 0 (<span class="math notranslate nohighlight">\(n_{0}=d\)</span>). The weight matrix and bias vector of the <span class="math notranslate nohighlight">\(l\)</span>-th hidden layer to the  <span class="math notranslate nohighlight">\((l+1)\)</span>-th hidden layer are denoted by <span class="math notranslate nohighlight">\(\textbf{W}^{(l)}\)</span> of size <span class="math notranslate nohighlight">\(n_{l+1}\times n_{l}\)</span>, and <span class="math notranslate nohighlight">\(\textbf{b}^{l}\)</span> of size <span class="math notranslate nohighlight">\(n_{l+1}\)</span>, respectively. Let <span class="math notranslate nohighlight">\(\textbf{z}^{(l)}\)</span> denotes the input of the <span class="math notranslate nohighlight">\(l\)</span>-th hidden layer. Then, the network can be recursively expressed by</p>

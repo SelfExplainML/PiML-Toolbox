@@ -7,14 +7,13 @@
 ======================================
 Data Load
 ======================================
+This section introduces the data loader module of PiML. Data loader is usually the first step of the whole experiment, and it supports choosing a built-in dataset or external dataset to start your experiment.
 
-In this section, I will introduce the data loader module of PiML. Data loader is usually the first step of
-the whole experiment, which supports choosing a built-in dataset or external dataset to start your experiment.
 
 Built-in Dataset
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-In PiML, we put several classic datasets, including:
+ There are several datasets that are already uploaded into PiML. These are: 
 
    - 'CoCircles': Gaussian data with a spherical decision boundary for binary classification, generated via Scikit-Learn.
    - 'Friedman': 'Friedman #1' regression problem, generated via Scikit-Learn.
@@ -27,7 +26,7 @@ In PiML, we put several classic datasets, including:
    - 'SolasSimu1': A simulated dataset, modified from the 'Friedman #1' regression problem. The covariates used for modeling are 'Segment', 'x1', 'x2', ..., and 'x5', the response 'Label' is binary and it is a classification problem. The rest variables are demographic variables used for testing fairness. The data is contributed by Solas-AI (https://github.com/SolasAI/solas-ai-disparity).
    - 'SolasHMDA': A preprocessed sample of the 2018 Home Mortgage Disclosure Act (HMDA) data. The HMDA dataset includes information about nearly every home mortgage application in the United States.
 
-You could load these datasets easily by:
+You could load these datasets using the code below, where `data=" "` indicates the dataset to be included. For example,
 
    .. jupyter-input::
 
@@ -111,16 +110,16 @@ You could load these datasets easily by:
 External Dataset
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-There are two approaches to loading external datasets in PiML.
+There are two ways of loading external datasets in PiML.
 
-In low-code mode, you could just click the upload new data button to upload your data in PiML.
+In low-code mode, you could just click the "upload new data" button to upload your data.
 In high-code mode, you can use pandas to wrap your data and input it to the data loader.
 For example:
 
    .. jupyter-input::
 
-        data_pandas = pd.read_csv('https://github.com/SelfExplainML/PiML-Toolbox/blob/main/datasets/BikeSharing.csv?raw=true')
-        exp.data_loader(data=data_pandas)
+        data = pd.read_csv('https://github.com/SelfExplainML/PiML-Toolbox/blob/main/datasets/BikeSharing.csv?raw=true')
+        exp.data_loader(data=data)
 
 .. raw:: html
 
@@ -276,11 +275,17 @@ For example:
     </div>
     </div>
 
-Full Example
+
+
+Examples
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 The full example codes of this section can be found in the following link.
 
-.. topic:: Example
+.. topic:: Example 1: Load built-in datasets
 
-  * :ref:`sphx_glr_auto_examples_data_plot_0_data_loader.py`
+  * :ref:`sphx_glr_auto_examples_data_plot_0_data_loader_builtin.py`
+
+.. topic:: Example 2: Load data from pandas DataFrame
+
+  * :ref:`sphx_glr_auto_examples_data_plot_0_data_loader_dataframe.py`

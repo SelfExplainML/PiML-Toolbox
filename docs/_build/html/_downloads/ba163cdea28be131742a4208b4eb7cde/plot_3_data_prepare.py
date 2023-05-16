@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 """
-Data Prepare
+Data Preparation
 =====================================
 
 Display data prepare result using the BikeSharing dataset as example.

@@ -151,7 +151,7 @@
                         </li>
                       
                         <li class="sk-toctree-l3">
-                          <a href="">2.3. Data Prepare</a>
+                          <a href="">2.3. Data Preparation</a>
                         </li>
                       
                         <li class="sk-toctree-l3">
@@ -246,18 +246,20 @@
       margin-left: 40px;
   }
 
-</style><section id="data-prepare">
-<h1><span class="section-number">2.3. </span>Data Prepare<a class="headerlink" href="#data-prepare" title="Permalink to this heading">¶</a></h1>
+</style><section id="data-preparation">
+<h1><span class="section-number">2.3. </span>Data Preparation<a class="headerlink" href="#data-preparation" title="Permalink to this heading">¶</a></h1>
 <p>In this section, I will introduce the data preparation module of PiML. In data preparing function, you are allowed
 to set the detailed config of the model training procedure, including task configs like target variable, task type, and sample_weight.
 And there is the data split setting such as split method, split ratio, and random seed in the data preparing setting to decide how to split data for the experiment.
 Besides the setting, you can also get train test data distance results.</p>
-<section id="config-setting">
-<h2><span class="section-number">2.3.1. </span>Config setting<a class="headerlink" href="#config-setting" title="Permalink to this heading">¶</a></h2>
-<p>Target variable: The target variable for training.</p>
-<p>Task type: PiML supports two different types of tasks, regression, and classification.</p>
-<p>Sample weight: To choose a variable as the sample weight for training.</p>
-<p>Split method: PiML supports three different kinds of methods for split training and testing datasets.</p>
+<p>This section introduces the data preparation module of PiML. In this function, you can set the detailed configuration of the model training procedure, including task configurations like target variable, task type, and sample_weight. Further, there is the data split setting such as split method, split ratio, and random seed to decide how to split data for the experiment. Besides the setting, you can also get results on the distances between train test datasets.</p>
+<section id="setting">
+<h2><span class="section-number">2.3.1. </span>Setting<a class="headerlink" href="#setting" title="Permalink to this heading">¶</a></h2>
+<ul>
+<li><p><strong>Target variable</strong>: The target variable for training</p></li>
+<li><p><strong>Task type</strong>: PiML supports two different types of tasks, (continuous) regression, and classification or binary regression</p></li>
+<li><p><strong>Sample weight</strong>: variable that defines the sample weights for training</p></li>
+<li><p><strong>Split method</strong>: PiML supports three different kinds of methods for split training and testing datasets.</p>
 <blockquote>
 <div><ul class="simple">
 <li><p>random: Random split.</p></li>
@@ -266,6 +268,8 @@ Besides the setting, you can also get train test data distance results.</p>
 <li><p>manual: Split samples based on given training and testing sample index.</p></li>
 </ul>
 </div></blockquote>
+</li>
+</ul>
 <p>Here is an example of using the custom sample index to split training testing datasets:</p>
 <blockquote>
 <div><div class="jupyter_cell jupyter_container docutils container">
@@ -348,18 +352,15 @@ Besides the setting, you can also get train test data distance results.</p>
   </tbody>
 </table>
 </div>
-</div><p>Split ratio: To set how much ratio of data as the test data. When using kmeans method, it can be set as a list of ratios of each cluster.</p>
+</div><p>Split ratio: Fraction of dataset to be set as the test data. When using kmeans method, it can be set as a list of ratios of each cluster.</p>
 <p>Random Seed: The random seed for the random split.</p>
 </section>
 <section id="train-test-distance">
-<h2><span class="section-number">2.3.2. </span>Train Test Distance<a class="headerlink" href="#train-test-distance" title="Permalink to this heading">¶</a></h2>
-<p>After setting the config, there is the related train test distance result based on the data split setting.
-For overall understanding, we support energy distance.
-The energy distance measures the distance between the empirical distribution functions (EDFs) of the two data sets</p>
+<h2><span class="section-number">2.3.2. </span>Train-Test Distance<a class="headerlink" href="#train-test-distance" title="Permalink to this heading">¶</a></h2>
+<p>After setting the configuration, there is the related train test distance result based on the data split setting. For overall understanding, we use energy distance. The energy distance measures the distance between the empirical distribution functions (EDFs) of two data sets as defined below</p>
 <div class="math notranslate nohighlight">
-\[ED(X,Y) = 2T/n^2 - S/n + (1/n^2) * sum(D(X,X)) + (1/n^2) * sum(D(Y,Y))\]</div>
-<p>where n is the total number of observations in both datasets. The first term represents the contribution of cross-dataset distances, the second term represents the average of within-dataset distances, and the last two terms represent the contributions of within-dataset distances for X and Y, respectively.
-To generalize the distance result, before calculating distance, we did the ordinal encoder for categorical features and 0-1 min max scaler transformation.</p>
+\[ED(X,Y) = \frac{2T}{n^2} - \frac{S}{n} + \frac{1}{n^2} \sum{D(X,X)} + \frac{1}{n^2} \sum{D(Y,Y)}\]</div>
+<p>where n is the total number of observations in both datasets. The first term represents the contribution of cross-dataset distances, the second term represents the average of within-dataset distances, and the last two terms represent the contributions of within-dataset distances for X and Y, respectively. To generalize the distance result, before calculating distance, we use the ordinal encoder for categorical features and 0-1 min max scaler transformation.</p>
 <p>Here is a complete example of data preparation:</p>
 <blockquote>
 <div><div class="jupyter_cell jupyter_container docutils container">
@@ -442,13 +443,13 @@ To generalize the distance result, before calculating distance, we did the ordin
 </table>
 </div>
 </div></section>
-<section id="full-example">
-<h2><span class="section-number">2.3.3. </span>Full Example<a class="headerlink" href="#full-example" title="Permalink to this heading">¶</a></h2>
+<section id="examples">
+<h2><span class="section-number">2.3.3. </span>Examples<a class="headerlink" href="#examples" title="Permalink to this heading">¶</a></h2>
 <p>The full example codes of this section can be found in the following link.</p>
 <div class="topic">
 <p class="topic-title">Example</p>
 <ul class="simple">
-<li><p><a class="reference internal" href="../../auto_examples/data/plot_3_data_prepare.html#sphx-glr-auto-examples-data-plot-3-data-prepare-py"><span class="std std-ref">Data Prepare</span></a></p></li>
+<li><p><a class="reference internal" href="../../auto_examples/data/plot_3_data_prepare.html#sphx-glr-auto-examples-data-plot-3-data-prepare-py"><span class="std std-ref">Data Preparation</span></a></p></li>
 </ul>
 </div>
 </section>

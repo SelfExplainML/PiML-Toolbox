@@ -7,7 +7,7 @@
 ================================
 Comparison for Classification
 ================================
-This section compares models from various perspectives. This can be done by using the `model_compare` function in PiML. For demonstration, we consider a regression task on the BikeSharing data.
+This section describes how different classification models with binary responses can be compared on the basis of different metrics. In PiML, this can be done by using the `model_compare` function. We use results from the TaiwanCredit data for illustration.
 
 
 Accuracy Comparison
@@ -53,11 +53,10 @@ The last plot compares modes based on the F1 score, with `metric` = "F1". All th
 
 Overfit Comparison
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-Overfit comparison is to compare the overfit regions of different models. The overfit detection algorithm can be found in the overfit_ testing section. The keyword for overfit comparison is "overfit". Similar to the overfit test for a single model, the following arguments are required to run the overfit comparison. 
+Overfit comparison displays the overfit regions of different models against a feature of interest. The detection algorithm can be found in the overfit_ section. Different from the overfit for a single model, the argument for selecting slicing features is `slice_feature` (instead of `slice_features`), which is a string representing the feature name. The following example illustrates how to compare models' overfit regions, using the keyword "overfit", in which we consider a binary classification task on the TaiwanCredit data.
+
 
 .. _overfit: ../testing/overfit.html
-
-Different from the overfit for a single model, the argument for selecting slicing features is `slice_feature` (instead of `slice_features`), which is a string representing the feature name. The following example illustrates how to compare models' overfit regions, using the keyword "overfit", in which we consider a binary classification task on the TaiwanCredit data for demonstration.
 
 .. jupyter-input::
 
@@ -129,7 +128,7 @@ The example below illustrates how to compare models' robustness performance usin
    :target: ../../auto_examples/testing_compare/plot_0_compare_classification.html
    :align: left
 
-In the plot above, the perturbation is applied to all variables. On the x-axis, we have the perturbation size, and on the y-axis, the model performance. Model XGB2 recorded the best robustness performance, followed by XGB7. The worst performing is GLM. 
+In the plot above, the perturbation is applied to all variables. On the x-axis, we have the perturbation size, and on the y-axis, the model performance. FIGS recorded the best robustness performance, followed by Tree. The worst performing is XGB2. 
 
 Robustness Performance on Worst Samples
 """""""""""""""""""""""""""""""""""""""""""
@@ -144,7 +143,7 @@ The keyword "robustness_perf_worst" is used to evaluate the models' performance 
    :target: ../../auto_examples/testing_compare/plot_0_compare_classification.html
    :align: left
 
-The plot shows that XGB2 performs well on unperturbed data (noise = 0) and it is also the most robust model against perturbation. GAM is the second-best model, followed by GLM. 
+The plot shows that the performance degradation is similar for the compared three models. 
 
 
 Resilience Comparison
@@ -190,4 +189,4 @@ Examples
 
   The second example below demonstrates how to use PiML’s high-code APIs for the TaiwanCredit dataset from the UCI repository. This dataset comprises the credit card details of 30,000 clients in Taiwan from April 2005 to September 2005, and more information can be found on the TaiwanCreditData website. The data can be loaded directly into PiML, although it requires some preprocessing. The FlagDefault variable serves as the response for this classification problem.
 
- * :ref:`sphx_glr_auto_examples_testing_compare_plot_0_compare_regression.py`
+ * :ref:`sphx_glr_auto_examples_testing_compare_plot_0_compare_classification.py`

@@ -1,0 +1,12 @@
+﻿:mod:`piml.data.outlier_detection`.KMeansTree
+====================================================
+
+.. currentmodule:: piml.data.outlier_detection
+
+.. autoclass:: KMeansTree
+
+.. include:: piml.data.outlier_detection.KMeansTree.examples
+
+.. raw:: html
+
+    <div class="clearer"></div>

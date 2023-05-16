@@ -151,7 +151,7 @@
                         </li>
                       
                         <li class="sk-toctree-l3">
-                          <a href="data_prepare.html">2.3. Data Prepare</a>
+                          <a href="data_prepare.html">2.3. Data Preparation</a>
                         </li>
                       
                         <li class="sk-toctree-l3">
@@ -252,29 +252,28 @@
 <section id="distance-metrics">
 <h2><span class="section-number">2.7.1. </span>Distance Metrics<a class="headerlink" href="#distance-metrics" title="Permalink to this heading">¶</a></h2>
 <ul class="simple">
-<li><p><strong>Population Stability Index (PSI)</strong>: PSI is a statistical measure used to determine the extent to which a variable has changed. It is based on the proportions of samples in each bucket of the target vs. base population.</p></li>
+<li><p><strong>Population Stability Index (PSI)</strong>: PSI is a statistical measure used to determine the extent to which the distribution of a variable has changed. It is a discrete (binned) version of the Kullback-Leibler (K-L) distance between two sets of sample data. More specifically, define a binning scheme that bins the two datasets P and Q into B bins. The discrete K-L distance between P and Q with respect to P is defined as <span class="math notranslate nohighlight">\(D_{KL} (p│q)= \sum_{i=1}^B▒p_i * ln ((p_i/q_i))\)</span>. Note that this distance is asymmetric. Define the distance with resect to q as  <span class="math notranslate nohighlight">\(D_{KL} (q│p)= \sum_{i=1}^B▒q_i*ln (q_i/p_i)\)</span>. Then, PSI is the sum of the two asymmetric versions:</p></li>
 </ul>
 <div class="math notranslate nohighlight">
 \[\begin{align}
-   PSI = \sum^{B}_{i=1} (p(x_i) - q(x_i))ln \frac{p(x_i)}{q(x_i)},
+   PSI = D_{KL}(p│q) + D_{KL} (q│p) = \sum^{B}_{i=1} (p_i - q_i)ln \frac{p_i}{q_i}.
 \end{align}\]</div>
-<p>where <span class="math notranslate nohighlight">\(B\)</span> is the number of bins, <span class="math notranslate nohighlight">\(p(x)\)</span> and <span class="math notranslate nohighlight">\(q(x)\)</span> is the empirical density function of the base and target population, respectively. Note that the PSI calculation is related to the binning method, and we have two options for binning, i.e., “uniform” and “quantile”. The number of bins is fixed at 10.</p>
+<p>Here, B is the number of bins, and <span class="math notranslate nohighlight">\(p_i\)</span>’s and <span class="math notranslate nohighlight">\(q_i\)</span>’s are proportions of the two samples in each bin. Note that the PSI calculation is related to the binning method, and PIML provides two options for binning, i.e., “equal width” or “equal quantile”. The number of bins is fixed at 10.</p>
 <ul class="simple">
-<li><p><strong>Wasserstein distance 1D (WD1)</strong>: WD1 calculates the absolute difference between the cumulative distribution functions of the two samples.</p></li>
+<li><p><strong>Wasserstein distance 1D (WD1) distance</strong>: WD1 calculates the absolute difference between the cumulative distribution functions of the two samples.</p></li>
 </ul>
 <div class="math notranslate nohighlight">
 \[\begin{align}
-   WD_{1} = \int |P(x) - Q(x)| dx,
+    D(F, G)_{W} = \int |F(x) - G(x)| dx.
 \end{align}\]</div>
-<p>where and <span class="math notranslate nohighlight">\(P(x)\)</span> and <span class="math notranslate nohighlight">\(Q(x)\)</span> are the cumulative distribution of the target and base population.</p>
+<p>Here <span class="math notranslate nohighlight">\(F(x)\)</span> and <span class="math notranslate nohighlight">\(G(x)\)</span> are the cumulative distribution functions of the target and base population.</p>
 <ul class="simple">
-<li><p><strong>Kolmogorov-Smirnov (KS)</strong>: KS calculates the maximum absolute distance between the cumulative distribution functions of the two samples. In PiML, the WD1 statistics are calculated by the function from <code class="docutils literal notranslate"><span class="pre">scipy.stats</span></code>.</p></li>
+<li><p><strong>Kolmogorov-Smirnov (KS) distance</strong>: KS calculates the maximum absolute distance between the cumulative distribution functions of the two samples. In PiML, the WD1 and KS statistics are calculated by the <code class="docutils literal notranslate"><span class="pre">wasserstein_distance</span></code> and <code class="docutils literal notranslate"><span class="pre">ks_2samp</span></code> functions from <code class="docutils literal notranslate"><span class="pre">scipy.stats</span></code>.</p></li>
 </ul>
 <div class="math notranslate nohighlight">
 \[\begin{align}
-   KS = \sup_x |P(x) - Q(x)|.
+    D(F, G)_{KS}  = \sup_x |F(x) - G(x)|.
 \end{align}\]</div>
-<p>In PiML, the WD1 and KS statistics are calculated by the <code class="docutils literal notranslate"><span class="pre">wasserstein_distance</span></code> and <code class="docutils literal notranslate"><span class="pre">ks_2samp</span></code> functions from <code class="docutils literal notranslate"><span class="pre">scipy.stats</span></code>.</p>
 </section>
 <section id="usage">
 <h2><span class="section-number">2.7.2. </span>Usage<a class="headerlink" href="#usage" title="Permalink to this heading">¶</a></h2>
@@ -299,7 +298,7 @@
 </section>
 <section id="marginal-density-comparison">
 <h3><span class="section-number">2.7.2.2. </span>Marginal Density Comparison<a class="headerlink" href="#marginal-density-comparison" title="Permalink to this heading">¶</a></h3>
-<p>As we set a feature name to <code class="docutils literal notranslate"><span class="pre">feature</span></code>, we can get the marginal density comparison between the train and test sets. We can also change <code class="docutils literal notranslate"><span class="pre">metric</span></code> and <code class="docutils literal notranslate"><span class="pre">psi_buckets</span></code>, to change the distance metric displayed on the plot.</p>
+<p>We can compare the marginal densities of the train and test sets for a particular feature (see example below). We can also change <code class="docutils literal notranslate"><span class="pre">metric</span></code> and <code class="docutils literal notranslate"><span class="pre">psi_buckets</span></code>, to change the distance metric displayed on the plot.</p>
 <blockquote>
 <div><div class="jupyter_cell jupyter_container docutils container">
 <div class="cell_input code_cell docutils container">
@@ -316,8 +315,8 @@
 </figure>
 </section>
 </section>
-<section id="full-example">
-<h2><span class="section-number">2.7.3. </span>Full Example<a class="headerlink" href="#full-example" title="Permalink to this heading">¶</a></h2>
+<section id="examples">
+<h2><span class="section-number">2.7.3. </span>Examples<a class="headerlink" href="#examples" title="Permalink to this heading">¶</a></h2>
 <p>The full example codes of this section can be found in the following link.</p>
 <div class="topic">
 <p class="topic-title">Example</p>

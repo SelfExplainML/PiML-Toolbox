@@ -8,28 +8,30 @@
 Generalized Linear Models
 ==========================
 
-In statistics, generalized linear models (GLMs) are the most well-known interpretable models. They assume the linear relationship between the :math:`d`-dimensional features :math:`\textbf{x}` and the response :math:`y` of the following form,
+Generalized linear models (GLMs) are well known in the statistical literature and are among the most interpretable models. Readers should consult [McCullagh1989]_ for details.
+
+GLMs are based on the assumption that, after a suitable transformation of the expected response, it has a linear relationship with the :math:`d`-dimensional features :math:`x`. More specifically, the relationship is of the following form,
 
 .. math::
    \begin{align}
       g(\mathbb{E}(y|\textbf{x})) =  \mu +  w_1 x_1 + w_2 x_2 + \ldots + w_d x_d,  \tag{1}
    \end{align}
 
-where :math:`\mu` is the intercept term, :math:`w_1, w_2, \ldots, w_d` are model coefficients (also called weights), and :math:`g(\cdot)` is the link function. The most popular link functions are the identity function :math:`g(x)=x` for continuous responses, and the logit function :math:`g(x)=\log(x/(1-x))` for binary responses. 
+where :math:`\mu` is the intercept term, :math:`w_1, w_2, \ldots, w_d` are model coefficients (also called weights), and :math:`g(\cdot)` is the link function. GLMs can be used to analyze continuous responses as well as binary, categorical, and count responses. The most popular link functions are the identity function :math:`g(x)=x` for continuous responses, and the logit function :math:`g(x)=\log(x/(1-x))` for binary responses. 
 
 Model Training
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-There are many existing packages for fitting GLMs under various settings and options. Among others, PiML integrates the scikit-learn implementations into `GLMRegressor` and `GLMClassifier`, with L1 and L2 regularization options.
+There are many existing packages for fitting GLMs under various settings and options. PiML integrates the scikit-learn implementations into `GLMRegressor` and `GLMClassifier`, with L1 and L2 regularization options.
 
 - `l1_regularzation`: The regularization strength of the L1 penalty, which penalizes the absolute values of model coefficients.
 
 - `l2_regularzation`: The regularization strength of the L2 penalty, which penalizes the squared values of model coefficients.
 
-Both of these two regularizations shrink the regression coefficients toward zero. With large L1 regularization, the fitted coefficients would become sparse. In contrast, with large L2 regularization, the fitted coefficients tend to be closer to zero.
+Both of these two regularizations shrink the regression coefficients toward zero. With large L1 regularization, the fitted coefficients would become sparse. In contrast, with large L2 regularization, the fitted coefficients will be shrunk towards zero.
 The different combinations of these two hyperparameters would lead to different variants of GLMs.
 
-In particular, `GLMRegressor`_ calls the following modules of scikit-learn.
+`GLMRegressor`_ calls the following modules of scikit-learn.
 
 .. _GLMRegressor: ../../modules/generated/piml.models.GLMRegressor.html
 
@@ -46,7 +48,7 @@ In particular, `GLMRegressor`_ calls the following modules of scikit-learn.
 
 .. _sklearn.linear_model.ElasticNet: https://scikit-learn.org/stable/modules/generated/sklearn.linear_model.ElasticNet.html#sklearn.linear_model.ElasticNet
 
-For binary classification tasks, `GLMClassifier`_ directly uses the LogisticRegression class of scikit-learn.
+For binary regression (called classification in the ML literature), `GLMClassifier`_ directly uses the LogisticRegression class of scikit-learn.
 
 .. _GLMClassifier: ../../modules/generated/piml.models.GLMClassifier.html
 
@@ -54,34 +56,33 @@ For binary classification tasks, `GLMClassifier`_ directly uses the LogisticRegr
 
 .. _sklearn.linear_model.LogisticRegression: https://scikit-learn.org/stable/modules/generated/sklearn.linear_model.LogisticRegression.html#sklearn.linear_model.LogisticRegression
 
-As the data is prepared, the following codes can be used to do model training.
+The following codes can be used to do model training.
 
 .. jupyter-input::
 
     from piml.models import GLMRegressor
     exp.model_train(model=GLMRegressor(l1_regularzation=0.0008, l2_regularzation=0.0008), name="GLM")
 
-As the model is fitted and registered into the PiML workflow, we can test its performance using the `model_diagnose` function.
+We can test its performance using the `model_diagnose` function.
 
 .. jupyter-input::
 
     exp.model_diagnose(model="GLM", show="accuracy_table")
 
-Using this command, a table would be generated, showing the model performance on both train and test sets, see :ref:`sphx_glr_auto_examples_models_plot_0_glm_reg.py`.
+Using this command, a table would be generated, showing model performance on both train and test sets.
+
+
 
 Global Interpretation
 ^^^^^^^^^^^^^^^^^^^^^^^
 
-The ``exp.model_interpret`` function provides the capability to interpret a fitted model.
+The `exp.model_interpret` function provides the capability to interpret a fitted model.
 
 Regression Coefficients
 """""""""""""""""""""""""""""""""
+In  linear models, the regression coefficients estimate the change in the response variable for a unit change in the corresponding predictor variable, holding all other variables constant. This interpretation has to be adapted suitably for other link functions used in the GLM. For example,
 
-In general, the regression coefficients estimate the change in the response variable for a unit change in the corresponding predictor variable, holding all other variables constant. However, this interpretation may differ depending on the distributional assumption and link function used in the GLM. For example, 
-
-- In a linear regression model with a Gaussian distribution assumption, the regression coefficient represents the change in the mean response for a one-unit increase in the predictor variable. 
-
-- In a logistic regression model with a binomial distribution assumption and a logit link function, the regression coefficient represents the change in the log odds of the response variable for a one-unit increase in the predictor variable.
+- In a logistic regression model with a logit link function, the regression coefficient represents the change in the log odds of the response variable for a one-unit increase in the predictor variable.
 
 When the predictor variables are measured on different scales, the coefficients cannot be directly compared. To address this issue, we standardize the predictor variables so that we can compare the coefficients on a comparable scale. 
 
@@ -99,7 +100,7 @@ This plot shows the coefficients of the top 10 numerical features in a linear re
 
 In this case, the plot suggests that the most important numerical feature in the model is `temp` (temperature), with a positive effect on the response variable. This is followed by `hum` (humidity), which has a negative effect on the response variable, and `hr` (hour), which has a positive effect on the response variable.
 
-It's important to note that, in GLM, categorical variables are preprocessed by one-hot encoding, which involves converting each categorical variable into a set of binary variables representing each possible category. To visualize the coefficients of the categorical variables, a bar chart coefficient plot can be used. This involves plotting the coefficients for each category of the categorical variable separately, using the `uni_feature` parameter to specify the name of the categorical variable.
+It is important to note that, in GLM, categorical variables are preprocessed by one-hot encoding, which involves converting each categorical variable into a set of binary variables representing each possible category. To visualize the coefficients of the categorical variables, a bar chart coefficient plot can be used. This involves plotting the coefficients for each category of the categorical variable separately, using the `uni_feature` parameter to specify the name of the categorical variable.
 
 .. jupyter-input::
 
@@ -109,7 +110,7 @@ It's important to note that, in GLM, categorical variables are preprocessed by o
    :target: ../../auto_examples/models/plot_0_glm.html
    :align: left
 
-In this example, the categorical variable season has four categories, which are represented by four binary dummy variables: `season_1`, `season_2`, `season_3`, and `season_4`. To avoid multicollinearity issues and overparameterization, only three of the four dummy variables are used for model fitting, and the fourth one (`season_1`) is dropped and assigned a coefficient of zero.
+In this example, the categorical variable `season` has four categories, which are represented by four binary dummy variables: `season_1`, `season_2`, `season_3`, and `season_4`. To avoid overparameterization, only three of the four dummy variables are used for model fitting, and the fourth one (`season_1`) is dropped and assigned a coefficient of zero.
 Note that the choice of which dummy variable to drop can affect the interpretation of the coefficients for the remaining variables, especially if there are interactions or nonlinear effects between categories.
 
 To get the results of all features, you can use the keyword "glm_coef_table", and a data frame containing all features' importance will be displayed. Instead of printing the table to the screen, you can also export the results to a data object by setting `return_data` to True.
@@ -121,8 +122,7 @@ To get the results of all features, you can use the keyword "glm_coef_table", an
 
 Feature Importance
 """""""""""""""""""""""""""""""""
-
-In machine learning, the feature importance measures the relative importance of each input feature in predicting the response. Here, the importance of each feature is calculated by measuring the variance of the marginal effect :math:`w_j x_j, (j = 1,\ldots,d)` on the training set. For each categorical feature, we aggregate all of its dummy variables' marginal effects and then calculate the variance. Therefore, the feature importance provides a measure of how much the feature contributes to the overall variability in the model's predictions. In PiML, we use the keyword "global_fi" to trigger the feature importance plot.
+The feature importance measures the relative importance of each input feature in predicting the response. Here, the importance of each feature is calculated by measuring the variance of the marginal effect :math:`w_j x_j, (j = 1,\ldots,d)` on the training set. For each categorical feature, we aggregate the marginal effects of all of its dummy variables and then calculate the variance. Therefore, the feature importance provides a measure of how much the feature contributes to the overall variability in the model's predictions. In PiML, we use the keyword "global_fi" to trigger the feature importance plot.
 
 .. jupyter-input::
 
@@ -138,7 +138,7 @@ In order to interpret the relative importance of each feature as a proportion of
 Local Interpretation
 ^^^^^^^^^^^^^^^^^^^^^^^
 
-Local interpretation refers to the local feature contribution of each feature for a particular prediction on a single sample. In PiML, we can generate the local interpretation plot by keyword "local_fi", together with the sample id to be interpreted, as follows.
+Local interpretation refers to the local contribution of each feature for a particular prediction on a single sample. In PiML, we can generate the local interpretation plot by keyword "local_fi", together with the sample id to be interpreted, as follows.
 
 .. jupyter-input::
 
@@ -186,6 +186,8 @@ To address this issue, a common approach is to center the features by subtractin
 
 By centering the data and calculating the marginal effects, the model itself remains unchanged, but the interpretation of the marginal effects may change significantly, as we are essentially comparing the contribution of each feature to the average population, rather than the individual sample values. For instance, `hum` has a large contribution to the prediction in the uncentered data. However, when the data is centered, its contribution becomes negligible. This is because the feature value of this sample is close to the population mean, and its contribution is now mainly captured by the intercept term.
 
+
+
 Examples
 ^^^^^^^^^^^^^^^^^^
 
@@ -200,3 +202,8 @@ Examples
   The second example below demonstrates how to use PiML’s high-code APIs for the TaiwanCredit dataset from the UCI repository. This dataset comprises the credit card details of 30,000 clients in Taiwan from April 2005 to September 2005, and more information can be found on the TaiwanCreditData website. The data can be loaded directly into PiML, although it requires some preprocessing. The FlagDefault variable serves as the response for this classification problem.
 
  * :ref:`sphx_glr_auto_examples_models_plot_0_glm_cls.py`
+
+
+.. topic:: References
+
+    .. [McCullagh1989] Peter McCullagh, John Nelder (1989). Generalized linear models, Chapman and Hall - second edition.

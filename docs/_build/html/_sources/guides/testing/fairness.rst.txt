@@ -8,12 +8,13 @@
 Fairness
 ======================================
 
-Fairness is the model's quality or state of being fair or impartial. Decisions made by computers after a machine-learning process may be considered unfair if they were based on variables considered sensitive. 
-Examples of these kinds of variables include gender, ethnicity, sexual orientation, disability, and more.
+Fairness is the model's quality or state of being fair or impartial. Decisions made by computers after a machine-learning process may be considered unfair if they were based on variables considered sensitive. Examples of these kinds of variables include gender, ethnicity, sexual orientation, disability, and more.
 
 In this section, the model fairness test will be introduced. For demonstration purposes, we run the following example codes to initialize a PiML experiment for the Credit Simulation dataset. In the model training process, we cannot use demographic features like "Race" and "Gender". So we need to remove them from the training data. We use monotonic depth 2 xgboost to train the data.
 
-Fairness Metric
+
+
+Fairness Metrics
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 PIML support showing the fairness result for different metrics.

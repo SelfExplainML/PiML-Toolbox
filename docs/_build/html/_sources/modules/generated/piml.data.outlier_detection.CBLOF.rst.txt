@@ -1,0 +1,12 @@
+﻿:mod:`piml.data.outlier_detection`.CBLOF
+===============================================
+
+.. currentmodule:: piml.data.outlier_detection
+
+.. autoclass:: CBLOF
+
+.. include:: piml.data.outlier_detection.CBLOF.examples
+
+.. raw:: html
+
+    <div class="clearer"></div>

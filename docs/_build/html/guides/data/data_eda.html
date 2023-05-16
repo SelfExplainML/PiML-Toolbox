@@ -113,7 +113,7 @@
             </a>
           </div>
           <!--div class="btn-group w-100 mb-2" role="group" aria-label="rellinks">
-              <a href="data_prepare.html" role="button" class="btn sk-btn-rellink py-1" sk-rellink-tooltip="2.3. Data Prepare">Prev</a><a href="../data.html" role="button" class="btn sk-btn-rellink py-1" sk-rellink-tooltip="2. Data Pipeline">Up</a>
+              <a href="data_prepare.html" role="button" class="btn sk-btn-rellink py-1" sk-rellink-tooltip="2.3. Data Preparation">Prev</a><a href="../data.html" role="button" class="btn sk-btn-rellink py-1" sk-rellink-tooltip="2. Data Pipeline">Up</a>
               <a href="data_quality.html" role="button" class="btn sk-btn-rellink py-1" sk-rellink-tooltip="2.5. Data Quality">Next</a>
           </div-->
               <div class="sk-sidebar-toc">
@@ -149,7 +149,7 @@
                         </li>
                       
                         <li class="sk-toctree-l3">
-                          <a href="data_prepare.html">2.3. Data Prepare</a>
+                          <a href="data_prepare.html">2.3. Data Preparation</a>
                         </li>
                       
                         <li class="sk-toctree-l3">
@@ -246,13 +246,11 @@
 
 </style><section id="exploratory-analysis">
 <h1><span class="section-number">2.4. </span>Exploratory Analysis<a class="headerlink" href="#exploratory-analysis" title="Permalink to this heading">¶</a></h1>
-<p>In PiML, we support three types of plots for users to understand the data better,
-including univariate plots, bivariate plots, and multivariate plots.</p>
+<p>PiML supports three types of plots for exploratory analysis:  univariate plots, bivariate plots, and multivariate plots.</p>
 <section id="univariate-plots">
 <h2><span class="section-number">2.4.1. </span>Univariate Plots<a class="headerlink" href="#univariate-plots" title="Permalink to this heading">¶</a></h2>
-<p>The univariate plot is a graphical representation of a single variable in a dataset.
-We use different plots for numerical features and categorical features.</p>
-<p>For numerical features, we show their density and histogram chart:</p>
+<p>We use different plots for numerical features and categorical features.</p>
+<p>For numerical features, we show density and histogram chart:</p>
 <div class="jupyter_cell jupyter_container docutils container">
 <div class="cell_input code_cell docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">exp</span><span class="o">.</span><span class="n">eda</span><span class="p">(</span><span class="n">show</span><span class="o">=</span><span class="s1">&#39;univariate&#39;</span><span class="p">,</span> <span class="n">uni_feature</span><span class="o">=</span><span class="s1">&#39;cnt&#39;</span><span class="p">)</span>
@@ -265,7 +263,7 @@ We use different plots for numerical features and categorical features.</p>
 <figure class="align-left">
 <a class="reference external image-reference" href="../../auto_examples/data/plot_2_data_eda.html"><img alt="../../_images/sphx_glr_plot_2_data_eda_001.png" src="../../_images/sphx_glr_plot_2_data_eda_001.png" /></a>
 </figure>
-<p>For categorical features, we show the bar chart to show the frequency of values.</p>
+<p>For categorical features, we show the bar chart that displays the frequency of values.</p>
 <div class="jupyter_cell jupyter_container docutils container">
 <div class="cell_input code_cell docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">exp</span><span class="o">.</span><span class="n">eda</span><span class="p">(</span><span class="n">show</span><span class="o">=</span><span class="s1">&#39;univariate&#39;</span><span class="p">,</span> <span class="n">uni_feature</span><span class="o">=</span><span class="s1">&#39;yr&#39;</span><span class="p">)</span>
@@ -296,7 +294,7 @@ We use three types of charts for different combinations of feature types.</p>
 <figure class="align-left">
 <a class="reference external image-reference" href="../../auto_examples/data/plot_2_data_eda.html"><img alt="../../_images/sphx_glr_plot_2_data_eda_003.png" src="../../_images/sphx_glr_plot_2_data_eda_003.png" /></a>
 </figure>
-<p>For numerical &amp; categorical, we use the box plot to show the relationship by displaying the numerical feature distribution conditional on each category of categorical features.</p>
+<p>If the pair is numerical &amp; categorical, we use the box plot to show the relationship by displaying the numerical feature distribution conditional on each category of categorical feature.</p>
 <div class="jupyter_cell jupyter_container docutils container">
 <div class="cell_input code_cell docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">exp</span><span class="o">.</span><span class="n">eda</span><span class="p">(</span><span class="n">show</span><span class="o">=</span><span class="s1">&#39;bivariate&#39;</span><span class="p">,</span> <span class="n">bi_features</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;hr&#39;</span><span class="p">,</span> <span class="s1">&#39;season&#39;</span><span class="p">])</span>
@@ -309,7 +307,7 @@ We use three types of charts for different combinations of feature types.</p>
 <figure class="align-left">
 <a class="reference external image-reference" href="../../auto_examples/data/plot_2_data_eda.html"><img alt="../../_images/sphx_glr_plot_2_data_eda_004.png" src="../../_images/sphx_glr_plot_2_data_eda_004.png" /></a>
 </figure>
-<p>For categorical &amp; categorical, we use the stack bar plot, each bar represents a category in one variable and is divided into segments representing the frequency of the second variable within that category.</p>
+<p>If the pair is categorical &amp; categorical, we use the stack bar plot, each bar represents a category in one variable and is divided into segments representing the frequency of the second variable within that category.</p>
 <div class="jupyter_cell jupyter_container docutils container">
 <div class="cell_input code_cell docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">exp</span><span class="o">.</span><span class="n">eda</span><span class="p">(</span><span class="n">show</span><span class="o">=</span><span class="s1">&#39;bivariate&#39;</span><span class="p">,</span> <span class="n">bi_features</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;yr&#39;</span><span class="p">,</span> <span class="s1">&#39;season&#39;</span><span class="p">])</span>
@@ -325,9 +323,7 @@ We use three types of charts for different combinations of feature types.</p>
 </section>
 <section id="multivariate-plots">
 <h2><span class="section-number">2.4.3. </span>Multivariate Plots<a class="headerlink" href="#multivariate-plots" title="Permalink to this heading">¶</a></h2>
-<p>The multivariate plot is a graphical representation of the relationship between multiple variables in a dataset.
-There are two types of charts in PiML, correlation heatmap, and correlation graph.</p>
-<p>Both the correlation heatmap and correlation graph display the information of Pearson correlation, with different representation approaches.</p>
+<p>There are two types of multivariate charts in PiML: correlation heatmap, and correlation graph. Both the correlation heatmap and correlation graph display  pairwisePearson correlations, using different representations.</p>
 <p>Here is an example of the correlation heatmap:</p>
 <div class="jupyter_cell jupyter_container docutils container">
 <div class="cell_input code_cell docutils container">
@@ -355,8 +351,8 @@ There are two types of charts in PiML, correlation heatmap, and correlation grap
 <a class="reference external image-reference" href="../../auto_examples/data/plot_2_data_eda.html"><img alt="../../_images/sphx_glr_plot_2_data_eda_007.png" src="../../_images/sphx_glr_plot_2_data_eda_007.png" /></a>
 </figure>
 </section>
-<section id="full-example">
-<h2><span class="section-number">2.4.4. </span>Full Example<a class="headerlink" href="#full-example" title="Permalink to this heading">¶</a></h2>
+<section id="examples">
+<h2><span class="section-number">2.4.4. </span>Examples<a class="headerlink" href="#examples" title="Permalink to this heading">¶</a></h2>
 <p>The full example codes of this section can be found in the following link.</p>
 <div class="topic">
 <p class="topic-title">Example</p>

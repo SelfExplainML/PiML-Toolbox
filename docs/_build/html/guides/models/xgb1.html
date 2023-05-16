@@ -162,7 +162,7 @@
                         </li>
                       
                         <li class="sk-toctree-l3">
-                          <a href="gam.html">5.2. Generalized Additive Model</a>
+                          <a href="gam.html">5.2. Generalized Additive Model (GAM)</a>
                         </li>
                       
                         <li class="sk-toctree-l3">
@@ -279,7 +279,7 @@
 </ul>
 <section id="model-training">
 <h2><span class="section-number">5.5.1. </span>Model Training<a class="headerlink" href="#model-training" title="Permalink to this heading">¶</a></h2>
-<p>Here, we will use the California Housing dataset to demonstrate the training of the XGB1 model using the PiML workflow. The following steps can be taken to train the model:</p>
+<p>We use the California Housing dataset to demonstrate the training of the XGB1 model using the PiML workflow. The following steps are taken to train the model:</p>
 <div class="jupyter_cell jupyter_container docutils container">
 <div class="cell_input code_cell docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">piml.models</span> <span class="kn">import</span> <span class="n">XGB1Regressor</span>
@@ -291,7 +291,7 @@
 </div>
 </div>
 <p>The <a class="reference external" href="../../modules/generated/piml.models.XGB1Regressor.html">XGB1Regressor</a> (as well as <a class="reference external" href="../../modules/generated/piml.models.XGB1Classifier.html">XGB1Classifier</a>) is developed based on the <a class="reference external" href="https://xgboost.readthedocs.io/en/stable/python/python_api.html">xgboost</a> Python package and hence it inherits some commonly used hyperparameters in XGB, e.g., <code class="docutils literal notranslate"><span class="pre">n_estimators</span></code>, <code class="docutils literal notranslate"><span class="pre">eta</span></code>, <code class="docutils literal notranslate"><span class="pre">tree_method</span></code>, <code class="docutils literal notranslate"><span class="pre">max_bin</span></code>, <code class="docutils literal notranslate"><span class="pre">gamma</span></code>, <code class="docutils literal notranslate"><span class="pre">reg_lambda</span></code>, and <code class="docutils literal notranslate"><span class="pre">reg_alpha</span></code>.</p>
-<p>The XGB1 model also supports monotonic constraints. However, instead of manually typing in 0, 1, or -1 to indicate the direction of monotonicity for each feature in XGB, you can directly specify the feature names with their desired monotonic constraints using the following arguments in the XGB1 model.</p>
+<p>XGB1 model also supports monotonic constraints. However, instead of manually typing in 0, 1, or -1 to indicate the direction of monotonicity for each feature in XGB, you can directly specify the feature names with their desired monotonic constraints using the following arguments in the XGB1 model.</p>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">mono_increasing_list</span></code>: the monotonic increasing constraints.</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">mono_decreasing_list</span></code>: the monotonic decreasing constraints.</p></li>
@@ -391,12 +391,12 @@
 <figure class="align-left">
 <a class="reference external image-reference" href="../../auto_examples/models/plot_4_xgb1_reg.html"><img alt="../../_images/sphx_glr_plot_4_xgb1_reg_004.png" src="../../_images/sphx_glr_plot_4_xgb1_reg_004.png" /></a>
 </figure>
-<p>It can be found that the ranking order of the IV plot is different from that of the feature importance plot. The feature <code class="docutils literal notranslate"><span class="pre">MedInc</span></code> is ranked as the most important feature in IV, followed by <code class="docutils literal notranslate"><span class="pre">latitude</span></code>, <code class="docutils literal notranslate"><span class="pre">AveRooms</span></code>, and <code class="docutils literal notranslate"><span class="pre">longitude</span></code>. The feature <code class="docutils literal notranslate"><span class="pre">Population</span></code> is still ranked as the least important feature. As <code class="docutils literal notranslate"><span class="pre">latitude</span></code> and <code class="docutils literal notranslate"><span class="pre">longitude</span></code> are highly correlated, the model may amplify the effect of <code class="docutils literal notranslate"><span class="pre">latitude</span></code> and <code class="docutils literal notranslate"><span class="pre">longitude</span></code>, which explains why they are ranked as the most important features in the feature importance plot. In contrast, the IV plot shows that <code class="docutils literal notranslate"><span class="pre">MedInc</span></code> is the most important feature, since the IV plot only considers the effect of each feature on the target variable. Note that this plot only shows the top 10 features with the largest information value. To get the full results, you can set the parameter <code class="docutils literal notranslate"><span class="pre">return_data</span></code> to True.</p>
+<p>It turns out that the rank ordering of the IV plot is different from that of the feature importance plot. The feature <code class="docutils literal notranslate"><span class="pre">MedInc</span></code> is ranked as the most important feature in IV, followed by <code class="docutils literal notranslate"><span class="pre">latitude</span></code>, <code class="docutils literal notranslate"><span class="pre">AveRooms</span></code>, and <code class="docutils literal notranslate"><span class="pre">longitude</span></code>. The feature <code class="docutils literal notranslate"><span class="pre">Population</span></code> is still ranked as the least important feature. As <code class="docutils literal notranslate"><span class="pre">latitude</span></code> and <code class="docutils literal notranslate"><span class="pre">longitude</span></code> are highly correlated, the model may amplify the effect of <code class="docutils literal notranslate"><span class="pre">latitude</span></code> and <code class="docutils literal notranslate"><span class="pre">longitude</span></code>, which explains why they are ranked as the most important features in the feature importance plot. In contrast, the IV plot shows that <code class="docutils literal notranslate"><span class="pre">MedInc</span></code> is the most important feature, since the IV plot only considers the effect of each feature on the target variable. Note that this plot only shows the top 10 features with the largest information value. To get the full results, you can set the parameter <code class="docutils literal notranslate"><span class="pre">return_data</span></code> to True.</p>
 </section>
 </section>
 <section id="local-interpretation">
 <h2><span class="section-number">5.5.3. </span>Local Interpretation<a class="headerlink" href="#local-interpretation" title="Permalink to this heading">¶</a></h2>
-<p>Similar to other additive models, the local interpretation can be triggered by the keyword “local_fi”.</p>
+<p>The local interpretation can be triggered by the keyword “local_fi”.</p>
 <div class="jupyter_cell jupyter_container docutils container">
 <div class="cell_input code_cell docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">exp</span><span class="o">.</span><span class="n">model_interpret</span><span class="p">(</span><span class="n">model</span><span class="o">=</span><span class="s2">&quot;XGB1&quot;</span><span class="p">,</span> <span class="n">show</span><span class="o">=</span><span class="s2">&quot;local_fi&quot;</span><span class="p">,</span> <span class="n">sample_id</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">original_scale</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">4</span><span class="p">))</span>

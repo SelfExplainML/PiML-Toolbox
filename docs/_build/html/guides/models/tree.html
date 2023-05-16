@@ -113,7 +113,7 @@
             </a>
           </div>
           <!--div class="btn-group w-100 mb-2" role="group" aria-label="rellinks">
-              <a href="gam.html" role="button" class="btn sk-btn-rellink py-1" sk-rellink-tooltip="5.2. Generalized Additive Model">Prev</a><a href="../models.html" role="button" class="btn sk-btn-rellink py-1" sk-rellink-tooltip="5. Interpretable Models">Up</a>
+              <a href="gam.html" role="button" class="btn sk-btn-rellink py-1" sk-rellink-tooltip="5.2. Generalized Additive Model (GAM)">Prev</a><a href="../models.html" role="button" class="btn sk-btn-rellink py-1" sk-rellink-tooltip="5. Interpretable Models">Up</a>
               <a href="figs.html" role="button" class="btn sk-btn-rellink py-1" sk-rellink-tooltip="5.4. Fast Interpretable Greedy-tree Sums">Next</a>
           </div-->
               <div class="sk-sidebar-toc">
@@ -160,7 +160,7 @@
                         </li>
                       
                         <li class="sk-toctree-l3">
-                          <a href="gam.html">5.2. Generalized Additive Model</a>
+                          <a href="gam.html">5.2. Generalized Additive Model (GAM)</a>
                         </li>
                       
                         <li class="sk-toctree-l3">
@@ -254,10 +254,10 @@
 
 </style><section id="decision-tree">
 <h1><span class="section-number">5.3. </span>Decision Tree<a class="headerlink" href="#decision-tree" title="Permalink to this heading">¶</a></h1>
-<p>The decision tree is a well-known supervised machine learning algorithm that operates by recursively dividing the dataset into smaller subsets based on the most influential features that can accurately predict the response. As the algorithm splits the data, it forms a tree diagram, rendering it highly interpretable.</p>
+<p>Decision tree is a well-known algorithm that operates by recursively dividing the dataset into smaller subsets based on the most influential features that can accurately predict the response. As the algorithm splits the data, it forms a tree diagram, rendering it highly interpretable.</p>
 <section id="model-training">
 <h2><span class="section-number">5.3.1. </span>Model Training<a class="headerlink" href="#model-training" title="Permalink to this heading">¶</a></h2>
-<p>In this section, we will discuss the process of training a decision tree model in PiML. Assuming that the data has been prepared, the next step is to import the appropriate module, which is either <code class="docutils literal notranslate"><span class="pre">TreeRegressor</span></code> for regression tasks or <code class="docutils literal notranslate"><span class="pre">TreeClassifier</span></code> for binary classification tasks. Once the appropriate module is imported, the next step is to use the <code class="docutils literal notranslate"><span class="pre">exp.model_train</span></code> method to fit the model to the data.</p>
+<p>Assuming that the data has been prepared, one imports the appropriate module, which is either <code class="docutils literal notranslate"><span class="pre">TreeRegressor</span></code> for regression tasks or <code class="docutils literal notranslate"><span class="pre">TreeClassifier</span></code> for binary classification tasks. Once the appropriate module is imported, the next step is to use the <code class="docutils literal notranslate"><span class="pre">exp.model_train</span></code> method to fit the model to the data.</p>
 <div class="jupyter_cell jupyter_container docutils container">
 <div class="cell_input code_cell docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">piml.models</span> <span class="kn">import</span> <span class="n">TreeRegressor</span>

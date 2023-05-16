@@ -24,6 +24,9 @@ Experiment Class
 Data Pipeline
 =======================================================
 
+Functions
+--------------
+
 .. currentmodule:: piml
 
 .. autosummary::
@@ -41,11 +44,24 @@ Data Pipeline
    Experiment.get_target_name
    Experiment.twosample_test
 
+Outlier Detection Methods
+----------------------------
+.. currentmodule:: piml
+
+.. autosummary::
+   :nosignatures:
+   :toctree: generated/
+   :template: class.rst
+
+   data.outlier_detection.PCA
+   data.outlier_detection.CBLOF
+   data.outlier_detection.KMeansTree
+   data.outlier_detection.IsolationForest
 
 Interpretable Models
 =======================================================
 
-High Code APIs
+Functions
 --------------
 .. currentmodule:: piml
 

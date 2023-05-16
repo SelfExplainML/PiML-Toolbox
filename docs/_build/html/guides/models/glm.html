@@ -116,7 +116,7 @@
           </div>
           <!--div class="btn-group w-100 mb-2" role="group" aria-label="rellinks">
               <a href="../models.html" role="button" class="btn sk-btn-rellink py-1" sk-rellink-tooltip="5. Interpretable Models">Prev</a><a href="../models.html" role="button" class="btn sk-btn-rellink py-1" sk-rellink-tooltip="5. Interpretable Models">Up</a>
-              <a href="gam.html" role="button" class="btn sk-btn-rellink py-1" sk-rellink-tooltip="5.2. Generalized Additive Model">Next</a>
+              <a href="gam.html" role="button" class="btn sk-btn-rellink py-1" sk-rellink-tooltip="5.2. Generalized Additive Model (GAM)">Next</a>
           </div-->
               <div class="sk-sidebar-toc">
               
@@ -162,7 +162,7 @@
                         </li>
                       
                         <li class="sk-toctree-l3">
-                          <a href="gam.html">5.2. Generalized Additive Model</a>
+                          <a href="gam.html">5.2. Generalized Additive Model (GAM)</a>
                         </li>
                       
                         <li class="sk-toctree-l3">
@@ -256,33 +256,34 @@
 
 </style><section id="generalized-linear-models">
 <h1><span class="section-number">5.1. </span>Generalized Linear Models<a class="headerlink" href="#generalized-linear-models" title="Permalink to this heading">¶</a></h1>
-<p>In statistics, generalized linear models (GLMs) are the most well-known interpretable models. They assume the linear relationship between the <span class="math notranslate nohighlight">\(d\)</span>-dimensional features <span class="math notranslate nohighlight">\(\textbf{x}\)</span> and the response <span class="math notranslate nohighlight">\(y\)</span> of the following form,</p>
+<p>Generalized linear models (GLMs) are well known in the statistical literature and are among the most interpretable models. Readers should consult <a class="reference internal" href="#mccullagh1989" id="id1"><span>[McCullagh1989]</span></a> for details.</p>
+<p>GLMs are based on the assumption that, after a suitable transformation of the expected response, it has a linear relationship with the <span class="math notranslate nohighlight">\(d\)</span>-dimensional features <span class="math notranslate nohighlight">\(x\)</span>. More specifically, the relationship is of the following form,</p>
 <div class="math notranslate nohighlight">
 \[\begin{align}
    g(\mathbb{E}(y|\textbf{x})) =  \mu +  w_1 x_1 + w_2 x_2 + \ldots + w_d x_d,  \tag{1}
 \end{align}\]</div>
-<p>where <span class="math notranslate nohighlight">\(\mu\)</span> is the intercept term, <span class="math notranslate nohighlight">\(w_1, w_2, \ldots, w_d\)</span> are model coefficients (also called weights), and <span class="math notranslate nohighlight">\(g(\cdot)\)</span> is the link function. The most popular link functions are the identity function <span class="math notranslate nohighlight">\(g(x)=x\)</span> for continuous responses, and the logit function <span class="math notranslate nohighlight">\(g(x)=\log(x/(1-x))\)</span> for binary responses.</p>
+<p>where <span class="math notranslate nohighlight">\(\mu\)</span> is the intercept term, <span class="math notranslate nohighlight">\(w_1, w_2, \ldots, w_d\)</span> are model coefficients (also called weights), and <span class="math notranslate nohighlight">\(g(\cdot)\)</span> is the link function. GLMs can be used to analyze continuous responses as well as binary, categorical, and count responses. The most popular link functions are the identity function <span class="math notranslate nohighlight">\(g(x)=x\)</span> for continuous responses, and the logit function <span class="math notranslate nohighlight">\(g(x)=\log(x/(1-x))\)</span> for binary responses.</p>
 <section id="model-training">
 <h2><span class="section-number">5.1.1. </span>Model Training<a class="headerlink" href="#model-training" title="Permalink to this heading">¶</a></h2>
-<p>There are many existing packages for fitting GLMs under various settings and options. Among others, PiML integrates the scikit-learn implementations into <code class="docutils literal notranslate"><span class="pre">GLMRegressor</span></code> and <code class="docutils literal notranslate"><span class="pre">GLMClassifier</span></code>, with L1 and L2 regularization options.</p>
+<p>There are many existing packages for fitting GLMs under various settings and options. PiML integrates the scikit-learn implementations into <code class="docutils literal notranslate"><span class="pre">GLMRegressor</span></code> and <code class="docutils literal notranslate"><span class="pre">GLMClassifier</span></code>, with L1 and L2 regularization options.</p>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">l1_regularzation</span></code>: The regularization strength of the L1 penalty, which penalizes the absolute values of model coefficients.</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">l2_regularzation</span></code>: The regularization strength of the L2 penalty, which penalizes the squared values of model coefficients.</p></li>
 </ul>
-<p>Both of these two regularizations shrink the regression coefficients toward zero. With large L1 regularization, the fitted coefficients would become sparse. In contrast, with large L2 regularization, the fitted coefficients tend to be closer to zero.
+<p>Both of these two regularizations shrink the regression coefficients toward zero. With large L1 regularization, the fitted coefficients would become sparse. In contrast, with large L2 regularization, the fitted coefficients will be shrunk towards zero.
 The different combinations of these two hyperparameters would lead to different variants of GLMs.</p>
-<p>In particular, <a class="reference external" href="../../modules/generated/piml.models.GLMRegressor.html">GLMRegressor</a> calls the following modules of scikit-learn.</p>
+<p><a class="reference external" href="../../modules/generated/piml.models.GLMRegressor.html">GLMRegressor</a> calls the following modules of scikit-learn.</p>
 <ul class="simple">
 <li><p><a class="reference external" href="https://scikit-learn.org/stable/modules/generated/sklearn.linear_model.LinearRegression.html#sklearn.linear_model.LinearRegression">sklearn.linear_model.LinearRegression</a>: Linear regression without constrainst (<code class="docutils literal notranslate"><span class="pre">l1_regularzation=0</span></code>, and <code class="docutils literal notranslate"><span class="pre">l2_regularzation=0</span></code>).</p></li>
 <li><p><a class="reference external" href="https://scikit-learn.org/stable/modules/generated/sklearn.linear_model.Lasso.html#sklearn.linear_model.Lasso">sklearn.linear_model.Lasso</a>: Linear regression with L1 regularizer (<code class="docutils literal notranslate"><span class="pre">l1_regularzation&gt;0</span></code>, and <code class="docutils literal notranslate"><span class="pre">l2_regularzation=0</span></code>).</p></li>
 <li><p><a class="reference external" href="https://scikit-learn.org/stable/modules/generated/sklearn.linear_model.Ridge.html#sklearn.linear_model.Ridge">sklearn.linear_model.Ridge</a>: Linear regression with L2 regularizer (<code class="docutils literal notranslate"><span class="pre">l1_regularzation=0</span></code>, and <code class="docutils literal notranslate"><span class="pre">l2_regularzation&gt;0</span></code>).</p></li>
 <li><p><a class="reference external" href="https://scikit-learn.org/stable/modules/generated/sklearn.linear_model.ElasticNet.html#sklearn.linear_model.ElasticNet">sklearn.linear_model.ElasticNet</a>: Linear regression with elastic net regularizer (<code class="docutils literal notranslate"><span class="pre">l1_regularzation&gt;0</span></code>, and <code class="docutils literal notranslate"><span class="pre">l2_regularzation&gt;0</span></code>).</p></li>
 </ul>
-<p>For binary classification tasks, <a class="reference external" href="../../modules/generated/piml.models.GLMClassifier.html">GLMClassifier</a> directly uses the LogisticRegression class of scikit-learn.</p>
+<p>For binary regression (called classification in the ML literature), <a class="reference external" href="../../modules/generated/piml.models.GLMClassifier.html">GLMClassifier</a> directly uses the LogisticRegression class of scikit-learn.</p>
 <ul class="simple">
 <li><p><a class="reference external" href="https://scikit-learn.org/stable/modules/generated/sklearn.linear_model.LogisticRegression.html#sklearn.linear_model.LogisticRegression">sklearn.linear_model.LogisticRegression</a>: Logistic regression classifier with both L1 and L2 regularizers.</p></li>
 </ul>
-<p>As the data is prepared, the following codes can be used to do model training.</p>
+<p>The following codes can be used to do model training.</p>
 <div class="jupyter_cell jupyter_container docutils container">
 <div class="cell_input code_cell docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">piml.models</span> <span class="kn">import</span> <span class="n">GLMRegressor</span>
@@ -293,7 +294,7 @@ The different combinations of these two hyperparameters would lead to different 
 <div class="cell_output docutils container">
 </div>
 </div>
-<p>As the model is fitted and registered into the PiML workflow, we can test its performance using the <code class="docutils literal notranslate"><span class="pre">model_diagnose</span></code> function.</p>
+<p>We can test its performance using the <code class="docutils literal notranslate"><span class="pre">model_diagnose</span></code> function.</p>
 <div class="jupyter_cell jupyter_container docutils container">
 <div class="cell_input code_cell docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">exp</span><span class="o">.</span><span class="n">model_diagnose</span><span class="p">(</span><span class="n">model</span><span class="o">=</span><span class="s2">&quot;GLM&quot;</span><span class="p">,</span> <span class="n">show</span><span class="o">=</span><span class="s2">&quot;accuracy_table&quot;</span><span class="p">)</span>
@@ -303,17 +304,16 @@ The different combinations of these two hyperparameters would lead to different 
 <div class="cell_output docutils container">
 </div>
 </div>
-<p>Using this command, a table would be generated, showing the model performance on both train and test sets, see <a class="reference internal" href="../../auto_examples/models/plot_0_glm_reg.html#sphx-glr-auto-examples-models-plot-0-glm-reg-py"><span class="std std-ref">GLM Linear Regression (Bike Sharing)</span></a>.</p>
+<p>Using this command, a table would be generated, showing model performance on both train and test sets.</p>
 </section>
 <section id="global-interpretation">
 <h2><span class="section-number">5.1.2. </span>Global Interpretation<a class="headerlink" href="#global-interpretation" title="Permalink to this heading">¶</a></h2>
 <p>The <code class="docutils literal notranslate"><span class="pre">exp.model_interpret</span></code> function provides the capability to interpret a fitted model.</p>
 <section id="regression-coefficients">
 <h3><span class="section-number">5.1.2.1. </span>Regression Coefficients<a class="headerlink" href="#regression-coefficients" title="Permalink to this heading">¶</a></h3>
-<p>In general, the regression coefficients estimate the change in the response variable for a unit change in the corresponding predictor variable, holding all other variables constant. However, this interpretation may differ depending on the distributional assumption and link function used in the GLM. For example,</p>
+<p>In  linear models, the regression coefficients estimate the change in the response variable for a unit change in the corresponding predictor variable, holding all other variables constant. This interpretation has to be adapted suitably for other link functions used in the GLM. For example,</p>
 <ul class="simple">
-<li><p>In a linear regression model with a Gaussian distribution assumption, the regression coefficient represents the change in the mean response for a one-unit increase in the predictor variable.</p></li>
-<li><p>In a logistic regression model with a binomial distribution assumption and a logit link function, the regression coefficient represents the change in the log odds of the response variable for a one-unit increase in the predictor variable.</p></li>
+<li><p>In a logistic regression model with a logit link function, the regression coefficient represents the change in the log odds of the response variable for a one-unit increase in the predictor variable.</p></li>
 </ul>
 <p>When the predictor variables are measured on different scales, the coefficients cannot be directly compared. To address this issue, we standardize the predictor variables so that we can compare the coefficients on a comparable scale.</p>
 <p>In PiML, we use the following command to show the regression coefficients of a fitted GLM, with the keyword “glm_coef_plot”.</p>
@@ -331,7 +331,7 @@ The different combinations of these two hyperparameters would lead to different 
 </figure>
 <p>This plot shows the coefficients of the top 10 numerical features in a linear regression model, ranked by their absolute magnitude. A positive coefficient indicates that an increase in the corresponding feature value is associated with an increase in the response variable, while a negative coefficient indicates the opposite.</p>
 <p>In this case, the plot suggests that the most important numerical feature in the model is <code class="docutils literal notranslate"><span class="pre">temp</span></code> (temperature), with a positive effect on the response variable. This is followed by <code class="docutils literal notranslate"><span class="pre">hum</span></code> (humidity), which has a negative effect on the response variable, and <code class="docutils literal notranslate"><span class="pre">hr</span></code> (hour), which has a positive effect on the response variable.</p>
-<p>It’s important to note that, in GLM, categorical variables are preprocessed by one-hot encoding, which involves converting each categorical variable into a set of binary variables representing each possible category. To visualize the coefficients of the categorical variables, a bar chart coefficient plot can be used. This involves plotting the coefficients for each category of the categorical variable separately, using the <code class="docutils literal notranslate"><span class="pre">uni_feature</span></code> parameter to specify the name of the categorical variable.</p>
+<p>It is important to note that, in GLM, categorical variables are preprocessed by one-hot encoding, which involves converting each categorical variable into a set of binary variables representing each possible category. To visualize the coefficients of the categorical variables, a bar chart coefficient plot can be used. This involves plotting the coefficients for each category of the categorical variable separately, using the <code class="docutils literal notranslate"><span class="pre">uni_feature</span></code> parameter to specify the name of the categorical variable.</p>
 <div class="jupyter_cell jupyter_container docutils container">
 <div class="cell_input code_cell docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">exp</span><span class="o">.</span><span class="n">model_interpret</span><span class="p">(</span><span class="n">model</span><span class="o">=</span><span class="s2">&quot;GLM&quot;</span><span class="p">,</span> <span class="n">show</span><span class="o">=</span><span class="s2">&quot;glm_coef_plot&quot;</span><span class="p">,</span> <span class="n">uni_feature</span><span class="o">=</span><span class="s2">&quot;season&quot;</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">4</span><span class="p">))</span>
@@ -344,7 +344,7 @@ The different combinations of these two hyperparameters would lead to different 
 <figure class="align-left">
 <a class="reference external image-reference" href="../../auto_examples/models/plot_0_glm.html"><img alt="../../_images/sphx_glr_plot_0_glm_reg_002.png" src="../../_images/sphx_glr_plot_0_glm_reg_002.png" /></a>
 </figure>
-<p>In this example, the categorical variable season has four categories, which are represented by four binary dummy variables: <code class="docutils literal notranslate"><span class="pre">season_1</span></code>, <code class="docutils literal notranslate"><span class="pre">season_2</span></code>, <code class="docutils literal notranslate"><span class="pre">season_3</span></code>, and <code class="docutils literal notranslate"><span class="pre">season_4</span></code>. To avoid multicollinearity issues and overparameterization, only three of the four dummy variables are used for model fitting, and the fourth one (<code class="docutils literal notranslate"><span class="pre">season_1</span></code>) is dropped and assigned a coefficient of zero.
+<p>In this example, the categorical variable <code class="docutils literal notranslate"><span class="pre">season</span></code> has four categories, which are represented by four binary dummy variables: <code class="docutils literal notranslate"><span class="pre">season_1</span></code>, <code class="docutils literal notranslate"><span class="pre">season_2</span></code>, <code class="docutils literal notranslate"><span class="pre">season_3</span></code>, and <code class="docutils literal notranslate"><span class="pre">season_4</span></code>. To avoid overparameterization, only three of the four dummy variables are used for model fitting, and the fourth one (<code class="docutils literal notranslate"><span class="pre">season_1</span></code>) is dropped and assigned a coefficient of zero.
 Note that the choice of which dummy variable to drop can affect the interpretation of the coefficients for the remaining variables, especially if there are interactions or nonlinear effects between categories.</p>
 <p>To get the results of all features, you can use the keyword “glm_coef_table”, and a data frame containing all features’ importance will be displayed. Instead of printing the table to the screen, you can also export the results to a data object by setting <code class="docutils literal notranslate"><span class="pre">return_data</span></code> to True.</p>
 <div class="jupyter_cell jupyter_container docutils container">
@@ -359,7 +359,7 @@ Note that the choice of which dummy variable to drop can affect the interpretati
 </section>
 <section id="feature-importance">
 <h3><span class="section-number">5.1.2.2. </span>Feature Importance<a class="headerlink" href="#feature-importance" title="Permalink to this heading">¶</a></h3>
-<p>In machine learning, the feature importance measures the relative importance of each input feature in predicting the response. Here, the importance of each feature is calculated by measuring the variance of the marginal effect <span class="math notranslate nohighlight">\(w_j x_j, (j = 1,\ldots,d)\)</span> on the training set. For each categorical feature, we aggregate all of its dummy variables’ marginal effects and then calculate the variance. Therefore, the feature importance provides a measure of how much the feature contributes to the overall variability in the model’s predictions. In PiML, we use the keyword “global_fi” to trigger the feature importance plot.</p>
+<p>The feature importance measures the relative importance of each input feature in predicting the response. Here, the importance of each feature is calculated by measuring the variance of the marginal effect <span class="math notranslate nohighlight">\(w_j x_j, (j = 1,\ldots,d)\)</span> on the training set. For each categorical feature, we aggregate the marginal effects of all of its dummy variables and then calculate the variance. Therefore, the feature importance provides a measure of how much the feature contributes to the overall variability in the model’s predictions. In PiML, we use the keyword “global_fi” to trigger the feature importance plot.</p>
 <div class="jupyter_cell jupyter_container docutils container">
 <div class="cell_input code_cell docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">exp</span><span class="o">.</span><span class="n">model_interpret</span><span class="p">(</span><span class="n">model</span><span class="o">=</span><span class="s2">&quot;GLM&quot;</span><span class="p">,</span> <span class="n">show</span><span class="o">=</span><span class="s2">&quot;global_fi&quot;</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">4</span><span class="p">))</span>
@@ -377,7 +377,7 @@ Note that the choice of which dummy variable to drop can affect the interpretati
 </section>
 <section id="local-interpretation">
 <h2><span class="section-number">5.1.3. </span>Local Interpretation<a class="headerlink" href="#local-interpretation" title="Permalink to this heading">¶</a></h2>
-<p>Local interpretation refers to the local feature contribution of each feature for a particular prediction on a single sample. In PiML, we can generate the local interpretation plot by keyword “local_fi”, together with the sample id to be interpreted, as follows.</p>
+<p>Local interpretation refers to the local contribution of each feature for a particular prediction on a single sample. In PiML, we can generate the local interpretation plot by keyword “local_fi”, together with the sample id to be interpreted, as follows.</p>
 <div class="jupyter_cell jupyter_container docutils container">
 <div class="cell_input code_cell docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">exp</span><span class="o">.</span><span class="n">model_interpret</span><span class="p">(</span><span class="n">model</span><span class="o">=</span><span class="s2">&quot;GLM&quot;</span><span class="p">,</span> <span class="n">show</span><span class="o">=</span><span class="s2">&quot;local_fi&quot;</span><span class="p">,</span> <span class="n">sample_id</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">centered</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">original_scale</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">4</span><span class="p">))</span>
@@ -450,6 +450,14 @@ Note that the choice of which dummy variable to drop can affect the interpretati
 <ul class="simple">
 <li><p><a class="reference internal" href="../../auto_examples/models/plot_0_glm_cls.html#sphx-glr-auto-examples-models-plot-0-glm-cls-py"><span class="std std-ref">GLM Logistic Regression (Taiwan Credit)</span></a></p></li>
 </ul>
+</div>
+<div class="topic">
+<p class="topic-title">References</p>
+<dl class="citation">
+<dt class="label" id="mccullagh1989"><span class="brackets"><a class="fn-backref" href="#id1">McCullagh1989</a></span></dt>
+<dd><p>Peter McCullagh, John Nelder (1989). Generalized linear models, Chapman and Hall - second edition.</p>
+</dd>
+</dl>
 </div>
 </section>
 </section>

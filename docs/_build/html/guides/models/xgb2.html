@@ -162,7 +162,7 @@
                         </li>
                       
                         <li class="sk-toctree-l3">
-                          <a href="gam.html">5.2. Generalized Additive Model</a>
+                          <a href="gam.html">5.2. Generalized Additive Model (GAM)</a>
                         </li>
                       
                         <li class="sk-toctree-l3">
@@ -256,7 +256,7 @@
 
 </style><section id="xgboost-depth-2">
 <h1><span class="section-number">5.6. </span>XGBoost Depth 2<a class="headerlink" href="#xgboost-depth-2" title="Permalink to this heading">¶</a></h1>
-<p>XGBoost depth 2 (XGB2) is a tree-based model that is built on top of XGBoost but with a maximum tree depth of 2. The model fitting process for XGB2 is the same as for raw XGBoost models. However, the main difference between XGB2 and XGBoost lies in their interpretation. In the context of functional ANOVA, an XGB2 model can be expressed as a GAM with pairwise interactions (GAMI). Once an XGB2 model is well-trained, we can extract the leaf node information from all the trees and restructure the model into an equivalent GAMI model.</p>
+<p>XGBoost depth 2 (XGB2) uses the XGBoost algorithm but with a maximum tree depth of 2. The model fitting process for XGB2 is the same as for raw XGBoost models. However, the main difference between XGB2 and XGBoost lies in their interpretation. In the context of functional ANOVA, an XGB2 model can be expressed as a GAM with pairwise interactions (GAMI). Once an XGB2 model is well-trained, we can extract the leaf node information from all the trees and restructure the model into an equivalent GAMI model.</p>
 <div class="math notranslate nohighlight">
 \[\begin{align}
    g(\mathbb{E}(y|\textbf{x}))  = \mu + \sum\limits_{j} h_{j}(x_{j}) + \sum\limits_{j&lt;k} f_{jk}(x_{j},x_{k}),  \tag{1}
@@ -351,7 +351,7 @@
 </section>
 <section id="feature-importance">
 <h3><span class="section-number">5.6.2.4. </span>Feature Importance<a class="headerlink" href="#feature-importance" title="Permalink to this heading">¶</a></h3>
-<p>The feature importance of XGB2 is a bit different from that of GAM. Due to the existence of interaction effects, we need to aggregate the effects of each feature. This is done by summing the effects of each feature over the main effect and all related pairwise interactions.</p>
+<p>The feature importance of XGB2 is different from that of GAM. Due to the existence of interaction effects, we need to aggregate the effects of each feature. This is done by summing the effects of each feature over the main effect and all related pairwise interactions.</p>
 <div class="math notranslate nohighlight">
 \[\begin{align}
    \hat{z}_{j}(x_{j})  = \hat{h}_{j}(x_{j}) + \frac{1}{2} \sum\limits_{j &lt; k} \hat{f}_{jk}(x_{j}, x_{k}),  \tag{2}

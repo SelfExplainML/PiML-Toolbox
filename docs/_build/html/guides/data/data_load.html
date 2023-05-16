@@ -149,7 +149,7 @@
                         </li>
                       
                         <li class="sk-toctree-l3">
-                          <a href="data_prepare.html">2.3. Data Prepare</a>
+                          <a href="data_prepare.html">2.3. Data Preparation</a>
                         </li>
                       
                         <li class="sk-toctree-l3">
@@ -246,11 +246,11 @@
 
 </style><section id="data-load">
 <h1><span class="section-number">2.1. </span>Data Load<a class="headerlink" href="#data-load" title="Permalink to this heading">¶</a></h1>
-<p>In this section, I will introduce the data loader module of PiML. Data loader is usually the first step of
-the whole experiment, which supports choosing a built-in dataset or external dataset to start your experiment.</p>
+<p>This section introduces the data loader module of PiML. Data loader is usually the first step of the whole experiment, and it supports choosing a built-in dataset or external dataset to start your experiment.</p>
 <section id="built-in-dataset">
 <h2><span class="section-number">2.1.1. </span>Built-in Dataset<a class="headerlink" href="#built-in-dataset" title="Permalink to this heading">¶</a></h2>
-<p>In PiML, we put several classic datasets, including:</p>
+<blockquote>
+<div><p>There are several datasets that are already uploaded into PiML. These are:</p>
 <blockquote>
 <div><ul class="simple">
 <li><p>‘CoCircles’: Gaussian data with a spherical decision boundary for binary classification, generated via Scikit-Learn.</p></li>
@@ -265,7 +265,8 @@ the whole experiment, which supports choosing a built-in dataset or external dat
 <li><p>‘SolasHMDA’: A preprocessed sample of the 2018 Home Mortgage Disclosure Act (HMDA) data. The HMDA dataset includes information about nearly every home mortgage application in the United States.</p></li>
 </ul>
 </div></blockquote>
-<p>You could load these datasets easily by:</p>
+</div></blockquote>
+<p>You could load these datasets using the code below, where <code class="docutils literal notranslate"><span class="pre">data=&quot;</span> <span class="pre">&quot;</span></code> indicates the dataset to be included. For example,</p>
 <blockquote>
 <div><div class="jupyter_cell jupyter_container docutils container">
 <div class="cell_input code_cell docutils container">
@@ -350,15 +351,15 @@ the whole experiment, which supports choosing a built-in dataset or external dat
 </div></section>
 <section id="external-dataset">
 <h2><span class="section-number">2.1.2. </span>External Dataset<a class="headerlink" href="#external-dataset" title="Permalink to this heading">¶</a></h2>
-<p>There are two approaches to loading external datasets in PiML.</p>
-<p>In low-code mode, you could just click the upload new data button to upload your data in PiML.
+<p>There are two ways of loading external datasets in PiML.</p>
+<p>In low-code mode, you could just click the “upload new data” button to upload your data.
 In high-code mode, you can use pandas to wrap your data and input it to the data loader.
 For example:</p>
 <blockquote>
 <div><div class="jupyter_cell jupyter_container docutils container">
 <div class="cell_input code_cell docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">data_pandas</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;https://github.com/SelfExplainML/PiML-Toolbox/blob/main/datasets/BikeSharing.csv?raw=true&#39;</span><span class="p">)</span>
-<span class="n">exp</span><span class="o">.</span><span class="n">data_loader</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">data_pandas</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">data</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;https://github.com/SelfExplainML/PiML-Toolbox/blob/main/datasets/BikeSharing.csv?raw=true&#39;</span><span class="p">)</span>
+<span class="n">exp</span><span class="o">.</span><span class="n">data_loader</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">data</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -517,13 +518,19 @@ For example:</p>
 </table>
 </div>
 </div></section>
-<section id="full-example">
-<h2><span class="section-number">2.1.3. </span>Full Example<a class="headerlink" href="#full-example" title="Permalink to this heading">¶</a></h2>
+<section id="examples">
+<h2><span class="section-number">2.1.3. </span>Examples<a class="headerlink" href="#examples" title="Permalink to this heading">¶</a></h2>
 <p>The full example codes of this section can be found in the following link.</p>
 <div class="topic">
-<p class="topic-title">Example</p>
+<p class="topic-title">Example 1: Load built-in datasets</p>
 <ul class="simple">
-<li><p><a class="reference internal" href="../../auto_examples/data/plot_0_data_loader.html#sphx-glr-auto-examples-data-plot-0-data-loader-py"><span class="std std-ref">Data Load</span></a></p></li>
+<li><p><a class="reference internal" href="../../auto_examples/data/plot_0_data_loader_builtin.html#sphx-glr-auto-examples-data-plot-0-data-loader-builtin-py"><span class="std std-ref">Data Load (Built-in Dataset)</span></a></p></li>
+</ul>
+</div>
+<div class="topic">
+<p class="topic-title">Example 2: Load data from pandas DataFrame</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="../../auto_examples/data/plot_0_data_loader_dataframe.html#sphx-glr-auto-examples-data-plot-0-data-loader-dataframe-py"><span class="std std-ref">Data Load (Pandas DataFrame)</span></a></p></li>
 </ul>
 </div>
 </section>

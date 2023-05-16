@@ -10,35 +10,36 @@ Two Sample Test
 
 In PiML, we provide the following metrics to measure the distributional shift between two samples, i.e., the train and test sets.
 
+
+
 Distance Metrics
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-- **Population Stability Index (PSI)**: PSI is a statistical measure used to determine the extent to which a variable has changed. It is based on the proportions of samples in each bucket of the target vs. base population.
+- **Population Stability Index (PSI)**: PSI is a statistical measure used to determine the extent to which the distribution of a variable has changed. It is a discrete (binned) version of the Kullback-Leibler (K-L) distance between two sets of sample data. More specifically, define a binning scheme that bins the two datasets P and Q into B bins. The discrete K-L distance between P and Q with respect to P is defined as :math:`D_{KL} (p│q)= \sum_{i=1}^B▒p_i * ln ((p_i/q_i))`. Note that this distance is asymmetric. Define the distance with resect to q as  :math:`D_{KL} (q│p)= \sum_{i=1}^B▒q_i*ln (q_i/p_i)`. Then, PSI is the sum of the two asymmetric versions:
 
 .. math::
    \begin{align}     
-      PSI = \sum^{B}_{i=1} (p(x_i) - q(x_i))ln \frac{p(x_i)}{q(x_i)},
+      PSI = D_{KL}(p│q) + D_{KL} (q│p) = \sum^{B}_{i=1} (p_i - q_i)ln \frac{p_i}{q_i}.
    \end{align}
 
-where :math:`B` is the number of bins, :math:`p(x)` and :math:`q(x)` is the empirical density function of the base and target population, respectively. Note that the PSI calculation is related to the binning method, and we have two options for binning, i.e., "uniform" and "quantile". The number of bins is fixed at 10.
+Here, B is the number of bins, and :math:`p_i`'s and :math:`q_i`'s are proportions of the two samples in each bin. Note that the PSI calculation is related to the binning method, and PIML provides two options for binning, i.e., "equal width" or "equal quantile". The number of bins is fixed at 10.
 
-- **Wasserstein distance 1D (WD1)**: WD1 calculates the absolute difference between the cumulative distribution functions of the two samples.
+- **Wasserstein distance 1D (WD1) distance**: WD1 calculates the absolute difference between the cumulative distribution functions of the two samples.
 
 .. math::
    \begin{align}
-      WD_{1} = \int |P(x) - Q(x)| dx,
+       D(F, G)_{W} = \int |F(x) - G(x)| dx.
    \end{align}
 
-where and :math:`P(x)` and :math:`Q(x)` are the cumulative distribution of the target and base population. 
+Here :math:`F(x)` and :math:`G(x)` are the cumulative distribution functions of the target and base population.
 
-- **Kolmogorov-Smirnov (KS)**: KS calculates the maximum absolute distance between the cumulative distribution functions of the two samples. In PiML, the WD1 statistics are calculated by the function from `scipy.stats`.
+- **Kolmogorov-Smirnov (KS) distance**: KS calculates the maximum absolute distance between the cumulative distribution functions of the two samples. In PiML, the WD1 and KS statistics are calculated by the `wasserstein_distance` and `ks_2samp` functions from `scipy.stats`.
 
 .. math::
    \begin{align}     
-      KS = \sup_x |P(x) - Q(x)|.
+       D(F, G)_{KS}  = \sup_x |F(x) - G(x)|.
    \end{align}
 
-In PiML, the WD1 and KS statistics are calculated by the `wasserstein_distance` and `ks_2samp` functions from `scipy.stats`.
 
 
 Usage
@@ -61,7 +62,7 @@ By setting `metric` to "PSI", we can get the PSI statistics for each feature. Th
 Marginal Density Comparison
 """"""""""""""""""""""""""""""""
 
-As we set a feature name to `feature`, we can get the marginal density comparison between the train and test sets. We can also change `metric` and `psi_buckets`, to change the distance metric displayed on the plot.
+We can compare the marginal densities of the train and test sets for a particular feature (see example below). We can also change `metric` and `psi_buckets`, to change the distance metric displayed on the plot.
 
  .. jupyter-input::
 
@@ -72,7 +73,8 @@ As we set a feature name to `feature`, we can get the marginal density compariso
    :align: left
 
 
-Full Example
+
+Examples
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 The full example codes of this section can be found in the following link.

@@ -7,33 +7,35 @@
 ==========================
 Data Summary
 ==========================
+This functionality summarizes basic data statistics and sets the meta information for the features. In this function, you can get the summary information of data based on its data type and also change the feature type and remove features.
+
 
 Data summary is the process to summarize basic data statistics and setting the meta info of features.
 In this function, you could not only get the summary information of data based on its data type, but also you can change the feature type and remove features.
 
 Summary Statistics
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-For numerical features and categorical features, we provide different statistics.
+Different summary statistics are provided for numerical and categorical data, respectively.
 
 For numerical:
 
-   - n_missing: Number of missing value
-   - mean: Mean value
+   - n_missing: Number of missing values
+   - mean: Mean
    - std: Standard deviation
-   - min: Min value
-   - q1: First quantile value
-   - median: Median value
-   - q3: Third quantile value
-   - max: Max value
+   - min: Minimum value
+   - q1: First quartile
+   - median: Median
+   - q3: Third quartile
+   - max: Maximum value
 
 For categorical:
 
-   - n_missing: Number of missing value
-   - n_unique: Number of unique value
-   - top1: The value with the highest frequency and its frequency
-   - top2: The value with the second highest frequency and its frequency
-   - top3: The value with the third highest frequency and its frequency
-   - n_others: The number of samples other than the top 1-3.
+   - n_missing: Number of missing values
+   - n_unique: Number of unique values
+   - top1: The highest frequency category
+   - top2: The second highest frequency category
+   - top3: The third highest frequency category
+   - n_others: The number of samples other than the top 3.
 
 Here is an example of the data summary:
 
@@ -251,7 +253,9 @@ Here is an example of the data summary:
     </div>
     </div>
 
-Full Example
+
+
+Examples
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 The full example codes of this section can be found in the following link.

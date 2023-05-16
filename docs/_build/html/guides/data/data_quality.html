@@ -151,7 +151,7 @@
                         </li>
                       
                         <li class="sk-toctree-l3">
-                          <a href="data_prepare.html">2.3. Data Prepare</a>
+                          <a href="data_prepare.html">2.3. Data Preparation</a>
                         </li>
                       
                         <li class="sk-toctree-l3">
@@ -248,31 +248,29 @@
 
 </style><section id="data-quality">
 <h1><span class="section-number">2.5. </span>Data Quality<a class="headerlink" href="#data-quality" title="Permalink to this heading">¶</a></h1>
-<p>Data quality check is the process of validating that the key characteristics of a dataset match what is anticipated prior to its consumption.
-In PiML, we only focus on the outliers of the dataset. We support four different outlier detection methods and analysis results to help users locate and remove the outliers.</p>
+<p>In PiML, we focus only on data outliers. We support four different outlier detection methods and analysis results to help users locate and remove the outliers: Isolation Forest, Cluster-Based Local Outlier Factor, Principal Component Analysis and Kmeans Tree.</p>
 <section id="method">
 <h2><span class="section-number">2.5.1. </span>Method<a class="headerlink" href="#method" title="Permalink to this heading">¶</a></h2>
 <p>We support four outlier detection methods, Isolation Forest, Cluster-Based Local Outlier Factor, Principal Component Analysis and Kmeans Tree.</p>
 <section id="isolation-forest">
 <h3><span class="section-number">2.5.1.1. </span>Isolation Forest<a class="headerlink" href="#isolation-forest" title="Permalink to this heading">¶</a></h3>
-<p>The Isolation Forest ‘isolates’ observations by randomly selecting a feature and then randomly selecting a split value between the maximum and minimum values of the selected feature.</p>
-<p>Since recursive partitioning can be represented by a tree structure, the number of splittings required to isolate a sample is equivalent to the path length from the root node to the terminating node.
-This path length averaged over a forest of such random trees, is a measure of normality and our decision function.
-Random partitioning produces noticeably shorter paths for anomalies. Hence, when a forest of random trees collectively produces shorter path lengths for particular samples, they are highly likely to be anomalies.</p>
-<p>This method is implemented by <a class="reference external" href="https://scikit-learn.org/stable/modules/generated/sklearn.ensemble.IsolationForest.html">IsolationForest</a> from scikit-learn package.</p>
-<p>It is based on an ensemble of trees.ExtraTreeRegressor. And the maximum depth of each tree is set to less than <span class="math notranslate nohighlight">\(log_{2}(n)\)</span> where n is the number of samples used to build the tree (see <a class="reference internal" href="#liu2008" id="id1"><span>[Liu2008]</span></a> for more details).</p>
+<p>The Isolation Forest ‘isolates’ observations by randomly selecting a feature and then randomly selecting a split value between the maximum and minimum values of the selected feature. The rationale is as follows.</p>
+<p>Since recursive partitioning can be represented by a tree structure, the number of splits required to isolate an observation  equals the path length from the root node to the terminal node. This path length, averaged over a forest of such random trees, is a measure of the “normalness” of the data point. For outliers, random partitioning produces noticeably shorter paths. Hence, when a forest of random trees collectively produces shorter path lengths for  particular data points, they are highly likely to be anomalies.</p>
+<p>This <a class="reference external" href="../../modules/generated/piml.data.outlier_detection.IsolationForest.html">IsolationForest</a> class in PiML is a warpper of <a class="reference external" href="https://scikit-learn.org/stable/modules/generated/sklearn.ensemble.IsolationForest.html">sklearn.ensemble.IsolationForest</a>. It is based on an ensemble of trees.ExtraTreeRegressor. And the maximum depth of each tree is set to less than <span class="math notranslate nohighlight">\(log_{2}(n)\)</span> where <span class="math notranslate nohighlight">\(n\)</span> is the number of samples used to build the tree (see <a class="reference internal" href="#liu2008" id="id1"><span>[Liu2008]</span></a> for more details).</p>
 </section>
-<section id="cluster-based-local-outlier-factor">
-<h3><span class="section-number">2.5.1.2. </span>Cluster-Based Local Outlier Factor<a class="headerlink" href="#cluster-based-local-outlier-factor" title="Permalink to this heading">¶</a></h3>
-<p>CBLOF (Clustering-Based Local Outlier Factor) is an outlier detection method based on clusters, which was proposed by He, Xu, and Deng, (2002) [1] for its unique merit in capturing outliers.
-The formula for CBLOF can be broken down into several steps:</p>
-<ol class="arabic simple">
-<li><p>Clustering: First, the dataset is divided into clusters using a clustering algorithm such as k-means or DBSCAN.</p></li>
-<li><p>Cluster sizes: For each cluster, the size of the cluster (number of points) is calculated.</p></li>
-<li><p>Intra distance: If the cluster size is larger than the threshold, the scores of samples in this cluster are the distance between them and their cluster centroid.</p></li>
-<li><p>Inter distance: If the cluster size is smaller than the threshold, the scores of samples in this cluster are the distance between them and the nearest cluster centroid.</p></li>
-<li><p>CBLOF score: The related distance multiplied by the cluster size.</p></li>
+<section id="cluster-based-local-outlier-factor-cblof">
+<h3><span class="section-number">2.5.1.2. </span>Cluster-Based Local Outlier Factor (CBLOF)<a class="headerlink" href="#cluster-based-local-outlier-factor-cblof" title="Permalink to this heading">¶</a></h3>
+<p>This is an outlier detection method based on clusters proposed by <a class="reference internal" href="#he2003" id="id2"><span>[He2003]</span></a>. The method can be broken down into several steps:</p>
+<blockquote>
+<div><ol class="arabic simple">
+<li><p>Clustering: Divide the dataset into clusters using a clustering algorithm such as k-means or DBSCAN.</p></li>
+<li><p>Cluster sizes: For each cluster, compute the size of the cluster (number of points).</p></li>
+<li><p>Intra distance: If the cluster size is larger than the (given) threshold, the scores of samples in this cluster are the distance between them and their cluster centroid.</p></li>
+<li><p>Inter distance: If the cluster size is smaller than the (given) threshold, the scores of samples in this cluster are the distance between them and the nearest cluster centroid.</p></li>
+<li><p>CBLOF score: The resulting distance multiplied by the cluster size.</p></li>
 </ol>
+</div></blockquote>
+<p>In this method <a class="reference external" href="../../modules/generated/piml.data.outlier_detection.CBLOF.html">CBLOF</a>, we have several hyperparameters, for instance:</p>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">use_weights</span></code>: If false, the outlier score will not multiply the cluster size to calculate CBLOF.</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">clustering_method:</span></code>: We support ‘Kmeans’ and ‘Gaussian Mixture Model’ for getting the initial clusters.</p></li>
@@ -280,45 +278,36 @@ The formula for CBLOF can be broken down into several steps:</p>
 </section>
 <section id="principal-component-analysis">
 <h3><span class="section-number">2.5.1.3. </span>Principal Component Analysis<a class="headerlink" href="#principal-component-analysis" title="Permalink to this heading">¶</a></h3>
-<p>PCA and other dimensionality reduction methods can be used to detect outliers.</p>
-<p>In our implementation, we support two dimensionality reduction methods, PCA and sparse PCA.
-And two different methods to calculate the outlier score, Mahalanobis distance and error reconstruction.</p>
-<ul>
-<li><p><strong>Mahalanobis distance</strong>: The Mahalanobis distance is equal to the sum of squares of the scores of all non-zero standardized principal components. The Mahalanobis distance can be got easily with PCA under the formula.</p>
-<blockquote>
-<div><div class="math notranslate nohighlight">
-\[MD(x)^2 = \sum z_{i}^{2} / \lambda_{i}\]</div>
-</div></blockquote>
-</li>
+<p>PCA or other dimensionality reduction methods can also be used to detect outliers. In PiML, we support two different methods to calculate the outlier score, Mahalanobis distance and error reconstruction, see more details in <a class="reference external" href="../../modules/generated/piml.data.outlier_detection.PCA.html">PCA</a>.</p>
+<ul class="simple">
+<li><p><strong>Mahalanobis distance</strong>: The Mahalanobis distance is equal to the sum of squares of the scores of all non-zero standardized principal components. The Mahalanobis distance can be got easily with PCA under the formula.</p></li>
 </ul>
+<div class="math notranslate nohighlight">
+\[MD(x)^2 = \sum z_{i}^{2} / \lambda_{i}\]</div>
 <p>where <span class="math notranslate nohighlight">\(z_{i}\)</span> are the <span class="math notranslate nohighlight">\(i\)</span>-th principal component scores, and <span class="math notranslate nohighlight">\(\lambda_{i}\)</span> is the <span class="math notranslate nohighlight">\(i\)</span>-th eigenvalue of the covariance matrix which can be explained as the variance. But this is precisely the sum of squared distances in the transformed PCA space, which gives us the desired result.</p>
 <ul class="simple">
-<li><p><strong>Error reconstruction</strong>: Use XGBoost to reconstruct the new data and compare the error between the original data. Based on the reconstruction error, we further calculate the Mahalanobis distance of the error as the final outlier score. That is, as the reconstruction error are independent, then the outlier score reduces to mean squared reconstruction error.</p></li>
+<li><p><strong>Error reconstruction</strong>: Fit a XGBoost model between the principal components and the covariates. This model is then used to reconstruct the covariates <span class="math notranslate nohighlight">\(X_{new}\)</span>. The difference between the original covariates and the reconstructed data is calculated as the reconstruction error, i.e., <span class="math notranslate nohighlight">\(X - X_{new}\)</span>. Finally, we calculate the Mahalanobis distance of the reconstruction error as the final outlier score. If the reconstruction errors of each feature are mutually independent, the outlier score reduces to mean squared reconstruction error.</p></li>
 </ul>
 </section>
 <section id="kmeanstree">
 <h3><span class="section-number">2.5.1.4. </span>KmeansTree<a class="headerlink" href="#kmeanstree" title="Permalink to this heading">¶</a></h3>
-<p>To absorb the advantage of the cluster-based method and PCA-based method, we proposed a new outlier detection method called KmeansTree. The Algorithm is below:</p>
+<p>To take advantage of the cluster-based method and PCA-based method, we proposed a new outlier detection method called KmeansTree. The algorithm is below:</p>
 <blockquote>
 <div><ol class="arabic simple">
 <li><p>Use the K-means cluster method with K equal to 2 to split the dataset iteratively.</p></li>
 <li><p>Stop splitting until certain conditions are met (max depth, max leves, distributional distance…).</p></li>
 <li><p>For samples in each cluster, calculate the principal components using PCA.</p></li>
-<li><p>Fit a XGB model between the principal components and the original predictors, and calculate the reconstruction error.</p></li>
+<li><p>Fit an XGB model between the principal components and the original predictors, and calculate the reconstruction error.</p></li>
 <li><p>Calculate the Mahalanobis distance of the reconstruction error, and use it as the outlier score.</p></li>
 </ol>
 </div></blockquote>
-<p>Because the condition we use to stop splitting and the splitting way is similar to the decision tree, we call this method KmeansTree.</p>
-<p>Because PCA can only handle linear relationships and is sensitive to the outlier,
-the homogeneity of the data is increased after clustering which could improve the outlier detection performance.</p>
+<p>Because the condition we use to stop splitting and the splitting way is similar to the decision tree, we call this method KmeansTree. As PCA can only handle linear relationships and is sensitive to the outlier, the homogeneity of the data is increased after clustering which could improve the outlier detection performance, see more details in <a class="reference external" href="../../modules/generated/piml.data.outlier_detection.KMeansTree.html">KMeansTree</a>.</p>
 </section>
 </section>
 <section id="analysis-and-comparison">
 <h2><span class="section-number">2.5.2. </span>Analysis and Comparison<a class="headerlink" href="#analysis-and-comparison" title="Permalink to this heading">¶</a></h2>
-<p>After getting the scores of each outlier detection method, we need to choose a proper threshold to define whether a sample is an outlier.
-And we also need to compare different methods to decide which to use.
-PiML supports two functions to visualize the od result, a score distribution plot and marginal outlier distribution plot and one t-SNE plot to compare results of different methods.</p>
-<p>Here is an example of displaying the score distribution of the OD method PCA.</p>
+<p>After getting the scores of each outlier detection method, we need to choose a proper threshold to define whether a sample is an outlier. We also need to compare different methods to decide which to use. PiML supports two functions to visualize the outlier detection result, a score distribution plot and marginal outlier distribution plot and one t-SNE plot to compare results of different methods.</p>
+<p>Here is an example of displaying the score distribution of the PCA-based outlier detection method.</p>
 <div class="jupyter_cell jupyter_container docutils container">
 <div class="cell_input code_cell docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">piml.data.outlier_detection</span> <span class="kn">import</span> <span class="n">PCA</span>
@@ -332,7 +321,7 @@ PiML supports two functions to visualize the od result, a score distribution plo
 <figure class="align-left">
 <a class="reference external image-reference" href="../../auto_examples/data/plot_4_data_quality.html"><img alt="../../_images/sphx_glr_plot_4_data_quality_001.png" src="../../_images/sphx_glr_plot_4_data_quality_001.png" /></a>
 </figure>
-<p>Here is an example of displaying the marginal outliers distribution of the OD method PCA.</p>
+<p>Here is an example of displaying the marginal distribution of detected outliers.</p>
 <div class="jupyter_cell jupyter_container docutils container">
 <div class="cell_input code_cell docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">piml.data.outlier_detection</span> <span class="kn">import</span> <span class="n">PCA</span>
@@ -346,7 +335,7 @@ PiML supports two functions to visualize the od result, a score distribution plo
 <figure class="align-left">
 <a class="reference external image-reference" href="../../auto_examples/data/plot_4_data_quality.html"><img alt="../../_images/sphx_glr_plot_4_data_quality_002.png" src="../../_images/sphx_glr_plot_4_data_quality_002.png" /></a>
 </figure>
-<p>We use t-SNE to deduce the dimension of data to 2D for better visualization.
+<p>We use t-SNE to reduce the dimension of data to 2D for better visualization.
 Here is an example of comparing different methods:</p>
 <div class="jupyter_cell jupyter_container docutils container">
 <div class="cell_input code_cell docutils container">
@@ -362,8 +351,8 @@ Here is an example of comparing different methods:</p>
 <a class="reference external image-reference" href="../../auto_examples/data/plot_4_data_quality.html"><img alt="../../_images/sphx_glr_plot_4_data_quality_003.png" src="../../_images/sphx_glr_plot_4_data_quality_003.png" /></a>
 </figure>
 </section>
-<section id="full-example">
-<h2><span class="section-number">2.5.3. </span>Full Example<a class="headerlink" href="#full-example" title="Permalink to this heading">¶</a></h2>
+<section id="examples">
+<h2><span class="section-number">2.5.3. </span>Examples<a class="headerlink" href="#examples" title="Permalink to this heading">¶</a></h2>
 <p>The full example codes of this section can be found in the following link.</p>
 <div class="topic">
 <p class="topic-title">Example</p>
@@ -375,7 +364,10 @@ Here is an example of comparing different methods:</p>
 <p class="topic-title">References</p>
 <dl class="citation">
 <dt class="label" id="liu2008"><span class="brackets"><a class="fn-backref" href="#id1">Liu2008</a></span></dt>
-<dd><p>Fei Tony Liu; Kai Ming Ting; Zhi-Hua Zhou (2008). <a class="reference external" href="https://ieeexplore.ieee.org/abstract/document/4781136">Isolation Forest</a>, 2008 Eighth IEEE International Conference on Data Mining, Pisa, Italy, 2008, pp. 413-422, doi: 10.1109/ICDM.2008.17.</p>
+<dd><p>Fei Tony Liu, Kai Ming Ting, Zhi-Hua Zhou (2008). <a class="reference external" href="https://ieeexplore.ieee.org/abstract/document/4781136">Isolation Forest</a>, 2008 Eighth IEEE International Conference on Data Mining, Pisa, Italy, 2008, pp. 413-422, doi: 10.1109/ICDM.2008.17.</p>
+</dd>
+<dt class="label" id="he2003"><span class="brackets"><a class="fn-backref" href="#id2">He2003</a></span></dt>
+<dd><p>Zengyou He, Xiaofei Xu, Shengchun Deng (2003). <a class="reference external" href="https://www.sciencedirect.com/science/article/abs/pii/S0167865503000035">Discovering cluster-based local outliers</a>, Pattern recognition letters, 24(9-10), 1641-1650.</p>
 </dd>
 </dl>
 </div>

@@ -8,7 +8,7 @@
 Explainable Boosting Machines
 =================================
 
-An explainable boosting machine (EBM) is a generalized additive model with pairwise interactions, proposed by [Lou2013]_.
+An explainable boosting machine (EBM) proposed by [Lou2013]_ is another algorithm to fit generalized additive model and functional pairwise interactions:
 
 .. math::
    \begin{align}
@@ -23,7 +23,8 @@ where each main effect :math:`h_{j}(x_{j})` or pairwise interaction :math:`f_{jk
 
 - Iteratively fit all the detected interactions until convergence. 
 
-The estimated shape functions by EBM are all piecewise constant. In practice, EBM is demonstrated to have superior predictive performance over some black-box models. In addition, EBM is also interpretable with good visualization for main effects and pairwise interactions, which is a key advantage over black-box models.
+The estimated shape functions by EBM are all piecewise constant. EBM is interpretable by visualizing the main effects and pairwise interactions, which is a key advantage over black-box models.
+
 
 
 Model Training

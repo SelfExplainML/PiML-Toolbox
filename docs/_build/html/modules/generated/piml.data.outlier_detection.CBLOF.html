@@ -82,10 +82,10 @@
           <a class="sk-nav-link nav-link" href="../../user_guide.html">User Guide</a>
         </li>
         <li class="nav-item">
-          <a class="sk-nav-link nav-link" href="../../modules/classes.html">API</a>
+          <a class="sk-nav-link nav-link" href="../classes.html">API</a>
         </li>
         <li class="nav-item">
-          <a class="sk-nav-link nav-link" href="../index.html">Examples</a>
+          <a class="sk-nav-link nav-link" href="../../auto_examples/index.html">Examples</a>
         </li>
      </ul>
       <div id="searchbox" role="search">
@@ -113,13 +113,18 @@
             </a>
           </div>
           <!--div class="btn-group w-100 mb-2" role="group" aria-label="rellinks">
-              <a href="#" role="button" class="btn sk-btn-rellink py-1 disabled"">Prev</a>
-              <a href="#" role="button" class="btn sk-btn-rellink disabled py-1">Up</a>
-              <a href="#" role="button" class="btn sk-btn-rellink py-1 disabled"">Next</a>
+              <a href="piml.data.outlier_detection.PCA.html" role="button" class="btn sk-btn-rellink py-1" sk-rellink-tooltip="piml.data.outlier_detection.PCA">Prev</a><a href="../classes.html" role="button" class="btn sk-btn-rellink py-1" sk-rellink-tooltip="API Reference">Up</a>
+              <a href="piml.data.outlier_detection.KMeansTree.html" role="button" class="btn sk-btn-rellink py-1" sk-rellink-tooltip="piml.data.outlier_detection.KMeansTree">Next</a>
           </div-->
               <div class="sk-sidebar-toc">
                 <ul>
-<li><a class="reference internal" href="#">Data Load</a></li>
+<li><a class="reference internal" href="#"><code class="xref py py-mod docutils literal notranslate"><span class="pre">piml.data.outlier_detection</span></code>.CBLOF</a><ul>
+<li><a class="reference internal" href="#piml.data.outlier_detection.CBLOF"><code class="docutils literal notranslate"><span class="pre">CBLOF</span></code></a><ul>
+<li><a class="reference internal" href="#piml.data.outlier_detection.CBLOF.decision_function"><code class="docutils literal notranslate"><span class="pre">CBLOF.decision_function</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
 </ul>
 
               </div>
@@ -128,91 +133,109 @@
       <div id="sk-page-content-wrapper">
         <div class="sk-page-content container-fluid body px-md-3" role="main">
           
-  <div class="sphx-glr-download-link-note admonition note">
-<p class="admonition-title">Note</p>
-<p><a class="reference internal" href="#sphx-glr-download-auto-examples-data-plot-0-data-loader-py"><span class="std std-ref">Go to the end</span></a>
-to download the full example code or to run this example in your browser via Binder</p>
-</div>
-<section class="sphx-glr-example-title" id="data-load">
-<span id="sphx-glr-auto-examples-data-plot-0-data-loader-py"></span><h1>Data Load<a class="headerlink" href="#data-load" title="Permalink to this heading">¶</a></h1>
-<p>Data loader example</p>
-<p>Experiment initialization and data preparation</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">piml</span> <span class="kn">import</span> <a href="../../modules/generated/piml.Experiment.html#piml.Experiment" title="piml.Experiment" class="sphx-glr-backref-module-piml sphx-glr-backref-type-py-class sphx-glr-backref-instance"><a href="../../modules/generated/piml.Experiment.html#piml.Experiment" title="piml.Experiment" class="sphx-glr-backref-module-piml sphx-glr-backref-type-py-class sphx-glr-backref-instance"><a href="../../modules/generated/piml.Experiment.html#piml.Experiment" title="piml.Experiment" class="sphx-glr-backref-module-piml sphx-glr-backref-type-py-class sphx-glr-backref-instance"><a href="../../modules/generated/piml.Experiment.html#piml.Experiment" title="piml.Experiment" class="sphx-glr-backref-module-piml sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">Experiment</span></a></a></a></a>
-<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+  <section id="piml-data-outlier-detection-cblof">
+<h1><code class="xref py py-mod docutils literal notranslate"><span class="pre">piml.data.outlier_detection</span></code>.CBLOF<a class="headerlink" href="#piml-data-outlier-detection-cblof" title="Permalink to this heading">¶</a></h1>
+<dl class="py class">
+<dt class="sig sig-object py" id="piml.data.outlier_detection.CBLOF">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">piml.data.outlier_detection.</span></span><span class="sig-name descname"><span class="pre">CBLOF</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">iqr_scale</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.15</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n_clusters</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">10</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">clustering_method</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'kmeans'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">clustering_threshold</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">use_weights</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">standardization</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">random_state</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#piml.data.outlier_detection.CBLOF" title="Permalink to this definition">¶</a></dt>
+<dd><p>Cluster-based local outlier factor.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>n_clusters</strong><span class="classifier">int, default=10</span></dt><dd><p>The number of clusters.</p>
+</dd>
+<dt><strong>clustering_method</strong><span class="classifier">{‘kmeans’, ‘gmm’}, default=’kmeans’</span></dt><dd><p>The base clustering algorithm for performing data clustering.</p>
+<ul class="simple">
+<li><p>‘kmeans’: K-Means</p></li>
+<li><p>‘gmm’: Gaussian mixture model</p></li>
+</ul>
+</dd>
+<dt><strong>clustering_threshold</strong><span class="classifier">float, default=0.1</span></dt><dd><p>The threshold of large cluster size.</p>
+</dd>
+<dt><strong>use_weights</strong><span class="classifier">bool, default=False</span></dt><dd><p>If set to True, the size of clusters are used as weights in
+outlier score calculation.</p>
+</dd>
+<dt><strong>random_state</strong><span class="classifier">int, default=0</span></dt><dd><p>The random seed.</p>
+</dd>
+</dl>
+</dd>
+<dt class="field-even">Attributes</dt>
+<dd class="field-even"><dl class="simple">
+<dt><strong>base_estimator_</strong><span class="classifier">sklearn estimator object</span></dt><dd><p>The Kmeans model or Gaussian mixture model.</p>
+</dd>
+<dt><strong>is_fitted_</strong><span class="classifier">bool</span></dt><dd><p>Indicator of whether the model is fitted.</p>
+</dd>
+<dt><strong>cluster_centers_</strong><span class="classifier">np.ndarray</span></dt><dd><p>The centers of each cluster.</p>
+</dd>
+<dt><strong>cluster_sizes_</strong><span class="classifier">np.ndarray</span></dt><dd><p>The number of samples in each cluster.</p>
+</dd>
+<dt><strong>small_cluster_labels_</strong><span class="classifier">np.ndarray</span></dt><dd><p>The indices of small clusters.</p>
+</dd>
+<dt><strong>large_cluster_labels_</strong><span class="classifier">np.ndarray</span></dt><dd><p>The indices of large clusters.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+<p class="rubric">Methods</p>
+<table class="autosummary longtable docutils align-default">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#piml.data.outlier_detection.CBLOF.decision_function" title="piml.data.outlier_detection.CBLOF.decision_function"><code class="xref py py-obj docutils literal notranslate"><span class="pre">decision_function</span></code></a>(X[, scale])</p></td>
+<td><p>Predict raw anomaly score of X using the fitted detector.</p></td>
+</tr>
+</tbody>
+</table>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 52%" />
+<col style="width: 48%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><strong>fit</strong></p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p><strong>predict</strong></p></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<dl class="py method">
+<dt class="sig sig-object py" id="piml.data.outlier_detection.CBLOF.decision_function">
+<span class="sig-name descname"><span class="pre">decision_function</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">X</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">scale</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#piml.data.outlier_detection.CBLOF.decision_function" title="Permalink to this definition">¶</a></dt>
+<dd><p>Predict raw anomaly score of X using the fitted detector.</p>
+<p>The anomaly score of an input sample is computed based on different
+detector algorithms. For consistency, outliers are assigned with
+larger anomaly scores.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>X</strong><span class="classifier">numpy array of shape (n_samples, n_features)</span></dt><dd><p>The training input samples. Sparse matrices are accepted only
+if they are supported by the base estimator.</p>
+</dd>
+</dl>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><dl class="simple">
+<dt><strong>anomaly_scores</strong><span class="classifier">numpy array of shape (n_samples,)</span></dt><dd><p>The anomaly score of the input samples.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
 
-<span class="n">exp</span> <span class="o">=</span> <a href="../../modules/generated/piml.Experiment.html#piml.Experiment" title="piml.Experiment" class="sphx-glr-backref-module-piml sphx-glr-backref-type-py-class sphx-glr-backref-instance"><a href="../../modules/generated/piml.Experiment.html#piml.Experiment" title="piml.Experiment" class="sphx-glr-backref-module-piml sphx-glr-backref-type-py-class sphx-glr-backref-instance"><a href="../../modules/generated/piml.Experiment.html#piml.Experiment" title="piml.Experiment" class="sphx-glr-backref-module-piml sphx-glr-backref-type-py-class sphx-glr-backref-instance"><a href="../../modules/generated/piml.Experiment.html#piml.Experiment" title="piml.Experiment" class="sphx-glr-backref-module-piml sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">Experiment</span></a></a></a></a><span class="p">()</span>
-<span class="n">exp</span><span class="o">.</span><span class="n">data_loader</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="s2">&quot;CoCircles&quot;</span><span class="p">)</span>
+</dd></dl>
 
-<span class="c1">#load bikesharing dataset from internet.</span>
-<span class="n">data_pandas</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;https://github.com/SelfExplainML/PiML-Toolbox/blob/main/datasets/BikeSharing.csv?raw=true&#39;</span><span class="p">)</span>
-<span class="n">exp</span><span class="o">.</span><span class="n">data_loader</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">data_pandas</span><span class="p">)</span>
-</pre></div>
-</div>
-<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>            X0        X1  target
-0    -0.783526  0.502161     0.0
-1     0.297809  0.658405     1.0
-2     0.468272  0.500653     1.0
-3    -0.134700 -0.887973     0.0
-4     0.337202 -0.780797     1.0
-...        ...       ...     ...
-1995  0.498109 -0.889060     0.0
-1996  0.312980  0.724953     1.0
-1997 -0.542930 -0.583517     1.0
-1998 -0.871481 -0.491301     0.0
-1999 -0.323963 -0.719150     0.0
-
-[2000 rows x 3 columns]
-       season   yr  mnth    hr  holiday  weekday  workingday  weathersit  \
-0         1.0  0.0   1.0   0.0      0.0      6.0         0.0         1.0
-1         1.0  0.0   1.0   1.0      0.0      6.0         0.0         1.0
-2         1.0  0.0   1.0   2.0      0.0      6.0         0.0         1.0
-3         1.0  0.0   1.0   3.0      0.0      6.0         0.0         1.0
-4         1.0  0.0   1.0   4.0      0.0      6.0         0.0         1.0
-...       ...  ...   ...   ...      ...      ...         ...         ...
-17374     1.0  1.0  12.0  19.0      0.0      1.0         1.0         2.0
-17375     1.0  1.0  12.0  20.0      0.0      1.0         1.0         2.0
-17376     1.0  1.0  12.0  21.0      0.0      1.0         1.0         1.0
-17377     1.0  1.0  12.0  22.0      0.0      1.0         1.0         1.0
-17378     1.0  1.0  12.0  23.0      0.0      1.0         1.0         1.0
-
-       temp   atemp   hum  windspeed    cnt
-0      0.24  0.2879  0.81     0.0000   16.0
-1      0.22  0.2727  0.80     0.0000   40.0
-2      0.22  0.2727  0.80     0.0000   32.0
-3      0.24  0.2879  0.75     0.0000   13.0
-4      0.24  0.2879  0.75     0.0000    1.0
-...     ...     ...   ...        ...    ...
-17374  0.26  0.2576  0.60     0.1642  119.0
-17375  0.26  0.2576  0.60     0.1642   89.0
-17376  0.26  0.2576  0.60     0.1642   90.0
-17377  0.26  0.2727  0.56     0.1343   61.0
-17378  0.26  0.2727  0.65     0.1343   49.0
-
-[17379 rows x 13 columns]
-</pre></div>
-</div>
-<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> ( 0 minutes  11.791 seconds)</p>
-<p><strong>Estimated memory usage:</strong>  21 MB</p>
-<div class="sphx-glr-footer sphx-glr-footer-example docutils container" id="sphx-glr-download-auto-examples-data-plot-0-data-loader-py">
-<div class="binder-badge docutils container">
-<a class="reference external image-reference" href="https://mybinder.org/v2/gh/selfexplainml/piml-toolbox/main?urlpath=lab/tree/./docs/_build/html/notebooks/auto_examples/data/plot_0_data_loader.ipynb"><img alt="Launch binder" src="../../_images/binder_badge_logo.svg" width="150px" /></a>
-</div>
-<div class="sphx-glr-download sphx-glr-download-python docutils container">
-<p><a class="reference download internal" download="" href="../../_downloads/b2ece34e3c321a03403e6d3f1e05817b/plot_0_data_loader.py"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Python</span> <span class="pre">source</span> <span class="pre">code:</span> <span class="pre">plot_0_data_loader.py</span></code></a></p>
-</div>
-<div class="sphx-glr-download sphx-glr-download-jupyter docutils container">
-<p><a class="reference download internal" download="" href="../../_downloads/ffb06e3c98665323e482500609f6b0e9/plot_0_data_loader.ipynb"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Jupyter</span> <span class="pre">notebook:</span> <span class="pre">plot_0_data_loader.ipynb</span></code></a></p>
-</div>
-</div>
-<p class="sphx-glr-signature"><a class="reference external" href="https://sphinx-gallery.github.io">Gallery generated by Sphinx-Gallery</a></p>
-</section>
+<div class="clearer"></div></section>
 
 
         </div>
       <div class="container">
         <footer class="sk-content-footer">
               &copy; Copyright 2022-, PiML-Toolbox authors.
-            <a href="../../_sources/auto_examples/data/plot_0_data_loader.rst.txt" rel="nofollow">Show this page source</a>
+            <a href="../../_sources/modules/generated/piml.data.outlier_detection.CBLOF.rst.txt" rel="nofollow">Show this page source</a>
         </footer>
       </div>
     </div>

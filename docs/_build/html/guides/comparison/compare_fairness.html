@@ -230,15 +230,11 @@
 
 </style><section id="fairness-comparison">
 <h1><span class="section-number">7.3. </span>Fairness Comparison<a class="headerlink" href="#fairness-comparison" title="Permalink to this heading">¶</a></h1>
-<p>We have introduced the fairness test of PiML in the testing section.
-In this section, I will compare the fairness testing result of different models by the fairness compare module of PiML.</p>
-<p>We used the ‘SimuCredit’ dataset and trained two models, GLMClassifier and ExplainableBoostingClassifier in PiML to compare.
-Because of the complexity of the EBM model, compared with GLM, the test performance is much better.
-But we will see a different view based on fairness comparison.</p>
-<section id="metric">
-<h2><span class="section-number">7.3.1. </span>Metric<a class="headerlink" href="#metric" title="Permalink to this heading">¶</a></h2>
-<p>In fairness comparison, each fairness testing result of the single model is from the fairness test module.</p>
-<p>Here is an example of comparing the fairness metrics between models:</p>
+<p>This section deals with the module for assessing/comparing bias and fairness of models. We use the “SimuCredit” dataset and illustrate the results on two models, GLMClassifier (GLM) and ExplainableBoostingClassifier (EBM). The model performance of EBM is better than GLM because the former is a more complex machine learning model. But we will see a different view based on fairness comparison.</p>
+<section id="fairness-metrics">
+<h2><span class="section-number">7.3.1. </span>Fairness Metrics<a class="headerlink" href="#fairness-metrics" title="Permalink to this heading">¶</a></h2>
+<p>In fairness comparison, each fairness testing result of the single model is from the fairness test module. See the <a class="reference external" href="../testing/fairness.html#fairness-metric">definition</a> of each fairness metric.</p>
+<p>Below, we compare the fairness of EBM against GLM on the (simulated) credit scoring dataset. The comparisons are made on two different protected attributes: race and gender. Note that such protected attributes cannot be directly used in the model. So any differences in fairness is likely due to the effects of surrogate variables that are related to the protected attributes. The PiML code for comparison is shown below.</p>
 <div class="jupyter_cell jupyter_container docutils container">
 <div class="cell_input code_cell docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">metrics_result</span> <span class="o">=</span> <span class="n">exp</span><span class="o">.</span><span class="n">model_fairness_compare</span><span class="p">(</span><span class="n">models</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;GLM&quot;</span><span class="p">,</span> <span class="s2">&quot;EBM&quot;</span><span class="p">],</span> <span class="n">show</span><span class="o">=</span><span class="s2">&quot;metrics&quot;</span><span class="p">,</span> <span class="n">metric</span><span class="o">=</span><span class="s2">&quot;AIR&quot;</span><span class="p">,</span>
@@ -253,14 +249,13 @@ But we will see a different view based on fairness comparison.</p>
 </div>
 </div>
 <figure class="align-center">
-<a class="reference external image-reference" href="../../auto_examples/testing_compare/plot_1_compare_fairness.py"><img alt="../../_images/sphx_glr_plot_1_compare_fairness_001.png" src="../../_images/sphx_glr_plot_1_compare_fairness_001.png" /></a>
+<a class="reference external image-reference" href="../../auto_examples/testing_compare/plot_1_compare_fairness.html"><img alt="../../_images/sphx_glr_plot_1_compare_fairness_001.png" src="../../_images/sphx_glr_plot_1_compare_fairness_001.png" /></a>
 </figure>
-<p>From the plot, you can see the AIR result of GLM is better than EBM,
-which means although the model performance of EBM is better, its result is more unfair compared to GLM.</p>
+<p>This plot shows the AIR comparisons for two protected attributes. The bar plots on the left show AIRs for Race (African Americans) against whites (not shown) for the two models. The ones on the right are for Gender (women) against men (not shown). The y-axis shows the AIR values. A value of 1 indicates no discrimination. In practice, any value of AIR less than 0.8 is considered discriminative. In the above figure, the AIR values for African Americans and Women are less than 1 for both models, indicating they both discriminate. In particular, the values for EBM model are lower than those for GLM.</p>
 </section>
 <section id="segmented">
 <h2><span class="section-number">7.3.2. </span>Segmented<a class="headerlink" href="#segmented" title="Permalink to this heading">¶</a></h2>
-<p>Similar to the metric, Each of the segmented results in fairness comparison is got from the single model fairness testing.</p>
+<p>In addition to an overall comparison based on the entire dataset, we can also compare the models within appropriately segmented subsets of the dataset. The results below provide comparisons within segments of the predictor “Balance”.</p>
 <div class="jupyter_cell jupyter_container docutils container">
 <div class="cell_input code_cell docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">segmented_result</span> <span class="o">=</span> <span class="n">exp</span><span class="o">.</span><span class="n">model_fairness_compare</span><span class="p">(</span><span class="n">models</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;GLM&quot;</span><span class="p">,</span> <span class="s2">&quot;EBM&quot;</span><span class="p">],</span> <span class="n">show</span><span class="o">=</span><span class="s2">&quot;segmented&quot;</span><span class="p">,</span> <span class="n">metric</span><span class="o">=</span><span class="s2">&quot;AIR&quot;</span><span class="p">,</span>
@@ -276,10 +271,9 @@ which means although the model performance of EBM is better, its result is more 
 </div>
 </div>
 <figure class="align-center">
-<a class="reference external image-reference" href="../../auto_examples/testing_compare/plot_1_compare_fairness.py"><img alt="../../_images/sphx_glr_plot_1_compare_fairness_002.png" src="../../_images/sphx_glr_plot_1_compare_fairness_002.png" /></a>
+<a class="reference external image-reference" href="../../auto_examples/testing_compare/plot_1_compare_fairness.html"><img alt="../../_images/sphx_glr_plot_1_compare_fairness_002.png" src="../../_images/sphx_glr_plot_1_compare_fairness_002.png" /></a>
 </figure>
-<p>From the plot, you can see the AIR difference is especially large in the low-balance area.
-That means the EBM model is more unfair to low-balance people.</p>
+<p>From the plots, we can see the AIR differences between the two models is especially large for Race – American African applicants with low balance. That means the EBM model is more unfair in this region. The relative performances change as balance increases. A similar conclusion holds for Gender (women).</p>
 </section>
 <section id="examples">
 <h2><span class="section-number">7.3.3. </span>Examples<a class="headerlink" href="#examples" title="Permalink to this heading">¶</a></h2>

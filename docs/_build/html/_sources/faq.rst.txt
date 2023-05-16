@@ -1,0 +1,11 @@
+.. _faq:
+
+=====================================
+Frequently Asked Questions
+=====================================
+
+1. How can I read and register my own data frame into PiML experiment?
+
+2. How can I get the prediction from PiML models?
+
+3. Can I customize the train test split of data for PiML training?

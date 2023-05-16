@@ -8,13 +8,12 @@
 Decision Tree
 ==============
 
-The decision tree is a well-known supervised machine learning algorithm that operates by recursively dividing the dataset into smaller subsets based on the most influential features that can accurately predict the response. As the algorithm splits the data, it forms a tree diagram, rendering it highly interpretable.
+Decision tree is a well-known algorithm that operates by recursively dividing the dataset into smaller subsets based on the most influential features that can accurately predict the response. As the algorithm splits the data, it forms a tree diagram, rendering it highly interpretable.
 
 
 Model Training
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
-In this section, we will discuss the process of training a decision tree model in PiML. Assuming that the data has been prepared, the next step is to import the appropriate module, which is either `TreeRegressor` for regression tasks or `TreeClassifier` for binary classification tasks. Once the appropriate module is imported, the next step is to use the `exp.model_train` method to fit the model to the data.
+Assuming that the data has been prepared, one imports the appropriate module, which is either `TreeRegressor` for regression tasks or `TreeClassifier` for binary classification tasks. Once the appropriate module is imported, the next step is to use the `exp.model_train` method to fit the model to the data.
 
 .. jupyter-input::
 

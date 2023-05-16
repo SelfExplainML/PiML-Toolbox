@@ -45,7 +45,7 @@ The final step involves refitting the GAM with the optimized bins. We provide tw
 Model Training
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Here, we will use the California Housing dataset to demonstrate the training of the XGB1 model using the PiML workflow. The following steps can be taken to train the model:
+We use the California Housing dataset to demonstrate the training of the XGB1 model using the PiML workflow. The following steps are taken to train the model:
 
 .. jupyter-input::
 
@@ -60,7 +60,7 @@ The `XGB1Regressor`_ (as well as `XGB1Classifier`_) is developed based on the `x
 
 .. _xgboost: https://xgboost.readthedocs.io/en/stable/python/python_api.html
 
-The XGB1 model also supports monotonic constraints. However, instead of manually typing in 0, 1, or -1 to indicate the direction of monotonicity for each feature in XGB, you can directly specify the feature names with their desired monotonic constraints using the following arguments in the XGB1 model. 
+XGB1 model also supports monotonic constraints. However, instead of manually typing in 0, 1, or -1 to indicate the direction of monotonicity for each feature in XGB, you can directly specify the feature names with their desired monotonic constraints using the following arguments in the XGB1 model. 
 
 - `mono_increasing_list`: the monotonic increasing constraints.
 - `mono_decreasing_list`: the monotonic decreasing constraints.
@@ -163,13 +163,12 @@ The code below shows the usage of drawing top-10 features IV with the keyword "x
    :target: ../../auto_examples/models/plot_4_xgb1_reg.html
    :align: left
 
-It can be found that the ranking order of the IV plot is different from that of the feature importance plot. The feature `MedInc` is ranked as the most important feature in IV, followed by `latitude`, `AveRooms`, and `longitude`. The feature `Population` is still ranked as the least important feature. As `latitude` and `longitude` are highly correlated, the model may amplify the effect of `latitude` and `longitude`, which explains why they are ranked as the most important features in the feature importance plot. In contrast, the IV plot shows that `MedInc` is the most important feature, since the IV plot only considers the effect of each feature on the target variable. Note that this plot only shows the top 10 features with the largest information value. To get the full results, you can set the parameter `return_data` to True.
+It turns out that the rank ordering of the IV plot is different from that of the feature importance plot. The feature `MedInc` is ranked as the most important feature in IV, followed by `latitude`, `AveRooms`, and `longitude`. The feature `Population` is still ranked as the least important feature. As `latitude` and `longitude` are highly correlated, the model may amplify the effect of `latitude` and `longitude`, which explains why they are ranked as the most important features in the feature importance plot. In contrast, the IV plot shows that `MedInc` is the most important feature, since the IV plot only considers the effect of each feature on the target variable. Note that this plot only shows the top 10 features with the largest information value. To get the full results, you can set the parameter `return_data` to True.
 
 
 Local Interpretation
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
-Similar to other additive models, the local interpretation can be triggered by the keyword "local_fi". 
+The local interpretation can be triggered by the keyword "local_fi". 
 
 .. jupyter-input::
 

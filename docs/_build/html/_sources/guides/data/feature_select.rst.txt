@@ -10,17 +10,16 @@ Feature Selection
 
 Feature selection aims at selecting a subset of covariates that are most relevant to the response. When the number of features is large, feature selection can help mitigate computational burden and avoid overfitting. Moreover, reducing the number of modeling features is also beneficial for enhancing model interpretability. 
 
-In this section, four built-in feature selection strategies in PiML would be briefly introduced. For demonstration purposes, we run the following example codes to initialize a PiML experiment for the BikeSharing dataset. Note that feature selection is based on training data, and hence the `exp.data_prepare` function should be executed before running `exp.feature_select`.
+PIML has four built-in feature selection strategies. For demonstration purposes, we run the following example codes to initialize a PiML experiment for the BikeSharing dataset. Note that feature selection is based on training data, and hence the `exp.data_prepare` function should be executed before running `exp.feature_select`.
 
 .. warning::
 
-    In all four strategies, we treat binary responses as continuous variables.
-    However, this treatment is not very rigorous, especially for pearson correlation, distance correlation, and rcit tests.  
+    In all four strategies, we do not distinguish numerical features and categorical features. This treatment is not rigorous, especially for Pearson correlation, distance correlation, and rcit tests.
 
 Correlations
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-**Pearson correlation** is a measure of linear correlation between two variables. Mathematically, the correlation coefficient of :math:`X` and :math:`Y` can be calculated in the following way.
+**Pearson correlation** is a measure of linear relationship between two continuous variables. Mathematically, the correlation coefficient of :math:`X` and :math:`Y` can be calculated in the following way.
 
 .. math::
 
@@ -50,9 +49,10 @@ where "cor" is the keyword of the correlation strategy, "pearson" specifies the 
     - The upper-right table contains the correlation coefficients of all features.
     - The bottom line text highlights the selected features.
 
-Pearson correlation is easy to compute and interpret. However, as it cannot measure non-linear relationships, its usage is limited and we may use the following three methods when dealing with complicated data.
+Pearson correlation is easy to compute and interpret. However, it cannot measure non-linear relationships, so its usage is limited. One can use the following three methods when dealing with more complex data relationships.
 
-**Spearman correlation** is defined as the Pearson correlation between the rank variables, which can be calculated as follows,
+
+**Spearman correlation** is defined as the Pearson correlation between the ranks of the variables, which can be calculated as follows,
 
 .. math::
 
@@ -60,7 +60,7 @@ Pearson correlation is easy to compute and interpret. However, as it cannot meas
    r_{s}=\rho_{\mathrm{R}(X), \mathrm{R}(Y)}= 1-\frac{6 \sum d_i^2}{n\left(n^2-1\right)}
    \end{align}
 
-where :math:`\mathrm{R}(X), \mathrm{R}(Y)` are the ranking variables of :math:`X, Y`, respectively. :math:`d_i=\mathrm{R}\left(X_i\right)-\mathrm{R}\left(Y_i\right)` denotes the difference between the two ranks of the :math:`i`-th observation. The Spearman correlation measures the strength and direction of the relationship between two variables by evaluating how well the relationship between them can be described by a monotonic function. A perfect Spearman correlation of +1 or -1 occurs when each variable is a perfect monotonic function of the other, assuming there are no repeated data values. The corresponding feature selection strategy is similar to the Pearson correlation, except that we replace the keyword "pearson" with "spearman" in the `corr_algorithm` argument.
+where :math:`\mathrm{R}(X), \mathrm{R}(Y)` are the ranking variables of :math:`X, Y`, respectively. :math:`d_i=\mathrm{R}\left(X_i\right)-\mathrm{R}\left(Y_i\right)` denotes the difference between the two ranks of the :math:`i`-th observation. Spearman correlation measures the strength and direction of the relationship between two variables by evaluating how well the relationship between them can be described by a monotonic function. A perfect Spearman correlation of +1 or -1 occurs when each variable is a perfect monotonic function of the other, assuming there are no repeated data values. The corresponding feature selection strategy is similar to the Pearson correlation, except that we replace the keyword "pearson" with "spearman" in the `corr_algorithm` argument.
 
 .. jupyter-input::
 
@@ -74,7 +74,7 @@ where :math:`\mathrm{R}(X), \mathrm{R}(Y)` are the ranking variables of :math:`X
 Distance Correlation
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-The distance correlation is a measure of dependence between two paired random vectors. It can be viewed as an advanced correlation measurement that can handle both linear and non-linear relationships. Given two features :math:`X` and :math:`Y`, we first calculate their pairwise Euclidean distance matrix, as follows,
+This is a measure of dependence between two paired random vectors. It can handle both linear and non-linear relationships. Given two features :math:`X` and :math:`Y`, we first calculate their pairwise Euclidean distance matrix, as follows,
 
 .. math::
 
@@ -108,7 +108,7 @@ Finally, the distance correlation between :math:`X` and :math:`Y` can be calcula
         \mathrm{dCor}^2(X, Y) = \frac{\mathrm{dCov}^2(X, Y)}{\sqrt{\mathrm{dVar}^2(X) \operatorname{dVar}^2(Y)}}.
     \end{aligned}
 
-Similar to that of Pearson correlation, we first calculate the distance correlation of each covariate and the response and then use a `threshold` to determine which features are selected. Note that the distance correlation is always positive, ranging from 0 to 1, and hence we don't need to take the absolute value of these coefficients. In PiML, this method can be called using the following command,
+Similar to that of Pearson correlation, we first calculate the distance correlation of each covariate and the response and then use a `threshold` to determine which features are selected. Note that the distance correlation is always positive, ranging from 0 to 1, and hence we do not need to take the absolute value of these coefficients. In PiML, this method can be called using the following command,
 
 .. jupyter-input::
 
@@ -118,12 +118,16 @@ Similar to that of Pearson correlation, we first calculate the distance correlat
    :target: ../../auto_examples/data/plot_5_feature_select.html
    :align: left
 
-where the keyword is "dcor". The main advantage of distance correlation lies in that it is flexible in capturing non-linear relationships. However, its calculation requires the pairwise distance matrix, which can be computationally very expensive as the sample size is large. To make the computation scalable for big data, we downsample 5000 samples from the original data and use them to calculate the distance correlation. The distance correlation is calculated using the `statsmodels` package by default. Alternatively, if the `dcor` package is installed, then the `dcor` package will be used automatically due to speed consideration. 
+where the keyword is "dcor". 
 
-Feature Importance
+The main advantage of distance correlation is that it can capture non-linear relationships. However, its calculation requires the pairwise distance matrix, which can be computationally very expensive when when the sample size is large. To make the computation scalable for big data, we downsample 5000 samples from the original data and use them to calculate the distance correlation. The distance correlation is calculated using the `statsmodels` package by default. Alternatively, if the `dcor` package is installed, then the `dcor` package will be used automatically due to speed consideration. 
+
+
+
+Use of Feature Importance
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-This strategy is composed of the following four steps:
+This strategy is based on first fitting a ML model and using a post hoc method for selecting the important variables. It is composed of the following four steps:
 
     - Fit an XGB model using all the covariates and the response.
     - Run permutation feature importance test for the fitted XGB model, and get the importance of each feature.
@@ -142,7 +146,8 @@ See the example usage below,
 
 where the keyword here is "pfi", and this test is based on the implementation of scikit-learn, and the details can be found at https://scikit-learn.org/stable/modules/generated/sklearn.inspection.permutation_importance.html. The setting `threshold=0.95` means selecting the top features with the sum of feature importance greater than 95%. The valid range of `threshold` is 0 to 1, representing the percentage of accumulated importance. As we increase the threshold, more features would be selected.
 
-By using XGB and PFI to rank features, the selected features are most relevant for predicting the response. The potential concern of this method is that the fitted model can be overfitting to noisy features, and thus the resulting feature ranking can be incorrect.
+By using XGB and PFI to rank features, the selected features are most relevant for predicting the response. There are several concerns with this approach: i) it is a post hoc method in that one has to fit a model first and use it to select the important variables; ii) the results can vary with the particular algorithm used; and iii) the fitted model can  overfit or underfit, so the identified variables may not be the right ones.
+
 
 Randomized Conditional Independence Test 
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -216,7 +221,9 @@ This time, two features `hr` and `temp` are selected as the initialization, and 
 
 The RCIT-based feature selection method is capable of handling non-linear relationships, and the selected features are all causally related to the response, subject to the pre-defined significance level. The disadvantages of this method include: a) the computational burden is relatively high; b) as it is a sequential selection approach, the results may be slightly different as we use different initial Markov boundary sets.
 
-Full Example
+
+
+Examples
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 The full example codes of this section can be found in the following link.

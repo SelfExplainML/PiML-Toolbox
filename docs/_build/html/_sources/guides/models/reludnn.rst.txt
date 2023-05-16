@@ -8,7 +8,7 @@
 ReLU Neural Network
 ===================================================
 
-In the field of deep learning, deep neural networks (DNNs) that use the rectified linear unit (ReLU) activation functions have achieved remarkable success. Due to its simple functional form, ReLU offers many appealing properties, such as a fast convergence rate, excellent predictive performance, and intrinsic interpretability. In this section, we will give a brief overview of the ReLU-DNN model and how it is used in PiML.
+Deep neural networks (DNNs) that use the rectified linear unit (ReLU) activation functions have achieved remarkable success. Due to its simple functional form, ReLU offers many appealing properties, such as a fast convergence rate, excellent predictive performance, and intrinsic interpretability. In this section, we will give a brief overview of the ReLU-DNN model and how it is used in PiML.
 
 Model Formulation
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^

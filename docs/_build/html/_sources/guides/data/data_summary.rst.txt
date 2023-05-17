@@ -7,8 +7,6 @@
 ==========================
 Data Summary
 ==========================
-This functionality summarizes basic data statistics and sets the meta information for the features. In this function, you can get the summary information of data based on its data type and also change the feature type and remove features.
-
 
 Data summary is the process to summarize basic data statistics and setting the meta info of features.
 In this function, you could not only get the summary information of data based on its data type, but also you can change the feature type and remove features.

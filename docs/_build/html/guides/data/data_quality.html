@@ -248,14 +248,17 @@
 
 </style><section id="data-quality">
 <h1><span class="section-number">2.5. </span>Data Quality<a class="headerlink" href="#data-quality" title="Permalink to this heading">¶</a></h1>
-<p>The data quality module focuses on identifying and addressing data outliers after the data preparation step. Four distinct outlier detection methods are provided, including Isolation Forest, Cluster-Based Local Outlier Factor, Principal Component Analysis, and KmeansTree. The analysis results can help users locate and remove outliers, enhancing the quality and reliability of subsequent modeling tasks.</p>
+<p>The data quality module focuses on identifying and addressing data outliers after the data preparation step.  The analysis results can help users locate and remove outliers, enhancing the quality and reliability of subsequent modeling tasks.</p>
+<section id="methodology">
+<h2><span class="section-number">2.5.1. </span>Methodology<a class="headerlink" href="#methodology" title="Permalink to this heading">¶</a></h2>
+<p>Four distinct outlier detection methods are provided, including Isolation Forest, Cluster-Based Local Outlier Factor, Principal Component Analysis, and KmeansTree.</p>
 <section id="isolation-forest">
-<h2><span class="section-number">2.5.1. </span>Isolation Forest<a class="headerlink" href="#isolation-forest" title="Permalink to this heading">¶</a></h2>
+<h3><span class="section-number">2.5.1.1. </span>Isolation Forest<a class="headerlink" href="#isolation-forest" title="Permalink to this heading">¶</a></h3>
 <p>This algorithm adopts a unique approach to isolate observations by following a random selection process <a class="reference internal" href="#liu2008" id="id1"><span>[Liu2008]</span></a>. It begins by randomly choosing a feature from the dataset and then selecting a split value for that feature within the range of its maximum and minimum values. This process is repeated recursively to construct isolation trees, until the node has only one instance, or all data at the node have the same values.</p>
 <p>The algorithm measures the anomaly score based on the average path length required to isolate each observation. Outliers are expected to have shorter average path lengths, indicating they are easier to separate from the rest of the data. In contrast, normal observations will require longer paths for isolation. The randomness in feature and split value selection contributes to the algorithm’s efficiency and ability to handle high-dimensional datasets. It does not rely on the specific distribution of the data, making it suitable for various types of data and outlier detection tasks. Note that the <a class="reference external" href="../../modules/generated/piml.data.outlier_detection.IsolationForest.html">IsolationForest</a> in PiML is a wrapper of sklearn’s implementation <a class="reference external" href="https://scikit-learn.org/stable/modules/generated/sklearn.ensemble.IsolationForest.html">sklearn.ensemble.IsolationForest</a>.</p>
 </section>
 <section id="cluster-based-local-outlier-factor-cblof">
-<h2><span class="section-number">2.5.2. </span>Cluster-Based Local Outlier Factor (CBLOF)<a class="headerlink" href="#cluster-based-local-outlier-factor-cblof" title="Permalink to this heading">¶</a></h2>
+<h3><span class="section-number">2.5.1.2. </span>Cluster-Based Local Outlier Factor (CBLOF)<a class="headerlink" href="#cluster-based-local-outlier-factor-cblof" title="Permalink to this heading">¶</a></h3>
 <p>This method for outlier detection is based on cluster analysis, originally proposed by <a class="reference internal" href="#he2003" id="id2"><span>[He2003]</span></a>. The process can be divided into the following steps:</p>
 <ul>
 <li><p>Partition the data into clusters using K-means or Gaussian mixture model. Clusters can be classified into two categories, namely large clusters and small clusters, based on the size of each cluster. The size of a cluster is determined by the number of points it contains, and a given threshold is utilized for this classification.</p></li>
@@ -272,7 +275,7 @@
 <p>This method effectively utilizes the characteristics of clusters to detect outliers. The score calculation considers both the distances within a cluster and the relative distances to neighboring clusters. By combining these factors, the CBLOF score provides a comprehensive measure for identifying and quantifying outliers in the dataset. See more API details in <a class="reference external" href="../../modules/generated/piml.data.outlier_detection.CBLOF.html">CBLOF</a>.</p>
 </section>
 <section id="principal-component-analysis">
-<h2><span class="section-number">2.5.3. </span>Principal Component Analysis<a class="headerlink" href="#principal-component-analysis" title="Permalink to this heading">¶</a></h2>
+<h3><span class="section-number">2.5.1.3. </span>Principal Component Analysis<a class="headerlink" href="#principal-component-analysis" title="Permalink to this heading">¶</a></h3>
 <p>In addition to the clustering-based methods, dimensionality reduction techniques like Principal Component Analysis (PCA) can also be utilized for outlier detection. In PiML, there are two PCA-based methods for calculating the outlier score: Mahalanobis distance and error reconstruction, as elaborated in <a class="reference external" href="../../modules/generated/piml.data.outlier_detection.PCA.html">PCA</a>.</p>
 <ul class="simple">
 <li><p><strong>Mahalanobis distance</strong>: This method computes the distance between each data point and the centroid of the dataset, taking into account the covariance structure of the data. The Mahalanobis distance accounts for correlations between variables and provides a measure of how far each data point deviates from the overall centroid. The Mahalanobis distance can be got easily with PCA under the formula, see <a class="reference internal" href="#shyu2003" id="id3"><span>[Shyu2003]</span></a> for details.</p></li>
@@ -286,25 +289,25 @@
 <p>In PiML, the reconstruction is performed by fitting an XGBoost model between the principal components and the covariates. This model is then used to reconstruct the covariates <span class="math notranslate nohighlight">\(X_{new}\)</span>. The difference between the original covariates and the reconstructed data is calculated as the reconstruction error, i.e., <span class="math notranslate nohighlight">\(X - X_{new}\)</span>. Finally, we also calculate the Mahalanobis distance of the reconstruction error as the final outlier score, to account for the correlations among reconstruction error. If the reconstruction errors of each feature are mutually independent, the outlier score reduces to mean squared reconstruction error.</p>
 </section>
 <section id="kmeanstree">
-<h2><span class="section-number">2.5.4. </span>KmeansTree<a class="headerlink" href="#kmeanstree" title="Permalink to this heading">¶</a></h2>
+<h3><span class="section-number">2.5.1.4. </span>KmeansTree<a class="headerlink" href="#kmeanstree" title="Permalink to this heading">¶</a></h3>
 <p>This method is proposed by the PiML authors, it combines the advantages of the cluster-based method and PCA-based method. The algorithm follows the steps outlined below:</p>
 <ul class="simple">
 <li><p>Iterative K-means Clustering: The dataset is split iteratively using the K-means clustering algorithm with K set to 2. This process continues until certain conditions are met, such as reaching the maximum depth, the maximum number of levels, or a specific distributional distance threshold between two child leaves.</p></li>
 <li><p>PCA Error Reconstruction-based Outlier Detection: This step is the same as the algorithm described in the PCA-based method above, but it is performed for each cluster separately.</p></li>
 </ul>
 <p>The KmeansTree method takes advantage of the splitting behavior of the K-means clustering algorithm and the dimensionality reduction capabilities of PCA. By combining these techniques and utilizing the Mahalanobis distance, it aims to effectively detect outliers in the data. The KmeansTree approach can enhance outlier detection performance by increasing the homogeneity of the data after clustering. For further details, please refer to the <a class="reference external" href="../../modules/generated/piml.data.outlier_detection.KMeansTree.html">KMeansTree</a> module in PiML.</p>
+</section>
+</section>
 <section id="analysis-and-comparison">
-<h3><span class="section-number">2.5.4.1. </span>Analysis and Comparison<a class="headerlink" href="#analysis-and-comparison" title="Permalink to this heading">¶</a></h3>
+<h2><span class="section-number">2.5.2. </span>Analysis and Comparison<a class="headerlink" href="#analysis-and-comparison" title="Permalink to this heading">¶</a></h2>
 <p>This subsection briefly introduces the usage of outlier detection methods in PiML. The function name is <code class="docutils literal notranslate"><span class="pre">data_quality_check</span></code>. The key parameters include:</p>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">method</span></code>: The outlier detection method to be used, which needs to be an instance of <a class="reference external" href="../../modules/generated/piml.data.outlier_detection.IsolationForest.html">IsolationForest</a>, <a class="reference external" href="../../modules/generated/piml.data.outlier_detection.CBLOF.html">CBLOF</a>, <a class="reference external" href="../../modules/generated/piml.data.outlier_detection.PCA.html">PCA</a>, or <a class="reference external" href="../../modules/generated/piml.data.outlier_detection.KMeansTree.html">KMeansTree</a>.</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">show</span></code>: The type of analysis to be performed.</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">threshold</span></code>: The threshold to decide whether a sample is an outlier.</p></li>
 </ul>
-</section>
-</section>
 <section id="outlier-score-distribution">
-<h2><span class="section-number">2.5.5. </span>Outlier Score distribution<a class="headerlink" href="#outlier-score-distribution" title="Permalink to this heading">¶</a></h2>
+<h3><span class="section-number">2.5.2.1. </span>Outlier Score distribution<a class="headerlink" href="#outlier-score-distribution" title="Permalink to this heading">¶</a></h3>
 <p>Here is an example of displaying the score distribution of the PCA-based outlier detection method. The keyword of this plot is “score_distribution”. The parameter <code class="docutils literal notranslate"><span class="pre">threshold</span></code> is used to decide whether a sample is an outlier, which is the quantile of the outlier score of all samples, within 0 and 1.</p>
 <div class="jupyter_cell jupyter_container docutils container">
 <div class="cell_input code_cell docutils container">
@@ -322,7 +325,7 @@
 <p>In this plot, the red dotted line represents the actual threshold of the outlier scores. Samples with outlier scores greater than this threshold are classified as outliers.</p>
 </section>
 <section id="marginal-distribution-of-outliers">
-<h2><span class="section-number">2.5.6. </span>Marginal Distribution of Outliers<a class="headerlink" href="#marginal-distribution-of-outliers" title="Permalink to this heading">¶</a></h2>
+<h3><span class="section-number">2.5.2.2. </span>Marginal Distribution of Outliers<a class="headerlink" href="#marginal-distribution-of-outliers" title="Permalink to this heading">¶</a></h3>
 <p>Here is an example of displaying the marginal distribution of detected outliers against a feature of interest. The keyword of this plot is “marginal_outlier_distribution”.</p>
 <div class="jupyter_cell jupyter_container docutils container">
 <div class="cell_input code_cell docutils container">
@@ -340,7 +343,7 @@
 <p>In this plot, a circle mark is used to indicate the presence of outliers. Although many of the outliers may fall within the normal range of individual features, they are still considered outliers in the context of the multivariate feature space. This phenomenon highlights the importance of considering the relationships and interactions between multiple features when identifying outliers.</p>
 </section>
 <section id="comparison-of-different-methods">
-<h2><span class="section-number">2.5.7. </span>Comparison of Different Methods<a class="headerlink" href="#comparison-of-different-methods" title="Permalink to this heading">¶</a></h2>
+<h3><span class="section-number">2.5.2.3. </span>Comparison of Different Methods<a class="headerlink" href="#comparison-of-different-methods" title="Permalink to this heading">¶</a></h3>
 <p>We use t-SNE to reduce the dimension of data to 2D for better visualization. Below is an example of comparing different methods, and the keyword of this plot is “tsne_comparison”.</p>
 <div class="jupyter_cell jupyter_container docutils container">
 <div class="cell_input code_cell docutils container">
@@ -356,8 +359,10 @@
 <a class="reference external image-reference" href="../../auto_examples/data/plot_4_data_quality.html"><img alt="../../_images/sphx_glr_plot_4_data_quality_003.png" src="../../_images/sphx_glr_plot_4_data_quality_003.png" /></a>
 </figure>
 <p>It is worth noting that, to mitigate the computational burden, the t-SNE algorithm used for visualization purposes is fitted using subsampled data. This subsampling technique allows for a representative subset of the data to be used, reducing the complexity of the t-SNE computation while still providing meaningful insights. In the plot mentioned above, the visualization reveals that the outliers detected by the two algorithms under comparison are noticeably distinct from each other. This discrepancy suggests that the algorithms may consider different aspects of the data when identifying outliers.</p>
+</section>
+</section>
 <section id="examples">
-<h3><span class="section-number">2.5.7.1. </span>Examples<a class="headerlink" href="#examples" title="Permalink to this heading">¶</a></h3>
+<h2><span class="section-number">2.5.3. </span>Examples<a class="headerlink" href="#examples" title="Permalink to this heading">¶</a></h2>
 <p>The full example codes of this section can be found in the following link.</p>
 <div class="topic">
 <p class="topic-title">Example</p>
@@ -379,7 +384,6 @@
 </dd>
 </dl>
 </div>
-</section>
 </section>
 </section>
 

@@ -8,7 +8,13 @@
 Data Quality
 ======================================
 
-The data quality module focuses on identifying and addressing data outliers after the data preparation step. Four distinct outlier detection methods are provided, including Isolation Forest, Cluster-Based Local Outlier Factor, Principal Component Analysis, and KmeansTree. The analysis results can help users locate and remove outliers, enhancing the quality and reliability of subsequent modeling tasks.
+The data quality module focuses on identifying and addressing data outliers after the data preparation step.  The analysis results can help users locate and remove outliers, enhancing the quality and reliability of subsequent modeling tasks.
+
+
+Methodology
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Four distinct outlier detection methods are provided, including Isolation Forest, Cluster-Based Local Outlier Factor, Principal Component Analysis, and KmeansTree.
+
 
 Isolation Forest
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -65,6 +71,7 @@ This method is proposed by the PiML authors, it combines the advantages of the c
 The KmeansTree method takes advantage of the splitting behavior of the K-means clustering algorithm and the dimensionality reduction capabilities of PCA. By combining these techniques and utilizing the Mahalanobis distance, it aims to effectively detect outliers in the data. The KmeansTree approach can enhance outlier detection performance by increasing the homogeneity of the data after clustering. For further details, please refer to the KMeansTree_ module in PiML.
 
 .. _KMeansTree: ../../modules/generated/piml.data.outlier_detection.KMeansTree.html
+
 
 
 Analysis and Comparison

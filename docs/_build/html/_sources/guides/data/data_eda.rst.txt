@@ -8,99 +8,91 @@
 Exploratory Analysis
 ======================================
 
-PiML supports three types of plots for exploratory analysis:  univariate plots, bivariate plots, and multivariate plots.
-
+PiML supports three types of plots for exploratory analysis: univariate plots, bivariate plots, and multivariate plots.
 
 
 Univariate Plots
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-We use different plots for numerical features and categorical features.
+PiML allows for a visual exploration of the data distribution and the identification of potential outliers. These visualizations aid in understanding the range of values, detecting deviations from the expected patterns, and assessing the presence of outliers in the numerical feature space. The univariate shows the marginal distribution of a single feature. 
 
-For numerical features, we show density and histogram chart:
+- **Numerical Feature**: We show the density and histogram charts for a numerical feature.
 
 .. jupyter-input::
 
-    exp.eda(show='univariate', uni_feature='cnt')
+    exp.eda(show='univariate', uni_feature='cnt', figsize=(5, 4))
 
 .. figure:: ../../auto_examples/data/images/sphx_glr_plot_2_data_eda_001.png
    :target: ../../auto_examples/data/plot_2_data_eda.html
    :align: left
 
-For categorical features, we show the bar chart that displays the frequency of values.
+- **Categorical Feature**: We show the bar chart that displays the frequency of each category.
 
 .. jupyter-input::
 
-    exp.eda(show='univariate', uni_feature='yr')
+    exp.eda(show='univariate', uni_feature='yr', figsize=(5, 4))
 
 .. figure:: ../../auto_examples/data/images/sphx_glr_plot_2_data_eda_002.png
    :target: ../../auto_examples/data/plot_2_data_eda.html
    :align: left
 
-
-
 Bivariate Plots
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+The bivariate plot is a graphical representation that displays the relationship between two variables. We use three types of charts for different combinations of feature types. 
 
-The bivariate plot is a graphical representation that displays the relationship between two variables.
-We use three types of charts for different combinations of feature types.
-
-For numerical & numerical, we use the scatter plot to show the relationship between two variables as a collection of points on a two-dimensional graph.
+- **Numerical & Numerical**: We use the scatter plot to show the relationship between two variables as a collection of points on a two-dimensional graph.
 
 .. jupyter-input::
 
-    exp.eda(show='bivariate', bi_features=['temp', 'cnt'])
+    exp.eda(show='bivariate', bi_features=['temp', 'cnt'], figsize=(5, 4))
 
 .. figure:: ../../auto_examples/data/images/sphx_glr_plot_2_data_eda_003.png
    :target: ../../auto_examples/data/plot_2_data_eda.html
    :align: left
    
-If the pair is numerical & categorical, we use the box plot to show the relationship by displaying the numerical feature distribution conditional on each category of categorical feature.
+- **Numerical & Categorical**: We use the box plot to show the relationship by displaying the numerical feature distribution conditional on each category of the categorical feature.
 
 .. jupyter-input::
 
-    exp.eda(show='bivariate', bi_features=['hr', 'season'])
+    exp.eda(show='bivariate', bi_features=['hr', 'season'], figsize=(5, 4))
 
 .. figure:: ../../auto_examples/data/images/sphx_glr_plot_2_data_eda_004.png
    :target: ../../auto_examples/data/plot_2_data_eda.html
    :align: left
 
-If the pair is categorical & categorical, we use the stack bar plot, each bar represents a category in one variable and is divided into segments representing the frequency of the second variable within that category. 
+- **Categorical & Categorical**: We use the stack bar plot, each bar represents a category in one variable and is divided into segments representing the frequency of the second variable within that category.
 
 .. jupyter-input::
 
-    exp.eda(show='bivariate', bi_features=['yr', 'season'])
+    exp.eda(show='bivariate', bi_features=['yr', 'season'], figsize=(5, 4))
 
 .. figure:: ../../auto_examples/data/images/sphx_glr_plot_2_data_eda_005.png
    :target: ../../auto_examples/data/plot_2_data_eda.html
    :align: left
 
 
-
 Multivariate Plots
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-There are two types of multivariate charts in PiML: correlation heatmap, and correlation graph. Both the correlation heatmap and correlation graph display  pairwisePearson correlations, using different representations. 
+There are two types of multivariate charts in PiML: correlation heatmap and correlation graph. Both the correlation heatmap and correlation graph display pairwise Pearson correlations, using different representations. 
 
-
-Here is an example of the correlation heatmap:
+- **Correlation Heatmap**: This heatmap displays the correlation matrix using heatmap directly. 
 
 .. jupyter-input::
 
-    exp.eda(show='multivariate', multi_type='correlation_heatmap')
+    exp.eda(show='multivariate', multi_type='correlation_heatmap', figsize=(6, 5))
 
 .. figure:: ../../auto_examples/data/images/sphx_glr_plot_2_data_eda_006.png
    :target: ../../auto_examples/data/plot_2_data_eda.html
    :align: left
 
-Here is an example of the correlation graph:
+- **Correlation Graph**: This is an alternative plot to the correlation heatmap, where we use nodes to represent features and connecting lines to show the correlation coefficients. 
 
 .. jupyter-input::
 
-    exp.eda(show='multivariate', multi_type='correlation_graph')
+    exp.eda(show='multivariate', multi_type='correlation_graph', figsize=(6, 5))
 
 .. figure:: ../../auto_examples/data/images/sphx_glr_plot_2_data_eda_007.png
    :target: ../../auto_examples/data/plot_2_data_eda.html
    :align: left
-
 
 
 Examples

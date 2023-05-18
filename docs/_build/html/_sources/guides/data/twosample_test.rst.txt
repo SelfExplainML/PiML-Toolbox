@@ -11,18 +11,17 @@ Two Sample Test
 In PiML, we provide the following metrics to measure the distributional shift between two samples, i.e., the train and test sets.
 
 
-
 Distance Metrics
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-- **Population Stability Index (PSI)**: PSI is a statistical measure used to determine the extent to which the distribution of a variable has changed. It is a discrete (binned) version of the Kullback-Leibler (K-L) distance between two sets of sample data. More specifically, define a binning scheme that bins the two datasets P and Q into B bins. The discrete K-L distance between P and Q with respect to P is defined as :math:`D_{KL} (p│q)= \sum_{i=1}^B▒p_i * ln ((p_i/q_i))`. Note that this distance is asymmetric. Define the distance with resect to q as  :math:`D_{KL} (q│p)= \sum_{i=1}^B▒q_i*ln (q_i/p_i)`. Then, PSI is the sum of the two asymmetric versions:
+- **Population Stability Index (PSI)**: PSI is a statistical measure used to determine the extent to which the distribution of a variable has changed. It is a discrete (binned) version of the Kullback-Leibler (K-L) distance between two sets of sample data. More specifically, define a binning scheme that bins the two datasets :math:`P` and :math:`Q` into :math:`B` bins. The discrete K-L distance between :math:`P` and :math:`Q` with respect to :math:`P` is defined as :math:`D_{KL} (p│q)= \sum_{i=1}^B p_i ln ((p_i/q_i))`. Note that this distance is asymmetric. Define the distance with resect to q as  :math:`D_{KL} (q│p)= \sum_{i=1}^B q_i ln (q_i/p_i)`. Then, PSI is the sum of the two asymmetric versions:
 
 .. math::
    \begin{align}     
       PSI = D_{KL}(p│q) + D_{KL} (q│p) = \sum^{B}_{i=1} (p_i - q_i)ln \frac{p_i}{q_i}.
    \end{align}
 
-Here, B is the number of bins, and :math:`p_i`'s and :math:`q_i`'s are proportions of the two samples in each bin. Note that the PSI calculation is related to the binning method, and PIML provides two options for binning, i.e., "equal width" or "equal quantile". The number of bins is fixed at 10.
+Here, :math:`B` is the number of bins, and :math:`p_i`'s and :math:`q_i`'s are proportions of the two samples in each bin. Note that the PSI calculation is related to the binning method, and PIML provides two options for binning, i.e., "equal width" or "equal quantile". The number of bins is fixed at 10.
 
 - **Wasserstein distance 1D (WD1) distance**: WD1 calculates the absolute difference between the cumulative distribution functions of the two samples.
 
@@ -39,7 +38,6 @@ Here :math:`F(x)` and :math:`G(x)` are the cumulative distribution functions of 
    \begin{align}     
        D(F, G)_{KS}  = \sup_x |F(x) - G(x)|.
    \end{align}
-
 
 
 Usage
@@ -62,7 +60,7 @@ By setting `metric` to "PSI", we can get the PSI statistics for each feature. Th
 Marginal Density Comparison
 """"""""""""""""""""""""""""""""
 
-We can compare the marginal densities of the train and test sets for a particular feature (see example below). We can also change `metric` and `psi_buckets`, to change the distance metric displayed on the plot.
+We can compare the marginal densities of the train and test sets for a particular feature (see the example below). We can also change `metric` and `psi_buckets`, to change the distance metric displayed on the plot.
 
  .. jupyter-input::
 
@@ -71,7 +69,6 @@ We can compare the marginal densities of the train and test sets for a particula
 .. figure:: ../../auto_examples/data/images/sphx_glr_plot_6_twosample_test_004.png
    :target: ../../auto_examples/data/plot_6_twosample_test.html
    :align: left
-
 
 
 Examples

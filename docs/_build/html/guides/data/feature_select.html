@@ -256,7 +256,7 @@
 </div>
 <section id="correlations">
 <h2><span class="section-number">2.6.1. </span>Correlations<a class="headerlink" href="#correlations" title="Permalink to this heading">¶</a></h2>
-<p><strong>Pearson correlation</strong> is a measure of linear relationship between two continuous variables. Mathematically, the correlation coefficient of <span class="math notranslate nohighlight">\(X\)</span> and <span class="math notranslate nohighlight">\(Y\)</span> can be calculated in the following way.</p>
+<p><strong>Pearson correlation</strong> is a measure of the linear relationship between two continuous variables. Mathematically, the correlation coefficient of <span class="math notranslate nohighlight">\(X\)</span> and <span class="math notranslate nohighlight">\(Y\)</span> can be calculated in the following way.</p>
 <div class="math notranslate nohighlight">
 \[\begin{align}
 \rho_{X Y}=\frac{\sum_{i=1}^n\left(X_i-\bar{X}\right)\left(Y_i-\bar{Y}\right)}
@@ -348,11 +348,11 @@ r_{s}=\rho_{\mathrm{R}(X), \mathrm{R}(Y)}= 1-\frac{6 \sum d_i^2}{n\left(n^2-1\ri
 <a class="reference external image-reference" href="../../auto_examples/data/plot_5_feature_select.html"><img alt="../../_images/sphx_glr_plot_5_feature_select_003.png" src="../../_images/sphx_glr_plot_5_feature_select_003.png" /></a>
 </figure>
 <p>where the keyword is “dcor”.</p>
-<p>The main advantage of distance correlation is that it can capture non-linear relationships. However, its calculation requires the pairwise distance matrix, which can be computationally very expensive when when the sample size is large. To make the computation scalable for big data, we downsample 5000 samples from the original data and use them to calculate the distance correlation. The distance correlation is calculated using the <code class="docutils literal notranslate"><span class="pre">statsmodels</span></code> package by default. Alternatively, if the <code class="docutils literal notranslate"><span class="pre">dcor</span></code> package is installed, then the <code class="docutils literal notranslate"><span class="pre">dcor</span></code> package will be used automatically due to speed consideration.</p>
+<p>The main advantage of distance correlation is that it can capture non-linear relationships. However, its calculation requires the pairwise distance matrix, which can be computationally very expensive when the sample size is large. To make the computation scalable for big data, we downsample 5000 samples from the original data and use them to calculate the distance correlation. The distance correlation is calculated using the <code class="docutils literal notranslate"><span class="pre">statsmodels</span></code> package by default. Alternatively, if the <code class="docutils literal notranslate"><span class="pre">dcor</span></code> package is installed, then the <code class="docutils literal notranslate"><span class="pre">dcor</span></code> package will be used automatically due to speed considerations.</p>
 </section>
 <section id="use-of-feature-importance">
 <h2><span class="section-number">2.6.3. </span>Use of Feature Importance<a class="headerlink" href="#use-of-feature-importance" title="Permalink to this heading">¶</a></h2>
-<p>This strategy is based on first fitting a ML model and using a post hoc method for selecting the important variables. It is composed of the following four steps:</p>
+<p>This strategy is based on first fitting an ML model and using a post hoc method for selecting the important variables. It is composed of the following four steps:</p>
 <blockquote>
 <div><ul class="simple">
 <li><p>Fit an XGB model using all the covariates and the response.</p></li>
@@ -375,7 +375,7 @@ r_{s}=\rho_{\mathrm{R}(X), \mathrm{R}(Y)}= 1-\frac{6 \sum d_i^2}{n\left(n^2-1\ri
 <a class="reference external image-reference" href="../../auto_examples/data/plot_5_feature_select.html"><img alt="../../_images/sphx_glr_plot_5_feature_select_004.png" src="../../_images/sphx_glr_plot_5_feature_select_004.png" /></a>
 </figure>
 <p>where the keyword here is “pfi”, and this test is based on the implementation of scikit-learn, and the details can be found at <a class="reference external" href="https://scikit-learn.org/stable/modules/generated/sklearn.inspection.permutation_importance.html">https://scikit-learn.org/stable/modules/generated/sklearn.inspection.permutation_importance.html</a>. The setting <code class="docutils literal notranslate"><span class="pre">threshold=0.95</span></code> means selecting the top features with the sum of feature importance greater than 95%. The valid range of <code class="docutils literal notranslate"><span class="pre">threshold</span></code> is 0 to 1, representing the percentage of accumulated importance. As we increase the threshold, more features would be selected.</p>
-<p>By using XGB and PFI to rank features, the selected features are most relevant for predicting the response. There are several concerns with this approach: i) it is a post hoc method in that one has to fit a model first and use it to select the important variables; ii) the results can vary with the particular algorithm used; and iii) the fitted model can  overfit or underfit, so the identified variables may not be the right ones.</p>
+<p>By using XGB and PFI to rank features, the selected features are most relevant for predicting the response. There are several concerns with this approach: i) it is a post hoc method in that one has to fit a model first and use it to select the important variables; ii) the results can vary with the particular algorithm used; and iii) the fitted model can overfit or underfit, so the identified variables may not be the right ones.</p>
 </section>
 <section id="randomized-conditional-independence-test">
 <h2><span class="section-number">2.6.4. </span>Randomized Conditional Independence Test<a class="headerlink" href="#randomized-conditional-independence-test" title="Permalink to this heading">¶</a></h2>

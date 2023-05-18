@@ -4,41 +4,41 @@
 # In[ ]:
 
 
-exp.eda(show='univariate', uni_feature='cnt')
+exp.eda(show='univariate', uni_feature='cnt', figsize=(5, 4))
 
 
 # In[ ]:
 
 
-exp.eda(show='univariate', uni_feature='yr')
+exp.eda(show='univariate', uni_feature='yr', figsize=(5, 4))
 
 
 # In[ ]:
 
 
-exp.eda(show='bivariate', bi_features=['temp', 'cnt'])
+exp.eda(show='bivariate', bi_features=['temp', 'cnt'], figsize=(5, 4))
 
 
 # In[ ]:
 
 
-exp.eda(show='bivariate', bi_features=['hr', 'season'])
+exp.eda(show='bivariate', bi_features=['hr', 'season'], figsize=(5, 4))
 
 
 # In[ ]:
 
 
-exp.eda(show='bivariate', bi_features=['yr', 'season'])
+exp.eda(show='bivariate', bi_features=['yr', 'season'], figsize=(5, 4))
 
 
 # In[ ]:
 
 
-exp.eda(show='multivariate', multi_type='correlation_heatmap')
+exp.eda(show='multivariate', multi_type='correlation_heatmap', figsize=(6, 5))
 
 
 # In[ ]:
 
 
-exp.eda(show='multivariate', multi_type='correlation_graph')
+exp.eda(show='multivariate', multi_type='correlation_graph', figsize=(6, 5))
 

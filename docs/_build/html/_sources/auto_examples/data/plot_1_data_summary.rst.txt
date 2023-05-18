@@ -27,16 +27,18 @@ Showing data summary result using the BikeSharing dataset as example.
 
 Experiment initialization and data preparation
 
-.. GENERATED FROM PYTHON SOURCE LINES 11-16
+.. GENERATED FROM PYTHON SOURCE LINES 11-18
 
 .. code-block:: default
 
     from piml import Experiment
 
-    exp = Experiment()
+    exp = Experiment(highcode_only=True)
     exp.data_loader(data="BikeSharing", silent=True)
 
-    exp.data_summary(feature_type={},feature_exclude=[])
+    exp.data_summary(feature_type={}, feature_exclude=[])
+
+
 
 
 
@@ -82,10 +84,117 @@ Experiment initialization and data preparation
 
 
 
+.. GENERATED FROM PYTHON SOURCE LINES 19-20
+
+Feature removal
+
+.. GENERATED FROM PYTHON SOURCE LINES 20-22
+
+.. code-block:: default
+
+    exp.data_summary(feature_exclude=["yr", "mnth", "temp"])
+
+
+
+
+
+.. rst-class:: sphx-glr-script-out
+
+ .. code-block:: none
+
+            name  n_missing        mean         std  min       q1    median  \
+    1         hr        0.0   11.546752    6.914405  0.0   6.0000   12.0000   
+    2    weekday        0.0    3.003683    2.005771  0.0   1.0000    3.0000   
+    4      atemp        0.0    0.475775    0.171850  0.0   0.3333    0.4848   
+    5        hum        0.0    0.627229    0.192930  0.0   0.4800    0.6300   
+    6  windspeed        0.0    0.190098    0.122340  0.0   0.1045    0.1940   
+    7        cnt        0.0  189.463088  181.387599  1.0  40.0000  142.0000   
+
+             q3       max  
+    1   18.0000   23.0000  
+    2    5.0000    6.0000  
+    4    0.6212    1.0000  
+    5    0.7800    1.0000  
+    6    0.2537    0.8507  
+    7  281.0000  977.0000  
+             name  n_missing  n_unique         top1        top2        top3  \
+    0      season          0         4   3.0 : 4496  2.0 : 4409  1.0 : 4242   
+    2     holiday          0         2  0.0 : 16879   1.0 : 500           0   
+    3  workingday          0         2  1.0 : 11865  0.0 : 5514           0   
+    4  weathersit          0         4  1.0 : 11413  2.0 : 4544  3.0 : 1419   
+
+       n_others  
+    0      4232  
+    2         0  
+    3         0  
+    4         3  
+    HTML(value='Data Shape:(17379, 13)')
+    Tab(children=(Output(), Output()), layout=Layout(height='350px'), selected_index=0, titles=('Numerical Attributes', 'Categorical Attributes'))
+
+
+
+
+.. GENERATED FROM PYTHON SOURCE LINES 23-24
+
+Change feature types
+
+.. GENERATED FROM PYTHON SOURCE LINES 24-25
+
+.. code-block:: default
+
+    exp.data_summary(feature_type={"weekday": "categorical"})
+
+
+
+
+.. rst-class:: sphx-glr-script-out
+
+ .. code-block:: none
+
+            name  n_missing        mean         std   min       q1    median  \
+    0       mnth        0.0    6.537775    3.438776  1.00   4.0000    7.0000   
+    1         hr        0.0   11.546752    6.914405  0.00   6.0000   12.0000   
+    2       temp        0.0    0.496987    0.192556  0.02   0.3400    0.5000   
+    3      atemp        0.0    0.475775    0.171850  0.00   0.3333    0.4848   
+    4        hum        0.0    0.627229    0.192930  0.00   0.4800    0.6300   
+    5  windspeed        0.0    0.190098    0.122340  0.00   0.1045    0.1940   
+    6        cnt        0.0  189.463088  181.387599  1.00  40.0000  142.0000   
+
+             q3       max  
+    0   10.0000   12.0000  
+    1   18.0000   23.0000  
+    2    0.6600    1.0000  
+    3    0.6212    1.0000  
+    4    0.7800    1.0000  
+    5    0.2537    0.8507  
+    6  281.0000  977.0000  
+             name  n_missing  n_unique         top1        top2        top3  \
+    0      season          0         4   3.0 : 4496  2.0 : 4409  1.0 : 4242   
+    1          yr          0         2   1.0 : 8734  0.0 : 8645           0   
+    2     holiday          0         2  0.0 : 16879   1.0 : 500           0   
+    3     weekday          0         7   6.0 : 2512  0.0 : 2502  5.0 : 2487   
+    4  workingday          0         2  1.0 : 11865  0.0 : 5514           0   
+    5  weathersit          0         4  1.0 : 11413  2.0 : 4544  3.0 : 1419   
+
+       n_others  
+    0      4232  
+    1         0  
+    2         0  
+    3      9878  
+    4         0  
+    5         3  
+    HTML(value='Data Shape:(17379, 13)')
+    Tab(children=(Output(), Output()), layout=Layout(height='350px'), selected_index=0, titles=('Numerical Attributes', 'Categorical Attributes'))
+
+
+
+
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** ( 0 minutes  2.169 seconds)
+   **Total running time of the script:** ( 0 minutes  16.595 seconds)
+
+**Estimated memory usage:**  24 MB
 
 
 .. _sphx_glr_download_auto_examples_data_plot_1_data_summary.py:

@@ -246,14 +246,16 @@
 
 </style><section id="exploratory-analysis">
 <h1><span class="section-number">2.4. </span>Exploratory Analysis<a class="headerlink" href="#exploratory-analysis" title="Permalink to this heading">¶</a></h1>
-<p>PiML supports three types of plots for exploratory analysis:  univariate plots, bivariate plots, and multivariate plots.</p>
+<p>PiML supports three types of plots for exploratory analysis: univariate plots, bivariate plots, and multivariate plots.</p>
 <section id="univariate-plots">
 <h2><span class="section-number">2.4.1. </span>Univariate Plots<a class="headerlink" href="#univariate-plots" title="Permalink to this heading">¶</a></h2>
-<p>We use different plots for numerical features and categorical features.</p>
-<p>For numerical features, we show density and histogram chart:</p>
+<p>PiML allows for a visual exploration of the data distribution and the identification of potential outliers. These visualizations aid in understanding the range of values, detecting deviations from the expected patterns, and assessing the presence of outliers in the numerical feature space. The univariate shows the marginal distribution of a single feature.</p>
+<ul class="simple">
+<li><p><strong>Numerical Feature</strong>: We show the density and histogram charts for a numerical feature.</p></li>
+</ul>
 <div class="jupyter_cell jupyter_container docutils container">
 <div class="cell_input code_cell docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">exp</span><span class="o">.</span><span class="n">eda</span><span class="p">(</span><span class="n">show</span><span class="o">=</span><span class="s1">&#39;univariate&#39;</span><span class="p">,</span> <span class="n">uni_feature</span><span class="o">=</span><span class="s1">&#39;cnt&#39;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">exp</span><span class="o">.</span><span class="n">eda</span><span class="p">(</span><span class="n">show</span><span class="o">=</span><span class="s1">&#39;univariate&#39;</span><span class="p">,</span> <span class="n">uni_feature</span><span class="o">=</span><span class="s1">&#39;cnt&#39;</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">4</span><span class="p">))</span>
 </pre></div>
 </div>
 </div>
@@ -263,10 +265,12 @@
 <figure class="align-left">
 <a class="reference external image-reference" href="../../auto_examples/data/plot_2_data_eda.html"><img alt="../../_images/sphx_glr_plot_2_data_eda_001.png" src="../../_images/sphx_glr_plot_2_data_eda_001.png" /></a>
 </figure>
-<p>For categorical features, we show the bar chart that displays the frequency of values.</p>
+<ul class="simple">
+<li><p><strong>Categorical Feature</strong>: We show the bar chart that displays the frequency of each category.</p></li>
+</ul>
 <div class="jupyter_cell jupyter_container docutils container">
 <div class="cell_input code_cell docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">exp</span><span class="o">.</span><span class="n">eda</span><span class="p">(</span><span class="n">show</span><span class="o">=</span><span class="s1">&#39;univariate&#39;</span><span class="p">,</span> <span class="n">uni_feature</span><span class="o">=</span><span class="s1">&#39;yr&#39;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">exp</span><span class="o">.</span><span class="n">eda</span><span class="p">(</span><span class="n">show</span><span class="o">=</span><span class="s1">&#39;univariate&#39;</span><span class="p">,</span> <span class="n">uni_feature</span><span class="o">=</span><span class="s1">&#39;yr&#39;</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">4</span><span class="p">))</span>
 </pre></div>
 </div>
 </div>
@@ -279,12 +283,13 @@
 </section>
 <section id="bivariate-plots">
 <h2><span class="section-number">2.4.2. </span>Bivariate Plots<a class="headerlink" href="#bivariate-plots" title="Permalink to this heading">¶</a></h2>
-<p>The bivariate plot is a graphical representation that displays the relationship between two variables.
-We use three types of charts for different combinations of feature types.</p>
-<p>For numerical &amp; numerical, we use the scatter plot to show the relationship between two variables as a collection of points on a two-dimensional graph.</p>
+<p>The bivariate plot is a graphical representation that displays the relationship between two variables. We use three types of charts for different combinations of feature types.</p>
+<ul class="simple">
+<li><p><strong>Numerical &amp; Numerical</strong>: We use the scatter plot to show the relationship between two variables as a collection of points on a two-dimensional graph.</p></li>
+</ul>
 <div class="jupyter_cell jupyter_container docutils container">
 <div class="cell_input code_cell docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">exp</span><span class="o">.</span><span class="n">eda</span><span class="p">(</span><span class="n">show</span><span class="o">=</span><span class="s1">&#39;bivariate&#39;</span><span class="p">,</span> <span class="n">bi_features</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;temp&#39;</span><span class="p">,</span> <span class="s1">&#39;cnt&#39;</span><span class="p">])</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">exp</span><span class="o">.</span><span class="n">eda</span><span class="p">(</span><span class="n">show</span><span class="o">=</span><span class="s1">&#39;bivariate&#39;</span><span class="p">,</span> <span class="n">bi_features</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;temp&#39;</span><span class="p">,</span> <span class="s1">&#39;cnt&#39;</span><span class="p">],</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">4</span><span class="p">))</span>
 </pre></div>
 </div>
 </div>
@@ -294,10 +299,12 @@ We use three types of charts for different combinations of feature types.</p>
 <figure class="align-left">
 <a class="reference external image-reference" href="../../auto_examples/data/plot_2_data_eda.html"><img alt="../../_images/sphx_glr_plot_2_data_eda_003.png" src="../../_images/sphx_glr_plot_2_data_eda_003.png" /></a>
 </figure>
-<p>If the pair is numerical &amp; categorical, we use the box plot to show the relationship by displaying the numerical feature distribution conditional on each category of categorical feature.</p>
+<ul class="simple">
+<li><p><strong>Numerical &amp; Categorical</strong>: We use the box plot to show the relationship by displaying the numerical feature distribution conditional on each category of the categorical feature.</p></li>
+</ul>
 <div class="jupyter_cell jupyter_container docutils container">
 <div class="cell_input code_cell docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">exp</span><span class="o">.</span><span class="n">eda</span><span class="p">(</span><span class="n">show</span><span class="o">=</span><span class="s1">&#39;bivariate&#39;</span><span class="p">,</span> <span class="n">bi_features</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;hr&#39;</span><span class="p">,</span> <span class="s1">&#39;season&#39;</span><span class="p">])</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">exp</span><span class="o">.</span><span class="n">eda</span><span class="p">(</span><span class="n">show</span><span class="o">=</span><span class="s1">&#39;bivariate&#39;</span><span class="p">,</span> <span class="n">bi_features</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;hr&#39;</span><span class="p">,</span> <span class="s1">&#39;season&#39;</span><span class="p">],</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">4</span><span class="p">))</span>
 </pre></div>
 </div>
 </div>
@@ -307,10 +314,12 @@ We use three types of charts for different combinations of feature types.</p>
 <figure class="align-left">
 <a class="reference external image-reference" href="../../auto_examples/data/plot_2_data_eda.html"><img alt="../../_images/sphx_glr_plot_2_data_eda_004.png" src="../../_images/sphx_glr_plot_2_data_eda_004.png" /></a>
 </figure>
-<p>If the pair is categorical &amp; categorical, we use the stack bar plot, each bar represents a category in one variable and is divided into segments representing the frequency of the second variable within that category.</p>
+<ul class="simple">
+<li><p><strong>Categorical &amp; Categorical</strong>: We use the stack bar plot, each bar represents a category in one variable and is divided into segments representing the frequency of the second variable within that category.</p></li>
+</ul>
 <div class="jupyter_cell jupyter_container docutils container">
 <div class="cell_input code_cell docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">exp</span><span class="o">.</span><span class="n">eda</span><span class="p">(</span><span class="n">show</span><span class="o">=</span><span class="s1">&#39;bivariate&#39;</span><span class="p">,</span> <span class="n">bi_features</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;yr&#39;</span><span class="p">,</span> <span class="s1">&#39;season&#39;</span><span class="p">])</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">exp</span><span class="o">.</span><span class="n">eda</span><span class="p">(</span><span class="n">show</span><span class="o">=</span><span class="s1">&#39;bivariate&#39;</span><span class="p">,</span> <span class="n">bi_features</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;yr&#39;</span><span class="p">,</span> <span class="s1">&#39;season&#39;</span><span class="p">],</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">4</span><span class="p">))</span>
 </pre></div>
 </div>
 </div>
@@ -323,11 +332,13 @@ We use three types of charts for different combinations of feature types.</p>
 </section>
 <section id="multivariate-plots">
 <h2><span class="section-number">2.4.3. </span>Multivariate Plots<a class="headerlink" href="#multivariate-plots" title="Permalink to this heading">¶</a></h2>
-<p>There are two types of multivariate charts in PiML: correlation heatmap, and correlation graph. Both the correlation heatmap and correlation graph display  pairwisePearson correlations, using different representations.</p>
-<p>Here is an example of the correlation heatmap:</p>
+<p>There are two types of multivariate charts in PiML: correlation heatmap and correlation graph. Both the correlation heatmap and correlation graph display pairwise Pearson correlations, using different representations.</p>
+<ul class="simple">
+<li><p><strong>Correlation Heatmap</strong>: This heatmap displays the correlation matrix using heatmap directly.</p></li>
+</ul>
 <div class="jupyter_cell jupyter_container docutils container">
 <div class="cell_input code_cell docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">exp</span><span class="o">.</span><span class="n">eda</span><span class="p">(</span><span class="n">show</span><span class="o">=</span><span class="s1">&#39;multivariate&#39;</span><span class="p">,</span> <span class="n">multi_type</span><span class="o">=</span><span class="s1">&#39;correlation_heatmap&#39;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">exp</span><span class="o">.</span><span class="n">eda</span><span class="p">(</span><span class="n">show</span><span class="o">=</span><span class="s1">&#39;multivariate&#39;</span><span class="p">,</span> <span class="n">multi_type</span><span class="o">=</span><span class="s1">&#39;correlation_heatmap&#39;</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">6</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
 </pre></div>
 </div>
 </div>
@@ -337,10 +348,12 @@ We use three types of charts for different combinations of feature types.</p>
 <figure class="align-left">
 <a class="reference external image-reference" href="../../auto_examples/data/plot_2_data_eda.html"><img alt="../../_images/sphx_glr_plot_2_data_eda_006.png" src="../../_images/sphx_glr_plot_2_data_eda_006.png" /></a>
 </figure>
-<p>Here is an example of the correlation graph:</p>
+<ul class="simple">
+<li><p><strong>Correlation Graph</strong>: This is an alternative plot to the correlation heatmap, where we use nodes to represent features and connecting lines to show the correlation coefficients.</p></li>
+</ul>
 <div class="jupyter_cell jupyter_container docutils container">
 <div class="cell_input code_cell docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">exp</span><span class="o">.</span><span class="n">eda</span><span class="p">(</span><span class="n">show</span><span class="o">=</span><span class="s1">&#39;multivariate&#39;</span><span class="p">,</span> <span class="n">multi_type</span><span class="o">=</span><span class="s1">&#39;correlation_graph&#39;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">exp</span><span class="o">.</span><span class="n">eda</span><span class="p">(</span><span class="n">show</span><span class="o">=</span><span class="s1">&#39;multivariate&#39;</span><span class="p">,</span> <span class="n">multi_type</span><span class="o">=</span><span class="s1">&#39;correlation_graph&#39;</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">6</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
 </pre></div>
 </div>
 </div>

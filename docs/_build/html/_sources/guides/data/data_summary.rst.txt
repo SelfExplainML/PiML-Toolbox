@@ -7,249 +7,77 @@
 ==========================
 Data Summary
 ==========================
+Data summary involves summarizing basic data statistics and setting meta-information for features. As the dataset is loaded in PiML, this function provides an overview of data by data type, enabling you to obtain summary information. Additionally, it allows you to modify feature types and remove specific features.
 
-Data summary is the process to summarize basic data statistics and setting the meta info of features.
-In this function, you could not only get the summary information of data based on its data type, but also you can change the feature type and remove features.
 
 Summary Statistics
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-Different summary statistics are provided for numerical and categorical data, respectively.
+The summary statistics are presented in two separate panels: one for numerical features and another for categorical features. The classification of each feature type is determined automatically based on the data type and the count of unique values. For instance, if the data type is a string and the number of unique values is less than 5, the feature is categorized as categorical. Otherwise, it is regarded as numerical.
 
-For numerical:
+Numerical Features
+""""""""""""""""""""""""""
+The following summary statistics are provided:
 
-   - n_missing: Number of missing values
-   - mean: Mean
-   - std: Standard deviation
-   - min: Minimum value
-   - q1: First quartile
-   - median: Median
-   - q3: Third quartile
-   - max: Maximum value
+- n_missing: Number of missing values
+- mean: Mean
+- std: Standard deviation
+- min: Minimum value
+- q1: First quartile
+- median: Median
+- q3: Third quartile
+- max: Maximum value
 
-For categorical:
 
-   - n_missing: Number of missing values
-   - n_unique: Number of unique values
-   - top1: The highest frequency category
-   - top2: The second highest frequency category
-   - top3: The third highest frequency category
-   - n_others: The number of samples other than the top 3.
+Categorical Features
+""""""""""""""""""""""""""
+The following summary statistics are provided for categorical features:
 
-Here is an example of the data summary:
+- n_missing: Number of missing values
+- n_unique: Number of unique values
+- top1: The highest frequency category
+- top2: The second highest frequency category
+- top3: The third highest frequency category
+- n_others: The number of samples other than the top 3
 
-.. jupyter-input::
 
-      exp.data_summary(feature_type={},feature_exclude=[])
+The data summary module can be called using the function `exp.data_summary`.
 
-.. raw:: html
+.. jupyter-execute::
+    :hide-code:
 
-    <div class="output_subarea output_html rendered_html output_result">
-    <div>
-    <style scoped>
-        .dataframe tbody tr th:only-of-type {
-            vertical-align: middle;
-        }
+    from piml import Experiment
 
-        .dataframe tbody tr th {
-            vertical-align: top;
-        }
+    exp = Experiment()
+    exp.data_loader(data="BikeSharing", silent=True)
 
-        .dataframe thead th {
-            text-align: right;
-        }
-    </style>
-    <table border="1" class="dataframe">
-      <thead>
-        <tr style="text-align: right;">
-          <th></th>
-          <th>name</th>								
-          <th>n_missing</th>
-          <th>mean</th>
-          <th>std</th>
-          <th>min</th>
-          <th>q1</th>
-          <th>median</th>
-          <th>q3</th>
-          <th>max</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <th></th>
-          <td>mnth</td>
-          <td>0.0</td>
-          <td>6.537775</td>								
-          <td>3.438776</td>
-          <td>1.00</td>
-          <td>4.0000</td>
-          <td>7.0000</td>
-          <td>10.0000</td>
-          <td>12.0000</td>
-        </tr>
-        <tr>
-          <th></th>
-          <td>hr</td>
-          <td>0.0</td>
-          <td>11.546752</td>
-          <td>6.914405</td>
-          <td>0.00</td>
-          <td>6.0000</td>
-          <td>12.0000</td>
-          <td>18.0000</td>
-          <td>23.0000</td>
-        </tr>
-        <tr>
-          <th></th>
-          <td>weekday</td>
-          <td>0.0</td>
-          <td>3.003683</td>
-          <td>2.005771</td>
-          <td>0.00</td>
-          <td>1.0000</td>
-          <td>3.0000</td>
-          <td>5.0000</td>
-          <td>6.0000</td>						
-        </tr>
-        <tr>
-          <th></th>
-          <td>temp</td>
-          <td>0.0</td>
-          <td>0.496987</td>
-          <td>0.192556</td>
-          <td>0.02</td>
-          <td>0.3400</td>
-          <td>0.5000</td>
-          <td>0.6600</td>
-          <td>1.0000</td>						
+.. jupyter-execute::
 
-        </tr>
-        <tr>
-          <th></th>
-          <td>hum</td>
-          <td>0.0</td>
-          <td>0.627229</td>
-          <td>0.192930</td>
-          <td>0.00</td>
-          <td>0.4800</td>
-          <td>0.6300</td>
-          <td>0.7800</td>
-          <td>1.0000</td>							
-        </tr>
-        <tr>
-          <th></th>
-          <td>windspeed</td>
-          <td>0.0</td>
-          <td>0.190098</td>
-          <td>0.122340</td>
-          <td>0.00</td>
-          <td>0.1045</td>
-          <td>0.1940</td>
-          <td>0.2537</td>
-          <td>0.8507</td>							
-        </tr>
-        <tr>
-          <th></th>
-          <td>cnt</td>
-          <td>0.0</td>
-          <td>189.463088</td>
-          <td>181.387599</td>
-          <td>1.00</td>
-          <td>40.0000</td>
-          <td>142.0000</td>
-          <td>281.0000</td>
-          <td>977.0000</td>							
-        </tr>
-      </tbody>
-    </table>
-    </div>
-    </div>
+      exp.data_summary(feature_exclude=[], feature_type={})
 
-.. raw:: html
 
-    <div class="output_subarea output_html rendered_html output_result">
-    <div>
-    <style scoped>
-        .dataframe tbody tr th:only-of-type {
-            vertical-align: middle;
-        }
+Feature Manipulation
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+In addition to providing summary statistics, this function also offers the flexibility to manipulate features. It allows users to remove features and customize feature types based on specific requirements. This means you can modify the dataset by removing certain features and adjusting the feature types to suit your needs.
 
-        .dataframe tbody tr th {
-            vertical-align: top;
-        }
 
-        .dataframe thead th {
-            text-align: right;
-        }
-    </style>
-    <table border="1" class="dataframe">
-      <thead>
-        <tr style="text-align: right;">
-          <th></th>
-          <th>name</th>								
-          <th>n_missing</th>
-          <th>n_unique</th>
-          <th>top1</th>
-          <th>top2</th>
-          <th>top3</th>
-          <th>n_others</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <th></th>
-          <td>season</td>
-          <td>0</td>
-          <td>4</td>								
-          <td>3.0 : 4496</td>
-          <td>2.0 : 4409</td>
-          <td>1.0 : 4242</td>
-          <td>4232</td>				
-        </tr>
-        <tr>
-          <th></th>
-          <td>yr</td>
-          <td>0</td>
-          <td>2</td>
-          <td>1.0 : 8734</td>
-          <td>0.0 : 8645</td>
-          <td>0</td>
-          <td>0</td>		 			
-        </tr>
-        <tr>
-          <th></th>
-          <td>holiday</td>
-          <td>0</td>
-          <td>2</td>
-          <td>0.0 : 16879</td>
-          <td>1.0 : 500</td>
-          <td>0</td>
-          <td>0</td>				
-        </tr>
-        <tr>
-          <th></th>
-          <td>workingday</td>
-          <td>0</td>
-          <td>2</td>
-          <td>1.0 : 11865</td>
-          <td>0.0 : 5514</td>
-          <td>0</td>
-          <td>0</td>			
+Remove Features
+""""""""""""""""""""""""""""""""""""
+In the following example, we remove three features, including `yr`, `mnth`, and `temp`. The `feature_exclude` parameter is used to specify the features to be removed. The feature names are case-sensitive and must be entered in a list format.
 
-        </tr>
-        <tr>
-          <th></th>
-          <td>weathersit</td>
-          <td>0</td>
-          <td>4</td>
-          <td>1.0 : 11413</td>
-          <td>2.0 : 4544</td>
-          <td>3.0 : 1419</td>
-          <td>3</td>												
-        </tr>
-      </tbody>
-    </table>
-    </div>
-    </div>
+.. jupyter-execute::
+
+      exp.data_summary(feature_exclude=["yr", "mnth", "temp"])
+
+
+Change Feature Types
+""""""""""""""""""""""""""""""""""""
+Instead of relying solely on automatic feature type determination, you also have the option to manually set the feature type using the `feature_types` parameter. The available categories include "numerical" and "categorical". For instance, if you want to specify the feature type of the mnth feature as categorical, you can do so using the following example:
+
+.. jupyter-execute::
+
+      exp.data_summary(feature_type={"weekday": "categorical"})
+
+By explicitly setting the feature type, you have greater control over how the data is categorized and can ensure it aligns with your specific requirements.
 
 
 

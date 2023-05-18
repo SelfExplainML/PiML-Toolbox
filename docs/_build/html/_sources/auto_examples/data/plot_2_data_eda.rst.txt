@@ -162,7 +162,7 @@ correlation heatmap
 
 .. code-block:: default
 
-    exp.eda(show='multivariate', multi_type='correlation_heatmap', figsize=(5, 4))
+    exp.eda(show='multivariate', multi_type='correlation_heatmap', figsize=(6, 5))
 
 
 
@@ -184,7 +184,7 @@ correlation graph
 
 .. code-block:: default
 
-    exp.eda(show='multivariate', multi_type='correlation_graph', figsize=(5, 4))
+    exp.eda(show='multivariate', multi_type='correlation_graph', figsize=(6, 5))
 
 
 .. image-sg:: /auto_examples/data/images/sphx_glr_plot_2_data_eda_007.png
@@ -199,9 +199,9 @@ correlation graph
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** ( 1 minutes  24.895 seconds)
+   **Total running time of the script:** ( 0 minutes  48.021 seconds)
 
-**Estimated memory usage:**  36 MB
+**Estimated memory usage:**  41 MB
 
 
 .. _sphx_glr_download_auto_examples_data_plot_2_data_eda.py:

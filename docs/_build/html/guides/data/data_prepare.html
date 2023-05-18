@@ -43,8 +43,6 @@
         <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/@jupyter-widgets/html-manager@^1.0.1/dist/embed-amd.js"></script>
         <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
-        <script>window.MathJax = {"tex": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true}, "options": {"ignoreHtmlClass": "tex2jax_ignore|mathjax_ignore|document", "processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
-        <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
     <script src="../../_static/js/theme.js"></script>
 
 </head>
@@ -248,40 +246,29 @@
 
 </style><section id="data-preparation">
 <h1><span class="section-number">2.3. </span>Data Preparation<a class="headerlink" href="#data-preparation" title="Permalink to this heading">¶</a></h1>
-<p>This section introduces the data preparation module of PiML. In this function, you can set the detailed configuration of the model training procedure, including task configurations like target variable, task type, and sample_weight. Further, there is the data split setting such as split method, split ratio, and random seed to decide how to split data for the experiment. Besides the setting, you can also get results on the distances between train test datasets.</p>
-<section id="setting">
-<h2><span class="section-number">2.3.1. </span>Setting<a class="headerlink" href="#setting" title="Permalink to this heading">¶</a></h2>
-<ul>
-<li><p><strong>Target variable</strong>: The target variable for training</p></li>
-<li><p><strong>Task type</strong>: PiML supports two different types of tasks, (continuous) regression, and classification or binary regression</p></li>
-<li><p><strong>Sample weight</strong>: variable that defines the sample weights for training</p></li>
-<li><p><strong>Split method</strong>: PiML supports three different kinds of methods for split training and testing datasets.</p>
-<blockquote>
-<div><ul class="simple">
-<li><p>random: Random split.</p></li>
-<li><p>outer-sample: Split samples based on Euclidean distance between each sample to the mean center. Choose the samples farthest away from the center as the test samples.</p></li>
-<li><p>kmeans: Split samples based on kmeans cluster method. After training kmeans cluster, set the test ratio of each cluster and do the random split in each cluster.</p></li>
-<li><p>manual: Split samples based on given training and testing sample index.</p></li>
+<p>This section provides an introduction to the data preparation module of PiML. Within this module, you have the ability to configure various aspects of the data, including task-specific settings such as the target variable, task type, and sample weight. Additionally, users can customize the train-test split by specifying parameters such as the split method, split ratio, and random seed. This allows for greater control and flexibility in preparing the data according to specific requirements and preferences.</p>
+<div class="jupyter_cell docutils container">
+<div class="cell_output docutils container">
+</div>
+</div>
+<section id="basic-settings">
+<h2><span class="section-number">2.3.1. </span>Basic Settings<a class="headerlink" href="#basic-settings" title="Permalink to this heading">¶</a></h2>
+<p>The basic settings include the target variable, task type, and sample weight variable, as follows.</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">target</span></code>: The target variable for training is typically selected as the last column in the dataset by default. However, if the target variable is located in a different column, you have the option to specify the column name. This allows you to explicitly identify the desired column as the target variable, ensuring that the correct data is used for training.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">task_type</span></code>: The data preparation module in PiML supports two types of tasks: “regression” (continuous regression) and “classification” (including binary regression). By default, the task type is automatically determined based on the feature type of the target variable. If the target variable is numerical, the task type is assumed to be “regression”. On the other hand, if the target variable is categorical with two categories, the task type is set to “classification”. By explicitly specifying the appropriate task type, you can ensure that the module applies the most suitable models and algorithms to handle the specific task effectively.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">sample_weight</span></code>: By default, the sample weight variable is set to <code class="docutils literal notranslate"><span class="pre">None</span></code>. This means that no specific column is assigned as the sample weight. However, you have the option to specify a column name in the dataset as the sample weight variable. This allows you to assign different weights to individual samples, which can be useful in scenarios where certain samples are more important or carry more significance in the analysis or modeling process.</p></li>
 </ul>
-</div></blockquote>
-</li>
-</ul>
-<p>Here is an example of using the custom sample index to split training testing datasets:</p>
-<blockquote>
-<div><div class="jupyter_cell jupyter_container docutils container">
+<div class="jupyter_cell jupyter_container docutils container">
 <div class="cell_input code_cell docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">custom_train_idx</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">16000</span><span class="p">)</span>
-<span class="n">custom_test_idx</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">16000</span><span class="p">,</span> <span class="mi">17379</span><span class="p">)</span>
-<span class="n">exp</span><span class="o">.</span><span class="n">data_prepare</span><span class="p">(</span><span class="n">train_idx</span><span class="o">=</span><span class="n">custom_train_idx</span><span class="p">,</span> <span class="n">test_idx</span><span class="o">=</span><span class="n">custom_test_idx</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">exp</span><span class="o">.</span><span class="n">data_prepare</span><span class="p">(</span><span class="n">target</span><span class="o">=</span><span class="s1">&#39;cnt&#39;</span><span class="p">,</span> <span class="n">task_type</span><span class="o">=</span><span class="s1">&#39;regression&#39;</span><span class="p">,</span> <span class="n">sample_weight</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-</div>
-</div>
-</div></blockquote>
-<div class="output_subarea output_html rendered_html output_result">
-<div>
+<script type="application/vnd.jupyter.widget-view+json">
+{"version_major": 2, "version_minor": 0, "model_id": "4d6dff46a56542cc8667bd027965033d"}
+</script><div class="output text_html"><div>
 <style scoped>
     .dataframe tbody tr th:only-of-type {
         vertical-align: middle;
@@ -305,140 +292,384 @@
   </thead>
   <tbody>
     <tr>
-      <th></th>
+      <th>0</th>
       <td>Excluded columns</td>
       <td>[]</td>
     </tr>
     <tr>
-      <th></th>
+      <th>1</th>
       <td>Target variable</td>
       <td>cnt</td>
     </tr>
     <tr>
-      <th></th>
+      <th>2</th>
       <td>Sample weight</td>
       <td>None</td>
     </tr>
     <tr>
-      <th></th>
+      <th>3</th>
       <td>Task type</td>
       <td>Regression</td>
     </tr>
     <tr>
-      <th></th>
-      <td>Split method</td>
-      <td>Manual</td>
-    </tr>
-    <tr>
-      <th></th>
-      <td>Test ratio</td>
-      <td>0.079296</td>
-    </tr>
-    <tr>
-      <th></th>
-      <td>Random state</td>
-      <td>0</td>
-    </tr>
-    <tr>
-      <th></th>
-      <td>Train test energy distance</td>
-      <td>0.542358</td>
-    </tr>
-
-  </tbody>
-</table>
-</div>
-</div><p>Split ratio: Fraction of dataset to be set as the test data. When using kmeans method, it can be set as a list of ratios of each cluster.</p>
-<p>Random Seed: The random seed for the random split.</p>
-</section>
-<section id="train-test-distance">
-<h2><span class="section-number">2.3.2. </span>Train-Test Distance<a class="headerlink" href="#train-test-distance" title="Permalink to this heading">¶</a></h2>
-<p>After setting the configuration, there is the related train test distance result based on the data split setting. For overall understanding, we use energy distance. The energy distance measures the distance between the empirical distribution functions (EDFs) of two data sets as defined below</p>
-<div class="math notranslate nohighlight">
-\[ED(X,Y) = \frac{2T}{n^2} - \frac{S}{n} + \frac{1}{n^2} \sum{D(X,X)} + \frac{1}{n^2} \sum{D(Y,Y)}\]</div>
-<p>where n is the total number of observations in both datasets. The first term represents the contribution of cross-dataset distances, the second term represents the average of within-dataset distances, and the last two terms represent the contributions of within-dataset distances for X and Y, respectively. To generalize the distance result, before calculating distance, we use the ordinal encoder for categorical features and 0-1 min max scaler transformation.</p>
-<p>Here is a complete example of data preparation:</p>
-<blockquote>
-<div><div class="jupyter_cell jupyter_container docutils container">
-<div class="cell_input code_cell docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">exp</span><span class="o">.</span><span class="n">data_prepare</span><span class="p">(</span><span class="n">target</span><span class="o">=</span><span class="s1">&#39;cnt&#39;</span><span class="p">,</span> <span class="n">task_type</span><span class="o">=</span><span class="s1">&#39;Regression&#39;</span><span class="p">,</span> <span class="n">sample_weight</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
-                 <span class="n">split_method</span><span class="o">=</span><span class="s1">&#39;random&#39;</span><span class="p">,</span> <span class="n">test_ratio</span><span class="o">=</span><span class="mf">0.2</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-</div>
-</div>
-</div></blockquote>
-<div class="output_subarea output_html rendered_html output_result">
-<div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th>Config</th>
-      <th>Value</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th></th>
-      <td>Excluded columns</td>
-      <td>[]</td>
-    </tr>
-    <tr>
-      <th></th>
-      <td>Target variable</td>
-      <td>cnt</td>
-    </tr>
-    <tr>
-      <th></th>
-      <td>Sample weight</td>
-      <td>None</td>
-    </tr>
-    <tr>
-      <th></th>
-      <td>Task type</td>
-      <td>Regression</td>
-    </tr>
-    <tr>
-      <th></th>
+      <th>4</th>
       <td>Split method</td>
       <td>Random</td>
     </tr>
     <tr>
-      <th></th>
+      <th>5</th>
       <td>Test ratio</td>
       <td>0.2</td>
     </tr>
     <tr>
-      <th></th>
+      <th>6</th>
       <td>Random state</td>
       <td>0</td>
     </tr>
     <tr>
-      <th></th>
+      <th>7</th>
       <td>Train test energy distance</td>
       <td>0.000586</td>
     </tr>
-
   </tbody>
 </table>
+</div></div></div>
 </div>
-</div></section>
+<p>In data preparation, all categorical features are preprocessed using the ordinal encoder, and numerical features are standardized to be within 0 and 1 using a min-max scaler.</p>
+</section>
+<section id="train-test-splits">
+<h2><span class="section-number">2.3.2. </span>Train-test Splits<a class="headerlink" href="#train-test-splits" title="Permalink to this heading">¶</a></h2>
+<p>PiML supports four different methods for splitting datasets into training and testing sets. Once the split is performed, an assessment of the distributional difference between the train and test sets is conducted using the energy distance metric. The energy distance quantifies the dissimilarity between the empirical distribution functions (EDFs) of the two data sets. To reduce the computational burden, we subsample at most 10000 samples from the training and testing sets to calculate the energy distance. Note that categorical features are first encoded using the ordinal encoder and then transformed to be within 0 and 1 before the energy distance is calculated.</p>
+<section id="random-split">
+<h3><span class="section-number">2.3.2.1. </span>Random Split<a class="headerlink" href="#random-split" title="Permalink to this heading">¶</a></h3>
+<p>The following code demonstrates how to utilize the random split method in PiML to divide the training and testing datasets. The default test ratio is set to 0.2, and the default random seed is 0.</p>
+<div class="jupyter_cell jupyter_container docutils container">
+<div class="cell_input code_cell docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">exp</span><span class="o">.</span><span class="n">data_prepare</span><span class="p">(</span><span class="n">target</span><span class="o">=</span><span class="s1">&#39;cnt&#39;</span><span class="p">,</span> <span class="n">task_type</span><span class="o">=</span><span class="s1">&#39;regression&#39;</span><span class="p">,</span> <span class="n">sample_weight</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                <span class="n">split_method</span><span class="o">=</span><span class="s1">&#39;random&#39;</span><span class="p">,</span> <span class="n">test_ratio</span><span class="o">=</span><span class="mf">0.2</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<script type="application/vnd.jupyter.widget-view+json">
+{"version_major": 2, "version_minor": 0, "model_id": "5fbfe0e3cb5d4ce49ab555aba6d3c370"}
+</script><div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Config</th>
+      <th>Value</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>Excluded columns</td>
+      <td>[]</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>Target variable</td>
+      <td>cnt</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>Sample weight</td>
+      <td>None</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>Task type</td>
+      <td>Regression</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>Split method</td>
+      <td>Random</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>Test ratio</td>
+      <td>0.2</td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td>Random state</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>7</th>
+      <td>Train test energy distance</td>
+      <td>0.000586</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p>This function would output a configuration table, listing the basic information of the data preparation.</p>
+</section>
+<section id="outer-sample-based-split">
+<h3><span class="section-number">2.3.2.2. </span>Outer-sample-based Split<a class="headerlink" href="#outer-sample-based-split" title="Permalink to this heading">¶</a></h3>
+<p>This method splits samples based on the Euclidean distance between each sample to the data center. Samples that are far away from the center are chosen as the test set. In the following example, the <code class="docutils literal notranslate"><span class="pre">test_ratio</span></code> parameter is used to select the farthest 20% of samples as the test set.</p>
+<div class="jupyter_cell jupyter_container docutils container">
+<div class="cell_input code_cell docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">exp</span><span class="o">.</span><span class="n">data_prepare</span><span class="p">(</span><span class="n">target</span><span class="o">=</span><span class="s1">&#39;cnt&#39;</span><span class="p">,</span> <span class="n">task_type</span><span class="o">=</span><span class="s1">&#39;regression&#39;</span><span class="p">,</span> <span class="n">sample_weight</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                <span class="n">split_method</span><span class="o">=</span><span class="s1">&#39;outer-sample&#39;</span><span class="p">,</span> <span class="n">test_ratio</span><span class="o">=</span><span class="mf">0.2</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<script type="application/vnd.jupyter.widget-view+json">
+{"version_major": 2, "version_minor": 0, "model_id": "7368b12cfc144868815db48747ea622f"}
+</script><div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Config</th>
+      <th>Value</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>Excluded columns</td>
+      <td>[]</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>Target variable</td>
+      <td>cnt</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>Sample weight</td>
+      <td>None</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>Task type</td>
+      <td>Regression</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>Split method</td>
+      <td>Outer-Sample</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>Test ratio</td>
+      <td>0.2</td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td>Random state</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>7</th>
+      <td>Train test energy distance</td>
+      <td>0.167242</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+</section>
+<section id="kmeans-based-split">
+<h3><span class="section-number">2.3.2.3. </span>KMeans-based Split<a class="headerlink" href="#kmeans-based-split" title="Permalink to this heading">¶</a></h3>
+<p>This method first fits the KMeans clustering algorithm using all predictors. Then, for each cluster, we randomly select a percent of samples and test samples, and the remaining samples are used as training samples. The test ratio of each cluster can be set as a list of ratios of each cluster. The number of clusters is determined by the length of the list. In this case, the <code class="docutils literal notranslate"><span class="pre">test_ratio</span></code> list contains three elements, indicating that the KMeans clustering algorithm will have three clusters (K=3). The test ratios for the first, second, and third clusters are set to 0.0, 1.0, and 0.0, respectively.</p>
+<div class="jupyter_cell jupyter_container docutils container">
+<div class="cell_input code_cell docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">exp</span><span class="o">.</span><span class="n">data_prepare</span><span class="p">(</span><span class="n">target</span><span class="o">=</span><span class="s1">&#39;cnt&#39;</span><span class="p">,</span> <span class="n">task_type</span><span class="o">=</span><span class="s1">&#39;regression&#39;</span><span class="p">,</span> <span class="n">sample_weight</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                <span class="n">split_method</span><span class="o">=</span><span class="s1">&#39;kmeans&#39;</span><span class="p">,</span> <span class="n">test_ratio</span><span class="o">=</span><span class="p">[</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">],</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<script type="application/vnd.jupyter.widget-view+json">
+{"version_major": 2, "version_minor": 0, "model_id": "7714722ac067439d94bc7c3d13e08505"}
+</script><div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Config</th>
+      <th>Value</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>Excluded columns</td>
+      <td>[]</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>Target variable</td>
+      <td>cnt</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>Sample weight</td>
+      <td>None</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>Task type</td>
+      <td>Regression</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>Split method</td>
+      <td>Kmeans</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>Test ratio</td>
+      <td>0.421888</td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td>Random state</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>7</th>
+      <td>Train test energy distance</td>
+      <td>0.178697</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p>This algorithm is useful for generating train and test sets with distinct distributional characteristics. The test ratio in the configuration table shows the actual ratio of the test set over the whole sample.</p>
+</section>
+<section id="manual-split">
+<h3><span class="section-number">2.3.2.4. </span>Manual Split<a class="headerlink" href="#manual-split" title="Permalink to this heading">¶</a></h3>
+<p>In addition to the aforementioned split methods, PiML also provides support for custom sample index splits. Here is an example of how to use custom sample indices for splitting the training and testing datasets.</p>
+<div class="jupyter_cell jupyter_container docutils container">
+<div class="cell_input code_cell docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">custom_train_idx</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">16000</span><span class="p">)</span>
+<span class="n">custom_test_idx</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">16000</span><span class="p">,</span> <span class="mi">17379</span><span class="p">)</span>
+<span class="n">exp</span><span class="o">.</span><span class="n">data_prepare</span><span class="p">(</span><span class="n">target</span><span class="o">=</span><span class="s1">&#39;cnt&#39;</span><span class="p">,</span> <span class="n">task_type</span><span class="o">=</span><span class="s1">&#39;regression&#39;</span><span class="p">,</span> <span class="n">sample_weight</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                <span class="n">train_idx</span><span class="o">=</span><span class="n">custom_train_idx</span><span class="p">,</span> <span class="n">test_idx</span><span class="o">=</span><span class="n">custom_test_idx</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<script type="application/vnd.jupyter.widget-view+json">
+{"version_major": 2, "version_minor": 0, "model_id": "f7a00c608c76409797e9c2bc246d6c76"}
+</script><div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Config</th>
+      <th>Value</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>Excluded columns</td>
+      <td>[]</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>Target variable</td>
+      <td>cnt</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>Sample weight</td>
+      <td>None</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>Task type</td>
+      <td>Regression</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>Split method</td>
+      <td>Manual</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>Test ratio</td>
+      <td>0.079349</td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td>Random state</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>7</th>
+      <td>Train test energy distance</td>
+      <td>0.542053</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p>You can customize the <code class="docutils literal notranslate"><span class="pre">train_idx</span></code> and <code class="docutils literal notranslate"><span class="pre">test_idx</span></code> according to your specific requirements. These lists contain the indices of the samples that will be included in the training and testing sets, respectively. By defining your own set of sample indices, you have full control over the composition of the training and testing datasets.</p>
+</section>
+</section>
 <section id="examples">
 <h2><span class="section-number">2.3.3. </span>Examples<a class="headerlink" href="#examples" title="Permalink to this heading">¶</a></h2>
 <p>The full example codes of this section can be found in the following link.</p>
@@ -450,6 +681,12 @@
 </div>
 </section>
 </section>
+
+
+<script type="application/vnd.jupyter.widget-state+json">
+{"state": {"8e888557f02b4181a638000f360165e4": {"model_name": "LayoutModel", "model_module": "@jupyter-widgets/base", "model_module_version": "2.0.0", "state": {"_model_module": "@jupyter-widgets/base", "_model_module_version": "2.0.0", "_model_name": "LayoutModel", "_view_count": null, "_view_module": "@jupyter-widgets/base", "_view_module_version": "2.0.0", "_view_name": "LayoutView", "align_content": null, "align_items": null, "align_self": null, "border_bottom": null, "border_left": null, "border_right": null, "border_top": null, "bottom": null, "display": null, "flex": null, "flex_flow": null, "grid_area": null, "grid_auto_columns": null, "grid_auto_flow": null, "grid_auto_rows": null, "grid_column": null, "grid_gap": null, "grid_row": null, "grid_template_areas": null, "grid_template_columns": null, "grid_template_rows": null, "height": null, "justify_content": null, "justify_items": null, "left": null, "margin": null, "max_height": null, "max_width": null, "min_height": null, "min_width": null, "object_fit": null, "object_position": null, "order": null, "overflow": null, "padding": null, "right": null, "top": null, "visibility": null, "width": null}}, "d66ee5eea5c34b0bab47f0dbf8c4c8ae": {"model_name": "OutputModel", "model_module": "@jupyter-widgets/output", "model_module_version": "1.0.0", "state": {"_dom_classes": [], "_model_module": "@jupyter-widgets/output", "_model_module_version": "1.0.0", "_model_name": "OutputModel", "_view_count": null, "_view_module": "@jupyter-widgets/output", "_view_module_version": "1.0.0", "_view_name": "OutputView", "layout": "IPY_MODEL_8e888557f02b4181a638000f360165e4", "msg_id": "", "outputs": [], "tabbable": null, "tooltip": null}}, "bb8583f876084eaabf0ac906da32ffe5": {"model_name": "LayoutModel", "model_module": "@jupyter-widgets/base", "model_module_version": "2.0.0", "state": {"_model_module": "@jupyter-widgets/base", "_model_module_version": "2.0.0", "_model_name": "LayoutModel", "_view_count": null, "_view_module": "@jupyter-widgets/base", "_view_module_version": "2.0.0", "_view_name": "LayoutView", "align_content": null, "align_items": null, "align_self": null, "border_bottom": null, "border_left": null, "border_right": null, "border_top": null, "bottom": null, "display": null, "flex": null, "flex_flow": null, "grid_area": null, "grid_auto_columns": null, "grid_auto_flow": null, "grid_auto_rows": null, "grid_column": null, "grid_gap": null, "grid_row": null, "grid_template_areas": null, "grid_template_columns": null, "grid_template_rows": null, "height": null, "justify_content": null, "justify_items": null, "left": null, "margin": null, "max_height": null, "max_width": null, "min_height": null, "min_width": null, "object_fit": null, "object_position": null, "order": null, "overflow": null, "padding": null, "right": null, "top": null, "visibility": null, "width": null}}, "e9e21e70e8fa4d71a4722078c4e031b4": {"model_name": "HTMLStyleModel", "model_module": "@jupyter-widgets/controls", "model_module_version": "2.0.0", "state": {"_model_module": "@jupyter-widgets/controls", "_model_module_version": "2.0.0", "_model_name": "HTMLStyleModel", "_view_count": null, "_view_module": "@jupyter-widgets/base", "_view_module_version": "2.0.0", "_view_name": "StyleView", "background": null, "description_width": "", "font_size": null, "text_color": null}}, "4d6dff46a56542cc8667bd027965033d": {"model_name": "HTMLModel", "model_module": "@jupyter-widgets/controls", "model_module_version": "2.0.0", "state": {"_dom_classes": [], "_model_module": "@jupyter-widgets/controls", "_model_module_version": "2.0.0", "_model_name": "HTMLModel", "_view_count": null, "_view_module": "@jupyter-widgets/controls", "_view_module_version": "2.0.0", "_view_name": "HTMLView", "description": "", "description_allow_html": false, "layout": "IPY_MODEL_bb8583f876084eaabf0ac906da32ffe5", "placeholder": "\u200b", "style": "IPY_MODEL_e9e21e70e8fa4d71a4722078c4e031b4", "tabbable": null, "tooltip": null, "value": "\n        <style>\n\n        .left-label {\n            width: 30%;\n        }\n\n        .card-panel {\n            -webkit-transition: -webkit-box-shadow .25s;\n            transition: -webkit-box-shadow .25s;\n            transition: box-shadow .25s;\n            transition: box-shadow .25s, -webkit-box-shadow .25s;\n            padding: 24px;\n            margin: 0.5rem 0 1rem 0;\n            border-radius: 2px;\n            background-color: #fff;\n        }\n\n        .card {\n            position: relative;\n            margin: 0.5rem 0.1rem 1rem 0.2rem;\n            background-color: #fff;\n            -webkit-transition: -webkit-box-shadow .25s;\n            transition: -webkit-box-shadow .25s;\n            transition: box-shadow .25s;\n            transition: box-shadow .25s, -webkit-box-shadow .25s;\n            border-radius: 2px;\n            box-shadow: 0 2px 2px 0 rgb(0 0 0 / 14%), 0 3px 1px -2px rgb(0 0 0 / 12%), 0 1px 5px 0 rgb(0 0 0 / 20%);\n            padding: 24px;\n            color: white;\n        }\n\n        .card .card-title {\n            font-size: 24px;\n            font-weight: 300;\n        }\n\n        @media only screen and (min-width: 800px) {\n            /* For notebook: */\n            .card {width: 99% !important;}\n        }\n\n        @media only screen and (min-width: 1400px) {\n            /* For colab: */\n            .card {width: 99% !important;}\n        }\n\n        .blue-grey.darken-1 {\n            background-color: #546e7a !important;\n        }\n\n        .small-card {\n            position: relative;\n            margin: 0.5rem 0 1rem 0;\n            background-color: #fff;\n            -webkit-transition: -webkit-box-shadow .25s;\n            transition: -webkit-box-shadow .25s;\n            transition: box-shadow .25s;\n            transition: box-shadow .25s, -webkit-box-shadow .25s;\n            border-radius: 2px;\n            box-shadow: 0 2px 2px 0 rgb(0 0 0 / 14%), 0 3px 1px -2px rgb(0 0 0 / 12%), 0 1px 5px 0 rgb(0 0 0 / 20%);\n            padding: 0px 5px 0px 5px;\n            color: white;\n        }\n\n        .inner-card {\n            position: relative;\n            background-color: #fff;\n            -webkit-transition: -webkit-box-shadow .25s;\n            transition: -webkit-box-shadow .25s;\n            transition: box-shadow .25s;\n            transition: box-shadow .25s, -webkit-box-shadow .25s;\n            border-radius: 2px;\n            box-shadow: 0 2px 2px 0 rgb(0 0 0 / 14%), 0 3px 1px -2px rgb(0 0 0 / 12%), 0 1px 5px 0 rgb(0 0 0 / 20%);\n            padding: 20px;\n            color: white;\n            margin: 0px 1px 1px 1px;\n        }\n\n        .card-with-tab {\n            position: relative;\n            margin: 0.5rem 0.1rem 1rem 0.2rem;\n            background-color: #fff;\n            -webkit-transition: -webkit-box-shadow .25s;\n            transition: -webkit-box-shadow .25s;\n            transition: box-shadow .25s;\n            transition: box-shadow .25s, -webkit-box-shadow .25s;\n            border-radius: 2px;\n            box-shadow: 0 2px 2px 0 rgb(0 0 0 / 14%), 0 3px 1px -2px rgb(0 0 0 / 12%), 0 1px 5px 0 rgb(0 0 0 / 20%);\n            padding: 24px;\n            color: white;\n        }\n\n        .card-with-tab button {\n            width: auto;\n            padding: 12px 40px;\n        }\n\n        .list {\n            padding: 0px 10px;\n            box-shadow: 0 2px 2px 0 rgb(0 0 0 / 14%), 0 3px 1px -2px rgb(0 0 0 / 12%), 0 1px 5px 0 rgb(0 0 0 / 20%);\n            margin: 0px 1px 60px 1px;\n        }\n\n        .list-item {\n            padding: 10px 0px;\n            border-width: 0;\n            border-style: solid;\n            border-color: rgba(0, 0, 0, 0.08);\n            border-bottom-width: thin;\n        }\n\n        .divider {\n            margin: 10px 0px;\n            border-width: 0;\n            border-style: solid;\n            border-color: rgba(0, 0, 0, 0.08);\n            border-bottom-width: thin;\n        }\n\n        .hr {\n            margin: 0;\n            -webkit-flex-shrink: 0;\n            -ms-flex-negative: 0;\n            flex-shrink: 0;\n            border-width: 0;\n            border-style: solid;\n            border-color: rgba(0, 0, 0, 0.08);\n            border-bottom-width: thin;\n        }\n\n        .notification {\n            transition: box-shadow 300ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;\n            border-radius: 4px;\n            box-shadow: 0 2px 2px 0 rgb(0 0 0 / 14%), 0 3px 1px -2px rgb(0 0 0 / 12%), 0 1px 5px 0 rgb(0 0 0 / 20%);\n            font-family: Roboto, Helvetica, Arial, sans-serif;\n            font-weight: 500;\n            font-size: 12px;\n            line-height: 1.43;\n            letter-spacing: 0.01071em;\n            background-color: rgb(2, 136, 209);\n            display: flex;\n            padding: 6px 16px;\n            color: rgb(255, 255, 255);\n            margin-top: 10px;\n        }\n\n        .success {\n            background-color: #EDF7ED;\n            color: #1E4620;\n        }\n\n        .error {\n            background-color: #FDEDED;\n            color: #5F2120;\n        }\n\n        .info {\n            background-color: #E5F6FD;\n            color: #528298;\n        }\n\n        .warn {\n            background-color: #FFF4E5;\n            color: #663C00;\n        }\n\n        .margin-top-20 {\n            margin-top: 20px;\n        }\n\n        .hide {\n            display: none;\n        }\n\n        .pbtn {\n            display: inline-flex;\n            -webkit-box-align: center;\n            align-items: center;\n            -webkit-box-pack: center;\n            justify-content: center;\n            position: relative;\n            box-sizing: border-box;\n            -webkit-tap-highlight-color: transparent;\n            outline: 0px;\n            border: 0px;\n            margin: 0px;\n            cursor: pointer;\n            user-select: none;\n            vertical-align: middle;\n            appearance: none;\n            text-decoration: none;\n            font-family: Roboto, Helvetica, Arial, sans-serif;\n            font-weight: 550;\n            font-size: 12px;\n            line-height: 1.75;\n            letter-spacing: 0.02857em;\n            text-transform: uppercase;\n            min-width: 64px;\n            padding: 6px 16px;\n            border-radius: 4px;\n            transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms, box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms, border-color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms, color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;\n            color: rgb(255, 255, 255);\n            background-color: #D71E28;\n            box-shadow: rgb(0 0 0 / 20%) 0px 3px 1px -2px, rgb(0 0 0 / 14%) 0px 2px 2px 0px, rgb(0 0 0 / 12%) 0px 1px 5px 0px;\n        }\n\n        .jp-OutputArea-output {\n            flex-grow: 1;\n            flex-shrink: 1;\n            margin: 0px;\n        }\n\n        .output_subarea {\n            padding: 0px !important;\n        }\n\n        .ptable, .pth, .ptd {\n            border: none;\n        }\n\n        .pth, .ptd {\n            max-width: 150px;\n            white-space: nowrap;\n            overflow: hidden;\n            -o-text-overflow: ellipsis;\n            -ms-text-overflow: ellipsis;\n            text-overflow: ellipsis;\n        }\n\n        .ptable {\n            display: table;\n            border-collapse: collapse;\n            border-spacing: 0;\n        }\n\n        .ptable.striped .ptr {\n            border-bottom: none;\n        }\n\n        .ptable.striped > .ptbody > .ptr:nth-child(odd) {\n            background-color: rgba(242, 242, 242, 0.5);\n        }\n\n        .ptable.striped > .ptbody > .ptr > .ptd {\n            border-radius: 0;\n        }\n\n        .ptable.highlight > .ptbody > .ptr {\n            -webkit-transition: background-color .25s ease;\n            transition: background-color .25s ease;\n        }\n\n        .ptable.highlight > .ptbody > .ptr:hover {\n            background-color: rgba(242, 242, 242, 0.5);\n        }\n\n        .ptable.centered .pthead .ptr .pth, .ptable.centered .ptbody .ptr .ptd {\n            text-align: center;\n        }\n\n        .ptr {\n            border-bottom: 1px solid rgba(0, 0, 0, 0.12);\n        }\n\n        .ptr.hightlight {\n            background-color: yellow !important;\n        }\n\n        .ptd, .pth {\n            padding: 0.2rem 0.6rem;\n            display: table-cell;\n            text-align: right;\n            vertical-align: middle;\n            border-radius: 2px;\n            position: relative;\n        }\n\n        .ptr.grey {\n            background-color: grey !important;\n        }\n\n        .ptr.strikeout .ptd:before {\n            content: \" \";\n            position: absolute;\n            top: 50%;\n            left: 0;\n            border-bottom: 1px solid #111;\n            width: 100%;\n        }\n\n        .widget-toggle-button {\n            display: inline-flex;\n            -webkit-box-align: center;\n            align-items: center;\n            -webkit-box-pack: center;\n            justify-content: center;\n            box-sizing: border-box;\n            -webkit-tap-highlight-color: transparent;\n            background-color: transparent !important;\n            outline: 0px;\n            border: 0px;\n            border-bottom: 2px solid #E4E4E4 !important;\n            box-shadow: none !important;\n            margin: 0px !important;\n            border-radius: 0px;\n            cursor: pointer;\n            user-select: none;\n            vertical-align: middle;\n            appearance: none;\n            text-decoration: none;\n            font-family: Roboto, Helvetica, Arial, sans-serif;\n            font-weight: 500;\n            font-size: 14px;\n            line-height: 1.25;\n            letter-spacing: 0.02857em;\n            max-width: 360px;\n            min-width: 90px;\n            position: relative;\n            min-height: 48px;\n            flex-shrink: 0;\n            padding: 12px 16px;\n            overflow: hidden;\n            white-space: normal;\n            text-align: center;\n            flex-direction: column;\n            color: rgba(0, 0, 0, 0.6);\n        }\n\n        .narrow-accordion .jupyter-widget-Accordion-child .jupyter-widget-Collapse-header{\n            padding: 5px;\n        }  \n\n        .mod-active {\n            color: rgb(25, 118, 210) !important;\n            border-bottom: 2px solid rgb(25, 118, 210) !important;\n        }\n\n        .narrow-tab button {\n            max-width: 15%;\n        }\n\n        .narrow-tab-fairness button {\n            max-width: 20%;\n        }\n        .narrow-tab-fs button {\n            max-width: 25%;\n        }\n\n        .overflow-fix .jupyter-widgets {\n            overflow: auto;\n        }\n\n        .inner-padding {\n            padding-top: 20px;\n        }\n\n        .fix-img img {\n            width: 100%;\n        }\n\n        .fix-img-half img {\n            width: 50%;\n        }\n\n        .flex-reverse-for-update-button {\n            flex-direction: row-reverse;\n            margin-right: 50px;\n        }\n\n        .data-summary-tab {\n            max-height: 400px;\n        }\n\n        .restricted_table_height {\n            max-height: 450px\n        }\n\n        .input-width-with-parent .widget-dropdown {\n            width: 100%;\n        }\n\n        .input-width-with-parent .widget-text {\n            width: 100%;\n        }\n\n        .no-margin {\n            margin: 0px;\n        }\n\n        .widget-hprogress label {\n            text-align: left;\n        }\n\n        .widget-dropdown label {\n            margin-right: 10px;\n        }\n\n        .form .widget-dropdown {\n            width: auto;\n        }\n\n        .form .widget-text {\n            width: auto;\n        }\n\n        .form p {\n            margin: 0px;\n        }\n\n        .widget-dropdown {\n            white-space: nowrap;\n            overflow: hidden;\n            -o-text-overflow: ellipsis;\n            -ms-text-overflow: ellipsis;\n            text-overflow: ellipsis;\n        }\n\n        .progress-train label {\n            margin-right: 10px;\n        }\n\n        select {\n            height: 97% !important;\n        }\n\n        .no-overflow {\n            overflow: none;\n        }\n\n        .split-btn button {\n            margin-bottom: 2px;\n        }\n\n        .register-btn {\n            width: 50%\n        }\n\n        .register-btn-colab {\n            width: 40%\n        }\n\n        .fix-config-from-overflow .jp-OutputArea-child {\n            display: inherit;\n        }\n        \n        .checkbox-center input[type=\"checkbox\"] {\n            vertical-align: middle;\n        }\n\n        input[type=\"checkbox\"] {\n            vertical-align: middle;\n        }\n\n        </style>\n        "}}, "c060e65683744e4680b2b073d3b00f52": {"model_name": "LayoutModel", "model_module": "@jupyter-widgets/base", "model_module_version": "2.0.0", "state": {"_model_module": "@jupyter-widgets/base", "_model_module_version": "2.0.0", "_model_name": "LayoutModel", "_view_count": null, "_view_module": "@jupyter-widgets/base", "_view_module_version": "2.0.0", "_view_name": "LayoutView", "align_content": null, "align_items": null, "align_self": null, "border_bottom": null, "border_left": null, "border_right": null, "border_top": null, "bottom": null, "display": null, "flex": null, "flex_flow": null, "grid_area": null, "grid_auto_columns": null, "grid_auto_flow": null, "grid_auto_rows": null, "grid_column": null, "grid_gap": null, "grid_row": null, "grid_template_areas": null, "grid_template_columns": null, "grid_template_rows": null, "height": null, "justify_content": null, "justify_items": null, "left": null, "margin": null, "max_height": null, "max_width": null, "min_height": null, "min_width": null, "object_fit": null, "object_position": null, "order": null, "overflow": null, "padding": null, "right": null, "top": null, "visibility": null, "width": null}}, "d4d7410846594797aac45ea5cfc94f8b": {"model_name": "HTMLStyleModel", "model_module": "@jupyter-widgets/controls", "model_module_version": "2.0.0", "state": {"_model_module": "@jupyter-widgets/controls", "_model_module_version": "2.0.0", "_model_name": "HTMLStyleModel", "_view_count": null, "_view_module": "@jupyter-widgets/base", "_view_module_version": "2.0.0", "_view_name": "StyleView", "background": null, "description_width": "", "font_size": null, "text_color": null}}, "5fbfe0e3cb5d4ce49ab555aba6d3c370": {"model_name": "HTMLModel", "model_module": "@jupyter-widgets/controls", "model_module_version": "2.0.0", "state": {"_dom_classes": [], "_model_module": "@jupyter-widgets/controls", "_model_module_version": "2.0.0", "_model_name": "HTMLModel", "_view_count": null, "_view_module": "@jupyter-widgets/controls", "_view_module_version": "2.0.0", "_view_name": "HTMLView", "description": "", "description_allow_html": false, "layout": "IPY_MODEL_c060e65683744e4680b2b073d3b00f52", "placeholder": "\u200b", "style": "IPY_MODEL_d4d7410846594797aac45ea5cfc94f8b", "tabbable": null, "tooltip": null, "value": "\n        <style>\n\n        .left-label {\n            width: 30%;\n        }\n\n        .card-panel {\n            -webkit-transition: -webkit-box-shadow .25s;\n            transition: -webkit-box-shadow .25s;\n            transition: box-shadow .25s;\n            transition: box-shadow .25s, -webkit-box-shadow .25s;\n            padding: 24px;\n            margin: 0.5rem 0 1rem 0;\n            border-radius: 2px;\n            background-color: #fff;\n        }\n\n        .card {\n            position: relative;\n            margin: 0.5rem 0.1rem 1rem 0.2rem;\n            background-color: #fff;\n            -webkit-transition: -webkit-box-shadow .25s;\n            transition: -webkit-box-shadow .25s;\n            transition: box-shadow .25s;\n            transition: box-shadow .25s, -webkit-box-shadow .25s;\n            border-radius: 2px;\n            box-shadow: 0 2px 2px 0 rgb(0 0 0 / 14%), 0 3px 1px -2px rgb(0 0 0 / 12%), 0 1px 5px 0 rgb(0 0 0 / 20%);\n            padding: 24px;\n            color: white;\n        }\n\n        .card .card-title {\n            font-size: 24px;\n            font-weight: 300;\n        }\n\n        @media only screen and (min-width: 800px) {\n            /* For notebook: */\n            .card {width: 99% !important;}\n        }\n\n        @media only screen and (min-width: 1400px) {\n            /* For colab: */\n            .card {width: 99% !important;}\n        }\n\n        .blue-grey.darken-1 {\n            background-color: #546e7a !important;\n        }\n\n        .small-card {\n            position: relative;\n            margin: 0.5rem 0 1rem 0;\n            background-color: #fff;\n            -webkit-transition: -webkit-box-shadow .25s;\n            transition: -webkit-box-shadow .25s;\n            transition: box-shadow .25s;\n            transition: box-shadow .25s, -webkit-box-shadow .25s;\n            border-radius: 2px;\n            box-shadow: 0 2px 2px 0 rgb(0 0 0 / 14%), 0 3px 1px -2px rgb(0 0 0 / 12%), 0 1px 5px 0 rgb(0 0 0 / 20%);\n            padding: 0px 5px 0px 5px;\n            color: white;\n        }\n\n        .inner-card {\n            position: relative;\n            background-color: #fff;\n            -webkit-transition: -webkit-box-shadow .25s;\n            transition: -webkit-box-shadow .25s;\n            transition: box-shadow .25s;\n            transition: box-shadow .25s, -webkit-box-shadow .25s;\n            border-radius: 2px;\n            box-shadow: 0 2px 2px 0 rgb(0 0 0 / 14%), 0 3px 1px -2px rgb(0 0 0 / 12%), 0 1px 5px 0 rgb(0 0 0 / 20%);\n            padding: 20px;\n            color: white;\n            margin: 0px 1px 1px 1px;\n        }\n\n        .card-with-tab {\n            position: relative;\n            margin: 0.5rem 0.1rem 1rem 0.2rem;\n            background-color: #fff;\n            -webkit-transition: -webkit-box-shadow .25s;\n            transition: -webkit-box-shadow .25s;\n            transition: box-shadow .25s;\n            transition: box-shadow .25s, -webkit-box-shadow .25s;\n            border-radius: 2px;\n            box-shadow: 0 2px 2px 0 rgb(0 0 0 / 14%), 0 3px 1px -2px rgb(0 0 0 / 12%), 0 1px 5px 0 rgb(0 0 0 / 20%);\n            padding: 24px;\n            color: white;\n        }\n\n        .card-with-tab button {\n            width: auto;\n            padding: 12px 40px;\n        }\n\n        .list {\n            padding: 0px 10px;\n            box-shadow: 0 2px 2px 0 rgb(0 0 0 / 14%), 0 3px 1px -2px rgb(0 0 0 / 12%), 0 1px 5px 0 rgb(0 0 0 / 20%);\n            margin: 0px 1px 60px 1px;\n        }\n\n        .list-item {\n            padding: 10px 0px;\n            border-width: 0;\n            border-style: solid;\n            border-color: rgba(0, 0, 0, 0.08);\n            border-bottom-width: thin;\n        }\n\n        .divider {\n            margin: 10px 0px;\n            border-width: 0;\n            border-style: solid;\n            border-color: rgba(0, 0, 0, 0.08);\n            border-bottom-width: thin;\n        }\n\n        .hr {\n            margin: 0;\n            -webkit-flex-shrink: 0;\n            -ms-flex-negative: 0;\n            flex-shrink: 0;\n            border-width: 0;\n            border-style: solid;\n            border-color: rgba(0, 0, 0, 0.08);\n            border-bottom-width: thin;\n        }\n\n        .notification {\n            transition: box-shadow 300ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;\n            border-radius: 4px;\n            box-shadow: 0 2px 2px 0 rgb(0 0 0 / 14%), 0 3px 1px -2px rgb(0 0 0 / 12%), 0 1px 5px 0 rgb(0 0 0 / 20%);\n            font-family: Roboto, Helvetica, Arial, sans-serif;\n            font-weight: 500;\n            font-size: 12px;\n            line-height: 1.43;\n            letter-spacing: 0.01071em;\n            background-color: rgb(2, 136, 209);\n            display: flex;\n            padding: 6px 16px;\n            color: rgb(255, 255, 255);\n            margin-top: 10px;\n        }\n\n        .success {\n            background-color: #EDF7ED;\n            color: #1E4620;\n        }\n\n        .error {\n            background-color: #FDEDED;\n            color: #5F2120;\n        }\n\n        .info {\n            background-color: #E5F6FD;\n            color: #528298;\n        }\n\n        .warn {\n            background-color: #FFF4E5;\n            color: #663C00;\n        }\n\n        .margin-top-20 {\n            margin-top: 20px;\n        }\n\n        .hide {\n            display: none;\n        }\n\n        .pbtn {\n            display: inline-flex;\n            -webkit-box-align: center;\n            align-items: center;\n            -webkit-box-pack: center;\n            justify-content: center;\n            position: relative;\n            box-sizing: border-box;\n            -webkit-tap-highlight-color: transparent;\n            outline: 0px;\n            border: 0px;\n            margin: 0px;\n            cursor: pointer;\n            user-select: none;\n            vertical-align: middle;\n            appearance: none;\n            text-decoration: none;\n            font-family: Roboto, Helvetica, Arial, sans-serif;\n            font-weight: 550;\n            font-size: 12px;\n            line-height: 1.75;\n            letter-spacing: 0.02857em;\n            text-transform: uppercase;\n            min-width: 64px;\n            padding: 6px 16px;\n            border-radius: 4px;\n            transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms, box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms, border-color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms, color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;\n            color: rgb(255, 255, 255);\n            background-color: #D71E28;\n            box-shadow: rgb(0 0 0 / 20%) 0px 3px 1px -2px, rgb(0 0 0 / 14%) 0px 2px 2px 0px, rgb(0 0 0 / 12%) 0px 1px 5px 0px;\n        }\n\n        .jp-OutputArea-output {\n            flex-grow: 1;\n            flex-shrink: 1;\n            margin: 0px;\n        }\n\n        .output_subarea {\n            padding: 0px !important;\n        }\n\n        .ptable, .pth, .ptd {\n            border: none;\n        }\n\n        .pth, .ptd {\n            max-width: 150px;\n            white-space: nowrap;\n            overflow: hidden;\n            -o-text-overflow: ellipsis;\n            -ms-text-overflow: ellipsis;\n            text-overflow: ellipsis;\n        }\n\n        .ptable {\n            display: table;\n            border-collapse: collapse;\n            border-spacing: 0;\n        }\n\n        .ptable.striped .ptr {\n            border-bottom: none;\n        }\n\n        .ptable.striped > .ptbody > .ptr:nth-child(odd) {\n            background-color: rgba(242, 242, 242, 0.5);\n        }\n\n        .ptable.striped > .ptbody > .ptr > .ptd {\n            border-radius: 0;\n        }\n\n        .ptable.highlight > .ptbody > .ptr {\n            -webkit-transition: background-color .25s ease;\n            transition: background-color .25s ease;\n        }\n\n        .ptable.highlight > .ptbody > .ptr:hover {\n            background-color: rgba(242, 242, 242, 0.5);\n        }\n\n        .ptable.centered .pthead .ptr .pth, .ptable.centered .ptbody .ptr .ptd {\n            text-align: center;\n        }\n\n        .ptr {\n            border-bottom: 1px solid rgba(0, 0, 0, 0.12);\n        }\n\n        .ptr.hightlight {\n            background-color: yellow !important;\n        }\n\n        .ptd, .pth {\n            padding: 0.2rem 0.6rem;\n            display: table-cell;\n            text-align: right;\n            vertical-align: middle;\n            border-radius: 2px;\n            position: relative;\n        }\n\n        .ptr.grey {\n            background-color: grey !important;\n        }\n\n        .ptr.strikeout .ptd:before {\n            content: \" \";\n            position: absolute;\n            top: 50%;\n            left: 0;\n            border-bottom: 1px solid #111;\n            width: 100%;\n        }\n\n        .widget-toggle-button {\n            display: inline-flex;\n            -webkit-box-align: center;\n            align-items: center;\n            -webkit-box-pack: center;\n            justify-content: center;\n            box-sizing: border-box;\n            -webkit-tap-highlight-color: transparent;\n            background-color: transparent !important;\n            outline: 0px;\n            border: 0px;\n            border-bottom: 2px solid #E4E4E4 !important;\n            box-shadow: none !important;\n            margin: 0px !important;\n            border-radius: 0px;\n            cursor: pointer;\n            user-select: none;\n            vertical-align: middle;\n            appearance: none;\n            text-decoration: none;\n            font-family: Roboto, Helvetica, Arial, sans-serif;\n            font-weight: 500;\n            font-size: 14px;\n            line-height: 1.25;\n            letter-spacing: 0.02857em;\n            max-width: 360px;\n            min-width: 90px;\n            position: relative;\n            min-height: 48px;\n            flex-shrink: 0;\n            padding: 12px 16px;\n            overflow: hidden;\n            white-space: normal;\n            text-align: center;\n            flex-direction: column;\n            color: rgba(0, 0, 0, 0.6);\n        }\n\n        .narrow-accordion .jupyter-widget-Accordion-child .jupyter-widget-Collapse-header{\n            padding: 5px;\n        }  \n\n        .mod-active {\n            color: rgb(25, 118, 210) !important;\n            border-bottom: 2px solid rgb(25, 118, 210) !important;\n        }\n\n        .narrow-tab button {\n            max-width: 15%;\n        }\n\n        .narrow-tab-fairness button {\n            max-width: 20%;\n        }\n        .narrow-tab-fs button {\n            max-width: 25%;\n        }\n\n        .overflow-fix .jupyter-widgets {\n            overflow: auto;\n        }\n\n        .inner-padding {\n            padding-top: 20px;\n        }\n\n        .fix-img img {\n            width: 100%;\n        }\n\n        .fix-img-half img {\n            width: 50%;\n        }\n\n        .flex-reverse-for-update-button {\n            flex-direction: row-reverse;\n            margin-right: 50px;\n        }\n\n        .data-summary-tab {\n            max-height: 400px;\n        }\n\n        .restricted_table_height {\n            max-height: 450px\n        }\n\n        .input-width-with-parent .widget-dropdown {\n            width: 100%;\n        }\n\n        .input-width-with-parent .widget-text {\n            width: 100%;\n        }\n\n        .no-margin {\n            margin: 0px;\n        }\n\n        .widget-hprogress label {\n            text-align: left;\n        }\n\n        .widget-dropdown label {\n            margin-right: 10px;\n        }\n\n        .form .widget-dropdown {\n            width: auto;\n        }\n\n        .form .widget-text {\n            width: auto;\n        }\n\n        .form p {\n            margin: 0px;\n        }\n\n        .widget-dropdown {\n            white-space: nowrap;\n            overflow: hidden;\n            -o-text-overflow: ellipsis;\n            -ms-text-overflow: ellipsis;\n            text-overflow: ellipsis;\n        }\n\n        .progress-train label {\n            margin-right: 10px;\n        }\n\n        select {\n            height: 97% !important;\n        }\n\n        .no-overflow {\n            overflow: none;\n        }\n\n        .split-btn button {\n            margin-bottom: 2px;\n        }\n\n        .register-btn {\n            width: 50%\n        }\n\n        .register-btn-colab {\n            width: 40%\n        }\n\n        .fix-config-from-overflow .jp-OutputArea-child {\n            display: inherit;\n        }\n        \n        .checkbox-center input[type=\"checkbox\"] {\n            vertical-align: middle;\n        }\n\n        input[type=\"checkbox\"] {\n            vertical-align: middle;\n        }\n\n        </style>\n        "}}, "a13454f0365c47bba88cee013e122af8": {"model_name": "LayoutModel", "model_module": "@jupyter-widgets/base", "model_module_version": "2.0.0", "state": {"_model_module": "@jupyter-widgets/base", "_model_module_version": "2.0.0", "_model_name": "LayoutModel", "_view_count": null, "_view_module": "@jupyter-widgets/base", "_view_module_version": "2.0.0", "_view_name": "LayoutView", "align_content": null, "align_items": null, "align_self": null, "border_bottom": null, "border_left": null, "border_right": null, "border_top": null, "bottom": null, "display": null, "flex": null, "flex_flow": null, "grid_area": null, "grid_auto_columns": null, "grid_auto_flow": null, "grid_auto_rows": null, "grid_column": null, "grid_gap": null, "grid_row": null, "grid_template_areas": null, "grid_template_columns": null, "grid_template_rows": null, "height": null, "justify_content": null, "justify_items": null, "left": null, "margin": null, "max_height": null, "max_width": null, "min_height": null, "min_width": null, "object_fit": null, "object_position": null, "order": null, "overflow": null, "padding": null, "right": null, "top": null, "visibility": null, "width": null}}, "9085dbb49e5340508f8855d1040831e1": {"model_name": "HTMLStyleModel", "model_module": "@jupyter-widgets/controls", "model_module_version": "2.0.0", "state": {"_model_module": "@jupyter-widgets/controls", "_model_module_version": "2.0.0", "_model_name": "HTMLStyleModel", "_view_count": null, "_view_module": "@jupyter-widgets/base", "_view_module_version": "2.0.0", "_view_name": "StyleView", "background": null, "description_width": "", "font_size": null, "text_color": null}}, "7368b12cfc144868815db48747ea622f": {"model_name": "HTMLModel", "model_module": "@jupyter-widgets/controls", "model_module_version": "2.0.0", "state": {"_dom_classes": [], "_model_module": "@jupyter-widgets/controls", "_model_module_version": "2.0.0", "_model_name": "HTMLModel", "_view_count": null, "_view_module": "@jupyter-widgets/controls", "_view_module_version": "2.0.0", "_view_name": "HTMLView", "description": "", "description_allow_html": false, "layout": "IPY_MODEL_a13454f0365c47bba88cee013e122af8", "placeholder": "\u200b", "style": "IPY_MODEL_9085dbb49e5340508f8855d1040831e1", "tabbable": null, "tooltip": null, "value": "\n        <style>\n\n        .left-label {\n            width: 30%;\n        }\n\n        .card-panel {\n            -webkit-transition: -webkit-box-shadow .25s;\n            transition: -webkit-box-shadow .25s;\n            transition: box-shadow .25s;\n            transition: box-shadow .25s, -webkit-box-shadow .25s;\n            padding: 24px;\n            margin: 0.5rem 0 1rem 0;\n            border-radius: 2px;\n            background-color: #fff;\n        }\n\n        .card {\n            position: relative;\n            margin: 0.5rem 0.1rem 1rem 0.2rem;\n            background-color: #fff;\n            -webkit-transition: -webkit-box-shadow .25s;\n            transition: -webkit-box-shadow .25s;\n            transition: box-shadow .25s;\n            transition: box-shadow .25s, -webkit-box-shadow .25s;\n            border-radius: 2px;\n            box-shadow: 0 2px 2px 0 rgb(0 0 0 / 14%), 0 3px 1px -2px rgb(0 0 0 / 12%), 0 1px 5px 0 rgb(0 0 0 / 20%);\n            padding: 24px;\n            color: white;\n        }\n\n        .card .card-title {\n            font-size: 24px;\n            font-weight: 300;\n        }\n\n        @media only screen and (min-width: 800px) {\n            /* For notebook: */\n            .card {width: 99% !important;}\n        }\n\n        @media only screen and (min-width: 1400px) {\n            /* For colab: */\n            .card {width: 99% !important;}\n        }\n\n        .blue-grey.darken-1 {\n            background-color: #546e7a !important;\n        }\n\n        .small-card {\n            position: relative;\n            margin: 0.5rem 0 1rem 0;\n            background-color: #fff;\n            -webkit-transition: -webkit-box-shadow .25s;\n            transition: -webkit-box-shadow .25s;\n            transition: box-shadow .25s;\n            transition: box-shadow .25s, -webkit-box-shadow .25s;\n            border-radius: 2px;\n            box-shadow: 0 2px 2px 0 rgb(0 0 0 / 14%), 0 3px 1px -2px rgb(0 0 0 / 12%), 0 1px 5px 0 rgb(0 0 0 / 20%);\n            padding: 0px 5px 0px 5px;\n            color: white;\n        }\n\n        .inner-card {\n            position: relative;\n            background-color: #fff;\n            -webkit-transition: -webkit-box-shadow .25s;\n            transition: -webkit-box-shadow .25s;\n            transition: box-shadow .25s;\n            transition: box-shadow .25s, -webkit-box-shadow .25s;\n            border-radius: 2px;\n            box-shadow: 0 2px 2px 0 rgb(0 0 0 / 14%), 0 3px 1px -2px rgb(0 0 0 / 12%), 0 1px 5px 0 rgb(0 0 0 / 20%);\n            padding: 20px;\n            color: white;\n            margin: 0px 1px 1px 1px;\n        }\n\n        .card-with-tab {\n            position: relative;\n            margin: 0.5rem 0.1rem 1rem 0.2rem;\n            background-color: #fff;\n            -webkit-transition: -webkit-box-shadow .25s;\n            transition: -webkit-box-shadow .25s;\n            transition: box-shadow .25s;\n            transition: box-shadow .25s, -webkit-box-shadow .25s;\n            border-radius: 2px;\n            box-shadow: 0 2px 2px 0 rgb(0 0 0 / 14%), 0 3px 1px -2px rgb(0 0 0 / 12%), 0 1px 5px 0 rgb(0 0 0 / 20%);\n            padding: 24px;\n            color: white;\n        }\n\n        .card-with-tab button {\n            width: auto;\n            padding: 12px 40px;\n        }\n\n        .list {\n            padding: 0px 10px;\n            box-shadow: 0 2px 2px 0 rgb(0 0 0 / 14%), 0 3px 1px -2px rgb(0 0 0 / 12%), 0 1px 5px 0 rgb(0 0 0 / 20%);\n            margin: 0px 1px 60px 1px;\n        }\n\n        .list-item {\n            padding: 10px 0px;\n            border-width: 0;\n            border-style: solid;\n            border-color: rgba(0, 0, 0, 0.08);\n            border-bottom-width: thin;\n        }\n\n        .divider {\n            margin: 10px 0px;\n            border-width: 0;\n            border-style: solid;\n            border-color: rgba(0, 0, 0, 0.08);\n            border-bottom-width: thin;\n        }\n\n        .hr {\n            margin: 0;\n            -webkit-flex-shrink: 0;\n            -ms-flex-negative: 0;\n            flex-shrink: 0;\n            border-width: 0;\n            border-style: solid;\n            border-color: rgba(0, 0, 0, 0.08);\n            border-bottom-width: thin;\n        }\n\n        .notification {\n            transition: box-shadow 300ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;\n            border-radius: 4px;\n            box-shadow: 0 2px 2px 0 rgb(0 0 0 / 14%), 0 3px 1px -2px rgb(0 0 0 / 12%), 0 1px 5px 0 rgb(0 0 0 / 20%);\n            font-family: Roboto, Helvetica, Arial, sans-serif;\n            font-weight: 500;\n            font-size: 12px;\n            line-height: 1.43;\n            letter-spacing: 0.01071em;\n            background-color: rgb(2, 136, 209);\n            display: flex;\n            padding: 6px 16px;\n            color: rgb(255, 255, 255);\n            margin-top: 10px;\n        }\n\n        .success {\n            background-color: #EDF7ED;\n            color: #1E4620;\n        }\n\n        .error {\n            background-color: #FDEDED;\n            color: #5F2120;\n        }\n\n        .info {\n            background-color: #E5F6FD;\n            color: #528298;\n        }\n\n        .warn {\n            background-color: #FFF4E5;\n            color: #663C00;\n        }\n\n        .margin-top-20 {\n            margin-top: 20px;\n        }\n\n        .hide {\n            display: none;\n        }\n\n        .pbtn {\n            display: inline-flex;\n            -webkit-box-align: center;\n            align-items: center;\n            -webkit-box-pack: center;\n            justify-content: center;\n            position: relative;\n            box-sizing: border-box;\n            -webkit-tap-highlight-color: transparent;\n            outline: 0px;\n            border: 0px;\n            margin: 0px;\n            cursor: pointer;\n            user-select: none;\n            vertical-align: middle;\n            appearance: none;\n            text-decoration: none;\n            font-family: Roboto, Helvetica, Arial, sans-serif;\n            font-weight: 550;\n            font-size: 12px;\n            line-height: 1.75;\n            letter-spacing: 0.02857em;\n            text-transform: uppercase;\n            min-width: 64px;\n            padding: 6px 16px;\n            border-radius: 4px;\n            transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms, box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms, border-color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms, color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;\n            color: rgb(255, 255, 255);\n            background-color: #D71E28;\n            box-shadow: rgb(0 0 0 / 20%) 0px 3px 1px -2px, rgb(0 0 0 / 14%) 0px 2px 2px 0px, rgb(0 0 0 / 12%) 0px 1px 5px 0px;\n        }\n\n        .jp-OutputArea-output {\n            flex-grow: 1;\n            flex-shrink: 1;\n            margin: 0px;\n        }\n\n        .output_subarea {\n            padding: 0px !important;\n        }\n\n        .ptable, .pth, .ptd {\n            border: none;\n        }\n\n        .pth, .ptd {\n            max-width: 150px;\n            white-space: nowrap;\n            overflow: hidden;\n            -o-text-overflow: ellipsis;\n            -ms-text-overflow: ellipsis;\n            text-overflow: ellipsis;\n        }\n\n        .ptable {\n            display: table;\n            border-collapse: collapse;\n            border-spacing: 0;\n        }\n\n        .ptable.striped .ptr {\n            border-bottom: none;\n        }\n\n        .ptable.striped > .ptbody > .ptr:nth-child(odd) {\n            background-color: rgba(242, 242, 242, 0.5);\n        }\n\n        .ptable.striped > .ptbody > .ptr > .ptd {\n            border-radius: 0;\n        }\n\n        .ptable.highlight > .ptbody > .ptr {\n            -webkit-transition: background-color .25s ease;\n            transition: background-color .25s ease;\n        }\n\n        .ptable.highlight > .ptbody > .ptr:hover {\n            background-color: rgba(242, 242, 242, 0.5);\n        }\n\n        .ptable.centered .pthead .ptr .pth, .ptable.centered .ptbody .ptr .ptd {\n            text-align: center;\n        }\n\n        .ptr {\n            border-bottom: 1px solid rgba(0, 0, 0, 0.12);\n        }\n\n        .ptr.hightlight {\n            background-color: yellow !important;\n        }\n\n        .ptd, .pth {\n            padding: 0.2rem 0.6rem;\n            display: table-cell;\n            text-align: right;\n            vertical-align: middle;\n            border-radius: 2px;\n            position: relative;\n        }\n\n        .ptr.grey {\n            background-color: grey !important;\n        }\n\n        .ptr.strikeout .ptd:before {\n            content: \" \";\n            position: absolute;\n            top: 50%;\n            left: 0;\n            border-bottom: 1px solid #111;\n            width: 100%;\n        }\n\n        .widget-toggle-button {\n            display: inline-flex;\n            -webkit-box-align: center;\n            align-items: center;\n            -webkit-box-pack: center;\n            justify-content: center;\n            box-sizing: border-box;\n            -webkit-tap-highlight-color: transparent;\n            background-color: transparent !important;\n            outline: 0px;\n            border: 0px;\n            border-bottom: 2px solid #E4E4E4 !important;\n            box-shadow: none !important;\n            margin: 0px !important;\n            border-radius: 0px;\n            cursor: pointer;\n            user-select: none;\n            vertical-align: middle;\n            appearance: none;\n            text-decoration: none;\n            font-family: Roboto, Helvetica, Arial, sans-serif;\n            font-weight: 500;\n            font-size: 14px;\n            line-height: 1.25;\n            letter-spacing: 0.02857em;\n            max-width: 360px;\n            min-width: 90px;\n            position: relative;\n            min-height: 48px;\n            flex-shrink: 0;\n            padding: 12px 16px;\n            overflow: hidden;\n            white-space: normal;\n            text-align: center;\n            flex-direction: column;\n            color: rgba(0, 0, 0, 0.6);\n        }\n\n        .narrow-accordion .jupyter-widget-Accordion-child .jupyter-widget-Collapse-header{\n            padding: 5px;\n        }  \n\n        .mod-active {\n            color: rgb(25, 118, 210) !important;\n            border-bottom: 2px solid rgb(25, 118, 210) !important;\n        }\n\n        .narrow-tab button {\n            max-width: 15%;\n        }\n\n        .narrow-tab-fairness button {\n            max-width: 20%;\n        }\n        .narrow-tab-fs button {\n            max-width: 25%;\n        }\n\n        .overflow-fix .jupyter-widgets {\n            overflow: auto;\n        }\n\n        .inner-padding {\n            padding-top: 20px;\n        }\n\n        .fix-img img {\n            width: 100%;\n        }\n\n        .fix-img-half img {\n            width: 50%;\n        }\n\n        .flex-reverse-for-update-button {\n            flex-direction: row-reverse;\n            margin-right: 50px;\n        }\n\n        .data-summary-tab {\n            max-height: 400px;\n        }\n\n        .restricted_table_height {\n            max-height: 450px\n        }\n\n        .input-width-with-parent .widget-dropdown {\n            width: 100%;\n        }\n\n        .input-width-with-parent .widget-text {\n            width: 100%;\n        }\n\n        .no-margin {\n            margin: 0px;\n        }\n\n        .widget-hprogress label {\n            text-align: left;\n        }\n\n        .widget-dropdown label {\n            margin-right: 10px;\n        }\n\n        .form .widget-dropdown {\n            width: auto;\n        }\n\n        .form .widget-text {\n            width: auto;\n        }\n\n        .form p {\n            margin: 0px;\n        }\n\n        .widget-dropdown {\n            white-space: nowrap;\n            overflow: hidden;\n            -o-text-overflow: ellipsis;\n            -ms-text-overflow: ellipsis;\n            text-overflow: ellipsis;\n        }\n\n        .progress-train label {\n            margin-right: 10px;\n        }\n\n        select {\n            height: 97% !important;\n        }\n\n        .no-overflow {\n            overflow: none;\n        }\n\n        .split-btn button {\n            margin-bottom: 2px;\n        }\n\n        .register-btn {\n            width: 50%\n        }\n\n        .register-btn-colab {\n            width: 40%\n        }\n\n        .fix-config-from-overflow .jp-OutputArea-child {\n            display: inherit;\n        }\n        \n        .checkbox-center input[type=\"checkbox\"] {\n            vertical-align: middle;\n        }\n\n        input[type=\"checkbox\"] {\n            vertical-align: middle;\n        }\n\n        </style>\n        "}}, "87435bd66b88440fa6142f0c13381be7": {"model_name": "LayoutModel", "model_module": "@jupyter-widgets/base", "model_module_version": "2.0.0", "state": {"_model_module": "@jupyter-widgets/base", "_model_module_version": "2.0.0", "_model_name": "LayoutModel", "_view_count": null, "_view_module": "@jupyter-widgets/base", "_view_module_version": "2.0.0", "_view_name": "LayoutView", "align_content": null, "align_items": null, "align_self": null, "border_bottom": null, "border_left": null, "border_right": null, "border_top": null, "bottom": null, "display": null, "flex": null, "flex_flow": null, "grid_area": null, "grid_auto_columns": null, "grid_auto_flow": null, "grid_auto_rows": null, "grid_column": null, "grid_gap": null, "grid_row": null, "grid_template_areas": null, "grid_template_columns": null, "grid_template_rows": null, "height": null, "justify_content": null, "justify_items": null, "left": null, "margin": null, "max_height": null, "max_width": null, "min_height": null, "min_width": null, "object_fit": null, "object_position": null, "order": null, "overflow": null, "padding": null, "right": null, "top": null, "visibility": null, "width": null}}, "af9580ab945a427f91b0a9e7f9f1ceb3": {"model_name": "HTMLStyleModel", "model_module": "@jupyter-widgets/controls", "model_module_version": "2.0.0", "state": {"_model_module": "@jupyter-widgets/controls", "_model_module_version": "2.0.0", "_model_name": "HTMLStyleModel", "_view_count": null, "_view_module": "@jupyter-widgets/base", "_view_module_version": "2.0.0", "_view_name": "StyleView", "background": null, "description_width": "", "font_size": null, "text_color": null}}, "7714722ac067439d94bc7c3d13e08505": {"model_name": "HTMLModel", "model_module": "@jupyter-widgets/controls", "model_module_version": "2.0.0", "state": {"_dom_classes": [], "_model_module": "@jupyter-widgets/controls", "_model_module_version": "2.0.0", "_model_name": "HTMLModel", "_view_count": null, "_view_module": "@jupyter-widgets/controls", "_view_module_version": "2.0.0", "_view_name": "HTMLView", "description": "", "description_allow_html": false, "layout": "IPY_MODEL_87435bd66b88440fa6142f0c13381be7", "placeholder": "\u200b", "style": "IPY_MODEL_af9580ab945a427f91b0a9e7f9f1ceb3", "tabbable": null, "tooltip": null, "value": "\n        <style>\n\n        .left-label {\n            width: 30%;\n        }\n\n        .card-panel {\n            -webkit-transition: -webkit-box-shadow .25s;\n            transition: -webkit-box-shadow .25s;\n            transition: box-shadow .25s;\n            transition: box-shadow .25s, -webkit-box-shadow .25s;\n            padding: 24px;\n            margin: 0.5rem 0 1rem 0;\n            border-radius: 2px;\n            background-color: #fff;\n        }\n\n        .card {\n            position: relative;\n            margin: 0.5rem 0.1rem 1rem 0.2rem;\n            background-color: #fff;\n            -webkit-transition: -webkit-box-shadow .25s;\n            transition: -webkit-box-shadow .25s;\n            transition: box-shadow .25s;\n            transition: box-shadow .25s, -webkit-box-shadow .25s;\n            border-radius: 2px;\n            box-shadow: 0 2px 2px 0 rgb(0 0 0 / 14%), 0 3px 1px -2px rgb(0 0 0 / 12%), 0 1px 5px 0 rgb(0 0 0 / 20%);\n            padding: 24px;\n            color: white;\n        }\n\n        .card .card-title {\n            font-size: 24px;\n            font-weight: 300;\n        }\n\n        @media only screen and (min-width: 800px) {\n            /* For notebook: */\n            .card {width: 99% !important;}\n        }\n\n        @media only screen and (min-width: 1400px) {\n            /* For colab: */\n            .card {width: 99% !important;}\n        }\n\n        .blue-grey.darken-1 {\n            background-color: #546e7a !important;\n        }\n\n        .small-card {\n            position: relative;\n            margin: 0.5rem 0 1rem 0;\n            background-color: #fff;\n            -webkit-transition: -webkit-box-shadow .25s;\n            transition: -webkit-box-shadow .25s;\n            transition: box-shadow .25s;\n            transition: box-shadow .25s, -webkit-box-shadow .25s;\n            border-radius: 2px;\n            box-shadow: 0 2px 2px 0 rgb(0 0 0 / 14%), 0 3px 1px -2px rgb(0 0 0 / 12%), 0 1px 5px 0 rgb(0 0 0 / 20%);\n            padding: 0px 5px 0px 5px;\n            color: white;\n        }\n\n        .inner-card {\n            position: relative;\n            background-color: #fff;\n            -webkit-transition: -webkit-box-shadow .25s;\n            transition: -webkit-box-shadow .25s;\n            transition: box-shadow .25s;\n            transition: box-shadow .25s, -webkit-box-shadow .25s;\n            border-radius: 2px;\n            box-shadow: 0 2px 2px 0 rgb(0 0 0 / 14%), 0 3px 1px -2px rgb(0 0 0 / 12%), 0 1px 5px 0 rgb(0 0 0 / 20%);\n            padding: 20px;\n            color: white;\n            margin: 0px 1px 1px 1px;\n        }\n\n        .card-with-tab {\n            position: relative;\n            margin: 0.5rem 0.1rem 1rem 0.2rem;\n            background-color: #fff;\n            -webkit-transition: -webkit-box-shadow .25s;\n            transition: -webkit-box-shadow .25s;\n            transition: box-shadow .25s;\n            transition: box-shadow .25s, -webkit-box-shadow .25s;\n            border-radius: 2px;\n            box-shadow: 0 2px 2px 0 rgb(0 0 0 / 14%), 0 3px 1px -2px rgb(0 0 0 / 12%), 0 1px 5px 0 rgb(0 0 0 / 20%);\n            padding: 24px;\n            color: white;\n        }\n\n        .card-with-tab button {\n            width: auto;\n            padding: 12px 40px;\n        }\n\n        .list {\n            padding: 0px 10px;\n            box-shadow: 0 2px 2px 0 rgb(0 0 0 / 14%), 0 3px 1px -2px rgb(0 0 0 / 12%), 0 1px 5px 0 rgb(0 0 0 / 20%);\n            margin: 0px 1px 60px 1px;\n        }\n\n        .list-item {\n            padding: 10px 0px;\n            border-width: 0;\n            border-style: solid;\n            border-color: rgba(0, 0, 0, 0.08);\n            border-bottom-width: thin;\n        }\n\n        .divider {\n            margin: 10px 0px;\n            border-width: 0;\n            border-style: solid;\n            border-color: rgba(0, 0, 0, 0.08);\n            border-bottom-width: thin;\n        }\n\n        .hr {\n            margin: 0;\n            -webkit-flex-shrink: 0;\n            -ms-flex-negative: 0;\n            flex-shrink: 0;\n            border-width: 0;\n            border-style: solid;\n            border-color: rgba(0, 0, 0, 0.08);\n            border-bottom-width: thin;\n        }\n\n        .notification {\n            transition: box-shadow 300ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;\n            border-radius: 4px;\n            box-shadow: 0 2px 2px 0 rgb(0 0 0 / 14%), 0 3px 1px -2px rgb(0 0 0 / 12%), 0 1px 5px 0 rgb(0 0 0 / 20%);\n            font-family: Roboto, Helvetica, Arial, sans-serif;\n            font-weight: 500;\n            font-size: 12px;\n            line-height: 1.43;\n            letter-spacing: 0.01071em;\n            background-color: rgb(2, 136, 209);\n            display: flex;\n            padding: 6px 16px;\n            color: rgb(255, 255, 255);\n            margin-top: 10px;\n        }\n\n        .success {\n            background-color: #EDF7ED;\n            color: #1E4620;\n        }\n\n        .error {\n            background-color: #FDEDED;\n            color: #5F2120;\n        }\n\n        .info {\n            background-color: #E5F6FD;\n            color: #528298;\n        }\n\n        .warn {\n            background-color: #FFF4E5;\n            color: #663C00;\n        }\n\n        .margin-top-20 {\n            margin-top: 20px;\n        }\n\n        .hide {\n            display: none;\n        }\n\n        .pbtn {\n            display: inline-flex;\n            -webkit-box-align: center;\n            align-items: center;\n            -webkit-box-pack: center;\n            justify-content: center;\n            position: relative;\n            box-sizing: border-box;\n            -webkit-tap-highlight-color: transparent;\n            outline: 0px;\n            border: 0px;\n            margin: 0px;\n            cursor: pointer;\n            user-select: none;\n            vertical-align: middle;\n            appearance: none;\n            text-decoration: none;\n            font-family: Roboto, Helvetica, Arial, sans-serif;\n            font-weight: 550;\n            font-size: 12px;\n            line-height: 1.75;\n            letter-spacing: 0.02857em;\n            text-transform: uppercase;\n            min-width: 64px;\n            padding: 6px 16px;\n            border-radius: 4px;\n            transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms, box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms, border-color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms, color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;\n            color: rgb(255, 255, 255);\n            background-color: #D71E28;\n            box-shadow: rgb(0 0 0 / 20%) 0px 3px 1px -2px, rgb(0 0 0 / 14%) 0px 2px 2px 0px, rgb(0 0 0 / 12%) 0px 1px 5px 0px;\n        }\n\n        .jp-OutputArea-output {\n            flex-grow: 1;\n            flex-shrink: 1;\n            margin: 0px;\n        }\n\n        .output_subarea {\n            padding: 0px !important;\n        }\n\n        .ptable, .pth, .ptd {\n            border: none;\n        }\n\n        .pth, .ptd {\n            max-width: 150px;\n            white-space: nowrap;\n            overflow: hidden;\n            -o-text-overflow: ellipsis;\n            -ms-text-overflow: ellipsis;\n            text-overflow: ellipsis;\n        }\n\n        .ptable {\n            display: table;\n            border-collapse: collapse;\n            border-spacing: 0;\n        }\n\n        .ptable.striped .ptr {\n            border-bottom: none;\n        }\n\n        .ptable.striped > .ptbody > .ptr:nth-child(odd) {\n            background-color: rgba(242, 242, 242, 0.5);\n        }\n\n        .ptable.striped > .ptbody > .ptr > .ptd {\n            border-radius: 0;\n        }\n\n        .ptable.highlight > .ptbody > .ptr {\n            -webkit-transition: background-color .25s ease;\n            transition: background-color .25s ease;\n        }\n\n        .ptable.highlight > .ptbody > .ptr:hover {\n            background-color: rgba(242, 242, 242, 0.5);\n        }\n\n        .ptable.centered .pthead .ptr .pth, .ptable.centered .ptbody .ptr .ptd {\n            text-align: center;\n        }\n\n        .ptr {\n            border-bottom: 1px solid rgba(0, 0, 0, 0.12);\n        }\n\n        .ptr.hightlight {\n            background-color: yellow !important;\n        }\n\n        .ptd, .pth {\n            padding: 0.2rem 0.6rem;\n            display: table-cell;\n            text-align: right;\n            vertical-align: middle;\n            border-radius: 2px;\n            position: relative;\n        }\n\n        .ptr.grey {\n            background-color: grey !important;\n        }\n\n        .ptr.strikeout .ptd:before {\n            content: \" \";\n            position: absolute;\n            top: 50%;\n            left: 0;\n            border-bottom: 1px solid #111;\n            width: 100%;\n        }\n\n        .widget-toggle-button {\n            display: inline-flex;\n            -webkit-box-align: center;\n            align-items: center;\n            -webkit-box-pack: center;\n            justify-content: center;\n            box-sizing: border-box;\n            -webkit-tap-highlight-color: transparent;\n            background-color: transparent !important;\n            outline: 0px;\n            border: 0px;\n            border-bottom: 2px solid #E4E4E4 !important;\n            box-shadow: none !important;\n            margin: 0px !important;\n            border-radius: 0px;\n            cursor: pointer;\n            user-select: none;\n            vertical-align: middle;\n            appearance: none;\n            text-decoration: none;\n            font-family: Roboto, Helvetica, Arial, sans-serif;\n            font-weight: 500;\n            font-size: 14px;\n            line-height: 1.25;\n            letter-spacing: 0.02857em;\n            max-width: 360px;\n            min-width: 90px;\n            position: relative;\n            min-height: 48px;\n            flex-shrink: 0;\n            padding: 12px 16px;\n            overflow: hidden;\n            white-space: normal;\n            text-align: center;\n            flex-direction: column;\n            color: rgba(0, 0, 0, 0.6);\n        }\n\n        .narrow-accordion .jupyter-widget-Accordion-child .jupyter-widget-Collapse-header{\n            padding: 5px;\n        }  \n\n        .mod-active {\n            color: rgb(25, 118, 210) !important;\n            border-bottom: 2px solid rgb(25, 118, 210) !important;\n        }\n\n        .narrow-tab button {\n            max-width: 15%;\n        }\n\n        .narrow-tab-fairness button {\n            max-width: 20%;\n        }\n        .narrow-tab-fs button {\n            max-width: 25%;\n        }\n\n        .overflow-fix .jupyter-widgets {\n            overflow: auto;\n        }\n\n        .inner-padding {\n            padding-top: 20px;\n        }\n\n        .fix-img img {\n            width: 100%;\n        }\n\n        .fix-img-half img {\n            width: 50%;\n        }\n\n        .flex-reverse-for-update-button {\n            flex-direction: row-reverse;\n            margin-right: 50px;\n        }\n\n        .data-summary-tab {\n            max-height: 400px;\n        }\n\n        .restricted_table_height {\n            max-height: 450px\n        }\n\n        .input-width-with-parent .widget-dropdown {\n            width: 100%;\n        }\n\n        .input-width-with-parent .widget-text {\n            width: 100%;\n        }\n\n        .no-margin {\n            margin: 0px;\n        }\n\n        .widget-hprogress label {\n            text-align: left;\n        }\n\n        .widget-dropdown label {\n            margin-right: 10px;\n        }\n\n        .form .widget-dropdown {\n            width: auto;\n        }\n\n        .form .widget-text {\n            width: auto;\n        }\n\n        .form p {\n            margin: 0px;\n        }\n\n        .widget-dropdown {\n            white-space: nowrap;\n            overflow: hidden;\n            -o-text-overflow: ellipsis;\n            -ms-text-overflow: ellipsis;\n            text-overflow: ellipsis;\n        }\n\n        .progress-train label {\n            margin-right: 10px;\n        }\n\n        select {\n            height: 97% !important;\n        }\n\n        .no-overflow {\n            overflow: none;\n        }\n\n        .split-btn button {\n            margin-bottom: 2px;\n        }\n\n        .register-btn {\n            width: 50%\n        }\n\n        .register-btn-colab {\n            width: 40%\n        }\n\n        .fix-config-from-overflow .jp-OutputArea-child {\n            display: inherit;\n        }\n        \n        .checkbox-center input[type=\"checkbox\"] {\n            vertical-align: middle;\n        }\n\n        input[type=\"checkbox\"] {\n            vertical-align: middle;\n        }\n\n        </style>\n        "}}, "ef737ab42f0247409ebdea97d37658cc": {"model_name": "LayoutModel", "model_module": "@jupyter-widgets/base", "model_module_version": "2.0.0", "state": {"_model_module": "@jupyter-widgets/base", "_model_module_version": "2.0.0", "_model_name": "LayoutModel", "_view_count": null, "_view_module": "@jupyter-widgets/base", "_view_module_version": "2.0.0", "_view_name": "LayoutView", "align_content": null, "align_items": null, "align_self": null, "border_bottom": null, "border_left": null, "border_right": null, "border_top": null, "bottom": null, "display": null, "flex": null, "flex_flow": null, "grid_area": null, "grid_auto_columns": null, "grid_auto_flow": null, "grid_auto_rows": null, "grid_column": null, "grid_gap": null, "grid_row": null, "grid_template_areas": null, "grid_template_columns": null, "grid_template_rows": null, "height": null, "justify_content": null, "justify_items": null, "left": null, "margin": null, "max_height": null, "max_width": null, "min_height": null, "min_width": null, "object_fit": null, "object_position": null, "order": null, "overflow": null, "padding": null, "right": null, "top": null, "visibility": null, "width": null}}, "f62e032b6a8847c1b614ff82c845f987": {"model_name": "HTMLStyleModel", "model_module": "@jupyter-widgets/controls", "model_module_version": "2.0.0", "state": {"_model_module": "@jupyter-widgets/controls", "_model_module_version": "2.0.0", "_model_name": "HTMLStyleModel", "_view_count": null, "_view_module": "@jupyter-widgets/base", "_view_module_version": "2.0.0", "_view_name": "StyleView", "background": null, "description_width": "", "font_size": null, "text_color": null}}, "f7a00c608c76409797e9c2bc246d6c76": {"model_name": "HTMLModel", "model_module": "@jupyter-widgets/controls", "model_module_version": "2.0.0", "state": {"_dom_classes": [], "_model_module": "@jupyter-widgets/controls", "_model_module_version": "2.0.0", "_model_name": "HTMLModel", "_view_count": null, "_view_module": "@jupyter-widgets/controls", "_view_module_version": "2.0.0", "_view_name": "HTMLView", "description": "", "description_allow_html": false, "layout": "IPY_MODEL_ef737ab42f0247409ebdea97d37658cc", "placeholder": "\u200b", "style": "IPY_MODEL_f62e032b6a8847c1b614ff82c845f987", "tabbable": null, "tooltip": null, "value": "\n        <style>\n\n        .left-label {\n            width: 30%;\n        }\n\n        .card-panel {\n            -webkit-transition: -webkit-box-shadow .25s;\n            transition: -webkit-box-shadow .25s;\n            transition: box-shadow .25s;\n            transition: box-shadow .25s, -webkit-box-shadow .25s;\n            padding: 24px;\n            margin: 0.5rem 0 1rem 0;\n            border-radius: 2px;\n            background-color: #fff;\n        }\n\n        .card {\n            position: relative;\n            margin: 0.5rem 0.1rem 1rem 0.2rem;\n            background-color: #fff;\n            -webkit-transition: -webkit-box-shadow .25s;\n            transition: -webkit-box-shadow .25s;\n            transition: box-shadow .25s;\n            transition: box-shadow .25s, -webkit-box-shadow .25s;\n            border-radius: 2px;\n            box-shadow: 0 2px 2px 0 rgb(0 0 0 / 14%), 0 3px 1px -2px rgb(0 0 0 / 12%), 0 1px 5px 0 rgb(0 0 0 / 20%);\n            padding: 24px;\n            color: white;\n        }\n\n        .card .card-title {\n            font-size: 24px;\n            font-weight: 300;\n        }\n\n        @media only screen and (min-width: 800px) {\n            /* For notebook: */\n            .card {width: 99% !important;}\n        }\n\n        @media only screen and (min-width: 1400px) {\n            /* For colab: */\n            .card {width: 99% !important;}\n        }\n\n        .blue-grey.darken-1 {\n            background-color: #546e7a !important;\n        }\n\n        .small-card {\n            position: relative;\n            margin: 0.5rem 0 1rem 0;\n            background-color: #fff;\n            -webkit-transition: -webkit-box-shadow .25s;\n            transition: -webkit-box-shadow .25s;\n            transition: box-shadow .25s;\n            transition: box-shadow .25s, -webkit-box-shadow .25s;\n            border-radius: 2px;\n            box-shadow: 0 2px 2px 0 rgb(0 0 0 / 14%), 0 3px 1px -2px rgb(0 0 0 / 12%), 0 1px 5px 0 rgb(0 0 0 / 20%);\n            padding: 0px 5px 0px 5px;\n            color: white;\n        }\n\n        .inner-card {\n            position: relative;\n            background-color: #fff;\n            -webkit-transition: -webkit-box-shadow .25s;\n            transition: -webkit-box-shadow .25s;\n            transition: box-shadow .25s;\n            transition: box-shadow .25s, -webkit-box-shadow .25s;\n            border-radius: 2px;\n            box-shadow: 0 2px 2px 0 rgb(0 0 0 / 14%), 0 3px 1px -2px rgb(0 0 0 / 12%), 0 1px 5px 0 rgb(0 0 0 / 20%);\n            padding: 20px;\n            color: white;\n            margin: 0px 1px 1px 1px;\n        }\n\n        .card-with-tab {\n            position: relative;\n            margin: 0.5rem 0.1rem 1rem 0.2rem;\n            background-color: #fff;\n            -webkit-transition: -webkit-box-shadow .25s;\n            transition: -webkit-box-shadow .25s;\n            transition: box-shadow .25s;\n            transition: box-shadow .25s, -webkit-box-shadow .25s;\n            border-radius: 2px;\n            box-shadow: 0 2px 2px 0 rgb(0 0 0 / 14%), 0 3px 1px -2px rgb(0 0 0 / 12%), 0 1px 5px 0 rgb(0 0 0 / 20%);\n            padding: 24px;\n            color: white;\n        }\n\n        .card-with-tab button {\n            width: auto;\n            padding: 12px 40px;\n        }\n\n        .list {\n            padding: 0px 10px;\n            box-shadow: 0 2px 2px 0 rgb(0 0 0 / 14%), 0 3px 1px -2px rgb(0 0 0 / 12%), 0 1px 5px 0 rgb(0 0 0 / 20%);\n            margin: 0px 1px 60px 1px;\n        }\n\n        .list-item {\n            padding: 10px 0px;\n            border-width: 0;\n            border-style: solid;\n            border-color: rgba(0, 0, 0, 0.08);\n            border-bottom-width: thin;\n        }\n\n        .divider {\n            margin: 10px 0px;\n            border-width: 0;\n            border-style: solid;\n            border-color: rgba(0, 0, 0, 0.08);\n            border-bottom-width: thin;\n        }\n\n        .hr {\n            margin: 0;\n            -webkit-flex-shrink: 0;\n            -ms-flex-negative: 0;\n            flex-shrink: 0;\n            border-width: 0;\n            border-style: solid;\n            border-color: rgba(0, 0, 0, 0.08);\n            border-bottom-width: thin;\n        }\n\n        .notification {\n            transition: box-shadow 300ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;\n            border-radius: 4px;\n            box-shadow: 0 2px 2px 0 rgb(0 0 0 / 14%), 0 3px 1px -2px rgb(0 0 0 / 12%), 0 1px 5px 0 rgb(0 0 0 / 20%);\n            font-family: Roboto, Helvetica, Arial, sans-serif;\n            font-weight: 500;\n            font-size: 12px;\n            line-height: 1.43;\n            letter-spacing: 0.01071em;\n            background-color: rgb(2, 136, 209);\n            display: flex;\n            padding: 6px 16px;\n            color: rgb(255, 255, 255);\n            margin-top: 10px;\n        }\n\n        .success {\n            background-color: #EDF7ED;\n            color: #1E4620;\n        }\n\n        .error {\n            background-color: #FDEDED;\n            color: #5F2120;\n        }\n\n        .info {\n            background-color: #E5F6FD;\n            color: #528298;\n        }\n\n        .warn {\n            background-color: #FFF4E5;\n            color: #663C00;\n        }\n\n        .margin-top-20 {\n            margin-top: 20px;\n        }\n\n        .hide {\n            display: none;\n        }\n\n        .pbtn {\n            display: inline-flex;\n            -webkit-box-align: center;\n            align-items: center;\n            -webkit-box-pack: center;\n            justify-content: center;\n            position: relative;\n            box-sizing: border-box;\n            -webkit-tap-highlight-color: transparent;\n            outline: 0px;\n            border: 0px;\n            margin: 0px;\n            cursor: pointer;\n            user-select: none;\n            vertical-align: middle;\n            appearance: none;\n            text-decoration: none;\n            font-family: Roboto, Helvetica, Arial, sans-serif;\n            font-weight: 550;\n            font-size: 12px;\n            line-height: 1.75;\n            letter-spacing: 0.02857em;\n            text-transform: uppercase;\n            min-width: 64px;\n            padding: 6px 16px;\n            border-radius: 4px;\n            transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms, box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms, border-color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms, color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;\n            color: rgb(255, 255, 255);\n            background-color: #D71E28;\n            box-shadow: rgb(0 0 0 / 20%) 0px 3px 1px -2px, rgb(0 0 0 / 14%) 0px 2px 2px 0px, rgb(0 0 0 / 12%) 0px 1px 5px 0px;\n        }\n\n        .jp-OutputArea-output {\n            flex-grow: 1;\n            flex-shrink: 1;\n            margin: 0px;\n        }\n\n        .output_subarea {\n            padding: 0px !important;\n        }\n\n        .ptable, .pth, .ptd {\n            border: none;\n        }\n\n        .pth, .ptd {\n            max-width: 150px;\n            white-space: nowrap;\n            overflow: hidden;\n            -o-text-overflow: ellipsis;\n            -ms-text-overflow: ellipsis;\n            text-overflow: ellipsis;\n        }\n\n        .ptable {\n            display: table;\n            border-collapse: collapse;\n            border-spacing: 0;\n        }\n\n        .ptable.striped .ptr {\n            border-bottom: none;\n        }\n\n        .ptable.striped > .ptbody > .ptr:nth-child(odd) {\n            background-color: rgba(242, 242, 242, 0.5);\n        }\n\n        .ptable.striped > .ptbody > .ptr > .ptd {\n            border-radius: 0;\n        }\n\n        .ptable.highlight > .ptbody > .ptr {\n            -webkit-transition: background-color .25s ease;\n            transition: background-color .25s ease;\n        }\n\n        .ptable.highlight > .ptbody > .ptr:hover {\n            background-color: rgba(242, 242, 242, 0.5);\n        }\n\n        .ptable.centered .pthead .ptr .pth, .ptable.centered .ptbody .ptr .ptd {\n            text-align: center;\n        }\n\n        .ptr {\n            border-bottom: 1px solid rgba(0, 0, 0, 0.12);\n        }\n\n        .ptr.hightlight {\n            background-color: yellow !important;\n        }\n\n        .ptd, .pth {\n            padding: 0.2rem 0.6rem;\n            display: table-cell;\n            text-align: right;\n            vertical-align: middle;\n            border-radius: 2px;\n            position: relative;\n        }\n\n        .ptr.grey {\n            background-color: grey !important;\n        }\n\n        .ptr.strikeout .ptd:before {\n            content: \" \";\n            position: absolute;\n            top: 50%;\n            left: 0;\n            border-bottom: 1px solid #111;\n            width: 100%;\n        }\n\n        .widget-toggle-button {\n            display: inline-flex;\n            -webkit-box-align: center;\n            align-items: center;\n            -webkit-box-pack: center;\n            justify-content: center;\n            box-sizing: border-box;\n            -webkit-tap-highlight-color: transparent;\n            background-color: transparent !important;\n            outline: 0px;\n            border: 0px;\n            border-bottom: 2px solid #E4E4E4 !important;\n            box-shadow: none !important;\n            margin: 0px !important;\n            border-radius: 0px;\n            cursor: pointer;\n            user-select: none;\n            vertical-align: middle;\n            appearance: none;\n            text-decoration: none;\n            font-family: Roboto, Helvetica, Arial, sans-serif;\n            font-weight: 500;\n            font-size: 14px;\n            line-height: 1.25;\n            letter-spacing: 0.02857em;\n            max-width: 360px;\n            min-width: 90px;\n            position: relative;\n            min-height: 48px;\n            flex-shrink: 0;\n            padding: 12px 16px;\n            overflow: hidden;\n            white-space: normal;\n            text-align: center;\n            flex-direction: column;\n            color: rgba(0, 0, 0, 0.6);\n        }\n\n        .narrow-accordion .jupyter-widget-Accordion-child .jupyter-widget-Collapse-header{\n            padding: 5px;\n        }  \n\n        .mod-active {\n            color: rgb(25, 118, 210) !important;\n            border-bottom: 2px solid rgb(25, 118, 210) !important;\n        }\n\n        .narrow-tab button {\n            max-width: 15%;\n        }\n\n        .narrow-tab-fairness button {\n            max-width: 20%;\n        }\n        .narrow-tab-fs button {\n            max-width: 25%;\n        }\n\n        .overflow-fix .jupyter-widgets {\n            overflow: auto;\n        }\n\n        .inner-padding {\n            padding-top: 20px;\n        }\n\n        .fix-img img {\n            width: 100%;\n        }\n\n        .fix-img-half img {\n            width: 50%;\n        }\n\n        .flex-reverse-for-update-button {\n            flex-direction: row-reverse;\n            margin-right: 50px;\n        }\n\n        .data-summary-tab {\n            max-height: 400px;\n        }\n\n        .restricted_table_height {\n            max-height: 450px\n        }\n\n        .input-width-with-parent .widget-dropdown {\n            width: 100%;\n        }\n\n        .input-width-with-parent .widget-text {\n            width: 100%;\n        }\n\n        .no-margin {\n            margin: 0px;\n        }\n\n        .widget-hprogress label {\n            text-align: left;\n        }\n\n        .widget-dropdown label {\n            margin-right: 10px;\n        }\n\n        .form .widget-dropdown {\n            width: auto;\n        }\n\n        .form .widget-text {\n            width: auto;\n        }\n\n        .form p {\n            margin: 0px;\n        }\n\n        .widget-dropdown {\n            white-space: nowrap;\n            overflow: hidden;\n            -o-text-overflow: ellipsis;\n            -ms-text-overflow: ellipsis;\n            text-overflow: ellipsis;\n        }\n\n        .progress-train label {\n            margin-right: 10px;\n        }\n\n        select {\n            height: 97% !important;\n        }\n\n        .no-overflow {\n            overflow: none;\n        }\n\n        .split-btn button {\n            margin-bottom: 2px;\n        }\n\n        .register-btn {\n            width: 50%\n        }\n\n        .register-btn-colab {\n            width: 40%\n        }\n\n        .fix-config-from-overflow .jp-OutputArea-child {\n            display: inherit;\n        }\n        \n        .checkbox-center input[type=\"checkbox\"] {\n            vertical-align: middle;\n        }\n\n        input[type=\"checkbox\"] {\n            vertical-align: middle;\n        }\n\n        </style>\n        "}}}, "version_major": 2, "version_minor": 0}
+</script>
+
 
 
         </div>

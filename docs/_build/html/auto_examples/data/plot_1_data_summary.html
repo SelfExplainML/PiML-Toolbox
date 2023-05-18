@@ -137,12 +137,12 @@ to download the full example code or to run this example in your browser via Bin
 <span id="sphx-glr-auto-examples-data-plot-1-data-summary-py"></span><h1>Data Summary<a class="headerlink" href="#data-summary" title="Permalink to this heading">¶</a></h1>
 <p>Showing data summary result using the BikeSharing dataset as example.</p>
 <p>Experiment initialization and data preparation</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">piml</span> <span class="kn">import</span> <a href="../../modules/generated/piml.Experiment.html#piml.Experiment" title="piml.Experiment" class="sphx-glr-backref-module-piml sphx-glr-backref-type-py-class sphx-glr-backref-instance"><a href="../../modules/generated/piml.Experiment.html#piml.Experiment" title="piml.Experiment" class="sphx-glr-backref-module-piml sphx-glr-backref-type-py-class sphx-glr-backref-instance"><a href="../../modules/generated/piml.Experiment.html#piml.Experiment" title="piml.Experiment" class="sphx-glr-backref-module-piml sphx-glr-backref-type-py-class sphx-glr-backref-instance"><a href="../../modules/generated/piml.Experiment.html#piml.Experiment" title="piml.Experiment" class="sphx-glr-backref-module-piml sphx-glr-backref-type-py-class sphx-glr-backref-instance"><a href="../../modules/generated/piml.Experiment.html#piml.Experiment" title="piml.Experiment" class="sphx-glr-backref-module-piml sphx-glr-backref-type-py-class sphx-glr-backref-instance"><a href="../../modules/generated/piml.Experiment.html#piml.Experiment" title="piml.Experiment" class="sphx-glr-backref-module-piml sphx-glr-backref-type-py-class sphx-glr-backref-instance"><a href="../../modules/generated/piml.Experiment.html#piml.Experiment" title="piml.Experiment" class="sphx-glr-backref-module-piml sphx-glr-backref-type-py-class sphx-glr-backref-instance"><a href="../../modules/generated/piml.Experiment.html#piml.Experiment" title="piml.Experiment" class="sphx-glr-backref-module-piml sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">Experiment</span></a></a></a></a></a></a></a></a>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">piml</span> <span class="kn">import</span> <a href="../../modules/generated/piml.Experiment.html#piml.Experiment" title="piml.Experiment" class="sphx-glr-backref-module-piml sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">Experiment</span></a>
 
-<span class="n">exp</span> <span class="o">=</span> <a href="../../modules/generated/piml.Experiment.html#piml.Experiment" title="piml.Experiment" class="sphx-glr-backref-module-piml sphx-glr-backref-type-py-class sphx-glr-backref-instance"><a href="../../modules/generated/piml.Experiment.html#piml.Experiment" title="piml.Experiment" class="sphx-glr-backref-module-piml sphx-glr-backref-type-py-class sphx-glr-backref-instance"><a href="../../modules/generated/piml.Experiment.html#piml.Experiment" title="piml.Experiment" class="sphx-glr-backref-module-piml sphx-glr-backref-type-py-class sphx-glr-backref-instance"><a href="../../modules/generated/piml.Experiment.html#piml.Experiment" title="piml.Experiment" class="sphx-glr-backref-module-piml sphx-glr-backref-type-py-class sphx-glr-backref-instance"><a href="../../modules/generated/piml.Experiment.html#piml.Experiment" title="piml.Experiment" class="sphx-glr-backref-module-piml sphx-glr-backref-type-py-class sphx-glr-backref-instance"><a href="../../modules/generated/piml.Experiment.html#piml.Experiment" title="piml.Experiment" class="sphx-glr-backref-module-piml sphx-glr-backref-type-py-class sphx-glr-backref-instance"><a href="../../modules/generated/piml.Experiment.html#piml.Experiment" title="piml.Experiment" class="sphx-glr-backref-module-piml sphx-glr-backref-type-py-class sphx-glr-backref-instance"><a href="../../modules/generated/piml.Experiment.html#piml.Experiment" title="piml.Experiment" class="sphx-glr-backref-module-piml sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">Experiment</span></a></a></a></a></a></a></a></a><span class="p">()</span>
+<span class="n">exp</span> <span class="o">=</span> <a href="../../modules/generated/piml.Experiment.html#piml.Experiment" title="piml.Experiment" class="sphx-glr-backref-module-piml sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">Experiment</span></a><span class="p">(</span><span class="n">highcode_only</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 <span class="n">exp</span><span class="o">.</span><span class="n">data_loader</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="s2">&quot;BikeSharing&quot;</span><span class="p">,</span> <span class="n">silent</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 
-<span class="n">exp</span><span class="o">.</span><span class="n">data_summary</span><span class="p">(</span><span class="n">feature_type</span><span class="o">=</span><span class="p">{},</span><span class="n">feature_exclude</span><span class="o">=</span><span class="p">[])</span>
+<span class="n">exp</span><span class="o">.</span><span class="n">data_summary</span><span class="p">(</span><span class="n">feature_type</span><span class="o">=</span><span class="p">{},</span> <span class="n">feature_exclude</span><span class="o">=</span><span class="p">[])</span>
 </pre></div>
 </div>
 <div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>        name  n_missing        mean         std   min       q1    median  \
@@ -181,7 +181,82 @@ HTML(value=&#39;Data Shape:(17379, 13)&#39;)
 Tab(children=(Output(), Output()), layout=Layout(height=&#39;350px&#39;), selected_index=0, titles=(&#39;Numerical Attributes&#39;, &#39;Categorical Attributes&#39;))
 </pre></div>
 </div>
-<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> ( 0 minutes  2.169 seconds)</p>
+<p>Feature removal</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">exp</span><span class="o">.</span><span class="n">data_summary</span><span class="p">(</span><span class="n">feature_exclude</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;yr&quot;</span><span class="p">,</span> <span class="s2">&quot;mnth&quot;</span><span class="p">,</span> <span class="s2">&quot;temp&quot;</span><span class="p">])</span>
+</pre></div>
+</div>
+<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>        name  n_missing        mean         std  min       q1    median  \
+1         hr        0.0   11.546752    6.914405  0.0   6.0000   12.0000
+2    weekday        0.0    3.003683    2.005771  0.0   1.0000    3.0000
+4      atemp        0.0    0.475775    0.171850  0.0   0.3333    0.4848
+5        hum        0.0    0.627229    0.192930  0.0   0.4800    0.6300
+6  windspeed        0.0    0.190098    0.122340  0.0   0.1045    0.1940
+7        cnt        0.0  189.463088  181.387599  1.0  40.0000  142.0000
+
+         q3       max
+1   18.0000   23.0000
+2    5.0000    6.0000
+4    0.6212    1.0000
+5    0.7800    1.0000
+6    0.2537    0.8507
+7  281.0000  977.0000
+         name  n_missing  n_unique         top1        top2        top3  \
+0      season          0         4   3.0 : 4496  2.0 : 4409  1.0 : 4242
+2     holiday          0         2  0.0 : 16879   1.0 : 500           0
+3  workingday          0         2  1.0 : 11865  0.0 : 5514           0
+4  weathersit          0         4  1.0 : 11413  2.0 : 4544  3.0 : 1419
+
+   n_others
+0      4232
+2         0
+3         0
+4         3
+HTML(value=&#39;Data Shape:(17379, 13)&#39;)
+Tab(children=(Output(), Output()), layout=Layout(height=&#39;350px&#39;), selected_index=0, titles=(&#39;Numerical Attributes&#39;, &#39;Categorical Attributes&#39;))
+</pre></div>
+</div>
+<p>Change feature types</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">exp</span><span class="o">.</span><span class="n">data_summary</span><span class="p">(</span><span class="n">feature_type</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;weekday&quot;</span><span class="p">:</span> <span class="s2">&quot;categorical&quot;</span><span class="p">})</span>
+</pre></div>
+</div>
+<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>        name  n_missing        mean         std   min       q1    median  \
+0       mnth        0.0    6.537775    3.438776  1.00   4.0000    7.0000
+1         hr        0.0   11.546752    6.914405  0.00   6.0000   12.0000
+2       temp        0.0    0.496987    0.192556  0.02   0.3400    0.5000
+3      atemp        0.0    0.475775    0.171850  0.00   0.3333    0.4848
+4        hum        0.0    0.627229    0.192930  0.00   0.4800    0.6300
+5  windspeed        0.0    0.190098    0.122340  0.00   0.1045    0.1940
+6        cnt        0.0  189.463088  181.387599  1.00  40.0000  142.0000
+
+         q3       max
+0   10.0000   12.0000
+1   18.0000   23.0000
+2    0.6600    1.0000
+3    0.6212    1.0000
+4    0.7800    1.0000
+5    0.2537    0.8507
+6  281.0000  977.0000
+         name  n_missing  n_unique         top1        top2        top3  \
+0      season          0         4   3.0 : 4496  2.0 : 4409  1.0 : 4242
+1          yr          0         2   1.0 : 8734  0.0 : 8645           0
+2     holiday          0         2  0.0 : 16879   1.0 : 500           0
+3     weekday          0         7   6.0 : 2512  0.0 : 2502  5.0 : 2487
+4  workingday          0         2  1.0 : 11865  0.0 : 5514           0
+5  weathersit          0         4  1.0 : 11413  2.0 : 4544  3.0 : 1419
+
+   n_others
+0      4232
+1         0
+2         0
+3      9878
+4         0
+5         3
+HTML(value=&#39;Data Shape:(17379, 13)&#39;)
+Tab(children=(Output(), Output()), layout=Layout(height=&#39;350px&#39;), selected_index=0, titles=(&#39;Numerical Attributes&#39;, &#39;Categorical Attributes&#39;))
+</pre></div>
+</div>
+<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> ( 0 minutes  16.595 seconds)</p>
+<p><strong>Estimated memory usage:</strong>  24 MB</p>
 <div class="sphx-glr-footer sphx-glr-footer-example docutils container" id="sphx-glr-download-auto-examples-data-plot-1-data-summary-py">
 <div class="binder-badge docutils container">
 <a class="reference external image-reference" href="https://mybinder.org/v2/gh/selfexplainml/piml-toolbox/main?urlpath=lab/tree/./docs/_build/html/notebooks/auto_examples/data/plot_1_data_summary.ipynb"><img alt="Launch binder" src="../../_images/binder_badge_logo.svg" width="150px" /></a>

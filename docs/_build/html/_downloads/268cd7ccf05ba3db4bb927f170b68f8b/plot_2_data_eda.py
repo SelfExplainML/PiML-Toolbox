@@ -36,8 +36,8 @@ exp.eda(show='bivariate', bi_features=['yr', 'season'], figsize=(5, 4))
 
 # %%
 # correlation heatmap
-exp.eda(show='multivariate', multi_type='correlation_heatmap', figsize=(5, 4))
+exp.eda(show='multivariate', multi_type='correlation_heatmap', figsize=(6, 5))
 
 # %%
 # correlation graph
-exp.eda(show='multivariate', multi_type='correlation_graph', figsize=(5, 4))
+exp.eda(show='multivariate', multi_type='correlation_graph', figsize=(6, 5))

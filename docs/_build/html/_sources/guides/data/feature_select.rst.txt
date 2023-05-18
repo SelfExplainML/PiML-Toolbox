@@ -19,7 +19,7 @@ PIML has four built-in feature selection strategies. For demonstration purposes,
 Correlations
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-**Pearson correlation** is a measure of linear relationship between two continuous variables. Mathematically, the correlation coefficient of :math:`X` and :math:`Y` can be calculated in the following way.
+**Pearson correlation** is a measure of the linear relationship between two continuous variables. Mathematically, the correlation coefficient of :math:`X` and :math:`Y` can be calculated in the following way.
 
 .. math::
 
@@ -51,7 +51,6 @@ where "cor" is the keyword of the correlation strategy, "pearson" specifies the 
 
 Pearson correlation is easy to compute and interpret. However, it cannot measure non-linear relationships, so its usage is limited. One can use the following three methods when dealing with more complex data relationships.
 
-
 **Spearman correlation** is defined as the Pearson correlation between the ranks of the variables, which can be calculated as follows,
 
 .. math::
@@ -69,7 +68,6 @@ where :math:`\mathrm{R}(X), \mathrm{R}(Y)` are the ranking variables of :math:`X
 .. figure:: ../../auto_examples/data/images/sphx_glr_plot_5_feature_select_002.png
    :target: ../../auto_examples/data/plot_5_feature_select.html
    :align: left
-
 
 Distance Correlation
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -120,14 +118,13 @@ Similar to that of Pearson correlation, we first calculate the distance correlat
 
 where the keyword is "dcor". 
 
-The main advantage of distance correlation is that it can capture non-linear relationships. However, its calculation requires the pairwise distance matrix, which can be computationally very expensive when when the sample size is large. To make the computation scalable for big data, we downsample 5000 samples from the original data and use them to calculate the distance correlation. The distance correlation is calculated using the `statsmodels` package by default. Alternatively, if the `dcor` package is installed, then the `dcor` package will be used automatically due to speed consideration. 
-
+The main advantage of distance correlation is that it can capture non-linear relationships. However, its calculation requires the pairwise distance matrix, which can be computationally very expensive when the sample size is large. To make the computation scalable for big data, we downsample 5000 samples from the original data and use them to calculate the distance correlation. The distance correlation is calculated using the `statsmodels` package by default. Alternatively, if the `dcor` package is installed, then the `dcor` package will be used automatically due to speed considerations. 
 
 
 Use of Feature Importance
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-This strategy is based on first fitting a ML model and using a post hoc method for selecting the important variables. It is composed of the following four steps:
+This strategy is based on first fitting an ML model and using a post hoc method for selecting the important variables. It is composed of the following four steps:
 
     - Fit an XGB model using all the covariates and the response.
     - Run permutation feature importance test for the fitted XGB model, and get the importance of each feature.
@@ -146,8 +143,7 @@ See the example usage below,
 
 where the keyword here is "pfi", and this test is based on the implementation of scikit-learn, and the details can be found at https://scikit-learn.org/stable/modules/generated/sklearn.inspection.permutation_importance.html. The setting `threshold=0.95` means selecting the top features with the sum of feature importance greater than 95%. The valid range of `threshold` is 0 to 1, representing the percentage of accumulated importance. As we increase the threshold, more features would be selected.
 
-By using XGB and PFI to rank features, the selected features are most relevant for predicting the response. There are several concerns with this approach: i) it is a post hoc method in that one has to fit a model first and use it to select the important variables; ii) the results can vary with the particular algorithm used; and iii) the fitted model can  overfit or underfit, so the identified variables may not be the right ones.
-
+By using XGB and PFI to rank features, the selected features are most relevant for predicting the response. There are several concerns with this approach: i) it is a post hoc method in that one has to fit a model first and use it to select the important variables; ii) the results can vary with the particular algorithm used; and iii) the fitted model can overfit or underfit, so the identified variables may not be the right ones.
 
 Randomized Conditional Independence Test 
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -220,7 +216,6 @@ As the FBEDk algorithm can start with an arbitrary Markov boundary set, users ma
 This time, two features `hr` and `temp` are selected as the initialization, and they are shown in deep blue in iteration 0.
 
 The RCIT-based feature selection method is capable of handling non-linear relationships, and the selected features are all causally related to the response, subject to the pre-defined significance level. The disadvantages of this method include: a) the computational burden is relatively high; b) as it is a sequential selection approach, the results may be slightly different as we use different initial Markov boundary sets.
-
 
 
 Examples

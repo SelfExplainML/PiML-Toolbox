@@ -27,22 +27,35 @@ Display data prepare result using the BikeSharing dataset as example.
 
 Experiment initialization and data preparation
 
-.. GENERATED FROM PYTHON SOURCE LINES 11-22
+.. GENERATED FROM PYTHON SOURCE LINES 11-17
 
 .. code-block:: default
 
+    import numpy as np
     from piml import Experiment
 
     exp = Experiment()
     exp.data_loader(data="BikeSharing", silent=True)
 
-    exp.data_prepare(target='cnt', task_type='Regression', sample_weight=None,
+
+
+
+
+
+
+
+.. GENERATED FROM PYTHON SOURCE LINES 18-19
+
+Random split
+
+.. GENERATED FROM PYTHON SOURCE LINES 19-22
+
+.. code-block:: default
+
+    exp.data_prepare(target='cnt', task_type='regression', sample_weight=None,
                            split_method='random', test_ratio=0.2, random_state=0)
 
-    import numpy as np
-    custom_train_idx = np.arange(0,16000)
-    custom_test_idx = np.arange(16000, 17379)
-    exp.data_prepare(train_idx=custom_train_idx, test_idx=custom_test_idx)
+
 
 
 
@@ -59,6 +72,93 @@ Experiment initialization and data preparation
     5                  Test ratio         0.2
     6                Random state           0
     7  Train test energy distance    0.000586
+
+
+
+
+.. GENERATED FROM PYTHON SOURCE LINES 23-24
+
+Outer-sample-based split
+
+.. GENERATED FROM PYTHON SOURCE LINES 24-27
+
+.. code-block:: default
+
+    exp.data_prepare(target='cnt', task_type='regression', sample_weight=None,
+                split_method='outer-sample', test_ratio=0.2, random_state=0)
+
+
+
+
+
+.. rst-class:: sphx-glr-script-out
+
+ .. code-block:: none
+
+                           Config         Value
+    0            Excluded columns            []
+    1             Target variable           cnt
+    2               Sample weight          None
+    3                   Task type    Regression
+    4                Split method  Outer-Sample
+    5                  Test ratio           0.2
+    6                Random state             0
+    7  Train test energy distance      0.167242
+
+
+
+
+.. GENERATED FROM PYTHON SOURCE LINES 28-29
+
+KMeans-based split
+
+.. GENERATED FROM PYTHON SOURCE LINES 29-32
+
+.. code-block:: default
+
+    exp.data_prepare(target='cnt', task_type='regression', sample_weight=None,
+                     split_method='kmeans', test_ratio=[0.0, 1.0, 0.0], random_state=0)
+
+
+
+
+
+.. rst-class:: sphx-glr-script-out
+
+ .. code-block:: none
+
+                           Config       Value
+    0            Excluded columns          []
+    1             Target variable         cnt
+    2               Sample weight        None
+    3                   Task type  Regression
+    4                Split method      Kmeans
+    5                  Test ratio    0.421888
+    6                Random state           0
+    7  Train test energy distance    0.178697
+
+
+
+
+.. GENERATED FROM PYTHON SOURCE LINES 33-34
+
+Custom split
+
+.. GENERATED FROM PYTHON SOURCE LINES 34-37
+
+.. code-block:: default
+
+    custom_train_idx = np.arange(0, 16000)
+    custom_test_idx = np.arange(16000, 17379)
+    exp.data_prepare(target='cnt', task_type='regression', sample_weight=None, 
+                     train_idx=custom_train_idx, test_idx=custom_test_idx)
+
+
+
+.. rst-class:: sphx-glr-script-out
+
+ .. code-block:: none
+
                            Config       Value
     0            Excluded columns          []
     1             Target variable         cnt
@@ -75,9 +175,9 @@ Experiment initialization and data preparation
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** ( 0 minutes  4.523 seconds)
+   **Total running time of the script:** ( 0 minutes  24.418 seconds)
 
-**Estimated memory usage:**  1146 MB
+**Estimated memory usage:**  2184 MB
 
 
 .. _sphx_glr_download_auto_examples_data_plot_3_data_prepare.py:

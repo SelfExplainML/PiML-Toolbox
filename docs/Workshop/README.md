@@ -19,13 +19,15 @@ The focus of this workshop is to provide the latest development in model validat
 
 
 <details open>
-  <summary><h3><strong>Introduction to PiML: Quality ML Models by Design, January 20, 2023 | OpenTeams</strong></h3></summary><br /> 
+  <summary><h3><strong>Quality AI/ML Models by Design With PiML, January 20, 2023 | OpenTeams</strong></h3></summary><br /> 
   
 **Speakers:** Agus Sudjianto
 
-There is a wide variety of analytical tools that can be used to provide insight into machine model reliability, resilience, fairness, and other properties. PiML seeks to make a broad suite of these tools accessible to as great a community of machine learning practitioners as possible. Join PiML creator and core contributor Agus Sudjianto for a discussion of the key features of PiML and their user-friendly implementations.
+Machine Learning (ML) is quickly becoming ubiquitous across many sectors, including in banking for both predictive analytics and process automation applications. As a highly regulated industry, banks must be extremely cautious in adopting ML in high-risk areas such as credit underwriting. Accordingly, they are at the forefront of method and tooling development for creation and implementation of high-quality ML models with strong reliability, fairness, explainability, and resiliency characteristics. A conceptually sound ML model must make minimal tradeoffs between all of these characteristics—without continuous retraining—and exhibit robustness in ever-changing environments.
 
-Video link: https://www.youtube.com/watch?v=R79JGIMf6PY
+In this OpenTeams community event, members of the PiML team present the project and its capabilities, including specific discussion of PiML’s applications in evaluating ML model bias, and successful use of PiML in enterprise. Listen in to learn more about this exciting project that will help you build better ML models!
+
+Video link: [https://www.youtube.com/watch?v=R79JGIMf6PY](https://www.youtube.com/playlist?list=PLA7hukZmf3Aogn4fx8qlTJrACW-lIk1tE)
 
 </details>  
 

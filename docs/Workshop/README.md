@@ -10,8 +10,6 @@ The focus of this workshop is to provide the latest development in model validat
 
 **Example Notebooks:** (provided by Anwesha) 
 
-  - <a href="https://github.com/SelfExplainML/PiML-Toolbox/blob/main/docs/Workshop/Truist_bikeshare.ipynb">bikeshare.ipynb</a>  
-  - <a href="https://github.com/SelfExplainML/PiML-Toolbox/blob/main/docs/Workshop/Truist_taiwan_demo.ipynb">taiwan_demo.ipynb</a>  
   - <a href="https://github.com/SelfExplainML/PiML-Toolbox/blob/main/docs/Workshop/Truist_Credit_Analysis.ipynb">Credit_Analysis.ipynb</a>
   
 </details>  
@@ -19,6 +17,20 @@ The focus of this workshop is to provide the latest development in model validat
 
 <br /> 
 
+
+<details open>
+  <summary><h3><strong>Introduction to PiML: Quality ML Models by Design, January 20, 2023 | OpenTeams</strong></h3></summary><br /> 
+  
+**Speakers:** Agus Sudjianto
+
+There is a wide variety of analytical tools that can be used to provide insight into machine model reliability, resilience, fairness, and other properties. PiML seeks to make a broad suite of these tools accessible to as great a community of machine learning practitioners as possible. Join PiML creator and core contributor Agus Sudjianto for a discussion of the key features of PiML and their user-friendly implementations.
+
+Video link: https://www.youtube.com/watch?v=R79JGIMf6PY
+
+</details>  
+
+
+<br /> 
 
 <details open>
   <summary><h3><strong>Machine Learning Model Diagnostics and Validation, July 22, 2022 </strong></h3></summary><br /> 

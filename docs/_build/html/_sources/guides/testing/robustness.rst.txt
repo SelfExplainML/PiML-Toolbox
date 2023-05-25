@@ -8,95 +8,107 @@
 ============================
 Robustness
 ============================
-The performance of a model may significantly degrade when it encounters noisy data or distribution shifts, leading to incorrect predictions. Such data drift or shift may arise due to unexpected changes, and then alter the underlying patterns and relationships between the input and target variables. In this section, we will showcase how to leverage PiML to assess the model's robustness to input perturbations.
+The performance of a model can be adversely affected when it encounters noisy data or experiences distribution shifts. This can result in incorrect predictions. Such data drift or shift may occur due to unexpected changes, which can alter the underlying patterns and relationships between the input and target variables. In this section, we will demonstrate how to utilize PiML to evaluate the model's robustness to input perturbations.
 
 
-Algorithm Details 
+Algorithm Details
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-This section briefly describes key perturbation approaches used in PiML to simulate the data distribution shift. Perturbed input will be used for robustness evaluation. 
+The robustness test assesses model performance to small changes in the covariate space. It proceeds as follows, 
+
+- Perturb :math:`x` with changes :math:`\Delta x`.
+- Calculate the model's output :math:`\hat{f}(x + \Delta x)` on perturbed data.
+- Evaluate the performance metric of :math:`Score(y, \hat{f}(x + \Delta x))`.
+
+This process is iterated ten times for all the test samples, with performance metrics recorded for each repetition. It is important to note that the assumption is made that the response remains unchanged throughout. Perturbation can be applied to both numerical and categorical features. The forthcoming sections will illustrate the perturbation methods for numerical and categorical features, respectively.
 
 Perturbation For Numerical Features
 """"""""""""""""""""""""""""""""""""""""
 For numerical features, we provide the following two perturbation options. 
 
-**Raw perturbation**
-We added random Gaussian noise with mean 0 and variance :math:`\lambda^2` Var(:math:`x`) to the input :math:`x`.  :math:`\lambda` is the perturbation size (`perturb_size`) used to vary the variance, hence the noise level. 
+- **Raw perturbation**: Directly add i.i.d. Gaussian noise :math:`N(0, \lambda^2 var(x))` to :math:`x`, where :math:`\lambda` is the perturbation size (the argument `perturb_size` to be used in the `model_diagnose` function). However, this method may not be suitable when 
 
-**Quantile Perturbation**
-Assume a discrete variable :math:`x`. We sort :math:`x` and compute the quantile (:math:`Q`) of each element of :math:`x`, leading to the following table.
+  a) The data is discrete, e.g., 1, 2, 3, ... 10. In this case, the perturbed data, e.g., 1.2 may become invalid.
 
-.. list-table:: 
-   :widths: 55   35  35  35  35  35  35  35  35  35  35 
-   :header-rows: 1
+  b) The data is skewed and has a long tail distribution. In this case, the calculation of standard deviation may become unstable, and it is relatively hard to choose a suitable perturbation size.
 
-   * - :math:`x`
-     - 1
-     - 2
-     - 2
-     - 2
-     - 3
-     - 3 
-     - 3
-     - 40
-     - 40
-     - 50
-   * - :math:`Quantile`
-     - 0.1
-     - 0.2
-     - 0.3
-     - 0.4
-     - 0.5
-     - 0.6
-     - 0.7
-     - 0.8
-     - 0.9
-     - 1.0
+- **Quantile Perturbation**: Quantile perturbation can solve the above issues. First, the feature :math:`x` is converted to the quantile space. The uniform noise :math:`U(-0.5 \lambda, 0.5 \lambda)` is then added to perturb the quantiles. Here :math:`\lambda` also represents the perturbation size. Finally, transform the quantiles to the original space. The following table demonstrates this process.
 
-Consider the data point with value 3, with a corresponding quantile value of 0.6. Three (3) can be perturbed to 40 as below. Perform perturbation in quantile scale, which consists of adding a small noise to each quantile the round to the nearest available value. For instance, in the case of 3, let's say we perturb 0.6 and get 0.86. We round 0.86 to 0.9, which is the quantile of 40 (according to the table above). Therefore, we perturbed 3 with 40.
+.. raw:: html
+
+    <div class="output_subarea output_html rendered_html output_result">
+    <div>
+    <style scoped>
+        .dataframe tbody tr th:only-of-type {
+            vertical-align: middle;
+        }
+
+        .dataframe tbody tr th {
+            vertical-align: top;
+        }
+
+        .dataframe thead th {
+            text-align: right;
+        }
+    </style>
+    <table border="1" class="dataframe">
+      <thead>
+        <tr style="text-align: right;">
+          <th>x</th>
+          <th>1</th>
+          <th>2</th>
+          <th>2</th>
+          <th>2</th>
+          <th>3</th>
+          <th>3</th>
+          <th>3</th>
+          <th>40</th>
+          <th>40</th>
+          <th>50</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <th>Quantile</th>
+          <th>0.1</th>
+          <th>0.2</th>
+          <th>0.3</th>
+          <th>0.4</th>
+          <th>0.5</th>
+          <th>0.6</th>
+          <th>0.7</th>
+          <th>0.8</th>
+          <th>0.9</th>
+          <th>1.0</th>
+        </tr>
+      </tbody>
+    </table>
+
+Let's take into account a data point with a value of 3, along with its corresponding quantile value of 0.7. On the quantile scale, a small noise of 0.12 is generated and added to the original quantile value of 0.7. This sum yields a resulting value of 0.82, which is then rounded to the nearest available value, namely 0.8. Finally, the perturbed quantile is transformed back to the original scale, resulting in a value of 40.
 
 Perturbation for Categorical Variable 
 """"""""""""""""""""""""""""""""""""""""
-For illustration, let's assume we have three categories (A, B, and C). The user must specify the perturbation probability :math:`p` (`perturb_size`) and the transformation matrix as represented below. 
-
-.. list-table:: 
-   :widths: 80 70 70 70 
-   :header-rows: 1
-
-   * - 
-     - A
-     - B
-     - C
-   * - **A** 
-     - 0.3
-     - 0.3
-     - 0.4
-   * - **B**
-     - 0.2
-     - 0.5
-     - 0.3
-   * - **C**
-     - 0.4
-     - 0.3
-     - 0.4
-
-To perturb, select samples with probability :math:`p` (`perturb_size`) and keep them unchanged with probability :math:`1-p`. :math:`A` will be perturbed to :math:`A`, :math:`B` and :math:`C`  with probability 30%, 30%, and 40%, respectively.   
+For illustration, let's assume we have three categories (A, B, and C). First of all, we summarize the frequency of each category in the data, e.g., 30%, 30%, and 40%, respectively. Then, each sample is perturbed with probability :math:`p` (`perturb_size`) and kept unchanged with probability :math:`1-p`. For example, if :math:`p=0.3`, then 30% of the samples will be perturbed. If a sample is perturbed, it will be perturbed to A, B, and C with probability 30%, 30%, and 40%, respectively.
 
 
 Usage 
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-Robustness test can be used by the `model_diagnose` function, of which two options are provided, i.e., "robustness_perf" and "robustness_perf_worst". The former is used to evaluate the model's robustness under perturbation, while the latter is used to evaluate the model's performance against perturbation size based on the worst sample. The following arguments are required to run the robustness test.
+To perform a robustness test using the `model_diagnose` function, you have two options: "robustness_perf" and "robustness_perf_worst". The former evaluates the model's robustness under perturbation overall testing samples, while the latter only assesses the model's robustness on the worst test samples. The following arguments are required to run the robustness test:
 
-- `perturb_method`: The perturbation method, by default "raw", which means adding normal noise to the covariates for perturbation. The alternative option is "quantile", which means first transforming the data to a quantile scale, then adding uniform noise to the quantiles, and finally inversely transforming the perturbed data to the raw scale.
-- `perturb_features`: The features to be perturbed, by default None, which means all features will be perturbed.
-- `perturb_size`: The perturbation step.
-- `metric`: The performance metric to be used. Supported metrics are "ACC", "AUC", and "F1" for binary classification; "MSE", "MAE", and "R2" for regression.
-- `alpha`: The proportion of worst samples to consider. 
+- `perturb_method`: This parameter determines the perturbation method for numerical features. The default option is "raw", which involves adding normal noise to the covariates for perturbation. Alternatively, you can choose "quantile", which perturbs the data in the quantile scale.
 
-For illustration, we consider a FIGS model on the BikeSharing data. 
+- `perturb_features`: Specify the features to be perturbed. By default, this is set to None, which means all features will be perturbed. You can also provide a list of feature names if you only want to perturb selected features.
+
+- `perturb_size`: This parameter represents the perturbation step or magnitude. It determines the amount of perturbation applied to the data.
+
+- `metric`: Select the performance metric to be used for evaluation. Supported metrics depend on the type of task. For binary classification, the options are "ACC" (accuracy), "AUC" (Area Under the Curve), and "F1" (F1 score). For regression tasks, the options are "MSE" (Mean Squared Error), "MAE" (Mean Absolute Error), and "R2" (R-squared).
+
+- `alpha`: This parameter specifies the proportion of worst samples to consider when evaluating the performance against perturbation sizes.
+
+As an illustrative example, let's consider a FIGS model applied to the BikeSharing dataset.
 
 Robustness on the whole test sample
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""
-To assess the models' performance against noise, we set the parameter `show` to "robustness_perf". By default, all the features will be perturbed, and you may choose the set of features to perturb as specified in the examples below.
+To assess the models' performance against noise, we set the parameter `show` to "robustness_perf".
 
 .. jupyter-input::
 
@@ -107,9 +119,9 @@ To assess the models' performance against noise, we set the parameter `show` to 
    :target: ../../auto_examples/testing/plot_4_robustness_reg.html
    :align: left
 
-In the figure above, the x-axis represents the noise level and the y-axis shows the test set performance upon perturbation. The box plot displays the results over ten repetitions. That is, we add different random noises for each repetition and evaluate and record the metrics. The noise level of 0.0 indicates no perturbation, and hence there is no variation in the performance. The full plot above encapsulate the model performance at each noise level. As expected, we observe a degradation in model performance as the noise level increases.
+In the figure above, the x-axis represents the noise level, indicating the magnitude of perturbation applied to the data. The y-axis displays the test set performance of the model after perturbation. The box plot illustrates the results obtained from ten repetitions of the experiment. When the noise level is set to 0.0, there is no perturbation applied, resulting in no variation in the model's performance. As the noise level increases, we observe a degradation in the model's performance, which is expected. The full plot captures the model's performance at each noise level, providing an overview of how the model's performance changes with increasing perturbation.
 
-The second example perturbs two features `hr` and `atemp`, while the rest settings remain the same as the first example, as shown below. As less number of features are perturbed, the performance degradation looks smaller than in the first example.
+In the second example, we will specifically perturb two features: `hr` and `atemp`. The remaining settings will be kept the same as in the first example. This means we will use the same perturbation method, perturbation step, and performance metric. By perturbing a smaller number of features, the observed degradation in model performance is expected to be smaller compared to the first example where all features were perturbed.
 
 .. jupyter-input::
 
@@ -120,11 +132,11 @@ The second example perturbs two features `hr` and `atemp`, while the rest settin
    :target: ../../auto_examples/testing/plot_4_robustness_reg.html
    :align: left
 
-In summary, the box plots can be used to assess model robustness under different input perturbation settings, as illustrated in the examples above. The less drop in model performance under input perturbation, the more robust a robust model. This observation also applies to the worst-performing samples discussed in the following section. 
+In summary, these plots can be used to assess model robustness under different input perturbation settings, as illustrated in the examples above. The extent to which a model's performance drops under input perturbation serves as an indication of its robustness. A robust model will exhibit minimal performance degradation when subjected to perturbations.
 
 Robustness on worst test samples
 """"""""""""""""""""""""""""""""""
-This section illustrates how to evaluate model robustness under the worst-performing test samples. In this context, we identify the :math:`30\%` (`alpha=0.3`) worst test samples, i.e., the 30% test samples with the largest absolute residuals), then apply the perturbations to these worst samples. 
+In addition to the robustness test on all test samples, we can also test model robustness on worst-performing test samples. To achieve this, we will identify the top :math:`30\%` (`alpha=0.3`) of test samples with the largest absolute residuals. These samples are considered the worst-performing because they have the highest discrepancies between the predicted values and the actual values. Next, we will apply the perturbations to these samples. The perturbation method and perturbation step will remain the same as previously discussed.
 
 .. jupyter-input::
    
@@ -135,7 +147,7 @@ This section illustrates how to evaluate model robustness under the worst-perfor
    :target: ../../auto_examples/testing/plot_4_robustness_reg.html
    :align: left
 
-On the x-axis, we have the noise level (perturbation size), and on the y-axis, the model performance (MSE). When evaluating under worst sample perturbation, we observe that the performance is much worse than the full sample. This is within expectation since we only deal with worst-performing samples in this context. The drop in model performance increase with the noise level. This plot tells us how poorly the model will perform under the input perturbation of the worst-performing samples.
+The x-axis shows the noise level (perturbation size), and the y-axis is the model performance (MSE). Under perturbation, we observe that the worst test sample performance is much worse than that of the full test sample. The drop in model performance also increases with the increase in noise level. This plot tells us how poorly the model may perform under the input perturbation and worst cases.
 
 
 Examples

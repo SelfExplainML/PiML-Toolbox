@@ -7,40 +7,48 @@
 ============================
 Overfit
 ============================
-Overfitting is a common problem in machine learning where a model performs well on the training data, but fails to generalize to test or unseen data. Overfit detection is the process of identifying when a model is overfitting to the training data so that model developers can take further steps to prevent or mitigate it.
+Overfitting is a prevalent issue in machine learning, characterized by a model's strong performance on the training data but poor generalization to unseen or test data. Detecting overfitting is crucial as it enables model developers to take appropriate measures to prevent or alleviate its impact. Overfitting detection involves the identification of signs or patterns indicating that a model is overfitting to the training data. By recognizing these indicators, developers can gain insights into the model's behavior and performance. This understanding empowers them to implement strategies such as regularization techniques, adjusting model complexity, or increasing the size of the training data to mitigate the overfitting problem and improve the model's generalization ability.
 
 
 Algorithm Details
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-The overfit detection is similar but a bit different from weakspot detection. Given a fitted model, we need to define the degree of overfitting for each test sample, using the following algorithm:
+Overfit detection shares similarities with weakspot detection but involves a slightly different approach. To evaluate the degree of overfitting of a fitted model, the following algorithm is employed:
 
-- Find the nearest neighbors of each test sample in the training set;
+- Find the nearest neighbors of each test sample within the training set.
 - Calculate the performance gap between each test sample and its nearest neighbor in the training set.
 
-After that, we obtain a list of performance gaps for each test sample, and we can use the performance gap list to identify the overfit regions of 1 or 2 features of interest. The detection algorithm is similar to that of weakspot_. In overfit, we have two built-in methods, i.e., histogram slicing and tree slicing. The ensemble tree approach is not used here. In practice, the computational cost can be very large as the training sample size is large. To avoid this, we do random downsampling for the training set, such that the set used for selecting the nearest neighbors has at most 10000 samples.
+By finding the nearest neighbors, we aim to identify the most similar instances in the training set for each test sample. This comparison allows for the quantification of the degree of overfitting exhibited by each test sample. 
+
+After obtaining a list of performance gaps for each test sample, we can leverage this information to identify overfit regions related to 1 or 2 features of interest. The detection algorithm employed for overfit analysis is similar to that of weakspot_ detection. In the case of overfitting, we offer two built-in methods: histogram slicing and tree slicing. Utilizing the performance gap list, we can effectively pinpoint overfit regions that highlight areas where the model exhibits prominent overfitting tendencies. This information enables model developers to take appropriate measures to address overfitting and enhance the model's ability to generalize to unseen data.
 
 .. _weakspot: weakspot.html#algorithm-details
+
+.. note::
+  
+  When dealing with large training sample sizes, computational costs can become substantial for finding the nearest neighbor. To mitigate this issue, we employ a random downsampling technique for the training set. This downsampling ensures that the set utilized for selecting nearest neighbors comprises a maximum of 10,000 samples, thereby reducing the computational burden.
 
 
 Usage
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-Overfit assessment can be done using `model_diagnose`. The keyword is "overfit", and additional parameters are listed below. Compared to the weakspot test, the overfit test does not have the argument `use_test`, as it is always performed on the test set.
+To conduct an overfit assessment, you can use the `model_diagnose` function with the keyword "overfit" and the additional parameters listed below. Unlike the weakspot test, the overfit test does not require the use_test argument, as it is always performed on the test set.
 
-- `slice_method`: This option is used to choose which slicing method to use, available options include "histogram" and "tree", which corresponds to the three previously mentioned slicing methods. The default is "histogram".
+- `slice_method`: This parameter allows you to choose the slicing method for the assessment. The available options are "histogram" and "tree". The default value is "histogram."
 
-- `slice_features`: This is the argument for specifying the list of slicing features. 1 or 2 slicing features should be specified, otherwise, a warning message would show up. 
+- `slice_features`: Specify the list of slicing features to be used. You should specify 1 or 2 slicing features; otherwise, a warning message will be displayed.
 
-- `bins`: This is the number of bins for histogram slicing. By default, it is set to 10.
+- `bins`: This parameter determines the number of bins for histogram slicing. The default value is set to 10.
 
-- `metric`: The performance metrics, including "MSE", "MAE", and "R2" for regression; "ACC", "AUC", and "F1" for classification. The default metric is "MSE" for regression tasks and "ACC" for classification tasks.
+- `metric`: Choose the performance metric for the assessment. The available options are "MSE" (default) and "MAE" for regression tasks, and "ACC" for classification tasks.
 
-- `threshold`: This is the performance gap threshold ratio. By default, it is set to 1.1, which means 10% greater than the average performance gap.
+- `threshold`: Set the performance gap threshold ratio. The default value is 1.1, indicating a 10% increase above the average performance gap.
 
-- `min_samples`: The minimum sample size for a weak region, and the default value is 20. Regions with a sample size of less than 20 will be ignored.
+- `min_samples`: Specify the minimum sample size for considering a weak region. The default value is 20. Regions with a sample size below 20 will be ignored in the assessment.
+
+By utilizing these parameters, you can perform an overfit assessment to identify regions where the model exhibits signs of overfitting based on the given slicing features and performance metrics.
 
 One-way Overfit Plot
 """"""""""""""""""""""""""
-We consider a regression task on the BiksSharing data. In the following demo, we identify overfit regions using the histogram method, and focus on a single variable `hr`.
+In the following demonstration, we will focus on a regression task using the BiksSharing data. Our goal is to identify overfit regions using the histogram method, with a particular emphasis on the variable `hr`.
 
 .. jupyter-input::
 
@@ -122,11 +130,13 @@ We consider a regression task on the BiksSharing data. In the following demo, we
     </div>
     </div>
 
-The most significant overfit region is the one with `hr` in the range of (7am, 9am), where the test set has an MSE of 0.0171, while the train set has an MSE of 0.0156. The gap is 0.0015, which is larger than the threshold of around 0.0004. Note that the original scale argument only affects the plot, the returned table still uses the scaled values.
+The analysis of overfit regions reveals that the most significant overfit region occurs when the variable `hr` is within the range of (7am, 9am). In this region, the test set exhibits a Mean Squared Error (MSE) of 0.0171, while the train set demonstrates an MSE of 0.0156. The observed gap between the test and train MSE is 0.0015, which exceeds the threshold value of approximately 0.0004.
+
+It is important to note that the `original_scale` argument solely affects the plot visualization, allowing for the representation of data in its original scale. However, the table presented in the analysis retains the use of scaled values for consistency and accurate comparisons.
 
 Two-way Overfit Plot
 """"""""""""""""""""""""""
-In the follows, we identify overfit regions with `hr` and `atemp` using tree slicing. The minimum sample size is set to 100 and the threshold ratio is 1.05.
+In the following analysis, we will identify overfit regions using tree slicing with the variables `hr` and `atemp`. The tree slicing method allows us to pinpoint regions where overfitting occurs based on these two features. We have set the minimum sample size for considering a weak region to 100, ensuring that regions with an insufficient number of samples are not considered in the assessment. Additionally, the threshold ratio is set to 1.05, meaning that we consider regions with a performance gap greater than 1.05 times the average performance gap.
 
 .. jupyter-input::
 
@@ -138,7 +148,9 @@ In the follows, we identify overfit regions with `hr` and `atemp` using tree sli
    :target: ../../auto_examples/testing/plot_2_overfit_reg.html 
    :align: left
 
-From the plot, it can be seen that 3 overfit regions are detected, where 2 regions are purely determined by `hr` (from 7am to 9am), and the third region is an interaction of these two features (`hr` less than 2am and `atemp` less than 0.55). For the detailed information, see the table below.
+The analysis reveals the presence of three overfit regions based on the plot. Two of these regions are solely determined by the variable `hr` and span from 7am to 9am. The third overfit region is an interaction of `hr` (specifically, values less than 2am) and `atemp` (values less than 0.55).
+
+For more detailed information on each overfit region, refer to the table provided below. It contains specific details such as the range of values for `hr` and `atemp` in each region, as well as the corresponding performance metrics for the training and test sets.
 
 .. jupyter-input::
 
@@ -217,7 +229,6 @@ From the plot, it can be seen that 3 overfit regions are detected, where 2 regio
     </table>
     </div>
     </div>
-
 
 Examples
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^

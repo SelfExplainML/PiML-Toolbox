@@ -8,61 +8,53 @@
 ============================
 WeakSpot
 ============================
-Weakness detection refers to the process of identifying regions in which a model is likely to underperform or produce incorrect predictions. These weaknesses can arise due to various reasons such as inadequate or biased data, overfitting, the use of inappropriate algorithms, or insufficient model complexity. Identifying and addressing these weaknesses is crucial to improving the accuracy and reliability of the model. In PiML, the weakspot test enables us to identify weak regions of a fitted model, by various slicing techniques, see the details below.
-
+Weakness detection involves identifying areas or regions where a model is prone to underperform or make incorrect predictions. These weaknesses can arise due to factors like inadequate or biased data, overfitting, the use of unsuitable algorithms, or insufficient model complexity. It is essential to identify and address these weaknesses to enhance the accuracy and reliability of the model. In PiML, the weakspot test allows us to identify weak regions in a fitted model using different slicing techniques. More details on this feature are provided below.
 
 Algorithm Details
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-Given a fitted model, we do weakspot test by performing the following steps:
+To conduct a weakspot test on a fitted model, the following steps are performed:
 
-- Specify 1 or 2 slicing features;
-- Segment the data into regions with 1 or 2 slicing features of interest;
-- Perform an unsupervised or supervised binning of the chosen slicing features;
-- Evaluate the performance metric of each binning segment;
-- Filter out weak regions subject to the performance threshold and minimum sample constraints.
+- **Specify 1 or 2 slicing features**: Choose one or two features that you want to use for segmenting the data.
+- **Segment the data**: Apply an unsupervised or supervised binning technique to the selected slicing features.
+- **Evaluate performance metric**: Calculate the performance metric of interest for each binning segment.
+- **Filter out weak regions**: Apply filters based on performance thresholds and minimum sample constraints to identify weak regions. These filters help determine regions where the model's performance falls below a certain threshold and where the number of samples is sufficient for reliable analysis.
 
-In weakspot, we have three built-in methods to detect weak regions, i.e., histogram slicing, tree slicing, and ensemble tree slicing.
+By following these steps, you can effectively identify and analyze areas of weakness in the model's predictions. Specifically, in PiML, there are three available slicing methods for detecting weak regions: histogram slicing, tree slicing, and ensemble tree slicing.
 
-**Histogram Slicing**
+- **Histogram Slicing**: This method utilizes unsupervised binning to partition the features of interest into equal-space bins. The number of bins defaults to 10. However, if the number of unique values is less than 10, these unique values are utilized as the split points. When two slicing features are specified, the process begins by conducting histogram binning on one feature. Subsequently, for each bin, histogram binning is performed on the second feature.
 
-This is an unsupervised binning method in which we perform equal-space binning on the features of interest. The number of bins is fixed at 10. However as the number of unique values is less than 10, we use the unique values as the split points instead. As two slicing features are specified, we first perform histogram binning on one feature, and then, for each bin, do histogram binning on the second feature.
+If connected bins are identified as weak regions, our approach involves merging them into a single bin. This merging process is relatively simple when dealing with only one slicing feature. However, when two slicing features are involved, we condition one dimension and merge the weak regions along the other dimension.
 
-If some connected bins are identified as weak regions, we would merge them into a single bin. The merging process is straightforward for one slicing feature. However, when there are two slicing features, we condition one dimension and merge the weak regions along the other dimension.
+- **Tree Slicing**: This approach employs a supervised binning method. The initial step is to calculate a specific metric for each sample, such as square error for MSE, absolute error for MAE, or correct/incorrect status for accuracy score. Next, a decision tree model is fitted using the features of interest as predictors and the individual metrics as the response. The decision tree is configured with `max_depth=3` and `min_samples_leaf` as the minimum sample size. The generated decision tree is then utilized to create bins, and the performance of each bin is assessed accordingly.
 
-**Tree Slicing**
-
-This is a supervised binning method. First, calculate the metric for each sample, for instance, the square error for MSE, absolute error for MAE, or correct or incorrect status for accuracy score. Then, fit a decision tree model (`max_depth=3` and `min_samples_leaf` as the minimum sample size) using the features of interest as predictors and the individual metrics for each sample as the response. The decision tree is used to generate bins, and the performance of each bin is evaluated.
-
-**Ensemble Tree Slicing**
-
-This method is similar to that of tree slicing. Given the metrics of individual samples, it uses xgboost (`max_depth=2`, `n_estimaors=100`, `tree_method="hist"`, `max_bin=20`) to generate bins rather than trees. The binning results of xgboost are usually more granular. 
+- **Ensemble Tree Slicing**: This method shares similarities with tree slicing. Instead of using decision trees, it leverages xgboost with specific configurations (`max_depth=2`, `n_estimaors=100`, `tree_method="hist"`, `max_bin=20`) to generate bins based on the metrics of individual samples. The binning results obtained from xgboost tend to be more fine-grained and detailed compared to tree-based approaches.
 
 .. note::
 
-    The supervised binning methods, i.e., tree slicing and ensemble tree slicing, can only be used as the metric is additive. That is, the metric of the whole sample can be calculated by summing up the metric of individual samples. For example, the "MSE", "MAE, and "ACC" (accuracy score) metrics are additive, but "R2", "AUC", and "F1" metrics are not. The default metric is "MSE" for regression tasks and ACC for classification tasks. The available metrics are "MSE", "MAE", "R2", "ACC", "AUC", and "F1". 
+    The supervised binning methods, i.e., tree slicing and ensemble tree slicing, are suitable for cases where the metric is additive. This means that the metric for the entire sample can be calculated by aggregating the metric values of individual samples. For instance, metrics such as "MSE" (Mean Squared Error), "MAE" (Mean Absolute Error), and "ACC" (Accuracy Score) are additive in nature. However, metrics like "R2" (R-squared), "AUC" (Area Under the Curve), and "F1" (F1 Score) are not additive. By default, the "MSE" metric is used for regression tasks, while "ACC" is used for classification tasks. 
 
 
 Usage
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-For demonstration purposes, we consider an XGB2 model on the TaiwanCredit data. Weakspot assessment can be done using `model_diagnose`. To evaluate weak regions, set `show` to "weakspot". In addition, the following parameters provide more flexibility.
+For demonstration purposes, we consider an XGB2 model on the TaiwanCredit data. Weakspot assessment can be conducted by employing the `model_diagnose` function. To evaluate weak regions, simply set the `show` parameter to "weakspot". Moreover, the following parameters offer increased flexibility for customization and analysis.
 
-- `slice_method`: This option is used to choose which slicing method to use, available options include "histogram", "tree", and "xgb", which correspond to the three previously mentioned slicing methods. The default is "histogram".
+- `slice_method`: This parameter allows you to select the desired slicing method from the available options: "histogram", "tree", and "xgb", which correspond to the three aforementioned slicing methods. The default value is set to "histogram".
 
-- `slice_features`: This is the argument for specifying the list of slicing features. To use weakspot, 1 or 2 slicing features should be specified, otherwise, a warning message would show up. 
+- `slice_features`: This argument is used to specify the list of slicing features. For weakspot analysis, you need to specify 1 or 2 slicing features; otherwise, a warning message will be displayed.
 
-- `bins`: This is the number of bins for histogram slicing. By default, it is set to 10.
+- `bins`: This parameter determines the number of bins used for histogram slicing. By default, it is set to 10.
 
-- `metric`: The performance metrics, including "MSE", "MAE", and "R2" for regression; "ACC", "AUC", and "F1" for classification. The default metric is "MSE" for regression tasks and "ACC" for classification tasks.
+- `metric`: You can choose the performance metric for evaluation, which includes "MSE", "MAE", and "R2" for regression tasks, and "ACC", "AUC", and "F1" for classification tasks. The default metric is "MSE" for regression and "ACC" for classification.
 
-- `threshold`: This is the performance metric threshold ratio to distinguish weak and good regions. By default, it is set to 1.1, which is equivalent to a 10% performance drop compared to the average. For instance, if the AUC of the whole sample (the train or test set) is 0.8, then the threshold is 0.8 / 1.1 = 0.723. Regions with AUC less than 0.723 will be treated as weak regions. For metrics like MSE for regression, the threshold is instead 0.8 * 1.1 = 0.88 (where 0.8 is the average metric of the whole sample), as the MSE metric is the smaller the better. Regions with MSE greater than 0.88 will be treated as weak regions.
+- `threshold`: This parameter represents the performance metric threshold ratio used to distinguish between weak and good regions. The default value is set to 1.1, which corresponds to a 10% performance drop compared to the average metric. For example, if the AUC of the entire sample (train or test set) is 0.8, then the threshold would be calculated as 0.8 / 1.1 = 0.723. Regions with an AUC value lower than 0.723 will be classified as candidate weak regions. However, for metrics like MSE in regression tasks, the threshold is computed as 0.8 * 1.1 = 0.88 (also assuming the MSE for the entire sample is 0.8), as a smaller MSE value is considered better. Consequently, regions with an MSE greater than 0.88 will be identified as weak regions.
 
-- `min_samples`: The minimum sample size for a weak region, and the default value is 20. Regions with a sample size of less than 20 will be ignored.
+- `min_samples`: This parameter sets the minimum sample size required for a region to be considered weak. The default value is 20. Regions with a sample size below 20 will be ignored during the assessment.
 
-- `use_test`: This boolean argument is used to switch between train and test sets. By default, it is set to False (training data). To use the testing data, set `use_test` to True.
+- `use_test`: This boolean parameter allows you to switch between using the training or testing data. By default, it is set to False, indicating the use of the training data. To utilize the testing data, you can set `use_test` to True.
 
 One-way WeakSpot Plot
 """"""""""""""""""""""""""
-In the following demo, we identify weak regions of the testing data (`use_test=True`). We set the slice method to be "histogram", threshold ratio to be 1.1, minimum sample size as 100, and focus on a single slicing feature `PAY_1`.
+In the following demonstration, we will identify weak regions using the testing data (`use_test=True`). The chosen slice method is "histogram", with a threshold ratio of 1.1. We will consider a minimum sample size of 100 for the weak regions analysis. Specifically, we will focus on a single slicing feature, `PAY_1`.
 
 .. jupyter-input::
 
@@ -74,9 +66,9 @@ In the following demo, we identify weak regions of the testing data (`use_test=T
    :target: ../../auto_examples/testing/plot_1_weakspot_cls.html
    :align: left
 
-The plot above shows that one weak region is detected, for `PAY_1` between 0.2 and 0.4. The red dotted line represents the performance threshold (around 0.75) of weak regions, determined by the average metric (around 0.82) divided by the user-specified argument `threshold` (1.1). The weak region is annotated with its weak region number. On the x-axis, we have our variable of interest, and on the y-axis, the density and the accuracy score of each segment. In the density plot, the "Above threshold" and "Below threshold" denote the population with a prediction error greater or less than the threshold. Note that as we use metrics that are not additive, e.g., "AUC", "F1" for classification, or "R2" for regression, the density plot does not show the "Above threshold" and "Below threshold" labels.
+The above plot illustrates the detection of a single weak region for the feature `PAY_1`, within the range of 0.2 to 0.4. The red dotted line represents the performance threshold, which is calculated by dividing the average metric (around 0.82) by the user-specified threshold ratio (1.1), resulting in a threshold value of approximately 0.75. Each weak region is annotated with its corresponding weak region number.
 
-The detailed information of weak regions can be found in the returned weakspot table, as we set `return_data` to True. 
+On the x-axis, we have the variable of interest (`PAY_1`), while the y-axis represents the density and accuracy score of each segment. In the density plot, the "Above threshold" and "Below threshold" labels indicate the population segments with prediction errors greater or less than the threshold, respectively. However, it is important to note that for metrics such as "AUC", "F1" in classification tasks, or "R2" in regression tasks, which are not additive, the density plot does not display the "Above threshold" and "Below threshold" labels. The detailed information of detected weak regions can be found in the returned table, as we set `return_data` to True. 
 
 .. jupyter-input::
 
@@ -143,9 +135,13 @@ The table above shows the weak regions of the testing data. It contains the foll
 
 Note that if no weak region is detected, then a message saying "No weak regions detected." will be displayed, and the `results` object will become `None`. Note that as there exist multiple weak regions, the order of weak regions is determined by the gap between the testing and the training performance metrics.
 
+Note that if no weak regions are detected, a message stating "No weak regions detected." will be displayed, and the `results` object will be `None`. In cases where multiple weak regions are identified, the order of the weak regions is determined based on the gap between the performance metrics of the testing and training datasets. 
+
+It is important to note that the `original_scale` argument solely affects the plot visualization, allowing for the representation of data in its original scale. However, the table presented in the analysis retains the use of scaled values for consistency and accurate comparisons.
+
 Two-way WeakSpot Plot
 """"""""""""""""""""""""""
-In the following demo, we identify weak regions of the testing data (`use_test=True`) using two slicing features, i.e., `PAY_1` and `PAY_2`. We set the minimum sample size as 100 and still use the histogram slicing.
+In the following demo, we identify weak regions of the testing data (`use_test=True`) using two slicing features, i.e., `PAY_1` and `PAY_2`. We set the minimum sample size as 100 and use the histogram slicing.
 
 .. jupyter-input::
      
@@ -259,7 +255,7 @@ In the following demo, we identify weak regions of the testing data (`use_test=T
     </div>
     </div>
 
-This demo considers two variables. Under this setting, the plot and the summary table indicate 5 weak regions. For instance, region 0 recorded 191 testing and 800 training samples with `PAY_1` in [0.3, 1.4) and `PAY_AMT2` in [0.00, 0.25). In addition, the table contains information such as the testing and the training accuracy score of the samples in each region and the gap between the testing and the training ACC score.
+In this particular demonstration involving two variables, the plot reveals the presence of 5 weak regions. The accompanying summary table provides additional information regarding each region. It includes the testing and training accuracy scores for the samples within each region, as well as the gap between the testing and training ACC scores. These details offer insights into the performance discrepancy between the testing and training datasets for each specific region. Let's take Region 0 as an example, which consists of 191 testing samples and 800 training samples. This region corresponds to the range of `PAY_1` values between 0.3 and 1.4, and `PAY_AMT2` values between 0.00 and 0.25.
 
 
 Examples

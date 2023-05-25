@@ -248,34 +248,34 @@
 
 </style><section id="accuracy">
 <h1><span class="section-number">6.1. </span>Accuracy<a class="headerlink" href="#accuracy" title="Permalink to this heading">¶</a></h1>
-<p>This section serves as a user guide for utilizing PiML to assess the performance of our model using essential metrics for regression and binary classification tasks. In PiML, we can use the <code class="docutils literal notranslate"><span class="pre">model_diagnose</span></code> function to assess the performance of our model. Note that all the metrics mentioned in this section are based on the functions provided by <a class="reference external" href="https://scikit-learn.org/stable/modules/model_evaluation.html">sklearn_metrics</a>.</p>
+<p>This section introduces how to utilize the <code class="docutils literal notranslate"><span class="pre">model_diagnose</span></code> function to evaluate model performance for regression and binary classification tasks. It’s important to note that all the metrics discussed here are based on the APIs provided by <a class="reference external" href="https://scikit-learn.org/stable/modules/model_evaluation.html">sklearn</a>.</p>
 <section id="regression-tasks">
 <h2><span class="section-number">6.1.1. </span>Regression Tasks<a class="headerlink" href="#regression-tasks" title="Permalink to this heading">¶</a></h2>
-<p>Available metrics for regression tasks include mean squared error (MSE), mean absolute error (MAE), and R-squared (R2).</p>
+<p>For regression tasks, PiML offers the following three metrics to evaluate model performance:</p>
 <ul class="simple">
-<li><p><strong>Mean Squared Error</strong> (MSE): The squared difference between the actual and predicted values. The mean squared error is the average of the squared errors.</p></li>
+<li><p><strong>Mean Squared Error</strong> (MSE): It measures the average squared difference between the predicted and actual values. It provides a measure of the overall model performance, with lower values indicating better accuracy.</p></li>
 </ul>
 <div class="math notranslate nohighlight">
 \[\begin{align}
-    MSE = \frac{1}{n}\sum_{i=1}^{n}(y_{i} - \hat{y}_{i})^{2} \tag{1}
+    MSE = \frac{1}{n}\sum_{i=1}^{n}(y_{i} - \hat{y}_{i})^{2}. \tag{1}
 \end{align}\]</div>
 <ul class="simple">
-<li><p><strong>Mean absolute Error</strong> (MAE): The absolute value of the difference between the actual and predicted values. The mean absolute error is the average of the absolute errors.</p></li>
+<li><p><strong>Mean Absolute Error</strong> (MAE): It calculates the average absolute difference between the predicted and actual values. It provides a measure of the average magnitude of errors, regardless of their direction.</p></li>
 </ul>
 <div class="math notranslate nohighlight">
 \[\begin{align}
     MAE = \frac{1}{n}\sum_{i=1}^{n}|y_{i} - \hat{y}_{i}|. \tag{2}
 \end{align}\]</div>
 <ul class="simple">
-<li><p><strong>R-squared</strong> (R2): The proportion of variance of the response variable that can be explained by the model.</p></li>
+<li><p><strong>R-squared</strong> (R2): This is a statistical measure that represents the proportion of the variance in the target variable that can be explained by the features in the model. Note that the value of R2 is always between 0 and 1 for the training set, with 1 indicating a perfect fit and 0 indicating no relationship between the variables. However, it is possible to have negative values for the testing set.</p></li>
 </ul>
 <div class="math notranslate nohighlight">
 \[\begin{align}
-    R2 = 1-\frac{\sum_{i=1}^{n}(y_{i} - \hat{y}_{i})^{2} } {\sum_{i=1}^{n}(y_{i} - \bar{y})^{2} }\tag{3}
+    R2 = 1-\frac{\sum_{i=1}^{n}(y_{i} - \hat{y}_{i})^{2} } {\sum_{i=1}^{n}(y_{i} - \bar{y})^{2} }. \tag{3}
 \end{align}\]</div>
 <section id="accuracy-table">
 <h3><span class="section-number">6.1.1.1. </span>Accuracy Table<a class="headerlink" href="#accuracy-table" title="Permalink to this heading">¶</a></h3>
-<p>By setting <code class="docutils literal notranslate"><span class="pre">show</span></code> to “accuracy_table”, we can generate a summary table for different metrics. The code below shows how to generate the accuracy table for a fitted XGB2 model on the bike sharing dataset.</p>
+<p>By setting <code class="docutils literal notranslate"><span class="pre">show</span></code> to “accuracy_table”, the function would generate a summary table for various metrics. The provided code below demonstrates the process of generating an accuracy table for a fitted XGB2 model using the BikeSharing dataset.</p>
 <div class="jupyter_cell jupyter_container docutils container">
 <div class="cell_input code_cell docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">exp</span><span class="o">.</span><span class="n">model_diagnose</span><span class="p">(</span><span class="n">model</span><span class="o">=</span><span class="s2">&quot;XGB2&quot;</span><span class="p">,</span> <span class="n">show</span><span class="o">=</span><span class="s1">&#39;accuracy_table&#39;</span><span class="p">)</span>
@@ -335,13 +335,13 @@
       <td>-0.0101</td>
     </tr>
   </tbody>
-</table><p>In this table, we show the metrics for train and test sets, respectively, as well as the gap between these two sets. A good model is characterized by a low MAE or MSE (close to zero) and an R2 value close to 1. Ideally, the gap should be small, indicating that the model is not overfitting. Note that the value of R2 is always between 0 and 1 for the training set. However, it is possible to have negative values for the testing set.</p>
+</table><p>This table displays performance metrics for both the train and test sets, along with the difference (gap) between these two sets. A desirable model exhibits a small MAE or MSE (approaching zero) and an R2 value close to 1. It is also important to minimize the gap between the train and test sets, as it indicates whether the model is overfitting.</p>
 </section>
 <section id="residual-plot">
 <h3><span class="section-number">6.1.1.2. </span>Residual Plot<a class="headerlink" href="#residual-plot" title="Permalink to this heading">¶</a></h3>
-<p>Residual is the difference between the actual response and the predicted response values. A residual plot displays the relationship of residuals against a feature of interest. The ideal residual plot called the null residual plot, shows a random scatter of points forming an approximately constant-width band around the identity line. In PiML, we can generate residual plots for the testing set by setting <code class="docutils literal notranslate"><span class="pre">show</span></code> to “residual_plot” and specifying the <code class="docutils literal notranslate"><span class="pre">target_feature</span></code> of interest, as shown below. In addition, we can also set <code class="docutils literal notranslate"><span class="pre">original_scale</span></code> to True to display the residual values in the original scale. And the argument <code class="docutils literal notranslate"><span class="pre">use_test</span></code> (default=False means using training set) can be set to True to use the testing set for generating the residual plot.</p>
+<p>The residual is the disparity between the actual response and the predicted response values. A residual plot is employed to showcase the relationship between residuals and a specific feature. An ideal residual plot, known as the null residual plot, exhibits a random scattering of points forming a band of approximately constant width around the identity line. In PiML, we can generate residual plots for the testing set by configuring the <code class="docutils literal notranslate"><span class="pre">show</span></code> parameter as “residual_plot” and specifying the desired <code class="docutils literal notranslate"><span class="pre">target_feature</span></code>. The <code class="docutils literal notranslate"><span class="pre">use_test</span></code> argument, which is set to False by default (using the training set), can be set to True to generate the residual plot for the testing set.</p>
 <p><strong>Numerical Features</strong></p>
-<p>The first example below displays the residual plot for a numerical feature, i.e., <code class="docutils literal notranslate"><span class="pre">hr</span></code>, which is a line chart. Upon analyzing the plot, it becomes apparent that there is a notable heterogeneity in the residuals across different hours of the day. Specifically, the range of residuals observed during rush hours is significantly greater than that of non-peak hours. That is reasonable as the demand for bike sharing is much higher during rush hours than during non-peak hours, and it is relatively hard to make predictions for rush hours.</p>
+<p>The first example below displays the residual plot against a numerical feature <code class="docutils literal notranslate"><span class="pre">hr</span></code>. Upon examining the plot, it becomes evident that there is considerable variability in the residuals across different hours of the day. Notably, the range of residuals observed during rush hours is significantly wider than that of non-peak hours. This observation is logical since the demand for bike sharing is much higher during rush hours compared to non-peak hours, making predictions during rush hours relatively more challenging.</p>
 <div class="jupyter_cell jupyter_container docutils container">
 <div class="cell_input code_cell docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">exp</span><span class="o">.</span><span class="n">model_diagnose</span><span class="p">(</span><span class="n">model</span><span class="o">=</span><span class="s2">&quot;XGB2&quot;</span><span class="p">,</span> <span class="n">show</span><span class="o">=</span><span class="s2">&quot;accuracy_residual&quot;</span><span class="p">,</span> <span class="n">target_feature</span><span class="o">=</span><span class="s2">&quot;hr&quot;</span><span class="p">,</span>
@@ -356,7 +356,7 @@
 <a class="reference external image-reference" href="../../auto_examples/testing/plot_0_accuracy_reg.html"><img alt="../../_images/sphx_glr_plot_0_accuracy_reg_001.png" src="../../_images/sphx_glr_plot_0_accuracy_reg_001.png" /></a>
 </figure>
 <p><strong>Categorical Features</strong></p>
-<p>The next example below displays the residual plot for a categorical feature, i.e., <code class="docutils literal notranslate"><span class="pre">season</span></code>, which is a bar chart. The plot shows that the residuals are more or less evenly distributed across different seasons, which is a good sign.</p>
+<p>The following example presents a bar chart residual plot for a categorical feature <code class="docutils literal notranslate"><span class="pre">season</span></code>. The plot illustrates that the residuals are evenly distributed across various seasons, which is a positive indication.</p>
 <div class="jupyter_cell jupyter_container docutils container">
 <div class="cell_input code_cell docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">exp</span><span class="o">.</span><span class="n">model_diagnose</span><span class="p">(</span><span class="n">model</span><span class="o">=</span><span class="s2">&quot;XGB2&quot;</span><span class="p">,</span> <span class="n">show</span><span class="o">=</span><span class="s2">&quot;accuracy_residual&quot;</span><span class="p">,</span> <span class="n">target_feature</span><span class="o">=</span><span class="s2">&quot;season&quot;</span><span class="p">,</span>
@@ -370,8 +370,8 @@
 <figure class="align-left">
 <a class="reference external image-reference" href="../../auto_examples/testing/plot_0_accuracy_reg.html"><img alt="../../_images/sphx_glr_plot_0_accuracy_reg_002.png" src="../../_images/sphx_glr_plot_0_accuracy_reg_002.png" /></a>
 </figure>
-<p><strong>Response Feature</strong></p>
-<p>In addition to generating residual plots for input features, we can also generate residual plots against the response feature (<code class="docutils literal notranslate"><span class="pre">cnt</span></code> in the BikeSharing data), as shown below. The plot illustrates a noteworthy disparity in the residuals across various values of the response feature. Specifically, there appears to be a positive correlation between the residuals and the response, indicating that additional features may be necessary to enhance model performance.</p>
+<p><strong>Target Feature</strong></p>
+<p>In addition to generating residual plots for input features, we can also generate residual plots against the target feature (<code class="docutils literal notranslate"><span class="pre">cnt</span></code> in the BikeSharing data). This allows us to assess the disparity in residuals across different values of the target. The resulting plot reveals a noticeable correlation between the residuals and the response, indicating that there may be a need for additional features to improve the model’s performance.</p>
 <div class="jupyter_cell jupyter_container docutils container">
 <div class="cell_input code_cell docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">exp</span><span class="o">.</span><span class="n">model_diagnose</span><span class="p">(</span><span class="n">model</span><span class="o">=</span><span class="s2">&quot;XGB2&quot;</span><span class="p">,</span> <span class="n">show</span><span class="o">=</span><span class="s2">&quot;accuracy_residual&quot;</span><span class="p">,</span> <span class="n">target_feature</span><span class="o">=</span><span class="s2">&quot;cnt&quot;</span><span class="p">,</span>
@@ -386,7 +386,7 @@
 <a class="reference external image-reference" href="../../auto_examples/testing/plot_0_accuracy_reg.html"><img alt="../../_images/sphx_glr_plot_0_accuracy_reg_003.png" src="../../_images/sphx_glr_plot_0_accuracy_reg_003.png" /></a>
 </figure>
 <p><strong>Predicted Value</strong></p>
-<p>Finally, the residual plot against the predicted values is shown below. To generate this plot, the argument <code class="docutils literal notranslate"><span class="pre">target_feature</span></code> should be set as the response feature name + “_predict”. From this plot, we can observe a positive relationship between the predicted value and the variation of residuals. This finding is consistent with the observations made from the previous residual plot, which suggested that predicting bike sharing during rush hours is more challenging than during non-peak hours. Additionally, we notice that the scatter plot appears to be bounded at the bottom by the line <span class="math notranslate nohighlight">\(x+y=0\)</span>. This boundary exists because the predicted values (<span class="math notranslate nohighlight">\(x\)</span>) plus the residuals (<span class="math notranslate nohighlight">\(y\)</span>) equal the response variable, and the minimum value of bike sharing is zero.</p>
+<p>Lastly, the residual plot against the predicted values is depicted below. To generate this plot, the <code class="docutils literal notranslate"><span class="pre">target_feature</span></code> argument should be set to the name of the response feature followed by “_predict”. From this plot, we can observe a positive relationship between the predicted values and the variability of residuals. This observation aligns with the earlier residual plot, indicating that predicting bike sharing during rush hours is more challenging than during non-peak hours. Furthermore, we notice that the scatter plot appears to be constrained at the lower end by the line <span class="math notranslate nohighlight">\(x+y=0\)</span>. This boundary exists because the predicted values (<span class="math notranslate nohighlight">\(x\)</span>) plus the residuals (<span class="math notranslate nohighlight">\(y\)</span>) equal the response variable, and the minimum value for bike sharing is zero.</p>
 <div class="jupyter_cell jupyter_container docutils container">
 <div class="cell_input code_cell docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">exp</span><span class="o">.</span><span class="n">model_diagnose</span><span class="p">(</span><span class="n">model</span><span class="o">=</span><span class="s2">&quot;XGB2&quot;</span><span class="p">,</span> <span class="n">show</span><span class="o">=</span><span class="s2">&quot;accuracy_residual&quot;</span><span class="p">,</span> <span class="n">target_feature</span><span class="o">=</span><span class="s2">&quot;cnt_predict&quot;</span><span class="p">,</span>
@@ -404,19 +404,20 @@
 </section>
 <section id="binary-classification">
 <h2><span class="section-number">6.1.2. </span>Binary Classification<a class="headerlink" href="#binary-classification" title="Permalink to this heading">¶</a></h2>
-<p>For binary classification tasks, the following metrics are available.</p>
+<p>For binary classification tasks, the following metrics are supported:</p>
 <ul class="simple">
-<li><p><strong>Accuracy-score (ACC)</strong>: The accuracy score is a widely used metric for evaluating classification models, computed by dividing the number of correctly classified samples by the total number of samples. However, when dealing with imbalanced datasets, accuracy alone may not be the best metric to evaluate model performance. In such cases, we need to consider additional metrics such as AUC and F1-score.</p></li>
-<li><p><strong>Area Under the ROC Curve (AUC)</strong>: is a valuable metric for summarizing the performance of a classifier. Its values range from 0 to 1, with a model whose predictions are entirely incorrect having an AUC of 0.0 and a model whose predictions are entirely accurate having an AUC of 1.0. A random classifier would have an AUC of approximately 0.5, indicating that it is no better than guessing. AUC provides a helpful measure of how well the classifier distinguishes between positive and negative classes and can be used to compare the performance of different models.</p></li>
-<li><p><strong>F1-score (F1)</strong>: The F1 score is the harmonic mean of precision and recall, as follows.</p></li>
+<li><p><strong>Accuracy-score (ACC)</strong>: The accuracy score is a commonly employed metric for evaluating classification models. It is calculated by dividing the number of correctly classified samples by the total number of samples. However, when working with imbalanced datasets, relying solely on accuracy may not provide an accurate assessment of model performance. In such cases, it is crucial to consider additional metrics such as AUC and F1-score to obtain a more comprehensive evaluation.</p></li>
+<li><p><strong>Area Under the ROC Curve (AUC)</strong>: AUC provides a meaningful measure of how effectively the classifier distinguishes between positive and negative classes. Its values range from 0 to 1, where a model with completely incorrect predictions would have an AUC of 0.0, and a model with perfect predictions would have an AUC of 1.0. A random classifier, on the other hand, would have an AUC of approximately 0.5, indicating that its predictive ability is no better than random guessing.</p></li>
+<li><p><strong>F1-score (F1)</strong>: The F1 score is calculated as the harmonic mean of precision and recall. The formula for computing the F1 score is as follows:</p></li>
 </ul>
 <div class="math notranslate nohighlight">
 \[\begin{align}
-   F1 = 2\frac{Precision \cdot Recall}{Precision+Recall}=\frac{2TP}{2TP+FP+FN} \tag{4}
+   F1 = 2\frac{Precision \cdot Recall}{Precision+Recall}=\frac{2TP}{2TP+FP+FN}. \tag{4}
 \end{align}\]</div>
+<p>The F1 score combines both precision and recall into a single metric, providing a balanced measure of a classifier’s performance. By considering both precision (the ability to correctly identify positive instances) and recall (the ability to capture all positive instances), the F1 score offers a comprehensive evaluation of the model’s effectiveness in handling both true positives and false negatives.</p>
 <section id="id1">
 <h3><span class="section-number">6.1.2.1. </span>Accuracy Table<a class="headerlink" href="#id1" title="Permalink to this heading">¶</a></h3>
-<p>The accuracy table for a binary classification task includes three metrics, i.e., “ACC”, “AUC”, and “F1”. The following example shows the usage of the accuracy table for a fitted XGB2 model on the TaiwanCredit dataset.</p>
+<p>In a binary classification task, the accuracy table consists of three essential metrics: “ACC” (Accuracy), “AUC” (Area Under the ROC Curve), and “F1” (F1 Score). Here’s an example that demonstrates the usage of the accuracy table for a fitted XGB2 model on the TaiwanCredit dataset:</p>
 <div class="jupyter_cell jupyter_container docutils container">
 <div class="cell_input code_cell docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">exp</span><span class="o">.</span><span class="n">model_diagnose</span><span class="p">(</span><span class="n">model</span><span class="o">=</span><span class="s2">&quot;XGB2&quot;</span><span class="p">,</span> <span class="n">show</span><span class="o">=</span><span class="s2">&quot;accuracy_table&quot;</span><span class="p">)</span>
@@ -488,11 +489,11 @@
   </tbody>
 </table>
 </div>
-</div><p>The table resembles that of regression tasks but instead uses “ACC”, “AUC”, and “F1” metrics for binary classification. In all cases, a larger value indicates a better model. The “Gap” column shows the difference between the training and testing metrics, with a smaller gap indicating less overfitting and a more reliable model.</p>
+</div><p>The accuracy table for binary classification tasks follows a similar structure to that of regression tasks. By considering the values of “ACC,” “AUC,” and “F1,” as well as the “Gap” column, the accuracy table provides a comprehensive evaluation of the model’s performance in binary classification tasks.</p>
 </section>
 <section id="id2">
 <h3><span class="section-number">6.1.2.2. </span>Residual Plot<a class="headerlink" href="#id2" title="Permalink to this heading">¶</a></h3>
-<p>This plot shows the prediction residual against a variable of interest. Similar to the residual plot of regression tasks, we set the parameter <code class="docutils literal notranslate"><span class="pre">show</span></code> to “residual_plot” and also input the feature name in <code class="docutils literal notranslate"><span class="pre">target_feature</span></code>.</p>
+<p>This plot displays the prediction residuals (between the target and the predicted probability) against a specific variable of interest. To generate this plot, we utilize the “residual_plot” option for the <code class="docutils literal notranslate"><span class="pre">show</span></code> parameter and specify the feature name of interest using the <code class="docutils literal notranslate"><span class="pre">target_feature</span></code> parameter. This plot shares similarities with the residual plots used in regression tasks, providing insights into the relationship between the residuals and the variable of interest. By examining this plot, we can analyze patterns and trends in the residuals and assess how they vary with changes in the selected feature.</p>
 <div class="jupyter_cell jupyter_container docutils container">
 <div class="cell_input code_cell docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">exp</span><span class="o">.</span><span class="n">model_diagnose</span><span class="p">(</span><span class="n">model</span><span class="o">=</span><span class="s2">&quot;XGB2&quot;</span><span class="p">,</span> <span class="n">show</span><span class="o">=</span><span class="s2">&quot;residual_plot&quot;</span><span class="p">,</span> <span class="n">target_feature</span><span class="o">=</span><span class="s2">&quot;PAY_1&quot;</span><span class="p">,</span>
@@ -506,11 +507,12 @@
 <figure class="align-left">
 <a class="reference external image-reference" href="../../auto_examples/testing/plot_0_accuracy_cls.html"><img alt="../../_images/sphx_glr_plot_0_accuracy_cls_002.png" src="../../_images/sphx_glr_plot_0_accuracy_cls_002.png" /></a>
 </figure>
-<p>This plot shows the absolute difference between the predicted probability and the actual response (0 or 1). As the response variable is binary, we plot the absolute residuals for class 0 and class 1 separately. Moreover, a smoothing curve is added for each class, which is estimated by the locally weighted scatterplot smoothing (<a class="reference external" href="https://en.wikipedia.org/wiki/Local_regression">Lowess</a>) estimator. Note that the feature of interest can be either the input feature, the response variable, or the predicted probability. See the example in the <a class="reference external" href="accuracy.html#residual-plot">regression</a> task above for more details.</p>
+<p>This plot illustrates the absolute difference between the predicted probability and the actual response (0 or 1). Since the response variable is binary, we plot the absolute residuals separately for class 0 and class 1. Additionally, we include smoothing curves for each class, which are estimated using the locally weighted scatterplot smoothing (<a class="reference external" href="https://en.wikipedia.org/wiki/Local_regression">Lowess</a>) estimator.</p>
+<p>It is important to note that the feature of interest in this plot can be either the input feature, the response variable, or the predicted probability. By examining this plot, we can gain insights into the magnitude and patterns of the absolute residuals for each class, allowing us to evaluate the model’s performance and identify any potential discrepancies between the predicted probabilities and the actual responses.</p>
 </section>
 <section id="accuracy-plot">
 <h3><span class="section-number">6.1.2.3. </span>Accuracy Plot<a class="headerlink" href="#accuracy-plot" title="Permalink to this heading">¶</a></h3>
-<p>To evaluate the performance of a binary classification model, we present an additional plot in addition to the accuracy table and residual plot used in regression tasks. This plot can be generated by setting <code class="docutils literal notranslate"><span class="pre">show</span></code> to “accuracy_plot”. It consists of three subplots that display the confusion matrix, ROC curve, and precision-recall curve on the testing set. This plot provides a comprehensive view of the model’s performance, enabling a more thorough evaluation of its accuracy, sensitivity, and specificity.</p>
+<p>To comprehensively evaluate the performance of a binary classification model, an additional plot can be generated by setting the <code class="docutils literal notranslate"><span class="pre">show</span></code> parameter to “accuracy_plot”. This plot comprises three subplots that depict the confusion matrix, ROC curve, and precision-recall curve for the testing set.</p>
 <div class="jupyter_cell jupyter_container docutils container">
 <div class="cell_input code_cell docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">exp</span><span class="o">.</span><span class="n">model_diagnose</span><span class="p">(</span><span class="n">model</span><span class="o">=</span><span class="s2">&quot;XGB2&quot;</span><span class="p">,</span> <span class="n">show</span><span class="o">=</span><span class="s2">&quot;accuracy_plot&quot;</span><span class="p">)</span>
@@ -524,9 +526,9 @@
 <a class="reference external image-reference" href="../../auto_examples/testing/plot_0_accuracy_cls.html"><img alt="../../_images/sphx_glr_plot_0_accuracy_cls_001.png" src="../../_images/sphx_glr_plot_0_accuracy_cls_001.png" /></a>
 </figure>
 <ul class="simple">
-<li><p>The left panel shows the confusion matrix, a valuable tool for evaluating classification model performance. The diagonal elements indicate the number of instances where the predicted label is the same as the true label, while the off-diagonal elements represent mislabeled instances. A higher value on the diagonal indicates better performance and more accurate predictions.</p></li>
-<li><p>In the middle panel, the ROC curve illustrates the diagnostic ability of a binary classifier by plotting the true positive rate (TPR) against the false positive rate (FPR) at various threshold settings. This plot helps determine the optimal threshold for classifying instances and assessing the tradeoff between sensitivity and specificity.</p></li>
-<li><p>The right panel displays the precision-recall curve, a useful measure for evaluating models when classes are imbalanced. High recall but low precision means that the model is correctly identifying a large number of positive instances (true positives), but it also includes many irrelevant instances. In contrast, low recall but high precision means that the model is correctly identifying a smaller proportion of positive instances (true positives), but the instances it identifies as positive are more likely to be true positives. This plot helps determine the optimal threshold for classifying instances and assessing the tradeoff between precision and recall.</p></li>
+<li><p><strong>Confusion matrix</strong>: The left plot shows the confusion matrix, a valuable tool for evaluating classification model performance. The diagonal elements represent the number of instances where the predicted label matches the true label, indicating correct predictions. These values correspond to the true positives (TP) and true negatives (TN) of the model. On the other hand, the off-diagonal elements represent the mislabeled instances, including false positives (FP) and false negatives (FN). A higher value on the diagonal indicates better performance and more accurate predictions.</p></li>
+<li><p><strong>ROC curve</strong>: In the middle, the ROC curve illustrates the relationship between the true positive rate (TPR) and the false positive rate (FPR) at various threshold settings for classifying instances. The ROC curve can help determine the optimal threshold setting for the classifier by identifying the point on the curve that maximizes the TPR while minimizing the FPR. The closer the ROC curve is to the top-left corner of the plot, the better the classifier’s performance in terms of achieving higher sensitivity while maintaining a lower false positive rate.</p></li>
+<li><p><strong>Precision-recall curve</strong>: The right one displays the precision-recall curve, a useful measure for evaluating models when classes are imbalanced. High recall but low precision means that the model is correctly identifying a large number of positive instances (true positives), but it also includes many irrelevant instances. In contrast, low recall but high precision means that the model is correctly identifying a smaller proportion of positive instances (true positives), but the instances it identifies as positive are more likely to be true positives. This plot helps determine the optimal threshold for classifying instances and assessing the tradeoff between precision and recall.</p></li>
 </ul>
 </section>
 </section>

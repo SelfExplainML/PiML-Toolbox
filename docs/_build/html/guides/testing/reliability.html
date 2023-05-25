@@ -248,10 +248,10 @@
 
 </style><section id="reliability">
 <h1><span class="section-number">6.4. </span>Reliability<a class="headerlink" href="#reliability" title="Permalink to this heading">¶</a></h1>
-<p>The reliability of a model refers to its ability to consistently produce accurate and trustworthy predictions or classifications. In other words, a reliable model is one that consistently performs well on new, unseen data. Unreliable models can lead to inaccurate predictions, which can have significant consequences in fields such as healthcare, finance, and safety-critical systems. In PiML, we can use the <code class="docutils literal notranslate"><span class="pre">model_diagnose</span></code> function to assess the reliability of our model. We have implemented different methods to evaluate the reliability of regression and binary classification tasks, respectively.</p>
+<p>The reliability test aims to provide an estimation of prediction uncertainty, which is crucial in understanding the reliability and confidence of model predictions. In PiML, the <code class="docutils literal notranslate"><span class="pre">model_diagnose</span></code> function can be used to evaluate the reliability of fitted models. In particular, we have incorporated different methods to assess the reliability of models for regression and binary classification tasks, respectively.</p>
 <section id="reliability-for-regression-tasks">
 <h2><span class="section-number">6.4.1. </span>Reliability for Regression Tasks<a class="headerlink" href="#reliability-for-regression-tasks" title="Permalink to this heading">¶</a></h2>
-<p>Conformalized residual quantile regression (CRQR) is a model-agnostic method to evaluate the reliability of regression models. It is based on the conformal prediction framework, which assumes validation samples are exchangeable to testing samples. For an arbitrary model <span class="math notranslate nohighlight">\(\hat{f}(x)\)</span>, the CRQR is defined as:</p>
+<p>Conformalized residual quantile regression (CRQR) is a model-agnostic approach for assessing the reliability of regression models. It operates within the framework of conformal prediction, assuming that validation samples are interchangeable with testing samples. The CRQR method can be applied to any model denoted as <span class="math notranslate nohighlight">\(\hat{f}(x)\)</span>. Its definition is as follows:</p>
 <ul class="simple">
 <li><p>Fit a quantile regression model <span class="math notranslate nohighlight">\(\hat{g}_{\alpha}(x)\)</span> to predict the residuals <span class="math notranslate nohighlight">\(y_{i}-\hat{f}(x_{i})\)</span> of training data.</p></li>
 <li><p>Define the conformal score for the residual <span class="math notranslate nohighlight">\(\epsilon_{i}=y_{i}-\hat{f}(x_{i})\)</span>:</p></li>
@@ -266,12 +266,12 @@
 </ul>
 <div class="math notranslate nohighlight">
 \[\begin{align}
-   [\hat{f}(x_{test})+\hat{g}_{\frac{\alpha}{2}} (x_{test})-\hat{q}, \hat{f}(x_{test})+\hat{g}_{(1-\frac{\alpha}{2})} (x_{test})+\hat{q}]
+   [\hat{f}(x_{test})+\hat{g}_{\frac{\alpha}{2}} (x_{test})-\hat{q}, \hat{f}(x_{test})+\hat{g}_{(1-\frac{\alpha}{2})} (x_{test})+\hat{q}].
 \end{align}\]</div>
-<p>In PiML, we split the test set into 3 subsets, one (40%) for training the quantile regression model, the second one (20%) for calibration, and the rest (40%) for evaluating the quality of prediction intervals. In particular, we use the <a class="reference external" href="https://scikit-learn.org/stable/modules/generated/sklearn.ensemble.HistGradientBoostingRegressor.html">GBDT</a> model from sklearn with quantile regression loss, and the max depth parameter is set to 5. If the version of sklearn is less than 1.1, then the raw GBDT model is used instead.</p>
+<p>In PiML, the test set is further divided into three subsets for different purposes. The first subset, comprising 40% of the test set, is used to train the quantile regression model. The second subset, which accounts for 20% of the test set, is employed for calibration. The remaining 40% of the test set is dedicated to evaluating the quality of prediction intervals. In this process, we utilize the <a class="reference external" href="https://scikit-learn.org/stable/modules/generated/sklearn.ensemble.HistGradientBoostingRegressor.html">HistGradientBoostingRegressor</a> quantile regression model from the sklearn library, with the max depth parameter set to 5. If the version of sklearn is below 1.1, the raw GBDT model is utilized instead</p>
 <section id="coverage-and-bandwidth-table">
 <h3><span class="section-number">6.4.1.1. </span>Coverage and Bandwidth Table<a class="headerlink" href="#coverage-and-bandwidth-table" title="Permalink to this heading">¶</a></h3>
-<p>For demonstration purposes, we consider an XGB2 model on the BikeSharing data. By setting <code class="docutils literal notranslate"><span class="pre">show</span></code> to “reliability_table”, we can get the average coverage and bandwidth of the prediction intervals on the test set.  The argument <code class="docutils literal notranslate"><span class="pre">alpha</span></code> is the desired proportion of test samples to be outside the prediction intervals.</p>
+<p>To demonstrate the process, we utilize an XGB2 model on the BikeSharing dataset. By setting the <code class="docutils literal notranslate"><span class="pre">show</span></code> parameter to “reliability_table”, we can obtain the average coverage and bandwidth of the prediction intervals on the test set. In this context, the <code class="docutils literal notranslate"><span class="pre">alpha</span></code> argument represents the desired proportion of samples that should fall outside the prediction intervals.</p>
 <div class="jupyter_cell jupyter_container docutils container">
 <div class="cell_input code_cell docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">exp</span><span class="o">.</span><span class="n">model_diagnose</span><span class="p">(</span><span class="n">model</span><span class="o">=</span><span class="s2">&quot;XGB2&quot;</span><span class="p">,</span> <span class="n">show</span><span class="o">=</span><span class="s2">&quot;reliability_table&quot;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.1</span><span class="p">)</span>
@@ -313,18 +313,22 @@
   </tbody>
 </table>
 </div>
-</div><p>From the table above, we can find that the coverage of prediction intervals is 88.7% (close to the pre-defined level 1 - 0.1 = 90%) and the average bandwidth is 0.233. The coverage is the proportion of test samples that are covered by the prediction intervals. The bandwidth is the average width of the prediction intervals. The bandwidth is a measure of the accuracy of the prediction intervals. The smaller the bandwidth, the more accurate the prediction intervals are.</p>
+</div><p>Based on the above table, we can observe that the coverage of the prediction intervals is approximately 88.7%, which is close to the predefined level of 90% (1 - <code class="docutils literal notranslate"><span class="pre">alpha=0.1</span></code>). Additionally, the average bandwidth of the prediction intervals is 0.233, which refers to the average width of the prediction intervals and serves as a measure of the uncertainty. Smaller bandwidth values indicate more precise and reliable predictions.</p>
 </section>
 <section id="distance-of-reliable-and-un-reliable-data">
 <h3><span class="section-number">6.4.1.2. </span>Distance of Reliable and Un-reliable Data<a class="headerlink" href="#distance-of-reliable-and-un-reliable-data" title="Permalink to this heading">¶</a></h3>
-<p>As we obtained the prediction intervals for each sample, we can further analyze how each feature is related to the model uncertainty. This can be done by calculating the distance between reliable and unreliable data.
-In PiML, we can set <code class="docutils literal notranslate"><span class="pre">show</span></code> to “reliability_distance” to get the distribution shift distance of features between reliable and unreliable data. Next, we also need to specify the expected coverage <code class="docutils literal notranslate"><span class="pre">alpha</span></code>. Finally, the following arguments are useful. a) <code class="docutils literal notranslate"><span class="pre">threshold</span></code>: The threshold ratio between reliable and unreliable data;
-b) <code class="docutils literal notranslate"><span class="pre">psi_buckets</span></code>: The binning method for calculating the PSI value; c) <code class="docutils literal notranslate"><span class="pre">distance_metrics</span></code>: The distance metric for comparing the worst test sample and full test sample; available options include “PSI”, “WD1”, and “KS”. Next, we briefly introduce reliable and un-reliable data, as follows:</p>
+<p>In PiML, we can delve deeper into the analysis of model uncertainty by examining the relationship between each feature and the reliability of predictions. This can be accomplished by calculating the distance between reliable and unreliable data points. To clarify, let’s define reliable and unreliable data as follows:</p>
 <ul class="simple">
-<li><p>Reliable data: samples with the width of prediction intervals less than a predefined threshold.</p></li>
-<li><p>Unreliable data: samples with the width of prediction intervals greater than or equal to a pre-defined threshold.</p></li>
+<li><p>Reliable data: This refers to samples whose prediction interval width is less than a predefined threshold.</p></li>
+<li><p>Unreliable data: This includes samples with a prediction interval width greater than or equal to the predefined threshold.</p></li>
 </ul>
-<p>The threshold of bandwidth is determined by the argument <code class="docutils literal notranslate"><span class="pre">threshold</span></code>, multiplied by the average bandwidth. For example, if we set the <code class="docutils literal notranslate"><span class="pre">threshold</span></code> to 1.1, the threshold of bandwidth is 1.1 * 0.233 = 0.2563. Next, we compare the difference between reliable data and unreliable data. This is done by calculating the feature-wise distributional distance of these two groups of samples.</p>
+<p>After obtaining reliable and unreliable data based on the defined threshold, the next step is to compare the differences between these two groups. This is achieved by calculating the feature-wise distributional distance between the samples belonging to the reliable and unreliable groups.</p>
+<p>By setting the <code class="docutils literal notranslate"><span class="pre">show</span></code> parameter to “reliability_distance”, we can obtain the distribution shift distance of features between reliable and unreliable data. It is important to specify the expected coverage level (alpha) as well. Additionally, the following arguments are relevant to this analysis:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">threshold</span></code>: This parameter determines the threshold ratio that distinguishes reliable data from unreliable data based on the width of prediction intervals. For instance, if we set the threshold to 1.1, the threshold for the bandwidth would be calculated as 1.1 multiplied by 0.233, resulting in a threshold of 0.2563.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">distance_metrics</span></code>: This parameter determines the distance metric used to compare the worst test sample with the full test sample. Available options include “PSI” (default), “WD1”, and “KS”.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">psi_buckets</span></code>: It denotes the binning method employed for calculating the PSI (Population Stability Index) value, which can be either “uniform” (default) or “quantile”.</p></li>
+</ul>
 <div class="jupyter_cell jupyter_container docutils container">
 <div class="cell_input code_cell docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">exp</span><span class="o">.</span><span class="n">model_diagnose</span><span class="p">(</span><span class="n">model</span><span class="o">=</span><span class="s2">&quot;XGB2&quot;</span><span class="p">,</span> <span class="n">show</span><span class="o">=</span><span class="s2">&quot;reliability_distance&quot;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.1</span><span class="p">,</span>
@@ -338,11 +342,11 @@ b) <code class="docutils literal notranslate"><span class="pre">psi_buckets</spa
 <figure class="align-left">
 <a class="reference external image-reference" href="../../auto_examples/testing/plot_3_reliability_reg.html"><img alt="../../_images/sphx_glr_plot_3_reliability_reg_001.png" src="../../_images/sphx_glr_plot_3_reliability_reg_001.png" /></a>
 </figure>
-<p>From the figure above, we observe that the distributional distance of <code class="docutils literal notranslate"><span class="pre">hr</span></code> is the largest between reliable and unreliable data. However, this result only tells us the feature <code class="docutils literal notranslate"><span class="pre">hr</span></code> is related to the model uncertainty, but we cannot conclude it is a causal relationship.</p>
+<p>Based on the above figure, it is evident that the distributional distance of the feature <code class="docutils literal notranslate"><span class="pre">hr</span></code> is the largest when comparing reliable and unreliable data. However, it is important to note that this result merely suggests a relationship between the feature <code class="docutils literal notranslate"><span class="pre">hr</span></code> and model uncertainty. It does not allow us to draw conclusions regarding causality. The observed association may be indicative of a correlation, but further analysis is necessary to establish any causal relationship.</p>
 </section>
 <section id="marginal-bandwidth">
 <h3><span class="section-number">6.4.1.3. </span>Marginal Bandwidth<a class="headerlink" href="#marginal-bandwidth" title="Permalink to this heading">¶</a></h3>
-<p>Given the distributional distance, we can further display the marginal bandwidth of each feature. The marginal bandwidth is the average width of prediction intervals for each feature. We can set <code class="docutils literal notranslate"><span class="pre">show</span></code> to “reliability_marginal” to get the marginal bandwidth of each feature. The argument <code class="docutils literal notranslate"><span class="pre">target_feature</span></code> is the feature of interest. The argument <code class="docutils literal notranslate"><span class="pre">bins</span></code> is the number of bins to discretize the feature. Similar to the above plots, we also need to specify <code class="docutils literal notranslate"><span class="pre">alpha</span></code> and <code class="docutils literal notranslate"><span class="pre">threshold</span></code>.</p>
+<p>To analyze the bandwidth against each feature, we can utilize the “reliability_marginal” option of the <code class="docutils literal notranslate"><span class="pre">show</span></code> parameter. This will provide us with the average width of prediction intervals for the individual feature of interest, by specifying the <code class="docutils literal notranslate"><span class="pre">target_feature</span></code> argument. Additionally, the bins argument allows us to determine the number of bins for discretizing the feature. Similar to the previous plots, it is necessary to define the values for <code class="docutils literal notranslate"><span class="pre">alpha</span></code> and <code class="docutils literal notranslate"><span class="pre">threshold</span></code> in order to obtain meaningful results.</p>
 <div class="jupyter_cell jupyter_container docutils container">
 <div class="cell_input code_cell docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">exp</span><span class="o">.</span><span class="n">model_diagnose</span><span class="p">(</span><span class="n">model</span><span class="o">=</span><span class="s2">&quot;XGB2&quot;</span><span class="p">,</span> <span class="n">show</span><span class="o">=</span><span class="s2">&quot;reliability_marginal&quot;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.1</span><span class="p">,</span>
@@ -357,15 +361,15 @@ b) <code class="docutils literal notranslate"><span class="pre">psi_buckets</spa
 <figure class="align-left">
 <a class="reference external image-reference" href="../../auto_examples/testing/plot_3_reliability_reg.html"><img alt="../../_images/sphx_glr_plot_3_reliability_reg_002.png" src="../../_images/sphx_glr_plot_3_reliability_reg_002.png" /></a>
 </figure>
-<p>In the plot above, we can see that the marginal bandwidth of <code class="docutils literal notranslate"><span class="pre">hr</span></code> is higher than the threshold (red dotted line) during rush hours. This is consistent with our findings in weakspot tests.</p>
+<p>In the plot above, we can see that the marginal bandwidth of <code class="docutils literal notranslate"><span class="pre">hr</span></code> exceeds the threshold (red dotted line) specifically during rush hours. This observation aligns with the findings from the weakspot tests, further supporting the notion that the feature <code class="docutils literal notranslate"><span class="pre">hr</span></code> is associated with increased model uncertainty during these specific time periods.</p>
 </section>
 </section>
 <section id="reliability-for-binary-classification">
 <h2><span class="section-number">6.4.2. </span>Reliability for Binary Classification<a class="headerlink" href="#reliability-for-binary-classification" title="Permalink to this heading">¶</a></h2>
-<p>The reliability for binary classification tasks is not mature in PiML. For the time being, we use the formula <span class="math notranslate nohighlight">\(\sqrt{\hat{p}(1-\hat{p})}\)</span> to quantify the uncertainty of each prediction. Further, the isotonic regression to calibrate the predicted probability, and we also show the reliability diagram and Brier score of the estimator.</p>
+<p>In PiML, the reliability assessment for binary classification tasks is currently under development and not yet fully mature. As a temporary approach, we utilize the formula <span class="math notranslate nohighlight">\(\sqrt{\hat{p}(1-\hat{p})}\)</span> to quantify the uncertainty associated with each prediction. Additionally, isotonic regression is employed to calibrate the predicted probabilities. The reliability diagram is used to visually illustrate the calibration of the predicted probabilities, showing how well they align with the observed frequencies. The Brier score, on the other hand, is utilized to quantify the accuracy of the predicted probabilities by calculating the mean squared difference between the predicted probabilities and the actual outcomes.</p>
 <section id="id1">
 <h3><span class="section-number">6.4.2.1. </span>Distance of Reliable and Un-reliable Data<a class="headerlink" href="#id1" title="Permalink to this heading">¶</a></h3>
-<p>Similar to the distance analysis between reliable and unreliable data for regression tasks, we also calculate the distributional distance of features between reliable and unreliable data, using the formula <span class="math notranslate nohighlight">\(\sqrt{\hat{p}(1-\hat{p})}\)</span> to quantify the uncertainty of each prediction. This can be done by setting <code class="docutils literal notranslate"><span class="pre">show</span></code> to “reliability_distance”, together with the arguments <code class="docutils literal notranslate"><span class="pre">distance_metric</span></code> and <code class="docutils literal notranslate"><span class="pre">threshold</span></code>. Note that the argument <code class="docutils literal notranslate"><span class="pre">alpha</span></code> is not used for classifiers.</p>
+<p>To obtain the distributional distance between reliable and unreliable data, set <code class="docutils literal notranslate"><span class="pre">show</span></code> to “reliability_distance”. It’s important to note that the <code class="docutils literal notranslate"><span class="pre">alpha</span></code> argument is not utilized for classifiers.</p>
 <div class="jupyter_cell jupyter_container docutils container">
 <div class="cell_input code_cell docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">exp</span><span class="o">.</span><span class="n">model_diagnose</span><span class="p">(</span><span class="n">model</span><span class="o">=</span><span class="s2">&quot;XGB2&quot;</span><span class="p">,</span> <span class="n">show</span><span class="o">=</span><span class="s2">&quot;reliability_distance&quot;</span><span class="p">,</span>
@@ -399,7 +403,7 @@ b) <code class="docutils literal notranslate"><span class="pre">psi_buckets</spa
 </section>
 <section id="classifier-calibration">
 <h3><span class="section-number">6.4.2.3. </span>Classifier Calibration<a class="headerlink" href="#classifier-calibration" title="Permalink to this heading">¶</a></h3>
-<p>In this plot, we do calibration of the estimator using isotonic regression. We can set <code class="docutils literal notranslate"><span class="pre">show</span></code> to “reliability_calibration” to get the calibration plot. The x-axis is the original probability, and the y-axis is the calibrated probability.</p>
+<p>In this plot, we do calibration of the estimator using isotonic regression. We can set <code class="docutils literal notranslate"><span class="pre">show</span></code> to “reliability_calibration” to get this plot. The x-axis is the original probability, and the y-axis is the calibrated probability.</p>
 <div class="jupyter_cell jupyter_container docutils container">
 <div class="cell_input code_cell docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">exp</span><span class="o">.</span><span class="n">model_diagnose</span><span class="p">(</span><span class="n">model</span><span class="o">=</span><span class="s2">&quot;GAM&quot;</span><span class="p">,</span> <span class="n">show</span><span class="o">=</span><span class="s2">&quot;reliability_calibration&quot;</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">4</span><span class="p">))</span>
@@ -415,8 +419,7 @@ b) <code class="docutils literal notranslate"><span class="pre">psi_buckets</spa
 </section>
 <section id="reliability-diagram">
 <h3><span class="section-number">6.4.2.4. </span>Reliability Diagram<a class="headerlink" href="#reliability-diagram" title="Permalink to this heading">¶</a></h3>
-<p>A reliability diagram is also known as a calibration curve. It discretizes the predicted probability into multiple bins (equal quantile). The x-axis is the mean predicted probability of each bin; the y-axis is the observed frequency of the true response of each bin. Ideally, the curve should be close to the identity line. We show the reliability diagram of the original model as well as the calibrated model (by isotonic regression) by setting <code class="docutils literal notranslate"><span class="pre">show</span></code> to “reliability_perf”.</p>
-<p>This score is similar to the MSE metric, and it is used to evaluate the reliability of the probability prediction. The lower the Brier score, the better the model is. We show the Brier score of the original model as well as the calibrated model (by isotonic regression).</p>
+<p>A reliability diagram, also referred to as a calibration curve, discretizes the predicted probability into several bins using equal quantiles. The x-axis represents the mean predicted probability of each bin, while the y-axis represents the observed frequency of the true response within each bin. In an ideal scenario, the curve should closely align with the identity line. By setting <code class="docutils literal notranslate"><span class="pre">show</span></code> to “reliability_perf”, you can view the reliability diagram for both the original model and the calibrated model (using isotonic regression).</p>
 <div class="jupyter_cell jupyter_container docutils container">
 <div class="cell_input code_cell docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">exp</span><span class="o">.</span><span class="n">model_diagnose</span><span class="p">(</span><span class="n">model</span><span class="o">=</span><span class="s2">&quot;GAM&quot;</span><span class="p">,</span> <span class="n">show</span><span class="o">=</span><span class="s2">&quot;reliability_perf&quot;</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">4</span><span class="p">))</span>
@@ -429,6 +432,7 @@ b) <code class="docutils literal notranslate"><span class="pre">psi_buckets</spa
 <figure class="align-left">
 <a class="reference external image-reference" href="../../auto_examples/testing/plot_3_reliability_cls.html"><img alt="../../_images/sphx_glr_plot_3_reliability_cls_004.png" src="../../_images/sphx_glr_plot_3_reliability_cls_004.png" /></a>
 </figure>
+<p>The Brier score is a metric that is analogous to the Mean Squared Error (MSE), and it is employed to assess the reliability of probability predictions. A lower Brier score indicates a better-performing model.</p>
 </section>
 <section id="brier-score-table">
 <h3><span class="section-number">6.4.2.5. </span>Brier Score Table<a class="headerlink" href="#brier-score-table" title="Permalink to this heading">¶</a></h3>
@@ -443,7 +447,39 @@ b) <code class="docutils literal notranslate"><span class="pre">psi_buckets</spa
 <div class="cell_output docutils container">
 </div>
 </div>
-</section>
+<div class="output_subarea output_html rendered_html output_result">
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Original</th>
+      <th>Calibrated</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>0.1258</td>
+      <td>0.1276</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div></section>
 </section>
 <section id="examples">
 <h2><span class="section-number">6.4.3. </span>Examples<a class="headerlink" href="#examples" title="Permalink to this heading">¶</a></h2>

@@ -7,12 +7,12 @@
 ============================
 Reliability
 ============================
-The reliability of a model refers to its ability to consistently produce accurate and trustworthy predictions or classifications. In other words, a reliable model is one that consistently performs well on new, unseen data. Unreliable models can lead to inaccurate predictions, which can have significant consequences in fields such as healthcare, finance, and safety-critical systems. In PiML, we can use the `model_diagnose` function to assess the reliability of our model. We have implemented different methods to evaluate the reliability of regression and binary classification tasks, respectively.
+The reliability test aims to provide an estimation of prediction uncertainty, which is crucial in understanding the reliability and confidence of model predictions. In PiML, the `model_diagnose` function can be used to evaluate the reliability of fitted models. In particular, we have incorporated different methods to assess the reliability of models for regression and binary classification tasks, respectively.
 
 
 Reliability for Regression Tasks
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-Conformalized residual quantile regression (CRQR) is a model-agnostic method to evaluate the reliability of regression models. It is based on the conformal prediction framework, which assumes validation samples are exchangeable to testing samples. For an arbitrary model :math:`\hat{f}(x)`, the CRQR is defined as:
+Conformalized residual quantile regression (CRQR) is a model-agnostic approach for assessing the reliability of regression models. It operates within the framework of conformal prediction, assuming that validation samples are interchangeable with testing samples. The CRQR method can be applied to any model denoted as :math:`\hat{f}(x)`. Its definition is as follows:
 
 - Fit a quantile regression model :math:`\hat{g}_{\alpha}(x)`` to predict the residuals :math:`y_{i}-\hat{f}(x_{i})` of training data.
 
@@ -29,16 +29,16 @@ Conformalized residual quantile regression (CRQR) is a model-agnostic method to 
 
 .. math::
    \begin{align}
-      [\hat{f}(x_{test})+\hat{g}_{\frac{\alpha}{2}} (x_{test})-\hat{q}, \hat{f}(x_{test})+\hat{g}_{(1-\frac{\alpha}{2})} (x_{test})+\hat{q}]
+      [\hat{f}(x_{test})+\hat{g}_{\frac{\alpha}{2}} (x_{test})-\hat{q}, \hat{f}(x_{test})+\hat{g}_{(1-\frac{\alpha}{2})} (x_{test})+\hat{q}].
    \end{align}
 
-In PiML, we split the test set into 3 subsets, one (40%) for training the quantile regression model, the second one (20%) for calibration, and the rest (40%) for evaluating the quality of prediction intervals. In particular, we use the GBDT_ model from sklearn with quantile regression loss, and the max depth parameter is set to 5. If the version of sklearn is less than 1.1, then the raw GBDT model is used instead.
+In PiML, the test set is further divided into three subsets for different purposes. The first subset, comprising 40% of the test set, is used to train the quantile regression model. The second subset, which accounts for 20% of the test set, is employed for calibration. The remaining 40% of the test set is dedicated to evaluating the quality of prediction intervals. In this process, we utilize the HistGradientBoostingRegressor_ quantile regression model from the sklearn library, with the max depth parameter set to 5. If the version of sklearn is below 1.1, the raw GBDT model is utilized instead
 
-.. _GBDT: https://scikit-learn.org/stable/modules/generated/sklearn.ensemble.HistGradientBoostingRegressor.html
+.. _HistGradientBoostingRegressor: https://scikit-learn.org/stable/modules/generated/sklearn.ensemble.HistGradientBoostingRegressor.html
 
 Coverage and Bandwidth Table
 """"""""""""""""""""""""""""""""
-For demonstration purposes, we consider an XGB2 model on the BikeSharing data. By setting `show` to "reliability_table", we can get the average coverage and bandwidth of the prediction intervals on the test set.  The argument `alpha` is the desired proportion of test samples to be outside the prediction intervals. 
+To demonstrate the process, we utilize an XGB2 model on the BikeSharing dataset. By setting the `show` parameter to "reliability_table", we can obtain the average coverage and bandwidth of the prediction intervals on the test set. In this context, the `alpha` argument represents the desired proportion of samples that should fall outside the prediction intervals.
 
 .. jupyter-input::
 
@@ -80,18 +80,22 @@ For demonstration purposes, we consider an XGB2 model on the BikeSharing data. B
     </div>
     </div>
 
-From the table above, we can find that the coverage of prediction intervals is 88.7% (close to the pre-defined level 1 - 0.1 = 90%) and the average bandwidth is 0.233. The coverage is the proportion of test samples that are covered by the prediction intervals. The bandwidth is the average width of the prediction intervals. The bandwidth is a measure of the accuracy of the prediction intervals. The smaller the bandwidth, the more accurate the prediction intervals are. 
+Based on the above table, we can observe that the coverage of the prediction intervals is approximately 88.7%, which is close to the predefined level of 90% (1 - `alpha=0.1`). Additionally, the average bandwidth of the prediction intervals is 0.233, which refers to the average width of the prediction intervals and serves as a measure of the uncertainty. Smaller bandwidth values indicate more precise and reliable predictions.
 
 Distance of Reliable and Un-reliable Data 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""
-As we obtained the prediction intervals for each sample, we can further analyze how each feature is related to the model uncertainty. This can be done by calculating the distance between reliable and unreliable data. 
-In PiML, we can set `show` to "reliability_distance" to get the distribution shift distance of features between reliable and unreliable data. Next, we also need to specify the expected coverage `alpha`. Finally, the following arguments are useful. a) `threshold`: The threshold ratio between reliable and unreliable data;
-b) `psi_buckets`: The binning method for calculating the PSI value; c) `distance_metrics`: The distance metric for comparing the worst test sample and full test sample; available options include "PSI", "WD1", and "KS". Next, we briefly introduce reliable and un-reliable data, as follows:
+In PiML, we can delve deeper into the analysis of model uncertainty by examining the relationship between each feature and the reliability of predictions. This can be accomplished by calculating the distance between reliable and unreliable data points. To clarify, let's define reliable and unreliable data as follows:
 
-- Reliable data: samples with the width of prediction intervals less than a predefined threshold.
-- Unreliable data: samples with the width of prediction intervals greater than or equal to a pre-defined threshold. 
+- Reliable data: This refers to samples whose prediction interval width is less than a predefined threshold.
+- Unreliable data: This includes samples with a prediction interval width greater than or equal to the predefined threshold.
 
-The threshold of bandwidth is determined by the argument `threshold`, multiplied by the average bandwidth. For example, if we set the `threshold` to 1.1, the threshold of bandwidth is 1.1 * 0.233 = 0.2563. Next, we compare the difference between reliable data and unreliable data. This is done by calculating the feature-wise distributional distance of these two groups of samples. 
+After obtaining reliable and unreliable data based on the defined threshold, the next step is to compare the differences between these two groups. This is achieved by calculating the feature-wise distributional distance between the samples belonging to the reliable and unreliable groups.
+
+By setting the `show` parameter to "reliability_distance", we can obtain the distribution shift distance of features between reliable and unreliable data. It is important to specify the expected coverage level (alpha) as well. Additionally, the following arguments are relevant to this analysis:
+
+- `threshold`: This parameter determines the threshold ratio that distinguishes reliable data from unreliable data based on the width of prediction intervals. For instance, if we set the threshold to 1.1, the threshold for the bandwidth would be calculated as 1.1 multiplied by 0.233, resulting in a threshold of 0.2563.
+- `distance_metrics`: This parameter determines the distance metric used to compare the worst test sample with the full test sample. Available options include "PSI" (default), "WD1", and "KS".
+- `psi_buckets`: It denotes the binning method employed for calculating the PSI (Population Stability Index) value, which can be either "uniform" (default) or "quantile".
 
 .. jupyter-input::
 
@@ -102,11 +106,11 @@ The threshold of bandwidth is determined by the argument `threshold`, multiplied
    :target: ../../auto_examples/testing/plot_3_reliability_reg.html
    :align: left
 
-From the figure above, we observe that the distributional distance of `hr` is the largest between reliable and unreliable data. However, this result only tells us the feature `hr` is related to the model uncertainty, but we cannot conclude it is a causal relationship.
+Based on the above figure, it is evident that the distributional distance of the feature `hr` is the largest when comparing reliable and unreliable data. However, it is important to note that this result merely suggests a relationship between the feature `hr` and model uncertainty. It does not allow us to draw conclusions regarding causality. The observed association may be indicative of a correlation, but further analysis is necessary to establish any causal relationship.
 
 Marginal Bandwidth 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""
-Given the distributional distance, we can further display the marginal bandwidth of each feature. The marginal bandwidth is the average width of prediction intervals for each feature. We can set `show` to "reliability_marginal" to get the marginal bandwidth of each feature. The argument `target_feature` is the feature of interest. The argument `bins` is the number of bins to discretize the feature. Similar to the above plots, we also need to specify `alpha` and `threshold`.
+To analyze the bandwidth against each feature, we can utilize the "reliability_marginal" option of the `show` parameter. This will provide us with the average width of prediction intervals for the individual feature of interest, by specifying the `target_feature` argument. Additionally, the bins argument allows us to determine the number of bins for discretizing the feature. Similar to the previous plots, it is necessary to define the values for `alpha` and `threshold` in order to obtain meaningful results.
 
 .. jupyter-input::
 
@@ -118,16 +122,16 @@ Given the distributional distance, we can further display the marginal bandwidth
    :target: ../../auto_examples/testing/plot_3_reliability_reg.html
    :align: left
 
-In the plot above, we can see that the marginal bandwidth of `hr` is higher than the threshold (red dotted line) during rush hours. This is consistent with our findings in weakspot tests.
+In the plot above, we can see that the marginal bandwidth of `hr` exceeds the threshold (red dotted line) specifically during rush hours. This observation aligns with the findings from the weakspot tests, further supporting the notion that the feature `hr` is associated with increased model uncertainty during these specific time periods.
 
 
 Reliability for Binary Classification
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-The reliability for binary classification tasks is not mature in PiML. For the time being, we use the formula :math:`\sqrt{\hat{p}(1-\hat{p})}` to quantify the uncertainty of each prediction. Further, the isotonic regression to calibrate the predicted probability, and we also show the reliability diagram and Brier score of the estimator.
+In PiML, the reliability assessment for binary classification tasks is currently under development and not yet fully mature. As a temporary approach, we utilize the formula :math:`\sqrt{\hat{p}(1-\hat{p})}` to quantify the uncertainty associated with each prediction. Additionally, isotonic regression is employed to calibrate the predicted probabilities. The reliability diagram is used to visually illustrate the calibration of the predicted probabilities, showing how well they align with the observed frequencies. The Brier score, on the other hand, is utilized to quantify the accuracy of the predicted probabilities by calculating the mean squared difference between the predicted probabilities and the actual outcomes.
 
 Distance of Reliable and Un-reliable Data 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""
-Similar to the distance analysis between reliable and unreliable data for regression tasks, we also calculate the distributional distance of features between reliable and unreliable data, using the formula :math:`\sqrt{\hat{p}(1-\hat{p})}` to quantify the uncertainty of each prediction. This can be done by setting `show` to "reliability_distance", together with the arguments `distance_metric` and `threshold`. Note that the argument `alpha` is not used for classifiers.
+To obtain the distributional distance between reliable and unreliable data, set `show` to "reliability_distance". It's important to note that the `alpha` argument is not utilized for classifiers.
 
 .. jupyter-input::
 
@@ -153,7 +157,7 @@ Similarly, the marginal bandwidth plot of each feature can be shown using the ke
 
 Classifier Calibration
 """"""""""""""""""""""""""""""""
-In this plot, we do calibration of the estimator using isotonic regression. We can set `show` to "reliability_calibration" to get the calibration plot. The x-axis is the original probability, and the y-axis is the calibrated probability.
+In this plot, we do calibration of the estimator using isotonic regression. We can set `show` to "reliability_calibration" to get this plot. The x-axis is the original probability, and the y-axis is the calibrated probability.
 
 .. jupyter-input::
 
@@ -165,9 +169,7 @@ In this plot, we do calibration of the estimator using isotonic regression. We c
 
 Reliability Diagram
 """"""""""""""""""""""""""""""""
-A reliability diagram is also known as a calibration curve. It discretizes the predicted probability into multiple bins (equal quantile). The x-axis is the mean predicted probability of each bin; the y-axis is the observed frequency of the true response of each bin. Ideally, the curve should be close to the identity line. We show the reliability diagram of the original model as well as the calibrated model (by isotonic regression) by setting `show` to "reliability_perf". 
-
-This score is similar to the MSE metric, and it is used to evaluate the reliability of the probability prediction. The lower the Brier score, the better the model is. We show the Brier score of the original model as well as the calibrated model (by isotonic regression).
+A reliability diagram, also referred to as a calibration curve, discretizes the predicted probability into several bins using equal quantiles. The x-axis represents the mean predicted probability of each bin, while the y-axis represents the observed frequency of the true response within each bin. In an ideal scenario, the curve should closely align with the identity line. By setting `show` to "reliability_perf", you can view the reliability diagram for both the original model and the calibrated model (using isotonic regression).
 
 .. jupyter-input::
 
@@ -177,6 +179,8 @@ This score is similar to the MSE metric, and it is used to evaluate the reliabil
    :target: ../../auto_examples/testing/plot_3_reliability_cls.html
    :align: left
 
+The Brier score is a metric that is analogous to the Mean Squared Error (MSE), and it is employed to assess the reliability of probability predictions. A lower Brier score indicates a better-performing model. 
+
 Brier Score Table
 """"""""""""""""""""""""""""""""
 To get the Brier score individually, we can use the keyword "reliability_table", as shown below.
@@ -185,6 +189,43 @@ To get the Brier score individually, we can use the keyword "reliability_table",
 
    results = exp.model_diagnose(model="GAM", show="reliability_table", return_data=True)
    results.data
+
+.. raw:: html
+
+    <div class="output_subarea output_html rendered_html output_result">
+    <div>
+    <style scoped>
+        .dataframe tbody tr th:only-of-type {
+            vertical-align: middle;
+        }
+
+        .dataframe tbody tr th {
+            vertical-align: top;
+        }
+
+        .dataframe thead th {
+            text-align: right;
+        }
+    </style>
+    <table border="1" class="dataframe">
+      <thead>
+        <tr style="text-align: right;">
+          <th></th>
+          <th>Original</th>
+          <th>Calibrated</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <th>0</th>
+          <td>0.1258</td>
+          <td>0.1276</td>
+        </tr>
+      </tbody>
+    </table>
+    </div>
+    </div>
+
 
 Examples
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^

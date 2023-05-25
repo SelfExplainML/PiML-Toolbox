@@ -4,16 +4,20 @@
 # In[ ]:
 
 
-metrics_result = exp.model_fairness(model="XGB2_monotonic", show="metrics", metric="AIR", group_category=["Race","Gender"], reference_group=[1., 1.], protected_group=[0., 0.], favorable_threshold=0.5,
-figsize=(6, 4), return_data=True)
+metrics_result = exp.model_fairness(model="XGB2_monotonic", show="metrics", metric="AIR",
+                group_category=["Race", "Gender"], reference_group=[1., 1.],
+                protected_group=[0., 0.], favorable_threshold=0.5,
+                figsize=(6, 4), return_data=True)
 
 
 # In[ ]:
 
 
-segmented_result = exp.model_fairness(model="XGB2_monotonic", show="segmented", metric="AIR", segmented_feature="Balance",
-                                      group_category=["Race","Gender"], reference_group=[1., 1.], protected_group=[0., 0.], segmented_bins=5,
-                                      favorable_threshold=0.5, return_data=True, figsize=(8, 4))
+segmented_result = exp.model_fairness(model="XGB2_monotonic", show="segmented", metric="AIR",
+                                       segmented_feature="Balance", group_category=["Race","Gender"],
+                                       reference_group=[1., 1.], protected_group=[0., 0.],
+                                       segmented_bins=5, favorable_threshold=0.5,
+                                       return_data=True, figsize=(8, 4))
 
 
 # In[ ]:
@@ -22,9 +26,11 @@ segmented_result = exp.model_fairness(model="XGB2_monotonic", show="segmented", 
 binning_dict = {"Balance": {"type": "quantile", "value": [1, 5]},
                 "Mortgage": {"type": "uniform", "value": [1, 5]},
                 "Amount Past Due": {"type": "custom", "value": (0, 100)}}
-binning_result = exp.model_fairness(model="XGB2_monotonic", show="binning", metric="AIR", group_category=["Race","Gender"],
-                                 reference_group=[1., 1.], protected_group=[0., 0.], favorable_threshold=0.5,
-                                 performance_metric="F1", binning_dict=binning_dict, return_data=True, figsize=(8,4))
+binning_result = exp.model_fairness(model="XGB2_monotonic", show="binning", metric="AIR",
+                                     group_category=["Race","Gender"],
+                                     reference_group=[1., 1.], protected_group=[0., 0.],
+                                     favorable_threshold=0.5, performance_metric="F1",
+                                     binning_dict=binning_dict, return_data=True, figsize=(8,4))
 
 
 # In[ ]:

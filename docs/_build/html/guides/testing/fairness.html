@@ -248,51 +248,41 @@
 
 </style><section id="fairness">
 <h1><span class="section-number">6.7. </span>Fairness<a class="headerlink" href="#fairness" title="Permalink to this heading">¶</a></h1>
-<p>Fairness is the model’s quality or state of being fair or impartial. Decisions made by computers after a machine-learning process may be considered unfair if they were based on variables considered sensitive. Examples of these kinds of variables include gender, ethnicity, sexual orientation, disability, and more.</p>
-<p>In this section, the model fairness test will be introduced. For demonstration purposes, we run the following example codes to initialize a PiML experiment for the Credit Simulation dataset. In the model training process, we cannot use demographic features like “Race” and “Gender”. So we need to remove them from the training data. We use monotonic depth 2 xgboost to train the data.</p>
+<p>Fairness refers to the quality or state of being fair and impartial in the context of a model. When machine learning algorithms make decisions, it is essential to ensure that these decisions do not result in unfair outcomes based on sensitive variables. Examples of such variables include gender, ethnicity, sexual orientation, disability, and more. To address the issue of fairness, we introduce the model fairness test in this section. To illustrate the process, we provide example codes for initializing a PiML experiment using the Credit Simulation dataset. In the model training process, it is necessary to exclude demographic features such as “Race” and “Gender” from the training data to mitigate potential biases. We employ a monotonic depth 2 XGBoost algorithm to train the data, promoting fairness in the model’s decision-making process.</p>
 <section id="fairness-metrics">
 <h2><span class="section-number">6.7.1. </span>Fairness Metrics<a class="headerlink" href="#fairness-metrics" title="Permalink to this heading">¶</a></h2>
-<p>PIML support showing the fairness result for different metrics.</p>
-<p>Metric types:</p>
+<p>PIML supports various fairness metrics, as shown below. In specific, we use the subscripts <span class="math notranslate nohighlight">\(p\)</span> and <span class="math notranslate nohighlight">\(r\)</span> to denote the protected and reference groups, respectively.</p>
 <ul class="simple">
-<li><p>“AIR”: Adverse impact ratio.</p></li>
+<li><p><strong>AIR</strong>: Adverse impact ratio.</p></li>
 </ul>
 <div class="math notranslate nohighlight">
 \[\begin{align}
-AIR = \frac{(TP_{p}+FN_{p}) / n_{r}}{(TP_{r}+FN_{r}) / n_{p}}
+AIR = \frac{(TP_{p}+FN_{p}) / n_{r}}{(TP_{r}+FN_{r}) / n_{p}}.
 \end{align}\]</div>
-<p>The value of <span class="math notranslate nohighlight">\(TP\)</span>, <span class="math notranslate nohighlight">\(FN\)</span>, <span class="math notranslate nohighlight">\(n\)</span> refers to the count of True Positive samples, False negative samples, and all samples,
-respectively. The <span class="math notranslate nohighlight">\(p\)</span> and <span class="math notranslate nohighlight">\(r\)</span> refers to the group samples belong to.</p>
 <ul class="simple">
-<li><p>“SMD”: Standardized mean difference. (Usually used for continuous response)</p></li>
+<li><p><strong>Precision</strong>: Positive predictive value disparity ratio.</p></li>
 </ul>
 <div class="math notranslate nohighlight">
 \[\begin{align}
-SMD = \frac{(\sum_{x\in{p}} outcome_x / {n_{p}}) - (\sum_{x\in{r}} outcome_x / n_{r})} {\sigma(outcome)} * 100
+Precision Ratio = \frac{(TP_{p}) / (TP_{p}+FP_{p})}{(TP_{r}) / (FP_{r}+FN_{r})}.
 \end{align}\]</div>
-<p>The <span class="math notranslate nohighlight">\(outcome\)</span> is the prediction value, <span class="math notranslate nohighlight">\(\sigma\)</span> is the standard deviation.</p>
 <ul class="simple">
-<li><p>“Precision”: Positive predictive value disparity ratio.</p></li>
+<li><p><strong>Recall</strong>: True positive rate disparity ratio.</p></li>
 </ul>
 <div class="math notranslate nohighlight">
 \[\begin{align}
-Precision Ratio = \frac{(TP_{p}) / (TP_{p}+FP_{p})}{(TP_{r}) / (FP_{r}+FN_{r})}
+Recall Ratio = \frac{(TP_{p}) / (TP_{p}+FN_{p})}{(TP_{r}) / (TP_{r}+FN_{r})}.
 \end{align}\]</div>
-<p>The value of <span class="math notranslate nohighlight">\(TP\)</span>, <span class="math notranslate nohighlight">\(FP\)</span> refers to the count of True Positive samples and False Positive samples, respectively.
-The <span class="math notranslate nohighlight">\(p\)</span> and <span class="math notranslate nohighlight">\(r\)</span> refers to the group samples belong to.</p>
 <ul class="simple">
-<li><p>“Recall”: True positive rate disparity ratio.</p></li>
+<li><p><strong>SMD</strong>: Standardized mean difference between protected and reference groups. (Only used for regression tasks)</p></li>
 </ul>
-<div class="math notranslate nohighlight">
-\[\begin{align}
-Recall Ratio = \frac{(TP_{p}) / (TP_{p}+FN_{p})}{(TP_{r}) / (TP_{r}+FN_{r})}
-\end{align}\]</div>
-<p>The value of <span class="math notranslate nohighlight">\(TP\)</span>, <span class="math notranslate nohighlight">\(FN\)</span> refers to the count of True Positive samples and False negative samples, respectively. And the “protected” and “reference” refer to the group samples belong to.</p>
 <p>In PIML, you can use the <code class="docutils literal notranslate"><span class="pre">model_fairness</span></code> API to get the metric result, as follows,</p>
 <div class="jupyter_cell jupyter_container docutils container">
 <div class="cell_input code_cell docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">metrics_result</span> <span class="o">=</span> <span class="n">exp</span><span class="o">.</span><span class="n">model_fairness</span><span class="p">(</span><span class="n">model</span><span class="o">=</span><span class="s2">&quot;XGB2_monotonic&quot;</span><span class="p">,</span> <span class="n">show</span><span class="o">=</span><span class="s2">&quot;metrics&quot;</span><span class="p">,</span> <span class="n">metric</span><span class="o">=</span><span class="s2">&quot;AIR&quot;</span><span class="p">,</span> <span class="n">group_category</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;Race&quot;</span><span class="p">,</span><span class="s2">&quot;Gender&quot;</span><span class="p">],</span> <span class="n">reference_group</span><span class="o">=</span><span class="p">[</span><span class="mf">1.</span><span class="p">,</span> <span class="mf">1.</span><span class="p">],</span> <span class="n">protected_group</span><span class="o">=</span><span class="p">[</span><span class="mf">0.</span><span class="p">,</span> <span class="mf">0.</span><span class="p">],</span> <span class="n">favorable_threshold</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span>
-<span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">6</span><span class="p">,</span> <span class="mi">4</span><span class="p">),</span> <span class="n">return_data</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">metrics_result</span> <span class="o">=</span> <span class="n">exp</span><span class="o">.</span><span class="n">model_fairness</span><span class="p">(</span><span class="n">model</span><span class="o">=</span><span class="s2">&quot;XGB2_monotonic&quot;</span><span class="p">,</span> <span class="n">show</span><span class="o">=</span><span class="s2">&quot;metrics&quot;</span><span class="p">,</span> <span class="n">metric</span><span class="o">=</span><span class="s2">&quot;AIR&quot;</span><span class="p">,</span>
+                <span class="n">group_category</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;Race&quot;</span><span class="p">,</span> <span class="s2">&quot;Gender&quot;</span><span class="p">],</span> <span class="n">reference_group</span><span class="o">=</span><span class="p">[</span><span class="mf">1.</span><span class="p">,</span> <span class="mf">1.</span><span class="p">],</span>
+                <span class="n">protected_group</span><span class="o">=</span><span class="p">[</span><span class="mf">0.</span><span class="p">,</span> <span class="mf">0.</span><span class="p">],</span> <span class="n">favorable_threshold</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span>
+                <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">6</span><span class="p">,</span> <span class="mi">4</span><span class="p">),</span> <span class="n">return_data</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -302,7 +292,12 @@ Recall Ratio = \frac{(TP_{p}) / (TP_{p}+FN_{p})}{(TP_{r}) / (TP_{r}+FN_{r})}
 <figure class="align-center">
 <a class="reference external image-reference" href="../../auto_examples/testing/plot_6_fairness.html"><img alt="../../_images/sphx_glr_plot_6_fairness_001.png" src="../../_images/sphx_glr_plot_6_fairness_001.png" /></a>
 </figure>
-<p>where <code class="docutils literal notranslate"><span class="pre">metrics</span></code> is the keyword for showing metrics, and you also need to set the protected group and the reference group. If <code class="docutils literal notranslate"><span class="pre">return_data</span></code> is true, the output results include:</p>
+<p>where “metrics” is the keyword for the parameter <code class="docutils literal notranslate"><span class="pre">show</span></code>. The <code class="docutils literal notranslate"><span class="pre">metric</span></code> parameter defines the fairness metric for evaluation. You also need to set the protected group and the reference group by the parameters <code class="docutils literal notranslate"><span class="pre">group_category</span></code>, <code class="docutils literal notranslate"><span class="pre">reference_group</span></code>, and <code class="docutils literal notranslate"><span class="pre">protected_group</span></code>. In the example above, we create two reference - protected group pairs:</p>
+<ul class="simple">
+<li><p>“Race” = 1.0 as reference and “Race” = 0.0 as protected;</p></li>
+<li><p>“Gender” = 1.0 as reference and “Gender” = 0.0 as protected;</p></li>
+</ul>
+<p>The <code class="docutils literal notranslate"><span class="pre">favorable_threshold</span></code> parameter is the threshold for binarizing the predicted outcomes, usually set to 0.5 for binary classification. If <code class="docutils literal notranslate"><span class="pre">return_data</span></code> is true, the output results include:</p>
 <blockquote>
 <div><ul class="simple">
 <li><p>The plot of fairness metric result for each group.</p></li>
@@ -312,12 +307,19 @@ Recall Ratio = \frac{(TP_{p}) / (TP_{p}+FN_{p})}{(TP_{r}) / (TP_{r}+FN_{r})}
 </section>
 <section id="fairness-segmented">
 <h2><span class="section-number">6.7.2. </span>Fairness Segmented<a class="headerlink" href="#fairness-segmented" title="Permalink to this heading">¶</a></h2>
-<p>PIML also supports showing the segmented fairness result for different metrics. Given the segmented features and the number of bins, if the feature is categorical, the samples will be segmented according to the unique categories of the feature. And if the feature is continuous, the samples will be segmented by the equal space binning method. After binning, PIML will show the fairness result in each bucket. The metric types in this section are the same as in the “Fairness Metric” section. In PIML, you can use the <code class="docutils literal notranslate"><span class="pre">model_fairness</span></code> API to get the segmented metric result, as follows,</p>
+<p>By leveraging the <code class="docutils literal notranslate"><span class="pre">model_fairness</span></code> API, we can also display fairness results conditioning on a feature of interest. The keyword of the parameter <code class="docutils literal notranslate"><span class="pre">show</span></code> is “segmented”, and the segmented feature can be specified by the parameter <code class="docutils literal notranslate"><span class="pre">segmented_feature</span></code>.</p>
+<ul class="simple">
+<li><p>For numerical features, the desired number of equal-space bins can be controlled by the parameter <code class="docutils literal notranslate"><span class="pre">segmented_bins</span></code>.</p></li>
+<li><p>For categorical features, the samples are segmented according to the unique categories present in the feature.</p></li>
+</ul>
+<p>Once the segmentation is completed, PIML generates the fairness results for each bucket. The supported metric types align with those outlined in the “Fairness Metric” section.  in PIML, users can effectively analyze and evaluate fairness at a granular level, allowing for a more comprehensive understanding of the model’s fairness performance across various segments of the data.</p>
 <div class="jupyter_cell jupyter_container docutils container">
 <div class="cell_input code_cell docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">segmented_result</span> <span class="o">=</span> <span class="n">exp</span><span class="o">.</span><span class="n">model_fairness</span><span class="p">(</span><span class="n">model</span><span class="o">=</span><span class="s2">&quot;XGB2_monotonic&quot;</span><span class="p">,</span> <span class="n">show</span><span class="o">=</span><span class="s2">&quot;segmented&quot;</span><span class="p">,</span> <span class="n">metric</span><span class="o">=</span><span class="s2">&quot;AIR&quot;</span><span class="p">,</span> <span class="n">segmented_feature</span><span class="o">=</span><span class="s2">&quot;Balance&quot;</span><span class="p">,</span>
-                                      <span class="n">group_category</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;Race&quot;</span><span class="p">,</span><span class="s2">&quot;Gender&quot;</span><span class="p">],</span> <span class="n">reference_group</span><span class="o">=</span><span class="p">[</span><span class="mf">1.</span><span class="p">,</span> <span class="mf">1.</span><span class="p">],</span> <span class="n">protected_group</span><span class="o">=</span><span class="p">[</span><span class="mf">0.</span><span class="p">,</span> <span class="mf">0.</span><span class="p">],</span> <span class="n">segmented_bins</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span>
-                                      <span class="n">favorable_threshold</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span> <span class="n">return_data</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span> <span class="mi">4</span><span class="p">))</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">segmented_result</span> <span class="o">=</span> <span class="n">exp</span><span class="o">.</span><span class="n">model_fairness</span><span class="p">(</span><span class="n">model</span><span class="o">=</span><span class="s2">&quot;XGB2_monotonic&quot;</span><span class="p">,</span> <span class="n">show</span><span class="o">=</span><span class="s2">&quot;segmented&quot;</span><span class="p">,</span> <span class="n">metric</span><span class="o">=</span><span class="s2">&quot;AIR&quot;</span><span class="p">,</span>
+                                       <span class="n">segmented_feature</span><span class="o">=</span><span class="s2">&quot;Balance&quot;</span><span class="p">,</span> <span class="n">group_category</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;Race&quot;</span><span class="p">,</span><span class="s2">&quot;Gender&quot;</span><span class="p">],</span>
+                                       <span class="n">reference_group</span><span class="o">=</span><span class="p">[</span><span class="mf">1.</span><span class="p">,</span> <span class="mf">1.</span><span class="p">],</span> <span class="n">protected_group</span><span class="o">=</span><span class="p">[</span><span class="mf">0.</span><span class="p">,</span> <span class="mf">0.</span><span class="p">],</span>
+                                       <span class="n">segmented_bins</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span> <span class="n">favorable_threshold</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span>
+                                       <span class="n">return_data</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span> <span class="mi">4</span><span class="p">))</span>
 </pre></div>
 </div>
 </div>
@@ -327,21 +329,17 @@ Recall Ratio = \frac{(TP_{p}) / (TP_{p}+FN_{p})}{(TP_{r}) / (TP_{r}+FN_{r})}
 <figure class="align-center">
 <a class="reference external image-reference" href="../../auto_examples/testing/plot_6_fairness.html"><img alt="../../_images/sphx_glr_plot_6_fairness_002.png" src="../../_images/sphx_glr_plot_6_fairness_002.png" /></a>
 </figure>
-<p>where the keyword is “segmented”, the segmented feature is <code class="docutils literal notranslate"><span class="pre">Balance</span></code> and the <code class="docutils literal notranslate"><span class="pre">segmented_bins</span></code> is 5,
-which means the data is segmented into 5 buckets by feature <code class="docutils literal notranslate"><span class="pre">Balance</span></code>. If <code class="docutils literal notranslate"><span class="pre">return_data</span></code> is true, the output results include:</p>
+<p>In this example, the segmentation feature is <code class="docutils literal notranslate"><span class="pre">Balance</span></code> and the number of bins is 5. If <code class="docutils literal notranslate"><span class="pre">return_data</span></code> is true, the following results would be returned:</p>
 <blockquote>
 <div><ul class="simple">
-<li><p>The plot of segmented fairness metric results for each group.</p></li>
-<li><p>The detailed table of segmented fairness metric results for each group.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">segmented_result.figure</span></code>: The plot of segmented fairness metric results for each group.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">segmented_result.data</span></code>: The detailed table of segmented fairness metric results for each group.</p></li>
 </ul>
 </div></blockquote>
 </section>
 <section id="fairness-binning">
 <h2><span class="section-number">6.7.3. </span>Fairness Binning<a class="headerlink" href="#fairness-binning" title="Permalink to this heading">¶</a></h2>
-<p>PIML supports binning the data to adjust the fairness and performance results.
-Different from the “Fairness Segmented” section, there is not only segmenting the data to show metrics but also changing the data to get better predictions.
-The fairness and Performance metric types in this section are the same as the “Fairness Thresholding” section.</p>
-<p>There are three binning methods, <code class="docutils literal notranslate"><span class="pre">quantile</span></code>, <code class="docutils literal notranslate"><span class="pre">uniform</span></code>, and <code class="docutils literal notranslate"><span class="pre">customize</span></code>.</p>
+<p>For unfair models, we provide two methods to mitigate the unfairness, where the model’s predictive performance may sacrifice. The first one is called feature binning, where we discretize / bin feature values that may lead to unfair results. There are three binning methods, <code class="docutils literal notranslate"><span class="pre">quantile</span></code>, <code class="docutils literal notranslate"><span class="pre">uniform</span></code>, and <code class="docutils literal notranslate"><span class="pre">customize</span></code>.</p>
 <blockquote>
 <div><ul class="simple">
 <li><p>Quantile binning: Assign the same number of observations to each bin.</p></li>
@@ -349,17 +347,17 @@ The fairness and Performance metric types in this section are the same as the �
 <li><p>Custom binning: Work for a specific area by replacing the original value with the mean value of this area.</p></li>
 </ul>
 </div></blockquote>
-<p>For quantile binning and uniform binning, PiML supports the number of bins searches to show different results among the different number of bins settings.</p>
-<p>In PiML, you should first define the binning list, which includes the binning settings you want to compare.
-Each binning setting is a key-value pair, see the example below. If binning type is “customize”, the value is the binning range, while if the type is “quantile”, the value is the number of bins.</p>
+<p>The keyword for this strategy is “binning” for the <code class="docutils literal notranslate"><span class="pre">show</span></code> parameter. For quantile binning and uniform binning, PiML provides a grid search for the combination of bin numbers of multiple features. To configure the binning setting, you need to define the binning dictionary parameter <code class="docutils literal notranslate"><span class="pre">binning_dict</span></code>. Each binning setting is a key-value pair, see the example below. If binning type is “customize”, the value is the binning range, while if the type is “uniform” or “quantile”, the value is the number of bins. In addition to the fairness metric, the performance metric can also be specified by the parameter <code class="docutils literal notranslate"><span class="pre">performance_metric</span></code>.</p>
 <div class="jupyter_cell jupyter_container docutils container">
 <div class="cell_input code_cell docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">binning_dict</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;Balance&quot;</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;quantile&quot;</span><span class="p">,</span> <span class="s2">&quot;value&quot;</span><span class="p">:</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">5</span><span class="p">]},</span>
                 <span class="s2">&quot;Mortgage&quot;</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;uniform&quot;</span><span class="p">,</span> <span class="s2">&quot;value&quot;</span><span class="p">:</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">5</span><span class="p">]},</span>
                 <span class="s2">&quot;Amount Past Due&quot;</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;custom&quot;</span><span class="p">,</span> <span class="s2">&quot;value&quot;</span><span class="p">:</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">100</span><span class="p">)}}</span>
-<span class="n">binning_result</span> <span class="o">=</span> <span class="n">exp</span><span class="o">.</span><span class="n">model_fairness</span><span class="p">(</span><span class="n">model</span><span class="o">=</span><span class="s2">&quot;XGB2_monotonic&quot;</span><span class="p">,</span> <span class="n">show</span><span class="o">=</span><span class="s2">&quot;binning&quot;</span><span class="p">,</span> <span class="n">metric</span><span class="o">=</span><span class="s2">&quot;AIR&quot;</span><span class="p">,</span> <span class="n">group_category</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;Race&quot;</span><span class="p">,</span><span class="s2">&quot;Gender&quot;</span><span class="p">],</span>
-                                 <span class="n">reference_group</span><span class="o">=</span><span class="p">[</span><span class="mf">1.</span><span class="p">,</span> <span class="mf">1.</span><span class="p">],</span> <span class="n">protected_group</span><span class="o">=</span><span class="p">[</span><span class="mf">0.</span><span class="p">,</span> <span class="mf">0.</span><span class="p">],</span> <span class="n">favorable_threshold</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span>
-                                 <span class="n">performance_metric</span><span class="o">=</span><span class="s2">&quot;F1&quot;</span><span class="p">,</span> <span class="n">binning_dict</span><span class="o">=</span><span class="n">binning_dict</span><span class="p">,</span> <span class="n">return_data</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span><span class="mi">4</span><span class="p">))</span>
+<span class="n">binning_result</span> <span class="o">=</span> <span class="n">exp</span><span class="o">.</span><span class="n">model_fairness</span><span class="p">(</span><span class="n">model</span><span class="o">=</span><span class="s2">&quot;XGB2_monotonic&quot;</span><span class="p">,</span> <span class="n">show</span><span class="o">=</span><span class="s2">&quot;binning&quot;</span><span class="p">,</span> <span class="n">metric</span><span class="o">=</span><span class="s2">&quot;AIR&quot;</span><span class="p">,</span>
+                                     <span class="n">group_category</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;Race&quot;</span><span class="p">,</span><span class="s2">&quot;Gender&quot;</span><span class="p">],</span>
+                                     <span class="n">reference_group</span><span class="o">=</span><span class="p">[</span><span class="mf">1.</span><span class="p">,</span> <span class="mf">1.</span><span class="p">],</span> <span class="n">protected_group</span><span class="o">=</span><span class="p">[</span><span class="mf">0.</span><span class="p">,</span> <span class="mf">0.</span><span class="p">],</span>
+                                     <span class="n">favorable_threshold</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span> <span class="n">performance_metric</span><span class="o">=</span><span class="s2">&quot;F1&quot;</span><span class="p">,</span>
+                                     <span class="n">binning_dict</span><span class="o">=</span><span class="n">binning_dict</span><span class="p">,</span> <span class="n">return_data</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span><span class="mi">4</span><span class="p">))</span>
 </pre></div>
 </div>
 </div>
@@ -369,24 +367,17 @@ Each binning setting is a key-value pair, see the example below. If binning type
 <figure class="align-center">
 <a class="reference external image-reference" href="../../auto_examples/testing/plot_6_fairness.html"><img alt="../../_images/sphx_glr_plot_6_fairness_003.png" src="../../_images/sphx_glr_plot_6_fairness_003.png" /></a>
 </figure>
-<p>where the keyword is “binning”, and the parameter <code class="docutils literal notranslate"><span class="pre">binning_dict</span></code> is for the dictionary of binning settings.
-If “return_data” is true, the output results include:</p>
+<p>If <code class="docutils literal notranslate"><span class="pre">return_data</span></code> is true, the output results include:</p>
 <blockquote>
 <div><ul class="simple">
-<li><p>The plot of fairness and performance metric results with different binning settings.</p></li>
-<li><p>The detailed table of fairness and performance metric results with different binning settings.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">binning_result.figure</span></code>: The plot of fairness and performance metric results with different binning settings.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">binning_result.data</span></code>: The detailed table of fairness and performance metric results with different binning settings.</p></li>
 </ul>
 </div></blockquote>
 </section>
 <section id="fairness-thresholding">
 <h2><span class="section-number">6.7.4. </span>Fairness Thresholding<a class="headerlink" href="#fairness-thresholding" title="Permalink to this heading">¶</a></h2>
-<p>For the fairness thresholding function, users can change the classification threshold by inspecting the change in
-the fairness and performance result to get a better trade-off result. This function only works for classification problems. The fairness metric types in this section are the same as the “Fairness Metric” section. The performance metric types:</p>
-<ul class="simple">
-<li><p>“ACC”: accuracy value. This value is calculated by the scikit-learn function “accuracy_score”, the detail can be found at <a class="reference external" href="https://scikit-learn.org/stable/modules/generated/sklearn.metrics.accuracy_score.html">https://scikit-learn.org/stable/modules/generated/sklearn.metrics.accuracy_score.html</a>.</p></li>
-<li><p>“F1”: F1 score. This value is calculated by the scikit-learn function “f1_score”, the detail can be found at <a class="reference external" href="https://scikit-learn.org/stable/modules/generated/sklearn.metrics.f1_score.html">https://scikit-learn.org/stable/modules/generated/sklearn.metrics.f1_score.html</a>.</p></li>
-</ul>
-<p>See the example usage below.</p>
+<p>The second unfairness mitigation method is called thresholding, where we enumerate the classification threshold to get a better trade-off between fairness and performance. The keyword for this strategy is “thresholding” for the <code class="docutils literal notranslate"><span class="pre">show</span></code> parameter. In addition to the fairness metric, the performance metric can also be specified by the parameter <code class="docutils literal notranslate"><span class="pre">performance_metric</span></code>, and available metrics include “ACC” and “F1”.</p>
 <div class="jupyter_cell jupyter_container docutils container">
 <div class="cell_input code_cell docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">thresholding_result</span> <span class="o">=</span> <span class="n">exp</span><span class="o">.</span><span class="n">model_fairness</span><span class="p">(</span><span class="n">model</span><span class="o">=</span><span class="s2">&quot;XGB2_monotonic&quot;</span><span class="p">,</span> <span class="n">show</span><span class="o">=</span><span class="s2">&quot;thresholding&quot;</span><span class="p">,</span> <span class="n">metric</span><span class="o">=</span><span class="s2">&quot;AIR&quot;</span><span class="p">,</span>
@@ -403,10 +394,10 @@ the fairness and performance result to get a better trade-off result. This funct
 <figure class="align-center">
 <a class="reference external image-reference" href="../../auto_examples/testing/plot_6_fairness.html"><img alt="../../_images/sphx_glr_plot_6_fairness_004.png" src="../../_images/sphx_glr_plot_6_fairness_004.png" /></a>
 </figure>
-<p>where the keyword here is <code class="docutils literal notranslate"><span class="pre">thresholding</span></code>. The <code class="docutils literal notranslate"><span class="pre">favorable_threshold</span></code> is the classification threshold value, which controls the dashed line position in the plots. The two y axes are controlled by <code class="docutils literal notranslate"><span class="pre">metric</span></code> and <code class="docutils literal notranslate"><span class="pre">performance_metric</span></code>, respectively. If <code class="docutils literal notranslate"><span class="pre">return_data</span></code> is true, the output results include:</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">favorable_threshold</span></code> is the classification threshold value, which controls the dashed line position in the plots. The two y axes are controlled by <code class="docutils literal notranslate"><span class="pre">metric</span></code> and <code class="docutils literal notranslate"><span class="pre">performance_metric</span></code>, respectively. If <code class="docutils literal notranslate"><span class="pre">return_data</span></code> is true, the output results include:</p>
 <ul class="simple">
-<li><p>The plot of the fairness metric and performance metric results with a different threshold for each group.</p></li>
-<li><p>The detailed table of fairness metric and performance metric results with a different threshold for each group.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">thresholding_result.figure</span></code>: The plot of the fairness metric and performance metric results with a different threshold for each group.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">thresholding_result.figure</span></code>: The detailed table of fairness metric and performance metric results with a different threshold for each group.</p></li>
 </ul>
 </section>
 <section id="examples">

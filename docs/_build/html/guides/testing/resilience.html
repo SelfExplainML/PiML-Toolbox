@@ -248,41 +248,51 @@
 
 </style><section id="resilience">
 <h1><span class="section-number">6.6. </span>Resilience<a class="headerlink" href="#resilience" title="Permalink to this heading">¶</a></h1>
-<p>The resilience test is designed to measure a model’s ability to maintain its performance when the distribution of inputs changes. This testing is essential to ensure that a model can handle unexpected scenarios that may differ from the data it was trained on. Additionally, resilience testing can also help identify areas where a model can be improved. In PiML, we offer various out-of-distribution scenarios to evaluate a model’s resilience, providing insight into its robustness in challenging situations.</p>
+<p>The resilience test aims to evaluate the performance sustainability of a model when faced with changing input distributions. This testing is crucial for verifying a model’s capability to handle unexpected scenarios that deviate from its training data. Moreover, resilience testing facilitates the identification of potential areas for model enhancement. At PiML, we provide diverse out-of-distribution scenarios to assess a model’s resilience.</p>
 <section id="algorithm-details">
 <h2><span class="section-number">6.6.1. </span>Algorithm Details<a class="headerlink" href="#algorithm-details" title="Permalink to this heading">¶</a></h2>
-<p>We have implemented four out-of-distribution scenarios, as follows.</p>
-<p><strong>Worst sample</strong>: Select the worst samples according to the error of each sample. That is, we calculate the residual of each test set sample (use predicted probability for binary classification as metric is “AUC” or “F1”), and then sort them in the descending order of absolute residuals. The samples with the largest residuals are selected as the worst samples. Note that the worst samples are related to the model being tested, and they can be very different for different models.</p>
-<p><strong>Hard sample</strong>: Instead of directly selecting the worst sample using the residuals, this method uses a surrogate model to rank the hardness of samples, i.e., the likelihood of having bad performance. In particular, we do the following</p>
-<ul class="simple">
-<li><p>Fit a complicated XGB model (XGB-A) on the training data;</p></li>
-<li><p>Evaluate the performance of model XGB-A and find the worst 30% of test samples;</p></li>
-<li><p>Mark the worst test samples as 1, and the rest test samples as 0;</p></li>
-<li><p>Fit another XGB Classifier (XGB-B) using the data created in the step.</p></li>
-<li><p>Use XGB-B as a surrogate to rank the hardness of samples (samples with large predicted probability are hard samples).</p></li>
+<p>We have incorporated four distinct out-of-distribution scenarios into our implementation, outlined as follows:</p>
+<ul>
+<li><p><strong>Worst sample</strong>: First, we compute the residual of each sample in the test set. For binary classification tasks with metrics such as “AUC” or “F1”, we utilize the predicted probability. Next, we sort the residuals in descending order based on their absolute values. By doing so, we can select the samples with the highest residuals as the worst samples. It is important to note that the worst samples are specific to the model under evaluation and can differ significantly between different models.</p></li>
+<li><p><strong>Hard sample</strong>: To determine the worst samples in a more refined manner, we employ a method that involves using a surrogate model to rank the difficulty or likelihood of poor performance for each sample, as follows:</p>
+<blockquote>
+<div><ol class="loweralpha simple">
+<li><p>Fit a sophisticated XGBoost model (referred to as XGB-A) using the training data.</p></li>
+<li><p>Evaluate the performance of XGB-A and identify the worst 30% of samples from the test set.</p></li>
+<li><p>Assign a label of 1 to these identified worst test samples, while assigning a label of 0 to the remaining test samples.</p></li>
+<li><p>Fit another XGBoost classifier (referred to as XGB-B) using the dataset created in the previous step, which includes the marked worst samples.</p></li>
+<li><p>Utilize XGB-B as a surrogate model to rank the difficulty or hardness of the samples, with higher predicted probabilities indicating harder samples.</p></li>
+</ol>
+</div></blockquote>
+</li>
 </ul>
-<p>Note that in this scenario, the worst samples are the same across different models.</p>
-<p><strong>Outer sample</strong>: Use the Euclidean distance of each test sample to the mean of features in the training set as a surrogate of worstness. Samples with large distances would be marked as outer samples. Note that the outer samples are model agnostic, and the worst samples are the same across different models.</p>
-<p><strong>Worst cluster</strong>: Fit a K-means (<span class="math notranslate nohighlight">\(K=2,\ldots,10\)</span>) clustering algorithm using the features of training data, and then select the worst performing cluster in the test set as the worst samples. Note that the worst samples are related to models.</p>
-<p>In addition to these four scenarios, we also provide an option to select the worst samples by conditioning on one immutable feature. That is done by performing equal-quantile binning on the immutable feature and then selecting the worst samples in each slice. This is useful when we want to control the effect of one feature.</p>
+<p>It is important to note that in this particular scenario, the worst samples remain consistent across different models, implying that they are independent of the specific model being evaluated.</p>
+<ul class="simple">
+<li><p><strong>Outer sample</strong>: The surrogate of worstness is determined by measuring the Euclidean distance of each test sample to the mean of features in the training set. Samples displaying significant distances from the mean are marked as outer samples, indicating their deviation from the training data distribution. It is important to note that these outer samples are model agnostic, meaning they hold the same significance across different models.</p></li>
+<li><p><strong>Worst cluster</strong>: We apply the K-means clustering algorithm using the features of the training data (<span class="math notranslate nohighlight">\(K=2,\ldots,10\)</span>). By clustering the training data, we can group similar samples based on their feature similarity. Next, we evaluate the performance of each cluster on the test set. The cluster with the worst performance, indicating poorer model performance within that cluster, is selected as the worst sample. It is important to note that the identification of the worst samples is indeed related to the specific models being evaluated. Therefore, the worst samples can differ depending on the model used.</p></li>
+</ul>
+<p>In addition, the first three scenarios can be used accompanied by an immutable feature. That is, we perform equal-quantile binning on the immutable feature. Subsequently, we select the worst samples within each bin, allowing us to focus on the samples that exhibit the poorest performance while controlling for the effect of the specific feature. For example, if the immutable feature is age, we can select the e.g., top 20% worst samples within each age group. Note that the worstness score is first computed for all the test data before segmentation.</p>
 </section>
 <section id="usage">
 <h2><span class="section-number">6.6.2. </span>Usage<a class="headerlink" href="#usage" title="Permalink to this heading">¶</a></h2>
-<p>The resilience test can be run by using <code class="docutils literal notranslate"><span class="pre">model_diagnose</span></code>. In total, we have 4 different plots for the resilience test, including “resilience_perf”, “resilience_distance”, “resilience_shift_density”, and “resilience_shift_histogram”. For demonstration purposes, we will train an XGB2 model using the TaiwanCredit data.</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">model_diagnose</span></code> function provides a comprehensive resilience test, offering four different plots: “resilience_perf”, “resilience_distance”, “resilience_shift_density”, and “resilience_shift_histogram”.
+To customize the resilience test, the following parameters can be specified:</p>
 <ul class="simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">resilience_method</span></code>: The method to select the worst samples. It can be one of “worst-sample”, “hard-sample”, “outer-sample”, and “worst-cluster”. The default is “worst-sample”.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">immu_feature</span></code>: The immutable feature when selecting the worst samples. The default is None.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">metric</span></code>: The performance metric to be used. Supported metrics are “ACC”, “AUC”, and “F1” for binary classification; “MSE”, “MAE”, and “R2” for regression.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">distance_metrics</span></code>: The distance metric for comparing the worst test sample and full test sample; available options include “PSI”, “WD1”, and “KS”, and the details can be found <a class="reference external" href="../data/twosample_test.html">here</a>.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">alpha</span></code>: The worst-sample ratio to be used as <code class="docutils literal notranslate"><span class="pre">resilience_method</span></code> is “worst-sample”, “hard-sample”, or “outer-sample”, which can be 0.1, 0.2, …, 1.0. Used when <code class="docutils literal notranslate"><span class="pre">show</span></code> is “resilience_distance”, “resilience_shift_density”, or “resilience_shift_histogram”.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">n_clusters</span></code>: The number of clusters to be used as <code class="docutils literal notranslate"><span class="pre">resilience_method</span></code> is “worst-cluster”, available values are 1, 2, …, 10. Used when <code class="docutils literal notranslate"><span class="pre">show</span></code> is “resilience_distance”, “resilience_shift_density”, or “resilience_shift_histogram”.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">psi_buckets</span></code>: The binning method for calculating the PSI value.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">resilience_method</span></code>: This parameter determines the method for selecting the worst samples. The options include “worst-sample” (default), “hard-sample”, “outer-sample”, and “worst-cluster”.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">immu_feature</span></code>: When selecting the worst samples, this parameter allows you to specify an immutable feature. The default value is None.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">metric</span></code>: You can choose the performance metric for evaluation. Supported metrics include “ACC”, “AUC”, and “F1” for binary classification, and “MSE”, “MAE”, and “R2” for regression tasks.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">distance_metrics</span></code>: This parameter determines the distance metric used to compare the worst test sample with the entire test sample. Available options include “PSI”, “WD1”, and “KS”, and more details can be found in the documentation <a class="reference external" href="../data/twosample_test.html">here</a>.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">alpha</span></code>: When the <code class="docutils literal notranslate"><span class="pre">resilience_method</span></code> is set to “worst-sample”, “hard-sample”, or “outer-sample”, this parameter specifies the worst-sample ratio. The values range from 0.1 to 1.0, incrementing by 0.1. It is used in conjunction with the “resilience_distance”, “resilience_shift_density”, or “resilience_shift_histogram” plots.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">n_clusters</span></code>: When the <code class="docutils literal notranslate"><span class="pre">resilience_method</span></code> is set to “worst-cluster”, this parameter determines the number of clusters to be considered. You may choose a value from 1 to 10. It is used in conjunction with the “resilience_distance”, “resilience_shift_density”, or “resilience_shift_histogram” plots.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">psi_buckets</span></code>: This parameter defines the binning method for calculating the PSI (Population Stability Index) value.</p></li>
 </ul>
+<p>By customizing these parameters, you can tailor the resilience test according to your specific requirements and gain valuable insights into the model’s performance. In this demonstration, we will train an XGB2 model using the TaiwanCredit dataset.</p>
 <section id="resilience-performance">
 <h3><span class="section-number">6.6.2.1. </span>Resilience Performance<a class="headerlink" href="#resilience-performance" title="Permalink to this heading">¶</a></h3>
-<p>Using the resilience test, you can check the worst sample performance of a model under different out-distribution scenarios. The keyword for this plot is “resilience_perf”.</p>
-<p><strong>worst-sample</strong></p>
-<p>The example below illustrates the performance of the model in the “worst-sample” scenario, as the worst sample ratios vary from 0.1 to 1.0. A ratio of 1.0 indicates that all test samples are treated as worst samples, while a ratio of 0.1 means only 10% of the test samples are treated as worst samples. The red dotted line represents the model’s performance on the overall test sample, which is equivalent to the performance at a worst ratio of 1.0. The curve is mostly monotonic, indicating that as the worst sample ratio increases, the model’s performance decreases.</p>
+<p>With the resilience test, you can assess the performance of the worst samples in a model across various out-of-distribution scenarios. The plot specifically designed for this purpose is denoted by the keyword “resilience_perf.”</p>
+<ul class="simple">
+<li><p><strong>worst-sample</strong>: The following example demonstrates the model’s performance in the “worst-sample” scenario, considering varying worst sample ratios ranging from 0.1 to 1.0. A ratio of 1.0 implies that all test samples are treated as worst samples, while a ratio of 0.1 signifies that only 10% of the test samples are considered as worst samples. In the plot, the red dotted line represents the model’s performance on the entire test sample. The curve depicted in the plot is monotonic, indicating that as the worst sample ratio increases, the model’s performance tends to decrease. This visualization allows for a clear understanding of how the model’s performance varies when different proportions of worst samples are considered.</p></li>
+</ul>
 <div class="jupyter_cell jupyter_container docutils container">
 <div class="cell_input code_cell docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">exp</span><span class="o">.</span><span class="n">model_diagnose</span><span class="p">(</span><span class="n">model</span><span class="o">=</span><span class="s2">&quot;XGB2&quot;</span><span class="p">,</span> <span class="n">show</span><span class="o">=</span><span class="s2">&quot;resilience_perf&quot;</span><span class="p">,</span> <span class="n">resilience_method</span><span class="o">=</span><span class="s2">&quot;worst-sample&quot;</span><span class="p">,</span>
@@ -296,8 +306,9 @@
 <figure class="align-left">
 <a class="reference external image-reference" href="../../auto_examples/testing/plot_5_resilience_cls.html"><img alt="../../_images/sphx_glr_plot_5_resilience_cls_001.png" src="../../_images/sphx_glr_plot_5_resilience_cls_001.png" /></a>
 </figure>
-<p><strong>hard-sample</strong></p>
-<p>When the worst sample ratio is less than 0.4, the AUC values are approximately 0.5, which suggests that the model’s performance is akin to that of a random classifier. As the worst sample ratio increases, the model’s performance steadily improves.</p>
+<ul class="simple">
+<li><p><strong>hard-sample</strong>: As the worst sample ratio decreases to less than 0.4, the AUC values hover around 0.5. This observation indicates that the model’s performance is comparable to that of a random classifier. However, as the worst sample ratio increases, there is a noticeable improvement in the model’s performance.</p></li>
+</ul>
 <div class="jupyter_cell jupyter_container docutils container">
 <div class="cell_input code_cell docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">exp</span><span class="o">.</span><span class="n">model_diagnose</span><span class="p">(</span><span class="n">model</span><span class="o">=</span><span class="s2">&quot;XGB2&quot;</span><span class="p">,</span> <span class="n">show</span><span class="o">=</span><span class="s2">&quot;resilience_perf&quot;</span><span class="p">,</span> <span class="n">resilience_method</span><span class="o">=</span><span class="s2">&quot;hard-sample&quot;</span><span class="p">,</span>
@@ -311,8 +322,10 @@
 <figure class="align-left">
 <a class="reference external image-reference" href="../../auto_examples/testing/plot_5_resilience_cls.html"><img alt="../../_images/sphx_glr_plot_5_resilience_cls_002.png" src="../../_images/sphx_glr_plot_5_resilience_cls_002.png" /></a>
 </figure>
-<p><strong>outer-sample</strong></p>
-<p>Based on the plot below, it appears that even in the worst-10% test sample scenario, the model’s performance is relatively good, with an AUC above 0.7. The performance peaks at a worst sample ratio of around 0.7 and then begins to decline. This may be because the scenario is unsupervised, and the samples identified as “worst” may not necessarily be the worst in all cases. In some instances, the “worst samples” may have better performance than the full test samples.</p>
+<ul class="simple">
+<li><p><strong>outer-sample</strong>: Based on the observed plot, it is evident that even in the worst-10% test sample scenario, the model demonstrates relatively good performance, achieving an AUC above 0.7. Interestingly, the model’s performance reaches its peak around the worst sample ratio of approximately 0.7, after which it gradually declines. This trend could be attributed to the nature of the scenario being unsupervised. In such cases, the samples identified as “worst” may not consistently exhibit the worst performance across all instances. It is plausible that in some cases, these “worst samples” may actually outperform the full test sample set.</p></li>
+</ul>
+<p>The fluctuations in performance observed at different worst sample ratios highlight the complexity of assessing the worst samples in unsupervised scenarios. The model’s performance may be influenced by various factors, including the characteristics of the data and the specific criteria used to define the “worst” samples.</p>
 <div class="jupyter_cell jupyter_container docutils container">
 <div class="cell_input code_cell docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">exp</span><span class="o">.</span><span class="n">model_diagnose</span><span class="p">(</span><span class="n">model</span><span class="o">=</span><span class="s2">&quot;XGB2&quot;</span><span class="p">,</span> <span class="n">show</span><span class="o">=</span><span class="s2">&quot;resilience_perf&quot;</span><span class="p">,</span> <span class="n">resilience_method</span><span class="o">=</span><span class="s2">&quot;outer-sample&quot;</span><span class="p">,</span>
@@ -326,8 +339,9 @@
 <figure class="align-left">
 <a class="reference external image-reference" href="../../auto_examples/testing/plot_5_resilience_cls.html"><img alt="../../_images/sphx_glr_plot_5_resilience_cls_003.png" src="../../_images/sphx_glr_plot_5_resilience_cls_003.png" /></a>
 </figure>
-<p><strong>worst-cluster</strong></p>
-<p>The last approach is the “worst-cluster” method, which differs slightly from the previous three methods. In this approach, the x-axis of the plot represents the number of clusters, which ranges from 1 to 10. This involves varying the value of <span class="math notranslate nohighlight">\(K\)</span> in KMeans and identifying the worst cluster as the worst sample. The worst cluster is defined as the cluster with the lowest performance metric. Notably, <span class="math notranslate nohighlight">\(K=1\)</span> represents the entire test sample. As this is also an unsupervised method, the performance may not be monotonic as the number of clusters increases.</p>
+<ul class="simple">
+<li><p><strong>worst-cluster</strong>: The last scenario, known as the “worst-cluster” method, introduces a slight variation compared to the previous methods. In this method, the x-axis of the plot represents the number of clusters, ranging from 1 to 10. The approach involves adjusting the value of <span class="math notranslate nohighlight">\(K\)</span> in the K-means algorithm and identifying the worst cluster as the worst sample. The worst cluster is determined based on the lowest performance metric observed within the clusters. It is important to note that when <span class="math notranslate nohighlight">\(K=1\)</span>, it represents the entire test sample as a single cluster.</p></li>
+</ul>
 <div class="jupyter_cell jupyter_container docutils container">
 <div class="cell_input code_cell docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">exp</span><span class="o">.</span><span class="n">model_diagnose</span><span class="p">(</span><span class="n">model</span><span class="o">=</span><span class="s2">&quot;XGB2&quot;</span><span class="p">,</span> <span class="n">show</span><span class="o">=</span><span class="s2">&quot;resilience_perf&quot;</span><span class="p">,</span> <span class="n">resilience_method</span><span class="o">=</span><span class="s2">&quot;worst-cluster&quot;</span><span class="p">,</span>

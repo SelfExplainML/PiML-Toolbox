@@ -36,19 +36,20 @@ exp.model_compare(models=["GLM", "XGB2", "XGB7"], show="accuracy_plot", metric="
 # Overfit comparison with historgram slicing
 exp.model_compare(models=["GLM", "XGB2", "XGB7"], show="overfit",
                   slice_method="histogram", slice_feature="hr", 
-                  threshold=1.05, bins=10, metric="MSE", original_scale=True, figsize=(5, 4))
+                  bins=10, metric="MSE", original_scale=True, figsize=(5, 4))
 #%%
 # Overfit comparison with tree slicing
 exp.model_compare(models=["GLM", "XGB2", "XGB7"], show="overfit",
                   slice_method="tree", slice_feature="hr", 
-                  threshold=1.05, metric="MSE", original_scale=True, figsize=(5, 4))
+                  metric="MSE", original_scale=True, figsize=(5, 4))
+
+#%%
+# Reliability coverage comparison 
+exp.model_compare(models=["GLM", "XGB2", "XGB7"], show="reliability_coverage", alpha=0.1, figsize=(5, 4))
 
 #%%
 # Reliability bandwidth comparison 
 exp.model_compare(models=["GLM", "XGB2", "XGB7"], show="reliability_bandwidth", alpha=0.1, figsize=(5, 4))
-#%%
-# Reliability coverage comparison 
-exp.model_compare(models=["GLM", "XGB2", "XGB7"], show="reliability_coverage", alpha=0.1, figsize=(5, 4))
 
 #%%
 # Robustness comparison with default settings

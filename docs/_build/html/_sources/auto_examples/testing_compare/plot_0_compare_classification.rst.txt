@@ -139,7 +139,7 @@ Overfit comparison with historgram slicing
 
     exp.model_compare(models=["Tree", "FIGS", "XGB2"], show="overfit",
                       slice_method="histogram", slice_feature="PAY_1", 
-                      threshold=1.05, bins=10, metric="ACC", original_scale=True, figsize=(5, 4))
+                      bins=10, metric="ACC", original_scale=True, figsize=(5, 4))
 
 
 
@@ -162,7 +162,7 @@ Overfit comparison with tree slicing
 
     exp.model_compare(models=["Tree", "FIGS", "XGB2"], show="overfit",
                       slice_method="tree", slice_feature="PAY_1", 
-                      threshold=1.05, metric="ACC", original_scale=True, figsize=(5, 4))
+                      metric="ACC", original_scale=True, figsize=(5, 4))
 
 
 
@@ -243,19 +243,19 @@ Robustness comparison with default settings
 
 .. GENERATED FROM PYTHON SOURCE LINES 58-59
 
-Robustness comparison with custom perturbation features
+Robustness comparison on worst alpha-percent samples
 
 .. GENERATED FROM PYTHON SOURCE LINES 59-61
 
 .. code-block:: default
 
-    exp.model_compare(models=["Tree", "FIGS", "XGB2"], show="robustness_perf", perturb_features=["PAY_1"], figsize=(5, 4))
+    exp.model_compare(models=["Tree", "FIGS", "XGB2"], show="robustness_perf_worst", alpha=0.3, figsize=(5, 4))
 
 
 
 
 .. image-sg:: /auto_examples/testing_compare/images/sphx_glr_plot_0_compare_classification_009.png
-   :alt: Model Performance: Perturb on PAY_1
+   :alt: 30%-Worst Sample Performance
    :srcset: /auto_examples/testing_compare/images/sphx_glr_plot_0_compare_classification_009.png
    :class: sphx-glr-single-img
 
@@ -265,31 +265,9 @@ Robustness comparison with custom perturbation features
 
 .. GENERATED FROM PYTHON SOURCE LINES 62-63
 
-Robustness comparison on worst alpha-percent samples
-
-.. GENERATED FROM PYTHON SOURCE LINES 63-65
-
-.. code-block:: default
-
-    exp.model_compare(models=["Tree", "FIGS", "XGB2"], show="robustness_perf_worst", alpha=0.3, figsize=(5, 4))
-
-
-
-
-.. image-sg:: /auto_examples/testing_compare/images/sphx_glr_plot_0_compare_classification_010.png
-   :alt: 30%-Worst Sample Performance
-   :srcset: /auto_examples/testing_compare/images/sphx_glr_plot_0_compare_classification_010.png
-   :class: sphx-glr-single-img
-
-
-
-
-
-.. GENERATED FROM PYTHON SOURCE LINES 66-67
-
 Resilience comparison with worst-sample scenario
 
-.. GENERATED FROM PYTHON SOURCE LINES 67-70
+.. GENERATED FROM PYTHON SOURCE LINES 63-66
 
 .. code-block:: default
 
@@ -299,20 +277,20 @@ Resilience comparison with worst-sample scenario
 
 
 
-.. image-sg:: /auto_examples/testing_compare/images/sphx_glr_plot_0_compare_classification_011.png
+.. image-sg:: /auto_examples/testing_compare/images/sphx_glr_plot_0_compare_classification_010.png
    :alt: Resilience Test
-   :srcset: /auto_examples/testing_compare/images/sphx_glr_plot_0_compare_classification_011.png
+   :srcset: /auto_examples/testing_compare/images/sphx_glr_plot_0_compare_classification_010.png
    :class: sphx-glr-single-img
 
 
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 71-72
+.. GENERATED FROM PYTHON SOURCE LINES 67-68
 
 Resilience distance comparison with worst-sample scenario
 
-.. GENERATED FROM PYTHON SOURCE LINES 72-74
+.. GENERATED FROM PYTHON SOURCE LINES 68-70
 
 .. code-block:: default
 
@@ -321,9 +299,9 @@ Resilience distance comparison with worst-sample scenario
 
 
 
-.. image-sg:: /auto_examples/testing_compare/images/sphx_glr_plot_0_compare_classification_012.png
+.. image-sg:: /auto_examples/testing_compare/images/sphx_glr_plot_0_compare_classification_011.png
    :alt: Distribution Shift: 30%-Worst vs Full
-   :srcset: /auto_examples/testing_compare/images/sphx_glr_plot_0_compare_classification_012.png
+   :srcset: /auto_examples/testing_compare/images/sphx_glr_plot_0_compare_classification_011.png
    :class: sphx-glr-single-img
 
 
@@ -333,7 +311,9 @@ Resilience distance comparison with worst-sample scenario
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** ( 0 minutes  16.565 seconds)
+   **Total running time of the script:** ( 1 minutes  27.109 seconds)
+
+**Estimated memory usage:**  122 MB
 
 
 .. _sphx_glr_download_auto_examples_testing_compare_plot_0_compare_classification.py:

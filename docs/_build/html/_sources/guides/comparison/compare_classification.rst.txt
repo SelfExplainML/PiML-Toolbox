@@ -7,12 +7,11 @@
 ================================
 Comparison for Classification
 ================================
-This section describes how different classification models with binary responses can be compared on the basis of different metrics. In PiML, this can be done by using the `model_compare` function. We use results from the TaiwanCredit data for illustration.
-
+This section describes how different classification models with binary responses can be compared based on different metrics. In PiML, this can be done by using the `model_compare` function. We use results from the TaiwanCredit data for illustration.
 
 Accuracy Comparison
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-We consider a binary classification task on the Taiwan Credit. The `metric` can be chosen from "ACC", "AUC", and "F1".
+The `metric` can be chosen from "ACC", "AUC", and "F1".
 
 Accuracy Score
 """"""""""""""""""""""""""
@@ -53,30 +52,33 @@ The last plot compares modes based on the F1 score, with `metric` = "F1". All th
 
 Overfit Comparison
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-Overfit comparison displays the overfit regions of different models against a feature of interest. The detection algorithm can be found in the overfit_ section. Different from the overfit for a single model, the argument for selecting slicing features is `slice_feature` (instead of `slice_features`), which is a string representing the feature name. The following example illustrates how to compare models' overfit regions, using the keyword "overfit", in which we consider a binary classification task on the TaiwanCredit data.
-
+The overfit comparison presents the overfit regions of various models in relation to a specific feature of interest. The algorithm for detecting overfit regions can be found in the "overfit_" section. It is important to note that unlike the overfit for a single model, the argument used for selecting slicing features is `slice_feature` (instead of `slice_features`). This argument is a string that represents the name of the feature. Here is an example that demonstrates how to compare the overfit regions of different models using the keyword "overfit".
 
 .. _overfit: ../testing/overfit.html
 
 .. jupyter-input::
 
    exp.model_compare(models=["Tree", "FIGS", "XGB2"], show="overfit",
-                     slice_method="histogram", slice_feature="PAY_1", threshold=1.05, 
-                     bins=10, metricmetric="ACC", figsize=(5, 4))
+                     slice_method="histogram", slice_feature="PAY_1",
+                     bins=10, metric="ACC", figsize=(5, 4))
 
 .. figure:: ../../auto_examples/testing_compare/images/sphx_glr_plot_0_compare_classification_004.png
    :target: ../../auto_examples/testing_compare/plot_0_compare_classification.html
    :align: left
 
+The first plot uses the "histogram" slicing method, and the number of bins is set to 10. The slicing feature is `PAY_1`. The results reveal that the Tree model is overfitting (Test - Train ACC Gap < 0) when `PAY_1` is within 5 to 6 and 7 to 8. The XGB2 model also overfits as `PAY_1` is greater than 6.
+
 .. jupyter-input::
 
    exp.model_compare(models=["Tree", "FIGS", "XGB2"], show="overfit",
-                     slice_method="tree", slice_feature="PAY_1", threshold=1.05, 
-                     metricmetric="ACC", figsize=(5, 4))
+                     slice_method="tree", slice_feature="PAY_1",
+                     metric="ACC", figsize=(5, 4))
 
 .. figure:: ../../auto_examples/testing_compare/images/sphx_glr_plot_0_compare_classification_005.png
    :target: ../../auto_examples/testing_compare/plot_0_compare_classification.html
    :align: left
+
+The second plot displays the overfitting detection results using a decision tree as the slicing model. The results show that all three models are not overfitting. The inconsistent results of tree slicing and histogram slicing are due to the sparse distribution of large `PAY_1`, where the tree slicing fails to generate segments there.
 
 
 Reliability Comparison
@@ -111,18 +113,18 @@ The keyword for the reliability diagram is "reliability_perf", and it generates 
 
 Robustness Comparison
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-Robustness comparison is to compare models under input perturbation. This section illustrates how to compare models under input perturbation. The algorithm details of the robustness test can be found in the robustness_ testing section.
+Robustness comparison is to compare models under input perturbation. The algorithm details of the robustness test can be found in the robustness_ testing section.
 
 .. _robustness: ../testing/robustness.html
 
 Robustness Performance
 """"""""""""""""""""""""""""""
-The example below illustrates how to compare models' robustness performance using the keyword "robustness_perf". The perturbation method is set to "raw", which means we add normal noise to the raw data of numerical features. The perturbation step size is set to 0.2. By default, the perturbation features are all features. The performance metric is set to "AUC". The following example illustrates how to compare models' robustness performance.
+The example below demonstrates the comparison of models' robustness performance using the "robustness_perf" keyword. In this scenario, the perturbation method defaults to "raw", which involves adding normal noise to the numerical features. The perturbation for categorical features can be found in the robustness_ section. By default, all features undergo perturbation unless otherwise specified. The performance metric used for this comparison is defaulted to "AUC". 
 
 .. jupyter-input::
 
    exp.model_compare(models=["Tree", "FIGS", "XGB2"], show="robustness_perf",
-                     perturb_method="raw", perturb_size=0.2, metric="AUC", figsize=(5, 4))
+                     figsize=(5, 4))
 
 .. figure:: ../../auto_examples/testing_compare/images/sphx_glr_plot_0_compare_classification_008.png
    :target: ../../auto_examples/testing_compare/plot_0_compare_classification.html
@@ -132,29 +134,28 @@ In the plot above, the perturbation is applied to all variables. On the x-axis, 
 
 Robustness Performance on Worst Samples
 """""""""""""""""""""""""""""""""""""""""""
-The keyword "robustness_perf_worst" is used to evaluate the models' performance against perturbation size based on the worst sample. For this option, in addition to the arguments `metric`, `perturb_method`, `perturb_size`, and `perturb_features`, we have an additional argument `alpha`, which is the proportion of worst samples to consider. The following example illustrates how to compare models' robustness performance on worst samples.
+The keyword "robustness_perf_worst" is used to evaluate the models' performance against perturbation size based on the worst sample. For this option, in addition to the arguments `metric`, `perturb_method`, `perturb_size`, and `perturb_features`, we have an additional argument `alpha`, which is the proportion of worst samples to consider.
 
 .. jupyter-input::
 
    exp.model_compare(models=["Tree", "FIGS", "XGB2"], show="robustness_perf_worst",
-                     perturb_method="quantile", perturb_size=0.1, metric="F1", alpha=0.3, figsize=(5, 4))
+                     alpha=0.3, figsize=(5, 4))
                   
 .. figure:: ../../auto_examples/testing_compare/images/sphx_glr_plot_0_compare_classification_009.png
    :target: ../../auto_examples/testing_compare/plot_0_compare_classification.html
    :align: left
 
-The plot shows that the performance degradation is similar for the compared three models. 
-
 
 Resilience Comparison
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-Resilience comparison is to compare models under input perturbation. This section illustrates how to compare models under input perturbation. The algorithm details of the resilience test can be found in the resilience_ testing section.
+Resilience comparison is to compare models under distribution shift. The algorithm details of the resilience test can be found in the resilience_ testing section.
 
 .. _resilience: ../testing/resilience.html
 
+
 Resilience Performance
 """"""""""""""""""""""""""""""
-The example below illustrates how to compare models' resilience performance using the keyword "resilience_perf". The perturbation method is set to "worst-sample". The performance metric is set to "AUC". The following example illustrates how to compare models' resilience performance.
+The example below illustrates how to compare models' resilience performance using the keyword "resilience_perf". The perturbation method is set to "worst-sample". The performance metric is set to "AUC". 
 
 .. jupyter-input::
 
@@ -166,16 +167,14 @@ The example below illustrates how to compare models' resilience performance usin
    :align: left
 
 
-
-Resilience Performance on Worst Samples
+Resilience Distance
 """""""""""""""""""""""""""""""""""""""""""
-The keyword `resilience_perf_worst` is used to evaluate the models' resilience performance on the worst sample. For this option, in addition to the arguments `resilience_method`, `immu_feature`, and `metric`, we have an additional argument `alpha`, which is the proportion of worst samples to consider, as `resilience_method` is "worst-sample", "hard-sample", or "outer-sample"; or `n_clusters` the value of :math:`K` in Kmean clustering as `resilience_method` is "worst-cluster". The following example illustrates how to compare models' robustness performance on worst samples.
+By setting `show` to "resilience_distance", the distributional distance between the worst test sample and the full test sample will be calculated for each feature. Then the features will be ranked by distance, and the top 10 features with the largest distances will be displayed.
 
 .. jupyter-input::
 
-   exp.model_compare(models=["Tree", "FIGS", "XGB2"], show="resilience_perf_worst",
-                     resilience_method="worst-sample", immu_feature=None, metric="AUC",
-                     alpha=0.3, figsize=(5, 4))
+   exp.model_compare(models=["Tree", "FIGS", "XGB2"], show="resilience_distance",
+                     resilience_method="worst-sample", metric="AUC", alpha=0.3, figsize=(5, 4))
                   
 .. figure:: ../../auto_examples/testing_compare/images/sphx_glr_plot_0_compare_classification_011.png
    :target: ../../auto_examples/testing_compare/plot_0_compare_classification.html

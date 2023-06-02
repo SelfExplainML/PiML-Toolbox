@@ -139,7 +139,7 @@ Overfit comparison with historgram slicing
 
     exp.model_compare(models=["GLM", "XGB2", "XGB7"], show="overfit",
                       slice_method="histogram", slice_feature="hr", 
-                      threshold=1.05, bins=10, metric="MSE", original_scale=True, figsize=(5, 4))
+                      bins=10, metric="MSE", original_scale=True, figsize=(5, 4))
 
 
 
@@ -162,7 +162,7 @@ Overfit comparison with tree slicing
 
     exp.model_compare(models=["GLM", "XGB2", "XGB7"], show="overfit",
                       slice_method="tree", slice_feature="hr", 
-                      threshold=1.05, metric="MSE", original_scale=True, figsize=(5, 4))
+                      metric="MSE", original_scale=True, figsize=(5, 4))
 
 
 
@@ -178,30 +178,9 @@ Overfit comparison with tree slicing
 
 .. GENERATED FROM PYTHON SOURCE LINES 47-48
 
-Reliability bandwidth comparison 
-
-.. GENERATED FROM PYTHON SOURCE LINES 48-49
-
-.. code-block:: default
-
-    exp.model_compare(models=["GLM", "XGB2", "XGB7"], show="reliability_bandwidth", alpha=0.1, figsize=(5, 4))
-
-
-
-.. image-sg:: /auto_examples/testing_compare/images/sphx_glr_plot_0_compare_regression_006.png
-   :alt: Bandwidth of Testing Data
-   :srcset: /auto_examples/testing_compare/images/sphx_glr_plot_0_compare_regression_006.png
-   :class: sphx-glr-single-img
-
-
-
-
-
-.. GENERATED FROM PYTHON SOURCE LINES 50-51
-
 Reliability coverage comparison 
 
-.. GENERATED FROM PYTHON SOURCE LINES 51-53
+.. GENERATED FROM PYTHON SOURCE LINES 48-50
 
 .. code-block:: default
 
@@ -210,8 +189,30 @@ Reliability coverage comparison
 
 
 
-.. image-sg:: /auto_examples/testing_compare/images/sphx_glr_plot_0_compare_regression_007.png
+.. image-sg:: /auto_examples/testing_compare/images/sphx_glr_plot_0_compare_regression_006.png
    :alt: Empirical Coverage
+   :srcset: /auto_examples/testing_compare/images/sphx_glr_plot_0_compare_regression_006.png
+   :class: sphx-glr-single-img
+
+
+
+
+
+.. GENERATED FROM PYTHON SOURCE LINES 51-52
+
+Reliability bandwidth comparison 
+
+.. GENERATED FROM PYTHON SOURCE LINES 52-54
+
+.. code-block:: default
+
+    exp.model_compare(models=["GLM", "XGB2", "XGB7"], show="reliability_bandwidth", alpha=0.1, figsize=(5, 4))
+
+
+
+
+.. image-sg:: /auto_examples/testing_compare/images/sphx_glr_plot_0_compare_regression_007.png
+   :alt: Bandwidth of Testing Data
    :srcset: /auto_examples/testing_compare/images/sphx_glr_plot_0_compare_regression_007.png
    :class: sphx-glr-single-img
 
@@ -219,11 +220,11 @@ Reliability coverage comparison
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 54-55
+.. GENERATED FROM PYTHON SOURCE LINES 55-56
 
 Robustness comparison with default settings
 
-.. GENERATED FROM PYTHON SOURCE LINES 55-56
+.. GENERATED FROM PYTHON SOURCE LINES 56-57
 
 .. code-block:: default
 
@@ -240,11 +241,11 @@ Robustness comparison with default settings
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 57-58
+.. GENERATED FROM PYTHON SOURCE LINES 58-59
 
 Robustness comparison on worst alpha-percent samples
 
-.. GENERATED FROM PYTHON SOURCE LINES 58-60
+.. GENERATED FROM PYTHON SOURCE LINES 59-61
 
 .. code-block:: default
 
@@ -262,11 +263,11 @@ Robustness comparison on worst alpha-percent samples
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 61-62
+.. GENERATED FROM PYTHON SOURCE LINES 62-63
 
 Resilience comparison with worst-sample scenario
 
-.. GENERATED FROM PYTHON SOURCE LINES 62-65
+.. GENERATED FROM PYTHON SOURCE LINES 63-66
 
 .. code-block:: default
 
@@ -285,11 +286,11 @@ Resilience comparison with worst-sample scenario
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 66-67
+.. GENERATED FROM PYTHON SOURCE LINES 67-68
 
 Resilience distance comparison with worst-sample scenario
 
-.. GENERATED FROM PYTHON SOURCE LINES 67-68
+.. GENERATED FROM PYTHON SOURCE LINES 68-69
 
 .. code-block:: default
 
@@ -309,7 +310,9 @@ Resilience distance comparison with worst-sample scenario
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** ( 1 minutes  18.000 seconds)
+   **Total running time of the script:** ( 1 minutes  56.161 seconds)
+
+**Estimated memory usage:**  60 MB
 
 
 .. _sphx_glr_download_auto_examples_testing_compare_plot_0_compare_regression.py:

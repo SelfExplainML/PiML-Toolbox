@@ -36,12 +36,12 @@ exp.model_compare(models=["Tree", "FIGS", "XGB2"], show="accuracy_plot", metric=
 # Overfit comparison with historgram slicing
 exp.model_compare(models=["Tree", "FIGS", "XGB2"], show="overfit",
                   slice_method="histogram", slice_feature="PAY_1", 
-                  threshold=1.05, bins=10, metric="ACC", original_scale=True, figsize=(5, 4))
+                  bins=10, metric="ACC", original_scale=True, figsize=(5, 4))
 #%%
 # Overfit comparison with tree slicing
 exp.model_compare(models=["Tree", "FIGS", "XGB2"], show="overfit",
                   slice_method="tree", slice_feature="PAY_1", 
-                  threshold=1.05, metric="ACC", original_scale=True, figsize=(5, 4))
+                  metric="ACC", original_scale=True, figsize=(5, 4))
 
 #%%
 # Reliability bandwidth comparison 
@@ -53,10 +53,6 @@ exp.model_compare(models=["Tree", "FIGS", "XGB2"], show="reliability_perf", bins
 #%%
 # Robustness comparison with default settings
 exp.model_compare(models=["Tree", "FIGS", "XGB2"], show="robustness_perf", figsize=(5, 4))
-
-#%%
-# Robustness comparison with custom perturbation features
-exp.model_compare(models=["Tree", "FIGS", "XGB2"], show="robustness_perf", perturb_features=["PAY_1"], figsize=(5, 4))
 
 #%%
 # Robustness comparison on worst alpha-percent samples

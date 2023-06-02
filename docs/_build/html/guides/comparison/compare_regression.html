@@ -43,8 +43,6 @@
         <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/@jupyter-widgets/html-manager@^1.0.1/dist/embed-amd.js"></script>
         <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
-        <script>window.MathJax = {"tex": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true}, "options": {"ignoreHtmlClass": "tex2jax_ignore|mathjax_ignore|document", "processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
-        <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
     <script src="../../_static/js/theme.js"></script>
 
 </head>
@@ -232,13 +230,13 @@
 
 </style><section id="comparison-for-regression">
 <h1><span class="section-number">7.1. </span>Comparison for Regression<a class="headerlink" href="#comparison-for-regression" title="Permalink to this heading">¶</a></h1>
-<p>This section describes how different regression models for continuous responses can be compared on the basis of different metrics. In PiML, this can be done by using the <code class="docutils literal notranslate"><span class="pre">model_compare</span></code> function. We use results from the BikeSharing data for illustration.</p>
+<p>In this section, we will explore the comparison of various regression models using different metrics. PiML offers a convenient way to perform this comparison through the <code class="docutils literal notranslate"><span class="pre">model_compare</span></code> function. To illustrate this process, we will utilize the results obtained from the BikeSharing dataset.</p>
 <section id="accuracy-comparison">
 <h2><span class="section-number">7.1.1. </span>Accuracy Comparison<a class="headerlink" href="#accuracy-comparison" title="Permalink to this heading">¶</a></h2>
-<p>The metric can be chosen to be one of “MSE”, “MAE”,  or “R2”. Comparisons are shown on “accuracy_plot”.</p>
+<p>The accuracy comparison can be generated using the keyword “accuracy_plot”. The supported performance metrics include “MSE”, “MAE”, and “R2”.</p>
 <section id="mean-squared-error">
 <h3><span class="section-number">7.1.1.1. </span>Mean Squared Error<a class="headerlink" href="#mean-squared-error" title="Permalink to this heading">¶</a></h3>
-<p>The first plotFirst, we compare models based on the squared error of the observations on training and test data: <span class="math notranslate nohighlight">\(SE = (y_i-\hat{y}_i)^2\)</span>. This is done with metric set to “MSE” in the function. The plot displays boxplots for SE for both testing and training data. In addition, the mean squared error (MSE) is marked using the a circle.</p>
+<p>First of all, we need to specify the models to be compared, by the parameter <code class="docutils literal notranslate"><span class="pre">models</span></code>, which is a list of model names. We suggest limiting the number of models to 3 so that the plot is not too crowded. In this example, we compare the performance of GLM, XGB2, and XGB7. The metric for comparison is set to “MSE” by the parameter <code class="docutils literal notranslate"><span class="pre">metric</span></code>. The following code generates the accuracy comparison plot for These three models.</p>
 <div class="jupyter_cell jupyter_container docutils container">
 <div class="cell_input code_cell docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">exp</span><span class="o">.</span><span class="n">model_compare</span><span class="p">(</span><span class="n">models</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;GLM&quot;</span><span class="p">,</span> <span class="s2">&quot;XGB2&quot;</span><span class="p">,</span> <span class="s2">&quot;XGB7&quot;</span><span class="p">],</span> <span class="n">show</span><span class="o">=</span><span class="s2">&quot;accuracy_plot&quot;</span><span class="p">,</span>
@@ -252,10 +250,11 @@
 <figure class="align-left">
 <a class="reference external image-reference" href="../../auto_examples/testing_compare/plot_0_compare_regression.html"><img alt="../../_images/sphx_glr_plot_0_compare_regression_001.png" src="../../_images/sphx_glr_plot_0_compare_regression_001.png" /></a>
 </figure>
+<p>The boxplots summarize the squared errors for each model on training and testing data. The mean squared error (MSE) is marked using the circle. The lower the MSE, the better the model. In this example, XGB7 has the lowest MSE on the test set, followed by XGB2 and GLM. The relative performance of the three models is the same in the training set.</p>
 </section>
 <section id="mean-absolute-error">
 <h3><span class="section-number">7.1.1.2. </span>Mean Absolute Error<a class="headerlink" href="#mean-absolute-error" title="Permalink to this heading">¶</a></h3>
-<p>In this case, we compare the models based on the absolute error <span class="math notranslate nohighlight">\(|y_i-\hat{y}_i|\)</span>. The PiML code should have <code class="docutils literal notranslate"><span class="pre">metric</span></code> set to “MAE”.</p>
+<p>By changing the <code class="docutils literal notranslate"><span class="pre">metric</span></code> parameter to “MAE”, the mean absolute error will be displayed.</p>
 <div class="jupyter_cell jupyter_container docutils container">
 <div class="cell_input code_cell docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">exp</span><span class="o">.</span><span class="n">model_compare</span><span class="p">(</span><span class="n">models</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;GLM&quot;</span><span class="p">,</span> <span class="s2">&quot;XGB2&quot;</span><span class="p">,</span> <span class="s2">&quot;XGB7&quot;</span><span class="p">],</span> <span class="n">show</span><span class="o">=</span><span class="s2">&quot;accuracy_plot&quot;</span><span class="p">,</span>
@@ -269,11 +268,11 @@
 <figure class="align-left">
 <a class="reference external image-reference" href="../../auto_examples/testing_compare/plot_0_compare_regression.html"><img alt="../../_images/sphx_glr_plot_0_compare_regression_002.png" src="../../_images/sphx_glr_plot_0_compare_regression_002.png" /></a>
 </figure>
-<p>The relative comparisons of the three models results are the same as before.</p>
+<p>The MSE metric is more sensitive to outliers compared to MAE. However, in this example, both metrics lead to the same conclusions. The absolute errors are significantly larger than the squared errors, as all absolute errors are less than 1.</p>
 </section>
 <section id="r-squared-score">
 <h3><span class="section-number">7.1.1.3. </span>R-squared Score<a class="headerlink" href="#r-squared-score" title="Permalink to this heading">¶</a></h3>
-<p>The third comparison is in terms of the R2 score.</p>
+<p>Similarly, the R-squared (R2) score can be used by setting <code class="docutils literal notranslate"><span class="pre">metric</span></code> to “R2”. The R2 score is a normalized metric, which is between 0 and 1 for the training set. The higher the R2 score, the better the model.</p>
 <div class="jupyter_cell jupyter_container docutils container">
 <div class="cell_input code_cell docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">exp</span><span class="o">.</span><span class="n">model_compare</span><span class="p">(</span><span class="n">models</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;GLM&quot;</span><span class="p">,</span> <span class="s2">&quot;XGB2&quot;</span><span class="p">,</span> <span class="s2">&quot;XGB7&quot;</span><span class="p">],</span> <span class="n">show</span><span class="o">=</span><span class="s2">&quot;accuracy_plot&quot;</span><span class="p">,</span>
@@ -287,17 +286,17 @@
 <figure class="align-left">
 <a class="reference external image-reference" href="../../auto_examples/testing_compare/plot_0_compare_regression.html"><img alt="../../_images/sphx_glr_plot_0_compare_regression_003.png" src="../../_images/sphx_glr_plot_0_compare_regression_003.png" /></a>
 </figure>
-<p>The bar chart above compares models based on R2. Note that there is only a single R2 score for the entire dataset, so there are no box plots. The conclusions from R2 is again the same as SE and AE.</p>
+<p>The bar chart presented above illustrates the comparison of models using the R2 metric. It is important to note that since there is only one R2 score for the entire dataset, the box plots are not used. Furthermore, the conclusions derived from R2 are consistent with those obtained from MSE and MAE metrics.</p>
 </section>
 </section>
 <section id="overfit-comparison">
 <h2><span class="section-number">7.1.2. </span>Overfit Comparison<a class="headerlink" href="#overfit-comparison" title="Permalink to this heading">¶</a></h2>
-<p>Overfit comparison displays the overfit regions of different models against a feature of interest. The detection algorithm can be found in the <a class="reference external" href="../testing/overfit.html">overfit</a> section. Different from the overfit for a single model, the argument for selecting slicing features is <code class="docutils literal notranslate"><span class="pre">slice_feature</span></code> (instead of <code class="docutils literal notranslate"><span class="pre">slice_features</span></code>), which is a string representing the feature name. The following example illustrates how to compare models’ overfit regions, using the keyword “overfit”, in which we consider a regression task on the BikeSharing data.</p>
+<p>The overfit comparison presents the overfit regions of various models in relation to a specific feature of interest. The algorithm for detecting overfit regions can be found in the “<a class="reference external" href="../testing/overfit.html">overfit</a>” section. It is important to note that unlike the overfit for a single model, the argument used for selecting slicing features is <code class="docutils literal notranslate"><span class="pre">slice_feature</span></code> (instead of <code class="docutils literal notranslate"><span class="pre">slice_features</span></code>). This argument is a string that represents the name of the feature. Here is an example that demonstrates how to compare the overfit regions of different models using the keyword “overfit”.</p>
 <div class="jupyter_cell jupyter_container docutils container">
 <div class="cell_input code_cell docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">exp</span><span class="o">.</span><span class="n">model_compare</span><span class="p">(</span><span class="n">models</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;GLM&quot;</span><span class="p">,</span> <span class="s2">&quot;XGB2&quot;</span><span class="p">,</span> <span class="s2">&quot;XGB7&quot;</span><span class="p">],</span> <span class="n">show</span><span class="o">=</span><span class="s2">&quot;overfit&quot;</span><span class="p">,</span>
-                  <span class="n">slice_method</span><span class="o">=</span><span class="s2">&quot;histogram&quot;</span><span class="p">,</span> <span class="n">slice_feature</span><span class="o">=</span><span class="s2">&quot;hr&quot;</span><span class="p">,</span> <span class="n">threshold</span><span class="o">=</span><span class="mf">1.05</span><span class="p">,</span>
-                  <span class="n">bins</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">metricmetric</span><span class="o">=</span><span class="s2">&quot;MSE&quot;</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">4</span><span class="p">))</span>
+                  <span class="n">metricmetric</span><span class="o">=</span><span class="s2">&quot;MSE&quot;</span><span class="p">,</span> <span class="n">slice_method</span><span class="o">=</span><span class="s2">&quot;histogram&quot;</span><span class="p">,</span> <span class="n">bins</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span>
+                  <span class="n">slice_feature</span><span class="o">=</span><span class="s2">&quot;hr&quot;</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">4</span><span class="p">))</span>
 </pre></div>
 </div>
 </div>
@@ -307,11 +306,12 @@
 <figure class="align-left">
 <a class="reference external image-reference" href="../../auto_examples/testing_compare/plot_0_compare_regression.html"><img alt="../../_images/sphx_glr_plot_0_compare_regression_004.png" src="../../_images/sphx_glr_plot_0_compare_regression_004.png" /></a>
 </figure>
+<p>The first plot uses the “histogram” slicing method, and the number of bins is set to 10. The slicing feature is <code class="docutils literal notranslate"><span class="pre">hr</span></code>. The results reveal that the XGB7 model suffers more from the overfitting issue (Test - Train MSE Gap &gt; 0) compared to GLM and XGB2, especially for <code class="docutils literal notranslate"><span class="pre">hr</span></code> larger than 4.6.</p>
 <div class="jupyter_cell jupyter_container docutils container">
 <div class="cell_input code_cell docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">exp</span><span class="o">.</span><span class="n">model_compare</span><span class="p">(</span><span class="n">models</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;GLM&quot;</span><span class="p">,</span> <span class="s2">&quot;XGB2&quot;</span><span class="p">,</span> <span class="s2">&quot;XGB7&quot;</span><span class="p">],</span> <span class="n">show</span><span class="o">=</span><span class="s2">&quot;overfit&quot;</span><span class="p">,</span>
-                  <span class="n">slice_method</span><span class="o">=</span><span class="s2">&quot;tree&quot;</span><span class="p">,</span> <span class="n">slice_feature</span><span class="o">=</span><span class="s2">&quot;atemp&quot;</span><span class="p">,</span> <span class="n">threshold</span><span class="o">=</span><span class="mf">1.05</span><span class="p">,</span>
-                  <span class="n">metricmetric</span><span class="o">=</span><span class="s2">&quot;ACC&quot;</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">4</span><span class="p">))</span>
+                  <span class="n">slice_method</span><span class="o">=</span><span class="s2">&quot;tree&quot;</span><span class="p">,</span> <span class="n">slice_feature</span><span class="o">=</span><span class="s2">&quot;hr&quot;</span><span class="p">,</span>
+                  <span class="n">metricmetric</span><span class="o">=</span><span class="s2">&quot;MSE&quot;</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">4</span><span class="p">))</span>
 </pre></div>
 </div>
 </div>
@@ -321,30 +321,14 @@
 <figure class="align-left">
 <a class="reference external image-reference" href="../../auto_examples/testing_compare/plot_0_compare_regression.html"><img alt="../../_images/sphx_glr_plot_0_compare_regression_005.png" src="../../_images/sphx_glr_plot_0_compare_regression_005.png" /></a>
 </figure>
+<p>The second plot displays the overfitting detection results using a decision tree as the slicing model. As <code class="docutils literal notranslate"><span class="pre">hr</span></code> is around 8 am, all these three models are found to be overfitting. The overfitting issue is more severe for XGB7 compared to GLM and XGB2.</p>
 </section>
 <section id="reliability-comparison">
 <h2><span class="section-number">7.1.3. </span>Reliability Comparison<a class="headerlink" href="#reliability-comparison" title="Permalink to this heading">¶</a></h2>
-<p>Reliability comparison is to compare models under input perturbation. The algorithm details of the robustness test can be found in the <a class="reference external" href="../testing/reliability.html">reliability</a> testing section.</p>
+<p>The reliability comparison aims to assess the uncertainty of model predictions. The algorithmic details can be found in the <a class="reference external" href="../testing/reliability.html">reliability</a> section.</p>
 <section id="coverage-comparison">
 <h3><span class="section-number">7.1.3.1. </span>Coverage Comparison<a class="headerlink" href="#coverage-comparison" title="Permalink to this heading">¶</a></h3>
-<p>For demonstration purposes, we consider 3 models on the BikeSharing data. By setting <code class="docutils literal notranslate"><span class="pre">show</span></code> to “reliability_coverage”, we can get the average coverage comparison plot of the prediction intervals on the test set. The argument <code class="docutils literal notranslate"><span class="pre">alpha</span></code> is the expected proportion of test samples to be outside the prediction intervals.</p>
-<div class="jupyter_cell jupyter_container docutils container">
-<div class="cell_input code_cell docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">exp</span><span class="o">.</span><span class="n">model_compare</span><span class="p">(</span><span class="n">models</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;GLM&quot;</span><span class="p">,</span> <span class="s2">&quot;XGB2&quot;</span><span class="p">,</span> <span class="s2">&quot;XGB7&quot;</span><span class="p">],</span> <span class="n">show</span><span class="o">=</span><span class="s2">&quot;reliability_coverage&quot;</span><span class="p">,</span>
-                  <span class="n">alpha</span><span class="o">=</span><span class="mf">0.1</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">4</span><span class="p">))</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-</div>
-</div>
-<figure class="align-left">
-<a class="reference external image-reference" href="../../auto_examples/testing_compare/plot_0_compare_regression.html"><img alt="../../_images/sphx_glr_plot_0_compare_regression_006.png" src="../../_images/sphx_glr_plot_0_compare_regression_006.png" /></a>
-</figure>
-</section>
-<section id="bandwidth-comparison">
-<h3><span class="section-number">7.1.3.2. </span>Bandwidth Comparison<a class="headerlink" href="#bandwidth-comparison" title="Permalink to this heading">¶</a></h3>
-<p>The example below illustrates how to compare models’ prediction interval bandwidth. The argument <code class="docutils literal notranslate"><span class="pre">alpha</span></code> is set to 0.1, which means the expected coverage is 90%.</p>
+<p>The example below illustrates how to check the coverage ratio of the prediction intervals.</p>
 <div class="jupyter_cell jupyter_container docutils container">
 <div class="cell_input code_cell docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">exp</span><span class="o">.</span><span class="n">model_compare</span><span class="p">(</span><span class="n">models</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;GLM&quot;</span><span class="p">,</span> <span class="s2">&quot;XGB2&quot;</span><span class="p">,</span> <span class="s2">&quot;XGB7&quot;</span><span class="p">],</span> <span class="n">show</span><span class="o">=</span><span class="s2">&quot;reliability_bandwidth&quot;</span><span class="p">,</span>
@@ -356,8 +340,27 @@
 </div>
 </div>
 <figure class="align-left">
+<a class="reference external image-reference" href="../../auto_examples/testing_compare/plot_0_compare_regression.html"><img alt="../../_images/sphx_glr_plot_0_compare_regression_006.png" src="../../_images/sphx_glr_plot_0_compare_regression_006.png" /></a>
+</figure>
+<p>The argument <code class="docutils literal notranslate"><span class="pre">alpha</span></code> is set to 0.1, which means the expected coverage is 90%, marked by the dotted line. All these three models have a coverage ratio close to 90%, which means that the prediction intervals are reliable.</p>
+</section>
+<section id="bandwidth-comparison">
+<h3><span class="section-number">7.1.3.2. </span>Bandwidth Comparison<a class="headerlink" href="#bandwidth-comparison" title="Permalink to this heading">¶</a></h3>
+<p>By setting the parameter <code class="docutils literal notranslate"><span class="pre">show</span></code> to “reliability_coverage”, we can generate an average coverage comparison plot for the prediction intervals on the randomly selected 40% test set. The argument <code class="docutils literal notranslate"><span class="pre">alpha</span></code> represents the expected proportion of samples that are expected to fall outside the estimated prediction intervals.</p>
+<div class="jupyter_cell jupyter_container docutils container">
+<div class="cell_input code_cell docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">exp</span><span class="o">.</span><span class="n">model_compare</span><span class="p">(</span><span class="n">models</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;GLM&quot;</span><span class="p">,</span> <span class="s2">&quot;XGB2&quot;</span><span class="p">,</span> <span class="s2">&quot;XGB7&quot;</span><span class="p">],</span> <span class="n">show</span><span class="o">=</span><span class="s2">&quot;reliability_coverage&quot;</span><span class="p">,</span>
+                  <span class="n">alpha</span><span class="o">=</span><span class="mf">0.1</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">4</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+</div>
+</div>
+<figure class="align-left">
 <a class="reference external image-reference" href="../../auto_examples/testing_compare/plot_0_compare_regression.html"><img alt="../../_images/sphx_glr_plot_0_compare_regression_007.png" src="../../_images/sphx_glr_plot_0_compare_regression_007.png" /></a>
 </figure>
+<p>This plot shows that XGB7 has the smallest bandwidth of prediction intervals, which means that the prediction of XGB7 is more certain than that of XGB2 and GLM.</p>
 </section>
 </section>
 <section id="robustness-comparison">
@@ -365,11 +368,11 @@
 <p>Robustness comparison is to compare models under input perturbation. This section illustrates how to compare models under input perturbation. The algorithm details of the robustness test can be found in the <a class="reference external" href="../testing/robustness.html">robustness</a> testing section.</p>
 <section id="robustness-performance">
 <h3><span class="section-number">7.1.4.1. </span>Robustness Performance<a class="headerlink" href="#robustness-performance" title="Permalink to this heading">¶</a></h3>
-<p>The example below illustrates how to compare models’ robustness performance using the keyword “robustness_perf”. The perturbation method is set to “raw”, which means we add normal noise to the raw data of numerical features. The perturbation step size is set to 0.2. By default, the perturbation features are all features. The performance metric is set to “AUC”. The following example illustrates how to compare models’ robustness performance.</p>
+<p>The example below demonstrates the comparison of models’ robustness performance using the “robustness_perf” keyword. In this scenario, the perturbation method defaults to “raw”, which involves adding normal noise to the numerical features. The perturbation for categorical features can be found in the <a class="reference external" href="../testing/robustness.html">robustness</a> section. By default, all features undergo perturbation unless otherwise specified. The performance metric used for this comparison is “MSE”.</p>
 <div class="jupyter_cell jupyter_container docutils container">
 <div class="cell_input code_cell docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">exp</span><span class="o">.</span><span class="n">model_compare</span><span class="p">(</span><span class="n">models</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;GLM&quot;</span><span class="p">,</span> <span class="s2">&quot;XGB2&quot;</span><span class="p">,</span> <span class="s2">&quot;XGB7&quot;</span><span class="p">],</span> <span class="n">show</span><span class="o">=</span><span class="s2">&quot;robustness_perf&quot;</span><span class="p">,</span>
-                  <span class="n">perturb_method</span><span class="o">=</span><span class="s2">&quot;raw&quot;</span><span class="p">,</span> <span class="n">perturb_size</span><span class="o">=</span><span class="mf">0.2</span><span class="p">,</span> <span class="n">metric</span><span class="o">=</span><span class="s2">&quot;MSE&quot;</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">4</span><span class="p">))</span>
+                  <span class="n">metric</span><span class="o">=</span><span class="s2">&quot;MSE&quot;</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">4</span><span class="p">))</span>
 </pre></div>
 </div>
 </div>
@@ -379,15 +382,15 @@
 <figure class="align-left">
 <a class="reference external image-reference" href="../../auto_examples/testing_compare/plot_0_compare_regression.html"><img alt="../../_images/sphx_glr_plot_0_compare_regression_008.png" src="../../_images/sphx_glr_plot_0_compare_regression_008.png" /></a>
 </figure>
-<p>In the plot above, the perturbation is applied to all variables. On the x-axis, we have the perturbation size, and on the y-axis, the model performance. Model XGB2 recorded the best robustness performance, followed by XGB7. The worst performing is GLM.</p>
+<p>In the plot above, the perturbation is applied to all variables. On the x-axis, we have the perturbation size, and on the y-axis, the model performance. Model XGB7 recorded the worst robustness performance, which shows significant performance degradation under perturbation. The GLM model only shows a slight MSE increase from the perturbation.</p>
 </section>
 <section id="robustness-performance-on-worst-samples">
 <h3><span class="section-number">7.1.4.2. </span>Robustness Performance on Worst Samples<a class="headerlink" href="#robustness-performance-on-worst-samples" title="Permalink to this heading">¶</a></h3>
-<p>The keyword “robustness_perf_worst” is used to evaluate the models’ performance against perturbation size based on the worst sample. For this option, in addition to the arguments <code class="docutils literal notranslate"><span class="pre">metric</span></code>, <code class="docutils literal notranslate"><span class="pre">perturb_method</span></code>, <code class="docutils literal notranslate"><span class="pre">perturb_size</span></code>, and <code class="docutils literal notranslate"><span class="pre">perturb_features</span></code>, we have an additional argument <code class="docutils literal notranslate"><span class="pre">alpha</span></code>, which is the proportion of worst samples to consider. The following example illustrates how to compare models’ robustness performance on worst samples.</p>
+<p>The keyword “robustness_perf_worst” is employed to assess the worst sample performance of models against perturbation size. In addition to the arguments <code class="docutils literal notranslate"><span class="pre">metric</span></code>, <code class="docutils literal notranslate"><span class="pre">perturb_method</span></code>, <code class="docutils literal notranslate"><span class="pre">perturb_size</span></code>, and <code class="docutils literal notranslate"><span class="pre">perturb_features</span></code>, there is an extra argument called <code class="docutils literal notranslate"><span class="pre">alpha</span></code>, which represents the proportion of worst samples to be taken into consideration. Here is an example that demonstrates how to compare the robustness performance of models on worst samples:</p>
 <div class="jupyter_cell jupyter_container docutils container">
 <div class="cell_input code_cell docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">exp</span><span class="o">.</span><span class="n">model_compare</span><span class="p">(</span><span class="n">models</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;GLM&quot;</span><span class="p">,</span> <span class="s2">&quot;XGB2&quot;</span><span class="p">,</span> <span class="s2">&quot;XGB7&quot;</span><span class="p">],</span> <span class="n">show</span><span class="o">=</span><span class="s2">&quot;robustness_perf_worst&quot;</span><span class="p">,</span>
-                  <span class="n">perturb_method</span><span class="o">=</span><span class="s2">&quot;quantile&quot;</span><span class="p">,</span> <span class="n">perturb_size</span><span class="o">=</span><span class="mf">0.1</span><span class="p">,</span> <span class="n">metric</span><span class="o">=</span><span class="s2">&quot;R2&quot;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.3</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">4</span><span class="p">))</span>
+                  <span class="n">alpha</span><span class="o">=</span><span class="mf">0.3</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">4</span><span class="p">))</span>
 </pre></div>
 </div>
 </div>
@@ -397,19 +400,19 @@
 <figure class="align-left">
 <a class="reference external image-reference" href="../../auto_examples/testing_compare/plot_0_compare_regression.html"><img alt="../../_images/sphx_glr_plot_0_compare_regression_009.png" src="../../_images/sphx_glr_plot_0_compare_regression_009.png" /></a>
 </figure>
-<p>The plot shows that XGB2 performs well on unperturbed data (noise = 0) and it is also the most robust model against perturbation. GAM is the second-best model, followed by GLM.</p>
+<p>The relative performance of the worst sample robustness results is consistent with the previous one, but the MSE scale is much larger.</p>
 </section>
 </section>
 <section id="resilience-comparison">
 <h2><span class="section-number">7.1.5. </span>Resilience Comparison<a class="headerlink" href="#resilience-comparison" title="Permalink to this heading">¶</a></h2>
-<p>Resilience comparison is to compare models under input perturbation. This section illustrates how to compare models under input perturbation. The algorithm details of the resilience test can be found in the <a class="reference external" href="../testing/resilience.html">resilience</a> testing section.</p>
+<p>Resilience comparison is to compare models under distribution shift. The algorithm details of the resilience test can be found in the <a class="reference external" href="../testing/resilience.html">resilience</a> testing section.</p>
 <section id="resilience-performance">
 <h3><span class="section-number">7.1.5.1. </span>Resilience Performance<a class="headerlink" href="#resilience-performance" title="Permalink to this heading">¶</a></h3>
-<p>The example below illustrates how to compare models’ resilience performance using the keyword “resilience_perf”. The perturbation method is set to “worst-sample”. The performance metric is set to “AUC”. The following example illustrates how to compare models’ resilience performance.</p>
+<p>The example below illustrates how to compare models’ resilience performance using the keyword “resilience_perf”. The perturbation method is set to “worst-sample”. The performance metric is set to “MAE”.</p>
 <div class="jupyter_cell jupyter_container docutils container">
 <div class="cell_input code_cell docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">exp</span><span class="o">.</span><span class="n">model_compare</span><span class="p">(</span><span class="n">models</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;GLM&quot;</span><span class="p">,</span> <span class="s2">&quot;XGB2&quot;</span><span class="p">,</span> <span class="s2">&quot;XGB7&quot;</span><span class="p">],</span> <span class="n">show</span><span class="o">=</span><span class="s2">&quot;resilience_perf&quot;</span><span class="p">,</span>
-                  <span class="n">resilience_method</span><span class="o">=</span><span class="s2">&quot;worst-sample&quot;</span><span class="p">,</span> <span class="n">immu_feature</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">metric</span><span class="o">=</span><span class="s2">&quot;MSE&quot;</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">4</span><span class="p">))</span>
+                  <span class="n">resilience_method</span><span class="o">=</span><span class="s2">&quot;worst-sample&quot;</span><span class="p">,</span> <span class="n">immu_feature</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">metric</span><span class="o">=</span><span class="s2">&quot;MAE&quot;</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">4</span><span class="p">))</span>
 </pre></div>
 </div>
 </div>
@@ -420,14 +423,13 @@
 <a class="reference external image-reference" href="../../auto_examples/testing_compare/plot_0_compare_regression.html"><img alt="../../_images/sphx_glr_plot_0_compare_regression_010.png" src="../../_images/sphx_glr_plot_0_compare_regression_010.png" /></a>
 </figure>
 </section>
-<section id="resilience-performance-on-worst-samples">
-<h3><span class="section-number">7.1.5.2. </span>Resilience Performance on Worst Samples<a class="headerlink" href="#resilience-performance-on-worst-samples" title="Permalink to this heading">¶</a></h3>
-<p>The keyword <code class="docutils literal notranslate"><span class="pre">resilience_perf_worst</span></code> is used to evaluate the models’ resilience performance on the worst sample. For this option, in addition to the arguments <code class="docutils literal notranslate"><span class="pre">resilience_method</span></code>, <code class="docutils literal notranslate"><span class="pre">immu_feature</span></code>, and <code class="docutils literal notranslate"><span class="pre">metric</span></code>, we have an additional argument <code class="docutils literal notranslate"><span class="pre">alpha</span></code>, which is the proportion of worst samples to consider, as <code class="docutils literal notranslate"><span class="pre">resilience_method</span></code> is “worst-sample”, “hard-sample”, or “outer-sample”; or <code class="docutils literal notranslate"><span class="pre">n_clusters</span></code> the value of <span class="math notranslate nohighlight">\(K\)</span> in Kmean clustering as <code class="docutils literal notranslate"><span class="pre">resilience_method</span></code> is “worst-cluster”. The following example illustrates how to compare models’ robustness performance on worst samples.</p>
+<section id="resilience-distance">
+<h3><span class="section-number">7.1.5.2. </span>Resilience Distance<a class="headerlink" href="#resilience-distance" title="Permalink to this heading">¶</a></h3>
+<p>By setting <code class="docutils literal notranslate"><span class="pre">show</span></code> to “resilience_distance”, the distributional distance between the worst test sample and the full test sample will be calculated for each feature. Then the features will be ranked by distance, and the top 10 features with the largest distances will be displayed.</p>
 <div class="jupyter_cell jupyter_container docutils container">
 <div class="cell_input code_cell docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">exp</span><span class="o">.</span><span class="n">model_compare</span><span class="p">(</span><span class="n">models</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;GLM&quot;</span><span class="p">,</span> <span class="s2">&quot;XGB2&quot;</span><span class="p">,</span> <span class="s2">&quot;XGB7&quot;</span><span class="p">],</span> <span class="n">show</span><span class="o">=</span><span class="s2">&quot;resilience_perf_worst&quot;</span><span class="p">,</span>
-                  <span class="n">resilience_method</span><span class="o">=</span><span class="s2">&quot;worst-sample&quot;</span><span class="p">,</span> <span class="n">immu_feature</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">metric</span><span class="o">=</span><span class="s2">&quot;MSE&quot;</span><span class="p">,</span>
-                  <span class="n">alpha</span><span class="o">=</span><span class="mf">0.3</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">4</span><span class="p">))</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">exp</span><span class="o">.</span><span class="n">model_compare</span><span class="p">(</span><span class="n">models</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;GLM&quot;</span><span class="p">,</span> <span class="s2">&quot;XGB2&quot;</span><span class="p">,</span> <span class="s2">&quot;XGB7&quot;</span><span class="p">],</span> <span class="n">show</span><span class="o">=</span><span class="s2">&quot;resilience_distance&quot;</span><span class="p">,</span>
+                  <span class="n">resilience_method</span><span class="o">=</span><span class="s2">&quot;worst-sample&quot;</span><span class="p">,</span> <span class="n">metric</span><span class="o">=</span><span class="s2">&quot;MAE&quot;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.3</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">4</span><span class="p">))</span>
 </pre></div>
 </div>
 </div>

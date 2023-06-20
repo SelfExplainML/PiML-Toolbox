@@ -34,7 +34,7 @@ The exact solution is obtained using the Shapley value formula, which requires e
 
 .. math::
    \begin{align}     
-     \phi_{i}= \sum_{S \subseteq \{1, \ldots, p\} \{ i \}} \frac{|S|!(p-|S|-1)!}{p!}(val(S \cup \{i\}) - val(S)).  \tag{2}
+     \phi_{i}= \sum_{S \subseteq \{1, \ldots, p\} \backslash \{ i \}} \frac{|S|!(p-|S|-1)!}{p!}(val(S \cup \{i\}) - val(S)).  \tag{2}
    \end{align}
 
 where :math:`val` is the value function that returns the prediction of each coalition. The marginal contribution of feature :math:`i` to the coalition :math:`S` is calculated as the difference between the value of the coalition with the addition of feature :math:`i` and the value of the original coalition, i.e., :math:`val(S \cup \{i\}) - val(S)`. The term :math:`\frac{|S|!(p-|S|-1)!}{p!}` is a normalization factor. When the number of features is small, this exact estimation approach is acceptable. However, as the number of features increases, the exact solution may become problematic.

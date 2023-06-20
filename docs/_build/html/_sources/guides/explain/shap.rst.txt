@@ -30,14 +30,14 @@ where :math:`g` is the explanation method, :math:`p` is the number of features, 
 
 Exact Solution
 """"""""""""""""""""""""""""
-The exact solution is obtained using the Shapley value formula, which requires evaluating all possible coalitions of features with and without the :math:`j`-th feature.
+The exact solution is obtained using the Shapley value formula, which requires evaluating all possible coalitions of features with and without the :math:`i`-th feature.
 
 .. math::
    \begin{align}     
      \phi_{i}= \sum_{S \subseteq \{1, \ldots, p\} \{ i \}} \frac{|S|!(p-|S|-1)!}{p!}(val(S \cup \{i\}) - val(S)).  \tag{2}
    \end{align}
 
-where :math:`val` is the value function that returns the prediction of each coalition. The marginal contribution of feature :math:`j` to the coalition :math:`S` is calculated as the difference between the value of the coalition with the addition of feature :math:`j` and the value of the original coalition, i.e., :math:`val(S \cup \{j\}) - val(S)`. The term :math:`\frac{|S|!(p-|S|-1)!}{p!}` is a normalization factor. When the number of features is small, this exact estimation approach is acceptable. However, as the number of features increases, the exact solution may become problematic.
+where :math:`val` is the value function that returns the prediction of each coalition. The marginal contribution of feature :math:`i` to the coalition :math:`S` is calculated as the difference between the value of the coalition with the addition of feature :math:`i` and the value of the original coalition, i.e., :math:`val(S \cup \{i\}) - val(S)`. The term :math:`\frac{|S|!(p-|S|-1)!}{p!}` is a normalization factor. When the number of features is small, this exact estimation approach is acceptable. However, as the number of features increases, the exact solution may become problematic.
 
 It's worth noting that the value function :math:`val`` takes the feature coalition :math:`S` as input. However, in machine learning models, the prediction is not solely based on the feature coalition but on the entire feature vector. Therefore, we need to specify how removing a feature from the feature vector affects the prediction. Two common approaches are available, both of which depend on a pre-defined background distribution instead of merely replacing the "missing" features with a fixed value.
 

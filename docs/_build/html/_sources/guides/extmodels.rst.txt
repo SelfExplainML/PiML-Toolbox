@@ -37,7 +37,7 @@ After that, you are able to extract the fitted model and save it for future use.
 
 .. jupyter-input::
 
-    exp.model_save("LGBM_2", "CH_LGMB_2.pkl")
+    exp.model_save("LGBM_2", "CH_LGBM_2.pkl")
 
 
 Load and Register Fitted Models
@@ -47,8 +47,8 @@ You can also load a fitted model from pickle files, and register it into PiML.
 
 .. jupyter-input::
 
-    pipeline = exp.make_pipeline(model='CH_LGMB_2.pkl')
-    exp.register(pipeline, "LGMB_2_load")	
+    pipeline = exp.make_pipeline(model='CH_LGBM_2.pkl')
+    exp.register(pipeline, "LGBM_2_load")	
 
 
 Register Arbitrary Models and Data
@@ -66,4 +66,4 @@ If you don't want to use the data prepared by the data module, you can also regi
 
     pipeline = exp.make_pipeline(model=lgbm7, train_x=train_x, train_y=train_y.ravel(),
                                  test_x=test_x, test_y=test_y.ravel())
-    exp.register(pipeline, "LGMB_7")	
+    exp.register(pipeline, "LGBM_7")	

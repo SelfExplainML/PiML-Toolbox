@@ -12,7 +12,7 @@
 </details>  
 
 <details open>
-  <summary><h3><strong>Responsible Machine Learning, July 2023 | Wells Fargo QAP Training</strong></h3></summary><br /> 
+  <summary><h3><strong>Responsible Machine Learning, July 2023 | QAP Training</strong></h3></summary><br /> 
 
   **Speaker:** Aijun Zhang
 

@@ -3,8 +3,6 @@
 <details open>
   <summary><h3><strong>Workshop at GFMI 2nd Edition Credit Risk Modeling, September 6-7, 2023 | Chicago</strong></h3></summary><br /> 
 
-**URL:** [QU-ML Model Validation Workshop](https://mlmodelvalidation.splashthat.com/)
-
 **Speaker:** Aijun Zhang
 
 **Slides:** [Develop Enhanced Credit Risk Models through Interpretable Machine Learning](https://github.com/SelfExplainML/PiML-Toolbox/blob/main/docs/Workshop/202309CreditRisk.pdf) 

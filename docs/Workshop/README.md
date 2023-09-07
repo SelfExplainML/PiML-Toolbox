@@ -7,7 +7,7 @@
 
 **Slides:** [Develop Enhanced Credit Risk Models through Interpretable Machine Learning](https://github.com/SelfExplainML/PiML-Toolbox/blob/main/docs/Workshop/202309CreditRisk.pdf) 
 
-**Codes:** Hands-on PiML tutorials for developing enhanced credit risk models: <a style="text-laign: 'center'" target="_blank" href="https://colab.research.google.com/github/SelfExplainML/PiML-Toolbox/blob/main/docs/Workshop/202309PiML-CreditRisk.ipynb"><img src="https://github.com/SelfExplainML/PiML-Toolbox/blob/main/examples/results/LogoColab.png" width="20">  ipynb</a>
+**Codes:** <a style="text-laign: 'center'" target="_blank" href="https://colab.research.google.com/github/SelfExplainML/PiML-Toolbox/blob/main/docs/Workshop/202309PiML-CreditRisk.ipynb">Hands-on PiML tutorials</a>  
 
 </details>  
 

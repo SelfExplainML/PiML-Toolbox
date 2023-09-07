@@ -1,6 +1,19 @@
 ## Workshop Info and Materials
 
 <details open>
+  <summary><h3><strong>Workshop at GFMI 2nd Edition Credit Risk Modeling, September 6-7, 2023 | Chicago</strong></h3></summary><br /> 
+
+**URL:** [QU-ML Model Validation Workshop](https://mlmodelvalidation.splashthat.com/)
+
+**Speaker:** Aijun Zhang
+
+**Slides:** [Develop Enhanced Credit Risk Models through Interpretable Machine Learning](https://github.com/SelfExplainML/PiML-Toolbox/blob/main/docs/Workshop/202309CreditRisk.pdf) 
+
+**Codes:** Hands-on PiML tutorials for developing enhanced credit risk models: <a style="text-laign: 'center'" target="_blank" href="https://colab.research.google.com/github/SelfExplainML/PiML-Toolbox/blob/main/docs/Workshop/202309PiML-CreditRisk.ipynb"><img src="https://github.com/SelfExplainML/PiML-Toolbox/blob/main/examples/results/LogoColab.png" width="20">  ipynb</a>
+
+</details>  
+
+<details open>
   <summary><h3><strong>Responsible Machine Learning, July 2023 | Wells Fargo QAP Training</strong></h3></summary><br /> 
 
   **Speaker:** Aijun Zhang

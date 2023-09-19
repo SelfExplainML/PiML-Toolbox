@@ -1,6 +1,34 @@
 ## Workshop Info and Materials
 
 <details open>
+  <summary><h3><strong>Workshop at GFMI 2nd Edition Credit Risk Modeling, September 6-7, 2023 | Chicago</strong></h3></summary><br /> 
+
+**Speaker:** Aijun Zhang
+
+**Slides:** [Develop Enhanced Credit Risk Models through Interpretable Machine Learning](https://github.com/SelfExplainML/PiML-Toolbox/blob/main/docs/Workshop/202309CreditRisk.pdf) 
+
+**Codes:** <a style="text-laign: 'center'" target="_blank" href="https://colab.research.google.com/github/SelfExplainML/PiML-Toolbox/blob/main/docs/Workshop/202309PiML-CreditRisk.ipynb">Hands-on PiML tutorials</a>  
+
+</details>  
+
+<details open>
+  <summary><h3><strong>Responsible Machine Learning, July 2023 | QAP Training</strong></h3></summary><br /> 
+
+  **Speaker:** Aijun Zhang
+
+20230713ResML_BikeSharing: <a style="text-laign: 'center'" target="_blank" href="https://colab.research.google.com/github/SelfExplainML/PiML-Toolbox/blob/main/docs/Workshop/202307-ResML/20230713ResML_BikeSharing.ipynb"><img src="https://github.com/SelfExplainML/PiML-Toolbox/blob/main/examples/results/LogoColab.png" width="20">  ipynb</a>  
+
+20230713ResML_ReLU-DNN_CoCircles: <a style="text-laign: 'center'" target="_blank" href="https://colab.research.google.com/github/SelfExplainML/PiML-Toolbox/blob/main/docs/Workshop/202307-ResML/20230713ResML_ReLU-DNN_CoCircles.ipynb"><img src="https://github.com/SelfExplainML/PiML-Toolbox/blob/main/examples/results/LogoColab.png" width="20">  ipynb</a>  
+
+20230713ResML_ReLU-DNN_TaiwanCredit: <a style="text-laign: 'center'" target="_blank" href="https://colab.research.google.com/github/SelfExplainML/PiML-Toolbox/blob/main/docs/Workshop/202307-ResML/20230713ResML_ReLU-DNN_TaiwanCredit.ipynb"><img src="https://github.com/SelfExplainML/PiML-Toolbox/blob/main/examples/results/LogoColab.png" width="20">  ipynb</a>  
+
+20230713ResML_CaliforniaHousing: <a style="text-laign: 'center'" target="_blank" href="https://colab.research.google.com/github/SelfExplainML/PiML-Toolbox/blob/main/docs/Workshop/202307-ResML/20230713ResML_CaliforniaHousing.ipynb"><img src="https://github.com/SelfExplainML/PiML-Toolbox/blob/main/examples/results/LogoColab.png" width="20">  ipynb</a>  
+
+20230713ResML_Model_Fairness: <a style="text-laign: 'center'" target="_blank" href="https://colab.research.google.com/github/SelfExplainML/PiML-Toolbox/blob/main/docs/Workshop/202307-ResML/20230713ResML_Model_Fairness.ipynb"><img src="https://github.com/SelfExplainML/PiML-Toolbox/blob/main/examples/results/LogoColab.png" width="20">  ipynb</a>  
+
+</details>  
+
+<details open>
   <summary><h3><strong>Machine Learning Model Validation Workshop, April 18, 2023 | Truist</strong></h3></summary><br /> 
   
 **Speakers:** Agus Sudjianto, Vijay Nair and Anwesha Bhattacharyya

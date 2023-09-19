@@ -40,8 +40,8 @@ By setting `show` to "tree_global", you will see the fitted decision tree diagra
      exp.model_interpret(model="Tree", show="tree_global", root=0,
                          depth=3, original_scale=True, figsize=(16, 10))
 
-.. figure:: ../../auto_examples/models/images/sphx_glr_plot_2_tree_cls_001.png
-   :target: ../../auto_examples/models/plot_2_cls_dt.html
+.. figure:: ../../auto_examples/models/images/sphx_glr_plot_2_tree_reg_001.png
+   :target: ../../auto_examples/models/plot_2_reg_dt.html
    :align: left
 
 To ensure the tree diagram is useful for deep trees, we offer two parameters that enable you to adjust the view. The first is `root`, which is the node ID where the tree diagram begins. By default, it starts at the actual root node, which is assigned an ID of 0. The second parameter is `depth`, which sets the maximum depth of the diagram starting from the `root` node.
@@ -58,8 +58,8 @@ When using the "tree_Local" keyword, the decision path of a specific sample is h
 
     exp.model_interpret(model="Tree", show="tree_local", sample_id=0, original_scale=True, figsize=(16, 10))
 
-.. figure:: ../../auto_examples/models/images/sphx_glr_plot_2_tree_cls_003.png
-   :target: ../../auto_examples/models/plot_2_dt_cls.html
+.. figure:: ../../auto_examples/models/images/sphx_glr_plot_2_tree_reg_003.png
+   :target: ../../auto_examples/models/plot_2_reg_dt.html
    :align: left
 
 Note that this plot may be a subset of the overall tree. Only the branches relevant to the selected sample are shown in the plot, making it easier to interpret the decision path of that particular sample within the context of the entire decision tree.

@@ -21,7 +21,7 @@ where :math:`\mu` is the intercept, :math:`K` is the number of trees, and :math:
 
 - Compared with boosted trees, FIGS can have a larger search space, given the same number of split iterations. In boosted trees, the search space is limited to boosting a new tree. In contrast, FIGS can either boost a new tree or grow existing trees, whichever reduces the loss most. However, the training of FIGS is slower than that of boosted trees, especially when the number of split iterations is large. 
 
-- The fitted model can be easily interpretable if the value of :math:`K` is small. In practice, we usually limit the maximum iteration of FIGS to within 1000.
+- The fitted model can be easily interpretable if the value of :math:`K` is small. In practice, we usually limit the maximum iteration of FIGS to be within 1000.
 
 Model Training
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -70,7 +70,7 @@ This plot is a summary of the leaf node information for the first tree in FIGS (
 
 The subplot in the middle displays the importance (sum of gain) of each feature in the decision path of each leaf node. The importance of each feature is represented by a color scale, where darker colors indicate higher importance. Thus, the deeper the color, the more important the feature on the leaf node. For example, the feature `MedInc` is the most important feature in this tree, as it is multiple times in splitting the tree and also reduces the loss the most.
 
-The rightmost subplot of the visualization displays the number of samples in each leaf node of the decision tree. This information is conveyed through a color scale, where darker colors represent a higher number of samples. For instance, the leaf node with ID 11 contains the most samples, followed by leaf nodes 5 and 7. The color scale ranges from light to dark, with darker shades indicating a higher number of samples.
+The rightmost subplot of the visualization displays the number of samples in each leaf node of the decision tree. This information is conveyed through a color scale, where darker colors represent a higher number of samples.
 
 Tree Diagram
 """"""""""""""""""""""""""""""""
@@ -86,13 +86,11 @@ In addition to the feature importance heatmap, we can also globally interpret FI
    :target: ../../auto_examples/models/plot_3_figs_reg.html
    :align: left
 
-Here, the usage of `root` and `depth` is the same as that of `Decsion_Trees`_, which are used to control which part of the tree to display. The `original_scale` argument is used to control whether the feature values are scaled to the original scale. If `original_scale` is set to True, then the feature values are scaled to the original scale, otherwise, the feature values are by default scaled in the data preprocessing step.
+Here, the usage of `root` and `depth` is the same as that of `Decsion_Trees`_, which are used to control which part of the tree to display. The `original_scale` argument is used to control whether the feature values are scaled to the original scale. If `original_scale` is set to True, then the feature values are scaled to the original scale, otherwise, the feature values are by default scaled in the data preprocessing step. From this plot, it can be observed that `MedInc` is used multiple times to split the data. Furthermore, it is worth noting that in the root node, the average value is approximately zero, which is expected since the intercept term represents the overall mean of the response variable.
 
 .. _Decsion_Trees: tree.html#model-interpretation
 
-From this plot, it can be observed that `MedInc` is used multiple times to split the data. The leaf nodes with ID 11, 5, and 7 contain the most samples, which is consistent with the feature importance heatmap plot. The leaf node with ID 11 contains the most samples, followed by leaf nodes 5 and 7. The color scale ranges from light to dark, with darker shades indicating a higher number of samples. Furthermore, it is worth noting that in the root node, the average value is approximately zero, which is expected since the intercept term represents the overall mean of the response variable.
-
-Next, we can also draw the diagram for the rest trees in FIGS. For instance, by setting `tree_idx` to 1, we can have the tree diagram for the second tree.
+ Next, we can also draw the diagram for the rest trees in FIGS. For instance, by setting `tree_idx` to 1, we can have the tree diagram for the second tree.
 
 .. jupyter-input::
      

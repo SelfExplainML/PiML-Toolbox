@@ -25,23 +25,25 @@ exp.model_train(XGBRegressor(max_depth=7), name="XGB7")
 #%%
 # Accuracy comparison with MSE
 exp.model_compare(models=["GLM", "XGB2", "XGB7"], show="accuracy_plot", metric="MSE", figsize=(5, 4))
+
 #%%
 # Accuracy comparison with MAE
 exp.model_compare(models=["GLM", "XGB2", "XGB7"], show="accuracy_plot", metric="MAE", figsize=(5, 4))
+
 #%%
 # Accuracy comparison with R2
 exp.model_compare(models=["GLM", "XGB2", "XGB7"], show="accuracy_plot", metric="R2", figsize=(5, 4))
 
 #%%
-# Overfit comparison with historgram slicing
+# Overfit comparison with MSE metric
 exp.model_compare(models=["GLM", "XGB2", "XGB7"], show="overfit",
                   slice_method="histogram", slice_feature="hr", 
                   bins=10, metric="MSE", original_scale=True, figsize=(5, 4))
 #%%
-# Overfit comparison with tree slicing
+# Overfit comparison with R2 metric
 exp.model_compare(models=["GLM", "XGB2", "XGB7"], show="overfit",
-                  slice_method="tree", slice_feature="hr", 
-                  metric="MSE", original_scale=True, figsize=(5, 4))
+                  slice_method="histogram", slice_feature="hr", 
+                  metric="R2", original_scale=True, figsize=(5, 4))
 
 #%%
 # Reliability coverage comparison 

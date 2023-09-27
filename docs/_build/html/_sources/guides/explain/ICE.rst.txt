@@ -7,7 +7,7 @@
 ICE (Individual Conditional Expectation)  
 ==============================================
 
-Individual Conditional Expectation (ICE) plots [G2015]_ and PDPs both visualize the relationship between a feature of interest and the predicted response. However, ICE plots focus on the dependence of the predicted response on the feature for each instance, while PDPs show the average effect of the feature on the response across all instances in the dataset.
+Individual Conditional Expectation (ICE) plots [Alex2015]_ and PDPs both visualize the relationship between a feature of interest and the predicted response. However, ICE plots focus on the dependence of the predicted response on the feature for each instance, while PDPs show the average effect of the feature on the response across all instances in the dataset.
 
 
 Algorithm Details
@@ -54,7 +54,7 @@ Examples
 
 .. topic:: References
 
-     .. [G2015] Goldstein, Alex, Adam Kapelner, Justin Bleich, and Emil Pitkin. 
-                `Visualizing statistical learning with plots of individual conditional expectation.
+     .. [Alex2015] Goldstein, Alex, Adam Kapelner, Justin Bleich, and Emil Pitkin. 
+                `Visualizing statistical learning with plots of individual conditional expectation
                 <https://www.tandfonline.com/doi/abs/10.1080/10618600.2014.907095>`_,
                 Journal of Computational and Graphical Statistics 24, no. 1 (2015): 44-65

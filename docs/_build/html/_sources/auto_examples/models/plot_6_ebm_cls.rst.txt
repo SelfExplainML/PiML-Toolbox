@@ -79,11 +79,11 @@ Evaluate predictive performance
 
  .. code-block:: none
 
-              ACC      AUC  Recall Precision      F1
-                                                
-    Train  0.8218   0.7885  0.3680    0.6854  0.4789
-    Test   0.8280   0.7764  0.3716    0.6896  0.4830
-    Gap    0.0062  -0.0121  0.0036    0.0042  0.0040
+              ACC      AUC      F1
+                              
+    Train  0.8218   0.7896  0.4778
+    Test   0.8272   0.7753  0.4792
+    Gap    0.0054  -0.0143  0.0013
 
 
 
@@ -147,7 +147,7 @@ Global effect plot
 
 
 .. image-sg:: /auto_examples/models/images/sphx_glr_plot_6_ebm_cls_003.png
-   :alt: PAY_1 (51.6%)
+   :alt: PAY_1 (51.7%)
    :srcset: /auto_examples/models/images/sphx_glr_plot_6_ebm_cls_003.png
    :class: sphx-glr-single-img
 
@@ -169,7 +169,7 @@ Local interpretation by effect
 
 
 .. image-sg:: /auto_examples/models/images/sphx_glr_plot_6_ebm_cls_004.png
-   :alt: Predicted: 0.2286 | Actual: 0.0000
+   :alt: Predicted: 0.2236 | Actual: 0.0000
    :srcset: /auto_examples/models/images/sphx_glr_plot_6_ebm_cls_004.png
    :class: sphx-glr-single-img
 
@@ -190,7 +190,7 @@ Local interpretation by feature
 
 
 .. image-sg:: /auto_examples/models/images/sphx_glr_plot_6_ebm_cls_005.png
-   :alt: Predicted: 0.2286 | Actual: 0.0000
+   :alt: Predicted: 0.2236 | Actual: 0.0000
    :srcset: /auto_examples/models/images/sphx_glr_plot_6_ebm_cls_005.png
    :class: sphx-glr-single-img
 
@@ -201,7 +201,9 @@ Local interpretation by feature
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** ( 0 minutes  13.591 seconds)
+   **Total running time of the script:** ( 1 minutes  29.925 seconds)
+
+**Estimated memory usage:**  1787 MB
 
 
 .. _sphx_glr_download_auto_examples_models_plot_6_ebm_cls.py:

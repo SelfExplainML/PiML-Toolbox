@@ -86,9 +86,9 @@ In addition to the feature importance heatmap, we can also globally interpret FI
    :target: ../../auto_examples/models/plot_3_figs_reg.html
    :align: left
 
-Here, the usage of `root` and `depth` is the same as that of `Decsion_Trees`_, which are used to control which part of the tree to display. The `original_scale` argument is used to control whether the feature values are scaled to the original scale. If `original_scale` is set to True, then the feature values are scaled to the original scale, otherwise, the feature values are by default scaled in the data preprocessing step. From this plot, it can be observed that `MedInc` is used multiple times to split the data. Furthermore, it is worth noting that in the root node, the average value is approximately zero, which is expected since the intercept term represents the overall mean of the response variable.
+Here, the usage of `root` and `depth` is the same as that of `Decision_Trees`_, which are used to control which part of the tree to display. The `original_scale` argument is used to control whether the feature values are scaled to the original scale. If `original_scale` is set to True, then the feature values are scaled to the original scale, otherwise, the feature values are by default scaled in the data preprocessing step. From this plot, it can be observed that `MedInc` is used multiple times to split the data. Furthermore, it is worth noting that in the root node, the average value is approximately zero, which is expected since the intercept term represents the overall mean of the response variable.
 
-.. _Decsion_Trees: tree.html#model-interpretation
+.. _Decision_Trees: tree.html#model-interpretation
 
  Next, we can also draw the diagram for the rest trees in FIGS. For instance, by setting `tree_idx` to 1, we can have the tree diagram for the second tree.
 

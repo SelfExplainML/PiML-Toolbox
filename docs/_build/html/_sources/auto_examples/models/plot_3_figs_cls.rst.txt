@@ -79,11 +79,11 @@ Evaluate predictive performance
 
  .. code-block:: none
 
-               ACC      AUC   Recall Precision       F1
-                                                   
-    Train   0.8246   0.7891   0.3828    0.6908   0.4926
-    Test    0.8218   0.7637   0.3562    0.6638   0.4636
-    Gap    -0.0028  -0.0255  -0.0266   -0.0270  -0.0290
+               ACC      AUC       F1
+                                
+    Train   0.8246   0.7891   0.4926
+    Test    0.8218   0.7637   0.4636
+    Gap    -0.0028  -0.0255  -0.0290
 
 
 
@@ -183,12 +183,13 @@ Local interpretation for the first tree
 
 Local interpretation for the second tree
 
-.. GENERATED FROM PYTHON SOURCE LINES 45-46
+.. GENERATED FROM PYTHON SOURCE LINES 45-47
 
 .. code-block:: default
 
     exp.model_interpret(model="FIGS", show="tree_local", sample_id=0, tree_idx=1,
                         original_scale=True, figsize=(16, 10))
+
 
 
 .. image-sg:: /auto_examples/models/images/sphx_glr_plot_3_figs_cls_005.png
@@ -203,7 +204,9 @@ Local interpretation for the second tree
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** ( 0 minutes  9.814 seconds)
+   **Total running time of the script:** ( 1 minutes  24.453 seconds)
+
+**Estimated memory usage:**  1929 MB
 
 
 .. _sphx_glr_download_auto_examples_models_plot_3_figs_cls.py:

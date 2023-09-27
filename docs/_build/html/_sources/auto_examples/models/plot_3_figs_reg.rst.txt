@@ -181,12 +181,13 @@ Local interpretation for the first tree
 
 Local interpretation for the second tree
 
-.. GENERATED FROM PYTHON SOURCE LINES 43-44
+.. GENERATED FROM PYTHON SOURCE LINES 43-45
 
 .. code-block:: default
 
     exp.model_interpret(model="FIGS", show="tree_local", sample_id=0, tree_idx=1, 
                         original_scale=True, figsize=(16, 10))
+
 
 
 .. image-sg:: /auto_examples/models/images/sphx_glr_plot_3_figs_reg_005.png
@@ -201,7 +202,9 @@ Local interpretation for the second tree
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** ( 0 minutes  8.987 seconds)
+   **Total running time of the script:** ( 1 minutes  29.215 seconds)
+
+**Estimated memory usage:**  1410 MB
 
 
 .. _sphx_glr_download_auto_examples_models_plot_3_figs_reg.py:

@@ -1,0 +1,15 @@
+
+:orphan:
+
+.. _sphx_glr_auto_examples_testing_external_sg_execution_times:
+
+
+Computation times
+=================
+**02:21.126** total execution time for **auto_examples_testing_external** files:
+
++------------------------------------------------------------------------------------------------------------+-----------+-----------+
+| :ref:`sphx_glr_auto_examples_testing_external_plot_1_register_testing.py` (``plot_1_register_testing.py``) | 01:26.345 | 38.2 MB   |
++------------------------------------------------------------------------------------------------------------+-----------+-----------+
+| :ref:`sphx_glr_auto_examples_testing_external_plot_0_model_train.py` (``plot_0_model_train.py``)           | 00:54.781 | 1439.3 MB |
++------------------------------------------------------------------------------------------------------------+-----------+-----------+

@@ -79,11 +79,11 @@ Evaluate predictive performance
 
  .. code-block:: none
 
-              ACC      AUC   Recall Precision       F1
-                                                  
-    Train  0.8248   0.7716   0.3740    0.6985   0.4872
-    Test   0.8255   0.7605   0.3601    0.6827   0.4715
-    Gap    0.0007  -0.0111  -0.0140   -0.0157  -0.0157
+              ACC      AUC       F1
+                               
+    Train  0.8248   0.7716   0.4872
+    Test   0.8258   0.7607   0.4730
+    Gap    0.0010  -0.0109  -0.0142
 
 
 
@@ -159,7 +159,9 @@ Local interpretation
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** ( 0 minutes  2.536 seconds)
+   **Total running time of the script:** ( 0 minutes  41.683 seconds)
+
+**Estimated memory usage:**  1941 MB
 
 
 .. _sphx_glr_download_auto_examples_models_plot_2_tree_cls.py:

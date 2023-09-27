@@ -7,13 +7,19 @@ Installation
 Quick Install
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-PiML currently supports various os platforms and python versions, including [py37, py38, py39, py310] * [Win, Linux, and Macos].
+PiML currently supports various os platforms and python versions, including [py37, py38, py39, py310] * [Win, Linux, and Macos]. Starting from PiML-0.5.1, Mac M1 with py38, py39, py310 is supported.  
 
 You can install piml directly on these environments by 
 
 .. prompt:: bash $
 
     pip install piml
+
+For Mac M1 users, cmake is needed before installing piml. The following command can be used to install cmake.
+
+.. prompt:: bash $
+	
+	conda install cmake
 
 
 Dependencies
@@ -24,16 +30,17 @@ PiML requires the following packages:
 ======================= ===================
 Dependency              Minimum Version    
 ======================= ===================
+ipykernel
 ipywidgets              7.7.0
 joblib                  1.1.0
 ipython                 7.12.0
-numpy                   1.21.4
+numpy                   1.21.4 (<1.24.0)
 scipy                   1.5.3
-pandas                  1.3.5
-matplotlib              3.1.2
+pandas                  1.3.5 (<2.0.0)
+matplotlib              3.1.2 (<3.8.0)
 seaborn                 0.11.2
 xlrd                    1.2.0
-scikit-learn            0.24.2
+scikit-learn            0.24.2 (<1.4.0)
 xgboost                 1.4.2
 statsmodels             0.12.2
 lime                    0.2.0.1
@@ -44,7 +51,7 @@ natsort                 8.2.0
 psutil                  5.9.0
 dill                    0.3.6
 optbinning              0.17.3
-ortools                 9.5.0
+ortools                 9.4 (<9.5.0)
 packaging               20.5
 momentchi2              0.1.8
 ======================= ===================
@@ -71,7 +78,7 @@ If you got the following error message:
 	ERROR: Could not find a version that satisfies the requirement PiML
 	ERROR: No matching distribution found for PiML
 
-One possbility is that your Python version is not one of the [py37, py38, py39].
+One possibility is that your Python version is not one of the [py37, py38, py39].
 
 If your Python version is correct, you may need to upgrade pip first and then reinstall piml.
 
@@ -95,8 +102,8 @@ You may reinstall it using conda.
 
 .. prompt:: bash $
 
-	pip uninstall xgboost
-	conda install -c conda-forge py-xgboost
+    pip uninstall xgboost
+    conda install -c conda-forge py-xgboost
 
 Cannot import PiML on Colab
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -104,8 +111,8 @@ After running pip install piml on Colab, you may get the following error message
 
 .. prompt:: bash $
 
-	RuntimeError Traceback (most recent call last)
-	RuntimeError: module compiled against API version 0x10 but this version of numpy is 0xf
+    RuntimeError Traceback (most recent call last)
+    RuntimeError: module compiled against API version 0x10 but this version of numpy is 0xf
 
 To fix this, you may need to click on "Restart runtime" and then import piml directly:
 
@@ -113,6 +120,3 @@ To fix this, you may need to click on "Restart runtime" and then import piml dir
 
 	from piml import Experiment
 	exp = Experiment()
-
-
-

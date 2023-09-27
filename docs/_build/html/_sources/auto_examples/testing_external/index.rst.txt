@@ -1,0 +1,61 @@
+
+
+.. _sphx_glr_auto_examples_testing_external:
+
+.. _testing_external_examples:
+
+Training and Testing External Models
+-----------------------------------------
+
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbnails">
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="Train External Models">
+
+.. only:: html
+
+  .. image:: /auto_examples/testing_external/images/thumb/sphx_glr_plot_0_model_train_thumb.png
+    :alt:
+
+  :ref:`sphx_glr_auto_examples_testing_external_plot_0_model_train.py`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Train External Models</div>
+    </div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="Registering Fitted Models and Run Diagnostic Tests">
+
+.. only:: html
+
+  .. image:: /auto_examples/testing_external/images/thumb/sphx_glr_plot_1_register_testing_thumb.png
+    :alt:
+
+  :ref:`sphx_glr_auto_examples_testing_external_plot_1_register_testing.py`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Registering Fitted Models and Run Diagnostic Tests</div>
+    </div>
+
+
+.. raw:: html
+
+    </div>
+
+
+.. toctree::
+   :hidden:
+
+   /auto_examples/testing_external/plot_0_model_train
+   /auto_examples/testing_external/plot_1_register_testing
+

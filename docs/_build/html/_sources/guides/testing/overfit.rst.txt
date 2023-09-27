@@ -14,25 +14,19 @@ Algorithm Details
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 Overfit detection shares similarities with weakspot detection but involves a slightly different approach. To evaluate the degree of overfitting of a fitted model, the following algorithm is employed:
 
-- Find the nearest neighbors of each test sample within the training set.
-- Calculate the performance gap between each test sample and its nearest neighbor in the training set.
+- Run histogram binning of the 1 or 2 slicing features of interest.
+- Calculate the train test performance gap within each bin.
 
-By finding the nearest neighbors, we aim to identify the most similar instances in the training set for each test sample. This comparison allows for the quantification of the degree of overfitting exhibited by each test sample. 
-
-After obtaining a list of performance gaps for each test sample, we can leverage this information to identify overfit regions related to 1 or 2 features of interest. The detection algorithm employed for overfit analysis is similar to that of weakspot_ detection. In the case of overfitting, we offer two built-in methods: histogram slicing and tree slicing. Utilizing the performance gap list, we can effectively pinpoint overfit regions that highlight areas where the model exhibits prominent overfitting tendencies. This information enables model developers to take appropriate measures to address overfitting and enhance the model's ability to generalize to unseen data.
+The detection algorithm employed for overfit analysis is similar to that of weakspot_ detection. In the case of overfitting, we only provide the histogram slicing, which can effectively pinpoint overfit regions that highlight areas where the model exhibits prominent overfitting tendencies. This information enables model developers to take appropriate measures to address overfitting and enhance the model's ability to generalize to unseen data.
 
 .. _weakspot: weakspot.html#algorithm-details
-
-.. note::
-  
-  When dealing with large training sample sizes, computational costs can become substantial for finding the nearest neighbor. To mitigate this issue, we employ a random downsampling technique for the training set. This downsampling ensures that the set utilized for selecting nearest neighbors comprises a maximum of 10,000 samples, thereby reducing the computational burden.
 
 
 Usage
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 To conduct an overfit assessment, you can use the `model_diagnose` function with the keyword "overfit" and the additional parameters listed below. Unlike the weakspot test, the overfit test does not require the use_test argument, as it is always performed on the test set.
 
-- `slice_method`: This parameter allows you to choose the slicing method for the assessment. The available options are "histogram" and "tree". The default value is "histogram."
+- `slice_method`: This parameter allows you to choose the slicing method for the assessment. The only available option is "histogram" for now.
 
 - `slice_features`: Specify the list of slicing features to be used. You should specify 1 or 2 slicing features; otherwise, a warning message will be displayed.
 
@@ -48,13 +42,13 @@ By utilizing these parameters, you can perform an overfit assessment to identify
 
 One-way Overfit Plot
 """"""""""""""""""""""""""
-In the following demonstration, we will focus on a regression task using the BiksSharing data. Our goal is to identify overfit regions using the histogram method, with a particular emphasis on the variable `hr`.
+In the following demonstration, we will focus on a regression task using the BikeSharing data. Our goal is to identify overfit regions using the histogram method, with a particular emphasis on the variable `hr`.
 
 .. jupyter-input::
 
    results = exp.model_diagnose(model="XGB2", show="overfit", slice_method="histogram", 
-                              slice_features=["hr"], threshold=1.05, min_samples=100,
-                              original_scale=True, return_data=True, figsize=(5, 4))
+                                slice_features=["hr"], threshold=1.05, min_samples=100,
+                                original_scale=True, return_data=True, figsize=(5, 4))
 
 .. figure:: ../../auto_examples/testing/images/sphx_glr_plot_2_overfit_reg_001.png
    :target: ../../auto_examples/testing/plot_2_overfit_reg.html 
@@ -136,11 +130,11 @@ It is important to note that the `original_scale` argument solely affects the pl
 
 Two-way Overfit Plot
 """"""""""""""""""""""""""
-In the following analysis, we will identify overfit regions using tree slicing with the variables `hr` and `atemp`. The tree slicing method allows us to pinpoint regions where overfitting occurs based on these two features. We have set the minimum sample size for considering a weak region to 100, ensuring that regions with an insufficient number of samples are not considered in the assessment. Additionally, the threshold ratio is set to 1.05, meaning that we consider regions with a performance gap greater than 1.05 times the average performance gap.
+In the following analysis, we will identify overfit regions using histogram slicing with the variables `hr` and `atemp`. We have set the minimum sample size for considering a weak region to 100, ensuring that regions with an insufficient number of samples are not considered in the assessment. Additionally, the threshold ratio is set to 1.05, meaning that we consider regions with a performance gap greater than 1.05 times the average performance gap.
 
 .. jupyter-input::
 
-   results=exp.model_diagnose(model="XGB2", show="overfit", slice_method="tree", 
+   results=exp.model_diagnose(model="XGB2", show="overfit", slice_method="histogram", 
                               slice_features=["hr", "atemp"], threshold=1.05, min_samples=100,
                               original_scale=True, return_data=True, figsize=(5, 4))
 

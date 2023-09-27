@@ -66,4 +66,31 @@ If you don't want to use the data prepared by the data module, you can also regi
 
     pipeline = exp.make_pipeline(model=lgbm7, train_x=train_x, train_y=train_y.ravel(),
                                  test_x=test_x, test_y=test_y.ravel())
-    exp.register(pipeline, "LGBM_7")	
+    exp.register(pipeline, "LGBM_7")
+
+
+Run Diagnostic Tests
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+As a model is registered, then all the tests and explanation tools in PiML can be used. For example,
+
+.. jupyter-input::
+
+    exp.model_explain(model="LGBM_7", show="pdp", uni_feature="MedInc", figsize=(5, 4))
+
+.. figure:: ../auto_examples/testing_external/images/sphx_glr_plot_0_model_train_001.png
+   :target: ../auto_examples/testing_external/plot_0_model_train.html
+   :align: left
+
+
+
+Examples
+^^^^^^^^^^^^^^^^^^
+
+.. topic:: Example 1:
+
+ * :ref:`sphx_glr_auto_examples_testing_external_plot_0_model_train.py`
+
+.. topic:: Example 2:
+
+ * :ref:`sphx_glr_auto_examples_testing_external_plot_1_register_testing.py`

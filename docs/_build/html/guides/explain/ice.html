@@ -216,7 +216,7 @@
 
 </style><section id="ice-individual-conditional-expectation">
 <h1><span class="section-number">4.1.3. </span>ICE (Individual Conditional Expectation)<a class="headerlink" href="#ice-individual-conditional-expectation" title="Permalink to this heading">¶</a></h1>
-<p>Individual Conditional Expectation (ICE) plots <a class="reference internal" href="#g2015" id="id1"><span>[G2015]</span></a> and PDPs both visualize the relationship between a feature of interest and the predicted response. However, ICE plots focus on the dependence of the predicted response on the feature for each instance, while PDPs show the average effect of the feature on the response across all instances in the dataset.</p>
+<p>Individual Conditional Expectation (ICE) plots <a class="reference internal" href="#alex2015" id="id1"><span>[Alex2015]</span></a> and PDPs both visualize the relationship between a feature of interest and the predicted response. However, ICE plots focus on the dependence of the predicted response on the feature for each instance, while PDPs show the average effect of the feature on the response across all instances in the dataset.</p>
 <section id="algorithm-details">
 <h2><span class="section-number">4.1.3.1. </span>Algorithm Details<a class="headerlink" href="#algorithm-details" title="Permalink to this heading">¶</a></h2>
 <p>Let <span class="math notranslate nohighlight">\(X\)</span> represent the set of input features of a predictor function, and <span class="math notranslate nohighlight">\(\hat{f}\)</span> be a fitted model to be explained. We partition <span class="math notranslate nohighlight">\(X\)</span> into two sets, i.e., <span class="math notranslate nohighlight">\(X_{S}\)</span> (features of interest) and its complement <span class="math notranslate nohighlight">\(X_{C}\)</span>. To be specific, an ICE plot for a feature <span class="math notranslate nohighlight">\(x_{S}\)</span> and an instance <span class="math notranslate nohighlight">\(i\)</span> can be defined as:</p>
@@ -258,9 +258,9 @@
 <div class="topic">
 <p class="topic-title">References</p>
 <dl class="citation">
-<dt class="label" id="g2015"><span class="brackets"><a class="fn-backref" href="#id1">G2015</a></span></dt>
+<dt class="label" id="alex2015"><span class="brackets"><a class="fn-backref" href="#id1">Alex2015</a></span></dt>
 <dd><p>Goldstein, Alex, Adam Kapelner, Justin Bleich, and Emil Pitkin.
-<a class="reference external" href="https://www.tandfonline.com/doi/abs/10.1080/10618600.2014.907095">Visualizing statistical learning with plots of individual conditional expectation.</a>,
+<a class="reference external" href="https://www.tandfonline.com/doi/abs/10.1080/10618600.2014.907095">Visualizing statistical learning with plots of individual conditional expectation</a>,
 Journal of Computational and Graphical Statistics 24, no. 1 (2015): 44-65</p>
 </dd>
 </dl>

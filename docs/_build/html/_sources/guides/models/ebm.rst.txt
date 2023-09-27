@@ -17,9 +17,9 @@ An explainable boosting machine (EBM) proposed by [Lou2013]_ is another algorith
 
 where each main effect :math:`h_{j}(x_{j})` or pairwise interaction :math:`f_{jk}(x_{j}, x_{k})` is estimated via gradient boosted shallow trees, which is modified from the standard gradient boosting model. The training algorithm of EBM is divided into the following two steps: 1) Fit main effects by shallow-tree boosting in round-bin fashion; 2) Fit pairwise interactions on residuals, by
 
-- Detect interactions by a FAST algorithm (details in [Lou2013]_)
+- Detect interactions by a FAST algorithm (details in [Lou2013]_).
 
-- For each interaction :math:`(x_{j}, x_{k})`, model it by a depth-2 tree, either 1 cut in :math:`x_{j}`` and 2 cuts in :math:`x_{k}`, or 2 cuts in :math:`x_j`` and 1 cut in :math:`x_{k}` (pick the better one)
+- For each interaction :math:`(x_{j}, x_{k})`, model it by a depth-2 tree, either 1 cut in :math:`x_{j}`` and 2 cuts in :math:`x_{k}`, or 2 cuts in :math:`x_j`` and 1 cut in :math:`x_{k}` (pick the better one).
 
 - Iteratively fit all the detected interactions until convergence. 
 

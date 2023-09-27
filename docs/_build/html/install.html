@@ -142,13 +142,15 @@
 <span id="installation-instructions"></span><h1>Installation<a class="headerlink" href="#installation" title="Permalink to this heading">¶</a></h1>
 <section id="quick-install">
 <h2>Quick Install<a class="headerlink" href="#quick-install" title="Permalink to this heading">¶</a></h2>
-<p>PiML currently supports various os platforms and python versions, including [py37, py38, py39, py310] * [Win, Linux, and Macos].</p>
+<p>PiML currently supports various os platforms and python versions, including [py37, py38, py39, py310] * [Win, Linux, and Macos]. Starting from PiML-0.5.1, Mac M1 with py38, py39, py310 is supported.</p>
 <p>You can install piml directly on these environments by</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><style type="text/css">
 span.prompt1:before {
   content: "$ ";
 }
 </style><span class="prompt1">pip<span class="w"> </span>install<span class="w"> </span>piml</span>
+</pre></div></div><p>For Mac M1 users, cmake is needed before installing piml. The following command can be used to install cmake.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span class="prompt1">conda<span class="w"> </span>install<span class="w"> </span>cmake</span>
 </pre></div></div></section>
 <section id="dependencies">
 <h2>Dependencies<a class="headerlink" href="#dependencies" title="Permalink to this heading">¶</a></h2>
@@ -164,73 +166,76 @@ span.prompt1:before {
 </tr>
 </thead>
 <tbody>
-<tr class="row-even"><td><p>ipywidgets</p></td>
+<tr class="row-even"><td><p>ipykernel</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>ipywidgets</p></td>
 <td><p>7.7.0</p></td>
 </tr>
-<tr class="row-odd"><td><p>joblib</p></td>
+<tr class="row-even"><td><p>joblib</p></td>
 <td><p>1.1.0</p></td>
 </tr>
-<tr class="row-even"><td><p>ipython</p></td>
+<tr class="row-odd"><td><p>ipython</p></td>
 <td><p>7.12.0</p></td>
 </tr>
-<tr class="row-odd"><td><p>numpy</p></td>
-<td><p>1.21.4</p></td>
+<tr class="row-even"><td><p>numpy</p></td>
+<td><p>1.21.4 (&lt;1.24.0)</p></td>
 </tr>
-<tr class="row-even"><td><p>scipy</p></td>
+<tr class="row-odd"><td><p>scipy</p></td>
 <td><p>1.5.3</p></td>
 </tr>
-<tr class="row-odd"><td><p>pandas</p></td>
-<td><p>1.3.5</p></td>
+<tr class="row-even"><td><p>pandas</p></td>
+<td><p>1.3.5 (&lt;2.0.0)</p></td>
 </tr>
-<tr class="row-even"><td><p>matplotlib</p></td>
-<td><p>3.1.2</p></td>
+<tr class="row-odd"><td><p>matplotlib</p></td>
+<td><p>3.1.2 (&lt;3.8.0)</p></td>
 </tr>
-<tr class="row-odd"><td><p>seaborn</p></td>
+<tr class="row-even"><td><p>seaborn</p></td>
 <td><p>0.11.2</p></td>
 </tr>
-<tr class="row-even"><td><p>xlrd</p></td>
+<tr class="row-odd"><td><p>xlrd</p></td>
 <td><p>1.2.0</p></td>
 </tr>
-<tr class="row-odd"><td><p>scikit-learn</p></td>
-<td><p>0.24.2</p></td>
+<tr class="row-even"><td><p>scikit-learn</p></td>
+<td><p>0.24.2 (&lt;1.4.0)</p></td>
 </tr>
-<tr class="row-even"><td><p>xgboost</p></td>
+<tr class="row-odd"><td><p>xgboost</p></td>
 <td><p>1.4.2</p></td>
 </tr>
-<tr class="row-odd"><td><p>statsmodels</p></td>
+<tr class="row-even"><td><p>statsmodels</p></td>
 <td><p>0.12.2</p></td>
 </tr>
-<tr class="row-even"><td><p>lime</p></td>
+<tr class="row-odd"><td><p>lime</p></td>
 <td><p>0.2.0.1</p></td>
 </tr>
-<tr class="row-odd"><td><p>shap</p></td>
+<tr class="row-even"><td><p>shap</p></td>
 <td><p>0.39.0</p></td>
 </tr>
-<tr class="row-even"><td><p>torch</p></td>
+<tr class="row-odd"><td><p>torch</p></td>
 <td><p>1.11.0</p></td>
 </tr>
-<tr class="row-odd"><td><p>pygam</p></td>
+<tr class="row-even"><td><p>pygam</p></td>
 <td><p>0.8.0</p></td>
 </tr>
-<tr class="row-even"><td><p>natsort</p></td>
+<tr class="row-odd"><td><p>natsort</p></td>
 <td><p>8.2.0</p></td>
 </tr>
-<tr class="row-odd"><td><p>psutil</p></td>
+<tr class="row-even"><td><p>psutil</p></td>
 <td><p>5.9.0</p></td>
 </tr>
-<tr class="row-even"><td><p>dill</p></td>
+<tr class="row-odd"><td><p>dill</p></td>
 <td><p>0.3.6</p></td>
 </tr>
-<tr class="row-odd"><td><p>optbinning</p></td>
+<tr class="row-even"><td><p>optbinning</p></td>
 <td><p>0.17.3</p></td>
 </tr>
-<tr class="row-even"><td><p>ortools</p></td>
-<td><p>9.5.0</p></td>
+<tr class="row-odd"><td><p>ortools</p></td>
+<td><p>9.4 (&lt;9.5.0)</p></td>
 </tr>
-<tr class="row-odd"><td><p>packaging</p></td>
+<tr class="row-even"><td><p>packaging</p></td>
 <td><p>20.5</p></td>
 </tr>
-<tr class="row-even"><td><p>momentchi2</p></td>
+<tr class="row-odd"><td><p>momentchi2</p></td>
 <td><p>0.1.8</p></td>
 </tr>
 </tbody>
@@ -263,7 +268,7 @@ span.prompt1:before {
 <p>If you got the following error message:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span class="prompt1">ERROR:<span class="w"> </span>Could<span class="w"> </span>not<span class="w"> </span>find<span class="w"> </span>a<span class="w"> </span>version<span class="w"> </span>that<span class="w"> </span>satisfies<span class="w"> </span>the<span class="w"> </span>requirement<span class="w"> </span>PiML</span>
 <span class="prompt1">ERROR:<span class="w"> </span>No<span class="w"> </span>matching<span class="w"> </span>distribution<span class="w"> </span>found<span class="w"> </span><span class="k">for</span><span class="w"> </span>PiML</span>
-</pre></div></div><p>One possbility is that your Python version is not one of the [py37, py38, py39].</p>
+</pre></div></div><p>One possibility is that your Python version is not one of the [py37, py38, py39].</p>
 <p>If your Python version is correct, you may need to upgrade pip first and then reinstall piml.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span class="prompt1">pip<span class="w"> </span>install<span class="w"> </span>pip<span class="w"> </span>-U</span>
 <span class="prompt1">pip<span class="w"> </span>install<span class="w"> </span>piml</span>

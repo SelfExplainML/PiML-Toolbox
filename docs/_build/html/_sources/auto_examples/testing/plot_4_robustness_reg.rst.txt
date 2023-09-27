@@ -86,7 +86,7 @@ Robustness test with all features being perturbed
 
 .. GENERATED FROM PYTHON SOURCE LINES 27-28
 
-Robustness test with custom perturnation features
+Robustness test with custom perturbation features
 
 .. GENERATED FROM PYTHON SOURCE LINES 28-31
 
@@ -109,7 +109,7 @@ Robustness test with custom perturnation features
 
 .. GENERATED FROM PYTHON SOURCE LINES 32-33
 
-Robustness test with custom perturnation size
+Robustness test with custom perturbation size
 
 .. GENERATED FROM PYTHON SOURCE LINES 33-36
 
@@ -132,7 +132,7 @@ Robustness test with custom perturnation size
 
 .. GENERATED FROM PYTHON SOURCE LINES 37-38
 
-Robustness test with custom perturnation method
+Robustness test with custom perturbation method
 
 .. GENERATED FROM PYTHON SOURCE LINES 38-41
 
@@ -201,7 +201,9 @@ Robustness test on worst-alpha percent samples
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** ( 0 minutes  6.224 seconds)
+   **Total running time of the script:** ( 1 minutes  5.292 seconds)
+
+**Estimated memory usage:**  1341 MB
 
 
 .. _sphx_glr_download_auto_examples_testing_plot_4_robustness_reg.py:

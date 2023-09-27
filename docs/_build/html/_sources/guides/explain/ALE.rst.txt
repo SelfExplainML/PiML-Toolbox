@@ -38,16 +38,16 @@ Note that the computation of ALE is faster than that of PDP, as it requires less
 Usage
 ^^^^^^^^^^^^^^^^^
 
-This section illustrates how to use PiML to get the ALE plots. Similar to the visualization of PDPs, the visualization of ALE plots vias PiML can be done using the `model_explain` function. The keyword for ALE plot is "ale", i.e., we should set `show` = "ale". For illustration purposes, we fitted the ReLUDNN model on the Bike Sharing dataset. 
+This section illustrates how to use PiML to get the ALE plots. Similar to the visualization of PDPs, the visualization of ALE plots in PiML can be done using the `model_explain` function. The keyword for ALE plot is "ale", i.e., we should set `show` = "ale". For illustration purposes, we fitted the ReLUDNN model on the Bike Sharing dataset.
 
 One-way ALE
 """"""""""""""""""""""""""""""""
-The one-way ALE tells us about the relationship between the target response and an input feature of interest. To generate an ALE plot of a single feature, we should specify the feature's name in `uni_feature`.
+The one-way ALE tells us about the relationship between the target response and an input feature of interest. To generate an ALE plot of a single feature, we should specify the feature's name in `uni_feature`. The `grid_size` parameter can be used to adjust the number of grid points in the plot.
 
 .. jupyter-input::
     
    exp.model_explain(model="ReLUDNN", show="ale", uni_feature="hr",
-                     original_scale=True, figsize=(5, 4))
+                     grid_size=50, original_scale=True, figsize=(5, 4))
 
 .. figure:: ../../auto_examples/explain/images/sphx_glr_plot_3_ale_001.png
    :target: ../../auto_examples/explain/plot_3_ale.html
@@ -60,7 +60,7 @@ In addition to the feature `hr`, we also draw the ALE plot for the feature `atem
 .. jupyter-input::
     
    exp.model_explain(model="ReLUDNN", show="ale", uni_feature="atemp",
-                     original_scale=True, figsize=(5, 4))
+                     grid_size=50, original_scale=True, figsize=(5, 4))
 
 .. figure:: ../../auto_examples/explain/images/sphx_glr_plot_3_ale_002.png
    :target: ../../auto_examples/explain/plot_3_ale.html
@@ -81,12 +81,12 @@ This is the ALE plot for the categorical feature `weathersit`. From this plot, w
 
 Two-way ALE
 """"""""""""""""""""""""""""""""
-The two-way ALE (two inputs features of interest) shows the interaction between the two features. It estimates the interaction effect of two features, excluding the individual main effects. Technically, this is done by first estimating the uncentered two-way ALE, and then estimating and subtracting the main effects for the uncentered two-way ALE (instead of the model being explained). To generate ALE for two features, we will need to specify the `bi_features` parameter with two feature names.
+The two-way ALE (two inputs features of interest) shows the interaction between the two features. It estimates the interaction effect of two features, excluding the individual main effects. Technically, this is done by first estimating the uncentered two-way ALE, and then estimating and subtracting the main effects for the uncentered two-way ALE (instead of the model being explained). To generate ALE for two features, we will need to specify the `bi_features` parameter with two feature names. Similar to two-way PDP, you may view the two-way ALE using sliced 1D line plot by setting `sliced_line=True`.
 
 .. jupyter-input::
     
    exp.model_explain(model="ReLUDNN", show="ale", bi_features=["hr", "atemp"]
-                     original_scale=True, figsize=(5, 4))
+                     grid_size=10, sliced_line=False, original_scale=True, figsize=(5, 4))
 
 .. figure:: ../../auto_examples/explain/images/sphx_glr_plot_3_ale_004.png
    :target: ../../auto_examples/explain/plot_3_ale.html

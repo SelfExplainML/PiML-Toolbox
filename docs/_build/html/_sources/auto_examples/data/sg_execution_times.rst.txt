@@ -6,16 +6,16 @@
 
 Computation times
 =================
-**00:48.021** total execution time for **auto_examples_data** files:
+**00:09.514** total execution time for **auto_examples_data** files:
 
 +----------------------------------------------------------------------------------------------------------+-----------+---------+
-| :ref:`sphx_glr_auto_examples_data_plot_2_data_eda.py` (``plot_2_data_eda.py``)                           | 00:48.021 | 40.6 MB |
+| :ref:`sphx_glr_auto_examples_data_plot_0_data_loader_dataframe.py` (``plot_0_data_loader_dataframe.py``) | 00:09.514 | 26.0 MB |
 +----------------------------------------------------------------------------------------------------------+-----------+---------+
 | :ref:`sphx_glr_auto_examples_data_plot_0_data_loader_builtin.py` (``plot_0_data_loader_builtin.py``)     | 00:00.000 | 0.0 MB  |
 +----------------------------------------------------------------------------------------------------------+-----------+---------+
-| :ref:`sphx_glr_auto_examples_data_plot_0_data_loader_dataframe.py` (``plot_0_data_loader_dataframe.py``) | 00:00.000 | 0.0 MB  |
-+----------------------------------------------------------------------------------------------------------+-----------+---------+
 | :ref:`sphx_glr_auto_examples_data_plot_1_data_summary.py` (``plot_1_data_summary.py``)                   | 00:00.000 | 0.0 MB  |
++----------------------------------------------------------------------------------------------------------+-----------+---------+
+| :ref:`sphx_glr_auto_examples_data_plot_2_data_eda.py` (``plot_2_data_eda.py``)                           | 00:00.000 | 0.0 MB  |
 +----------------------------------------------------------------------------------------------------------+-----------+---------+
 | :ref:`sphx_glr_auto_examples_data_plot_3_data_prepare.py` (``plot_3_data_prepare.py``)                   | 00:00.000 | 0.0 MB  |
 +----------------------------------------------------------------------------------------------------------+-----------+---------+

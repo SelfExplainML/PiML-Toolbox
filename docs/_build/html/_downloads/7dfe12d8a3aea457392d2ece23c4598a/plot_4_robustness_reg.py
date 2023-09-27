@@ -24,17 +24,17 @@ exp.model_diagnose(model="FIGS", show='robustness_perf', perturb_features=None,
                    perturb_method="raw", metric="MSE", perturb_size=0.1, figsize=(6, 4))
 
 #%%
-# Robustness test with custom perturnation features
+# Robustness test with custom perturbation features
 exp.model_diagnose(model="FIGS", show="robustness_perf", perturb_features=["hr", "atemp"],
                    perturb_method='raw', metric="MSE", perturb_size=0.1,  figsize=(6, 4))
 
 #%%
-# Robustness test with custom perturnation size
+# Robustness test with custom perturbation size
 exp.model_diagnose(model="FIGS", show="robustness_perf", perturb_features=None,
                    perturb_method="raw", metric="MSE", perturb_size=0.2, figsize=(6, 4))
 
 #%%
-# Robustness test with custom perturnation method
+# Robustness test with custom perturbation method
 exp.model_diagnose(model="FIGS", show="robustness_perf", perturb_features=None,
                    perturb_method="quantile", metric="MSE", perturb_size=0.1, figsize=(6, 4))
 

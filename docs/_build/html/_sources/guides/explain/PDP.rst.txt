@@ -8,7 +8,7 @@
 PDP (Partial Dependence Plot)
 =================================
 
-A partial dependence plot (PDP) [Hastie2015]_ is a model-agnostic tool that helps visualize the relationship between a subset of features and the predicted response. This allows us to determine whether the relationship between the target and an input feature is linear, monotonic, or more complex. However, one key assumption of PDP is that the features in the complement set are not correlated with the features of interest.
+A partial dependence plot (PDP) [Friedman2001]_ is a model-agnostic tool that helps visualize the relationship between a subset of features and the predicted response. This allows us to determine whether the relationship between the target and an input feature is linear, monotonic, or more complex. However, one key assumption of PDP is that the features in the complement set are not correlated with the features of interest.
 
 Algorithm Details
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -55,34 +55,34 @@ The one-way PDP describes the relationship between the predicted response and a 
 .. jupyter-input::
 
     exp.model_explain(model="XGB2", show="pdp", uni_feature="hr", 
-                      original_scale=True, figsize=(5, 4))
+                      grid_size=50, original_scale=True, figsize=(5, 4))
 
 .. figure:: ../../auto_examples/explain/images/sphx_glr_plot_1_pdp_001.png
    :target: ../../auto_examples/explain/plot_1_pdp.html
    :align: left
 
-The plot above suggests a non-linear relationship between the predicted response and the input feature of interest (`hr`). The `original_scale` is set to True if we want to use the original scale of that feature. 
+The plot above suggests a non-linear relationship between the predicted response and the input feature of interest (`hr`). The `grid_size` parameter controls the number of grid points in PDP. The `original_scale` is set to True if we want to use the original scale of that feature. 
 
 .. jupyter-input::
 
     exp.model_explain(model="XGB2", show="pdp", uni_feature="season",
-                     original_scale=True, figsize=(5, 4))
+                      original_scale=True, figsize=(5, 4))
 
 .. figure:: ../../auto_examples/explain/images/sphx_glr_plot_1_pdp_002.png
    :target: ../../auto_examples/explain/plot_1_pdp.html
    :align: left
 
-The plot below indicates that bike sharing tends to be more substantial in the 4th season.
+For categorical features, the PDP is a bar chart. The plot above indicates that bike sharing tends to be more substantial in the 4th season.
 
 Two-way PDPs
 """"""""""""""""""""""""""""""""
 
-The two-way PDP shows the interaction between two features, which is useful for visualizing the joint effect of two features on the predicted response. To trigger two-way PDP, we need to specify two feature names in `bi_features`. The argument `pdp_size` is used to speed up the computation of 2D PDP, which works by subsampling a subset of the data, and the default value is 2000. If the sample size is less than `pdp_size`, then the entire dataset will be used. For categorical features, the PDP is a bar chart.
+The two-way PDP shows the interaction between two features, which is useful for visualizing the joint effect of two features on the predicted response. To trigger two-way PDP, we need to specify two feature names in `bi_features`. The argument `pdp_size` is used to speed up the computation of 2D PDP, which works by subsampling a subset of the data, and the default value is 2000. If the sample size is less than `pdp_size`, then the entire training dataset will be used. In addition to the heatmap, we also provide an alternative sliced 1D plot, which can be triggered by setting  `sliced_line` to True.
 
 .. jupyter-input::
 
     exp.model_explain(model="XGB2", show="pdp", bi_features=["hr", "workingday"],
-                      pdp_size=10000, original_scale=True, figsize=(5, 4))
+                      grid_size=10, pdp_size=10000, sliced_line=False, original_scale=True, figsize=(5, 4))
 
 .. figure:: ../../auto_examples/explain/images/sphx_glr_plot_1_pdp_003.png
    :target: ../../auto_examples/explain/plot_1_pdp.html

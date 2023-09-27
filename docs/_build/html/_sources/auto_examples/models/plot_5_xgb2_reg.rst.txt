@@ -102,7 +102,7 @@ Global effect plot for season
 
 
 .. image-sg:: /auto_examples/models/images/sphx_glr_plot_5_xgb2_reg_001.png
-   :alt: season (2.6%)
+   :alt: season (2.3%)
    :srcset: /auto_examples/models/images/sphx_glr_plot_5_xgb2_reg_001.png
    :class: sphx-glr-single-img
 
@@ -124,7 +124,7 @@ Global effect plot for hr
 
 
 .. image-sg:: /auto_examples/models/images/sphx_glr_plot_5_xgb2_reg_002.png
-   :alt: atemp (13.5%)
+   :alt: atemp (18.7%)
    :srcset: /auto_examples/models/images/sphx_glr_plot_5_xgb2_reg_002.png
    :class: sphx-glr-single-img
 
@@ -136,11 +136,12 @@ Global effect plot for hr
 
 Global effect plot for hr and season
 
-.. GENERATED FROM PYTHON SOURCE LINES 35-37
+.. GENERATED FROM PYTHON SOURCE LINES 35-38
 
 .. code-block:: default
 
-    exp.model_interpret(model="XGB2", show="global_effect_plot", bi_features=["hr", "season"], original_scale=True, figsize=(5, 4))
+    exp.model_interpret(model="XGB2", show="global_effect_plot", bi_features=["hr", "season"],
+                        sliced_line=False, original_scale=True, figsize=(5, 4))
 
 
 
@@ -154,11 +155,11 @@ Global effect plot for hr and season
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 38-39
+.. GENERATED FROM PYTHON SOURCE LINES 39-40
 
 Effect importance
 
-.. GENERATED FROM PYTHON SOURCE LINES 39-41
+.. GENERATED FROM PYTHON SOURCE LINES 40-42
 
 .. code-block:: default
 
@@ -176,11 +177,11 @@ Effect importance
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 42-43
+.. GENERATED FROM PYTHON SOURCE LINES 43-44
 
 Feature importance
 
-.. GENERATED FROM PYTHON SOURCE LINES 43-45
+.. GENERATED FROM PYTHON SOURCE LINES 44-46
 
 .. code-block:: default
 
@@ -198,11 +199,11 @@ Feature importance
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 46-47
+.. GENERATED FROM PYTHON SOURCE LINES 47-48
 
 Local interpretation by effect
 
-.. GENERATED FROM PYTHON SOURCE LINES 47-49
+.. GENERATED FROM PYTHON SOURCE LINES 48-50
 
 .. code-block:: default
 
@@ -220,11 +221,11 @@ Local interpretation by effect
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 50-51
+.. GENERATED FROM PYTHON SOURCE LINES 51-52
 
 Local interpretation by feature
 
-.. GENERATED FROM PYTHON SOURCE LINES 51-52
+.. GENERATED FROM PYTHON SOURCE LINES 52-53
 
 .. code-block:: default
 
@@ -244,7 +245,9 @@ Local interpretation by feature
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** ( 0 minutes  2.830 seconds)
+   **Total running time of the script:** ( 1 minutes  22.915 seconds)
+
+**Estimated memory usage:**  1409 MB
 
 
 .. _sphx_glr_download_auto_examples_models_plot_5_xgb2_reg.py:

@@ -120,6 +120,7 @@
                 <ul>
 <li><a class="reference internal" href="#"><code class="xref py py-mod docutils literal notranslate"><span class="pre">piml.models</span></code>.GLMRegressor</a><ul>
 <li><a class="reference internal" href="#piml.models.GLMRegressor"><code class="docutils literal notranslate"><span class="pre">GLMRegressor</span></code></a><ul>
+<li><a class="reference internal" href="#piml.models.GLMRegressor.get_metadata_routing"><code class="docutils literal notranslate"><span class="pre">GLMRegressor.get_metadata_routing</span></code></a></li>
 <li><a class="reference internal" href="#piml.models.GLMRegressor.get_params"><code class="docutils literal notranslate"><span class="pre">GLMRegressor.get_params</span></code></a></li>
 <li><a class="reference internal" href="#piml.models.GLMRegressor.set_params"><code class="docutils literal notranslate"><span class="pre">GLMRegressor.set_params</span></code></a></li>
 </ul>
@@ -139,7 +140,7 @@
 <h1><code class="xref py py-mod docutils literal notranslate"><span class="pre">piml.models</span></code>.GLMRegressor<a class="headerlink" href="#piml-models-glmregressor" title="Permalink to this heading">¶</a></h1>
 <dl class="py class">
 <dt class="sig sig-object py" id="piml.models.GLMRegressor">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">piml.models.</span></span><span class="sig-name descname"><span class="pre">GLMRegressor</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">feature_names</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">feature_types</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">l1_regularzation</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">l2_regularzation</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fit_intercept</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">random_state</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#piml.models.GLMRegressor" title="Permalink to this definition">¶</a></dt>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">piml.models.</span></span><span class="sig-name descname"><span class="pre">GLMRegressor</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">feature_names</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">feature_types</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">l1_regularization</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">l2_regularization</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fit_intercept</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">random_state</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#piml.models.GLMRegressor" title="Permalink to this definition">¶</a></dt>
 <dd><p>A wrapper of generalized linear model regressor in scikit-learn.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -148,20 +149,20 @@
 </dd>
 <dt><strong>feature_types</strong><span class="classifier">list or None, default=None</span></dt><dd><p>The list of feature types. Available types include “numerical” and “categorical”.</p>
 </dd>
-<dt><strong>l1_regularzation: float, default=0</strong></dt><dd><p>The strength of l1 regularzation,  l1_regularzation must be non-negative float.</p>
+<dt><strong>l1_regularization: float, default=0</strong></dt><dd><p>The strength of l1 regularization,  l1_regularization must be non-negative float.</p>
 <ul class="simple">
-<li><p>{l1_regularzation=0 &amp; l2_regularzation=0}: Ordinary least squares Linear Regression.</p></li>
-<li><p>{l1_regularzation&gt;0 &amp; l2_regularzation=0}: Lasso Regression.</p></li>
-<li><p>{l1_regularzation=0 &amp; l2_regularzation&gt;0}: Ridge Regression.</p></li>
-<li><p>{l1_regularzation&gt;0 &amp; l2_regularzation&gt;0}: Elasticnet Regression.</p></li>
+<li><p>{l1_regularization=0 &amp; l2_regularization=0}: Ordinary least squares Linear Regression.</p></li>
+<li><p>{l1_regularization&gt;0 &amp; l2_regularization=0}: Lasso Regression.</p></li>
+<li><p>{l1_regularization=0 &amp; l2_regularization&gt;0}: Ridge Regression.</p></li>
+<li><p>{l1_regularization&gt;0 &amp; l2_regularization&gt;0}: Elasticnet Regression.</p></li>
 </ul>
 </dd>
-<dt><strong>l2_regularzation: float, default=0</strong></dt><dd><p>The strength of l2 regularzation,  l2_regularzation must be non-negative float.</p>
+<dt><strong>l2_regularization: float, default=0</strong></dt><dd><p>The strength of l2 regularization,  l2_regularization must be non-negative float.</p>
 <ul class="simple">
-<li><p>{l1_regularzation=0 &amp; l2_regularzation=0}: Ordinary least squares Linear Regression.</p></li>
-<li><p>{l1_regularzation&gt;0 &amp; l2_regularzation=0}: Lasso Regression.</p></li>
-<li><p>{l1_regularzation=0 &amp; l2_regularzation&gt;0}: Ridge Regression.</p></li>
-<li><p>{l1_regularzation&gt;0 &amp; l2_regularzation&gt;0}: Elasticnet Regression.</p></li>
+<li><p>{l1_regularization=0 &amp; l2_regularization=0}: Ordinary least squares Linear Regression.</p></li>
+<li><p>{l1_regularization&gt;0 &amp; l2_regularization=0}: Lasso Regression.</p></li>
+<li><p>{l1_regularization=0 &amp; l2_regularization&gt;0}: Ridge Regression.</p></li>
+<li><p>{l1_regularization&gt;0 &amp; l2_regularization&gt;0}: Elasticnet Regression.</p></li>
 </ul>
 </dd>
 <dt><strong>fit_intercept</strong><span class="classifier">bool, default=True</span></dt><dd><p>Whether to fit intercept.</p>
@@ -186,7 +187,10 @@
 <col style="width: 90%" />
 </colgroup>
 <tbody>
-<tr class="row-odd"><td><p><a class="reference internal" href="#piml.models.GLMRegressor.get_params" title="piml.models.GLMRegressor.get_params"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_params</span></code></a>([deep])</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#piml.models.GLMRegressor.get_metadata_routing" title="piml.models.GLMRegressor.get_metadata_routing"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_metadata_routing</span></code></a>()</p></td>
+<td><p>Get metadata routing of this object.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#piml.models.GLMRegressor.get_params" title="piml.models.GLMRegressor.get_params"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_params</span></code></a>([deep])</p></td>
 <td><p>Get parameters for this estimator.</p></td>
 </tr>
 </tbody>
@@ -202,6 +206,23 @@
 </tr>
 </tbody>
 </table>
+<dl class="py method">
+<dt class="sig sig-object py" id="piml.models.GLMRegressor.get_metadata_routing">
+<span class="sig-name descname"><span class="pre">get_metadata_routing</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#piml.models.GLMRegressor.get_metadata_routing" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get metadata routing of this object.</p>
+<p>Please check <span class="xref std std-ref">User Guide</span> on how the routing
+mechanism works.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>routing</strong><span class="classifier">MetadataRequest</span></dt><dd><p>A <code class="xref py py-class docutils literal notranslate"><span class="pre">MetadataRequest</span></code> encapsulating
+routing information.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
 <dl class="py method">
 <dt class="sig sig-object py" id="piml.models.GLMRegressor.get_params">
 <span class="sig-name descname"><span class="pre">get_params</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">deep</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#piml.models.GLMRegressor.get_params" title="Permalink to this definition">¶</a></dt>

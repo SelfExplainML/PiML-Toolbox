@@ -158,9 +158,9 @@ PiML toolbox is our new initiative of integrating state-of-the-art methods in in
 
     .. [Apley2016] Daniel W. Apley, Jingyu Zhu (2016).
                 `Visualizing the effects of predictor variables in black box supervised learning models
-                <https://arxiv.org/pdf/1612.08468.pdf>`_,
-                arXiv preprint arXiv:1612.08468.
-    
+                <https://academic.oup.com/jrsssb/article/82/4/1059/7056085>`_,
+                Journal of the Royal Statistical Society Series B: Statistical Methodology 82.4 (2020): 1059-1086.
+
     .. [Ribeiro2016] Marco Tulio Ribeiro, Sameer Singh, Carlos Guestrin (2016).
                 `Why should i trust you?" Explaining the predictions of any classifier
                 <https://dl.acm.org/doi/abs/10.1145/2939672.2939778>`_,
@@ -173,10 +173,15 @@ PiML toolbox is our new initiative of integrating state-of-the-art methods in in
 
     .. [Hastie2015] Trevor Hastie, Robert Tibshirani, Martin Wainwright (2015).
                 `Statistical learning with sparsity: the lasso and generalizations 
-                <https://d1wqtxts1xzle7.cloudfront.net/55629907/statistical_learning_with_sparsity_the_lasso_and_generalizations-libre.pdf?1516867357=&response-content-disposition=inline%3B+filename%3DStatistical_Learning_with_Sparsity_Monog.pdf&Expires=1683035641&Signature=PhMEiYSkWMHsF~xXoDOeI31SmEOEkraGmpC4r17FKIIZz6QoDgwjC21y-ZEoX0EfFruKwedg-i8WNgQm6sohW-IH742G2hsVDtpU3ZriSW5t0YxNcNhLIElzixximdQ63zVhJladyUOkjrPgCL3NDWQ2x9mBKZmxIIrM5cENDtp7GOW4847OF67eWe0zF70r~i~PUN1fWpGWjgBB0XZGLcBwthxodigec3pOQESXFt4O2iM8FEVc0r43Tl1zV91zqCubn5uFgxWBkcdI8qIeddiKIw3LZ05QvCEXMtOehdD5hqCtks6PO8zoH82w2IyTz3sXlkZKHn-idW5p49~75A__&Key-Pair-Id=APKAJLOHF5GGSLRBV4ZA>`_,
+                <https://hastie.su.domains/StatLearnSparsity_files/SLS_corrected_1.4.16.pdf>`_,
                 CRC press.
 
-    .. [Serven2018] Daniel Servén; Charlie Brummitt (2018).
+    .. [Friedman2001] Jerome H. Friedman (2001).
+                `Greedy function approximation: a gradient boosting machine 
+                <https://www.jstor.org/stable/2699986>`_,
+                The Annals of Statistics. 29(5): 1189-1232.
+
+    .. [Serven2018] Daniel Servén, Charlie Brummitt (2018).
                 `pyGAM: Generalized Additive Models in Python
                 <https://zenodo.org/record/1476122#.ZFEIeXZBzEY>`_,
                 Zenodo. DOI: 10.5281/zenodo.1208723

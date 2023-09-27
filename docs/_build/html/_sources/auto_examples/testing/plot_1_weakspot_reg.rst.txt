@@ -32,7 +32,7 @@ Experiment initialization and data preparation
     from piml import Experiment
     from piml.models import XGB2Regressor
 
-    exp=Experiment()
+    exp = Experiment()
     exp.data_loader(data="BikeSharing", silent=True)
     exp.data_summary(feature_exclude=["yr", "mnth", "temp"], silent=True)
     exp.data_prepare(target="cnt", task_type="regression", silent=True)
@@ -69,8 +69,8 @@ Histogram-based weakspot for a single feature
 .. code-block:: default
 
     results = exp.model_diagnose(model="XGB2", show="weakspot", slice_method="histogram", 
-                               slice_features=["hr"], threshold=1.1, min_samples=100,
-                               original_scale=True, return_data=True, figsize=(5, 4))
+                                 slice_features=["hr"], threshold=1.1, min_samples=100,
+                                 original_scale=True, return_data=True, figsize=(5, 4))
     results.data
 
 
@@ -149,8 +149,8 @@ Histogram-based weakspot for two features
 .. code-block:: default
 
     results = exp.model_diagnose(model="XGB2", show="weakspot", slice_method="histogram", 
-                               slice_features=["hr", "workingday"], threshold=1.1, min_samples=100,
-                               original_scale=True, return_data=True, figsize=(5, 4))
+                                 slice_features=["hr", "workingday"], threshold=1.1, min_samples=100,
+                                 original_scale=True, return_data=True, figsize=(5, 4))
     results.data
 
 
@@ -272,8 +272,8 @@ Histogram-based weakspot for a single feature on test set
 .. code-block:: default
 
     results = exp.model_diagnose(model="XGB2", show="weakspot", slice_method="histogram", 
-                               slice_features=["hr"], threshold=1.1, min_samples=100,
-                               use_test=True, original_scale=True, return_data=True, figsize=(5, 4))
+                                 slice_features=["hr"], threshold=1.1, min_samples=100,
+                                 use_test=True, original_scale=True, return_data=True, figsize=(5, 4))
     results.data
 
 
@@ -352,8 +352,8 @@ Histogram-based weakspot for a single feature using MAE metric
 .. code-block:: default
 
     results = exp.model_diagnose(model="XGB2", show="weakspot", slice_method="histogram", 
-                               slice_features=["hr"], threshold=1.1, min_samples=100,
-                               metric="MAE", original_scale=True, return_data=True, figsize=(5, 4))
+                                 slice_features=["hr"], threshold=1.1, min_samples=100,
+                                 metric="MAE", original_scale=True, return_data=True, figsize=(5, 4))
     results.data
 
 
@@ -433,8 +433,8 @@ Tree-based weakspot for a single feature using MAE metric
 .. code-block:: default
 
     results = exp.model_diagnose(model="XGB2", show="weakspot", slice_method="tree", 
-                               slice_features=["hr"], threshold=1.1, min_samples=100,
-                               metric="MAE", original_scale=True, return_data=True, figsize=(5, 4))
+                                 slice_features=["hr"], threshold=1.1, min_samples=100,
+                                 metric="MAE", original_scale=True, return_data=True, figsize=(5, 4))
     results.data
 
 
@@ -519,7 +519,7 @@ Tree-based weakspot for a single feature using MAE metric
 
 XGB-based weakspot for a single feature using MAE metric
 
-.. GENERATED FROM PYTHON SOURCE LINES 55-58
+.. GENERATED FROM PYTHON SOURCE LINES 55-59
 
 .. code-block:: default
 
@@ -527,6 +527,7 @@ XGB-based weakspot for a single feature using MAE metric
                                  slice_features=["atemp"], threshold=1.1, min_samples=60, use_test=True, 
                                  metric="MAE", original_scale=True, return_data=True, figsize=(5, 4))
     results.data
+
 
 
 .. image-sg:: /auto_examples/testing/images/sphx_glr_plot_1_weakspot_reg_006.png
@@ -647,7 +648,9 @@ XGB-based weakspot for a single feature using MAE metric
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** ( 0 minutes  3.474 seconds)
+   **Total running time of the script:** ( 53 minutes  13.664 seconds)
+
+**Estimated memory usage:**  1386 MB
 
 
 .. _sphx_glr_download_auto_examples_testing_plot_1_weakspot_reg.py:

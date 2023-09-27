@@ -118,7 +118,7 @@ Global interpretation: feature importance
 
 .. code-block:: default
 
-    exp.model_interpret(model="GAM",show="global_fi", figsize=(5, 4))
+    exp.model_interpret(model="GAM", show="global_fi", figsize=(5, 4))
 
 
 
@@ -136,11 +136,13 @@ Global interpretation: feature importance
 
 Local interpretation
 
-.. GENERATED FROM PYTHON SOURCE LINES 35-36
+.. GENERATED FROM PYTHON SOURCE LINES 35-38
 
 .. code-block:: default
 
-    exp.model_interpret(model="GAM",show="local_fi", sample_id=0, original_scale=True, figsize=(5, 4))
+    exp.model_interpret(model="GAM", show="local_fi", sample_id=0,
+                        original_scale=True, figsize=(5, 4))
+
 
 
 
@@ -153,10 +155,34 @@ Local interpretation
 
 
 
+.. GENERATED FROM PYTHON SOURCE LINES 39-40
+
+Local interpretation
+
+.. GENERATED FROM PYTHON SOURCE LINES 40-42
+
+.. code-block:: default
+
+    exp.model_interpret(model="GAM", show="local_fi", sample_id=10,
+                        original_scale=True, figsize=(5, 4))
+
+
+
+.. image-sg:: /auto_examples/models/images/sphx_glr_plot_1_gam_reg_004.png
+   :alt: Predicted: 0.3839 | Actual: 0.3885
+   :srcset: /auto_examples/models/images/sphx_glr_plot_1_gam_reg_004.png
+   :class: sphx-glr-single-img
+
+
+
+
+
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** ( 0 minutes  4.312 seconds)
+   **Total running time of the script:** ( 1 minutes  11.563 seconds)
+
+**Estimated memory usage:**  1512 MB
 
 
 .. _sphx_glr_download_auto_examples_models_plot_1_gam_reg.py:

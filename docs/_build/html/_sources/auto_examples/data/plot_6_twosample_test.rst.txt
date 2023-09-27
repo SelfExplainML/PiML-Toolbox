@@ -112,11 +112,12 @@ Distributional shift distance with KS
 
 Distributional shift plot for a single feature
 
-.. GENERATED FROM PYTHON SOURCE LINES 29-29
+.. GENERATED FROM PYTHON SOURCE LINES 29-30
 
 .. code-block:: default
 
     exp.twosample_test(metric="PSI", psi_buckets='quantile', feature="atemp", figsize=(5, 4))
+
 
 
 .. image-sg:: /auto_examples/data/images/sphx_glr_plot_6_twosample_test_004.png
@@ -131,7 +132,9 @@ Distributional shift plot for a single feature
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** ( 0 minutes  0.740 seconds)
+   **Total running time of the script:** ( 0 minutes  54.595 seconds)
+
+**Estimated memory usage:**  1359 MB
 
 
 .. _sphx_glr_download_auto_examples_data_plot_6_twosample_test.py:

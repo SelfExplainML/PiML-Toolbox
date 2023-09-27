@@ -123,13 +123,16 @@
 <li><a class="reference internal" href="#"><code class="xref py py-mod docutils literal notranslate"><span class="pre">piml.models</span></code>.XGB2Regressor</a><ul>
 <li><a class="reference internal" href="#piml.models.XGB2Regressor"><code class="docutils literal notranslate"><span class="pre">XGB2Regressor</span></code></a><ul>
 <li><a class="reference internal" href="#piml.models.XGB2Regressor.fit"><code class="docutils literal notranslate"><span class="pre">XGB2Regressor.fit</span></code></a></li>
+<li><a class="reference internal" href="#piml.models.XGB2Regressor.get_metadata_routing"><code class="docutils literal notranslate"><span class="pre">XGB2Regressor.get_metadata_routing</span></code></a></li>
 <li><a class="reference internal" href="#piml.models.XGB2Regressor.get_params"><code class="docutils literal notranslate"><span class="pre">XGB2Regressor.get_params</span></code></a></li>
-<li><a class="reference internal" href="#piml.models.XGB2Regressor.model_unwrapper"><code class="docutils literal notranslate"><span class="pre">XGB2Regressor.model_unwrapper</span></code></a></li>
+<li><a class="reference internal" href="#piml.models.XGB2Regressor.parse_model"><code class="docutils literal notranslate"><span class="pre">XGB2Regressor.parse_model</span></code></a></li>
 <li><a class="reference internal" href="#piml.models.XGB2Regressor.predict"><code class="docutils literal notranslate"><span class="pre">XGB2Regressor.predict</span></code></a></li>
 <li><a class="reference internal" href="#piml.models.XGB2Regressor.score"><code class="docutils literal notranslate"><span class="pre">XGB2Regressor.score</span></code></a></li>
 <li><a class="reference internal" href="#piml.models.XGB2Regressor.set_params"><code class="docutils literal notranslate"><span class="pre">XGB2Regressor.set_params</span></code></a></li>
+<li><a class="reference internal" href="#piml.models.XGB2Regressor.set_score_request"><code class="docutils literal notranslate"><span class="pre">XGB2Regressor.set_score_request</span></code></a></li>
 </ul>
 </li>
+<li><a class="reference internal" href="#examples-using-piml-models-xgb2regressor">Examples using <code class="docutils literal notranslate"><span class="pre">piml.models.XGB2Regressor</span></code></a></li>
 </ul>
 </li>
 </ul>
@@ -189,13 +192,11 @@
 </dd>
 <dt><strong>split_info_: dict</strong></dt><dd><p>The split points per feature.</p>
 </dd>
-<dt><strong>n_splits_raw_</strong><span class="classifier">int</span></dt><dd><p>The totoal number of splits in the raw XGB model.</p>
+<dt><strong>n_splits_raw_</strong><span class="classifier">int</span></dt><dd><p>The total number of splits in the raw XGB model.</p>
 </dd>
 <dt><strong>n_splits_</strong><span class="classifier">int</span></dt><dd><p>The total number of splits.</p>
 </dd>
 <dt><strong>xgb_params_</strong><span class="classifier">dict</span></dt><dd><p>The parameter dict of XGB model.</p>
-</dd>
-<dt><strong>feature_importance_</strong><span class="classifier">np.ndarray of shape (n_features, )</span></dt><dd><p>The importance of features.</p>
 </dd>
 </dl>
 </dd>
@@ -210,20 +211,26 @@
 <tr class="row-odd"><td><p><a class="reference internal" href="#piml.models.XGB2Regressor.fit" title="piml.models.XGB2Regressor.fit"><code class="xref py py-obj docutils literal notranslate"><span class="pre">fit</span></code></a>(X, y[, sample_weight])</p></td>
 <td><p>Fit the model.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#piml.models.XGB2Regressor.get_params" title="piml.models.XGB2Regressor.get_params"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_params</span></code></a>([deep])</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#piml.models.XGB2Regressor.get_metadata_routing" title="piml.models.XGB2Regressor.get_metadata_routing"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_metadata_routing</span></code></a>()</p></td>
+<td><p>Get metadata routing of this object.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#piml.models.XGB2Regressor.get_params" title="piml.models.XGB2Regressor.get_params"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_params</span></code></a>([deep])</p></td>
 <td><p>Get parameters for this estimator.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#piml.models.XGB2Regressor.model_unwrapper" title="piml.models.XGB2Regressor.model_unwrapper"><code class="xref py py-obj docutils literal notranslate"><span class="pre">model_unwrapper</span></code></a>(X, y[, sample_weight])</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#piml.models.XGB2Regressor.parse_model" title="piml.models.XGB2Regressor.parse_model"><code class="xref py py-obj docutils literal notranslate"><span class="pre">parse_model</span></code></a>()</p></td>
 <td><p>Interpret the model using functional ANOVA.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#piml.models.XGB2Regressor.predict" title="piml.models.XGB2Regressor.predict"><code class="xref py py-obj docutils literal notranslate"><span class="pre">predict</span></code></a>(X)</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#piml.models.XGB2Regressor.predict" title="piml.models.XGB2Regressor.predict"><code class="xref py py-obj docutils literal notranslate"><span class="pre">predict</span></code></a>(X)</p></td>
 <td><p>Returns numpy array of predicted class.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#piml.models.XGB2Regressor.score" title="piml.models.XGB2Regressor.score"><code class="xref py py-obj docutils literal notranslate"><span class="pre">score</span></code></a>(X, y[, sample_weight])</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#piml.models.XGB2Regressor.score" title="piml.models.XGB2Regressor.score"><code class="xref py py-obj docutils literal notranslate"><span class="pre">score</span></code></a>(X, y[, sample_weight])</p></td>
 <td><p>Return the coefficient of determination of the prediction.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#piml.models.XGB2Regressor.set_params" title="piml.models.XGB2Regressor.set_params"><code class="xref py py-obj docutils literal notranslate"><span class="pre">set_params</span></code></a>(**params)</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#piml.models.XGB2Regressor.set_params" title="piml.models.XGB2Regressor.set_params"><code class="xref py py-obj docutils literal notranslate"><span class="pre">set_params</span></code></a>(**params)</p></td>
 <td><p>Set the parameters of this estimator.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#piml.models.XGB2Regressor.set_score_request" title="piml.models.XGB2Regressor.set_score_request"><code class="xref py py-obj docutils literal notranslate"><span class="pre">set_score_request</span></code></a>(*[, sample_weight])</p></td>
+<td><p>Request metadata passed to the <code class="docutils literal notranslate"><span class="pre">score</span></code> method.</p></td>
 </tr>
 </tbody>
 </table>
@@ -252,6 +259,23 @@
 </dd></dl>
 
 <dl class="py method">
+<dt class="sig sig-object py" id="piml.models.XGB2Regressor.get_metadata_routing">
+<span class="sig-name descname"><span class="pre">get_metadata_routing</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#piml.models.XGB2Regressor.get_metadata_routing" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get metadata routing of this object.</p>
+<p>Please check <span class="xref std std-ref">User Guide</span> on how the routing
+mechanism works.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>routing</strong><span class="classifier">MetadataRequest</span></dt><dd><p>A <code class="xref py py-class docutils literal notranslate"><span class="pre">MetadataRequest</span></code> encapsulating
+routing information.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
 <dt class="sig sig-object py" id="piml.models.XGB2Regressor.get_params">
 <span class="sig-name descname"><span class="pre">get_params</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">deep</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#piml.models.XGB2Regressor.get_params" title="Permalink to this definition">¶</a></dt>
 <dd><p>Get parameters for this estimator.</p>
@@ -273,23 +297,13 @@ contained subobjects that are estimators.</p>
 </dd></dl>
 
 <dl class="py method">
-<dt class="sig sig-object py" id="piml.models.XGB2Regressor.model_unwrapper">
-<span class="sig-name descname"><span class="pre">model_unwrapper</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">X</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sample_weight</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#piml.models.XGB2Regressor.model_unwrapper" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="piml.models.XGB2Regressor.parse_model">
+<span class="sig-name descname"><span class="pre">parse_model</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#piml.models.XGB2Regressor.parse_model" title="Permalink to this definition">¶</a></dt>
 <dd><p>Interpret the model using functional ANOVA.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Returns</dt>
 <dd class="field-odd"><dl class="simple">
-<dt><strong>X</strong><span class="classifier">np.ndarray of shape (n_samples, n_features)</span></dt><dd><p>Data features.</p>
-</dd>
-<dt><strong>y</strong><span class="classifier">np.ndarray of shape (n_samples, )</span></dt><dd><p>Target response.</p>
-</dd>
-<dt><strong>sample_weight</strong><span class="classifier">np.ndarray of shape (n_samples, ), default=None</span></dt><dd><p>Sample weight.</p>
-</dd>
-</dl>
-</dd>
-<dt class="field-even">Returns</dt>
-<dd class="field-even"><dl class="simple">
-<dt><strong>unp</strong><span class="classifier">an instance of XGBUnwrapperRegressor</span></dt><dd><p>The interpretation results.</p>
+<dt><strong>unp</strong><span class="classifier">an instance of XGBUnwrapperClassifier</span></dt><dd><p>The interpretation results.</p>
 </dd>
 </dl>
 </dd>
@@ -344,7 +358,7 @@ is the number of samples used in the fitting for the estimator.</p>
 </dd>
 <dt class="field-even">Returns</dt>
 <dd class="field-even"><dl class="simple">
-<dt><strong>score</strong><span class="classifier">float</span></dt><dd><p><span class="math notranslate nohighlight">\(R^2\)</span> of <code class="docutils literal notranslate"><span class="pre">self.predict(X)</span></code> wrt. <code class="docutils literal notranslate"><span class="pre">y</span></code>.</p>
+<dt><strong>score</strong><span class="classifier">float</span></dt><dd><p><span class="math notranslate nohighlight">\(R^2\)</span> of <code class="docutils literal notranslate"><span class="pre">self.predict(X)</span></code> w.r.t. <code class="docutils literal notranslate"><span class="pre">y</span></code>.</p>
 </dd>
 </dl>
 </dd>
@@ -382,9 +396,73 @@ possible to update each component of a nested object.</p>
 </dl>
 </dd></dl>
 
+<dl class="py method">
+<dt class="sig sig-object py" id="piml.models.XGB2Regressor.set_score_request">
+<span class="sig-name descname"><span class="pre">set_score_request</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sample_weight</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Union</span><span class="p"><span class="pre">[</span></span><span class="pre">bool</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">None</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'$UNCHANGED$'</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#piml.models.XGB2Regressor" title="piml.models.xgb2.xgboost.XGB2Regressor"><span class="pre">XGB2Regressor</span></a></span></span><a class="headerlink" href="#piml.models.XGB2Regressor.set_score_request" title="Permalink to this definition">¶</a></dt>
+<dd><p>Request metadata passed to the <code class="docutils literal notranslate"><span class="pre">score</span></code> method.</p>
+<p>Note that this method is only relevant if
+<code class="docutils literal notranslate"><span class="pre">enable_metadata_routing=True</span></code> (see <code class="xref py py-func docutils literal notranslate"><span class="pre">sklearn.set_config</span></code>).
+Please see <span class="xref std std-ref">User Guide</span> on how the routing
+mechanism works.</p>
+<p>The options for each parameter are:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">True</span></code>: metadata is requested, and passed to <code class="docutils literal notranslate"><span class="pre">score</span></code> if provided. The request is ignored if metadata is not provided.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">False</span></code>: metadata is not requested and the meta-estimator will not pass it to <code class="docutils literal notranslate"><span class="pre">score</span></code>.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">None</span></code>: metadata is not requested, and the meta-estimator will raise an error if the user provides it.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">str</span></code>: metadata should be passed to the meta-estimator with this given alias instead of the original name.</p></li>
+</ul>
+<p>The default (<code class="docutils literal notranslate"><span class="pre">sklearn.utils.metadata_routing.UNCHANGED</span></code>) retains the
+existing request. This allows you to change the request for some
+parameters and not others.</p>
+<div class="versionadded">
+<p><span class="versionmodified added">New in version 1.3.</span></p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>This method is only relevant if this estimator is used as a
+sub-estimator of a meta-estimator, e.g. used inside a
+<code class="xref py py-class docutils literal notranslate"><span class="pre">pipeline.Pipeline</span></code>. Otherwise it has no effect.</p>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>sample_weight</strong><span class="classifier">str, True, False, or None,                     default=sklearn.utils.metadata_routing.UNCHANGED</span></dt><dd><p>Metadata routing for <code class="docutils literal notranslate"><span class="pre">sample_weight</span></code> parameter in <code class="docutils literal notranslate"><span class="pre">score</span></code>.</p>
+</dd>
+</dl>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><dl class="simple">
+<dt><strong>self</strong><span class="classifier">object</span></dt><dd><p>The updated object.</p>
+</dd>
+</dl>
+</dd>
+</dl>
 </dd></dl>
 
-<div class="clearer"></div></section>
+</dd></dl>
+
+<section id="examples-using-piml-models-xgb2regressor">
+<h2>Examples using <code class="docutils literal notranslate"><span class="pre">piml.models.XGB2Regressor</span></code><a class="headerlink" href="#examples-using-piml-models-xgb2regressor" title="Permalink to this heading">¶</a></h2>
+<div class="sphx-glr-thumbnails"><div class="sphx-glr-thumbcontainer" tooltip="XGB-2 Regression (Bike Sharing)"><img alt="" src="../../_images/sphx_glr_plot_5_xgb2_reg_thumb.png" />
+<p><a class="reference internal" href="../../auto_examples/models/plot_5_xgb2_reg.html#sphx-glr-auto-examples-models-plot-5-xgb2-reg-py"><span class="std std-ref">XGB-2 Regression (Bike Sharing)</span></a></p>
+  <div class="sphx-glr-thumbnail-title">XGB-2 Regression (Bike Sharing)</div>
+</div><div class="sphx-glr-thumbcontainer" tooltip="Accuracy: Regression"><img alt="" src="../../_images/sphx_glr_plot_0_accuracy_reg_thumb.png" />
+<p><a class="reference internal" href="../../auto_examples/testing/plot_0_accuracy_reg.html#sphx-glr-auto-examples-testing-plot-0-accuracy-reg-py"><span class="std std-ref">Accuracy: Regression</span></a></p>
+  <div class="sphx-glr-thumbnail-title">Accuracy: Regression</div>
+</div><div class="sphx-glr-thumbcontainer" tooltip="WeakSpot: Regression"><img alt="" src="../../_images/sphx_glr_plot_1_weakspot_reg_thumb.png" />
+<p><a class="reference internal" href="../../auto_examples/testing/plot_1_weakspot_reg.html#sphx-glr-auto-examples-testing-plot-1-weakspot-reg-py"><span class="std std-ref">WeakSpot: Regression</span></a></p>
+  <div class="sphx-glr-thumbnail-title">WeakSpot: Regression</div>
+</div><div class="sphx-glr-thumbcontainer" tooltip="Overfit: Regression"><img alt="" src="../../_images/sphx_glr_plot_2_overfit_reg_thumb.png" />
+<p><a class="reference internal" href="../../auto_examples/testing/plot_2_overfit_reg.html#sphx-glr-auto-examples-testing-plot-2-overfit-reg-py"><span class="std std-ref">Overfit: Regression</span></a></p>
+  <div class="sphx-glr-thumbnail-title">Overfit: Regression</div>
+</div><div class="sphx-glr-thumbcontainer" tooltip="Reliability: Regression"><img alt="" src="../../_images/sphx_glr_plot_3_reliability_reg_thumb.png" />
+<p><a class="reference internal" href="../../auto_examples/testing/plot_3_reliability_reg.html#sphx-glr-auto-examples-testing-plot-3-reliability-reg-py"><span class="std std-ref">Reliability: Regression</span></a></p>
+  <div class="sphx-glr-thumbnail-title">Reliability: Regression</div>
+</div><div class="sphx-glr-thumbcontainer" tooltip="Resilience - Regression"><img alt="" src="../../_images/sphx_glr_plot_5_resilience_reg_thumb.png" />
+<p><a class="reference internal" href="../../auto_examples/testing/plot_5_resilience_reg.html#sphx-glr-auto-examples-testing-plot-5-resilience-reg-py"><span class="std std-ref">Resilience - Regression</span></a></p>
+  <div class="sphx-glr-thumbnail-title">Resilience - Regression</div>
+</div></div><div class="clearer"></div></section>
+</section>
 
 
         </div>

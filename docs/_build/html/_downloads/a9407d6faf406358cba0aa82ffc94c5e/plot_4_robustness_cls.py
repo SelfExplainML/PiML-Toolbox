@@ -22,16 +22,16 @@ exp.model_train(ReluDNNClassifier(), name="ReluDNN")
 # Robustness test with default settings
 exp.model_diagnose(model="ReluDNN", show="robustness_perf", figsize=(6, 4))
 #%%
-# Robustness test with custom perturnation features
+# Robustness test with custom perturbation features
 exp.model_diagnose(model="ReluDNN", show="robustness_perf",
                    perturb_features=["BILL_AMT1", "BILL_AMT2", "BILL_AMT3"], figsize=(6, 4))
 
 #%%
-# Robustness test with custom perturnation size
+# Robustness test with custom perturbation size
 exp.model_diagnose(model="ReluDNN", show="robustness_perf", perturb_size=0.2, figsize=(6, 4))
 
 #%%
-# Robustness test with custom perturnation method
+# Robustness test with custom perturbation method
 exp.model_diagnose(model="ReluDNN", show="robustness_perf", perturb_method="quantile", figsize=(6, 4))
 
 #%%

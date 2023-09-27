@@ -70,7 +70,7 @@ Train Model
 .. code-block:: default
 
     exp.model_explain(model="XGB2", show="pdp", uni_feature="hr",
-                      original_scale=True, figsize=(5, 4))
+                      grid_size=50, original_scale=True, figsize=(5, 4))
 
 
 
@@ -114,7 +114,7 @@ Train Model
 .. code-block:: default
 
     exp.model_explain(model="XGB2", show="pdp", bi_features=["hr", "workingday"],
-                      pdp_size=10000, original_scale=True, figsize=(5, 4))
+                      grid_size=10, pdp_size=10000, sliced_line=False, original_scale=True, figsize=(5, 4))
 
 
 
@@ -130,9 +130,9 @@ Train Model
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** ( 0 minutes  36.179 seconds)
+   **Total running time of the script:** ( 0 minutes  57.509 seconds)
 
-**Estimated memory usage:**  31 MB
+**Estimated memory usage:**  1321 MB
 
 
 .. _sphx_glr_download_auto_examples_explain_plot_1_pdp.py:

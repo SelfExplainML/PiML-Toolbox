@@ -290,6 +290,37 @@
 </div>
 </div>
 </section>
+<section id="run-diagnostic-tests">
+<h2><span class="section-number">3.5. </span>Run Diagnostic Tests<a class="headerlink" href="#run-diagnostic-tests" title="Permalink to this heading">¶</a></h2>
+<p>As a model is registered, then all the tests and explanation tools in PiML can be used. For example,</p>
+<div class="jupyter_cell jupyter_container docutils container">
+<div class="cell_input code_cell docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">exp</span><span class="o">.</span><span class="n">model_explain</span><span class="p">(</span><span class="n">model</span><span class="o">=</span><span class="s2">&quot;LGBM_7&quot;</span><span class="p">,</span> <span class="n">show</span><span class="o">=</span><span class="s2">&quot;pdp&quot;</span><span class="p">,</span> <span class="n">uni_feature</span><span class="o">=</span><span class="s2">&quot;MedInc&quot;</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">4</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+</div>
+</div>
+<figure class="align-left">
+<a class="reference external image-reference" href="../auto_examples/testing_external/plot_0_model_train.html"><img alt="../_images/sphx_glr_plot_0_model_train_001.png" src="../_images/sphx_glr_plot_0_model_train_001.png" /></a>
+</figure>
+</section>
+<section id="examples">
+<h2><span class="section-number">3.6. </span>Examples<a class="headerlink" href="#examples" title="Permalink to this heading">¶</a></h2>
+<div class="topic">
+<p class="topic-title">Example 1:</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="../auto_examples/testing_external/plot_0_model_train.html#sphx-glr-auto-examples-testing-external-plot-0-model-train-py"><span class="std std-ref">Train External Models</span></a></p></li>
+</ul>
+</div>
+<div class="topic">
+<p class="topic-title">Example 2:</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="../auto_examples/testing_external/plot_1_register_testing.html#sphx-glr-auto-examples-testing-external-plot-1-register-testing-py"><span class="std std-ref">Registering Fitted Models and Run Diagnostic Tests</span></a></p></li>
+</ul>
+</div>
+</section>
 </section>
 
 

@@ -106,6 +106,8 @@ Local Linear Model (LLM) summary plot
 
  .. code-block:: none
 
+    Degrees of freedom <= 0 for slice
+    invalid value encountered in double_scalars
         Count  Response Mean  Response Std  Local MSE  Global MSE
     0   215.0         0.4711        0.1584     0.0005      0.0309
     1   207.0         0.4700        0.1648     0.0005      0.0327
@@ -135,13 +137,13 @@ Local Linear Model (LLM) summary plot
     25    3.0         0.5134        0.0839     0.0016      0.0138
     26    3.0         0.4592        0.0625     0.0014      0.0238
     27    3.0         0.4321        0.1450     0.0164      0.0783
-    28    2.0         0.4558        0.0107     0.0010      0.0240
-    29    2.0         0.1400        0.0890     0.0040      0.0302
+    28    2.0         0.1400        0.0890     0.0040      0.0302
+    29    2.0         0.4558        0.0107     0.0010      0.0240
     30    2.0         0.2187        0.1037     0.0203      0.0751
     31    2.0         0.1801        0.0305     0.0385      0.0784
-    32    1.0         0.5209           NaN     0.0035      0.0884
-    33    1.0         0.6258           NaN     0.0010      0.0943
-    34    1.0         0.4773           NaN     0.0016      0.0875
+    32    1.0         0.6258           NaN     0.0010      0.0943
+    33    1.0         0.4773           NaN     0.0016      0.0875
+    34    1.0         0.5209           NaN     0.0035      0.0884
 
 
 
@@ -301,7 +303,9 @@ Local feature importance with centering
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** ( 0 minutes  10.210 seconds)
+   **Total running time of the script:** ( 1 minutes  39.322 seconds)
+
+**Estimated memory usage:**  26 MB
 
 
 .. _sphx_glr_download_auto_examples_models_plot_8_reludnn_reg.py:

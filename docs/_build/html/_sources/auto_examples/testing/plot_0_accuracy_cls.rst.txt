@@ -77,11 +77,11 @@ Accuracy table
 
  .. code-block:: none
 
-              ACC      AUC  Recall Precision      F1
-                                                
-    Train  0.8223   0.7970  0.3617    0.6924  0.4751
-    Test   0.8288   0.7732  0.3624    0.7015  0.4779
-    Gap    0.0066  -0.0237  0.0007    0.0091  0.0027
+              ACC      AUC      F1
+                              
+    Train  0.8223   0.7970  0.4751
+    Test   0.8288   0.7732  0.4779
+    Gap    0.0066  -0.0237  0.0027
 
 
 
@@ -126,6 +126,12 @@ Plot residual with respect to the feature PAY_1
    :srcset: /auto_examples/testing/images/sphx_glr_plot_0_accuracy_cls_002.png
    :class: sphx-glr-single-img
 
+
+.. rst-class:: sphx-glr-script-out
+
+ .. code-block:: none
+
+    invalid value encountered in divide
 
 
 
@@ -177,7 +183,9 @@ Plot residual with respect to the predicted response
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** ( 0 minutes  2.765 seconds)
+   **Total running time of the script:** ( 0 minutes  41.360 seconds)
+
+**Estimated memory usage:**  1742 MB
 
 
 .. _sphx_glr_download_auto_examples_testing_plot_0_accuracy_cls.py:

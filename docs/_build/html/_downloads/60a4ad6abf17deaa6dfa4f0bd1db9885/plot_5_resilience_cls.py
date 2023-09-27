@@ -34,7 +34,7 @@ exp.model_diagnose(model="XGB2", show="resilience_perf", resilience_method="wors
 exp.model_diagnose(model="XGB2", show="resilience_distance", resilience_method="worst-sample", 
                    distance_metric="PSI", alpha=0.3, figsize=(5, 4))
 #%%
-# Marginal distributional distance between full sample and worst sample with not Noneimmutable features
+# Marginal distributional distance between full sample and worst sample with not Non-immutable features
 exp.model_diagnose(model="XGB2", show="resilience_distance", resilience_method="worst-sample", 
                          distance_metric="PSI", immu_feature="PAY_1", alpha=0.3, figsize=(5, 4))
 #%%

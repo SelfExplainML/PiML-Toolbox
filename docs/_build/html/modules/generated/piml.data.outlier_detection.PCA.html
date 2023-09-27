@@ -124,6 +124,7 @@
 <li><a class="reference internal" href="#piml.data.outlier_detection.PCA.fit"><code class="docutils literal notranslate"><span class="pre">PCA.fit</span></code></a></li>
 </ul>
 </li>
+<li><a class="reference internal" href="#examples-using-piml-data-outlier-detection-pca">Examples using <code class="docutils literal notranslate"><span class="pre">piml.data.outlier_detection.PCA</span></code></a></li>
 </ul>
 </li>
 </ul>
@@ -246,6 +247,8 @@ larger anomaly scores.</p>
 <dt><strong>X</strong><span class="classifier">numpy array of shape (n_samples, n_features)</span></dt><dd><p>The training input samples. Sparse matrices are accepted only
 if they are supported by the base estimator.</p>
 </dd>
+<dt><strong>scale</strong><span class="classifier">bool, default=True</span></dt><dd><p>If True, scale X before calculating the outlier score.</p>
+</dd>
 </dl>
 </dd>
 <dt class="field-even">Returns</dt>
@@ -281,7 +284,13 @@ if they are supported by the base estimator.</p>
 
 </dd></dl>
 
-<div class="clearer"></div></section>
+<section id="examples-using-piml-data-outlier-detection-pca">
+<h2>Examples using <code class="docutils literal notranslate"><span class="pre">piml.data.outlier_detection.PCA</span></code><a class="headerlink" href="#examples-using-piml-data-outlier-detection-pca" title="Permalink to this heading">¶</a></h2>
+<div class="sphx-glr-thumbnails"><div class="sphx-glr-thumbcontainer" tooltip="Data quality analysis result using the BikeSharing dataset as example."><img alt="" src="../../_images/sphx_glr_plot_4_data_quality_thumb.png" />
+<p><a class="reference internal" href="../../auto_examples/data/plot_4_data_quality.html#sphx-glr-auto-examples-data-plot-4-data-quality-py"><span class="std std-ref">Data Quality Check</span></a></p>
+  <div class="sphx-glr-thumbnail-title">Data Quality Check</div>
+</div></div><div class="clearer"></div></section>
+</section>
 
 
         </div>

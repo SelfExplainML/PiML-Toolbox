@@ -5,7 +5,7 @@
 
 
 from piml.models import GLMRegressor
-exp.model_train(model=GLMRegressor(l1_regularzation=0.0008, l2_regularzation=0.0008), name="GLM")
+exp.model_train(model=GLMRegressor(l1_regularization=0.0008, l2_regularization=0.0008), name="GLM")
 
 
 # In[ ]:

@@ -180,11 +180,12 @@ correlation heatmap
 
 correlation graph
 
-.. GENERATED FROM PYTHON SOURCE LINES 43-43
+.. GENERATED FROM PYTHON SOURCE LINES 43-44
 
 .. code-block:: default
 
     exp.eda(show='multivariate', multi_type='correlation_graph', figsize=(6, 5))
+
 
 
 .. image-sg:: /auto_examples/data/images/sphx_glr_plot_2_data_eda_007.png
@@ -199,9 +200,9 @@ correlation graph
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** ( 0 minutes  48.021 seconds)
+   **Total running time of the script:** ( 2 minutes  9.255 seconds)
 
-**Estimated memory usage:**  41 MB
+**Estimated memory usage:**  1270 MB
 
 
 .. _sphx_glr_download_auto_examples_data_plot_2_data_eda.py:

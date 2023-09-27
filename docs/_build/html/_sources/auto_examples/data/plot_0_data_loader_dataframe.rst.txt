@@ -25,7 +25,7 @@ Data Load (Pandas DataFrame)
 
 Experiment initialization and data preparation
 
-.. GENERATED FROM PYTHON SOURCE LINES 9-14
+.. GENERATED FROM PYTHON SOURCE LINES 9-15
 
 .. code-block:: default
 
@@ -35,6 +35,7 @@ Experiment initialization and data preparation
     exp = Experiment()
     data = pd.read_csv('https://github.com/SelfExplainML/PiML-Toolbox/blob/main/datasets/BikeSharing.csv?raw=true')
     exp.data_loader(data=data)
+
 
 
 
@@ -76,9 +77,9 @@ Experiment initialization and data preparation
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** ( 0 minutes  7.656 seconds)
+   **Total running time of the script:** ( 0 minutes  9.514 seconds)
 
-**Estimated memory usage:**  19 MB
+**Estimated memory usage:**  26 MB
 
 
 .. _sphx_glr_download_auto_examples_data_plot_0_data_loader_dataframe.py:

@@ -5,19 +5,19 @@
 
 
 exp.model_explain(model="XGB2", show="pdp", uni_feature="hr",
-                  original_scale=True, figsize=(5, 4))
+                  grid_size=50, original_scale=True, figsize=(5, 4))
 
 
 # In[ ]:
 
 
 exp.model_explain(model="XGB2", show="pdp", uni_feature="season",
-                 original_scale=True, figsize=(5, 4))
+                  original_scale=True, figsize=(5, 4))
 
 
 # In[ ]:
 
 
 exp.model_explain(model="XGB2", show="pdp", bi_features=["hr", "workingday"],
-                  pdp_size=10000, original_scale=True, figsize=(5, 4))
+                  grid_size=10, pdp_size=10000, sliced_line=False, original_scale=True, figsize=(5, 4))
 

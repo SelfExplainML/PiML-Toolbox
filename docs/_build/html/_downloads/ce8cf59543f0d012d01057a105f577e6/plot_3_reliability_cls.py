@@ -35,5 +35,4 @@ exp.model_diagnose(model="GAM", show="reliability_calibration", figsize=(5, 4))
 exp.model_diagnose(model="GAM", show="reliability_perf", figsize=(5, 4))
 #%%
 #Brier Score
-results = exp.model_diagnose(model="GAM", show="reliability_table", return_data=True)
-results.data
+exp.model_diagnose(model="GAM", show="reliability_table")

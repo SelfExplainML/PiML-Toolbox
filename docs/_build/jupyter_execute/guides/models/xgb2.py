@@ -19,7 +19,7 @@ exp.model_interpret(model="XGB2", show="global_effect_plot", uni_feature="atemp"
 
 
 exp.model_interpret(model="XGB2", show="global_effect_plot", bi_features=["hr", "workingday"],
-                    original_scale=True, figsize=(5, 4))
+                    sliced_line=False, original_scale=True, figsize=(5, 4))
 
 
 # In[ ]:

@@ -67,13 +67,14 @@ Train Model
 
 .. GENERATED FROM PYTHON SOURCE LINES 26-27
 
-Accuracy comparison with AUC
+Accuracy comparison with ACC
 
-.. GENERATED FROM PYTHON SOURCE LINES 27-28
+.. GENERATED FROM PYTHON SOURCE LINES 27-29
 
 .. code-block:: default
 
     exp.model_compare(models=["Tree", "FIGS", "XGB2"], show="accuracy_plot", metric="ACC", figsize=(5, 4))
+
 
 
 
@@ -86,15 +87,16 @@ Accuracy comparison with AUC
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 29-30
+.. GENERATED FROM PYTHON SOURCE LINES 30-31
 
 Accuracy comparison with AUC
 
-.. GENERATED FROM PYTHON SOURCE LINES 30-31
+.. GENERATED FROM PYTHON SOURCE LINES 31-33
 
 .. code-block:: default
 
     exp.model_compare(models=["Tree", "FIGS", "XGB2"], show="accuracy_plot", metric="AUC", figsize=(5, 4))
+
 
 
 
@@ -107,11 +109,11 @@ Accuracy comparison with AUC
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 32-33
+.. GENERATED FROM PYTHON SOURCE LINES 34-35
 
 Accuracy comparison with F1
 
-.. GENERATED FROM PYTHON SOURCE LINES 33-35
+.. GENERATED FROM PYTHON SOURCE LINES 35-37
 
 .. code-block:: default
 
@@ -129,11 +131,11 @@ Accuracy comparison with F1
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 36-37
+.. GENERATED FROM PYTHON SOURCE LINES 38-39
 
-Overfit comparison with historgram slicing
+Overfit comparison with ACC metric
 
-.. GENERATED FROM PYTHON SOURCE LINES 37-40
+.. GENERATED FROM PYTHON SOURCE LINES 39-42
 
 .. code-block:: default
 
@@ -152,17 +154,17 @@ Overfit comparison with historgram slicing
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 41-42
+.. GENERATED FROM PYTHON SOURCE LINES 43-44
 
-Overfit comparison with tree slicing
+Overfit comparison with AUC metric
 
-.. GENERATED FROM PYTHON SOURCE LINES 42-46
+.. GENERATED FROM PYTHON SOURCE LINES 44-48
 
 .. code-block:: default
 
     exp.model_compare(models=["Tree", "FIGS", "XGB2"], show="overfit",
-                      slice_method="tree", slice_feature="PAY_1", 
-                      metric="ACC", original_scale=True, figsize=(5, 4))
+                      slice_method="histogram", slice_feature="PAY_1", 
+                      metric="AUC", original_scale=True, figsize=(5, 4))
 
 
 
@@ -176,11 +178,11 @@ Overfit comparison with tree slicing
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 47-48
+.. GENERATED FROM PYTHON SOURCE LINES 49-50
 
 Reliability bandwidth comparison 
 
-.. GENERATED FROM PYTHON SOURCE LINES 48-49
+.. GENERATED FROM PYTHON SOURCE LINES 50-51
 
 .. code-block:: default
 
@@ -197,11 +199,11 @@ Reliability bandwidth comparison
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 50-51
+.. GENERATED FROM PYTHON SOURCE LINES 52-53
 
 Reliability diagram comparison 
 
-.. GENERATED FROM PYTHON SOURCE LINES 51-53
+.. GENERATED FROM PYTHON SOURCE LINES 53-55
 
 .. code-block:: default
 
@@ -219,11 +221,11 @@ Reliability diagram comparison
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 54-55
+.. GENERATED FROM PYTHON SOURCE LINES 56-57
 
 Robustness comparison with default settings
 
-.. GENERATED FROM PYTHON SOURCE LINES 55-57
+.. GENERATED FROM PYTHON SOURCE LINES 57-59
 
 .. code-block:: default
 
@@ -241,11 +243,11 @@ Robustness comparison with default settings
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 58-59
+.. GENERATED FROM PYTHON SOURCE LINES 60-61
 
 Robustness comparison on worst alpha-percent samples
 
-.. GENERATED FROM PYTHON SOURCE LINES 59-61
+.. GENERATED FROM PYTHON SOURCE LINES 61-63
 
 .. code-block:: default
 
@@ -263,11 +265,11 @@ Robustness comparison on worst alpha-percent samples
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 62-63
+.. GENERATED FROM PYTHON SOURCE LINES 64-65
 
 Resilience comparison with worst-sample scenario
 
-.. GENERATED FROM PYTHON SOURCE LINES 63-66
+.. GENERATED FROM PYTHON SOURCE LINES 65-68
 
 .. code-block:: default
 
@@ -286,11 +288,11 @@ Resilience comparison with worst-sample scenario
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 67-68
+.. GENERATED FROM PYTHON SOURCE LINES 69-70
 
 Resilience distance comparison with worst-sample scenario
 
-.. GENERATED FROM PYTHON SOURCE LINES 68-70
+.. GENERATED FROM PYTHON SOURCE LINES 70-72
 
 .. code-block:: default
 
@@ -300,7 +302,7 @@ Resilience distance comparison with worst-sample scenario
 
 
 .. image-sg:: /auto_examples/testing_compare/images/sphx_glr_plot_0_compare_classification_011.png
-   :alt: Distribution Shift: 30%-Worst vs Full
+   :alt: Distribution Shift: 30%-Worst vs Remaining
    :srcset: /auto_examples/testing_compare/images/sphx_glr_plot_0_compare_classification_011.png
    :class: sphx-glr-single-img
 
@@ -311,9 +313,9 @@ Resilience distance comparison with worst-sample scenario
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** ( 1 minutes  27.109 seconds)
+   **Total running time of the script:** ( 1 minutes  43.954 seconds)
 
-**Estimated memory usage:**  122 MB
+**Estimated memory usage:**  1827 MB
 
 
 .. _sphx_glr_download_auto_examples_testing_compare_plot_0_compare_classification.py:

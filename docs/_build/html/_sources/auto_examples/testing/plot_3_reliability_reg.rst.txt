@@ -79,7 +79,7 @@ Show empirical coverage and average bandwidth for regression tasks
  .. code-block:: none
 
        Empirical Coverage  Average Bandwidth
-    0              0.8892             0.2373
+    0              0.8849             0.2037
 
 
 .. raw:: html
@@ -110,8 +110,8 @@ Show empirical coverage and average bandwidth for regression tasks
       <tbody>
         <tr>
           <th>0</th>
-          <td>0.8892</td>
-          <td>0.2373</td>
+          <td>0.8849</td>
+          <td>0.2037</td>
         </tr>
       </tbody>
     </table>
@@ -134,7 +134,7 @@ Calculate distribution shift distance of each feature between reliable and un-re
 
 
 .. image-sg:: /auto_examples/testing/images/sphx_glr_plot_3_reliability_reg_001.png
-   :alt: Distribution Shift: Reliable vs. Unreliable
+   :alt: Distribution Shift: Unreliable Regions vs. Remaining Regions
    :srcset: /auto_examples/testing/images/sphx_glr_plot_3_reliability_reg_001.png
    :class: sphx-glr-single-img
 
@@ -146,13 +146,14 @@ Calculate distribution shift distance of each feature between reliable and un-re
 
 Plot the histogram of bandwidth against a given feature
 
-.. GENERATED FROM PYTHON SOURCE LINES 30-32
+.. GENERATED FROM PYTHON SOURCE LINES 30-33
 
 .. code-block:: default
 
     exp.model_diagnose(model="XGB2", show="reliability_marginal", alpha=0.1,
                        target_feature="hr", bins=10, threshold=1.1,
                        original_scale=True, figsize=(5, 4))
+
 
 
 .. image-sg:: /auto_examples/testing/images/sphx_glr_plot_3_reliability_reg_002.png
@@ -167,7 +168,9 @@ Plot the histogram of bandwidth against a given feature
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** ( 0 minutes  37.051 seconds)
+   **Total running time of the script:** ( 0 minutes  42.422 seconds)
+
+**Estimated memory usage:**  1169 MB
 
 
 .. _sphx_glr_download_auto_examples_testing_plot_3_reliability_reg.py:

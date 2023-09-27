@@ -23,25 +23,27 @@ exp.model_train(FIGSClassifier(), name="FIGS")
 exp.model_train(XGB2Classifier(), name="XGB2")
 
 #%%
-# Accuracy comparison with AUC
+# Accuracy comparison with ACC
 exp.model_compare(models=["Tree", "FIGS", "XGB2"], show="accuracy_plot", metric="ACC", figsize=(5, 4))
+
 #%%
 # Accuracy comparison with AUC
 exp.model_compare(models=["Tree", "FIGS", "XGB2"], show="accuracy_plot", metric="AUC", figsize=(5, 4))
+
 #%%
 # Accuracy comparison with F1
 exp.model_compare(models=["Tree", "FIGS", "XGB2"], show="accuracy_plot", metric="F1", figsize=(5, 4))
 
 #%%
-# Overfit comparison with historgram slicing
+# Overfit comparison with ACC metric
 exp.model_compare(models=["Tree", "FIGS", "XGB2"], show="overfit",
                   slice_method="histogram", slice_feature="PAY_1", 
                   bins=10, metric="ACC", original_scale=True, figsize=(5, 4))
 #%%
-# Overfit comparison with tree slicing
+# Overfit comparison with AUC metric
 exp.model_compare(models=["Tree", "FIGS", "XGB2"], show="overfit",
-                  slice_method="tree", slice_feature="PAY_1", 
-                  metric="ACC", original_scale=True, figsize=(5, 4))
+                  slice_method="histogram", slice_feature="PAY_1", 
+                  metric="AUC", original_scale=True, figsize=(5, 4))
 
 #%%
 # Reliability bandwidth comparison 

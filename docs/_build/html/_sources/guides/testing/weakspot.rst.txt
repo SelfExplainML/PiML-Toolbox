@@ -27,7 +27,7 @@ If connected bins are identified as weak regions, our approach involves merging 
 
 - **Tree Slicing**: This approach employs a supervised binning method. The initial step is to calculate a specific metric for each sample, such as square error for MSE, absolute error for MAE, or correct/incorrect status for accuracy score. Next, a decision tree model is fitted using the features of interest as predictors and the individual metrics as the response. The decision tree is configured with `max_depth=3` and `min_samples_leaf` as the minimum sample size. The generated decision tree is then utilized to create bins, and the performance of each bin is assessed accordingly.
 
-- **Ensemble Tree Slicing**: This method shares similarities with tree slicing. Instead of using decision trees, it leverages xgboost with specific configurations (`max_depth=2`, `n_estimaors=100`, `tree_method="hist"`, `max_bin=20`) to generate bins based on the metrics of individual samples. The binning results obtained from xgboost tend to be more fine-grained and detailed compared to tree-based approaches.
+- **Ensemble Tree Slicing**: This method shares similarities with tree slicing. Instead of using decision trees, it leverages xgboost with specific configurations (`max_depth=2`, `n_estimators=100`, `tree_method="hist"`, `max_bin=20`) to generate bins based on the metrics of individual samples. The binning results obtained from xgboost tend to be more fine-grained and detailed compared to tree-based approaches.
 
 .. note::
 

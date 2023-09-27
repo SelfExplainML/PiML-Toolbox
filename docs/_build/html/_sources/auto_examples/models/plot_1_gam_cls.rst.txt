@@ -78,11 +78,11 @@ Evaluate predictive performance
 
  .. code-block:: none
 
-              ACC     AUC  Recall Precision      F1
-                                               
-    Train  0.8363  0.9226  0.8428    0.8346  0.8387
-    Test   0.8475  0.9306  0.8542    0.8325  0.8432
-    Gap    0.0112  0.0080  0.0113   -0.0021  0.0045
+              ACC     AUC      F1
+                             
+    Train  0.8363  0.9226  0.8387
+    Test   0.8475  0.9306  0.8432
+    Gap    0.0112  0.0080  0.0045
 
 
 
@@ -141,7 +141,7 @@ Global interpretation: feature importance
 
 .. code-block:: default
 
-    exp.model_interpret(model="GAM",show="global_fi", figsize=(5, 4))
+    exp.model_interpret(model="GAM", show="global_fi", figsize=(5, 4))
 
 
 
@@ -163,7 +163,7 @@ Local interpretation
 
 .. code-block:: default
 
-    exp.model_interpret(model="GAM",show="local_fi", sample_id=0, original_scale=True, figsize=(5, 4))
+    exp.model_interpret(model="GAM", show="local_fi", sample_id=0, original_scale=True, figsize=(5, 4))
 
 
 
@@ -179,7 +179,9 @@ Local interpretation
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** ( 0 minutes  0.669 seconds)
+   **Total running time of the script:** ( 1 minutes  49.463 seconds)
+
+**Estimated memory usage:**  14 MB
 
 
 .. _sphx_glr_download_auto_examples_models_plot_1_gam_cls.py:

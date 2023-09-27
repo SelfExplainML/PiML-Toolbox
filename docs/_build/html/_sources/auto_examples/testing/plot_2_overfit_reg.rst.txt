@@ -69,8 +69,8 @@ Histogram-based overfit test for a single feature
 .. code-block:: default
 
     results = exp.model_diagnose(model="XGB2", show="overfit", slice_method="histogram", 
-                               slice_features=["hr"], threshold=1.05, min_samples=100,
-                               original_scale=True, return_data=True, figsize=(5, 4))
+                                 slice_features=["hr"], threshold=1.05, min_samples=100,
+                                 original_scale=True, return_data=True, figsize=(5, 4))
     results.data
 
 
@@ -149,8 +149,8 @@ Histogram-based overfit test for two features
 .. code-block:: default
 
     results = exp.model_diagnose(model="XGB2", show="overfit", slice_method="histogram", 
-                               slice_features=["hr", "atemp"], threshold=1.05, min_samples=100,
-                               original_scale=True, return_data=True, figsize=(5, 4))
+                                 slice_features=["hr", "atemp"], threshold=1.05, min_samples=100,
+                                 original_scale=True, return_data=True, figsize=(5, 4))
     results.data
 
 
@@ -254,15 +254,14 @@ Histogram-based overfit test for two features
 
 Histogram-based overfit test for a single feature using MAE metric
 
-.. GENERATED FROM PYTHON SOURCE LINES 35-40
+.. GENERATED FROM PYTHON SOURCE LINES 35-39
 
 .. code-block:: default
 
     results = exp.model_diagnose(model="XGB2", show="overfit", slice_method="histogram", 
-                               slice_features=["atemp"], threshold=1.05, min_samples=100,
-                               metric="MAE", original_scale=True, return_data=True, figsize=(5, 4))
+                                 slice_features=["atemp"], threshold=1.05, min_samples=100,
+                                 metric="MAE", original_scale=True, return_data=True, figsize=(5, 4))
     results.data
-
 
 
 
@@ -321,176 +320,12 @@ Histogram-based overfit test for a single feature using MAE metric
     <br />
     <br />
 
-.. GENERATED FROM PYTHON SOURCE LINES 41-42
-
-Tree-based overfit test for a single feature
-
-.. GENERATED FROM PYTHON SOURCE LINES 42-47
-
-.. code-block:: default
-
-    results = exp.model_diagnose(model="XGB2", show="overfit", slice_method="tree", 
-                               slice_features=["hr"], threshold=1.05, min_samples=100,
-                               original_scale=True, return_data=True, figsize=(5, 4))
-    results.data
-
-
-
-
-.. image-sg:: /auto_examples/testing/images/sphx_glr_plot_2_overfit_reg_004.png
-   :alt: Overfit Regions
-   :srcset: /auto_examples/testing/images/sphx_glr_plot_2_overfit_reg_004.png
-   :class: sphx-glr-single-img
-
-
-
-.. raw:: html
-
-    <div class="output_subarea output_html rendered_html output_result">
-    <div>
-    <style scoped>
-        .dataframe tbody tr th:only-of-type {
-            vertical-align: middle;
-        }
-
-        .dataframe tbody tr th {
-            vertical-align: top;
-        }
-
-        .dataframe thead th {
-            text-align: right;
-        }
-    </style>
-    <table border="1" class="dataframe">
-      <thead>
-        <tr style="text-align: right;">
-          <th></th>
-          <th>[hr</th>
-          <th>hr)</th>
-          <th>#Test</th>
-          <th>#Train</th>
-          <th>test_MSE</th>
-          <th>train_MSE</th>
-          <th>Gap</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <th>0</th>
-          <td>0.3261</td>
-          <td>0.3696</td>
-          <td>135</td>
-          <td>592</td>
-          <td>0.0495</td>
-          <td>0.0398</td>
-          <td>0.0098</td>
-        </tr>
-        <tr>
-          <th>1</th>
-          <td>0.2826</td>
-          <td>0.3261</td>
-          <td>148</td>
-          <td>579</td>
-          <td>0.0177</td>
-          <td>0.0159</td>
-          <td>0.0019</td>
-        </tr>
-      </tbody>
-    </table>
-    </div>
-    </div>
-    <br />
-    <br />
-
-.. GENERATED FROM PYTHON SOURCE LINES 48-49
-
-Tree-based overfit test for two features
-
-.. GENERATED FROM PYTHON SOURCE LINES 49-52
-
-.. code-block:: default
-
-    results = exp.model_diagnose(model="XGB2", show="overfit", slice_method="tree", 
-                               slice_features=["hr", "atemp"], threshold=1.05, min_samples=100,
-                               original_scale=True, return_data=True, figsize=(5, 4))
-    results.data
-
-
-.. image-sg:: /auto_examples/testing/images/sphx_glr_plot_2_overfit_reg_005.png
-   :alt: Overfit Regions
-   :srcset: /auto_examples/testing/images/sphx_glr_plot_2_overfit_reg_005.png
-   :class: sphx-glr-single-img
-
-
-
-.. raw:: html
-
-    <div class="output_subarea output_html rendered_html output_result">
-    <div>
-    <style scoped>
-        .dataframe tbody tr th:only-of-type {
-            vertical-align: middle;
-        }
-
-        .dataframe tbody tr th {
-            vertical-align: top;
-        }
-
-        .dataframe thead th {
-            text-align: right;
-        }
-    </style>
-    <table border="1" class="dataframe">
-      <thead>
-        <tr style="text-align: right;">
-          <th></th>
-          <th>[hr</th>
-          <th>hr)</th>
-          <th>[atemp</th>
-          <th>atemp)</th>
-          <th>#Test</th>
-          <th>#Train</th>
-          <th>test_MSE</th>
-          <th>train_MSE</th>
-          <th>Gap</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <th>0</th>
-          <td>0.3261</td>
-          <td>0.3696</td>
-          <td>0.0</td>
-          <td>0.9848</td>
-          <td>135</td>
-          <td>592</td>
-          <td>0.0495</td>
-          <td>0.0398</td>
-          <td>0.0098</td>
-        </tr>
-        <tr>
-          <th>1</th>
-          <td>0.2826</td>
-          <td>0.3261</td>
-          <td>0.0</td>
-          <td>0.9848</td>
-          <td>148</td>
-          <td>579</td>
-          <td>0.0177</td>
-          <td>0.0159</td>
-          <td>0.0019</td>
-        </tr>
-      </tbody>
-    </table>
-    </div>
-    </div>
-    <br />
-    <br />
-
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** ( 0 minutes  4.255 seconds)
+   **Total running time of the script:** ( 0 minutes  42.953 seconds)
+
+**Estimated memory usage:**  1393 MB
 
 
 .. _sphx_glr_download_auto_examples_testing_plot_2_overfit_reg.py:

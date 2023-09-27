@@ -126,19 +126,18 @@
 <li><a class="reference internal" href="#piml.models.TreeClassifier.feature_importances_"><code class="docutils literal notranslate"><span class="pre">TreeClassifier.feature_importances_</span></code></a></li>
 <li><a class="reference internal" href="#piml.models.TreeClassifier.fit"><code class="docutils literal notranslate"><span class="pre">TreeClassifier.fit</span></code></a></li>
 <li><a class="reference internal" href="#piml.models.TreeClassifier.get_depth"><code class="docutils literal notranslate"><span class="pre">TreeClassifier.get_depth</span></code></a></li>
+<li><a class="reference internal" href="#piml.models.TreeClassifier.get_metadata_routing"><code class="docutils literal notranslate"><span class="pre">TreeClassifier.get_metadata_routing</span></code></a></li>
 <li><a class="reference internal" href="#piml.models.TreeClassifier.get_n_leaves"><code class="docutils literal notranslate"><span class="pre">TreeClassifier.get_n_leaves</span></code></a></li>
 <li><a class="reference internal" href="#piml.models.TreeClassifier.get_params"><code class="docutils literal notranslate"><span class="pre">TreeClassifier.get_params</span></code></a></li>
-<li><a class="reference internal" href="#piml.models.TreeClassifier.get_tree_diag"><code class="docutils literal notranslate"><span class="pre">TreeClassifier.get_tree_diag</span></code></a></li>
-<li><a class="reference internal" href="#piml.models.TreeClassifier.global_interpret"><code class="docutils literal notranslate"><span class="pre">TreeClassifier.global_interpret</span></code></a></li>
-<li><a class="reference internal" href="#piml.models.TreeClassifier.interpret_local_tree"><code class="docutils literal notranslate"><span class="pre">TreeClassifier.interpret_local_tree</span></code></a></li>
-<li><a class="reference internal" href="#piml.models.TreeClassifier.n_features_"><code class="docutils literal notranslate"><span class="pre">TreeClassifier.n_features_</span></code></a></li>
-<li><a class="reference internal" href="#piml.models.TreeClassifier.plot_local_tree"><code class="docutils literal notranslate"><span class="pre">TreeClassifier.plot_local_tree</span></code></a></li>
-<li><a class="reference internal" href="#piml.models.TreeClassifier.plot_tree_diag"><code class="docutils literal notranslate"><span class="pre">TreeClassifier.plot_tree_diag</span></code></a></li>
 <li><a class="reference internal" href="#piml.models.TreeClassifier.predict"><code class="docutils literal notranslate"><span class="pre">TreeClassifier.predict</span></code></a></li>
 <li><a class="reference internal" href="#piml.models.TreeClassifier.predict_log_proba"><code class="docutils literal notranslate"><span class="pre">TreeClassifier.predict_log_proba</span></code></a></li>
 <li><a class="reference internal" href="#piml.models.TreeClassifier.predict_proba"><code class="docutils literal notranslate"><span class="pre">TreeClassifier.predict_proba</span></code></a></li>
 <li><a class="reference internal" href="#piml.models.TreeClassifier.score"><code class="docutils literal notranslate"><span class="pre">TreeClassifier.score</span></code></a></li>
+<li><a class="reference internal" href="#piml.models.TreeClassifier.set_fit_request"><code class="docutils literal notranslate"><span class="pre">TreeClassifier.set_fit_request</span></code></a></li>
 <li><a class="reference internal" href="#piml.models.TreeClassifier.set_params"><code class="docutils literal notranslate"><span class="pre">TreeClassifier.set_params</span></code></a></li>
+<li><a class="reference internal" href="#piml.models.TreeClassifier.set_predict_proba_request"><code class="docutils literal notranslate"><span class="pre">TreeClassifier.set_predict_proba_request</span></code></a></li>
+<li><a class="reference internal" href="#piml.models.TreeClassifier.set_predict_request"><code class="docutils literal notranslate"><span class="pre">TreeClassifier.set_predict_request</span></code></a></li>
+<li><a class="reference internal" href="#piml.models.TreeClassifier.set_score_request"><code class="docutils literal notranslate"><span class="pre">TreeClassifier.set_score_request</span></code></a></li>
 </ul>
 </li>
 <li><a class="reference internal" href="#examples-using-piml-models-treeclassifier">Examples using <code class="docutils literal notranslate"><span class="pre">piml.models.TreeClassifier</span></code></a></li>
@@ -156,7 +155,7 @@
 <h1><code class="xref py py-mod docutils literal notranslate"><span class="pre">piml.models</span></code>.TreeClassifier<a class="headerlink" href="#piml-models-treeclassifier" title="Permalink to this heading">¶</a></h1>
 <dl class="py class">
 <dt class="sig sig-object py" id="piml.models.TreeClassifier">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">piml.models.</span></span><span class="sig-name descname"><span class="pre">TreeClassifier</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">feature_names</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">feature_types</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">criterion</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">splitter</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'best'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">max_depth</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">5</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">min_samples_split</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">2</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">min_samples_leaf</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">5</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">min_weight_fraction_leaf</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">max_features</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">random_state</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">max_leaf_nodes</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">min_impurity_decrease</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ccp_alpha</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.0</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#piml.models.TreeClassifier" title="Permalink to this definition">¶</a></dt>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">piml.models.</span></span><span class="sig-name descname"><span class="pre">TreeClassifier</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">feature_names</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">feature_types</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">criterion</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'gini'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">max_depth</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">5</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">min_samples_split</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">2</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">min_samples_leaf</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">5</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">splitter</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'best'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">min_weight_fraction_leaf</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">max_features</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">random_state</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">max_leaf_nodes</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">min_impurity_decrease</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ccp_alpha</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.0</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#piml.models.TreeClassifier" title="Permalink to this definition">¶</a></dt>
 <dd><p>A wrapper of the decision tree classifier in scikit-learn.</p>
 <p>The docstring is based on scikit-learn-1.2.2.</p>
 <dl class="field-list">
@@ -320,26 +319,14 @@ output (for multi-output problems).</p>
 <tr class="row-odd"><td><p><a class="reference internal" href="#piml.models.TreeClassifier.get_depth" title="piml.models.TreeClassifier.get_depth"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_depth</span></code></a>()</p></td>
 <td><p>Return the depth of the decision tree.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#piml.models.TreeClassifier.get_n_leaves" title="piml.models.TreeClassifier.get_n_leaves"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_n_leaves</span></code></a>()</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#piml.models.TreeClassifier.get_metadata_routing" title="piml.models.TreeClassifier.get_metadata_routing"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_metadata_routing</span></code></a>()</p></td>
+<td><p>Get metadata routing of this object.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#piml.models.TreeClassifier.get_n_leaves" title="piml.models.TreeClassifier.get_n_leaves"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_n_leaves</span></code></a>()</p></td>
 <td><p>Return the number of leaves of the decision tree.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#piml.models.TreeClassifier.get_params" title="piml.models.TreeClassifier.get_params"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_params</span></code></a>([deep])</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#piml.models.TreeClassifier.get_params" title="piml.models.TreeClassifier.get_params"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_params</span></code></a>([deep])</p></td>
 <td><p>Get parameters for this estimator.</p></td>
-</tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#piml.models.TreeClassifier.get_tree_diag" title="piml.models.TreeClassifier.get_tree_diag"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_tree_diag</span></code></a>(depth, root, tree_idx[, ...])</p></td>
-<td><p>Get tree diagram data.</p></td>
-</tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#piml.models.TreeClassifier.global_interpret" title="piml.models.TreeClassifier.global_interpret"><code class="xref py py-obj docutils literal notranslate"><span class="pre">global_interpret</span></code></a>([x, truncate_dict])</p></td>
-<td><p>Global interpret calculating.</p></td>
-</tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#piml.models.TreeClassifier.interpret_local_tree" title="piml.models.TreeClassifier.interpret_local_tree"><code class="xref py py-obj docutils literal notranslate"><span class="pre">interpret_local_tree</span></code></a>(x[, tree_idx, ...])</p></td>
-<td><p>Interpret local tree for specific sample.</p></td>
-</tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#piml.models.TreeClassifier.plot_local_tree" title="piml.models.TreeClassifier.plot_local_tree"><code class="xref py py-obj docutils literal notranslate"><span class="pre">plot_local_tree</span></code></a>(interpret_result[, ...])</p></td>
-<td><p>The plot function for local tree diagram</p></td>
-</tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#piml.models.TreeClassifier.plot_tree_diag" title="piml.models.TreeClassifier.plot_tree_diag"><code class="xref py py-obj docutils literal notranslate"><span class="pre">plot_tree_diag</span></code></a>(interpret_result[, pipeline, ...])</p></td>
-<td><p>The plot function for global tree diagram</p></td>
 </tr>
 <tr class="row-odd"><td><p><a class="reference internal" href="#piml.models.TreeClassifier.predict" title="piml.models.TreeClassifier.predict"><code class="xref py py-obj docutils literal notranslate"><span class="pre">predict</span></code></a>(X[, check_input])</p></td>
 <td><p>Predict class or regression value for X.</p></td>
@@ -353,8 +340,31 @@ output (for multi-output problems).</p>
 <tr class="row-even"><td><p><a class="reference internal" href="#piml.models.TreeClassifier.score" title="piml.models.TreeClassifier.score"><code class="xref py py-obj docutils literal notranslate"><span class="pre">score</span></code></a>(X, y[, sample_weight])</p></td>
 <td><p>Return the mean accuracy on the given test data and labels.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#piml.models.TreeClassifier.set_params" title="piml.models.TreeClassifier.set_params"><code class="xref py py-obj docutils literal notranslate"><span class="pre">set_params</span></code></a>(**params)</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#piml.models.TreeClassifier.set_fit_request" title="piml.models.TreeClassifier.set_fit_request"><code class="xref py py-obj docutils literal notranslate"><span class="pre">set_fit_request</span></code></a>(*[, check_input, sample_weight])</p></td>
+<td><p>Request metadata passed to the <code class="docutils literal notranslate"><span class="pre">fit</span></code> method.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#piml.models.TreeClassifier.set_params" title="piml.models.TreeClassifier.set_params"><code class="xref py py-obj docutils literal notranslate"><span class="pre">set_params</span></code></a>(**params)</p></td>
 <td><p>Set the parameters of this estimator.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#piml.models.TreeClassifier.set_predict_proba_request" title="piml.models.TreeClassifier.set_predict_proba_request"><code class="xref py py-obj docutils literal notranslate"><span class="pre">set_predict_proba_request</span></code></a>(*[, check_input])</p></td>
+<td><p>Request metadata passed to the <code class="docutils literal notranslate"><span class="pre">predict_proba</span></code> method.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#piml.models.TreeClassifier.set_predict_request" title="piml.models.TreeClassifier.set_predict_request"><code class="xref py py-obj docutils literal notranslate"><span class="pre">set_predict_request</span></code></a>(*[, check_input])</p></td>
+<td><p>Request metadata passed to the <code class="docutils literal notranslate"><span class="pre">predict</span></code> method.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#piml.models.TreeClassifier.set_score_request" title="piml.models.TreeClassifier.set_score_request"><code class="xref py py-obj docutils literal notranslate"><span class="pre">set_score_request</span></code></a>(*[, sample_weight])</p></td>
+<td><p>Request metadata passed to the <code class="docutils literal notranslate"><span class="pre">score</span></code> method.</p></td>
+</tr>
+</tbody>
+</table>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 60%" />
+<col style="width: 40%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><strong>parse_model</strong></p></td>
+<td></td>
 </tr>
 </tbody>
 </table>
@@ -373,7 +383,7 @@ output (for multi-output problems).</p>
 to a sparse <code class="docutils literal notranslate"><span class="pre">csr_matrix</span></code>.</p>
 </dd>
 <dt><strong>check_input</strong><span class="classifier">bool, default=True</span></dt><dd><p>Allow to bypass several input checking.
-Don’t use this parameter unless you know what you do.</p>
+Don’t use this parameter unless you know what you’re doing.</p>
 </dd>
 </dl>
 </dd>
@@ -443,7 +453,7 @@ corresponding alpha value in <code class="docutils literal notranslate"><span cl
 to a sparse <code class="docutils literal notranslate"><span class="pre">csr_matrix</span></code>.</p>
 </dd>
 <dt><strong>check_input</strong><span class="classifier">bool, default=True</span></dt><dd><p>Allow to bypass several input checking.
-Don’t use this parameter unless you know what you do.</p>
+Don’t use this parameter unless you know what you’re doing.</p>
 </dd>
 </dl>
 </dd>
@@ -519,6 +529,23 @@ and any leaf.</p>
 </dd></dl>
 
 <dl class="py method">
+<dt class="sig sig-object py" id="piml.models.TreeClassifier.get_metadata_routing">
+<span class="sig-name descname"><span class="pre">get_metadata_routing</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#piml.models.TreeClassifier.get_metadata_routing" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get metadata routing of this object.</p>
+<p>Please check <span class="xref std std-ref">User Guide</span> on how the routing
+mechanism works.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>routing</strong><span class="classifier">MetadataRequest</span></dt><dd><p>A <code class="xref py py-class docutils literal notranslate"><span class="pre">MetadataRequest</span></code> encapsulating
+routing information.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
 <dt class="sig sig-object py" id="piml.models.TreeClassifier.get_n_leaves">
 <span class="sig-name descname"><span class="pre">get_n_leaves</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#piml.models.TreeClassifier.get_n_leaves" title="Permalink to this definition">¶</a></dt>
 <dd><p>Return the number of leaves of the decision tree.</p>
@@ -554,120 +581,6 @@ contained subobjects that are estimators.</p>
 </dd></dl>
 
 <dl class="py method">
-<dt class="sig sig-object py" id="piml.models.TreeClassifier.get_tree_diag">
-<span class="sig-name descname"><span class="pre">get_tree_diag</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">depth</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">root</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tree_idx</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">truncate_dict</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">dict</span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#piml.models.TreeClassifier.get_tree_diag" title="Permalink to this definition">¶</a></dt>
-<dd><p>Get tree diagram data.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><dl class="simple">
-<dt><strong>depth</strong><span class="classifier">int</span></dt><dd><p>The max depth to display.</p>
-</dd>
-<dt><strong>root</strong><span class="classifier">int</span></dt><dd><p>The root node index for display.</p>
-</dd>
-<dt><strong>tree_idx</strong><span class="classifier">int</span></dt><dd><p>Useless in this function.</p>
-</dd>
-<dt><strong>truncate_dict</strong><span class="classifier">dict, optional</span></dt><dd><p>Feature name dictionary for truncate feature when feature name is too long, by default None</p>
-</dd>
-</dl>
-</dd>
-<dt class="field-even">Returns</dt>
-<dd class="field-even"><dl class="simple">
-<dt>TestDataResult</dt><dd><p>Global tree diagram result under specific arguments.</p>
-</dd>
-</dl>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="piml.models.TreeClassifier.global_interpret">
-<span class="sig-name descname"><span class="pre">global_interpret</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">ndarray</span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">truncate_dict</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">dict</span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#piml.models.TreeClassifier.global_interpret" title="Permalink to this definition">¶</a></dt>
-<dd><p>Global interpret calculating.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><dl class="simple">
-<dt><strong>x</strong><span class="classifier">np.array</span></dt><dd><p>Useless for this function.</p>
-</dd>
-<dt><strong>feature_names</strong><span class="classifier">list</span></dt><dd><p>The feature name list.</p>
-</dd>
-<dt><strong>truncate_dict</strong><span class="classifier">dict, optional</span></dt><dd><p>Useless for this function.</p>
-</dd>
-</dl>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="piml.models.TreeClassifier.interpret_local_tree">
-<span class="sig-name descname"><span class="pre">interpret_local_tree</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">array</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tree_idx</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">truncate_dict</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">dict</span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#piml.models.TreeClassifier.interpret_local_tree" title="Permalink to this definition">¶</a></dt>
-<dd><p>Interpret local tree for specific sample.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><dl class="simple">
-<dt><strong>x</strong><span class="classifier">np.array</span></dt><dd><p>Data to interpret, should be shape(1, :)</p>
-</dd>
-<dt><strong>tree_idx</strong><span class="classifier">int, optional</span></dt><dd><p>Useless for this function, by default None</p>
-</dd>
-<dt><strong>truncate_dict</strong><span class="classifier">dict, optional</span></dt><dd><p>Feature name dictionary for truncate feature when feature name is too long, by default None.</p>
-</dd>
-</dl>
-</dd>
-<dt class="field-even">Returns</dt>
-<dd class="field-even"><dl class="simple">
-<dt>TestDataResult</dt><dd><p>Interpret result of local tree for specific sample</p>
-</dd>
-</dl>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py property">
-<dt class="sig sig-object py" id="piml.models.TreeClassifier.n_features_">
-<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">n_features_</span></span><a class="headerlink" href="#piml.models.TreeClassifier.n_features_" title="Permalink to this definition">¶</a></dt>
-<dd><p>DEPRECATED: The attribute <code class="docutils literal notranslate"><span class="pre">n_features_</span></code> is deprecated in 1.0 and will be removed in 1.2. Use <code class="docutils literal notranslate"><span class="pre">n_features_in_</span></code> instead.</p>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="piml.models.TreeClassifier.plot_local_tree">
-<span class="sig-name descname"><span class="pre">plot_local_tree</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">interpret_result</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">TestDataResult</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pipeline</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">original_scale</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">return_fig</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">figsize</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">tuple</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">(20,</span> <span class="pre">10)</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#piml.models.TreeClassifier.plot_local_tree" title="Permalink to this definition">¶</a></dt>
-<dd><p>The plot function for local tree diagram</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><dl class="simple">
-<dt><strong>interpret_result</strong><span class="classifier">TestDataResult</span></dt><dd><p>The result of “get_tree_diag”.</p>
-</dd>
-<dt><strong>pipeline</strong><span class="classifier">piml.workflow.Pipeline, optional</span></dt><dd><p>The related model pipeline, by default None</p>
-</dd>
-<dt><strong>original_scale</strong><span class="classifier">bool, optional</span></dt><dd><p>Whether to use original scale to display, by default False</p>
-</dd>
-<dt><strong>figsize</strong><span class="classifier">tuple, optional</span></dt><dd><p>The figure size, by default (20, 10)</p>
-</dd>
-</dl>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="piml.models.TreeClassifier.plot_tree_diag">
-<span class="sig-name descname"><span class="pre">plot_tree_diag</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">interpret_result</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">TestDataResult</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pipeline</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">return_fig</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">original_scale</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">figsize</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">tuple</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">(20,</span> <span class="pre">10)</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#piml.models.TreeClassifier.plot_tree_diag" title="Permalink to this definition">¶</a></dt>
-<dd><p>The plot function for global tree diagram</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><dl class="simple">
-<dt><strong>interpret_result</strong><span class="classifier">TestDataResult</span></dt><dd><p>The result of “get_tree_diag”.</p>
-</dd>
-<dt><strong>pipeline</strong><span class="classifier">piml.workflow.Pipeline, optional</span></dt><dd><p>The related model pipeline, by default None</p>
-</dd>
-<dt><strong>original_scale</strong><span class="classifier">bool, optional</span></dt><dd><p>Whether to use original scale to display, by default False</p>
-</dd>
-<dt><strong>figsize</strong><span class="classifier">tuple, optional</span></dt><dd><p>The figure size, by default (20, 10)</p>
-</dd>
-</dl>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py method">
 <dt class="sig sig-object py" id="piml.models.TreeClassifier.predict">
 <span class="sig-name descname"><span class="pre">predict</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">X</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">check_input</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#piml.models.TreeClassifier.predict" title="Permalink to this definition">¶</a></dt>
 <dd><p>Predict class or regression value for X.</p>
@@ -682,7 +595,7 @@ returned.</p>
 to a sparse <code class="docutils literal notranslate"><span class="pre">csr_matrix</span></code>.</p>
 </dd>
 <dt><strong>check_input</strong><span class="classifier">bool, default=True</span></dt><dd><p>Allow to bypass several input checking.
-Don’t use this parameter unless you know what you do.</p>
+Don’t use this parameter unless you know what you’re doing.</p>
 </dd>
 </dl>
 </dd>
@@ -732,7 +645,7 @@ class in a leaf.</p>
 to a sparse <code class="docutils literal notranslate"><span class="pre">csr_matrix</span></code>.</p>
 </dd>
 <dt><strong>check_input</strong><span class="classifier">bool, default=True</span></dt><dd><p>Allow to bypass several input checking.
-Don’t use this parameter unless you know what you do.</p>
+Don’t use this parameter unless you know what you’re doing.</p>
 </dd>
 </dl>
 </dd>
@@ -766,7 +679,52 @@ each label set be correctly predicted.</p>
 </dd>
 <dt class="field-even">Returns</dt>
 <dd class="field-even"><dl class="simple">
-<dt><strong>score</strong><span class="classifier">float</span></dt><dd><p>Mean accuracy of <code class="docutils literal notranslate"><span class="pre">self.predict(X)</span></code> wrt. <code class="docutils literal notranslate"><span class="pre">y</span></code>.</p>
+<dt><strong>score</strong><span class="classifier">float</span></dt><dd><p>Mean accuracy of <code class="docutils literal notranslate"><span class="pre">self.predict(X)</span></code> w.r.t. <code class="docutils literal notranslate"><span class="pre">y</span></code>.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="piml.models.TreeClassifier.set_fit_request">
+<span class="sig-name descname"><span class="pre">set_fit_request</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">check_input</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Union</span><span class="p"><span class="pre">[</span></span><span class="pre">bool</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">None</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'$UNCHANGED$'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sample_weight</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Union</span><span class="p"><span class="pre">[</span></span><span class="pre">bool</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">None</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'$UNCHANGED$'</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#piml.models.TreeClassifier" title="piml.models.tree.TreeClassifier"><span class="pre">TreeClassifier</span></a></span></span><a class="headerlink" href="#piml.models.TreeClassifier.set_fit_request" title="Permalink to this definition">¶</a></dt>
+<dd><p>Request metadata passed to the <code class="docutils literal notranslate"><span class="pre">fit</span></code> method.</p>
+<p>Note that this method is only relevant if
+<code class="docutils literal notranslate"><span class="pre">enable_metadata_routing=True</span></code> (see <code class="xref py py-func docutils literal notranslate"><span class="pre">sklearn.set_config</span></code>).
+Please see <span class="xref std std-ref">User Guide</span> on how the routing
+mechanism works.</p>
+<p>The options for each parameter are:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">True</span></code>: metadata is requested, and passed to <code class="docutils literal notranslate"><span class="pre">fit</span></code> if provided. The request is ignored if metadata is not provided.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">False</span></code>: metadata is not requested and the meta-estimator will not pass it to <code class="docutils literal notranslate"><span class="pre">fit</span></code>.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">None</span></code>: metadata is not requested, and the meta-estimator will raise an error if the user provides it.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">str</span></code>: metadata should be passed to the meta-estimator with this given alias instead of the original name.</p></li>
+</ul>
+<p>The default (<code class="docutils literal notranslate"><span class="pre">sklearn.utils.metadata_routing.UNCHANGED</span></code>) retains the
+existing request. This allows you to change the request for some
+parameters and not others.</p>
+<div class="versionadded">
+<p><span class="versionmodified added">New in version 1.3.</span></p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>This method is only relevant if this estimator is used as a
+sub-estimator of a meta-estimator, e.g. used inside a
+<code class="xref py py-class docutils literal notranslate"><span class="pre">pipeline.Pipeline</span></code>. Otherwise it has no effect.</p>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>check_input</strong><span class="classifier">str, True, False, or None,                     default=sklearn.utils.metadata_routing.UNCHANGED</span></dt><dd><p>Metadata routing for <code class="docutils literal notranslate"><span class="pre">check_input</span></code> parameter in <code class="docutils literal notranslate"><span class="pre">fit</span></code>.</p>
+</dd>
+<dt><strong>sample_weight</strong><span class="classifier">str, True, False, or None,                     default=sklearn.utils.metadata_routing.UNCHANGED</span></dt><dd><p>Metadata routing for <code class="docutils literal notranslate"><span class="pre">sample_weight</span></code> parameter in <code class="docutils literal notranslate"><span class="pre">fit</span></code>.</p>
+</dd>
+</dl>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><dl class="simple">
+<dt><strong>self</strong><span class="classifier">object</span></dt><dd><p>The updated object.</p>
 </dd>
 </dl>
 </dd>
@@ -791,6 +749,135 @@ possible to update each component of a nested object.</p>
 <dt class="field-even">Returns</dt>
 <dd class="field-even"><dl class="simple">
 <dt><strong>self</strong><span class="classifier">estimator instance</span></dt><dd><p>Estimator instance.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="piml.models.TreeClassifier.set_predict_proba_request">
+<span class="sig-name descname"><span class="pre">set_predict_proba_request</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">check_input</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Union</span><span class="p"><span class="pre">[</span></span><span class="pre">bool</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">None</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'$UNCHANGED$'</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#piml.models.TreeClassifier" title="piml.models.tree.TreeClassifier"><span class="pre">TreeClassifier</span></a></span></span><a class="headerlink" href="#piml.models.TreeClassifier.set_predict_proba_request" title="Permalink to this definition">¶</a></dt>
+<dd><p>Request metadata passed to the <code class="docutils literal notranslate"><span class="pre">predict_proba</span></code> method.</p>
+<p>Note that this method is only relevant if
+<code class="docutils literal notranslate"><span class="pre">enable_metadata_routing=True</span></code> (see <code class="xref py py-func docutils literal notranslate"><span class="pre">sklearn.set_config</span></code>).
+Please see <span class="xref std std-ref">User Guide</span> on how the routing
+mechanism works.</p>
+<p>The options for each parameter are:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">True</span></code>: metadata is requested, and passed to <code class="docutils literal notranslate"><span class="pre">predict_proba</span></code> if provided. The request is ignored if metadata is not provided.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">False</span></code>: metadata is not requested and the meta-estimator will not pass it to <code class="docutils literal notranslate"><span class="pre">predict_proba</span></code>.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">None</span></code>: metadata is not requested, and the meta-estimator will raise an error if the user provides it.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">str</span></code>: metadata should be passed to the meta-estimator with this given alias instead of the original name.</p></li>
+</ul>
+<p>The default (<code class="docutils literal notranslate"><span class="pre">sklearn.utils.metadata_routing.UNCHANGED</span></code>) retains the
+existing request. This allows you to change the request for some
+parameters and not others.</p>
+<div class="versionadded">
+<p><span class="versionmodified added">New in version 1.3.</span></p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>This method is only relevant if this estimator is used as a
+sub-estimator of a meta-estimator, e.g. used inside a
+<code class="xref py py-class docutils literal notranslate"><span class="pre">pipeline.Pipeline</span></code>. Otherwise it has no effect.</p>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>check_input</strong><span class="classifier">str, True, False, or None,                     default=sklearn.utils.metadata_routing.UNCHANGED</span></dt><dd><p>Metadata routing for <code class="docutils literal notranslate"><span class="pre">check_input</span></code> parameter in <code class="docutils literal notranslate"><span class="pre">predict_proba</span></code>.</p>
+</dd>
+</dl>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><dl class="simple">
+<dt><strong>self</strong><span class="classifier">object</span></dt><dd><p>The updated object.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="piml.models.TreeClassifier.set_predict_request">
+<span class="sig-name descname"><span class="pre">set_predict_request</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">check_input</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Union</span><span class="p"><span class="pre">[</span></span><span class="pre">bool</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">None</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'$UNCHANGED$'</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#piml.models.TreeClassifier" title="piml.models.tree.TreeClassifier"><span class="pre">TreeClassifier</span></a></span></span><a class="headerlink" href="#piml.models.TreeClassifier.set_predict_request" title="Permalink to this definition">¶</a></dt>
+<dd><p>Request metadata passed to the <code class="docutils literal notranslate"><span class="pre">predict</span></code> method.</p>
+<p>Note that this method is only relevant if
+<code class="docutils literal notranslate"><span class="pre">enable_metadata_routing=True</span></code> (see <code class="xref py py-func docutils literal notranslate"><span class="pre">sklearn.set_config</span></code>).
+Please see <span class="xref std std-ref">User Guide</span> on how the routing
+mechanism works.</p>
+<p>The options for each parameter are:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">True</span></code>: metadata is requested, and passed to <code class="docutils literal notranslate"><span class="pre">predict</span></code> if provided. The request is ignored if metadata is not provided.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">False</span></code>: metadata is not requested and the meta-estimator will not pass it to <code class="docutils literal notranslate"><span class="pre">predict</span></code>.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">None</span></code>: metadata is not requested, and the meta-estimator will raise an error if the user provides it.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">str</span></code>: metadata should be passed to the meta-estimator with this given alias instead of the original name.</p></li>
+</ul>
+<p>The default (<code class="docutils literal notranslate"><span class="pre">sklearn.utils.metadata_routing.UNCHANGED</span></code>) retains the
+existing request. This allows you to change the request for some
+parameters and not others.</p>
+<div class="versionadded">
+<p><span class="versionmodified added">New in version 1.3.</span></p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>This method is only relevant if this estimator is used as a
+sub-estimator of a meta-estimator, e.g. used inside a
+<code class="xref py py-class docutils literal notranslate"><span class="pre">pipeline.Pipeline</span></code>. Otherwise it has no effect.</p>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>check_input</strong><span class="classifier">str, True, False, or None,                     default=sklearn.utils.metadata_routing.UNCHANGED</span></dt><dd><p>Metadata routing for <code class="docutils literal notranslate"><span class="pre">check_input</span></code> parameter in <code class="docutils literal notranslate"><span class="pre">predict</span></code>.</p>
+</dd>
+</dl>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><dl class="simple">
+<dt><strong>self</strong><span class="classifier">object</span></dt><dd><p>The updated object.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="piml.models.TreeClassifier.set_score_request">
+<span class="sig-name descname"><span class="pre">set_score_request</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sample_weight</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Union</span><span class="p"><span class="pre">[</span></span><span class="pre">bool</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">None</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'$UNCHANGED$'</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#piml.models.TreeClassifier" title="piml.models.tree.TreeClassifier"><span class="pre">TreeClassifier</span></a></span></span><a class="headerlink" href="#piml.models.TreeClassifier.set_score_request" title="Permalink to this definition">¶</a></dt>
+<dd><p>Request metadata passed to the <code class="docutils literal notranslate"><span class="pre">score</span></code> method.</p>
+<p>Note that this method is only relevant if
+<code class="docutils literal notranslate"><span class="pre">enable_metadata_routing=True</span></code> (see <code class="xref py py-func docutils literal notranslate"><span class="pre">sklearn.set_config</span></code>).
+Please see <span class="xref std std-ref">User Guide</span> on how the routing
+mechanism works.</p>
+<p>The options for each parameter are:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">True</span></code>: metadata is requested, and passed to <code class="docutils literal notranslate"><span class="pre">score</span></code> if provided. The request is ignored if metadata is not provided.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">False</span></code>: metadata is not requested and the meta-estimator will not pass it to <code class="docutils literal notranslate"><span class="pre">score</span></code>.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">None</span></code>: metadata is not requested, and the meta-estimator will raise an error if the user provides it.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">str</span></code>: metadata should be passed to the meta-estimator with this given alias instead of the original name.</p></li>
+</ul>
+<p>The default (<code class="docutils literal notranslate"><span class="pre">sklearn.utils.metadata_routing.UNCHANGED</span></code>) retains the
+existing request. This allows you to change the request for some
+parameters and not others.</p>
+<div class="versionadded">
+<p><span class="versionmodified added">New in version 1.3.</span></p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>This method is only relevant if this estimator is used as a
+sub-estimator of a meta-estimator, e.g. used inside a
+<code class="xref py py-class docutils literal notranslate"><span class="pre">pipeline.Pipeline</span></code>. Otherwise it has no effect.</p>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>sample_weight</strong><span class="classifier">str, True, False, or None,                     default=sklearn.utils.metadata_routing.UNCHANGED</span></dt><dd><p>Metadata routing for <code class="docutils literal notranslate"><span class="pre">sample_weight</span></code> parameter in <code class="docutils literal notranslate"><span class="pre">score</span></code>.</p>
+</dd>
+</dl>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><dl class="simple">
+<dt><strong>self</strong><span class="classifier">object</span></dt><dd><p>The updated object.</p>
 </dd>
 </dl>
 </dd>

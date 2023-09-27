@@ -17,12 +17,12 @@ exp.data_loader(data="BikeSharing", silent=True)
 #%%
 # Random split
 exp.data_prepare(target='cnt', task_type='regression', sample_weight=None,
-                       split_method='random', test_ratio=0.2, random_state=0)
+                 split_method='random', test_ratio=0.2, random_state=0)
 
 #%%
 # Outer-sample-based split
 exp.data_prepare(target='cnt', task_type='regression', sample_weight=None,
-            split_method='outer-sample', test_ratio=0.2, random_state=0)
+                 split_method='outer-sample', test_ratio=0.2, random_state=0)
 
 #%%
 # KMeans-based split

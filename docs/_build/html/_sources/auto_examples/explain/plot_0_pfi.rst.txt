@@ -85,7 +85,9 @@ PFI Plot
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** ( 0 minutes  1.574 seconds)
+   **Total running time of the script:** ( 0 minutes  27.214 seconds)
+
+**Estimated memory usage:**  1375 MB
 
 
 .. _sphx_glr_download_auto_examples_explain_plot_0_pfi.py:

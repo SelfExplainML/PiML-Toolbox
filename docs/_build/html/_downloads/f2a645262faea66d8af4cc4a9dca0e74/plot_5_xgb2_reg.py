@@ -32,7 +32,8 @@ exp.model_interpret(model="XGB2", show="global_effect_plot", uni_feature="atemp"
 
 #%%
 # Global effect plot for hr and season
-exp.model_interpret(model="XGB2", show="global_effect_plot", bi_features=["hr", "season"], original_scale=True, figsize=(5, 4))
+exp.model_interpret(model="XGB2", show="global_effect_plot", bi_features=["hr", "season"],
+                    sliced_line=False, original_scale=True, figsize=(5, 4))
 
 #%%
 # Effect importance

@@ -75,7 +75,7 @@ Calculate distribution shift distance of each feature between reliable and un-re
 
 
 .. image-sg:: /auto_examples/testing/images/sphx_glr_plot_3_reliability_cls_001.png
-   :alt: Distribution Gap: Below vs. Above Threshold
+   :alt: Distribution Shift: Unreliable Regions vs. Remaining Regions
    :srcset: /auto_examples/testing/images/sphx_glr_plot_3_reliability_cls_001.png
    :class: sphx-glr-single-img
 
@@ -152,12 +152,11 @@ Reliability diagram
 
 Brier Score
 
-.. GENERATED FROM PYTHON SOURCE LINES 38-40
+.. GENERATED FROM PYTHON SOURCE LINES 38-39
 
 .. code-block:: default
 
-    results = exp.model_diagnose(model="GAM", show="reliability_table", return_data=True)
-    results.data
+    exp.model_diagnose(model="GAM", show="reliability_table")
 
 
 
@@ -170,48 +169,14 @@ Brier Score
     0    0.1258      0.1276
 
 
-.. raw:: html
 
-    <div class="output_subarea output_html rendered_html output_result">
-    <div>
-    <style scoped>
-        .dataframe tbody tr th:only-of-type {
-            vertical-align: middle;
-        }
-
-        .dataframe tbody tr th {
-            vertical-align: top;
-        }
-
-        .dataframe thead th {
-            text-align: right;
-        }
-    </style>
-    <table border="1" class="dataframe">
-      <thead>
-        <tr style="text-align: right;">
-          <th></th>
-          <th>Original</th>
-          <th>Calibrated</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <th>0</th>
-          <td>0.1258</td>
-          <td>0.1276</td>
-        </tr>
-      </tbody>
-    </table>
-    </div>
-    </div>
-    <br />
-    <br />
 
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** ( 0 minutes  11.059 seconds)
+   **Total running time of the script:** ( 1 minutes  29.094 seconds)
+
+**Estimated memory usage:**  1924 MB
 
 
 .. _sphx_glr_download_auto_examples_testing_plot_3_reliability_cls.py:

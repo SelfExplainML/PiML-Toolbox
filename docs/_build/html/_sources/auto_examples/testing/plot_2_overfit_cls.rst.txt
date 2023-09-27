@@ -85,8 +85,8 @@ Histogram-based overfit test for a single feature
 .. code-block:: default
 
     results = exp.model_diagnose(model="XGB2", show="overfit", slice_method="histogram", 
-                               slice_features=["BILL_AMT1"], threshold=1.05, min_samples=20,
-                               original_scale=True, return_data=True, figsize=(5, 4))
+                                 slice_features=["BILL_AMT1"], threshold=1.05, min_samples=20,
+                                 original_scale=True, return_data=True, figsize=(5, 4))
     results.data
 
 
@@ -155,8 +155,8 @@ Histogram-based overfit test for two features
 .. code-block:: default
 
     results = exp.model_diagnose(model="XGB2", show="overfit", slice_method="histogram", 
-                               slice_features=["PAY_1", "BILL_AMT1"], threshold=1.05, min_samples=20,
-                               original_scale=True, return_data=True, figsize=(5, 4))
+                                 slice_features=["PAY_1", "BILL_AMT1"], threshold=1.05, min_samples=20,
+                                 original_scale=True, return_data=True, figsize=(5, 4))
     results.data
 
 
@@ -273,15 +273,14 @@ Histogram-based overfit test for two features
 
 Histogram-based overfit test for a single feature on test set
 
-.. GENERATED FROM PYTHON SOURCE LINES 38-43
+.. GENERATED FROM PYTHON SOURCE LINES 38-42
 
 .. code-block:: default
 
     results = exp.model_diagnose(model="XGB2", show="overfit", slice_method="histogram", 
-                               slice_features=["BILL_AMT1"], threshold=1.05, min_samples=20,
-                               use_test=True, original_scale=True, return_data=True, figsize=(5, 4))
+                                 slice_features=["BILL_AMT1"], threshold=1.05, min_samples=20,
+                                 use_test=True, original_scale=True, return_data=True, figsize=(5, 4))
     results.data
-
 
 
 
@@ -340,189 +339,12 @@ Histogram-based overfit test for a single feature on test set
     <br />
     <br />
 
-.. GENERATED FROM PYTHON SOURCE LINES 44-45
-
-Tree-based overfit test for a single feature
-
-.. GENERATED FROM PYTHON SOURCE LINES 45-50
-
-.. code-block:: default
-
-    results = exp.model_diagnose(model="XGB2", show="overfit", slice_method="tree", 
-                               slice_features=["BILL_AMT1"], threshold=1.05, min_samples=20,
-                               metric="ACC", original_scale=True, return_data=True, figsize=(5, 4))
-    results.data
-
-
-
-
-.. image-sg:: /auto_examples/testing/images/sphx_glr_plot_2_overfit_cls_004.png
-   :alt: Overfit Regions
-   :srcset: /auto_examples/testing/images/sphx_glr_plot_2_overfit_cls_004.png
-   :class: sphx-glr-single-img
-
-
-
-.. raw:: html
-
-    <div class="output_subarea output_html rendered_html output_result">
-    <div>
-    <style scoped>
-        .dataframe tbody tr th:only-of-type {
-            vertical-align: middle;
-        }
-
-        .dataframe tbody tr th {
-            vertical-align: top;
-        }
-
-        .dataframe thead th {
-            text-align: right;
-        }
-    </style>
-    <table border="1" class="dataframe">
-      <thead>
-        <tr style="text-align: right;">
-          <th></th>
-          <th>[BILL_AMT1</th>
-          <th>BILL_AMT1)</th>
-          <th>#Test</th>
-          <th>#Train</th>
-          <th>test_ACC</th>
-          <th>train_ACC</th>
-          <th>Gap</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <th>0</th>
-          <td>0.1073</td>
-          <td>0.3453</td>
-          <td>80</td>
-          <td>296</td>
-          <td>0.8</td>
-          <td>0.8480</td>
-          <td>-0.0480</td>
-        </tr>
-        <tr>
-          <th>1</th>
-          <td>0.9831</td>
-          <td>1.0100</td>
-          <td>20</td>
-          <td>44</td>
-          <td>0.7</td>
-          <td>0.8182</td>
-          <td>-0.1182</td>
-        </tr>
-      </tbody>
-    </table>
-    </div>
-    </div>
-    <br />
-    <br />
-
-.. GENERATED FROM PYTHON SOURCE LINES 51-52
-
-Tree-based overfit test for two features
-
-.. GENERATED FROM PYTHON SOURCE LINES 52-56
-
-.. code-block:: default
-
-    results = exp.model_diagnose(model="XGB2", show="overfit", slice_method="tree", 
-                               slice_features=["PAY_1", "BILL_AMT1"], threshold=1.05, min_samples=20,
-                               original_scale=True, return_data=True, figsize=(5, 4))
-    results.data
-
-
-
-.. image-sg:: /auto_examples/testing/images/sphx_glr_plot_2_overfit_cls_005.png
-   :alt: Overfit Regions
-   :srcset: /auto_examples/testing/images/sphx_glr_plot_2_overfit_cls_005.png
-   :class: sphx-glr-single-img
-
-
-
-.. raw:: html
-
-    <div class="output_subarea output_html rendered_html output_result">
-    <div>
-    <style scoped>
-        .dataframe tbody tr th:only-of-type {
-            vertical-align: middle;
-        }
-
-        .dataframe tbody tr th {
-            vertical-align: top;
-        }
-
-        .dataframe thead th {
-            text-align: right;
-        }
-    </style>
-    <table border="1" class="dataframe">
-      <thead>
-        <tr style="text-align: right;">
-          <th></th>
-          <th>[PAY_1</th>
-          <th>PAY_1)</th>
-          <th>[BILL_AMT1</th>
-          <th>BILL_AMT1)</th>
-          <th>#Test</th>
-          <th>#Train</th>
-          <th>test_ACC</th>
-          <th>train_ACC</th>
-          <th>Gap</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <th>0</th>
-          <td>0.1667</td>
-          <td>1.0000</td>
-          <td>0.1073</td>
-          <td>0.3453</td>
-          <td>52</td>
-          <td>198</td>
-          <td>0.7885</td>
-          <td>0.8283</td>
-          <td>-0.0398</td>
-        </tr>
-        <tr>
-          <th>1</th>
-          <td>0.0000</td>
-          <td>0.1667</td>
-          <td>0.7228</td>
-          <td>0.7332</td>
-          <td>75</td>
-          <td>299</td>
-          <td>0.6933</td>
-          <td>0.7559</td>
-          <td>-0.0625</td>
-        </tr>
-        <tr>
-          <th>2</th>
-          <td>0.0000</td>
-          <td>0.1667</td>
-          <td>0.9807</td>
-          <td>1.0100</td>
-          <td>20</td>
-          <td>45</td>
-          <td>0.7000</td>
-          <td>0.8000</td>
-          <td>-0.1000</td>
-        </tr>
-      </tbody>
-    </table>
-    </div>
-    </div>
-    <br />
-    <br />
-
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** ( 0 minutes  4.794 seconds)
+   **Total running time of the script:** ( 0 minutes  34.138 seconds)
+
+**Estimated memory usage:**  1711 MB
 
 
 .. _sphx_glr_download_auto_examples_testing_plot_2_overfit_cls.py:

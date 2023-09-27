@@ -82,9 +82,9 @@ Evaluate predictive performance
 
               MSE     MAE       R2
                               
-    Train  0.0072  0.0589   0.7920
-    Test   0.0078  0.0615   0.7782
-    Gap    0.0006  0.0026  -0.0138
+    Train  0.0072  0.0589   0.7918
+    Test   0.0078  0.0615   0.7779
+    Gap    0.0006  0.0025  -0.0140
 
 
 
@@ -104,7 +104,7 @@ Global effect plot for hr
 
 
 .. image-sg:: /auto_examples/models/images/sphx_glr_plot_6_ebm_reg_001.png
-   :alt: hr (63.9%)
+   :alt: hr (64.0%)
    :srcset: /auto_examples/models/images/sphx_glr_plot_6_ebm_reg_001.png
    :class: sphx-glr-single-img
 
@@ -215,7 +215,7 @@ Local interpretation by effect
 
 
 .. image-sg:: /auto_examples/models/images/sphx_glr_plot_6_ebm_reg_006.png
-   :alt: Predicted: 0.0818 | Actual: 0.1600
+   :alt: Predicted: 0.0805 | Actual: 0.1600
    :srcset: /auto_examples/models/images/sphx_glr_plot_6_ebm_reg_006.png
    :class: sphx-glr-single-img
 
@@ -236,7 +236,7 @@ Local interpretation by feature
 
 
 .. image-sg:: /auto_examples/models/images/sphx_glr_plot_6_ebm_reg_007.png
-   :alt: Predicted: 0.0818 | Actual: 0.1600
+   :alt: Predicted: 0.0805 | Actual: 0.1600
    :srcset: /auto_examples/models/images/sphx_glr_plot_6_ebm_reg_007.png
    :class: sphx-glr-single-img
 
@@ -247,7 +247,9 @@ Local interpretation by feature
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** ( 0 minutes  10.727 seconds)
+   **Total running time of the script:** ( 19 minutes  59.381 seconds)
+
+**Estimated memory usage:**  1256 MB
 
 
 .. _sphx_glr_download_auto_examples_models_plot_6_ebm_reg.py:

@@ -320,7 +320,7 @@
 <div class="jupyter_cell jupyter_container docutils container">
 <div class="cell_input code_cell docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">exp</span><span class="o">.</span><span class="n">model_interpret</span><span class="p">(</span><span class="n">model</span><span class="o">=</span><span class="s2">&quot;XGB2&quot;</span><span class="p">,</span> <span class="n">show</span><span class="o">=</span><span class="s2">&quot;global_effect_plot&quot;</span><span class="p">,</span> <span class="n">bi_features</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;hr&quot;</span><span class="p">,</span> <span class="s2">&quot;workingday&quot;</span><span class="p">],</span>
-                    <span class="n">original_scale</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">4</span><span class="p">))</span>
+                    <span class="n">sliced_line</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">original_scale</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">4</span><span class="p">))</span>
 </pre></div>
 </div>
 </div>
@@ -330,7 +330,7 @@
 <figure class="align-left">
 <a class="reference external image-reference" href="../../auto_examples/models/plot_5_xgb2_reg.html"><img alt="../../_images/sphx_glr_plot_5_xgb2_reg_003.png" src="../../_images/sphx_glr_plot_5_xgb2_reg_003.png" /></a>
 </figure>
-<p>The estimated pairwise interaction between <code class="docutils literal notranslate"><span class="pre">hr</span></code> and <code class="docutils literal notranslate"><span class="pre">workingday</span></code> is shown in the figure above. The plot reveals that the best hours of bike sharing can be quite different for workingday and non-working days.</p>
+<p>The estimated pairwise interaction between <code class="docutils literal notranslate"><span class="pre">hr</span></code> and <code class="docutils literal notranslate"><span class="pre">workingday</span></code> is shown in the figure above. The plot reveals that the best hours of bike sharing can be quite different for workingday and non-working days. Similar to two-way PDP and ALE, the interaction heatmap can be viewed via sliced 1D line plot, by setting <code class="docutils literal notranslate"><span class="pre">sliced_line=True</span></code>. (This is the same for all the GAMI models, including EBM, GAMI-Net)</p>
 </section>
 <section id="effect-importance">
 <h3><span class="section-number">5.6.2.3. </span>Effect Importance<a class="headerlink" href="#effect-importance" title="Permalink to this heading">¶</a></h3>

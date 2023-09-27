@@ -123,14 +123,21 @@
 <li><a class="reference internal" href="#"><code class="xref py py-mod docutils literal notranslate"><span class="pre">piml.models</span></code>.ExplainableBoostingRegressor</a><ul>
 <li><a class="reference internal" href="#piml.models.ExplainableBoostingRegressor"><code class="docutils literal notranslate"><span class="pre">ExplainableBoostingRegressor</span></code></a><ul>
 <li><a class="reference internal" href="#piml.models.ExplainableBoostingRegressor.decision_function"><code class="docutils literal notranslate"><span class="pre">ExplainableBoostingRegressor.decision_function</span></code></a></li>
+<li><a class="reference internal" href="#piml.models.ExplainableBoostingRegressor.explain_global"><code class="docutils literal notranslate"><span class="pre">ExplainableBoostingRegressor.explain_global</span></code></a></li>
 <li><a class="reference internal" href="#piml.models.ExplainableBoostingRegressor.fit"><code class="docutils literal notranslate"><span class="pre">ExplainableBoostingRegressor.fit</span></code></a></li>
+<li><a class="reference internal" href="#piml.models.ExplainableBoostingRegressor.get_metadata_routing"><code class="docutils literal notranslate"><span class="pre">ExplainableBoostingRegressor.get_metadata_routing</span></code></a></li>
 <li><a class="reference internal" href="#piml.models.ExplainableBoostingRegressor.get_params"><code class="docutils literal notranslate"><span class="pre">ExplainableBoostingRegressor.get_params</span></code></a></li>
-<li><a class="reference internal" href="#piml.models.ExplainableBoostingRegressor.model_unwrapper"><code class="docutils literal notranslate"><span class="pre">ExplainableBoostingRegressor.model_unwrapper</span></code></a></li>
+<li><a class="reference internal" href="#piml.models.ExplainableBoostingRegressor.monotonize"><code class="docutils literal notranslate"><span class="pre">ExplainableBoostingRegressor.monotonize</span></code></a></li>
+<li><a class="reference internal" href="#piml.models.ExplainableBoostingRegressor.parse_model"><code class="docutils literal notranslate"><span class="pre">ExplainableBoostingRegressor.parse_model</span></code></a></li>
 <li><a class="reference internal" href="#piml.models.ExplainableBoostingRegressor.predict"><code class="docutils literal notranslate"><span class="pre">ExplainableBoostingRegressor.predict</span></code></a></li>
+<li><a class="reference internal" href="#piml.models.ExplainableBoostingRegressor.predict_and_contrib"><code class="docutils literal notranslate"><span class="pre">ExplainableBoostingRegressor.predict_and_contrib</span></code></a></li>
 <li><a class="reference internal" href="#piml.models.ExplainableBoostingRegressor.score"><code class="docutils literal notranslate"><span class="pre">ExplainableBoostingRegressor.score</span></code></a></li>
 <li><a class="reference internal" href="#piml.models.ExplainableBoostingRegressor.set_params"><code class="docutils literal notranslate"><span class="pre">ExplainableBoostingRegressor.set_params</span></code></a></li>
+<li><a class="reference internal" href="#piml.models.ExplainableBoostingRegressor.set_score_request"><code class="docutils literal notranslate"><span class="pre">ExplainableBoostingRegressor.set_score_request</span></code></a></li>
+<li><a class="reference internal" href="#piml.models.ExplainableBoostingRegressor.term_importances"><code class="docutils literal notranslate"><span class="pre">ExplainableBoostingRegressor.term_importances</span></code></a></li>
 </ul>
 </li>
+<li><a class="reference internal" href="#examples-using-piml-models-explainableboostingregressor">Examples using <code class="docutils literal notranslate"><span class="pre">piml.models.ExplainableBoostingRegressor</span></code></a></li>
 </ul>
 </li>
 </ul>
@@ -145,46 +152,128 @@
 <h1><code class="xref py py-mod docutils literal notranslate"><span class="pre">piml.models</span></code>.ExplainableBoostingRegressor<a class="headerlink" href="#piml-models-explainableboostingregressor" title="Permalink to this heading">¶</a></h1>
 <dl class="py class">
 <dt class="sig sig-object py" id="piml.models.ExplainableBoostingRegressor">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">piml.models.</span></span><span class="sig-name descname"><span class="pre">ExplainableBoostingRegressor</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">feature_names</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">feature_types</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">max_bins</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">256</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">max_interaction_bins</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">32</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">binning</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'quantile'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mains</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'all'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">interactions</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">10</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">outer_bags</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">8</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">inner_bags</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">learning_rate</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.01</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">validation_size</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.15</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">early_stopping_rounds</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">50</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">early_stopping_tolerance</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.0001</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">max_rounds</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">5000</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">min_samples_leaf</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">2</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">max_leaves</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">3</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n_jobs</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">-2</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">random_state</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#piml.models.ExplainableBoostingRegressor" title="Permalink to this definition">¶</a></dt>
-<dd><p>Explainable boosting regressor based on interpret-0.2.7.</p>
-<dl class="field-list simple">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">piml.models.</span></span><span class="sig-name descname"><span class="pre">ExplainableBoostingRegressor</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">feature_names</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">Sequence</span><span class="p"><span class="pre">[</span></span><span class="pre">Union</span><span class="p"><span class="pre">[</span></span><span class="pre">None</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">str</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">feature_types</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">Sequence</span><span class="p"><span class="pre">[</span></span><span class="pre">Union</span><span class="p"><span class="pre">[</span></span><span class="pre">None</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Sequence</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Sequence</span><span class="p"><span class="pre">[</span></span><span class="pre">float</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">max_bins</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">256</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">max_interaction_bins</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">32</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">interactions</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">Union</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">float</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Sequence</span><span class="p"><span class="pre">[</span></span><span class="pre">Union</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Sequence</span><span class="p"><span class="pre">[</span></span><span class="pre">Union</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">str</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">10</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">exclude</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">Sequence</span><span class="p"><span class="pre">[</span></span><span class="pre">Union</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Sequence</span><span class="p"><span class="pre">[</span></span><span class="pre">Union</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">str</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">[]</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">validation_size</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">Union</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">float</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">0.15</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">outer_bags</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">8</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">inner_bags</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">learning_rate</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">0.01</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">greediness</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">float</span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">0.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">smoothing_rounds</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">max_rounds</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">5000</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">early_stopping_rounds</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">50</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">early_stopping_tolerance</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">float</span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">0.0001</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">min_samples_leaf</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">2</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">max_leaves</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">3</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">objective</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">unicode</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'rmse'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n_jobs</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">-2</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">random_state</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">42</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#piml.models.ExplainableBoostingRegressor" title="Permalink to this definition">¶</a></dt>
+<dd><p>An Explainable Boosting Regressor based on interpret==0.4.2</p>
+<dl class="field-list">
 <dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><dl class="simple">
-<dt><strong>feature_names</strong><span class="classifier">list or None, default=None</span></dt><dd><p>The list of feature names.</p>
+<dd class="field-odd"><dl>
+<dt><strong>feature_names</strong><span class="classifier">list of str, default=None</span></dt><dd><p>List of feature names.</p>
 </dd>
-<dt><strong>feature_types</strong><span class="classifier">list or None, default=None</span></dt><dd><p>The list of feature types. Available types include “numerical” and “categorical”.</p>
+<dt><strong>feature_types</strong><span class="classifier">list of FeatureType, default=None</span></dt><dd><p>List of feature types. FeatureType can be ‘numerical’ or ‘categorical’.</p>
 </dd>
-<dt><strong>max_bins</strong><span class="classifier">int, default=256</span></dt><dd><p>Max number of bins per feature for pre-processing stage on main effects.</p>
+<dt><strong>max_bins</strong><span class="classifier">int, default=256</span></dt><dd><p>Max number of bins per feature for the main effects stage.</p>
 </dd>
-<dt><strong>max_interaction_bins: int, default=32</strong></dt><dd><p>Max number of bins per feature for pre-processing stage on interaction terms. Only used if interactions is non-zero.</p>
+<dt><strong>max_interaction_bins</strong><span class="classifier">int, default=32</span></dt><dd><p>Max number of bins per feature for interaction terms.</p>
 </dd>
-<dt><strong>binning: {“uniform”, “quantile”, or “quantile_humanized”}, default=”quantile”</strong></dt><dd><p>Method to bin values for pre-processing. “quantile_humanized” is a rounded version of quantile bins.</p>
+<dt><strong>interactions</strong><span class="classifier">int, float, or list of tuples of feature indices, default=10</span></dt><dd><p>Interaction terms to be included in the model. Options are:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>Integer (1 &lt;= interactions): Count of interactions to be automatically selected</p></li>
+<li><p>Percentage (interactions &lt; 1.0): Determine the integer count of interactions by multiplying the number of features by this percentage</p></li>
+<li><p>List of tuples: The tuples contain the indices of the features within the additive term</p></li>
+</ul>
+</div></blockquote>
 </dd>
-<dt><strong>mains: list or str, default=”all”</strong></dt><dd><p>Features to be trained on in main effects stage. Either “all” or a list of feature indexes.</p>
+<dt><strong>exclude</strong><span class="classifier">‘mains’ or list of tuples of feature indices|names, default=[]</span></dt><dd><p>Features or terms to be excluded.</p>
 </dd>
-<dt><strong>interactions: int or list, default=10</strong></dt><dd><p>Interactions to be trained on. Either a list of lists of feature indices, or an integer for number of automatically detected interactions.</p>
+<dt><strong>validation_size</strong><span class="classifier">int or float, default=0.15</span></dt><dd><p>Validation set size. Used for early stopping during boosting, and is needed to create outer bags.</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>Integer (1 &lt;= validation_size): Count of samples to put in the validation sets</p></li>
+<li><p>Percentage (validation_size &lt; 1.0): Percentage of the data to put in the validation sets</p></li>
+<li><p>0: Turns off early stopping. Outer bags have no utility. Error bounds will be eliminated</p></li>
+</ul>
+</div></blockquote>
 </dd>
-<dt><strong>outer_bags: int, default=8</strong></dt><dd><p>Number of outer bags.</p>
+<dt><strong>outer_bags</strong><span class="classifier">int, default=8</span></dt><dd><p>Number of outer bags. Outer bags are used to generate error bounds and help with smoothing the graphs.</p>
 </dd>
-<dt><strong>inner_bags: int, default=0</strong></dt><dd><p>Number of inner bags.</p>
+<dt><strong>inner_bags</strong><span class="classifier">int, default=0</span></dt><dd><p>Number of inner bags. 0 turns off inner bagging.</p>
 </dd>
-<dt><strong>learning_rate: float, default=0.01</strong></dt><dd><p>Learning rate for boosting.</p>
+<dt><strong>learning_rate</strong><span class="classifier">float, default=0.01</span></dt><dd><p>Learning rate for boosting.</p>
 </dd>
-<dt><strong>validation_size: float, default=0.15</strong></dt><dd><p>Validation set size for boosting.</p>
+<dt><strong>greediness</strong><span class="classifier">float, default=0.0</span></dt><dd><p>Percentage of rounds where boosting is greedy instead of round-robin. Greedy rounds are intermixed with cyclic rounds.</p>
 </dd>
-<dt><strong>early_stopping_rounds: int, default=50</strong></dt><dd><p>Number of rounds of no improvement to trigger early stopping.</p>
+<dt><strong>smoothing_rounds</strong><span class="classifier">int, default=0</span></dt><dd><p>Number of initial highly regularized rounds to set the basic shape of the main effect feature graphs.</p>
 </dd>
-<dt><strong>early_stopping_tolerance: float, default=1e-4</strong></dt><dd><p>Tolerance that dictates the smallest delta required to be considered an improvement.</p>
+<dt><strong>max_rounds</strong><span class="classifier">int, default=5000</span></dt><dd><p>Total number of boosting rounds with n_terms boosting steps per round.</p>
 </dd>
-<dt><strong>max_rounds: int, default=5000</strong></dt><dd><p>Number of rounds for boosting.</p>
+<dt><strong>early_stopping_rounds</strong><span class="classifier">int, default=50</span></dt><dd><p>Number of rounds with no improvement to trigger early stopping. 0 turns off
+early stopping and boosting will occur for exactly max_rounds.</p>
 </dd>
-<dt><strong>min_samples_leaf: int, default=2</strong></dt><dd><p>Minimum number of cases for tree splits used in boosting.</p>
+<dt><strong>early_stopping_tolerance</strong><span class="classifier">float, default=1e-4</span></dt><dd><p>Tolerance that dictates the smallest delta required to be considered an improvement.</p>
 </dd>
-<dt><strong>max_leaves: int, default=3</strong></dt><dd><p>Maximum leaf nodes used in boosting.</p>
+<dt><strong>min_samples_leaf</strong><span class="classifier">int, default=2</span></dt><dd><p>Minimum number of samples allowed in the leaves.</p>
 </dd>
-<dt><strong>n_jobs: int, default=-2</strong></dt><dd><p>Number of jobs to run in parallel. -1 means all CPUs are used; -2 means all CPUs but one are used, etc.</p>
+<dt><strong>max_leaves</strong><span class="classifier">int, default=3</span></dt><dd><p>Maximum number of leaves allowed in each tree.</p>
 </dd>
-<dt><strong>random_state: int, default=0</strong></dt><dd><p>Random state.</p>
+<dt><strong>objective</strong><span class="classifier">str, default=”rmse”</span></dt><dd><p>The objective to optimize. Options include: “rmse”,
+“poisson_deviance”, “tweedie_deviance:variance_power=1.5”, “gamma_deviance”,
+“pseudo_huber:delta=1.0”, “rmse_log” (rmse with a log link function)</p>
+</dd>
+<dt><strong>n_jobs</strong><span class="classifier">int, default=-2</span></dt><dd><p>Number of jobs to run in parallel. Negative integers are interpreted as following joblib’s formula
+(n_cpus + 1 + n_jobs), just like scikit-learn. Eg: -2 means using all threads except 1.</p>
+</dd>
+<dt><strong>random_state</strong><span class="classifier">int or None, default=0</span></dt><dd><p>Random state. None uses device_random and generates non-repeatable sequences.</p>
+</dd>
+</dl>
+</dd>
+<dt class="field-even">Attributes</dt>
+<dd class="field-even"><dl>
+<dt><strong>n_features_in_</strong><span class="classifier">int</span></dt><dd><p>Number of features.</p>
+</dd>
+<dt><strong>feature_names_in_</strong><span class="classifier">List of str</span></dt><dd><p>Resolved feature names. Names can come from feature_names, X, or be auto-generated.</p>
+</dd>
+<dt><strong>feature_types_in_</strong><span class="classifier">List of str</span></dt><dd><p>Resolved feature types. Can be: ‘continuous’, ‘nominal’, or ‘ordinal’.</p>
+</dd>
+<dt><strong>bins_</strong><span class="classifier">List[Union[List[Dict[str, int]], List[array of float with shape <code class="docutils literal notranslate"><span class="pre">(n_cuts,)</span></code>]]]</span></dt><dd><p>Per-feature list that defines how to bin each feature. Each feature in the list contains
+a list of binning resolutions. The first item in the binning resolution list is for binning
+main effect features. If there are more items in the binning resolution list, they define the
+binning for successive levels of resolutions. The item at index 1, if it exists, defines the
+binning for pairs. The last binning resolution defines the bins for all successive interaction levels.
+If the binning resolution list contains dictionaries, then the feature is either a ‘nominal’ or
+‘ordinal’ categorical. If the binning resolution list contains arrays, then the feature is ‘continuous’
+and the arrays will contain float cut points that separate continuous values into bins.</p>
+</dd>
+<dt><strong>feature_bounds_</strong><span class="classifier">array of float with shape <code class="docutils literal notranslate"><span class="pre">(n_features,</span> <span class="pre">2)</span></code></span></dt><dd><p>min/max bounds for each feature. feature_bounds_[feature_index, 0] is the min value of the feature
+and feature_bounds_[feature_index, 1] is the max value of the feature. Categoricals have min &amp; max
+values of NaN.</p>
+</dd>
+<dt><strong>histogram_edges_</strong><span class="classifier">List of None or array of float with shape <code class="docutils literal notranslate"><span class="pre">(n_hist_edges,)</span></code></span></dt><dd><p>Per-feature list of the histogram edges. Categorical features contain None within the List
+at their feature index.</p>
+</dd>
+<dt><strong>histogram_weights_</strong><span class="classifier">List of array of float with shape <code class="docutils literal notranslate"><span class="pre">(n_hist_bins,)</span></code></span></dt><dd><p>Per-feature list of the total sample weights within each feature’s histogram bins.</p>
+</dd>
+<dt><strong>unique_val_counts_</strong><span class="classifier">array of int with shape <code class="docutils literal notranslate"><span class="pre">(n_features,)</span></code></span></dt><dd><p>Per-feature count of the number of unique feature values.</p>
+</dd>
+<dt><strong>term_features_</strong><span class="classifier">List of tuples of feature indices</span></dt><dd><p>Additive terms used in the model and their component feature indices.</p>
+</dd>
+<dt><strong>term_names_</strong><span class="classifier">List of str</span></dt><dd><p>List of term names.</p>
+</dd>
+<dt><strong>bin_weights_</strong><span class="classifier">List of array of float with shape <code class="docutils literal notranslate"><span class="pre">(n_feature0_bins,</span> <span class="pre">...,</span> <span class="pre">n_featureN_bins)</span></code></span></dt><dd><p>Per-term list of the total sample weights in each term’s tensor bins.</p>
+</dd>
+<dt><strong>bagged_scores_</strong><span class="classifier">List of array of float with shape <code class="docutils literal notranslate"><span class="pre">(n_outer_bags,</span> <span class="pre">n_feature0_bins,</span> <span class="pre">...,</span> <span class="pre">n_featureN_bins)</span></code></span></dt><dd><p>Per-term list of the bagged model scores.</p>
+</dd>
+<dt><strong>term_scores_</strong><span class="classifier">List of array of float with shape <code class="docutils literal notranslate"><span class="pre">(n_feature0_bins,</span> <span class="pre">...,</span> <span class="pre">n_featureN_bins)</span></code></span></dt><dd><p>Per-term list of the model scores.</p>
+</dd>
+<dt><strong>standard_deviations_</strong><span class="classifier">List of array of float with shape <code class="docutils literal notranslate"><span class="pre">(n_feature0_bins,</span> <span class="pre">...,</span> <span class="pre">n_featureN_bins)</span></code></span></dt><dd><p>Per-term list of the standard deviations of the bagged model scores.</p>
+</dd>
+<dt><strong>link_</strong><span class="classifier">str</span></dt><dd><p>Link function used to convert the predictions or targets into linear space
+additive scores and vice versa via the inverse link. Possible values include:
+“custom_regression”, “power”, “identity”, “log”, “inverse”, “inverse_square”, “sqrt”</p>
+</dd>
+<dt><strong>link_param_</strong><span class="classifier">float</span></dt><dd><p>Float value that can be used by the link function. The primary use is for the power link.</p>
+</dd>
+<dt><strong>bag_weights_</strong><span class="classifier">array of float with shape <code class="docutils literal notranslate"><span class="pre">(n_outer_bags,)</span></code></span></dt><dd><p>Per-bag record of the total weight within each bag.</p>
+</dd>
+<dt><strong>breakpoint_iteration_</strong><span class="classifier">array of int with shape <code class="docutils literal notranslate"><span class="pre">(n_stages,</span> <span class="pre">n_outer_bags)</span></code></span></dt><dd><p>The number of boosting rounds performed within each stage until either early stopping, or the max_rounds was reached.
+Normally, the count of main effects boosting rounds will be in breakpoint_iteration_[0],
+and the count of interaction boosting rounds will be in breakpoint_iteration_[1].</p>
+</dd>
+<dt><strong>intercept_</strong><span class="classifier">float</span></dt><dd><p>Intercept of the model.</p>
+</dd>
+<dt><strong>min_target_</strong><span class="classifier">float</span></dt><dd><p>The minimum value found in ‘y’.</p>
+</dd>
+<dt><strong>max_target_</strong><span class="classifier">float</span></dt><dd><p>The maximum value found in ‘y’.</p>
 </dd>
 </dl>
 </dd>
@@ -196,20 +285,32 @@
 <col style="width: 90%" />
 </colgroup>
 <tbody>
-<tr class="row-odd"><td><p><a class="reference internal" href="#piml.models.ExplainableBoostingRegressor.decision_function" title="piml.models.ExplainableBoostingRegressor.decision_function"><code class="xref py py-obj docutils literal notranslate"><span class="pre">decision_function</span></code></a>(X)</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#piml.models.ExplainableBoostingRegressor.decision_function" title="piml.models.ExplainableBoostingRegressor.decision_function"><code class="xref py py-obj docutils literal notranslate"><span class="pre">decision_function</span></code></a>(X[, init_score])</p></td>
 <td><p>Predict scores from model before calling the link function.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#piml.models.ExplainableBoostingRegressor.fit" title="piml.models.ExplainableBoostingRegressor.fit"><code class="xref py py-obj docutils literal notranslate"><span class="pre">fit</span></code></a>(X, y[, sample_weight, feature_names, ...])</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#piml.models.ExplainableBoostingRegressor.explain_global" title="piml.models.ExplainableBoostingRegressor.explain_global"><code class="xref py py-obj docutils literal notranslate"><span class="pre">explain_global</span></code></a>([name])</p></td>
+<td><p>Provides global explanation for model.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#piml.models.ExplainableBoostingRegressor.fit" title="piml.models.ExplainableBoostingRegressor.fit"><code class="xref py py-obj docutils literal notranslate"><span class="pre">fit</span></code></a>(X, y[, sample_weight, bags, init_score])</p></td>
 <td><p>Fits model to provided samples.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#piml.models.ExplainableBoostingRegressor.get_metadata_routing" title="piml.models.ExplainableBoostingRegressor.get_metadata_routing"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_metadata_routing</span></code></a>()</p></td>
+<td><p>Get metadata routing of this object.</p></td>
 </tr>
 <tr class="row-odd"><td><p><a class="reference internal" href="#piml.models.ExplainableBoostingRegressor.get_params" title="piml.models.ExplainableBoostingRegressor.get_params"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_params</span></code></a>([deep])</p></td>
 <td><p>Get parameters for this estimator.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#piml.models.ExplainableBoostingRegressor.model_unwrapper" title="piml.models.ExplainableBoostingRegressor.model_unwrapper"><code class="xref py py-obj docutils literal notranslate"><span class="pre">model_unwrapper</span></code></a>(X[, y, sample_weight])</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#piml.models.ExplainableBoostingRegressor.monotonize" title="piml.models.ExplainableBoostingRegressor.monotonize"><code class="xref py py-obj docutils literal notranslate"><span class="pre">monotonize</span></code></a>(term[, increasing])</p></td>
+<td><p>Adjusts a term to be monotone using isotonic regression.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#piml.models.ExplainableBoostingRegressor.parse_model" title="piml.models.ExplainableBoostingRegressor.parse_model"><code class="xref py py-obj docutils literal notranslate"><span class="pre">parse_model</span></code></a>()</p></td>
 <td><p>Interpret the model using functional ANOVA.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#piml.models.ExplainableBoostingRegressor.predict" title="piml.models.ExplainableBoostingRegressor.predict"><code class="xref py py-obj docutils literal notranslate"><span class="pre">predict</span></code></a>(X)</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#piml.models.ExplainableBoostingRegressor.predict" title="piml.models.ExplainableBoostingRegressor.predict"><code class="xref py py-obj docutils literal notranslate"><span class="pre">predict</span></code></a>(X[, init_score])</p></td>
 <td><p>Predicts on provided samples.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#piml.models.ExplainableBoostingRegressor.predict_and_contrib" title="piml.models.ExplainableBoostingRegressor.predict_and_contrib"><code class="xref py py-obj docutils literal notranslate"><span class="pre">predict_and_contrib</span></code></a>(X[, init_score])</p></td>
+<td><p>Predicts on provided samples, returning predictions and explanations for each sample.</p></td>
 </tr>
 <tr class="row-even"><td><p><a class="reference internal" href="#piml.models.ExplainableBoostingRegressor.score" title="piml.models.ExplainableBoostingRegressor.score"><code class="xref py py-obj docutils literal notranslate"><span class="pre">score</span></code></a>(X, y[, sample_weight])</p></td>
 <td><p>Return the coefficient of determination of the prediction.</p></td>
@@ -217,36 +318,76 @@
 <tr class="row-odd"><td><p><a class="reference internal" href="#piml.models.ExplainableBoostingRegressor.set_params" title="piml.models.ExplainableBoostingRegressor.set_params"><code class="xref py py-obj docutils literal notranslate"><span class="pre">set_params</span></code></a>(**params)</p></td>
 <td><p>Set the parameters of this estimator.</p></td>
 </tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#piml.models.ExplainableBoostingRegressor.set_score_request" title="piml.models.ExplainableBoostingRegressor.set_score_request"><code class="xref py py-obj docutils literal notranslate"><span class="pre">set_score_request</span></code></a>(*[, sample_weight])</p></td>
+<td><p>Request metadata passed to the <code class="docutils literal notranslate"><span class="pre">score</span></code> method.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#piml.models.ExplainableBoostingRegressor.term_importances" title="piml.models.ExplainableBoostingRegressor.term_importances"><code class="xref py py-obj docutils literal notranslate"><span class="pre">term_importances</span></code></a>([importance_type])</p></td>
+<td><p>Provides the term importances</p></td>
+</tr>
 </tbody>
 </table>
 <dl class="py method">
 <dt class="sig sig-object py" id="piml.models.ExplainableBoostingRegressor.decision_function">
-<span class="sig-name descname"><span class="pre">decision_function</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">X</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#piml.models.ExplainableBoostingRegressor.decision_function" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">decision_function</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">X</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">init_score</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#piml.models.ExplainableBoostingRegressor.decision_function" title="Permalink to this definition">¶</a></dt>
 <dd><p>Predict scores from model before calling the link function.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><dl class="simple">
-<dt><strong>X: Numpy array for samples.</strong></dt><dd></dd>
-</dl>
+<dl class="simple">
+<dt>Args:</dt><dd><p>X: Numpy array for samples.
+init_score: Optional. Either a model that can generate scores or per-sample initialization score.
+If samples scores it should be the same length as X.</p>
 </dd>
-<dt class="field-even">Returns</dt>
-<dd class="field-even"><dl class="simple">
-<dt>The sum of the additive term contributions.</dt><dd></dd>
+<dt>Returns:</dt><dd><p>The sum of the additive term contributions.</p>
+</dd>
 </dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="piml.models.ExplainableBoostingRegressor.explain_global">
+<span class="sig-name descname"><span class="pre">explain_global</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#piml.models.ExplainableBoostingRegressor.explain_global" title="Permalink to this definition">¶</a></dt>
+<dd><p>Provides global explanation for model.</p>
+<dl class="simple">
+<dt>Args:</dt><dd><p>name: User-defined explanation name.</p>
+</dd>
+<dt>Returns:</dt><dd><p>An explanation object,
+visualizing feature-value pairs as horizontal bar chart.</p>
 </dd>
 </dl>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="piml.models.ExplainableBoostingRegressor.fit">
-<span class="sig-name descname"><span class="pre">fit</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">X</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sample_weight</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">feature_names</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">feature_types</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#piml.models.ExplainableBoostingRegressor.fit" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">fit</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">X</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sample_weight</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">bags</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">init_score</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#piml.models.ExplainableBoostingRegressor.fit" title="Permalink to this definition">¶</a></dt>
 <dd><p>Fits model to provided samples.</p>
-<dl class="simple">
+<dl>
 <dt>Args:</dt><dd><p>X: Numpy array for training samples.
 y: Numpy array as training labels.
-sample_weight: Optional array of weights per sample. Should be same length as X and y.</p>
+sample_weight: Optional array of weights per sample. Should be same length as X and y.
+bags: Optional bag definitions. The first dimension should have length equal to the number of outer_bags.</p>
+<blockquote>
+<div><p>The second dimension should have length equal to the number of samples. The contents should be
++1 for training, -1 for validation, and 0 if not included in the bag. Numbers other than 1 indicate
+how many times to include the sample in the training or validation sets.</p>
+</div></blockquote>
+<p>init_score: Optional. Either a model that can generate scores or per-sample initialization score.
+If samples scores it should be the same length as X.</p>
 </dd>
 <dt>Returns:</dt><dd><p>Itself.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="piml.models.ExplainableBoostingRegressor.get_metadata_routing">
+<span class="sig-name descname"><span class="pre">get_metadata_routing</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#piml.models.ExplainableBoostingRegressor.get_metadata_routing" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get metadata routing of this object.</p>
+<p>Please check <span class="xref std std-ref">User Guide</span> on how the routing
+mechanism works.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>routing</strong><span class="classifier">MetadataRequest</span></dt><dd><p>A <code class="xref py py-class docutils literal notranslate"><span class="pre">MetadataRequest</span></code> encapsulating
+routing information.</p>
+</dd>
+</dl>
 </dd>
 </dl>
 </dd></dl>
@@ -273,23 +414,26 @@ contained subobjects that are estimators.</p>
 </dd></dl>
 
 <dl class="py method">
-<dt class="sig sig-object py" id="piml.models.ExplainableBoostingRegressor.model_unwrapper">
-<span class="sig-name descname"><span class="pre">model_unwrapper</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">X</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sample_weight</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#piml.models.ExplainableBoostingRegressor.model_unwrapper" title="Permalink to this definition">¶</a></dt>
-<dd><p>Interpret the model using functional ANOVA.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><dl class="simple">
-<dt><strong>x</strong><span class="classifier">np.ndarray of shape (n_samples, n_features)</span></dt><dd><p>Data features.</p>
+<dt class="sig sig-object py" id="piml.models.ExplainableBoostingRegressor.monotonize">
+<span class="sig-name descname"><span class="pre">monotonize</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">term</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">increasing</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'auto'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#piml.models.ExplainableBoostingRegressor.monotonize" title="Permalink to this definition">¶</a></dt>
+<dd><p>Adjusts a term to be monotone using isotonic regression.</p>
+<dl class="simple">
+<dt>Args:</dt><dd><p>term: Index or name of continuous univariate term to apply monotone constraints
+increasing: ‘auto’ or bool. ‘auto’ decides direction based on Spearman correlation estimate.</p>
 </dd>
-<dt><strong>y</strong><span class="classifier">np.ndarray of shape (n_samples, ), default=None</span></dt><dd><p>Target response, it is a placeholder and not used in this function.</p>
-</dd>
-<dt><strong>sample_weight</strong><span class="classifier">np.ndarray of shape (n_samples, ), default=None</span></dt><dd><p>Sample weight, it is a placeholder and not used in this function.</p>
+<dt>Returns:</dt><dd><p>Itself.</p>
 </dd>
 </dl>
-</dd>
-<dt class="field-even">Returns</dt>
-<dd class="field-even"><dl class="simple">
-<dt><strong>unp</strong><span class="classifier">an instance of EBMExplainer</span></dt><dd><p>The interpretation results.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="piml.models.ExplainableBoostingRegressor.parse_model">
+<span class="sig-name descname"><span class="pre">parse_model</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#piml.models.ExplainableBoostingRegressor.parse_model" title="Permalink to this definition">¶</a></dt>
+<dd><p>Interpret the model using functional ANOVA.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>unp</strong><span class="classifier">an instance of FANOVAINterpreter</span></dt><dd><p>The interpretation results.</p>
 </dd>
 </dl>
 </dd>
@@ -298,18 +442,28 @@ contained subobjects that are estimators.</p>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="piml.models.ExplainableBoostingRegressor.predict">
-<span class="sig-name descname"><span class="pre">predict</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">X</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#piml.models.ExplainableBoostingRegressor.predict" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">predict</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">X</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">init_score</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#piml.models.ExplainableBoostingRegressor.predict" title="Permalink to this definition">¶</a></dt>
 <dd><p>Predicts on provided samples.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><dl class="simple">
-<dt><strong>X: Numpy array for samples.</strong></dt><dd></dd>
-</dl>
+<dl class="simple">
+<dt>Args:</dt><dd><p>X: Numpy array for samples.
+init_score: Optional. Either a model that can generate scores or per-sample initialization score.
+If samples scores it should be the same length as X.</p>
 </dd>
-<dt class="field-even">Returns</dt>
-<dd class="field-even"><dl class="simple">
-<dt>Predicted class label per sample.</dt><dd></dd>
+<dt>Returns:</dt><dd><p>Predicted class label per sample.</p>
+</dd>
 </dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="piml.models.ExplainableBoostingRegressor.predict_and_contrib">
+<span class="sig-name descname"><span class="pre">predict_and_contrib</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">X</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">init_score</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#piml.models.ExplainableBoostingRegressor.predict_and_contrib" title="Permalink to this definition">¶</a></dt>
+<dd><p>Predicts on provided samples, returning predictions and explanations for each sample.</p>
+<dl class="simple">
+<dt>Args:</dt><dd><p>X: Numpy array for samples.
+init_score: Optional. Either a model that can generate scores or per-sample initialization score.
+If samples scores it should be the same length as X.</p>
+</dd>
+<dt>Returns:</dt><dd><p>Predictions and local explanations for each sample.</p>
 </dd>
 </dl>
 </dd></dl>
@@ -342,7 +496,7 @@ is the number of samples used in the fitting for the estimator.</p>
 </dd>
 <dt class="field-even">Returns</dt>
 <dd class="field-even"><dl class="simple">
-<dt><strong>score</strong><span class="classifier">float</span></dt><dd><p><span class="math notranslate nohighlight">\(R^2\)</span> of <code class="docutils literal notranslate"><span class="pre">self.predict(X)</span></code> wrt. <code class="docutils literal notranslate"><span class="pre">y</span></code>.</p>
+<dt><strong>score</strong><span class="classifier">float</span></dt><dd><p><span class="math notranslate nohighlight">\(R^2\)</span> of <code class="docutils literal notranslate"><span class="pre">self.predict(X)</span></code> w.r.t. <code class="docutils literal notranslate"><span class="pre">y</span></code>.</p>
 </dd>
 </dl>
 </dd>
@@ -380,9 +534,70 @@ possible to update each component of a nested object.</p>
 </dl>
 </dd></dl>
 
+<dl class="py method">
+<dt class="sig sig-object py" id="piml.models.ExplainableBoostingRegressor.set_score_request">
+<span class="sig-name descname"><span class="pre">set_score_request</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sample_weight</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Union</span><span class="p"><span class="pre">[</span></span><span class="pre">bool</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">None</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'$UNCHANGED$'</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#piml.models.ExplainableBoostingRegressor" title="piml.models.ebm.ebm._ebm.ExplainableBoostingRegressor"><span class="pre">ExplainableBoostingRegressor</span></a></span></span><a class="headerlink" href="#piml.models.ExplainableBoostingRegressor.set_score_request" title="Permalink to this definition">¶</a></dt>
+<dd><p>Request metadata passed to the <code class="docutils literal notranslate"><span class="pre">score</span></code> method.</p>
+<p>Note that this method is only relevant if
+<code class="docutils literal notranslate"><span class="pre">enable_metadata_routing=True</span></code> (see <code class="xref py py-func docutils literal notranslate"><span class="pre">sklearn.set_config</span></code>).
+Please see <span class="xref std std-ref">User Guide</span> on how the routing
+mechanism works.</p>
+<p>The options for each parameter are:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">True</span></code>: metadata is requested, and passed to <code class="docutils literal notranslate"><span class="pre">score</span></code> if provided. The request is ignored if metadata is not provided.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">False</span></code>: metadata is not requested and the meta-estimator will not pass it to <code class="docutils literal notranslate"><span class="pre">score</span></code>.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">None</span></code>: metadata is not requested, and the meta-estimator will raise an error if the user provides it.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">str</span></code>: metadata should be passed to the meta-estimator with this given alias instead of the original name.</p></li>
+</ul>
+<p>The default (<code class="docutils literal notranslate"><span class="pre">sklearn.utils.metadata_routing.UNCHANGED</span></code>) retains the
+existing request. This allows you to change the request for some
+parameters and not others.</p>
+<div class="versionadded">
+<p><span class="versionmodified added">New in version 1.3.</span></p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>This method is only relevant if this estimator is used as a
+sub-estimator of a meta-estimator, e.g. used inside a
+<code class="xref py py-class docutils literal notranslate"><span class="pre">pipeline.Pipeline</span></code>. Otherwise it has no effect.</p>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>sample_weight</strong><span class="classifier">str, True, False, or None,                     default=sklearn.utils.metadata_routing.UNCHANGED</span></dt><dd><p>Metadata routing for <code class="docutils literal notranslate"><span class="pre">sample_weight</span></code> parameter in <code class="docutils literal notranslate"><span class="pre">score</span></code>.</p>
+</dd>
+</dl>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><dl class="simple">
+<dt><strong>self</strong><span class="classifier">object</span></dt><dd><p>The updated object.</p>
+</dd>
+</dl>
+</dd>
+</dl>
 </dd></dl>
 
-<div class="clearer"></div></section>
+<dl class="py method">
+<dt class="sig sig-object py" id="piml.models.ExplainableBoostingRegressor.term_importances">
+<span class="sig-name descname"><span class="pre">term_importances</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">importance_type</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'avg_weight'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#piml.models.ExplainableBoostingRegressor.term_importances" title="Permalink to this definition">¶</a></dt>
+<dd><p>Provides the term importances</p>
+<dl class="simple">
+<dt>Args:</dt><dd><p>importance_type: the type of term importance requested (‘avg_weight’, ‘min_max’)</p>
+</dd>
+<dt>Returns:</dt><dd><p>An array term importances with one importance per additive term</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<section id="examples-using-piml-models-explainableboostingregressor">
+<h2>Examples using <code class="docutils literal notranslate"><span class="pre">piml.models.ExplainableBoostingRegressor</span></code><a class="headerlink" href="#examples-using-piml-models-explainableboostingregressor" title="Permalink to this heading">¶</a></h2>
+<div class="sphx-glr-thumbnails"><div class="sphx-glr-thumbcontainer" tooltip="EBM Regression (Bike Sharing)"><img alt="" src="../../_images/sphx_glr_plot_6_ebm_reg_thumb.png" />
+<p><a class="reference internal" href="../../auto_examples/models/plot_6_ebm_reg.html#sphx-glr-auto-examples-models-plot-6-ebm-reg-py"><span class="std std-ref">EBM Regression (Bike Sharing)</span></a></p>
+  <div class="sphx-glr-thumbnail-title">EBM Regression (Bike Sharing)</div>
+</div></div><div class="clearer"></div></section>
+</section>
 
 
         </div>

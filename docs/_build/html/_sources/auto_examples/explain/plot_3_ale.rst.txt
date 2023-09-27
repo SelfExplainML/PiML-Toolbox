@@ -70,7 +70,7 @@ Train Model
 .. code-block:: default
 
     exp.model_explain(model="ReLUDNN", show="ale", uni_feature='hr',
-                      original_scale=True, figsize=(5, 4))
+                      grid_size=50, original_scale=True, figsize=(5, 4))
 
 
 
@@ -93,7 +93,7 @@ Train Model
 .. code-block:: default
 
     exp.model_explain(model="ReLUDNN", show="ale", uni_feature='atemp',
-                      original_scale=True, figsize=(5, 4))
+                      grid_size=50, original_scale=True, figsize=(5, 4))
 
 
 
@@ -138,7 +138,7 @@ Train Model
 .. code-block:: default
 
     exp.model_explain(model="ReLUDNN", show="ale", bi_features=["hr", "atemp"], 
-                      original_scale=True, figsize=(5, 4))
+                      grid_size=10, sliced_line=False, original_scale=True, figsize=(5, 4))
 
 
 
@@ -154,7 +154,9 @@ Train Model
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** ( 0 minutes  17.598 seconds)
+   **Total running time of the script:** ( 1 minutes  33.800 seconds)
+
+**Estimated memory usage:**  1360 MB
 
 
 .. _sphx_glr_download_auto_examples_explain_plot_3_ale.py:

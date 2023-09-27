@@ -159,7 +159,7 @@ Marginal distributional distance between full sample and worst sample with worst
 
 
 .. image-sg:: /auto_examples/testing/images/sphx_glr_plot_5_resilience_reg_005.png
-   :alt: Distribution Shift: 30%-Worst vs Full
+   :alt: Distribution Shift: 30%-Worst vs Remaining
    :srcset: /auto_examples/testing/images/sphx_glr_plot_5_resilience_reg_005.png
    :class: sphx-glr-single-img
 
@@ -181,7 +181,7 @@ Marginal distributional distance between full sample and worst sample with not N
 
 
 .. image-sg:: /auto_examples/testing/images/sphx_glr_plot_5_resilience_reg_006.png
-   :alt: Distribution Shift: 30%-Worst vs Full
+   :alt: Distribution Shift: 30%-Worst vs Remaining
    :srcset: /auto_examples/testing/images/sphx_glr_plot_5_resilience_reg_006.png
    :class: sphx-glr-single-img
 
@@ -203,7 +203,7 @@ Marginal distributional distance between full sample and worst sample with worst
 
 
 .. image-sg:: /auto_examples/testing/images/sphx_glr_plot_5_resilience_reg_007.png
-   :alt: Distribution Shift: 10-Cluster-Worst vs Full
+   :alt: Distribution Shift: 10-Cluster-Worst vs Remaining
    :srcset: /auto_examples/testing/images/sphx_glr_plot_5_resilience_reg_007.png
    :class: sphx-glr-single-img
 
@@ -225,7 +225,7 @@ Marginal histogram plot for full sample and worst sample
 
 
 .. image-sg:: /auto_examples/testing/images/sphx_glr_plot_5_resilience_reg_008.png
-   :alt: Distribution Shift: 10%-Worst vs Full
+   :alt: Distribution Shift: 10%-Worst vs Remaining
    :srcset: /auto_examples/testing/images/sphx_glr_plot_5_resilience_reg_008.png
    :class: sphx-glr-single-img
 
@@ -237,7 +237,7 @@ Marginal histogram plot for full sample and worst sample
 
 Marginal density plot for full sample and worst sample
 
-.. GENERATED FROM PYTHON SOURCE LINES 51-52
+.. GENERATED FROM PYTHON SOURCE LINES 51-53
 
 .. code-block:: default
 
@@ -245,8 +245,9 @@ Marginal density plot for full sample and worst sample
                        target_feature="hr", original_scale=True, figsize=(5, 4))
 
 
+
 .. image-sg:: /auto_examples/testing/images/sphx_glr_plot_5_resilience_reg_009.png
-   :alt: Distribution Shift: 10%-Worst vs Full
+   :alt: Distribution Shift: 10%-Worst vs Remaining
    :srcset: /auto_examples/testing/images/sphx_glr_plot_5_resilience_reg_009.png
    :class: sphx-glr-single-img
 
@@ -257,7 +258,9 @@ Marginal density plot for full sample and worst sample
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** ( 0 minutes  5.009 seconds)
+   **Total running time of the script:** ( 2 minutes  23.383 seconds)
+
+**Estimated memory usage:**  1142 MB
 
 
 .. _sphx_glr_download_auto_examples_testing_plot_5_resilience_reg.py:

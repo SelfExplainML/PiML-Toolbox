@@ -20,7 +20,7 @@ exp.model_train(XGB2Classifier(max_depth=2,
                                n_estimators=100, 
                                mono_increasing_list=["Mortgage", "Balance"],
                                mono_decreasing_list=["Amount Past Due", "Utilization", "Delinquency",
-                                                  "Credit Inquiry", "Open Trade"]),
+                                                     "Credit Inquiry", "Open Trade"]),
                 name="XGB2_monotonic")
 
 # %%
@@ -56,7 +56,7 @@ segmented_result.data
 # Fairness Binning
 binning_result = exp.model_fairness(model="XGB2_monotonic", show="binning",
                                     metric="AIR",
-                                    group_category=["Race","Gender"],
+                                    group_category=["Race", "Gender"],
                                     reference_group=[1., 1.],
                                     protected_group=[0., 0.],
                                     favorable_threshold=0.5,

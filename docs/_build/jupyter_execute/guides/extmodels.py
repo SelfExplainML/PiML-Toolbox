@@ -21,14 +21,14 @@ exp.model_train(lgbm2, name='LGBM_2')
 # In[ ]:
 
 
-exp.model_save("LGBM_2", "CH_LGMB_2.pkl")
+exp.model_save("LGBM_2", "CH_LGBM_2.pkl")
 
 
 # In[ ]:
 
 
-pipeline = exp.make_pipeline(model='CH_LGMB_2.pkl')
-exp.register(pipeline, "LGMB_2_load")
+pipeline = exp.make_pipeline(model='CH_LGBM_2.pkl')
+exp.register(pipeline, "LGBM_2_load")
 
 
 # In[ ]:
@@ -42,5 +42,11 @@ lgbm7.fit(train_x, train_y)
 
 pipeline = exp.make_pipeline(model=lgbm7, train_x=train_x, train_y=train_y.ravel(),
                              test_x=test_x, test_y=test_y.ravel())
-exp.register(pipeline, "LGMB_7")
+exp.register(pipeline, "LGBM_7")
+
+
+# In[ ]:
+
+
+exp.model_explain(model="LGBM_7", show="pdp", uni_feature="MedInc", figsize=(5, 4))
 

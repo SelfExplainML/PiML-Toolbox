@@ -71,14 +71,14 @@ Fairness Metric
 .. code-block:: default
 
     metrics_result = exp.model_fairness_compare(models=["GLM", "EBM"],
-                                        show="metrics",
-                                        metric="AIR",
-                                        group_category=["Race", "Gender"],
-                                        reference_group=[1., 1.],
-                                        protected_group=[0., 0.],
-                                        favorable_threshold=0.5,
-                                        return_data=True,
-                                        figsize=(6, 4))
+                                                show="metrics",
+                                                metric="AIR",
+                                                group_category=["Race", "Gender"],
+                                                reference_group=[1., 1.],
+                                                protected_group=[0., 0.],
+                                                favorable_threshold=0.5,
+                                                return_data=True,
+                                                figsize=(6, 4))
     metrics_result.data
 
 
@@ -128,7 +128,7 @@ Fairness Metric
           <td>1.0</td>
           <td>0.0</td>
           <td>0.712368</td>
-          <td>0.647789</td>
+          <td>0.645317</td>
         </tr>
         <tr>
           <th>1</th>
@@ -137,7 +137,7 @@ Fairness Metric
           <td>1.0</td>
           <td>0.0</td>
           <td>0.832585</td>
-          <td>0.781610</td>
+          <td>0.781893</td>
         </tr>
       </tbody>
     </table>
@@ -155,16 +155,16 @@ Fairness Segmented
 .. code-block:: default
 
     segmented_result = exp.model_fairness_compare(models=["GLM", "EBM"],
-                                          show="segmented",
-                                          metric="AIR",
-                                          segmented_feature="Balance",
-                                          group_category=["Race", "Gender"],
-                                          reference_group=[1., 1.],
-                                          protected_group=[0., 0.],
-                                          favorable_threshold=0.5,
-                                          segmented_bins=5,
-                                          return_data=True,
-                                          figsize=(8, 4))
+                                                  show="segmented",
+                                                  metric="AIR",
+                                                  segmented_feature="Balance",
+                                                  group_category=["Race", "Gender"],
+                                                  reference_group=[1., 1.],
+                                                  protected_group=[0., 0.],
+                                                  favorable_threshold=0.5,
+                                                  segmented_bins=5,
+                                                  return_data=True,
+                                                  figsize=(8, 4))
     segmented_result.data
 
 
@@ -213,7 +213,7 @@ Fairness Segmented
           <td>306.61</td>
           <td>0</td>
           <td>0.825086</td>
-          <td>0.439287</td>
+          <td>0.440479</td>
         </tr>
         <tr>
           <th>1</th>
@@ -222,7 +222,7 @@ Fairness Segmented
           <td>306.61</td>
           <td>1</td>
           <td>0.901729</td>
-          <td>0.703873</td>
+          <td>0.695277</td>
         </tr>
         <tr>
           <th>2</th>
@@ -231,7 +231,7 @@ Fairness Segmented
           <td>601.40</td>
           <td>0</td>
           <td>0.689973</td>
-          <td>0.545624</td>
+          <td>0.545689</td>
         </tr>
         <tr>
           <th>3</th>
@@ -240,7 +240,7 @@ Fairness Segmented
           <td>601.40</td>
           <td>1</td>
           <td>0.745220</td>
-          <td>0.642129</td>
+          <td>0.650615</td>
         </tr>
         <tr>
           <th>4</th>
@@ -249,7 +249,7 @@ Fairness Segmented
           <td>1027.23</td>
           <td>0</td>
           <td>0.633800</td>
-          <td>0.687002</td>
+          <td>0.696345</td>
         </tr>
         <tr>
           <th>5</th>
@@ -258,7 +258,7 @@ Fairness Segmented
           <td>1027.23</td>
           <td>1</td>
           <td>0.591785</td>
-          <td>0.701057</td>
+          <td>0.708004</td>
         </tr>
         <tr>
           <th>6</th>
@@ -267,7 +267,7 @@ Fairness Segmented
           <td>1864.90</td>
           <td>0</td>
           <td>0.613486</td>
-          <td>0.721803</td>
+          <td>0.713067</td>
         </tr>
         <tr>
           <th>7</th>
@@ -276,7 +276,7 @@ Fairness Segmented
           <td>1864.90</td>
           <td>1</td>
           <td>0.602803</td>
-          <td>0.826708</td>
+          <td>0.820892</td>
         </tr>
         <tr>
           <th>8</th>
@@ -285,7 +285,7 @@ Fairness Segmented
           <td>20384.87</td>
           <td>0</td>
           <td>0.748971</td>
-          <td>0.890700</td>
+          <td>0.873440</td>
         </tr>
         <tr>
           <th>9</th>
@@ -294,7 +294,7 @@ Fairness Segmented
           <td>20384.87</td>
           <td>1</td>
           <td>0.714674</td>
-          <td>0.835029</td>
+          <td>0.821206</td>
         </tr>
       </tbody>
     </table>
@@ -306,9 +306,9 @@ Fairness Segmented
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** ( 0 minutes  24.151 seconds)
+   **Total running time of the script:** ( 0 minutes  47.193 seconds)
 
-**Estimated memory usage:**  33 MB
+**Estimated memory usage:**  1238 MB
 
 
 .. _sphx_glr_download_auto_examples_testing_compare_plot_1_compare_fairness.py:

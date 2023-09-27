@@ -306,8 +306,8 @@
 <div class="jupyter_cell jupyter_container docutils container">
 <div class="cell_input code_cell docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">exp</span><span class="o">.</span><span class="n">model_compare</span><span class="p">(</span><span class="n">models</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;Tree&quot;</span><span class="p">,</span> <span class="s2">&quot;FIGS&quot;</span><span class="p">,</span> <span class="s2">&quot;XGB2&quot;</span><span class="p">],</span> <span class="n">show</span><span class="o">=</span><span class="s2">&quot;overfit&quot;</span><span class="p">,</span>
-                  <span class="n">slice_method</span><span class="o">=</span><span class="s2">&quot;tree&quot;</span><span class="p">,</span> <span class="n">slice_feature</span><span class="o">=</span><span class="s2">&quot;PAY_1&quot;</span><span class="p">,</span>
-                  <span class="n">metric</span><span class="o">=</span><span class="s2">&quot;ACC&quot;</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">4</span><span class="p">))</span>
+                  <span class="n">slice_method</span><span class="o">=</span><span class="s2">&quot;histogram&quot;</span><span class="p">,</span> <span class="n">slice_feature</span><span class="o">=</span><span class="s2">&quot;PAY_1&quot;</span><span class="p">,</span>
+                  <span class="n">metric</span><span class="o">=</span><span class="s2">&quot;AUC&quot;</span><span class="p">,</span> <span class="n">original_scale</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">4</span><span class="p">))</span>
 </pre></div>
 </div>
 </div>
@@ -317,7 +317,7 @@
 <figure class="align-left">
 <a class="reference external image-reference" href="../../auto_examples/testing_compare/plot_0_compare_classification.html"><img alt="../../_images/sphx_glr_plot_0_compare_classification_005.png" src="../../_images/sphx_glr_plot_0_compare_classification_005.png" /></a>
 </figure>
-<p>The second plot displays the overfitting detection results using a decision tree as the slicing model. The results show that all three models are not overfitting. The inconsistent results of tree slicing and histogram slicing are due to the sparse distribution of large <code class="docutils literal notranslate"><span class="pre">PAY_1</span></code>, where the tree slicing fails to generate segments there.</p>
+<p>The second plot displays the overfitting detection results using AUC as the target metric.</p>
 </section>
 <section id="reliability-comparison">
 <h2><span class="section-number">7.2.3. </span>Reliability Comparison<a class="headerlink" href="#reliability-comparison" title="Permalink to this heading">¶</a></h2>

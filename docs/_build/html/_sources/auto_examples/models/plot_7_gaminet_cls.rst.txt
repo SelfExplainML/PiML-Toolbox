@@ -79,11 +79,11 @@ Evaluate predictive performance
 
  .. code-block:: none
 
-              ACC      AUC   Recall Precision      F1
-                                                 
-    Train  0.8191   0.7751   0.3577    0.6768  0.4681
-    Test   0.8258   0.7697   0.3554    0.6881  0.4687
-    Gap    0.0067  -0.0054  -0.0023    0.0112  0.0007
+              ACC      AUC      F1
+                              
+    Train  0.8169   0.7734  0.4465
+    Test   0.8228   0.7672  0.4478
+    Gap    0.0060  -0.0063  0.0012
 
 
 
@@ -147,7 +147,7 @@ Global effect plot for PAY_1
 
 
 .. image-sg:: /auto_examples/models/images/sphx_glr_plot_7_gaminet_cls_003.png
-   :alt: PAY_1 (41.7%)
+   :alt: PAY_1 (38.4%)
    :srcset: /auto_examples/models/images/sphx_glr_plot_7_gaminet_cls_003.png
    :class: sphx-glr-single-img
 
@@ -169,7 +169,7 @@ Local interpretation by effect
 
 
 .. image-sg:: /auto_examples/models/images/sphx_glr_plot_7_gaminet_cls_004.png
-   :alt: Predicted: 0.2614 | Actual: 0.0000
+   :alt: Predicted: 0.2101 | Actual: 0.0000
    :srcset: /auto_examples/models/images/sphx_glr_plot_7_gaminet_cls_004.png
    :class: sphx-glr-single-img
 
@@ -190,7 +190,7 @@ Local interpretation by feature
 
 
 .. image-sg:: /auto_examples/models/images/sphx_glr_plot_7_gaminet_cls_005.png
-   :alt: Predicted: 0.2614 | Actual: 0.0000
+   :alt: Predicted: 0.2101 | Actual: 0.0000
    :srcset: /auto_examples/models/images/sphx_glr_plot_7_gaminet_cls_005.png
    :class: sphx-glr-single-img
 
@@ -201,7 +201,9 @@ Local interpretation by feature
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** ( 0 minutes  53.428 seconds)
+   **Total running time of the script:** ( 1 minutes  57.558 seconds)
+
+**Estimated memory usage:**  1223 MB
 
 
 .. _sphx_glr_download_auto_examples_models_plot_7_gaminet_cls.py:

@@ -69,11 +69,12 @@ Train Model
 
 Accuracy comparison with MSE
 
-.. GENERATED FROM PYTHON SOURCE LINES 27-28
+.. GENERATED FROM PYTHON SOURCE LINES 27-29
 
 .. code-block:: default
 
     exp.model_compare(models=["GLM", "XGB2", "XGB7"], show="accuracy_plot", metric="MSE", figsize=(5, 4))
+
 
 
 
@@ -83,18 +84,25 @@ Accuracy comparison with MSE
    :class: sphx-glr-single-img
 
 
+.. rst-class:: sphx-glr-script-out
+
+ .. code-block:: none
+
+    The legendHandles attribute was deprecated in Matplotlib 3.7 and will be removed two minor releases later. Use legend_handles instead.
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 29-30
+
+.. GENERATED FROM PYTHON SOURCE LINES 30-31
 
 Accuracy comparison with MAE
 
-.. GENERATED FROM PYTHON SOURCE LINES 30-31
+.. GENERATED FROM PYTHON SOURCE LINES 31-33
 
 .. code-block:: default
 
     exp.model_compare(models=["GLM", "XGB2", "XGB7"], show="accuracy_plot", metric="MAE", figsize=(5, 4))
+
 
 
 
@@ -104,14 +112,20 @@ Accuracy comparison with MAE
    :class: sphx-glr-single-img
 
 
+.. rst-class:: sphx-glr-script-out
+
+ .. code-block:: none
+
+    The legendHandles attribute was deprecated in Matplotlib 3.7 and will be removed two minor releases later. Use legend_handles instead.
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 32-33
+
+.. GENERATED FROM PYTHON SOURCE LINES 34-35
 
 Accuracy comparison with R2
 
-.. GENERATED FROM PYTHON SOURCE LINES 33-35
+.. GENERATED FROM PYTHON SOURCE LINES 35-37
 
 .. code-block:: default
 
@@ -129,11 +143,11 @@ Accuracy comparison with R2
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 36-37
+.. GENERATED FROM PYTHON SOURCE LINES 38-39
 
-Overfit comparison with historgram slicing
+Overfit comparison with MSE metric
 
-.. GENERATED FROM PYTHON SOURCE LINES 37-40
+.. GENERATED FROM PYTHON SOURCE LINES 39-42
 
 .. code-block:: default
 
@@ -152,17 +166,17 @@ Overfit comparison with historgram slicing
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 41-42
+.. GENERATED FROM PYTHON SOURCE LINES 43-44
 
-Overfit comparison with tree slicing
+Overfit comparison with R2 metric
 
-.. GENERATED FROM PYTHON SOURCE LINES 42-46
+.. GENERATED FROM PYTHON SOURCE LINES 44-48
 
 .. code-block:: default
 
     exp.model_compare(models=["GLM", "XGB2", "XGB7"], show="overfit",
-                      slice_method="tree", slice_feature="hr", 
-                      metric="MSE", original_scale=True, figsize=(5, 4))
+                      slice_method="histogram", slice_feature="hr", 
+                      metric="R2", original_scale=True, figsize=(5, 4))
 
 
 
@@ -176,11 +190,11 @@ Overfit comparison with tree slicing
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 47-48
+.. GENERATED FROM PYTHON SOURCE LINES 49-50
 
 Reliability coverage comparison 
 
-.. GENERATED FROM PYTHON SOURCE LINES 48-50
+.. GENERATED FROM PYTHON SOURCE LINES 50-52
 
 .. code-block:: default
 
@@ -198,11 +212,11 @@ Reliability coverage comparison
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 51-52
+.. GENERATED FROM PYTHON SOURCE LINES 53-54
 
 Reliability bandwidth comparison 
 
-.. GENERATED FROM PYTHON SOURCE LINES 52-54
+.. GENERATED FROM PYTHON SOURCE LINES 54-56
 
 .. code-block:: default
 
@@ -220,11 +234,11 @@ Reliability bandwidth comparison
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 55-56
+.. GENERATED FROM PYTHON SOURCE LINES 57-58
 
 Robustness comparison with default settings
 
-.. GENERATED FROM PYTHON SOURCE LINES 56-57
+.. GENERATED FROM PYTHON SOURCE LINES 58-59
 
 .. code-block:: default
 
@@ -241,11 +255,11 @@ Robustness comparison with default settings
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 58-59
+.. GENERATED FROM PYTHON SOURCE LINES 60-61
 
 Robustness comparison on worst alpha-percent samples
 
-.. GENERATED FROM PYTHON SOURCE LINES 59-61
+.. GENERATED FROM PYTHON SOURCE LINES 61-63
 
 .. code-block:: default
 
@@ -263,11 +277,11 @@ Robustness comparison on worst alpha-percent samples
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 62-63
+.. GENERATED FROM PYTHON SOURCE LINES 64-65
 
 Resilience comparison with worst-sample scenario
 
-.. GENERATED FROM PYTHON SOURCE LINES 63-66
+.. GENERATED FROM PYTHON SOURCE LINES 65-68
 
 .. code-block:: default
 
@@ -286,11 +300,11 @@ Resilience comparison with worst-sample scenario
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 67-68
+.. GENERATED FROM PYTHON SOURCE LINES 69-70
 
 Resilience distance comparison with worst-sample scenario
 
-.. GENERATED FROM PYTHON SOURCE LINES 68-69
+.. GENERATED FROM PYTHON SOURCE LINES 70-72
 
 .. code-block:: default
 
@@ -298,8 +312,9 @@ Resilience distance comparison with worst-sample scenario
                       resilience_method="worst-sample", metric="MAE", alpha=0.3, figsize=(5, 4))
 
 
+
 .. image-sg:: /auto_examples/testing_compare/images/sphx_glr_plot_0_compare_regression_011.png
-   :alt: Distribution Shift: 30%-Worst vs Full
+   :alt: Distribution Shift: 30%-Worst vs Remaining
    :srcset: /auto_examples/testing_compare/images/sphx_glr_plot_0_compare_regression_011.png
    :class: sphx-glr-single-img
 
@@ -310,9 +325,9 @@ Resilience distance comparison with worst-sample scenario
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** ( 1 minutes  56.161 seconds)
+   **Total running time of the script:** ( 1 minutes  48.213 seconds)
 
-**Estimated memory usage:**  60 MB
+**Estimated memory usage:**  1173 MB
 
 
 .. _sphx_glr_download_auto_examples_testing_compare_plot_0_compare_regression.py:

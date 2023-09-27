@@ -25,7 +25,7 @@ Data Load (Built-in Dataset)
 
 Experiment initialization and data preparation
 
-.. GENERATED FROM PYTHON SOURCE LINES 9-12
+.. GENERATED FROM PYTHON SOURCE LINES 9-13
 
 .. code-block:: default
 
@@ -33,6 +33,7 @@ Experiment initialization and data preparation
 
     exp = Experiment()
     exp.data_loader(data="CoCircles")
+
 
 
 
@@ -61,7 +62,7 @@ Experiment initialization and data preparation
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** ( 0 minutes  8.553 seconds)
+   **Total running time of the script:** ( 0 minutes  9.258 seconds)
 
 **Estimated memory usage:**  12 MB
 

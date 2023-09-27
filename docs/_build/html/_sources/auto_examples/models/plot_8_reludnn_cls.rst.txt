@@ -80,11 +80,11 @@ Evaluate predictive performance
 
  .. code-block:: none
 
-              ACC      AUC  Recall Precision      F1
-                                                
-    Train  0.8200   0.7723  0.3619    0.6793  0.4722
-    Test   0.8300   0.7708  0.3655    0.7064  0.4817
-    Gap    0.0100  -0.0015  0.0036    0.0271  0.0095
+              ACC      AUC      F1
+                              
+    Train  0.8200   0.7723  0.4722
+    Test   0.8300   0.7708  0.4817
+    Gap    0.0100  -0.0015  0.0095
 
 
 
@@ -106,6 +106,8 @@ Local Linear Model (LLM) summary plot
 
  .. code-block:: none
 
+    Degrees of freedom <= 0 for slice
+    invalid value encountered in double_scalars
           Count  Response Mean  Response Std  Local AUC  Global AUC
     0    6535.0         0.1053        0.3069     0.6037      0.7349
     1    4166.0         0.1066        0.3086     0.6477      0.6261
@@ -113,11 +115,11 @@ Local Linear Model (LLM) summary plot
     3    1158.0         0.3100        0.4627     0.7819      0.7348
     4     903.0         0.1595        0.3663     0.6118      0.5528
     ..      ...            ...           ...        ...         ...
-    300     1.0         1.0000           NaN        NaN      0.7364
-    301     1.0         1.0000           NaN        NaN      0.5529
-    302     1.0         1.0000           NaN        NaN      0.7370
-    303     1.0         0.0000           NaN        NaN      0.7244
-    304     1.0         1.0000           NaN        NaN      0.7134
+    300     1.0         0.0000           NaN        NaN      0.6987
+    301     1.0         0.0000           NaN        NaN      0.6715
+    302     1.0         1.0000           NaN        NaN      0.7090
+    303     1.0         0.0000           NaN        NaN      0.3122
+    304     1.0         0.0000           NaN        NaN      0.7051
 
     [305 rows x 5 columns]
 
@@ -258,12 +260,13 @@ Local feature importance without centering
 
 Local feature importance with centering
 
-.. GENERATED FROM PYTHON SOURCE LINES 53-54
+.. GENERATED FROM PYTHON SOURCE LINES 53-55
 
 .. code-block:: default
 
     exp.model_interpret(model="ReLUDNN", show="local_fi", sample_id=0, centered=True,
                         original_scale=True, figsize=(5, 4))
+
 
 
 .. image-sg:: /auto_examples/models/images/sphx_glr_plot_8_reludnn_cls_007.png
@@ -278,7 +281,9 @@ Local feature importance with centering
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** ( 0 minutes  44.045 seconds)
+   **Total running time of the script:** ( 2 minutes  1.293 seconds)
+
+**Estimated memory usage:**  1808 MB
 
 
 .. _sphx_glr_download_auto_examples_models_plot_8_reludnn_cls.py:

@@ -158,7 +158,7 @@ Marginal distributional distance between full sample and worst sample
 
 
 .. image-sg:: /auto_examples/testing/images/sphx_glr_plot_5_resilience_cls_005.png
-   :alt: Distribution Shift: 30%-Worst vs Full
+   :alt: Distribution Shift: 30%-Worst vs Remaining
    :srcset: /auto_examples/testing/images/sphx_glr_plot_5_resilience_cls_005.png
    :class: sphx-glr-single-img
 
@@ -168,7 +168,7 @@ Marginal distributional distance between full sample and worst sample
 
 .. GENERATED FROM PYTHON SOURCE LINES 37-38
 
-Marginal distributional distance between full sample and worst sample with not Noneimmutable features
+Marginal distributional distance between full sample and worst sample with not Non-immutable features
 
 .. GENERATED FROM PYTHON SOURCE LINES 38-40
 
@@ -180,7 +180,7 @@ Marginal distributional distance between full sample and worst sample with not N
 
 
 .. image-sg:: /auto_examples/testing/images/sphx_glr_plot_5_resilience_cls_006.png
-   :alt: Distribution Shift: 30%-Worst vs Full
+   :alt: Distribution Shift: 30%-Worst vs Remaining
    :srcset: /auto_examples/testing/images/sphx_glr_plot_5_resilience_cls_006.png
    :class: sphx-glr-single-img
 
@@ -202,7 +202,7 @@ Marginal distributional distance between full sample and worst sample with worst
 
 
 .. image-sg:: /auto_examples/testing/images/sphx_glr_plot_5_resilience_cls_007.png
-   :alt: Distribution Shift: 10-Cluster-Worst vs Full
+   :alt: Distribution Shift: 10-Cluster-Worst vs Remaining
    :srcset: /auto_examples/testing/images/sphx_glr_plot_5_resilience_cls_007.png
    :class: sphx-glr-single-img
 
@@ -224,7 +224,7 @@ Marginal histogram plot for full sample and worst sample
 
 
 .. image-sg:: /auto_examples/testing/images/sphx_glr_plot_5_resilience_cls_008.png
-   :alt: Distribution Shift: 10%-Worst vs Full
+   :alt: Distribution Shift: 10%-Worst vs Remaining
    :srcset: /auto_examples/testing/images/sphx_glr_plot_5_resilience_cls_008.png
    :class: sphx-glr-single-img
 
@@ -236,7 +236,7 @@ Marginal histogram plot for full sample and worst sample
 
 Marginal density plot for full sample and worst sample
 
-.. GENERATED FROM PYTHON SOURCE LINES 50-51
+.. GENERATED FROM PYTHON SOURCE LINES 50-52
 
 .. code-block:: default
 
@@ -244,8 +244,9 @@ Marginal density plot for full sample and worst sample
                        target_feature="PAY_1", original_scale=True, figsize=(5, 4))
 
 
+
 .. image-sg:: /auto_examples/testing/images/sphx_glr_plot_5_resilience_cls_009.png
-   :alt: Distribution Shift: 10%-Worst vs Full
+   :alt: Distribution Shift: 10%-Worst vs Remaining
    :srcset: /auto_examples/testing/images/sphx_glr_plot_5_resilience_cls_009.png
    :class: sphx-glr-single-img
 
@@ -256,7 +257,9 @@ Marginal density plot for full sample and worst sample
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** ( 0 minutes  11.229 seconds)
+   **Total running time of the script:** ( 1 minutes  55.453 seconds)
+
+**Estimated memory usage:**  1865 MB
 
 
 .. _sphx_glr_download_auto_examples_testing_plot_5_resilience_cls.py:

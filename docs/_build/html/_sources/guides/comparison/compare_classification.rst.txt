@@ -71,14 +71,14 @@ The first plot uses the "histogram" slicing method, and the number of bins is se
 .. jupyter-input::
 
    exp.model_compare(models=["Tree", "FIGS", "XGB2"], show="overfit",
-                     slice_method="tree", slice_feature="PAY_1",
-                     metric="ACC", figsize=(5, 4))
+                     slice_method="histogram", slice_feature="PAY_1", 
+                     metric="AUC", original_scale=True, figsize=(5, 4))
 
 .. figure:: ../../auto_examples/testing_compare/images/sphx_glr_plot_0_compare_classification_005.png
    :target: ../../auto_examples/testing_compare/plot_0_compare_classification.html
    :align: left
 
-The second plot displays the overfitting detection results using a decision tree as the slicing model. The results show that all three models are not overfitting. The inconsistent results of tree slicing and histogram slicing are due to the sparse distribution of large `PAY_1`, where the tree slicing fails to generate segments there.
+The second plot displays the overfitting detection results using AUC as the target metric.
 
 
 Reliability Comparison

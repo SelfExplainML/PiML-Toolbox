@@ -22,12 +22,12 @@ exp.model_train(model=ReluDNNRegressor(), name="ReLUDNN")
 #%%
 # 1D ALE Plot for hr
 exp.model_explain(model="ReLUDNN", show="ale", uni_feature='hr',
-                  original_scale=True, figsize=(5, 4))
+                  grid_size=50, original_scale=True, figsize=(5, 4))
 
 #%%
 # 1D ALE Plot for atemp
 exp.model_explain(model="ReLUDNN", show="ale", uni_feature='atemp',
-                  original_scale=True, figsize=(5, 4))
+                  grid_size=50, original_scale=True, figsize=(5, 4))
 
 #%%
 # 1D ALE Plot for weathersit
@@ -36,4 +36,4 @@ exp.model_explain(model="ReLUDNN", show="ale", uni_feature='weathersit',
 #%%
 # 2D ALE Plot for hr and atemp
 exp.model_explain(model="ReLUDNN", show="ale", bi_features=["hr", "atemp"], 
-                  original_scale=True, figsize=(5, 4))
+                  grid_size=10, sliced_line=False, original_scale=True, figsize=(5, 4))

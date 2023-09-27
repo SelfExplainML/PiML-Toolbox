@@ -56,7 +56,7 @@ Train Model
                                    n_estimators=100, 
                                    mono_increasing_list=["Mortgage", "Balance"],
                                    mono_decreasing_list=["Amount Past Due", "Utilization", "Delinquency",
-                                                      "Credit Inquiry", "Open Trade"]),
+                                                         "Credit Inquiry", "Open Trade"]),
                     name="XGB2_monotonic")
 
 
@@ -131,7 +131,7 @@ Fairness Metric
           <td>Race</td>
           <td>1.0</td>
           <td>0.0</td>
-          <td>0.603728</td>
+          <td>0.6037</td>
         </tr>
         <tr>
           <th>1</th>
@@ -139,7 +139,7 @@ Fairness Metric
           <td>Gender</td>
           <td>1.0</td>
           <td>0.0</td>
-          <td>0.745063</td>
+          <td>0.7451</td>
         </tr>
       </tbody>
     </table>
@@ -203,8 +203,8 @@ Fairness Segmented
           <th>Segment</th>
           <th>Lower Bound</th>
           <th>Upper Bound</th>
-          <th>Race | AIR</th>
-          <th>Gender | AIR</th>
+          <th>0-Race | AIR</th>
+          <th>1-Gender | AIR</th>
         </tr>
       </thead>
       <tbody>
@@ -213,40 +213,40 @@ Fairness Segmented
           <td>0</td>
           <td>0.97</td>
           <td>306.61</td>
-          <td>0.451200</td>
-          <td>0.663992</td>
+          <td>0.4512</td>
+          <td>0.6640</td>
         </tr>
         <tr>
           <th>1</th>
           <td>1</td>
           <td>306.62</td>
           <td>601.40</td>
-          <td>0.477974</td>
-          <td>0.640716</td>
+          <td>0.4780</td>
+          <td>0.6407</td>
         </tr>
         <tr>
           <th>2</th>
           <td>2</td>
           <td>601.47</td>
           <td>1027.23</td>
-          <td>0.623723</td>
-          <td>0.657706</td>
+          <td>0.6237</td>
+          <td>0.6577</td>
         </tr>
         <tr>
           <th>3</th>
           <td>3</td>
           <td>1027.29</td>
           <td>1864.90</td>
-          <td>0.639482</td>
-          <td>0.776867</td>
+          <td>0.6395</td>
+          <td>0.7769</td>
         </tr>
         <tr>
           <th>4</th>
           <td>4</td>
           <td>1864.94</td>
           <td>20384.87</td>
-          <td>0.849147</td>
-          <td>0.815034</td>
+          <td>0.8491</td>
+          <td>0.8150</td>
         </tr>
       </tbody>
     </table>
@@ -265,7 +265,7 @@ Fairness Binning
 
     binning_result = exp.model_fairness(model="XGB2_monotonic", show="binning",
                                         metric="AIR",
-                                        group_category=["Race","Gender"],
+                                        group_category=["Race", "Gender"],
                                         reference_group=[1., 1.],
                                         protected_group=[0., 0.],
                                         favorable_threshold=0.5,
@@ -281,7 +281,7 @@ Fairness Binning
 
 
 .. image-sg:: /auto_examples/testing/images/sphx_glr_plot_6_fairness_003.png
-   :alt: Group: Race, Group: Gender
+   :alt: Group: 0 (Race), Group: 1 (Gender)
    :srcset: /auto_examples/testing/images/sphx_glr_plot_6_fairness_003.png
    :class: sphx-glr-single-img
 
@@ -320,209 +320,209 @@ Fairness Binning
           <th>0</th>
           <td>0</td>
           <td>Original</td>
-          <td>0.745063</td>
-          <td>0.603728</td>
-          <td>0.715171</td>
+          <td>0.7451</td>
+          <td>0.6037</td>
+          <td>0.7152</td>
         </tr>
         <tr>
           <th>1</th>
           <td>1</td>
           <td>Balance: 1, Mortgage: 1, Amount Past Due: (0, ...</td>
-          <td>1.000368</td>
-          <td>1.003484</td>
-          <td>0.505151</td>
+          <td>1.0004</td>
+          <td>1.0035</td>
+          <td>0.5052</td>
         </tr>
         <tr>
           <th>2</th>
           <td>2</td>
           <td>Balance: 1, Mortgage: 2, Amount Past Due: (0, ...</td>
-          <td>1.000368</td>
-          <td>1.003484</td>
-          <td>0.505151</td>
+          <td>1.0004</td>
+          <td>1.0035</td>
+          <td>0.5052</td>
         </tr>
         <tr>
           <th>3</th>
           <td>3</td>
           <td>Balance: 1, Mortgage: 3, Amount Past Due: (0, ...</td>
-          <td>1.000873</td>
-          <td>0.998020</td>
-          <td>0.506629</td>
+          <td>1.0009</td>
+          <td>0.9980</td>
+          <td>0.5066</td>
         </tr>
         <tr>
           <th>4</th>
           <td>4</td>
           <td>Balance: 1, Mortgage: 4, Amount Past Due: (0, ...</td>
-          <td>1.003422</td>
-          <td>0.979733</td>
-          <td>0.511253</td>
+          <td>1.0034</td>
+          <td>0.9797</td>
+          <td>0.5113</td>
         </tr>
         <tr>
           <th>5</th>
           <td>5</td>
           <td>Balance: 1, Mortgage: 5, Amount Past Due: (0, ...</td>
-          <td>1.003826</td>
-          <td>0.940766</td>
-          <td>0.522427</td>
+          <td>1.0038</td>
+          <td>0.9408</td>
+          <td>0.5224</td>
         </tr>
         <tr>
           <th>6</th>
           <td>6</td>
           <td>Balance: 2, Mortgage: 1, Amount Past Due: (0, ...</td>
-          <td>0.580318</td>
-          <td>0.988035</td>
-          <td>0.360787</td>
+          <td>0.5803</td>
+          <td>0.9880</td>
+          <td>0.3608</td>
         </tr>
         <tr>
           <th>7</th>
           <td>7</td>
           <td>Balance: 2, Mortgage: 2, Amount Past Due: (0, ...</td>
-          <td>0.580318</td>
-          <td>0.988035</td>
-          <td>0.360787</td>
+          <td>0.5803</td>
+          <td>0.9880</td>
+          <td>0.3608</td>
         </tr>
         <tr>
           <th>8</th>
           <td>8</td>
           <td>Balance: 2, Mortgage: 3, Amount Past Due: (0, ...</td>
-          <td>0.584574</td>
-          <td>0.975176</td>
-          <td>0.364127</td>
+          <td>0.5846</td>
+          <td>0.9752</td>
+          <td>0.3641</td>
         </tr>
         <tr>
           <th>9</th>
           <td>9</td>
           <td>Balance: 2, Mortgage: 4, Amount Past Due: (0, ...</td>
-          <td>0.591296</td>
-          <td>0.934952</td>
-          <td>0.373758</td>
+          <td>0.5913</td>
+          <td>0.9350</td>
+          <td>0.3738</td>
         </tr>
         <tr>
           <th>10</th>
           <td>10</td>
           <td>Balance: 2, Mortgage: 5, Amount Past Due: (0, ...</td>
-          <td>0.600570</td>
-          <td>0.839246</td>
-          <td>0.400689</td>
+          <td>0.6006</td>
+          <td>0.8392</td>
+          <td>0.4007</td>
         </tr>
         <tr>
           <th>11</th>
           <td>11</td>
           <td>Balance: 3, Mortgage: 1, Amount Past Due: (0, ...</td>
-          <td>0.419545</td>
-          <td>1.011075</td>
-          <td>0.397111</td>
+          <td>0.4195</td>
+          <td>1.0111</td>
+          <td>0.3971</td>
         </tr>
         <tr>
           <th>12</th>
           <td>12</td>
           <td>Balance: 3, Mortgage: 2, Amount Past Due: (0, ...</td>
-          <td>0.419545</td>
-          <td>1.011075</td>
-          <td>0.397111</td>
+          <td>0.4195</td>
+          <td>1.0111</td>
+          <td>0.3971</td>
         </tr>
         <tr>
           <th>13</th>
           <td>13</td>
           <td>Balance: 3, Mortgage: 3, Amount Past Due: (0, ...</td>
-          <td>0.423988</td>
-          <td>0.997716</td>
-          <td>0.400796</td>
+          <td>0.4240</td>
+          <td>0.9977</td>
+          <td>0.4008</td>
         </tr>
         <tr>
           <th>14</th>
           <td>14</td>
           <td>Balance: 3, Mortgage: 4, Amount Past Due: (0, ...</td>
-          <td>0.442289</td>
-          <td>0.959378</td>
-          <td>0.410201</td>
+          <td>0.4423</td>
+          <td>0.9594</td>
+          <td>0.4102</td>
         </tr>
         <tr>
           <th>15</th>
           <td>15</td>
           <td>Balance: 3, Mortgage: 5, Amount Past Due: (0, ...</td>
-          <td>0.469471</td>
-          <td>0.865747</td>
-          <td>0.437757</td>
+          <td>0.4695</td>
+          <td>0.8657</td>
+          <td>0.4378</td>
         </tr>
         <tr>
           <th>16</th>
           <td>16</td>
           <td>Balance: 4, Mortgage: 1, Amount Past Due: (0, ...</td>
-          <td>0.460530</td>
-          <td>0.996881</td>
-          <td>0.421800</td>
+          <td>0.4605</td>
+          <td>0.9969</td>
+          <td>0.4218</td>
         </tr>
         <tr>
           <th>17</th>
           <td>17</td>
           <td>Balance: 4, Mortgage: 2, Amount Past Due: (0, ...</td>
-          <td>0.460530</td>
-          <td>0.996881</td>
-          <td>0.421800</td>
+          <td>0.4605</td>
+          <td>0.9969</td>
+          <td>0.4218</td>
         </tr>
         <tr>
           <th>18</th>
           <td>18</td>
           <td>Balance: 4, Mortgage: 3, Amount Past Due: (0, ...</td>
-          <td>0.463408</td>
-          <td>0.987163</td>
-          <td>0.424344</td>
+          <td>0.4634</td>
+          <td>0.9872</td>
+          <td>0.4243</td>
         </tr>
         <tr>
           <th>19</th>
           <td>19</td>
           <td>Balance: 4, Mortgage: 4, Amount Past Due: (0, ...</td>
-          <td>0.480924</td>
-          <td>0.951194</td>
-          <td>0.433464</td>
+          <td>0.4809</td>
+          <td>0.9512</td>
+          <td>0.4335</td>
         </tr>
         <tr>
           <th>20</th>
           <td>20</td>
           <td>Balance: 4, Mortgage: 5, Amount Past Due: (0, ...</td>
-          <td>0.506623</td>
-          <td>0.868160</td>
-          <td>0.457202</td>
+          <td>0.5066</td>
+          <td>0.8682</td>
+          <td>0.4572</td>
         </tr>
         <tr>
           <th>21</th>
           <td>21</td>
           <td>Balance: 5, Mortgage: 1, Amount Past Due: (0, ...</td>
-          <td>0.472251</td>
-          <td>0.999380</td>
-          <td>0.411107</td>
+          <td>0.4723</td>
+          <td>0.9994</td>
+          <td>0.4111</td>
         </tr>
         <tr>
           <th>22</th>
           <td>22</td>
           <td>Balance: 5, Mortgage: 2, Amount Past Due: (0, ...</td>
-          <td>0.472251</td>
-          <td>0.999380</td>
-          <td>0.411107</td>
+          <td>0.4723</td>
+          <td>0.9994</td>
+          <td>0.4111</td>
         </tr>
         <tr>
           <th>23</th>
           <td>23</td>
           <td>Balance: 5, Mortgage: 3, Amount Past Due: (0, ...</td>
-          <td>0.476458</td>
-          <td>0.988062</td>
-          <td>0.414268</td>
+          <td>0.4765</td>
+          <td>0.9881</td>
+          <td>0.4143</td>
         </tr>
         <tr>
           <th>24</th>
           <td>24</td>
           <td>Balance: 5, Mortgage: 4, Amount Past Due: (0, ...</td>
-          <td>0.489755</td>
-          <td>0.954747</td>
-          <td>0.422231</td>
+          <td>0.4898</td>
+          <td>0.9547</td>
+          <td>0.4222</td>
         </tr>
         <tr>
           <th>25</th>
           <td>25</td>
           <td>Balance: 5, Mortgage: 5, Amount Past Due: (0, ...</td>
-          <td>0.509819</td>
-          <td>0.878128</td>
-          <td>0.444284</td>
+          <td>0.5098</td>
+          <td>0.8781</td>
+          <td>0.4443</td>
         </tr>
       </tbody>
     </table>
@@ -597,8 +597,8 @@ Fairness Thresholding
           <td>Race</td>
           <td>1.0</td>
           <td>0.0</td>
-          <td>0.331291</td>
-          <td>0.883245</td>
+          <td>0.3313</td>
+          <td>0.8832</td>
           <td>0.6765</td>
         </tr>
         <tr>
@@ -607,8 +607,8 @@ Fairness Thresholding
           <td>Gender</td>
           <td>1.0</td>
           <td>0.0</td>
-          <td>0.331291</td>
-          <td>0.892292</td>
+          <td>0.3313</td>
+          <td>0.8923</td>
           <td>0.6765</td>
         </tr>
       </tbody>
@@ -621,9 +621,9 @@ Fairness Thresholding
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** ( 0 minutes  24.433 seconds)
+   **Total running time of the script:** ( 0 minutes  55.903 seconds)
 
-**Estimated memory usage:**  40 MB
+**Estimated memory usage:**  1509 MB
 
 
 .. _sphx_glr_download_auto_examples_testing_plot_6_fairness.py:

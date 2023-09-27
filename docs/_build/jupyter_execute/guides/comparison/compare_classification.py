@@ -31,8 +31,8 @@ exp.model_compare(models=["Tree", "FIGS", "XGB2"], show="overfit",
 
 
 exp.model_compare(models=["Tree", "FIGS", "XGB2"], show="overfit",
-                  slice_method="tree", slice_feature="PAY_1",
-                  metric="ACC", figsize=(5, 4))
+                  slice_method="histogram", slice_feature="PAY_1",
+                  metric="AUC", original_scale=True, figsize=(5, 4))
 
 
 # In[ ]:

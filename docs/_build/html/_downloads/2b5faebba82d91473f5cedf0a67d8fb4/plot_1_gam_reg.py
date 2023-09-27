@@ -28,8 +28,14 @@ exp.model_interpret(model="GAM", show="global_effect_plot", uni_feature="MedInc"
 
 #%%
 # Global interpretation: feature importance
-exp.model_interpret(model="GAM",show="global_fi", figsize=(5, 4))
+exp.model_interpret(model="GAM", show="global_fi", figsize=(5, 4))
 
 #%%
 # Local interpretation
-exp.model_interpret(model="GAM",show="local_fi", sample_id=0, original_scale=True, figsize=(5, 4))
+exp.model_interpret(model="GAM", show="local_fi", sample_id=0,
+                    original_scale=True, figsize=(5, 4))
+
+#%%
+# Local interpretation
+exp.model_interpret(model="GAM", show="local_fi", sample_id=10,
+                    original_scale=True, figsize=(5, 4))

@@ -129,6 +129,8 @@
 <li><a class="reference internal" href="#piml.Experiment.get_data"><code class="docutils literal notranslate"><span class="pre">Experiment.get_data</span></code></a></li>
 <li><a class="reference internal" href="#piml.Experiment.get_feature_names"><code class="docutils literal notranslate"><span class="pre">Experiment.get_feature_names</span></code></a></li>
 <li><a class="reference internal" href="#piml.Experiment.get_feature_types"><code class="docutils literal notranslate"><span class="pre">Experiment.get_feature_types</span></code></a></li>
+<li><a class="reference internal" href="#piml.Experiment.get_leaderboard"><code class="docutils literal notranslate"><span class="pre">Experiment.get_leaderboard</span></code></a></li>
+<li><a class="reference internal" href="#piml.Experiment.get_leaderboard_registered"><code class="docutils literal notranslate"><span class="pre">Experiment.get_leaderboard_registered</span></code></a></li>
 <li><a class="reference internal" href="#piml.Experiment.get_model"><code class="docutils literal notranslate"><span class="pre">Experiment.get_model</span></code></a></li>
 <li><a class="reference internal" href="#piml.Experiment.get_model_config"><code class="docutils literal notranslate"><span class="pre">Experiment.get_model_config</span></code></a></li>
 <li><a class="reference internal" href="#piml.Experiment.get_raw_data"><code class="docutils literal notranslate"><span class="pre">Experiment.get_raw_data</span></code></a></li>
@@ -210,6 +212,12 @@ If True, then the css ingestion is disabled, and low-code interface may look bad
 <tr class="row-odd"><td><p><a class="reference internal" href="#piml.Experiment.get_feature_types" title="piml.Experiment.get_feature_types"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_feature_types</span></code></a>()</p></td>
 <td><p>Get the data type of each input feature.</p></td>
 </tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#piml.Experiment.get_leaderboard" title="piml.Experiment.get_leaderboard"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_leaderboard</span></code></a>([metric])</p></td>
+<td><p>Show the performance comparison table of all trained models.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#piml.Experiment.get_leaderboard_registered" title="piml.Experiment.get_leaderboard_registered"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_leaderboard_registered</span></code></a>([metric])</p></td>
+<td><p>Show the performance comparison table of all registered models.</p></td>
+</tr>
 <tr class="row-even"><td><p><a class="reference internal" href="#piml.Experiment.get_model" title="piml.Experiment.get_model"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_model</span></code></a>(model)</p></td>
 <td><p>Get a registered pipeline.</p></td>
 </tr>
@@ -278,10 +286,10 @@ If True, then the css ingestion is disabled, and low-code interface may look bad
 <li><p>‘BikeSharing’: Refer to <a class="reference external" href="https://archive.ics.uci.edu/ml/datasets/bike+sharing+dataset">https://archive.ics.uci.edu/ml/datasets/bike+sharing+dataset</a>.</p></li>
 <li><p>‘TaiwanCredit’: Refer to <a class="reference external" href="https://archive.ics.uci.edu/ml/datasets/default+of+credit+card+clients">https://archive.ics.uci.edu/ml/datasets/default+of+credit+card+clients</a>.</p></li>
 <li><p>‘CaliforniaHousing_raw’: Refer to <a class="reference external" href="https://developers.google.com/machine-learning/crash-course/california-housing-data-description">https://developers.google.com/machine-learning/crash-course/california-housing-data-description</a>.</p></li>
-<li><p>‘CaliforniaHousing_trim1’: ‘CaliforniaHousing_raw’ dataset with the feature ‘AveOccup’ trimed by upper threshold 5.</p></li>
-<li><p>‘CaliforniaHousing_trim2’: ‘CaliforniaHousing_raw’ dataset with the features ‘AveRooms’, ‘AveBedrms’, ‘Population’, ‘AveOccup’ trimed by upper threshold quantile (0.98).</p></li>
+<li><p>‘CaliforniaHousing_trim1’: ‘CaliforniaHousing_raw’ dataset with the feature ‘AveOccup’ trimmed by upper threshold 5.</p></li>
+<li><p>‘CaliforniaHousing_trim2’: ‘CaliforniaHousing_raw’ dataset with the features ‘AveRooms’, ‘AveBedrms’,’Population’, ‘AveOccup’ trimmed by upper threshold quantile (0.98).</p></li>
 <li><p>‘SimuCredit’: A Credit simulation data for fairness testing.</p></li>
-<li><p>‘SolasSimu1’: A simulated dataset, modified from the ‘Friedman #1’ regression problem. The covariates used for modeling are ‘Segment’, ‘x1’, ‘x2’, …, ‘x5’, the response ‘Label’ is binary and it is a classification problem. The rest variables are demographic variables used for testing fairness. The data is contributed by Solas-AI (<a class="reference external" href="https://github.com/SolasAI/solas-ai-disparity">https://github.com/SolasAI/solas-ai-disparity</a>).</p></li>
+<li><p>‘SolasSimu1’: A simulated dataset, modified from the ‘Friedman #1’ regression problem. The covariates used for modeling are ‘Segment’, ‘x1’, ‘x2’, …, ‘x5’, the response ‘Label’ is binary, and it is a classification problem. The rest variables are demographic variables used for testing fairness. The data is contributed by Solas-AI (<a class="reference external" href="https://github.com/SolasAI/solas-ai-disparity">https://github.com/SolasAI/solas-ai-disparity</a>).</p></li>
 <li><p>‘SolasHMDA’: A preprocessed sample of the 2018 Home Mortgage Disclosure Act (HMDA) data. The HMDA dataset includes information about nearly every home mortgage application in the United States.</p></li>
 <li><p>pandas DataFrame: Dataframe with row as data points and column as variables.</p></li>
 </ul>
@@ -296,7 +304,7 @@ If None, it will be False.</p>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="piml.Experiment.data_prepare">
-<span class="sig-name descname"><span class="pre">data_prepare</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">target</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">unicode</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sample_weight</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">unicode</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">test_ratio</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Union</span><span class="p"><span class="pre">[</span></span><span class="pre">float</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">list</span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">random_state</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">task_type</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">unicode</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">silent</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">split_method</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">unicode</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">train_idx</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">test_idx</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#piml.Experiment.data_prepare" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">data_prepare</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">target</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">unicode</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sample_weight</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">unicode</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">test_ratio</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Union</span><span class="p"><span class="pre">[</span></span><span class="pre">float</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">list</span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">random_state</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">task_type</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">unicode</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">silent</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">split_method</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">unicode</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">train_idx</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">test_idx</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">return_data</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">figsize</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">tuple</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#piml.Experiment.data_prepare" title="Permalink to this definition">¶</a></dt>
 <dd><p>Prepare data for model fitting.</p>
 <p>This step will set the target response, task type (classification or regression), and train / test split.
 If no parameter is passed into the method, the program will run in low code mode, otherwise high code mode.</p>
@@ -309,24 +317,30 @@ If no parameter is passed into the method, the program will run in low code mode
 </dd>
 <dt><strong>test_ratio</strong><span class="classifier">float or list, default=None</span></dt><dd><p>Test sample ratio.
 If None, it will be 0.2.
-It can be a list of ratio for each clusters, which only works when split_method equal to ‘kmeans’.</p>
+It can be a list of ratio for each cluster, which only works when split_method equal to ‘kmeans’.</p>
 </dd>
 <dt><strong>random_state</strong><span class="classifier">int, default=None</span></dt><dd><p>Random seed for train / test split.
 If None, it will be 0.</p>
 </dd>
 <dt><strong>task_type</strong><span class="classifier">{‘classification’, ‘regression’}, default=None</span></dt><dd><p>Task type, if None, it will be automatically determined according to the target variable.</p>
 </dd>
-<dt><strong>silent</strong><span class="classifier">bool, default=None</span></dt><dd><p>Wheter to display data prepare summary or not.
+<dt><strong>silent</strong><span class="classifier">bool, default=None</span></dt><dd><p>Whether to display data prepare summary or not.
 If None, it will be False.</p>
 </dd>
-<dt><strong>split_method: {‘random’, ‘outer-sample’, ‘kmeans’}:, default=None</strong></dt><dd><p>The method of splitting train test samples.
-- random: random split
-- outer-sample: split samples based on euclidean distance with center.
-- kmeans: Split samples from each cluster.</p>
+<dt><strong>split_method: {‘random’, ‘outer-sample’, ‘kmeans’}, default=None</strong></dt><dd><p>The method of splitting train test samples.</p>
+<ul class="simple">
+<li><p>random: random split.</p></li>
+<li><p>outer-sample: split samples based on euclidean distance with center.</p></li>
+<li><p>kmeans: Split samples from each cluster.</p></li>
+</ul>
 </dd>
 <dt><strong>train_idx</strong><span class="classifier">array-like of shape (n_samples_train,), default=None</span></dt><dd><p>If train_idx and test_idx are not None, it will be ignored.</p>
 </dd>
 <dt><strong>test_idx</strong><span class="classifier">array-like of shape (n_samples_test,), default=None</span></dt><dd><p>If train_idx and test_idx are not None, it will be ignored.</p>
+</dd>
+<dt><strong>return_data</strong><span class="classifier">bool, default=None</span></dt><dd><p>Whether to return data.</p>
+</dd>
+<dt><strong>figsize</strong><span class="classifier">tuple, default=None</span></dt><dd><p>Figure size.</p>
 </dd>
 </dl>
 </dd>
@@ -335,12 +349,14 @@ If None, it will be False.</p>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="piml.Experiment.data_quality_check">
-<span class="sig-name descname"><span class="pre">data_quality_check</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">method</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">object</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">show</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">unicode</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">threshold</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">return_data</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">figsize</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">tuple</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#piml.Experiment.data_quality_check" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">data_quality_check</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">method</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">show</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">unicode</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">threshold</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Union</span><span class="p"><span class="pre">[</span></span><span class="pre">float</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">list</span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">remove_outliers</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">return_data</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">figsize</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">tuple</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#piml.Experiment.data_quality_check" title="Permalink to this definition">¶</a></dt>
 <dd><p>Check the data quality</p>
+<p>After removing the outliers, the data will be re-prepared.
+The EDA result will also be updated (without outliers).</p>
 <dl class="field-list">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><dl>
-<dt><strong>method</strong><span class="classifier">object, optional</span></dt><dd><p>Four types of outlier detection method object is supported, by default None.</p>
+<dt><strong>method</strong><span class="classifier">list of object</span></dt><dd><p>Four types of outlier detection method object is supported.</p>
 <blockquote>
 <div><ul class="simple">
 <li><p>‘IsolationForest’: piml.data.outlier_detection.IsolationForest</p></li>
@@ -359,11 +375,14 @@ If None, it will be False.</p>
 </ul>
 </div></blockquote>
 </dd>
-<dt><strong>threshold</strong><span class="classifier">float, optional</span></dt><dd><p>The threshold to decide whether a sample is a outlier, larger threshold less outliers, by default None</p>
+<dt><strong>threshold</strong><span class="classifier">float or list, default=None</span></dt><dd><p>The threshold of outlier scores. It decides whether a sample is an outlier.
+Samples with outlier scores larger than the threshold are classified as outliers.</p>
 </dd>
-<dt><strong>return_data</strong><span class="classifier">bool, optional</span></dt><dd><p>Whether to return data, by default None</p>
+<dt><strong>remove_outliers</strong><span class="classifier">bool, default=None</span></dt><dd><p>If True, and method is a single outlier detection model, then the detected outliers will be removed.</p>
 </dd>
-<dt><strong>figsize</strong><span class="classifier">tuple, optional</span></dt><dd><p>Figure size, by default None</p>
+<dt><strong>return_data</strong><span class="classifier">bool, default=None</span></dt><dd><p>Whether to return data.</p>
+</dd>
+<dt><strong>figsize</strong><span class="classifier">tuple, default=None</span></dt><dd><p>Figure size.</p>
 </dd>
 </dl>
 </dd>
@@ -372,7 +391,7 @@ If None, it will be False.</p>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="piml.Experiment.data_summary">
-<span class="sig-name descname"><span class="pre">data_summary</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">feature_type</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">Dict</span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">feature_exclude</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">List</span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">silent</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">bool</span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#piml.Experiment.data_summary" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">data_summary</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">feature_type</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">Dict</span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">feature_exclude</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">List</span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">silent</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">bool</span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">return_data</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">bool</span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#piml.Experiment.data_summary" title="Permalink to this definition">¶</a></dt>
 <dd><p>Summarize basic data statistics.</p>
 <p>If no parameter is passed into the method, the program will run in low code mode, otherwise high code mode.</p>
 <dl class="field-list simple">
@@ -386,6 +405,9 @@ For example, {‘X0’: ‘numerical’, ‘X1’: ‘categorical’, ‘X2’: 
 <dt><strong>silent</strong><span class="classifier">bool, default=None</span></dt><dd><p>Whether to display data summary or not.
 If None, it will be False.</p>
 </dd>
+<dt><strong>return_data</strong><span class="classifier">bool, default=None</span></dt><dd><p>Whether to return data.
+If None, it will be False.</p>
+</dd>
 </dl>
 </dd>
 </dl>
@@ -395,7 +417,12 @@ If None, it will be False.</p>
 <dt class="sig sig-object py" id="piml.Experiment.eda">
 <span class="sig-name descname"><span class="pre">eda</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">show</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">unicode</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">uni_feature</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">unicode</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">bi_features</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">List</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">multi_type</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">unicode</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">return_data</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">figsize</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Tuple</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#piml.Experiment.eda" title="Permalink to this definition">¶</a></dt>
 <dd><p>Run exploratory data analysis.</p>
-<p>If no parameter is passed into the method, the program will run in low code mode, otherwise high code mode.</p>
+<dl class="simple">
+<dt>If no parameter is passed into the method, the program will run in low code mode,</dt><dd><p>otherwise high code mode.</p>
+</dd>
+<dt>Note that if data_summary or data_quality_check is executed, then this method visualize</dt><dd><p>the data after removing features or outliers.</p>
+</dd>
+</dl>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><dl class="simple">
@@ -423,7 +450,11 @@ If None, it will be (8, 6).</p>
 <dt class="sig sig-object py" id="piml.Experiment.feature_select">
 <span class="sig-name descname"><span class="pre">feature_select</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">method</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">unicode</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">threshold</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">corr_algorithm</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">unicode</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">preset</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">list</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">kernel_size</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n_forward_phase</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">return_data</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">figsize</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Tuple</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#piml.Experiment.feature_select" title="Permalink to this definition">¶</a></dt>
 <dd><p>Select features that are important for modeling.</p>
-<p>If no parameter is passed into the method, the program will run in low code mode, otherwise high code mode.</p>
+<dl>
+<dt>If no parameter is passed into the method, the program will run in low code mode,</dt><dd><p>otherwise high code mode.</p>
+<p>Note that this method requires to execute data_prepare first.</p>
+</dd>
+</dl>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><dl class="simple">
@@ -458,10 +489,10 @@ If None, it will be 0.99.</p>
 </li>
 <li><dl class="simple">
 <dt>‘rcit’: The threshold for the p-value of RCIT test.</dt><dd><p>Features are selected in an iterative manner.
-In a forward iteration: a feature will be selected as the p-value of the RCIT test is smaller
-than or equal to the threshold, conditional on existing selected features.
-In a backward iteration: a selected feature will be removed if the corresponding p-value is greater
-than the threshold.
+In a forward iteration: a feature will be selected as the p-value of the RCIT test is
+smaller than or equal to the threshold, conditional on existing selected features.
+In a backward iteration: a selected feature will be removed if the
+corresponding p-value is greater than the threshold.
 If None, it will be 1e-6.</p>
 </dd>
 </dl>
@@ -470,14 +501,14 @@ If None, it will be 1e-6.</p>
 </dd>
 <dt><strong>corr_algorithm: str, default=None</strong></dt><dd><p>The algorithm of correlation method.</p>
 <ul class="simple">
-<li><p>‘pearson’: Use Pearson correlation</p></li>
-<li><p>‘spearman’: Use Spearman rank correlation</p></li>
+<li><p>‘pearson’: Use Pearson correlation.</p></li>
+<li><p>‘spearman’: Use Spearman rank correlation.</p></li>
 </ul>
 </dd>
 <dt><strong>preset</strong><span class="classifier">list, default=None</span></dt><dd><p>The initialization of selected feature names; used when <code class="docutils literal notranslate"><span class="pre">method</span></code> = ‘rcit’.
 If None, it will be an empty list.</p>
 </dd>
-<dt><strong>kernel_size</strong><span class="classifier">int, default=None</span></dt><dd><p>The number of Random Fourier Features useed in the conditioning set, used when <code class="docutils literal notranslate"><span class="pre">method</span></code> = ‘rcit’.
+<dt><strong>kernel_size</strong><span class="classifier">int, default=None</span></dt><dd><p>The number of Random Fourier Features used in the conditioning set, used when <code class="docutils literal notranslate"><span class="pre">method</span></code> = ‘rcit’.
 If None, it will be 100.</p>
 </dd>
 <dt><strong>n_forward_phase</strong><span class="classifier">int, default=None</span></dt><dd><p>The number of forward repetition iteration of forward backward feature selection with early stopping (FBEDk) algorithm. Used when <code class="docutils literal notranslate"><span class="pre">method</span></code> = ‘rcit’.
@@ -502,11 +533,11 @@ If None, it will be (8, 6).</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><dl class="simple">
-<dt><strong>x</strong><span class="classifier">ndarray of shape (n_samples, n_features), default=None</span></dt><dd><p>Selected features. If None, will use the default data in the workfolw.</p>
+<dt><strong>x</strong><span class="classifier">ndarray of shape (n_samples, n_features), default=None</span></dt><dd><p>Selected features. If None, will use the default data in the workflow.</p>
 </dd>
-<dt><strong>y</strong><span class="classifier">ndarray of shape (n_samples, ), default=None</span></dt><dd><p>Response. If None, will use the default data in the workfolw.</p>
+<dt><strong>y</strong><span class="classifier">ndarray of shape (n_samples, ), default=None</span></dt><dd><p>Response. If None, will use the default data in the workflow.</p>
 </dd>
-<dt><strong>sample_weight</strong><span class="classifier">ndarray of shape (n_samples, ), default=None</span></dt><dd><p>The sample weights. If None, will use the default data in the workfolw.</p>
+<dt><strong>sample_weight</strong><span class="classifier">ndarray of shape (n_samples, ), default=None</span></dt><dd><p>The sample weights. If None, will use the default data in the workflow.</p>
 </dd>
 <dt><strong>train</strong><span class="classifier">bool, default=False</span></dt><dd><p>Whether to return training data only. Not available if x, y, or sample_weight is specified.</p>
 </dd>
@@ -539,6 +570,44 @@ If None, it will be (8, 6).</p>
 <dt class="field-odd">Returns</dt>
 <dd class="field-odd"><dl class="simple">
 <dt>feature_types: list of str</dt><dd><p>Feature types.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="piml.Experiment.get_leaderboard">
+<span class="sig-name descname"><span class="pre">get_leaderboard</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">metric</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#piml.Experiment.get_leaderboard" title="Permalink to this definition">¶</a></dt>
+<dd><p>Show the performance comparison table of all trained models.</p>
+<p>Note that only models trained using exp.model_train api are considered here.
+For models trained outside the piml workflow, use e.g., exp.model_diagnose(model=”Model_Name”, show=”accuracy_table”) instaed.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>metric</strong><span class="classifier">{‘F1’, ‘AUC’, ‘ACC’, ‘MSE’, ‘MAE’, ‘R2’}, default=None</span></dt><dd><ul class="simple">
+<li><p>For classification tasks: ‘AUC’, ‘F1’, ‘ACC’.</p></li>
+<li><p>For regression tasks: ‘MSE’, ‘MAE’, ‘R2’.</p></li>
+</ul>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="piml.Experiment.get_leaderboard_registered">
+<span class="sig-name descname"><span class="pre">get_leaderboard_registered</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">metric</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#piml.Experiment.get_leaderboard_registered" title="Permalink to this definition">¶</a></dt>
+<dd><p>Show the performance comparison table of all registered models.</p>
+<p>Note that only models trained using exp.model_train api are considered here.
+For models trained outside the piml workflow, use exp.model_diagnose(model=”Model_Name”, show=”accuracy_table”) instaed.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>metric</strong><span class="classifier">{‘F1’, ‘AUC’, ‘ACC’, ‘MSE’, ‘MAE’, ‘R2’}, default=None</span></dt><dd><ul class="simple">
+<li><p>For classification tasks: ‘AUC’, ‘F1’, ‘ACC’.</p></li>
+<li><p>For regression tasks: ‘MSE’, ‘MAE’, ‘R2’.</p></li>
+</ul>
 </dd>
 </dl>
 </dd>
@@ -587,7 +656,8 @@ If None, it will be (8, 6).</p>
 <dl class="field-list simple">
 <dt class="field-odd">Returns</dt>
 <dd class="field-odd"><dl class="simple">
-<dt><strong>data</strong><span class="classifier">DataTuple</span></dt><dd><p>It includes (train_x, train_y, train_sample_weight, test_x, test_y, test_sample_weight, feature_names, target_name).</p>
+<dt><strong>data</strong><span class="classifier">DataTuple</span></dt><dd><p>It includes (train_x, train_y, train_sample_weight, test_x, test_y, test_sample_weight,
+feature_names, target_name).</p>
 </dd>
 </dl>
 </dd>
@@ -617,21 +687,21 @@ If None, it will be (8, 6).</p>
 <dd class="field-odd"><dl class="simple">
 <dt><strong>model</strong><span class="classifier">Estimator Object or pickle file path</span></dt><dd><p>An estimator which should follow the sklearn style.</p>
 </dd>
-<dt><strong>normalize_strategy</strong><span class="classifier">{‘minmax’, ‘unit_norm’}, default=None</span></dt><dd><p>The normalize strategy names. If None, no normalization is performed.</p>
+<dt><strong>normalize_strategy</strong><span class="classifier">{‘minmax’, ‘unit_norm’}, default=None</span></dt><dd><p>The normalization strategy names. If None, no normalization is performed.</p>
 </dd>
-<dt><strong>encode_strategy</strong><span class="classifier">{‘ordinal’, ‘one_hot’}, default=None</span></dt><dd><p>The encode strategy names. If None, no encoding is performed.</p>
+<dt><strong>encode_strategy</strong><span class="classifier">{‘ordinal’, ‘one_hot’}, default=None</span></dt><dd><p>The encoding strategy names. If None, no encoding is performed.</p>
 </dd>
-<dt><strong>train_x</strong><span class="classifier">Xndarray of shape (n_samples_train, n_features), default=None</span></dt><dd><p>The training data for the estimator. Use the default data in Experiment if None.</p>
+<dt><strong>train_x</strong><span class="classifier">ndarray of shape (n_samples_train, n_features), default=None</span></dt><dd><p>The training data for the estimator. Use the default data in Experiment if None.</p>
 </dd>
-<dt><strong>train_y</strong><span class="classifier">Xndarray of shape (n_samples_train, ), default=None</span></dt><dd><p>The training target for the estimator. Use the default data in Experiment if None.</p>
+<dt><strong>train_y</strong><span class="classifier">ndarray of shape (n_samples_train, ), default=None</span></dt><dd><p>The training target for the estimator. Use the default data in Experiment if None.</p>
 </dd>
-<dt><strong>test_x</strong><span class="classifier">Xndarray of shape (n_samples_test, n_features), default=None</span></dt><dd><p>The testing data for the estimator. Use the default data in Experiment if None.</p>
+<dt><strong>test_x</strong><span class="classifier">ndarray of shape (n_samples_test, n_features), default=None</span></dt><dd><p>The testing data for the estimator. Use the default data in Experiment if None.</p>
 </dd>
-<dt><strong>test_y</strong><span class="classifier">Xndarray of shape (n_samples_test, ), default=None</span></dt><dd><p>The testing target for the estimator. Use the default data in Experiment if None.</p>
+<dt><strong>test_y</strong><span class="classifier">ndarray of shape (n_samples_test, ), default=None</span></dt><dd><p>The testing target for the estimator. Use the default data in Experiment if None.</p>
 </dd>
-<dt><strong>train_sample_weight</strong><span class="classifier">Xndarray of shape (n_samples_test, ), default=None</span></dt><dd><p>The testing sample_weight for the estimator. Use the default data in Experiment if None.</p>
+<dt><strong>train_sample_weight</strong><span class="classifier">ndarray of shape (n_samples_test, ), default=None</span></dt><dd><p>The testing sample_weight for the estimator. Use the default data in Experiment if None.</p>
 </dd>
-<dt><strong>test_sample_weight</strong><span class="classifier">Xndarray of shape (n_samples_test, ), default=None</span></dt><dd><p>The testing sample_weight for the estimator. Use the default data in Experiment if None.</p>
+<dt><strong>test_sample_weight</strong><span class="classifier">ndarray of shape (n_samples_test, ), default=None</span></dt><dd><p>The testing sample_weight for the estimator. Use the default data in Experiment if None.</p>
 </dd>
 <dt><strong>excluded_features</strong><span class="classifier">list, default=None</span></dt><dd><p>Feature names to exclude for the model.</p>
 </dd>
@@ -655,13 +725,13 @@ the type of each feature will be determined by several samples</p>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="piml.Experiment.model_compare">
-<span class="sig-name descname"><span class="pre">model_compare</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">models</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">show</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">unicode</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">metric</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">unicode</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">immu_feature</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">unicode</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">perturb_features</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Union</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">perturb_method</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">unicode</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">resilience_method</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">unicode</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">perturb_size</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">psi_buckets</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">unicode</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">distance_metric</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">unicode</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">min_samples</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">alpha</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n_clusters</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">bins</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">slice_feature</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">unicode</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">slice_method</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">unicode</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">threshold</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">original_scale</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">return_data</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">figsize</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">int</span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#piml.Experiment.model_compare" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">model_compare</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">models</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">show</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">unicode</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">metric</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">unicode</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">immu_feature</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">unicode</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">perturb_features</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Union</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">perturb_method</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">unicode</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">resilience_method</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">unicode</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">perturb_size</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">psi_buckets</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">unicode</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">distance_metric</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">unicode</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">min_samples</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">alpha</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n_clusters</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">bins</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">slice_feature</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">unicode</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">slice_method</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">unicode</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">original_scale</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">return_data</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">figsize</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">int</span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#piml.Experiment.model_compare" title="Permalink to this definition">¶</a></dt>
 <dd><p>Compare the diagnostic results of multiple models.</p>
 <p>If no parameter is passed into the method, the program will run in low code mode, otherwise high code mode.</p>
 <dl class="field-list">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><dl>
-<dt><strong>models</strong><span class="classifier">list, default=None</span></dt><dd><p>models’ registered names, up to 3 models.</p>
+<dt><strong>models</strong><span class="classifier">list, default=None</span></dt><dd><p>Models names, up to 3 models.</p>
 </dd>
 <dt><strong>show</strong><span class="classifier">str, default=None</span></dt><dd><p>Supported diagnostic methods for model comparison:</p>
 <ul>
@@ -675,8 +745,11 @@ the type of each feature will be determined by several samples</p>
 <li><p>Overfit</p>
 <blockquote>
 <div><ul class="simple">
-<li><p>‘overfit’: compare overfit performance between models. (params: <code class="docutils literal notranslate"><span class="pre">slice_method</span></code>, <code class="docutils literal notranslate"><span class="pre">slice_feature</span></code>, <code class="docutils literal notranslate"><span class="pre">threshold</span></code>, <code class="docutils literal notranslate"><span class="pre">bins</span></code>, <code class="docutils literal notranslate"><span class="pre">metric</span></code>)</p></li>
+<li><p>‘overfit’: compare overfit performance between models. (params: <code class="docutils literal notranslate"><span class="pre">slice_method</span></code>,</p></li>
 </ul>
+<blockquote>
+<div><p><code class="docutils literal notranslate"><span class="pre">slice_feature</span></code>, <code class="docutils literal notranslate"><span class="pre">bins</span></code>, <code class="docutils literal notranslate"><span class="pre">metric</span></code>)</p>
+</div></blockquote>
 </div></blockquote>
 </li>
 <li><p>Reliability</p>
@@ -690,17 +763,33 @@ the type of each feature will be determined by several samples</p>
 <li><p>Robustness</p>
 <blockquote>
 <div><ul class="simple">
-<li><p>‘robustness_perf’: compare robustness performance. (params: <code class="docutils literal notranslate"><span class="pre">perturb_method</span></code>, <code class="docutils literal notranslate"><span class="pre">perturb_features</span></code>, <code class="docutils literal notranslate"><span class="pre">perturb_size</span></code>, <code class="docutils literal notranslate"><span class="pre">metric</span></code>)</p></li>
-<li><p>‘robustness_perf_worst’: compare robustness performance between models, based on worst sample. (params: <code class="docutils literal notranslate"><span class="pre">perturb_method</span></code>, <code class="docutils literal notranslate"><span class="pre">perturb_features</span></code>, <code class="docutils literal notranslate"><span class="pre">perturb_size</span></code>, <code class="docutils literal notranslate"><span class="pre">metric</span></code>, <code class="docutils literal notranslate"><span class="pre">alpha</span></code>)</p></li>
+<li><p>‘robustness_perf’: compare robustness performance. (params: <code class="docutils literal notranslate"><span class="pre">perturb_method</span></code>,</p></li>
 </ul>
+<blockquote>
+<div><p><code class="docutils literal notranslate"><span class="pre">perturb_features</span></code>, <code class="docutils literal notranslate"><span class="pre">perturb_size</span></code>, <code class="docutils literal notranslate"><span class="pre">metric</span></code>)</p>
+</div></blockquote>
+<ul class="simple">
+<li><p>‘robustness_perf_worst’: compare robustness performance between models, based on worst sample.</p></li>
+</ul>
+<blockquote>
+<div><p>(params: <code class="docutils literal notranslate"><span class="pre">perturb_method</span></code>, <code class="docutils literal notranslate"><span class="pre">perturb_features</span></code>, <code class="docutils literal notranslate"><span class="pre">perturb_size</span></code>, <code class="docutils literal notranslate"><span class="pre">metric</span></code>, <code class="docutils literal notranslate"><span class="pre">alpha</span></code>)</p>
+</div></blockquote>
 </div></blockquote>
 </li>
 <li><p>Resilience</p>
 <blockquote>
 <div><ul class="simple">
-<li><p>‘resilience_perf’: compare resilience performance. (params: <code class="docutils literal notranslate"><span class="pre">resilience_method</span></code>, <code class="docutils literal notranslate"><span class="pre">alpha</span></code>, <code class="docutils literal notranslate"><span class="pre">n_clusters</span></code>, <code class="docutils literal notranslate"><span class="pre">immu_feature</span></code>, <code class="docutils literal notranslate"><span class="pre">metric</span></code>)</p></li>
-<li><p>‘resilience_distance’: compare resilience distribution distance. (params: <code class="docutils literal notranslate"><span class="pre">resilience_method</span></code>, <code class="docutils literal notranslate"><span class="pre">alpha</span></code>, <code class="docutils literal notranslate"><span class="pre">n_clusters</span></code>, <code class="docutils literal notranslate"><span class="pre">immu_feature</span></code>, <code class="docutils literal notranslate"><span class="pre">distance_metric</span></code>)</p></li>
+<li><p>‘resilience_perf’: compare resilience performance. (params: <code class="docutils literal notranslate"><span class="pre">resilience_method</span></code>,</p></li>
 </ul>
+<blockquote>
+<div><p><code class="docutils literal notranslate"><span class="pre">alpha</span></code>, <code class="docutils literal notranslate"><span class="pre">n_clusters</span></code>, <code class="docutils literal notranslate"><span class="pre">immu_feature</span></code>, <code class="docutils literal notranslate"><span class="pre">metric</span></code>)</p>
+</div></blockquote>
+<ul class="simple">
+<li><p>‘resilience_distance’: compare resilience distribution distance. (params: <code class="docutils literal notranslate"><span class="pre">resilience_method</span></code>,</p></li>
+</ul>
+<blockquote>
+<div><p><code class="docutils literal notranslate"><span class="pre">alpha</span></code>, <code class="docutils literal notranslate"><span class="pre">n_clusters</span></code>, <code class="docutils literal notranslate"><span class="pre">immu_feature</span></code>, <code class="docutils literal notranslate"><span class="pre">distance_metric</span></code>)</p>
+</div></blockquote>
 </div></blockquote>
 </li>
 </ul>
@@ -732,9 +821,17 @@ If None, it will be 0.1.</p>
 <li><p>For numeric features:</p>
 <blockquote>
 <div><ul class="simple">
-<li><p>When <code class="docutils literal notranslate"><span class="pre">perturb_method</span></code> = ‘raw’: the standard deviation of the noise, i.e., noise std = <code class="docutils literal notranslate"><span class="pre">perturb_size</span></code> * std(X).</p></li>
-<li><p>When <code class="docutils literal notranslate"><span class="pre">perturb_method</span></code> = ‘quantile’: the range of the uniform distribution of noise, i.e., noise range = [-0.5 * <code class="docutils literal notranslate"><span class="pre">perturb_size</span></code>, 0.5 * <code class="docutils literal notranslate"><span class="pre">perturb_size</span></code>].</p></li>
+<li><p>When <code class="docutils literal notranslate"><span class="pre">perturb_method</span></code> = ‘raw’: the standard deviation of the noise,</p></li>
 </ul>
+<blockquote>
+<div><p>i.e., noise std = <code class="docutils literal notranslate"><span class="pre">perturb_size</span></code> * std(X).</p>
+</div></blockquote>
+<ul class="simple">
+<li><p>When <code class="docutils literal notranslate"><span class="pre">perturb_method</span></code> = ‘quantile’: the range of the uniform distribution of noise,</p></li>
+</ul>
+<blockquote>
+<div><p>i.e., noise range = [-0.5 * <code class="docutils literal notranslate"><span class="pre">perturb_size</span></code>, 0.5 * <code class="docutils literal notranslate"><span class="pre">perturb_size</span></code>].</p>
+</div></blockquote>
 </div></blockquote>
 </li>
 <li><p>For categorical features, the perturbation probability of categorical feature.</p></li>
@@ -743,11 +840,27 @@ If None, it will be 0.1.</p>
 <dt><strong>resilience_method</strong><span class="classifier">{‘worst-sample’, ‘hard-sample’, ‘outer-sample’, ‘worst-cluster’}, default=None</span></dt><dd><p>The method used for selecting worst samples, used when <code class="docutils literal notranslate"><span class="pre">show</span></code> = ‘resilience_perf’ or ‘resilience_distance’.
 If None, it will be ‘worst-sample’.</p>
 <ul class="simple">
-<li><p>‘worst-sample’: Select the worst samples according to the loss of each sample; the worst samples are related to models.</p></li>
-<li><p>‘hard-sample’: Use a deep XGB model to distinguish hard and easy samples; the worst samples are the same for different models.</p></li>
-<li><p>‘outer-sample’: Use the Euclidean distance of each sample to the mean of X as a surrogate of worstness; the worst samples are the same for different models.</p></li>
-<li><p>‘worst-cluster’: Fit a K-means using the X, and then select the worst performing cluster as the worst samples; the worst samples are related to models.</p></li>
+<li><p>‘worst-sample’: Select the worst samples according to the loss of each sample;</p></li>
 </ul>
+<blockquote>
+<div><p>the worst samples are related to models.</p>
+</div></blockquote>
+<ul class="simple">
+<li><p>‘hard-sample’: Use a deep XGB model to distinguish hard and easy samples;</p></li>
+</ul>
+<blockquote>
+<div><p>the worst samples are the same for different models.</p>
+</div></blockquote>
+<ul class="simple">
+<li><p>‘outer-sample’: Use the Euclidean distance of each sample to the mean of X as a surrogate of</p></li>
+</ul>
+<blockquote>
+<div><p>worstness; the worst samples are the same for different models.</p>
+</div></blockquote>
+<ul class="simple">
+<li><p>‘worst-cluster’: Fit a K-means using the X, and then select the worst</p></li>
+</ul>
+<p>performing cluster as the worst samples; the worst samples are related to models.</p>
 </dd>
 <dt><strong>distance_metric</strong><span class="classifier">{‘PSI’, ‘WD1’, ‘KS’}, default=None</span></dt><dd><p>The distance metric used when <code class="docutils literal notranslate"><span class="pre">show</span></code> = ‘resilience_distance’.
 If None, it will be ‘PSI’.</p>
@@ -780,14 +893,11 @@ If None, it will be 10.</p>
 <dt><strong>slice_method</strong><span class="classifier">{‘histogram’, ‘tree’}, default=None</span></dt><dd><p>The slicing method for Overfit test, used when <code class="docutils literal notranslate"><span class="pre">show</span></code> = ‘overfit’.
 If None, it will be ‘histogram’.</p>
 <ul class="simple">
-<li><p>‘histogram’: use equal-space binning;</p></li>
-<li><p>‘tree’: default, fit a decision tree to generate regions;</p></li>
+<li><p>‘histogram’: default, use equal-space binning;</p></li>
+<li><p>‘tree’: fit a decision tree to generate regions, not applicable when <code class="docutils literal notranslate"><span class="pre">show</span></code> = ‘overfit’.</p></li>
 </ul>
 </dd>
-<dt><strong>threshold</strong><span class="classifier">int, default=None</span></dt><dd><p>This threshold of overfit test, used when <code class="docutils literal notranslate"><span class="pre">show</span></code> = ‘overfit’.
-If None, it will be 1.1.</p>
-</dd>
-<dt><strong>original_scale: bool, default=None</strong></dt><dd><p>Whether or not to use the original scale of X in the plots.
+<dt><strong>original_scale: bool, default=None</strong></dt><dd><p>To use the original scale of X in the plots.
 If None, it will be False.</p>
 </dd>
 <dt><strong>return_data: bool, default=None</strong></dt><dd><p>Whether to return the data object.
@@ -825,44 +935,94 @@ If None, it will be (8, 6).</p>
 <li><p>WeakSpot</p>
 <blockquote>
 <div><ul class="simple">
-<li><p>‘weakspot’: show detected weakspot regions. (params: <code class="docutils literal notranslate"><span class="pre">slice_method</span></code>, <code class="docutils literal notranslate"><span class="pre">slice_features</span></code>, <code class="docutils literal notranslate"><span class="pre">bins</span></code>, <code class="docutils literal notranslate"><span class="pre">metric</span></code>, <code class="docutils literal notranslate"><span class="pre">threshold</span></code>, <code class="docutils literal notranslate"><span class="pre">min_samples</span></code>, <code class="docutils literal notranslate"><span class="pre">use_test</span></code>)</p></li>
+<li><p>‘weakspot’: show detected weakspot regions. (params: <code class="docutils literal notranslate"><span class="pre">slice_method</span></code>, <code class="docutils literal notranslate"><span class="pre">slice_features</span></code>, <code class="docutils literal notranslate"><span class="pre">bins</span></code>,</p></li>
 </ul>
+<blockquote>
+<div><p><code class="docutils literal notranslate"><span class="pre">metric</span></code>, <code class="docutils literal notranslate"><span class="pre">threshold</span></code>, <code class="docutils literal notranslate"><span class="pre">min_samples</span></code>, <code class="docutils literal notranslate"><span class="pre">use_test</span></code>)</p>
+</div></blockquote>
 </div></blockquote>
 </li>
 <li><p>Overfit</p>
 <blockquote>
 <div><ul class="simple">
-<li><p>‘overfit’: identify overfitting regions with high testing - training error gaps. (params: <code class="docutils literal notranslate"><span class="pre">slice_method</span></code>, <code class="docutils literal notranslate"><span class="pre">slice_features</span></code>, <code class="docutils literal notranslate"><span class="pre">bins</span></code>, <code class="docutils literal notranslate"><span class="pre">metric</span></code>, <code class="docutils literal notranslate"><span class="pre">threshold</span></code>, <code class="docutils literal notranslate"><span class="pre">min_samples</span></code>)</p></li>
+<li><p>‘overfit’: identify overfitting regions with high testing - training error gaps. (params:</p></li>
 </ul>
+<blockquote>
+<div><p><code class="docutils literal notranslate"><span class="pre">slice_method</span></code>, <code class="docutils literal notranslate"><span class="pre">slice_features</span></code>, <code class="docutils literal notranslate"><span class="pre">bins</span></code>, <code class="docutils literal notranslate"><span class="pre">metric</span></code>, <code class="docutils literal notranslate"><span class="pre">threshold</span></code>, <code class="docutils literal notranslate"><span class="pre">min_samples</span></code>)</p>
+</div></blockquote>
 </div></blockquote>
 </li>
 <li><p>Reliability</p>
 <blockquote>
 <div><ul class="simple">
-<li><p>‘reliability_table’: show empirical coverage and average bandwidth for regression or Brier Loss for classification. (params: <code class="docutils literal notranslate"><span class="pre">alpha</span></code>)</p></li>
-<li><p>‘reliability_distance’: calculate distribution shift distance of features between reliable and un-reliable data. (params: <code class="docutils literal notranslate"><span class="pre">alpha</span></code>, <code class="docutils literal notranslate"><span class="pre">threshold</span></code>, <code class="docutils literal notranslate"><span class="pre">distance_metric</span></code>)</p></li>
-<li><p>‘reliability_marginal’: plot the histogram of bandwidth against a given feature. (params: <code class="docutils literal notranslate"><span class="pre">alpha</span></code>, <code class="docutils literal notranslate"><span class="pre">target_feature</span></code>, <code class="docutils literal notranslate"><span class="pre">bins</span></code>, <code class="docutils literal notranslate"><span class="pre">threshold</span></code>)</p></li>
-<li><p>‘reliability_perf’: only for classifiers; reliability diagram.</p></li>
-<li><p>‘reliability_calibration’: only for classifiers; show the calibrated predicted probability vs. original predicted probability.</p></li>
+<li><p>‘reliability_table’: show empirical coverage and average bandwidth for regression or Brier Loss</p></li>
 </ul>
+<blockquote>
+<div><p>for classification. (params: <code class="docutils literal notranslate"><span class="pre">alpha</span></code>)</p>
+</div></blockquote>
+<ul class="simple">
+<li><p>‘reliability_distance’: calculate distribution shift distance of features between reliable and</p></li>
+</ul>
+<blockquote>
+<div><p>un-reliable data. (params: <code class="docutils literal notranslate"><span class="pre">alpha</span></code>, <code class="docutils literal notranslate"><span class="pre">threshold</span></code>, <code class="docutils literal notranslate"><span class="pre">distance_metric</span></code>)</p>
+</div></blockquote>
+<ul class="simple">
+<li><p>‘reliability_marginal’: plot the histogram of bandwidth against a given feature. (params: <code class="docutils literal notranslate"><span class="pre">alpha</span></code>,</p></li>
+</ul>
+<blockquote>
+<div><p><code class="docutils literal notranslate"><span class="pre">target_feature</span></code>, <code class="docutils literal notranslate"><span class="pre">bins</span></code>, <code class="docutils literal notranslate"><span class="pre">threshold</span></code>)</p>
+</div></blockquote>
+<ul class="simple">
+<li><p>‘reliability_perf’: only for classifiers; reliability diagram.</p></li>
+<li><p>‘reliability_calibration’: only for classifiers; show the calibrated predicted probability vs.</p></li>
+</ul>
+<blockquote>
+<div><p>original predicted probability.</p>
+</div></blockquote>
 </div></blockquote>
 </li>
 <li><p>Robustness</p>
 <blockquote>
 <div><ul class="simple">
-<li><p>‘robustness_perf’: performance against perturbation size. (params: <code class="docutils literal notranslate"><span class="pre">perturb_method</span></code>, <code class="docutils literal notranslate"><span class="pre">perturb_features</span></code>, <code class="docutils literal notranslate"><span class="pre">perturb_size</span></code>, <code class="docutils literal notranslate"><span class="pre">metric</span></code>)</p></li>
-<li><p>‘robustness_perf_worst’: performance against perturbation size based on worst sample. (params: <code class="docutils literal notranslate"><span class="pre">perturb_method</span></code>, <code class="docutils literal notranslate"><span class="pre">perturb_features</span></code>, <code class="docutils literal notranslate"><span class="pre">perturb_size</span></code>, <code class="docutils literal notranslate"><span class="pre">metric</span></code>, <code class="docutils literal notranslate"><span class="pre">alpha</span></code>)</p></li>
+<li><p>‘robustness_perf’: performance against perturbation size. (params: <code class="docutils literal notranslate"><span class="pre">perturb_method</span></code>,</p></li>
 </ul>
+<blockquote>
+<div><p><code class="docutils literal notranslate"><span class="pre">perturb_features</span></code>, <code class="docutils literal notranslate"><span class="pre">perturb_size</span></code>, <code class="docutils literal notranslate"><span class="pre">metric</span></code>)</p>
+</div></blockquote>
+<ul class="simple">
+<li><p>‘robustness_perf_worst’: performance against perturbation size based on worst sample. (params:</p></li>
+</ul>
+<blockquote>
+<div><p><code class="docutils literal notranslate"><span class="pre">perturb_method</span></code>, <code class="docutils literal notranslate"><span class="pre">perturb_features</span></code>, <code class="docutils literal notranslate"><span class="pre">perturb_size</span></code>, <code class="docutils literal notranslate"><span class="pre">metric</span></code>, <code class="docutils literal notranslate"><span class="pre">alpha</span></code>)</p>
+</div></blockquote>
 </div></blockquote>
 </li>
 <li><p>Resilience</p>
 <blockquote>
 <div><ul class="simple">
-<li><p>‘resilience_perf’: performance against worst sample ratio. (params: <code class="docutils literal notranslate"><span class="pre">resilience_method</span></code>, <code class="docutils literal notranslate"><span class="pre">alpha</span></code>, <code class="docutils literal notranslate"><span class="pre">metric</span></code>, <code class="docutils literal notranslate"><span class="pre">immu_feature</span></code>)</p></li>
-<li><p>‘resilience_distance’: calculate distribution shift distance of features between worst sample and full dataset. (params: <code class="docutils literal notranslate"><span class="pre">resilience_method</span></code>, <code class="docutils literal notranslate"><span class="pre">alpha</span></code>, <code class="docutils literal notranslate"><span class="pre">immu_feature</span></code>, <code class="docutils literal notranslate"><span class="pre">distance_metric</span></code>)</p></li>
-<li><p>‘resilience_shift_density’: compare distribution between worst sample and full dataset with density plot. (params: <code class="docutils literal notranslate"><span class="pre">resilience_method</span></code>, <code class="docutils literal notranslate"><span class="pre">alpha</span></code>, <code class="docutils literal notranslate"><span class="pre">immu_feature</span></code>, <code class="docutils literal notranslate"><span class="pre">target_feature</span></code>)</p></li>
-<li><p>‘resilience_shift_histogram’: compare distribution between worst sample and full dataset with shift plot. (params: <code class="docutils literal notranslate"><span class="pre">resilience_method</span></code>, <code class="docutils literal notranslate"><span class="pre">alpha</span></code>, <code class="docutils literal notranslate"><span class="pre">immu_feature</span></code>, <code class="docutils literal notranslate"><span class="pre">target_feature</span></code>)</p></li>
+<li><p>‘resilience_perf’: performance against worst sample ratio. (params: <code class="docutils literal notranslate"><span class="pre">resilience_method</span></code>,</p></li>
 </ul>
+<blockquote>
+<div><p><code class="docutils literal notranslate"><span class="pre">alpha</span></code>, <code class="docutils literal notranslate"><span class="pre">metric</span></code>, <code class="docutils literal notranslate"><span class="pre">immu_feature</span></code>)</p>
+</div></blockquote>
+<ul class="simple">
+<li><p>‘resilience_distance’: calculate distribution shift distance of features between worst sample and</p></li>
+</ul>
+<blockquote>
+<div><p>full dataset. (params: <code class="docutils literal notranslate"><span class="pre">resilience_method</span></code>, <code class="docutils literal notranslate"><span class="pre">alpha</span></code>, <code class="docutils literal notranslate"><span class="pre">immu_feature</span></code>, <code class="docutils literal notranslate"><span class="pre">distance_metric</span></code>)</p>
+</div></blockquote>
+<ul class="simple">
+<li><p>‘resilience_shift_density’: compare distribution between worst sample and full dataset with</p></li>
+</ul>
+<blockquote>
+<div><p>density plot. (params: <code class="docutils literal notranslate"><span class="pre">resilience_method</span></code>, <code class="docutils literal notranslate"><span class="pre">alpha</span></code>, <code class="docutils literal notranslate"><span class="pre">immu_feature</span></code>, <code class="docutils literal notranslate"><span class="pre">target_feature</span></code>)</p>
+</div></blockquote>
+<ul class="simple">
+<li><p>‘resilience_shift_histogram’: compare distribution between worst sample and full dataset with</p></li>
+</ul>
+<blockquote>
+<div><p>shift plot. (params: <code class="docutils literal notranslate"><span class="pre">resilience_method</span></code>, <code class="docutils literal notranslate"><span class="pre">alpha</span></code>, <code class="docutils literal notranslate"><span class="pre">immu_feature</span></code>, <code class="docutils literal notranslate"><span class="pre">target_feature</span></code>)</p>
+</div></blockquote>
 </div></blockquote>
 </li>
 </ul>
@@ -878,8 +1038,8 @@ If None, it will be (8, 6).</p>
 <dt><strong>slice_method</strong><span class="classifier">{‘histogram’, ‘tree’, ‘xgb’}, default=None</span></dt><dd><p>The slicing method for WeakSpot and Overfit tests, used when <code class="docutils literal notranslate"><span class="pre">show</span></code> =’ weakspot’ or ‘overfit’.
 If None, it will be ‘histogram’.</p>
 <ul class="simple">
-<li><p>‘histogram’: use equal-space binning;</p></li>
-<li><p>‘tree’: default, fit a decision tree to generate regions;</p></li>
+<li><p>‘histogram’: default, use equal-space binning;</p></li>
+<li><p>‘tree’: fit a decision tree to generate regions, not applicable when <code class="docutils literal notranslate"><span class="pre">show</span></code> = ‘overfit’.</p></li>
 <li><p>‘xgb’: use xgboost to generate regions, not applicable when <code class="docutils literal notranslate"><span class="pre">show</span></code> = ‘overfit’.</p></li>
 </ul>
 </dd>
@@ -915,7 +1075,7 @@ If None, it will be ‘worst-sample’.</p>
 <li><p>‘worst-sample’: Select the worst samples according to the loss of each sample; the worst samples are related to models.</p></li>
 <li><p>‘hard-sample’: Use a deep XGB model to distinguish hard and easy samples; the worst samples are the same for different models.</p></li>
 <li><p>‘outer-sample’: Use the Euclidean distance of each sample to the mean of X as a surrogate of worstness; the worst samples are the same for different models.</p></li>
-<li><p>‘worst-cluster’: Fit a K-means using the X, and then select the worst performing cluster as the worst samples; the worst samples are related to models.</p></li>
+<li><p>‘worst-cluster’: Fit a K-means using the X, and then select the worst performing cluste as the worst samples; the worst samples are related to models.</p></li>
 </ul>
 </dd>
 <dt><strong>alpha</strong><span class="classifier">float, default=None</span></dt><dd><p>This parameter has different meanings for different diagnostics, used when <code class="docutils literal notranslate"><span class="pre">show</span></code> = ‘resilience_perf’, ‘resilience_distance’, ‘resilience_shift_density’, ‘resilience_shift_histogram’, ‘reliability_distance’, ‘reliability_marginal’ or ‘reliability_table’.
@@ -932,25 +1092,28 @@ If None, it will be 10.</p>
 If None, it will be 10.</p>
 </dd>
 <dt><strong>threshold</strong><span class="classifier">float, default=None</span></dt><dd><dl class="simple">
-<dt>This parameter has different meanings for different diagnostics, used when <code class="docutils literal notranslate"><span class="pre">show</span></code> = ‘weakspot’, ‘overfit’,’reliability_distance’, or ‘reliability_marginal’.</dt><dd><p>If None, it will be 1.1.</p>
+<dt>This parameter has different meanings for different diagnostics, used when <code class="docutils literal notranslate"><span class="pre">show</span></code> = ‘weakspot’,’overfit’,’reliability_distance’, or ‘reliability_marginal’.</dt><dd><p>If None, it will be 1.1.</p>
 </dd>
 </dl>
 <ul class="simple">
 <li><p>For Overfit test: decides minimal error gap for an overfit region;</p></li>
-<li><p>For Weakspot test: decides minimal error gap for an weakspot region;</p></li>
+<li><p>For Weakspot test: decides minimal error gap for a weak region;</p></li>
 <li><p>For Reliability test: the threshold to determine whether data are inside or outside coverage.</p></li>
 </ul>
 </dd>
 <dt><strong>min_samples</strong><span class="classifier">int, default=None</span></dt><dd><p>The minimal sample size for selected regions, used when <code class="docutils literal notranslate"><span class="pre">show</span></code> = ‘weakspot’ or ‘overfit’.
 If None, it will be 20.</p>
 </dd>
-<dt><strong>use_test</strong><span class="classifier">bool, default=None</span></dt><dd><p>Whther to use test data or not, used when <code class="docutils literal notranslate"><span class="pre">show</span></code> = ‘weakspot’.
+<dt><strong>use_test</strong><span class="classifier">bool, default=None</span></dt><dd><p>Whether to use test data or not, used when <code class="docutils literal notranslate"><span class="pre">show</span></code> = ‘weakspot’.
 If None, it will be False.</p>
 </dd>
 <dt><strong>immu_feature</strong><span class="classifier">str, default=None</span></dt><dd><p>The name of immutable feature, used when <code class="docutils literal notranslate"><span class="pre">show</span></code> = ‘resilience_perf’, ‘resilience_distance’, ‘resilience_shift_density’, or ‘resilience_shift_histogram’.
 If None, it will be an empty list.</p>
 </dd>
-<dt><strong>target_feature</strong><span class="classifier">str, default=None</span></dt><dd><p>Decide the feature of interest in the plot (usually the x-axis), used when <code class="docutils literal notranslate"><span class="pre">show</span></code> = ‘accuracy_residual’, ‘reliability_marginal’, ‘resilience_shift_density’, or ‘resilience_shift_histogram’.</p>
+<dt><strong>target_feature</strong><span class="classifier">str, default=None</span></dt><dd><dl class="simple">
+<dt>Decide the feature of interest in the plot (usually the x-axis), used when <code class="docutils literal notranslate"><span class="pre">show</span></code> = ‘accuracy_residual’, ‘reliability_marginal’, ‘resilience_shift_density’,</dt><dd><p>or ‘resilience_shift_histogram’.</p>
+</dd>
+</dl>
 </dd>
 <dt><strong>distance_metric</strong><span class="classifier">{‘PSI’, ‘WD1’, ‘KS’}, default=None</span></dt><dd><p>The distance metric used when <code class="docutils literal notranslate"><span class="pre">show</span></code> = ‘reliability_distance’ or ‘resilience_distance’.
 If None, it will be ‘PSI’.</p>
@@ -963,7 +1126,7 @@ If None, it will be ‘PSI’.</p>
 <dt><strong>psi_buckets</strong><span class="classifier">{‘uniform’, ‘quantile’}, default=None</span></dt><dd><p>Bucketing strategy for PSI metric.
 If None, it will be ‘uniform’.</p>
 </dd>
-<dt><strong>original_scale: bool, default=None</strong></dt><dd><p>Whether or not to use the original scale of X in the plots.
+<dt><strong>original_scale: bool, default=None</strong></dt><dd><p>To use the original scale of X in the plots.
 If None, it will be False.</p>
 </dd>
 <dt><strong>return_data: bool, default=None</strong></dt><dd><p>Whether to return the data object.
@@ -985,7 +1148,7 @@ If None, it will be (8, 6).</p>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="piml.Experiment.model_explain">
-<span class="sig-name descname"><span class="pre">model_explain</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">model</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">unicode</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">show</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">unicode</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">uni_feature</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">unicode</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">bi_features</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sample_id</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sample_size</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n_repeats</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">return_data</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pdp_size</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">centered</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">original_scale</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">figsize</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">int</span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#piml.Experiment.model_explain" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">model_explain</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">model</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">unicode</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">show</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">unicode</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">uni_feature</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">unicode</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">bi_features</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sample_id</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sample_size</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n_repeats</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">return_data</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pdp_size</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">grid_size</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sliced_line</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">centered</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">original_scale</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">figsize</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">int</span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#piml.Experiment.model_explain" title="Permalink to this definition">¶</a></dt>
 <dd><p>Explain an arbitrary fitted model using post-hoc explanation tools.</p>
 <p>If no parameter is passed into the method, the program will run in low code mode, otherwise high code mode.</p>
 <dl class="field-list">
@@ -1021,13 +1184,19 @@ If None, it will be 500.</p>
 <dt><strong>pdp_size</strong><span class="classifier">int, default=None</span></dt><dd><p>The subsample size for generating partial dependence plots, used when <code class="docutils literal notranslate"><span class="pre">show</span></code> = ‘pdp’.
 If None, it will be 2000.</p>
 </dd>
-<dt><strong>n_repeats</strong><span class="classifier">int, default=None</span></dt><dd><p>The number of repeatitions in the permutation feature importance test, used when <code class="docutils literal notranslate"><span class="pre">show</span></code> = ‘pfi’.
+<dt><strong>grid_size</strong><span class="classifier">int, default=None</span></dt><dd><p>The grid size for generating pdp and ale, used when <code class="docutils literal notranslate"><span class="pre">show</span></code> = ‘pdp’ and ‘ale’.
+If None, it will be 20 for 1D, 10 for 2D.</p>
+</dd>
+<dt><strong>n_repeats</strong><span class="classifier">int, default=None</span></dt><dd><p>The number of repetition in the permutation feature importance test, used when <code class="docutils literal notranslate"><span class="pre">show</span></code> = ‘pfi’.
 If None, it will be 1.</p>
 </dd>
 <dt><strong>return_data: bool, default=None</strong></dt><dd><p>Whether to return the data object.
 If None, it will be False.</p>
 </dd>
-<dt><strong>centered</strong><span class="classifier">bool, default=None</span></dt><dd><p>Whether to center X (substract the average) for generating local explanations, used when <code class="docutils literal notranslate"><span class="pre">show</span></code> = ‘lime’ or ‘local_fi’.
+<dt><strong>sliced_line</strong><span class="classifier">bool, default=None</span></dt><dd><p>Whether to show sliced line for 2d explain instead of heatmap, used when <code class="docutils literal notranslate"><span class="pre">show</span></code> = ‘pdp’ or ‘ale’.
+If None, it will be False.</p>
+</dd>
+<dt><strong>centered</strong><span class="classifier">bool, default=None</span></dt><dd><p>Whether to center X (subtract the average) for generating local explanations, used when <code class="docutils literal notranslate"><span class="pre">show</span></code> = ‘lime’ or ‘local_fi’.
 If None, it will be True.</p>
 </dd>
 <dt><strong>original_scale: bool, default=None</strong></dt><dd><p>Whether to use original scale of X, used when <code class="docutils literal notranslate"><span class="pre">show</span></code> = ‘pdp’, ‘ice’, or ‘ale’.
@@ -1074,7 +1243,7 @@ If None, it will be (8, 6).</p>
 </dd>
 <dt><strong>favorable_class</strong><span class="classifier">int, default=None</span></dt><dd><p>Favorable target class for AIR.</p>
 </dd>
-<dt><strong>favorable_threshold</strong><span class="classifier">float, default=None</span></dt><dd><p>Favorable threshold for binarizing the predicted outcomes (predict_proba for classifiers).
+<dt><strong>favorable_threshold</strong><span class="classifier">float, default=None</span></dt><dd><p>Favorable threshold to binarize the predicted outcomes (predict_proba for classifiers).
 Not available for regressor.</p>
 </dd>
 <dt><strong>group_category</strong><span class="classifier">list, default=None</span></dt><dd><p>Feature list of each group.</p>
@@ -1087,7 +1256,7 @@ Not available for regressor.</p>
 </dd>
 <dt><strong>thresholding_bins</strong><span class="classifier">int, default=None</span></dt><dd><p>The number of bins of numerical features as the <code class="docutils literal notranslate"><span class="pre">show</span></code> = ‘binning’.</p>
 </dd>
-<dt><strong>segmented_feature</strong><span class="classifier">str, default=None</span></dt><dd><p>The segement feature’s name as show=’segmented’.</p>
+<dt><strong>segmented_feature</strong><span class="classifier">str, default=None</span></dt><dd><p>The segment feature’s name as show=’segmented’.</p>
 </dd>
 <dt><strong>segmented_bins</strong><span class="classifier">int, default=None</span></dt><dd><p>The number of bins of numerical features as the <code class="docutils literal notranslate"><span class="pre">show</span></code> = ‘segmented’.</p>
 </dd>
@@ -1112,6 +1281,9 @@ Not available for regressor.</p>
 </div>
 </dd>
 <dt><strong>by_weights: list, default=None</strong></dt><dd><p>The index list of weighted groups.</p>
+</dd>
+<dt><strong>return_data: bool, default=None</strong></dt><dd><p>Whether to return the data object.
+If None, it will be False.</p>
 </dd>
 <dt><strong>figsize</strong><span class="classifier">tuple, default=None</span></dt><dd><p>Figure size of the plot, if None, the figure size will be (8, 6).</p>
 </dd>
@@ -1155,7 +1327,7 @@ Not available for regressor.</p>
 </dd>
 <dt><strong>metric_threshold</strong><span class="classifier">float, default=None</span></dt><dd><p>Threshold for the fairness metric. (the dotted line in the plots)</p>
 </dd>
-<dt><strong>segmented_feature</strong><span class="classifier">str, default=None</span></dt><dd><p>The segement feature’s name as <code class="docutils literal notranslate"><span class="pre">show</span></code> = ‘segmented’.</p>
+<dt><strong>segmented_feature</strong><span class="classifier">str, default=None</span></dt><dd><p>The segment feature’s name as <code class="docutils literal notranslate"><span class="pre">show</span></code> = ‘segmented’.</p>
 </dd>
 <dt><strong>segmented_bins</strong><span class="classifier">int, default=None</span></dt><dd><p>The number of bins of numerical features as the <code class="docutils literal notranslate"><span class="pre">show</span></code> = ‘segmented’.</p>
 </dd>
@@ -1199,7 +1371,7 @@ If None, it will be (8, 6).</p>
 </dd>
 <dt><strong>favorable_threshold</strong><span class="classifier">float, default=None</span></dt><dd><p>Favorable threshold for binarizing the predicted outcomes (predict_proba for classifiers).</p>
 </dd>
-<dt><strong>segmented_feature</strong><span class="classifier">str, default=None</span></dt><dd><p>Segemented feature name for segmented AIR.</p>
+<dt><strong>segmented_feature</strong><span class="classifier">str, default=None</span></dt><dd><p>Segmented feature name for segmented AIR.</p>
 </dd>
 <dt><strong>segmented_bins</strong><span class="classifier">int, default=None</span></dt><dd><p>The number of bins of numerical features as the show=’segmented’.</p>
 </dd>
@@ -1211,12 +1383,18 @@ If None, it will be (8, 6).</p>
 </dd>
 <dt><strong>metric_threshold</strong><span class="classifier">float, default=None</span></dt><dd><p>Threshold for the fairness metric. (the dotted line in the plots)</p>
 </dd>
-<dt><strong>performance_metric</strong><span class="classifier">{‘F1’, ‘AUC’, ‘ACC’, ‘MSE’, ‘MAE’, ‘R2’}, default=None</span></dt><dd><ul class="simple">
+<dt><strong>metric</strong><span class="classifier">{‘F1’, ‘AUC’, ‘ACC’, ‘MSE’, ‘MAE’, ‘R2’}, default=None</span></dt><dd><ul class="simple">
 <li><p>For classification tasks: ‘F1’, ‘AUC’, ‘ACC’.</p></li>
 <li><p>For regression tasks: ‘MSE’, ‘MAE’, ‘R2’.</p></li>
 </ul>
 </dd>
 <dt><strong>by_weights: list, default=None</strong></dt><dd><p>The index list of weighted groups.</p>
+</dd>
+<dt><strong>return_data: bool, default=None</strong></dt><dd><p>Whether to return the data object.
+If None, it will be False.</p>
+</dd>
+<dt><strong>figsize</strong><span class="classifier">tuple, default=None</span></dt><dd><p>Figure size of the plot.
+If None, it will be (8, 6).</p>
 </dd>
 </dl>
 </dd>
@@ -1225,7 +1403,7 @@ If None, it will be (8, 6).</p>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="piml.Experiment.model_interpret">
-<span class="sig-name descname"><span class="pre">model_interpret</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">model</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">unicode</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">show</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">unicode</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">uni_feature</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">unicode</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">bi_features</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sample_id</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tree_idx</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">return_data</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">root</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">depth</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">centered</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">original_scale</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">figsize</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">int</span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#piml.Experiment.model_interpret" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">model_interpret</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">model</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">unicode</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">show</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">unicode</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">uni_feature</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">unicode</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">bi_features</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sample_id</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tree_idx</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">root</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">depth</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sliced_line</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">centered</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">original_scale</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">return_data</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">figsize</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">int</span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#piml.Experiment.model_interpret" title="Permalink to this definition">¶</a></dt>
 <dd><p>Interpret inherently interpretable models.</p>
 <p>If no parameter is passed into the method, the program will run in low code mode, otherwise high code mode.</p>
 <dl class="field-list">
@@ -1265,11 +1443,11 @@ If None, it will be (8, 6).</p>
 </dd>
 <dt><strong>bi_features</strong><span class="classifier">list of str, default=None</span></dt><dd><p>Feature names of the bivariate plot, used when <code class="docutils literal notranslate"><span class="pre">show</span></code> = ‘global_effect_plot’, and model is within {EBM, XGB2, GAMI-Net, ReLU-DNN}.</p>
 </dd>
-<dt><strong>sample_id</strong><span class="classifier">int, default=None</span></dt><dd><p>The index of single data point for local interpretation, used when <code class="docutils literal notranslate"><span class="pre">show</span></code> = ‘local_fi’, ‘local_ei’ or ‘tree_local’.
+<dt><strong>sample_id</strong><span class="classifier">int, default=None</span></dt><dd><p>The index of single data point for local interpretation, used when <code class="docutils literal notranslate"><span class="pre">show</span></code> = ‘local_fi’,
+‘local_ei’ or ‘tree_local’.
 If None, it will be 0.</p>
 </dd>
-<dt><strong>return_data: bool, default=None</strong></dt><dd><p>Whether to return the data object.
-If None, it will be False.</p>
+<dt><strong>tree_idx</strong><span class="classifier">int, default=None</span></dt><dd><p>Useless for this function.</p>
 </dd>
 <dt><strong>root</strong><span class="classifier">int, default=None</span></dt><dd><p>The node to start drawing the tree diagram, used when <code class="docutils literal notranslate"><span class="pre">show</span></code> = ‘tree_global’.
 If None, it will be 0.</p>
@@ -1277,10 +1455,16 @@ If None, it will be 0.</p>
 <dt><strong>depth</strong><span class="classifier">int, default=None</span></dt><dd><p>The the max depth to show of the tree diagram (counts start from the <code class="docutils literal notranslate"><span class="pre">root</span></code> node), used when <code class="docutils literal notranslate"><span class="pre">show</span></code> = ‘tree_global’.
 If None, it will be 3.</p>
 </dd>
-<dt><strong>centered</strong><span class="classifier">bool, default=None</span></dt><dd><p>Whether to center X (substract the average) for generating local explanations, used when <code class="docutils literal notranslate"><span class="pre">show</span></code> = ‘local_fi’ or ‘local_ei’.
+<dt><strong>sliced_line</strong><span class="classifier">bool, default=None</span></dt><dd><p>Whether to show sliced line for 2d interpret instead of heatmap, used when <code class="docutils literal notranslate"><span class="pre">show</span></code> = ‘global_effect_plot’.
+If None, it will be False.</p>
+</dd>
+<dt><strong>centered</strong><span class="classifier">bool, default=None</span></dt><dd><p>Whether to center X (subtract the average) for generating local explanations, used when <code class="docutils literal notranslate"><span class="pre">show</span></code> = ‘local_fi’ or ‘local_ei’.
 If None, it will be True.</p>
 </dd>
 <dt><strong>original_scale: bool, default=None</strong></dt><dd><p>Whether to use original scale of X, used when <code class="docutils literal notranslate"><span class="pre">show</span></code> = ‘local_fi’, ‘local_ei’, ‘global_effect_plot’, or ‘tree_global’, ‘tree_local’.
+If None, it will be False.</p>
+</dd>
+<dt><strong>return_data: bool, default=None</strong></dt><dd><p>Whether to return the data object.
 If None, it will be False.</p>
 </dd>
 <dt><strong>figsize</strong><span class="classifier">tuple, default=None</span></dt><dd><p>Figure size of the plot.
@@ -1388,35 +1572,28 @@ Below is the list of built-in inherently interpretable models.</p>
 <dt class="sig sig-object py" id="piml.Experiment.twosample_test">
 <span class="sig-name descname"><span class="pre">twosample_test</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">metric</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">unicode</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">psi_buckets</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">unicode</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">feature</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Union</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">int</span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">return_data</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">figsize</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Tuple</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#piml.Experiment.twosample_test" title="Permalink to this definition">¶</a></dt>
 <dd><p>Test the distributional difference of train_x and test_x.</p>
-<dl class="field-list">
+<dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><dl>
-<dt><strong>metric</strong><span class="classifier">{‘PSI’, ‘WD1’, ‘KS’}, default=None</span></dt><dd><blockquote>
-<div><p>The distance metric between two distributions.
+<dd class="field-odd"><dl class="simple">
+<dt><strong>metric</strong><span class="classifier">{‘PSI’, ‘WD1’, ‘KS’}, default=None</span></dt><dd><p>The distance metric between two distributions.
 If None, it will be ‘PSI’.</p>
 <ul class="simple">
 <li><p>‘PSI’: Population stability index.</p></li>
 <li><p>‘WD1’: Wasserstein distance (1D).</p></li>
 <li><p>‘KS’: Kolmogorov-Smirnov test.</p></li>
 </ul>
-</div></blockquote>
-<dl class="simple">
-<dt>psi_buckets<span class="classifier">{‘uniform’, ‘quantile’}, default=None</span></dt><dd><p>Bucketing strategy for PSI metric.
+</dd>
+<dt><strong>psi_buckets</strong><span class="classifier">{‘uniform’, ‘quantile’}, default=None</span></dt><dd><p>Bucketing strategy for PSI metric.
 If None, it will be ‘uniform’.</p>
 </dd>
-</dl>
-</dd>
-<dt><strong>.</strong></dt><dd><dl class="simple">
-<dt>feature<span class="classifier">Union[str, int], default=None</span></dt><dd><p>Feature for distribution plot, can be string (feature’s name) or int (feature’s index).
+<dt><strong>feature</strong><span class="classifier">Union[str, int], default=None</span></dt><dd><p>Feature for distribution plot, can be string (feature’s name) or int (feature’s index).
 If None, will show distance metric scores of each feature.</p>
 </dd>
-<dt>return_data<span class="classifier">bool, default=None</span></dt><dd><p>Indicator for return result data.
+<dt><strong>return_data</strong><span class="classifier">bool, default=None</span></dt><dd><p>Indicator for return result data.
 If None, it will be False.</p>
 </dd>
-<dt>figsize<span class="classifier">tuple, default=None</span></dt><dd><p>Figure size of the plot.
+<dt><strong>figsize</strong><span class="classifier">tuple, default=None</span></dt><dd><p>Figure size of the plot.
 If None, it will be (8, 6).</p>
-</dd>
-</dl>
 </dd>
 </dl>
 </dd>

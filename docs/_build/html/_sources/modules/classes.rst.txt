@@ -73,6 +73,9 @@ Functions
    Experiment.make_pipeline
    Experiment.get_model
    Experiment.get_model_config
+   Experiment.get_leaderboard
+   Experiment.get_leaderboard_registered
+
 
 Model Classes
 --------------

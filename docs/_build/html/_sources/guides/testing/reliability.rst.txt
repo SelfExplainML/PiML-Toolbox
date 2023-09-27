@@ -110,7 +110,7 @@ Based on the above figure, it is evident that the distributional distance of the
 
 Marginal Bandwidth 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""
-To analyze the bandwidth against each feature, we can utilize the "reliability_marginal" option of the `show` parameter. This will provide us with the average width of prediction intervals for the individual feature of interest, by specifying the `target_feature` argument. Additionally, the bins argument allows us to determine the number of bins for discretizing the feature. Similar to the previous plots, it is necessary to define the values for `alpha` and `threshold` in order to obtain meaningful results.
+To analyze the bandwidth against each feature, we can utilize the "reliability_marginal" option of the `show` parameter. This will provide us with the average width of prediction intervals for the individual feature of interest, by specifying the `target_feature` argument. Additionally, the bins argument allows us to determine the number of bins to discretize the feature. Similar to the previous plots, it is necessary to define the values for `alpha` and `threshold` in order to obtain meaningful results.
 
 .. jupyter-input::
 

@@ -151,23 +151,23 @@ Regression coefficient table for all features
  .. code-block:: none
 
         Feature Name Coefficient
-    0            hum     -0.2133
-    1   weathersit_2     -0.0274
-    2      holiday_1     -0.0250
-    3       season_2     -0.0038
-    4   workingday_0     -0.0000
+    0       season_0      0.0000
+    1       season_1      0.0193
+    2       season_2     -0.0038
+    3       season_3      0.0659
+    4             hr      0.1742
     5      holiday_0     -0.0000
-    6       season_0      0.0000
-    7   weathersit_0      0.0000
-    8   workingday_1      0.0035
-    9   weathersit_1      0.0104
-    10       weekday      0.0125
-    11      season_1      0.0193
-    12     windspeed      0.0365
-    13      season_3      0.0659
-    14  weathersit_3      0.0727
-    15            hr      0.1742
-    16         atemp      0.4082
+    6      holiday_1     -0.0250
+    7        weekday      0.0125
+    8   workingday_0     -0.0000
+    9   workingday_1      0.0035
+    10  weathersit_0      0.0000
+    11  weathersit_1      0.0104
+    12  weathersit_2     -0.0274
+    13  weathersit_3      0.0727
+    14         atemp      0.4082
+    15           hum     -0.2133
+    16     windspeed      0.0365
 
 
 
@@ -242,11 +242,12 @@ Local interpretation with original scale of x
 
 Local interpretation with centering and original scale of x
 
-.. GENERATED FROM PYTHON SOURCE LINES 50-50
+.. GENERATED FROM PYTHON SOURCE LINES 50-51
 
 .. code-block:: default
 
     exp.model_interpret(model="GLM", show='local_fi', sample_id=0, centered=True, original_scale=True, figsize=(5, 4))
+
 
 
 .. image-sg:: /auto_examples/models/images/sphx_glr_plot_0_glm_reg_006.png
@@ -261,7 +262,9 @@ Local interpretation with centering and original scale of x
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** ( 0 minutes  1.546 seconds)
+   **Total running time of the script:** ( 2 minutes  34.042 seconds)
+
+**Estimated memory usage:**  1184 MB
 
 
 .. _sphx_glr_download_auto_examples_models_plot_0_glm_reg.py:

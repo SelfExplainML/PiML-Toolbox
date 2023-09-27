@@ -27,15 +27,16 @@ Data quality analysis result using the BikeSharing dataset as example.
 
 Experiment initialization and data preparation
 
-.. GENERATED FROM PYTHON SOURCE LINES 11-17
+.. GENERATED FROM PYTHON SOURCE LINES 11-18
 
 .. code-block:: default
 
     from piml import Experiment
+    from piml.data.outlier_detection import PCA, CBLOF
 
     exp = Experiment()
     exp.data_loader(data="BikeSharing", silent=True)
-    exp.data_prepare(target="cnt", task_type="regression", silent=True)
+    exp.data_summary(feature_exclude=["yr", "mnth", "temp"], silent=True)
 
 
 
@@ -44,15 +45,14 @@ Experiment initialization and data preparation
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 18-19
+.. GENERATED FROM PYTHON SOURCE LINES 19-20
 
 Data quality check for score distribution plot 
 
-.. GENERATED FROM PYTHON SOURCE LINES 19-22
+.. GENERATED FROM PYTHON SOURCE LINES 20-22
 
 .. code-block:: default
 
-    from piml.data.outlier_detection import PCA, CBLOF
     exp.data_quality_check(method=PCA(), show='score_distribution', threshold=0.999, figsize=(5, 4))
 
 
@@ -93,11 +93,12 @@ Data quality check for score distribution plot
 
 Feature selections using distance correlation strategy 
 
-.. GENERATED FROM PYTHON SOURCE LINES 28-29
+.. GENERATED FROM PYTHON SOURCE LINES 28-30
 
 .. code-block:: default
 
     exp.data_quality_check(method=[PCA(), CBLOF()], show='tsne_comparison', threshold=[0.999, 0.999], figsize=(5, 4))
+
 
 
 
@@ -107,15 +108,65 @@ Feature selections using distance correlation strategy
    :class: sphx-glr-single-img
 
 
+.. rst-class:: sphx-glr-script-out
+
+ .. code-block:: none
+
+    The default value of `n_init` will change from 10 to 'auto' in 1.4. Set the value of `n_init` explicitly to suppress the warning
+
+
+
+
+.. GENERATED FROM PYTHON SOURCE LINES 31-32
+
+Select a method and threshold and apply the outlier removal  
+
+.. GENERATED FROM PYTHON SOURCE LINES 32-34
+
+.. code-block:: default
+
+    exp.data_quality_check(method=CBLOF(), show='score_distribution', threshold=0.999, remove_outliers=True, figsize=(5, 4))
+
+
+
+
+.. image-sg:: /auto_examples/data/images/sphx_glr_plot_4_data_quality_004.png
+   :alt: Score Distribution (CBLOF)
+   :srcset: /auto_examples/data/images/sphx_glr_plot_4_data_quality_004.png
+   :class: sphx-glr-single-img
+
+
+.. rst-class:: sphx-glr-script-out
+
+ .. code-block:: none
+
+    The default value of `n_init` will change from 10 to 'auto' in 1.4. Set the value of `n_init` explicitly to suppress the warning
+
+
+
+
+.. GENERATED FROM PYTHON SOURCE LINES 35-36
+
+Finally, config the target feature, and train test split, base on the cleaned data.  
+
+.. GENERATED FROM PYTHON SOURCE LINES 36-37
+
+.. code-block:: default
+
+    exp.data_prepare(target="cnt", task_type="regression", silent=True)
+
+
+
+
 
 
 
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** ( 0 minutes  30.375 seconds)
+   **Total running time of the script:** ( 1 minutes  7.523 seconds)
 
-**Estimated memory usage:**  1148 MB
+**Estimated memory usage:**  1373 MB
 
 
 .. _sphx_glr_download_auto_examples_data_plot_4_data_quality.py:

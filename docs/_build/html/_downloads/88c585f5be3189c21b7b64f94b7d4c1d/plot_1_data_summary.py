@@ -13,8 +13,6 @@ from piml import Experiment
 exp = Experiment(highcode_only=True)
 exp.data_loader(data="BikeSharing", silent=True)
 
-exp.data_summary(feature_type={}, feature_exclude=[], silent=True)
-
 #%%
 # Feature removal
 exp.data_summary(feature_exclude=["yr", "mnth", "temp"], silent=True)

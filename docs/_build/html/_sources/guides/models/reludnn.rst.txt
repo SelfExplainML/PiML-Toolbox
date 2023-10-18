@@ -197,8 +197,7 @@ Local Interpretation
 Local Feature Contribution plot
 """"""""""""""""""""""""""""""""
 
-The local feature importance plot (with the keyword "local_fi") shows the prediction decomposition of a single training sample. 
-This plot is similar to that of GLM, see the local interpretation of `GLM`_.
+The local feature importance plot (with the keyword "local_fi") shows the prediction decomposition of a single training sample.
 
 .. _GLM: glm.html#local-interpretation
 
@@ -210,7 +209,7 @@ This plot is similar to that of GLM, see the local interpretation of `GLM`_.
    :target: ../../auto_examples/models/plot_plot_8_reludnn_cls.html
    :align: left
 
-The definition of `Weight` and `Effect` can be found in the introduction for GLM. Similarly, we provide the `centered` option, as shown below.
+The definition of `Weight` and `Effect` can be found in the introduction for GLM. The stems represent the coefficients and the bars show the effect. Similarly, we provide the `centered` option, as shown below.
 
 .. jupyter-input::
 

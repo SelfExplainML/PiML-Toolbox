@@ -42,7 +42,7 @@ The LIME explanation is also integrated into the `model_explain` function of PiM
    :target: ../../auto_examples/explain/plot_4_lime.html
    :align: left
 
-This plot is similar to the local interpretation of `GLM`_, as we use Lasso as the surrogate model. It shows the linear regression coefficients and marginal effects of the top-10 features (with feature values on the right axis) that contribute to the prediction of bike counts. The `Weight` represents the regression coefficients, and `Effect` represents the marginal effects. From top to bottom, `hr` contributes the most to the prediction of bike counts, followed by `atemp`, then `hum`, and so on. Note that this plot only shows the top 10 features with the largest contributions. To get the full results, you can set the parameter `return_data` to True.
+This plot is similar to the local interpretation of `GLM`_, as we use Lasso as the surrogate model. The stems represent the coefficients and the bars show the effect. It shows the linear regression coefficients and marginal effects of the top-10 features (with feature values on the right axis) that contribute to the prediction of bike counts. The `Weight` represents the regression coefficients, and `Effect` represents the marginal effects. From top to bottom, `hr` contributes the most to the prediction of bike counts, followed by `atemp`, then `hum`, and so on. Note that this plot only shows the top 10 features with the largest contributions. To get the full results, you can set the parameter `return_data` to True.
 
 .. _GLM: glm.html#local-interpretation
 

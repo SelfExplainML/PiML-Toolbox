@@ -148,13 +148,9 @@ Local interpretation refers to the local contribution of each feature for a part
    :target: ../../auto_examples/models/plot_0_glm_reg.html
    :align: left
 
-In this plot, 
+In this plot, the bars show the marginal contribution (effects) of each feature. The longer the bar, the larger the marginal effect, and the more contribution the corresponding feature has on the prediction. In contrast, the regression coefficients (weights) indicate the strength and direction of the relationship between each feature and the target variable. The larger the coefficient, the more sensitive the corresponding feature' contribution to the prediction.
 
-- The bars marked as `Weight` represent the regression coefficients, which indicate the strength and direction of the relationship between each feature and the target variable. The longer the bar, the larger the coefficient, and the more sensitive the corresponding feature' contribution to the prediction.
-
-- The stems marked as `Effect` represent the marginal effects. The longer the stem, the larger the marginal effect, and the more contribution the corresponding feature has on the prediction.
-
-The `sample_id=0` indicates that the plot is showing the coefficients and marginal effects for the first sample in the training set, and the feature values for this sample are shown on the right axis. Note that this plot only shows the top 10 features with the largest contributions. To get the full results, you can set the parameter `return_data` to True.
+The `sample_id=0` indicates that the plot is showing the marginal effects for the first sample in the training set, and the feature values for this sample are shown on the right axis. Note that this plot only shows the top 10 features with the largest contributions. To get the full results, you can set the parameter `return_data` to True.
 
 Original Scale Option
 """"""""""""""""""""""""""

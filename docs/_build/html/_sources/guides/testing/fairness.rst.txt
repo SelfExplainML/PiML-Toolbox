@@ -19,7 +19,7 @@ PIML supports various fairness metrics, as shown below. In specific, we use the 
 .. math::
 
    \begin{align}     
-   AIR = \frac{(TP_{p}+FP_{p}) / n_{r}}{(TP_{r}+FP_{r}) / n_{p}}.
+   AIR = \frac{(TP_{p}+FP_{p}) / n_{p}}{(TP_{r}+FP_{r}) / n_{r}}.
    \end{align}
 
 - **Precision**: Positive predictive value disparity ratio.

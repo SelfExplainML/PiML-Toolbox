@@ -50,7 +50,7 @@ Data Pipeline
 
 .. raw:: html
 
-    <div class="sphx-glr-thumbcontainer" tooltip="Data Load (Pandas DataFrame)">
+    <div class="sphx-glr-thumbcontainer" tooltip="Data Load (Spark)">
 
 .. only:: html
 
@@ -61,7 +61,7 @@ Data Pipeline
 
 .. raw:: html
 
-      <div class="sphx-glr-thumbnail-title">Data Load (Pandas DataFrame)</div>
+      <div class="sphx-glr-thumbnail-title">Data Load (Spark)</div>
     </div>
 
 

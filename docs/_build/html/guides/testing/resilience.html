@@ -323,7 +323,7 @@ To customize the resilience test, the following parameters can be specified:</p>
 <a class="reference external image-reference" href="../../auto_examples/testing/plot_5_resilience_cls.html"><img alt="../../_images/sphx_glr_plot_5_resilience_cls_002.png" src="../../_images/sphx_glr_plot_5_resilience_cls_002.png" /></a>
 </figure>
 <ul class="simple">
-<li><p><strong>outer-sample</strong>: Based on the observed plot, it is evident that even in the worst-10% test sample scenario, the model demonstrates relatively good performance, achieving an AUC above 0.7. Interestingly, the model’s performance reaches its peak around the worst sample ratio of approximately 0.7, after which it gradually declines. This trend could be attributed to the nature of the scenario being unsupervised. In such cases, the samples identified as “worst” may not consistently exhibit the worst performance across all instances. It is plausible that in some cases, these “worst samples” may actually outperform the full test sample set.</p></li>
+<li><p><strong>outer-sample</strong>: Based on the observed plot, it is evident that even in the worst-10% test sample scenario, the model demonstrates relatively good performance, achieving an AUC above 0.7. Interestingly, the model’s performance reaches its peak around the worst sample ratio of approximately 0.7, after which it gradually declines. This trend could be attributed to the nature of the scenario being unsupervised. In such cases, the samples identified as “worst” may not consistently exhibit the worst performance across all instances. It is plausible that in some cases, these “worst samples” may actually outperform the remaining test sample set.</p></li>
 </ul>
 <p>The fluctuations in performance observed at different worst sample ratios highlight the complexity of assessing the worst samples in unsupervised scenarios. The model’s performance may be influenced by various factors, including the characteristics of the data and the specific criteria used to define the “worst” samples.</p>
 <div class="jupyter_cell jupyter_container docutils container">
@@ -358,7 +358,7 @@ To customize the resilience test, the following parameters can be specified:</p>
 </section>
 <section id="resilience-distance">
 <h3><span class="section-number">6.6.2.2. </span>Resilience Distance<a class="headerlink" href="#resilience-distance" title="Permalink to this heading">¶</a></h3>
-<p>By setting <code class="docutils literal notranslate"><span class="pre">show</span></code> to “resilience_distance”, the distributional distance between the worst test sample and the full test sample will be calculated for each feature. Then the features will be ranked by distance, and the top 10 features with the largest distances will be displayed.</p>
+<p>By setting <code class="docutils literal notranslate"><span class="pre">show</span></code> to “resilience_distance”, the distributional distance between the worst test sample and the remaining test sample will be calculated for each feature. Then the features will be ranked by distance, and the top 10 features with the largest distances will be displayed.</p>
 <p>In the first example, we set the <code class="docutils literal notranslate"><span class="pre">distance_metrics</span></code> to “PSI”, and you can also use “WD1” and “KS” instead. The worst sample ratio <code class="docutils literal notranslate"><span class="pre">alpha</span></code> is set to 0.3. The plot suggests the variable <code class="docutils literal notranslate"><span class="pre">Pay_1</span></code> has the largest PSI (around 0.55), which is usually thought of as a significant distribution change.</p>
 <div class="jupyter_cell jupyter_container docutils container">
 <div class="cell_input code_cell docutils container">
@@ -404,11 +404,11 @@ To customize the resilience test, the following parameters can be specified:</p>
 </section>
 <section id="marginal-density-comparison">
 <h3><span class="section-number">6.6.2.3. </span>Marginal Density Comparison<a class="headerlink" href="#marginal-density-comparison" title="Permalink to this heading">¶</a></h3>
-<p>The marginal density plot shows the distributional difference between the worst test samples and full test samples for a single feature. To generate this plot, set <code class="docutils literal notranslate"><span class="pre">show</span></code> to “resilience_shift_density”, and also specify the <code class="docutils literal notranslate"><span class="pre">target_feature</span></code> to be plotted.</p>
+<p>The marginal density plot shows the distributional difference between the worst test samples and remaining test samples for a single feature. To generate this plot, set <code class="docutils literal notranslate"><span class="pre">show</span></code> to “resilience_shift_density”, and also specify the <code class="docutils literal notranslate"><span class="pre">show_feature</span></code> to be plotted.</p>
 <div class="jupyter_cell jupyter_container docutils container">
 <div class="cell_input code_cell docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">exp</span><span class="o">.</span><span class="n">model_diagnose</span><span class="p">(</span><span class="n">model</span><span class="o">=</span><span class="s2">&quot;XGB2&quot;</span><span class="p">,</span> <span class="n">show</span><span class="o">=</span><span class="s2">&quot;resilience_shift_density&quot;</span><span class="p">,</span>
-                   <span class="n">target_feature</span><span class="o">=</span><span class="s2">&quot;Pay_1&quot;</span><span class="p">,</span> <span class="n">original_scale</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">4</span><span class="p">))</span>
+                   <span class="n">show_feature</span><span class="o">=</span><span class="s2">&quot;Pay_1&quot;</span><span class="p">,</span> <span class="n">original_scale</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">4</span><span class="p">))</span>
 </pre></div>
 </div>
 </div>
@@ -421,11 +421,11 @@ To customize the resilience test, the following parameters can be specified:</p>
 </section>
 <section id="marginal-histogram-comparison">
 <h3><span class="section-number">6.6.2.4. </span>Marginal Histogram Comparison<a class="headerlink" href="#marginal-histogram-comparison" title="Permalink to this heading">¶</a></h3>
-<p>Similar to the density plot, we also provide the option to draw the histogram comparison of the worst test samples and full test samples for a single feature, by using the keyword “resilience_shift_histogram”.</p>
+<p>Similar to the density plot, we also provide the option to draw the histogram comparison of the worst test samples and remaining test samples for a single feature, by using the keyword “resilience_shift_histogram”.</p>
 <div class="jupyter_cell jupyter_container docutils container">
 <div class="cell_input code_cell docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">exp</span><span class="o">.</span><span class="n">model_diagnose</span><span class="p">(</span><span class="n">model</span><span class="o">=</span><span class="s2">&quot;XGB2&quot;</span><span class="p">,</span> <span class="n">show</span><span class="o">=</span><span class="s2">&quot;resilience_shift_histogram&quot;</span><span class="p">,</span>
-                   <span class="n">target_feature</span><span class="o">=</span><span class="s2">&quot;Pay_1&quot;</span><span class="p">,</span> <span class="n">original_scale</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">4</span><span class="p">))</span>
+                   <span class="n">show_feature</span><span class="o">=</span><span class="s2">&quot;Pay_1&quot;</span><span class="p">,</span> <span class="n">original_scale</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">4</span><span class="p">))</span>
 </pre></div>
 </div>
 </div>

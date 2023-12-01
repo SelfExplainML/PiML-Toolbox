@@ -237,6 +237,10 @@
 <p>When features are strongly correlated, it is not suggested to do the interpretation of the effect across intervals. That is because the effects are computed per interval (locally), and require no extrapolation beyond the data envelope. If fix one feature and move another feature (highly correlated with the fixed one) from one interval to another one, the model being explained <span class="math notranslate nohighlight">\(\hat{f}\)</span> may output unreliable predictions, which will lead to unreliable ALE values. In other words, the ALE values are not reliable when the model is extrapolating outside
 of the data envelope. Therefore, as features are strongly correlated, we should interpret ALE plots locally for each bin.</p>
 </div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>For binary classification tasks, the ALE is computed by default using the predicted probability instead of log odds. In <code class="docutils literal notranslate"><span class="pre">exp.model_explain</span></code>, there exist an argument called <code class="docutils literal notranslate"><span class="pre">response_method</span></code>. If we want to use the predicted probability as the output, we can set <code class="docutils literal notranslate"><span class="pre">response_method</span></code> to “decision_function”.</p>
+</div>
 </section>
 <section id="usage">
 <h2><span class="section-number">4.1.4.2. </span>Usage<a class="headerlink" href="#usage" title="Permalink to this heading">¶</a></h2>
@@ -316,6 +320,13 @@ of the data envelope. Therefore, as features are strongly correlated, we should 
 </div></blockquote>
 <ul class="simple">
 <li><p><a class="reference internal" href="../../auto_examples/explain/plot_3_ale.html#sphx-glr-auto-examples-explain-plot-3-ale-py"><span class="std std-ref">Accumulated Local Effects</span></a></p></li>
+</ul>
+</div>
+<div class="topic">
+<p class="topic-title">Example 2: SimuCredit</p>
+<p>The second example shows the option to use test set to generate the explanations.</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="../../auto_examples/explain/plot_6_data_dependent_explain.html#sphx-glr-auto-examples-explain-plot-6-data-dependent-explain-py"><span class="std std-ref">Data Dependent Explanation</span></a></p></li>
 </ul>
 </div>
 </section>

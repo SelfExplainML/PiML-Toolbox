@@ -82,7 +82,7 @@ The first plot uses the "histogram" slicing method, and the number of bins is se
 
    exp.model_compare(models=["GLM", "XGB2", "XGB7"], show="overfit",
                      slice_method="histogram", slice_feature="hr",
-                     metric="R2", figsize=(5, 4))
+                     metric="MAE", figsize=(5, 4))
 
 .. figure:: ../../auto_examples/testing_compare/images/sphx_glr_plot_0_compare_regression_005.png
    :target: ../../auto_examples/testing_compare/plot_0_compare_regression.html
@@ -185,7 +185,7 @@ The example below illustrates how to compare models' resilience performance usin
 
 Resilience Distance
 """""""""""""""""""""""""""""""""""""""""""
-By setting `show` to "resilience_distance", the distributional distance between the worst test sample and the full test sample will be calculated for each feature. Then the features will be ranked by distance, and the top 10 features with the largest distances will be displayed.
+By setting `show` to "resilience_distance", the distributional distance between the worst test sample and the remaining test sample will be calculated for each feature. Then the features will be ranked by distance, and the top 10 features with the largest distances will be displayed.
 
 .. jupyter-input::
 

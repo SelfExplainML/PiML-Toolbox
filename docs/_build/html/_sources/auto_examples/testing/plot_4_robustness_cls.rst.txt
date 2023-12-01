@@ -195,9 +195,9 @@ Robustness test on worst alpha-percent samples
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** ( 2 minutes  1.411 seconds)
+   **Total running time of the script:** ( 1 minutes  9.548 seconds)
 
-**Estimated memory usage:**  1781 MB
+**Estimated memory usage:**  72 MB
 
 
 .. _sphx_glr_download_auto_examples_testing_plot_4_robustness_cls.py:

@@ -121,6 +121,8 @@
 <li><a class="reference internal" href="#"><code class="xref py py-mod docutils literal notranslate"><span class="pre">piml.data.outlier_detection</span></code>.CBLOF</a><ul>
 <li><a class="reference internal" href="#piml.data.outlier_detection.CBLOF"><code class="docutils literal notranslate"><span class="pre">CBLOF</span></code></a><ul>
 <li><a class="reference internal" href="#piml.data.outlier_detection.CBLOF.decision_function"><code class="docutils literal notranslate"><span class="pre">CBLOF.decision_function</span></code></a></li>
+<li><a class="reference internal" href="#piml.data.outlier_detection.CBLOF.fit"><code class="docutils literal notranslate"><span class="pre">CBLOF.fit</span></code></a></li>
+<li><a class="reference internal" href="#piml.data.outlier_detection.CBLOF.predict"><code class="docutils literal notranslate"><span class="pre">CBLOF.predict</span></code></a></li>
 </ul>
 </li>
 <li><a class="reference internal" href="#examples-using-piml-data-outlier-detection-cblof">Examples using <code class="docutils literal notranslate"><span class="pre">piml.data.outlier_detection.CBLOF</span></code></a></li>
@@ -138,8 +140,8 @@
 <h1><code class="xref py py-mod docutils literal notranslate"><span class="pre">piml.data.outlier_detection</span></code>.CBLOF<a class="headerlink" href="#piml-data-outlier-detection-cblof" title="Permalink to this heading">¶</a></h1>
 <dl class="py class">
 <dt class="sig sig-object py" id="piml.data.outlier_detection.CBLOF">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">piml.data.outlier_detection.</span></span><span class="sig-name descname"><span class="pre">CBLOF</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">iqr_scale</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.15</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n_clusters</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">10</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">clustering_method</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'kmeans'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">clustering_threshold</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">use_weights</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">standardization</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">random_state</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#piml.data.outlier_detection.CBLOF" title="Permalink to this definition">¶</a></dt>
-<dd><p>Cluster-based local outlier factor.</p>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">piml.data.outlier_detection.</span></span><span class="sig-name descname"><span class="pre">CBLOF</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">n_clusters</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">10</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">clustering_method</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'kmeans'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">clustering_threshold</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">use_weights</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">standardization</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">random_state</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#piml.data.outlier_detection.CBLOF" title="Permalink to this definition">¶</a></dt>
+<dd><p>Cluster-based local outlier factor for outlier detection.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><dl class="simple">
@@ -155,6 +157,8 @@
 </dd>
 <dt><strong>use_weights</strong><span class="classifier">bool, default=False</span></dt><dd><p>If set to True, the size of clusters are used as weights in
 outlier score calculation.</p>
+</dd>
+<dt><strong>standardization</strong><span class="classifier">bool, default=True</span></dt><dd><p>Whether to standardize covariates before running the algorithm.</p>
 </dd>
 <dt><strong>random_state</strong><span class="classifier">int, default=0</span></dt><dd><p>The random seed.</p>
 </dd>
@@ -185,31 +189,23 @@ outlier score calculation.</p>
 </colgroup>
 <tbody>
 <tr class="row-odd"><td><p><a class="reference internal" href="#piml.data.outlier_detection.CBLOF.decision_function" title="piml.data.outlier_detection.CBLOF.decision_function"><code class="xref py py-obj docutils literal notranslate"><span class="pre">decision_function</span></code></a>(X[, scale])</p></td>
-<td><p>Predict raw anomaly score of X using the fitted detector.</p></td>
+<td><p>Predict raw outliers score of X using the fitted detector.</p></td>
 </tr>
-</tbody>
-</table>
-<table class="docutils align-default">
-<colgroup>
-<col style="width: 52%" />
-<col style="width: 48%" />
-</colgroup>
-<tbody>
-<tr class="row-odd"><td><p><strong>fit</strong></p></td>
-<td></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#piml.data.outlier_detection.CBLOF.fit" title="piml.data.outlier_detection.CBLOF.fit"><code class="xref py py-obj docutils literal notranslate"><span class="pre">fit</span></code></a>(X)</p></td>
+<td><p>Fit the outlier detection algorithm.</p></td>
 </tr>
-<tr class="row-even"><td><p><strong>predict</strong></p></td>
-<td></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#piml.data.outlier_detection.CBLOF.predict" title="piml.data.outlier_detection.CBLOF.predict"><code class="xref py py-obj docutils literal notranslate"><span class="pre">predict</span></code></a>([X, scale, threshold])</p></td>
+<td><p>Predict raw outlier indicator.</p></td>
 </tr>
 </tbody>
 </table>
 <dl class="py method">
 <dt class="sig sig-object py" id="piml.data.outlier_detection.CBLOF.decision_function">
 <span class="sig-name descname"><span class="pre">decision_function</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">X</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">scale</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#piml.data.outlier_detection.CBLOF.decision_function" title="Permalink to this definition">¶</a></dt>
-<dd><p>Predict raw anomaly score of X using the fitted detector.</p>
-<p>The anomaly score of an input sample is computed based on different
-detector algorithms. For consistency, outliers are assigned with
-larger anomaly scores.</p>
+<dd><dl class="simple">
+<dt>Predict raw outliers score of X using the fitted detector.</dt><dd><p>For consistency, outliers are assigned with larger anomaly scores.</p>
+</dd>
+</dl>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><dl class="simple">
@@ -222,7 +218,48 @@ if they are supported by the base estimator.</p>
 </dd>
 <dt class="field-even">Returns</dt>
 <dd class="field-even"><dl class="simple">
-<dt><strong>anomaly_scores</strong><span class="classifier">numpy array of shape (n_samples,)</span></dt><dd><p>The anomaly score of the input samples.</p>
+<dt><strong>outlier_scores</strong><span class="classifier">numpy array of shape (n_samples,)</span></dt><dd><p>The anomaly score of the input samples.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="piml.data.outlier_detection.CBLOF.fit">
+<span class="sig-name descname"><span class="pre">fit</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">X</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#piml.data.outlier_detection.CBLOF.fit" title="Permalink to this definition">¶</a></dt>
+<dd><p>Fit the outlier detection algorithm.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>X</strong><span class="classifier">numpy array of shape (n_samples, n_features)</span></dt><dd><p>The input samples.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="piml.data.outlier_detection.CBLOF.predict">
+<span class="sig-name descname"><span class="pre">predict</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">X</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">scale</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">threshold</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.9</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#piml.data.outlier_detection.CBLOF.predict" title="Permalink to this definition">¶</a></dt>
+<dd><p>Predict raw outlier indicator.</p>
+<p>Normal samples are classified as 1 and outliers are classified as -1.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>X</strong><span class="classifier">numpy array of shape (n_samples, n_features)</span></dt><dd><p>The training input samples. Sparse matrices are accepted only
+if they are supported by the base estimator.</p>
+</dd>
+<dt><strong>scale</strong><span class="classifier">bool, default=True</span></dt><dd><p>If True, scale X before calculating the outlier score.</p>
+</dd>
+<dt><strong>threshold</strong><span class="classifier">float, default=0.9</span></dt><dd><p>The quantile threshold of outliers.
+For example, the samples with outlier scores greater than 90% quantile of the whole sample will be classified as outliers.</p>
+</dd>
+</dl>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><dl class="simple">
+<dt><strong>outlier_indicator</strong><span class="classifier">numpy array of shape (n_samples,)</span></dt><dd><p>The binary array indicating whether each sample is outlier.</p>
 </dd>
 </dl>
 </dd>
@@ -233,7 +270,7 @@ if they are supported by the base estimator.</p>
 
 <section id="examples-using-piml-data-outlier-detection-cblof">
 <h2>Examples using <code class="docutils literal notranslate"><span class="pre">piml.data.outlier_detection.CBLOF</span></code><a class="headerlink" href="#examples-using-piml-data-outlier-detection-cblof" title="Permalink to this heading">¶</a></h2>
-<div class="sphx-glr-thumbnails"><div class="sphx-glr-thumbcontainer" tooltip="Data quality analysis result using the BikeSharing dataset as example."><img alt="" src="../../_images/sphx_glr_plot_4_data_quality_thumb.png" />
+<div class="sphx-glr-thumbnails"><div class="sphx-glr-thumbcontainer" tooltip="Data Quality Check"><img alt="" src="../../_images/sphx_glr_plot_4_data_quality_thumb.png" />
 <p><a class="reference internal" href="../../auto_examples/data/plot_4_data_quality.html#sphx-glr-auto-examples-data-plot-4-data-quality-py"><span class="std std-ref">Data Quality Check</span></a></p>
   <div class="sphx-glr-thumbnail-title">Data Quality Check</div>
 </div></div><div class="clearer"></div></section>

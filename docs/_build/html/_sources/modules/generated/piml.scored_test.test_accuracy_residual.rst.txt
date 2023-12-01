@@ -1,0 +1,10 @@
+﻿:mod:`piml.scored_test`.test_accuracy_residual
+===========================================================
+
+.. currentmodule:: piml.scored_test
+
+.. autofunction:: test_accuracy_residual
+
+.. raw:: html
+
+    <div class="clearer"></div>

@@ -79,11 +79,11 @@ Evaluate predictive performance
 
  .. code-block:: none
 
-               ACC      AUC       F1
-                                
-    Train   0.8246   0.7891   0.4926
-    Test    0.8218   0.7637   0.4636
-    Gap    -0.0028  -0.0255  -0.0290
+               ACC      AUC       F1 LogLoss   Brier
+                                                
+    Train   0.8246   0.7891   0.4926  0.4205  0.1312
+    Test    0.8218   0.7637   0.4636  0.4378  0.1357
+    Gap    -0.0028  -0.0255  -0.0290  0.0173  0.0045
 
 
 
@@ -102,7 +102,7 @@ Global interpretation for the splits heatmap
 
 
 .. image-sg:: /auto_examples/models/images/sphx_glr_plot_3_figs_cls_001.png
-   :alt: Leaf Values, Feature Importance: Tree 0 (75.44%), #Samples
+   :alt: Leaf Values, Feature Importance: Tree 0 (75.44%), Counts
    :srcset: /auto_examples/models/images/sphx_glr_plot_3_figs_cls_001.png
    :class: sphx-glr-single-img
 
@@ -204,9 +204,7 @@ Local interpretation for the second tree
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** ( 1 minutes  24.453 seconds)
-
-**Estimated memory usage:**  1929 MB
+   **Total running time of the script:** (0 minutes 7.775 seconds)
 
 
 .. _sphx_glr_download_auto_examples_models_plot_3_figs_cls.py:

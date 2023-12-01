@@ -4,7 +4,7 @@
 # In[ ]:
 
 
-exp.model_explain(model="XGB2", show="pdp", uni_feature="hr",
+exp.model_explain(model="XGB2", show="pdp", uni_feature="hr", use_test=False,
                   grid_size=50, original_scale=True, figsize=(5, 4))
 
 

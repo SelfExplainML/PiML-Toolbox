@@ -1,0 +1,12 @@
+﻿:mod:`piml.data.outlier_detection`.OneClassSVM
+=====================================================
+
+.. currentmodule:: piml.data.outlier_detection
+
+.. autoclass:: OneClassSVM
+
+.. include:: piml.data.outlier_detection.OneClassSVM.examples
+
+.. raw:: html
+
+    <div class="clearer"></div>

@@ -81,9 +81,9 @@ Evaluate predictive performance
 
               MSE     MAE       R2
                               
-    Train  0.0058  0.0536   0.8332
-    Test   0.0062  0.0551   0.8241
-    Gap    0.0004  0.0014  -0.0091
+    Train  0.0057  0.0535   0.8352
+    Test   0.0062  0.0552   0.8235
+    Gap    0.0005  0.0017  -0.0116
 
 
 
@@ -126,7 +126,7 @@ Global effect plot for hr
 
 
 .. image-sg:: /auto_examples/models/images/sphx_glr_plot_7_gaminet_reg_002.png
-   :alt: hr (49.5%)
+   :alt: hr (48.5%)
    :srcset: /auto_examples/models/images/sphx_glr_plot_7_gaminet_reg_002.png
    :class: sphx-glr-single-img
 
@@ -214,7 +214,7 @@ Local interpretation by effect
 
 
 .. image-sg:: /auto_examples/models/images/sphx_glr_plot_7_gaminet_reg_006.png
-   :alt: Predicted: 0.0677 | Actual: 0.1600
+   :alt: Predicted: 0.0766 | Actual: 0.1600
    :srcset: /auto_examples/models/images/sphx_glr_plot_7_gaminet_reg_006.png
    :class: sphx-glr-single-img
 
@@ -235,7 +235,7 @@ Local interpretation by feature
 
 
 .. image-sg:: /auto_examples/models/images/sphx_glr_plot_7_gaminet_reg_007.png
-   :alt: Predicted: 0.0677 | Actual: 0.1600
+   :alt: Predicted: 0.0766 | Actual: 0.1600
    :srcset: /auto_examples/models/images/sphx_glr_plot_7_gaminet_reg_007.png
    :class: sphx-glr-single-img
 
@@ -246,9 +246,7 @@ Local interpretation by feature
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** ( 2 minutes  17.069 seconds)
-
-**Estimated memory usage:**  1156 MB
+   **Total running time of the script:** (0 minutes 51.892 seconds)
 
 
 .. _sphx_glr_download_auto_examples_models_plot_7_gaminet_reg.py:

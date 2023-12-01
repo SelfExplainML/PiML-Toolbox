@@ -35,7 +35,7 @@ exp.model_compare(models=["GLM", "XGB2", "XGB7"], show="overfit",
 
 exp.model_compare(models=["GLM", "XGB2", "XGB7"], show="overfit",
                   slice_method="histogram", slice_feature="hr",
-                  metric="R2", figsize=(5, 4))
+                  metric="MAE", figsize=(5, 4))
 
 
 # In[ ]:

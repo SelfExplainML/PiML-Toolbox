@@ -1,0 +1,452 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+
+  <meta charset="utf-8">
+  <meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  
+  <title>PiML Toolbox</title>
+  
+
+  
+  <link rel="shortcut icon" href="../../_static/favicon.ico"/>
+  
+
+  <link rel="stylesheet" href="../../_static/css/vendor/bootstrap.min.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/plot_directive.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/jupyter-sphinx.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/thebelab.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/sg_gallery.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/sg_gallery-binder.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/sg_gallery-dataframe.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/sg_gallery-rendered-html.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
+<script id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+<script src="../../_static/jquery.js"></script>
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="../../_static/doctools.js"></script>
+        <script src="../../_static/sphinx_highlight.js"></script>
+        <script src="../../_static/thebelab-helper.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/@jupyter-widgets/html-manager@^1.0.1/dist/embed-amd.js"></script>
+        <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="../../_static/js/theme.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav">
+
+  
+
+
+<nav id="navbar" class="sk-docs-navbar navbar navbar-expand-md navbar-light bg-light py-0">
+  <div class="container-fluid sk-docs-container px-0">
+      <a class="navbar-brand py-0" href="../../index.html">
+        <img
+          class="sk-brand-img"
+          src="../../_static/piml-logo.png"
+          alt="logo"/>
+      </a>
+    <button
+      id="sk-navbar-toggler"
+      class="navbar-toggler"
+      type="button"
+      data-toggle="collapse"
+      data-target="#navbarSupportedContent"
+      aria-controls="navbarSupportedContent"
+      aria-expanded="false"
+      aria-label="Toggle navigation"
+    >
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="sk-navbar-collapse collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item">
+          <a class="sk-nav-link nav-link" href="../../install.html">Install</a>
+        </li>
+        <li class="nav-item">
+          <a class="sk-nav-link nav-link" href="../../user_guide.html">User Guide</a>
+        </li>
+        <li class="nav-item">
+          <a class="sk-nav-link nav-link" href="../classes.html">API</a>
+        </li>
+        <li class="nav-item">
+          <a class="sk-nav-link nav-link" href="../../auto_examples/index.html">Examples</a>
+        </li>
+     </ul>
+      <div id="searchbox" role="search">
+          <div class="searchformwrapper">
+          <form class="search" action="../../search.html" method="get">
+            <input class="sk-search-text-input" type="text" name="q" aria-labelledby="searchlabel" />
+            <input class="sk-search-text-btn" type="submit" value="Go" />
+          </form>
+          </div>
+      </div>
+    </div>
+  </div>
+</nav>
+  <div class="d-flex" id="sk-doc-wrapper">
+      <input type="checkbox" name="sk-toggle-checkbox" id="sk-toggle-checkbox">
+      <label id="sk-sidemenu-toggle" class="sk-btn-toggle-toc btn sk-btn-primary" for="sk-toggle-checkbox">Toggle Menu</label>
+      <div id="sk-sidebar-wrapper" class="border-right">
+        <div class="sk-sidebar-toc-wrapper">
+          <div class="sk-sidebar-toc-logo">
+            <a href="../../index.html">
+              <img
+                class="sk-brand-img"
+                src="../../_static/piml-logo.png"
+                alt="logo"/>
+            </a>
+          </div>
+          <!--div class="btn-group w-100 mb-2" role="group" aria-label="rellinks">
+              <a href="piml.data.outlier_detection.OneClassSVM.html" role="button" class="btn sk-btn-rellink py-1" sk-rellink-tooltip="piml.data.outlier_detection.OneClassSVM">Prev</a><a href="../classes.html" role="button" class="btn sk-btn-rellink py-1" sk-rellink-tooltip="API Reference">Up</a>
+              <a href="piml.data.outlier_detection.HBOS.html" role="button" class="btn sk-btn-rellink py-1" sk-rellink-tooltip="piml.data.outlier_detection.HBOS">Next</a>
+          </div-->
+              <div class="sk-sidebar-toc">
+                <ul>
+<li><a class="reference internal" href="#"><code class="xref py py-mod docutils literal notranslate"><span class="pre">piml.data.outlier_detection</span></code>.KNN</a><ul>
+<li><a class="reference internal" href="#piml.data.outlier_detection.KNN"><code class="docutils literal notranslate"><span class="pre">KNN</span></code></a><ul>
+<li><a class="reference internal" href="#piml.data.outlier_detection.KNN.decision_function"><code class="docutils literal notranslate"><span class="pre">KNN.decision_function</span></code></a></li>
+<li><a class="reference internal" href="#piml.data.outlier_detection.KNN.fit"><code class="docutils literal notranslate"><span class="pre">KNN.fit</span></code></a></li>
+<li><a class="reference internal" href="#piml.data.outlier_detection.KNN.predict"><code class="docutils literal notranslate"><span class="pre">KNN.predict</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#examples-using-piml-data-outlier-detection-knn">Examples using <code class="docutils literal notranslate"><span class="pre">piml.data.outlier_detection.KNN</span></code></a></li>
+</ul>
+</li>
+</ul>
+
+              </div>
+        </div>
+      </div>
+      <div id="sk-page-content-wrapper">
+        <div class="sk-page-content container-fluid body px-md-3" role="main">
+          
+  <section id="piml-data-outlier-detection-knn">
+<h1><code class="xref py py-mod docutils literal notranslate"><span class="pre">piml.data.outlier_detection</span></code>.KNN<a class="headerlink" href="#piml-data-outlier-detection-knn" title="Permalink to this heading">¶</a></h1>
+<dl class="py class">
+<dt class="sig sig-object py" id="piml.data.outlier_detection.KNN">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">piml.data.outlier_detection.</span></span><span class="sig-name descname"><span class="pre">KNN</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">n_neighbors</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">5</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">radius</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">algorithm</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'auto'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">leaf_size</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">30</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">metric</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'minkowski'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">p</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">2</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">metric_params</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n_jobs</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">score_method</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'mean'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">standardization</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#piml.data.outlier_detection.KNN" title="Permalink to this definition">¶</a></dt>
+<dd><p>A wrapper of sklearn’s K-Nearest Neighbor-based for outlier detection.</p>
+<dl class="field-list">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><dl>
+<dt><strong>n_neighbors</strong><span class="classifier">int, default=5</span></dt><dd><p>Number of neighbors to use.</p>
+</dd>
+<dt><strong>radius</strong><span class="classifier">float, default=1.0</span></dt><dd><p>Range of parameter space to use.</p>
+</dd>
+<dt><strong>algorithm</strong><span class="classifier">{‘auto’, ‘ball_tree’, ‘kd_tree’, ‘brute’}, default=’auto’</span></dt><dd><p>Algorithm used to compute the nearest neighbors:</p>
+<ul class="simple">
+<li><p>‘ball_tree’ will use <code class="docutils literal notranslate"><span class="pre">BallTree</span></code></p></li>
+<li><p>‘kd_tree’ will use <code class="docutils literal notranslate"><span class="pre">KDTree</span></code></p></li>
+<li><p>‘brute’ will use a brute-force search.</p></li>
+<li><p>‘auto’ will attempt to decide the most appropriate algorithm
+based on the values passed to <code class="docutils literal notranslate"><span class="pre">fit</span></code> method.</p></li>
+</ul>
+<p>Note: fitting on sparse input will override the setting of
+this parameter, using brute force.</p>
+</dd>
+<dt><strong>leaf_size</strong><span class="classifier">int, default=30</span></dt><dd><p>Leaf size passed to BallTree or KDTree. This can affect the
+speed of the construction and query, as well as the memory
+required to store the tree. The optimal value depends on the
+nature of the problem.</p>
+</dd>
+<dt><strong>metric</strong><span class="classifier">str or callable, default=’minkowski’</span></dt><dd><p>Metric to use for distance computation. Default is “minkowski”, which
+results in the standard Euclidean distance when p = 2.</p>
+<p>If metric is “precomputed”, X is assumed to be a distance matrix and
+must be square during fit. X may be a <code class="docutils literal notranslate"><span class="pre">sparse</span> <span class="pre">graph</span></code>, in which
+case only “nonzero” elements may be considered neighbors.</p>
+<p>If metric is a callable function, it takes two arrays representing 1D
+vectors as inputs and must return one value indicating the distance
+between those vectors. This works for Scipy’s metrics, but is less
+efficient than passing the metric name as a string.</p>
+</dd>
+<dt><strong>p</strong><span class="classifier">float, default=2</span></dt><dd><p>Parameter for the Minkowski metric from
+sklearn.metrics.pairwise.pairwise_distances. When p = 1, this is
+equivalent to using manhattan_distance (l1), and euclidean_distance
+(l2) for p = 2. For arbitrary p, minkowski_distance (l_p) is used.</p>
+</dd>
+<dt><strong>metric_params</strong><span class="classifier">dict, default=None</span></dt><dd><p>Additional keyword arguments for the metric function.</p>
+</dd>
+<dt><strong>n_jobs</strong><span class="classifier">int, default=None</span></dt><dd><p>The number of parallel jobs to run for neighbors search.
+<code class="docutils literal notranslate"><span class="pre">None</span></code> means 1 and <code class="docutils literal notranslate"><span class="pre">-1</span></code> means using all processors.</p>
+</dd>
+<dt><strong>score_method</strong><span class="classifier">{‘mean’, ‘median’, ‘max’}, default=’mean’</span></dt><dd><p>The aggregation method for nearest neighbors.</p>
+<ul class="simple">
+<li><p>‘mean’ will use the average distance of neighbors to the sample as outlier score.</p></li>
+<li><p>‘median’ will use the median distance of neighbors to the sample as outlier score.</p></li>
+<li><p>‘max’ will use the maximum distance of neighbors to the sample as outlier score.</p></li>
+</ul>
+</dd>
+<dt><strong>standardization</strong><span class="classifier">bool, default=True</span></dt><dd><p>Whether to standardize covariates before running the algorithm.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+<p class="rubric">Methods</p>
+<table class="autosummary longtable docutils align-default">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#piml.data.outlier_detection.KNN.decision_function" title="piml.data.outlier_detection.KNN.decision_function"><code class="xref py py-obj docutils literal notranslate"><span class="pre">decision_function</span></code></a>(X[, scale])</p></td>
+<td><p>Predict raw outliers score of X using the fitted detector.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#piml.data.outlier_detection.KNN.fit" title="piml.data.outlier_detection.KNN.fit"><code class="xref py py-obj docutils literal notranslate"><span class="pre">fit</span></code></a>(X)</p></td>
+<td><p>Fit the model.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#piml.data.outlier_detection.KNN.predict" title="piml.data.outlier_detection.KNN.predict"><code class="xref py py-obj docutils literal notranslate"><span class="pre">predict</span></code></a>([X, scale, threshold])</p></td>
+<td><p>Predict raw outlier indicator.</p></td>
+</tr>
+</tbody>
+</table>
+<dl class="py method">
+<dt class="sig sig-object py" id="piml.data.outlier_detection.KNN.decision_function">
+<span class="sig-name descname"><span class="pre">decision_function</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">X</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">scale</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#piml.data.outlier_detection.KNN.decision_function" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="simple">
+<dt>Predict raw outliers score of X using the fitted detector.</dt><dd><p>For consistency, outliers are assigned with larger anomaly scores.</p>
+</dd>
+</dl>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>X</strong><span class="classifier">numpy array of shape (n_samples, n_features)</span></dt><dd><p>The training input samples. Sparse matrices are accepted only
+if they are supported by the base estimator.</p>
+</dd>
+<dt><strong>scale</strong><span class="classifier">bool, default=True</span></dt><dd><p>If True, scale X before calculating the outlier score.</p>
+</dd>
+</dl>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><dl class="simple">
+<dt><strong>outlier_scores</strong><span class="classifier">numpy array of shape (n_samples,)</span></dt><dd><p>The anomaly score of the input samples.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="piml.data.outlier_detection.KNN.fit">
+<span class="sig-name descname"><span class="pre">fit</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">X</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#piml.data.outlier_detection.KNN.fit" title="Permalink to this definition">¶</a></dt>
+<dd><p>Fit the model.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>X</strong><span class="classifier">np.ndarray of shape (n_samples, n_features)</span></dt><dd><p>Data features.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="piml.data.outlier_detection.KNN.predict">
+<span class="sig-name descname"><span class="pre">predict</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">X</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">scale</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">threshold</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.9</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#piml.data.outlier_detection.KNN.predict" title="Permalink to this definition">¶</a></dt>
+<dd><p>Predict raw outlier indicator.</p>
+<p>Normal samples are classified as 1 and outliers are classified as -1.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>X</strong><span class="classifier">numpy array of shape (n_samples, n_features)</span></dt><dd><p>The training input samples. Sparse matrices are accepted only
+if they are supported by the base estimator.</p>
+</dd>
+<dt><strong>scale</strong><span class="classifier">bool, default=True</span></dt><dd><p>If True, scale X before calculating the outlier score.</p>
+</dd>
+<dt><strong>threshold</strong><span class="classifier">float, default=0.9</span></dt><dd><p>The quantile threshold of outliers.
+For example, the samples with outlier scores greater than 90% quantile of the whole sample will be classified as outliers.</p>
+</dd>
+</dl>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><dl class="simple">
+<dt><strong>outlier_indicator</strong><span class="classifier">numpy array of shape (n_samples,)</span></dt><dd><p>The binary array indicating whether each sample is outlier.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<section id="examples-using-piml-data-outlier-detection-knn">
+<h2>Examples using <code class="docutils literal notranslate"><span class="pre">piml.data.outlier_detection.KNN</span></code><a class="headerlink" href="#examples-using-piml-data-outlier-detection-knn" title="Permalink to this heading">¶</a></h2>
+<div class="sphx-glr-thumbnails"><div class="sphx-glr-thumbcontainer" tooltip="Data Quality Check"><img alt="" src="../../_images/sphx_glr_plot_4_data_quality_thumb.png" />
+<p><a class="reference internal" href="../../auto_examples/data/plot_4_data_quality.html#sphx-glr-auto-examples-data-plot-4-data-quality-py"><span class="std std-ref">Data Quality Check</span></a></p>
+  <div class="sphx-glr-thumbnail-title">Data Quality Check</div>
+</div></div><div class="clearer"></div></section>
+</section>
+
+
+        </div>
+      <div class="container">
+        <footer class="sk-content-footer">
+              &copy; Copyright 2022-, PiML-Toolbox authors.
+            <a href="../../_sources/modules/generated/piml.data.outlier_detection.KNN.rst.txt" rel="nofollow">Show this page source</a>
+        </footer>
+      </div>
+    </div>
+  </div>
+
+
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(false);
+      });
+      
+      const tooltipTriggerList = document.querySelectorAll('[data-bs-toggle="tooltip"]')
+      const tooltipList = [...tooltipTriggerList].map(tooltipTriggerEl => new bootstrap.Tooltip(tooltipTriggerEl))
+  </script>
+
+<script>
+$(document).ready(function() {
+    /* Add a [>>>] button on the top-right corner of code samples to hide
+     * the >>> and ... prompts and the output and thus make the code
+     * copyable. */
+    var div = $('.highlight-python .highlight,' +
+                '.highlight-python3 .highlight,' +
+                '.highlight-pycon .highlight,' +
+		'.highlight-default .highlight')
+    var pre = div.find('pre');
+
+    // get the styles from the current theme
+    pre.parent().parent().css('position', 'relative');
+    var hide_text = 'Hide prompts and outputs';
+    var show_text = 'Show prompts and outputs';
+
+    // create and add the button to all the code blocks that contain >>>
+    div.each(function(index) {
+        var jthis = $(this);
+        if (jthis.find('.gp').length > 0) {
+            var button = $('<span class="copybutton">&gt;&gt;&gt;</span>');
+            button.attr('title', hide_text);
+            button.data('hidden', 'false');
+            jthis.prepend(button);
+        }
+        // tracebacks (.gt) contain bare text elements that need to be
+        // wrapped in a span to work with .nextUntil() (see later)
+        jthis.find('pre:has(.gt)').contents().filter(function() {
+            return ((this.nodeType == 3) && (this.data.trim().length > 0));
+        }).wrap('<span>');
+    });
+
+    // define the behavior of the button when it's clicked
+    $('.copybutton').click(function(e){
+        e.preventDefault();
+        var button = $(this);
+        if (button.data('hidden') === 'false') {
+            // hide the code output
+            button.parent().find('.go, .gp, .gt').hide();
+            button.next('pre').find('.gt').nextUntil('.gp, .go').css('visibility', 'hidden');
+            button.css('text-decoration', 'line-through');
+            button.attr('title', show_text);
+            button.data('hidden', 'true');
+        } else {
+            // show the code output
+            button.parent().find('.go, .gp, .gt').show();
+            button.next('pre').find('.gt').nextUntil('.gp, .go').css('visibility', 'visible');
+            button.css('text-decoration', 'none');
+            button.attr('title', hide_text);
+            button.data('hidden', 'false');
+        }
+    });
+
+	/*** Add permalink buttons next to glossary terms ***/
+	$('dl.glossary > dt[id]').append(function() {
+		return ('<a class="headerlink" href="#' +
+			    this.getAttribute('id') +
+			    '" title="Permalink to this term">¶</a>');
+	});
+  /*** Hide navbar when scrolling down ***/
+  // Returns true when headerlink target matches hash in url
+  (function() {
+    hashTargetOnTop = function() {
+        var hash = window.location.hash;
+        if ( hash.length < 2 ) { return false; }
+
+        var target = document.getElementById( hash.slice(1) );
+        if ( target === null ) { return false; }
+
+        var top = target.getBoundingClientRect().top;
+        return (top < 2) && (top > -2);
+    };
+
+    // Hide navbar on load if hash target is on top
+    var navBar = document.getElementById("navbar");
+    var navBarToggler = document.getElementById("sk-navbar-toggler");
+    var navBarHeightHidden = "-" + navBar.getBoundingClientRect().height + "px";
+    var $window = $(window);
+
+    hideNavBar = function() {
+        navBar.style.top = navBarHeightHidden;
+    };
+
+    showNavBar = function() {
+        navBar.style.top = "0";
+    }
+
+    if (hashTargetOnTop()) {
+        hideNavBar()
+    }
+
+    var prevScrollpos = window.pageYOffset;
+    hideOnScroll = function(lastScrollTop) {
+        if (($window.width() < 768) && (navBarToggler.getAttribute("aria-expanded") === 'true')) {
+            return;
+        }
+        if (lastScrollTop > 2 && (prevScrollpos <= lastScrollTop) || hashTargetOnTop()){
+            hideNavBar()
+        } else {
+            showNavBar()
+        }
+        prevScrollpos = lastScrollTop;
+    };
+
+    /*** high performance scroll event listener***/
+    var raf = window.requestAnimationFrame ||
+        window.webkitRequestAnimationFrame ||
+        window.mozRequestAnimationFrame ||
+        window.msRequestAnimationFrame ||
+        window.oRequestAnimationFrame;
+    var lastScrollTop = $window.scrollTop();
+
+    if (raf) {
+        loop();
+    }
+
+    function loop() {
+        var scrollTop = $window.scrollTop();
+        if (lastScrollTop === scrollTop) {
+            raf(loop);
+            return;
+        } else {
+            lastScrollTop = scrollTop;
+            hideOnScroll(lastScrollTop);
+            raf(loop);
+        }
+    }
+  })();
+});
+
+</script>
+    
+
+<script src="_static/js/vendor/bootstrap.min.js"></script>
+
+</body>
+</html>

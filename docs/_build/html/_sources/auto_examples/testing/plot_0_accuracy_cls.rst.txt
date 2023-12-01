@@ -77,11 +77,11 @@ Accuracy table
 
  .. code-block:: none
 
-              ACC      AUC      F1
-                              
-    Train  0.8223   0.7970  0.4751
-    Test   0.8288   0.7732  0.4779
-    Gap    0.0066  -0.0237  0.0027
+              ACC      AUC      F1 LogLoss   Brier
+                                              
+    Train  0.8219   0.7978  0.4759  0.4196  0.1316
+    Test   0.8290   0.7728  0.4797  0.4252  0.1319
+    Gap    0.0071  -0.0251  0.0038  0.0057  0.0004
 
 
 
@@ -116,22 +116,16 @@ Plot residual with respect to the feature PAY_1
 
 .. code-block:: default
 
-    exp.model_diagnose(model="XGB2", show="accuracy_residual", target_feature="PAY_1",
+    exp.model_diagnose(model="XGB2", show="accuracy_residual", show_feature="PAY_1",
                        use_test=False, original_scale=True, figsize=(5, 4))
 
 
 
 .. image-sg:: /auto_examples/testing/images/sphx_glr_plot_0_accuracy_cls_002.png
-   :alt: plot 0 accuracy cls
+   :alt: Residual Plot
    :srcset: /auto_examples/testing/images/sphx_glr_plot_0_accuracy_cls_002.png
    :class: sphx-glr-single-img
 
-
-.. rst-class:: sphx-glr-script-out
-
- .. code-block:: none
-
-    invalid value encountered in divide
 
 
 
@@ -144,13 +138,13 @@ Plot residual with respect to the target feature
 
 .. code-block:: default
 
-    exp.model_diagnose(model="XGB2", show="accuracy_residual", target_feature="FlagDefault",
+    exp.model_diagnose(model="XGB2", show="accuracy_residual", show_feature="FlagDefault",
                        use_test=False, figsize=(5, 4))
 
 
 
 .. image-sg:: /auto_examples/testing/images/sphx_glr_plot_0_accuracy_cls_003.png
-   :alt: plot 0 accuracy cls
+   :alt: Residual Plot
    :srcset: /auto_examples/testing/images/sphx_glr_plot_0_accuracy_cls_003.png
    :class: sphx-glr-single-img
 
@@ -166,13 +160,13 @@ Plot residual with respect to the predicted response
 
 .. code-block:: default
 
-    exp.model_diagnose(model="XGB2", show="accuracy_residual", target_feature="FlagDefault_predict",
+    exp.model_diagnose(model="XGB2", show="accuracy_residual", show_feature="FlagDefault_predict",
                        use_test=False, figsize=(5, 4))
 
 
 
 .. image-sg:: /auto_examples/testing/images/sphx_glr_plot_0_accuracy_cls_004.png
-   :alt: plot 0 accuracy cls
+   :alt: Residual Plot
    :srcset: /auto_examples/testing/images/sphx_glr_plot_0_accuracy_cls_004.png
    :class: sphx-glr-single-img
 
@@ -183,9 +177,9 @@ Plot residual with respect to the predicted response
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** ( 0 minutes  41.360 seconds)
+   **Total running time of the script:** ( 0 minutes  37.891 seconds)
 
-**Estimated memory usage:**  1742 MB
+**Estimated memory usage:**  49 MB
 
 
 .. _sphx_glr_download_auto_examples_testing_plot_0_accuracy_cls.py:

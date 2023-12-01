@@ -22,38 +22,33 @@ exp.model_train(XGB2Classifier(), name="XGB2")
 # Histogram-based weakspot for a single feature
 results = exp.model_diagnose(model="XGB2", show="weakspot", slice_method="histogram", 
                              slice_features=["PAY_1"], threshold=1.1, min_samples=100,
-                             original_scale=True, return_data=True, figsize=(5, 4))
+                             return_data=True, figsize=(5, 4))
 results.data
+
 #%%
 # Histogram-based weakspot for two features
 results = exp.model_diagnose(model="XGB2", show="weakspot", slice_method="histogram", 
                              slice_features=["PAY_1", "PAY_2"], threshold=1.1, min_samples=100,
-                             original_scale=True, return_data=True, figsize=(5, 4))
+                             return_data=True, figsize=(5, 4))
 results.data
 
 #%%
 # Histogram-based weakspot for a single feature on test set
 results = exp.model_diagnose(model="XGB2", show="weakspot", slice_method="histogram", 
                              slice_features=["PAY_1"], threshold=1.1, min_samples=100,
-                             use_test=True, original_scale=True, return_data=True, figsize=(5, 4))
+                             use_test=True, return_data=True, figsize=(5, 4))
 results.data
 #%%
 # Histogram-based weakspot for a single feature using AUC metric
 results = exp.model_diagnose(model="XGB2", show="weakspot", slice_method="histogram", 
                              slice_features=["PAY_1"], threshold=1.1, min_samples=100,
-                             metric="AUC", original_scale=True, return_data=True, figsize=(5, 4))
+                             metric="AUC", return_data=True, figsize=(5, 4))
 results.data
 
 #%%
 # Tree-based weakspot for a single feature using ACC metric
 results = exp.model_diagnose(model="XGB2", show="weakspot", slice_method="tree", 
                              slice_features=["PAY_1"], threshold=1.1, min_samples=100,
-                             metric="ACC", original_scale=True, return_data=True, figsize=(5, 4))
+                             metric="ACC", return_data=True, figsize=(5, 4))
 results.data
 
-#%%
-# XGB-based weakspot for a single feature using ACC metric
-results = exp.model_diagnose(model="XGB2", show="weakspot", slice_method="xgb", 
-                             slice_features=["BILL_AMT1"], threshold=1.1, min_samples=60, use_test=True,
-                             metric="ACC", original_scale=True, return_data=True, figsize=(5, 4))
-results.data

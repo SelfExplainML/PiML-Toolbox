@@ -70,7 +70,7 @@ Histogram-based weakspot for a single feature
 
     results = exp.model_diagnose(model="XGB2", show="weakspot", slice_method="histogram", 
                                  slice_features=["hr"], threshold=1.1, min_samples=100,
-                                 original_scale=True, return_data=True, figsize=(5, 4))
+                                 return_data=True, figsize=(5, 4))
     results.data
 
 
@@ -119,9 +119,9 @@ Histogram-based weakspot for a single feature
           <td>0.4</td>
           <td>445</td>
           <td>1736</td>
-          <td>0.0226</td>
-          <td>0.0205</td>
-          <td>0.0021</td>
+          <td>0.021922</td>
+          <td>0.019718</td>
+          <td>0.002204</td>
         </tr>
         <tr>
           <th>1</th>
@@ -129,9 +129,9 @@ Histogram-based weakspot for a single feature
           <td>0.8</td>
           <td>290</td>
           <td>1168</td>
-          <td>0.0283</td>
-          <td>0.0277</td>
-          <td>0.0006</td>
+          <td>0.030705</td>
+          <td>0.030399</td>
+          <td>0.000306</td>
         </tr>
       </tbody>
     </table>
@@ -150,7 +150,7 @@ Histogram-based weakspot for two features
 
     results = exp.model_diagnose(model="XGB2", show="weakspot", slice_method="histogram", 
                                  slice_features=["hr", "workingday"], threshold=1.1, min_samples=100,
-                                 original_scale=True, return_data=True, figsize=(5, 4))
+                                 return_data=True, figsize=(5, 4))
     results.data
 
 
@@ -204,9 +204,9 @@ Histogram-based weakspot for two features
           <td>1.0</td>
           <td>445</td>
           <td>1736</td>
-          <td>0.0226</td>
-          <td>0.0205</td>
-          <td>2.0938e-03</td>
+          <td>0.021922</td>
+          <td>0.019718</td>
+          <td>0.002204</td>
         </tr>
         <tr>
           <th>1</th>
@@ -216,9 +216,9 @@ Histogram-based weakspot for two features
           <td>0.5</td>
           <td>85</td>
           <td>377</td>
-          <td>0.0207</td>
-          <td>0.0200</td>
-          <td>6.3215e-04</td>
+          <td>0.021868</td>
+          <td>0.020749</td>
+          <td>0.001119</td>
         </tr>
         <tr>
           <th>2</th>
@@ -228,9 +228,9 @@ Histogram-based weakspot for two features
           <td>1.0</td>
           <td>290</td>
           <td>1168</td>
-          <td>0.0283</td>
-          <td>0.0277</td>
-          <td>5.8851e-04</td>
+          <td>0.030705</td>
+          <td>0.030399</td>
+          <td>0.000306</td>
         </tr>
         <tr>
           <th>3</th>
@@ -240,9 +240,9 @@ Histogram-based weakspot for two features
           <td>0.5</td>
           <td>155</td>
           <td>538</td>
-          <td>0.0153</td>
-          <td>0.0152</td>
-          <td>5.1004e-05</td>
+          <td>0.015925</td>
+          <td>0.015833</td>
+          <td>0.000092</td>
         </tr>
         <tr>
           <th>4</th>
@@ -252,9 +252,9 @@ Histogram-based weakspot for two features
           <td>0.5</td>
           <td>97</td>
           <td>365</td>
-          <td>0.0102</td>
-          <td>0.0108</td>
-          <td>-5.7190e-04</td>
+          <td>0.010331</td>
+          <td>0.011008</td>
+          <td>-0.000677</td>
         </tr>
       </tbody>
     </table>
@@ -273,7 +273,7 @@ Histogram-based weakspot for a single feature on test set
 
     results = exp.model_diagnose(model="XGB2", show="weakspot", slice_method="histogram", 
                                  slice_features=["hr"], threshold=1.1, min_samples=100,
-                                 use_test=True, original_scale=True, return_data=True, figsize=(5, 4))
+                                 use_test=True, return_data=True, figsize=(5, 4))
     results.data
 
 
@@ -322,9 +322,9 @@ Histogram-based weakspot for a single feature on test set
           <td>0.4</td>
           <td>445</td>
           <td>1736</td>
-          <td>0.0226</td>
-          <td>0.0205</td>
-          <td>0.0021</td>
+          <td>0.021922</td>
+          <td>0.019718</td>
+          <td>0.002204</td>
         </tr>
         <tr>
           <th>1</th>
@@ -332,9 +332,9 @@ Histogram-based weakspot for a single feature on test set
           <td>0.8</td>
           <td>290</td>
           <td>1168</td>
-          <td>0.0283</td>
-          <td>0.0277</td>
-          <td>0.0006</td>
+          <td>0.030705</td>
+          <td>0.030399</td>
+          <td>0.000306</td>
         </tr>
       </tbody>
     </table>
@@ -353,7 +353,7 @@ Histogram-based weakspot for a single feature using MAE metric
 
     results = exp.model_diagnose(model="XGB2", show="weakspot", slice_method="histogram", 
                                  slice_features=["hr"], threshold=1.1, min_samples=100,
-                                 metric="MAE", original_scale=True, return_data=True, figsize=(5, 4))
+                                 metric="MAE", return_data=True, figsize=(5, 4))
     results.data
 
 
@@ -403,19 +403,19 @@ Histogram-based weakspot for a single feature using MAE metric
           <td>0.4</td>
           <td>445</td>
           <td>1736</td>
-          <td>0.1175</td>
-          <td>0.1122</td>
-          <td>0.0053</td>
+          <td>0.116319</td>
+          <td>0.110566</td>
+          <td>0.005752</td>
         </tr>
         <tr>
           <th>1</th>
-          <td>0.5</td>
+          <td>0.6</td>
           <td>0.8</td>
-          <td>1026</td>
-          <td>4077</td>
-          <td>0.0931</td>
-          <td>0.0919</td>
-          <td>0.0012</td>
+          <td>735</td>
+          <td>2911</td>
+          <td>0.104566</td>
+          <td>0.103100</td>
+          <td>0.001466</td>
         </tr>
       </tbody>
     </table>
@@ -428,15 +428,14 @@ Histogram-based weakspot for a single feature using MAE metric
 
 Tree-based weakspot for a single feature using MAE metric
 
-.. GENERATED FROM PYTHON SOURCE LINES 48-53
+.. GENERATED FROM PYTHON SOURCE LINES 48-52
 
 .. code-block:: default
 
     results = exp.model_diagnose(model="XGB2", show="weakspot", slice_method="tree", 
                                  slice_features=["hr"], threshold=1.1, min_samples=100,
-                                 metric="MAE", original_scale=True, return_data=True, figsize=(5, 4))
+                                 metric="MAE", return_data=True, figsize=(5, 4))
     results.data
-
 
 
 
@@ -480,163 +479,23 @@ Tree-based weakspot for a single feature using MAE metric
       <tbody>
         <tr>
           <th>0</th>
-          <td>0.3261</td>
-          <td>0.3696</td>
-          <td>135</td>
-          <td>592</td>
-          <td>0.1947</td>
-          <td>0.1677</td>
-          <td>0.0270</td>
+          <td>0.282609</td>
+          <td>0.369565</td>
+          <td>283</td>
+          <td>1171</td>
+          <td>0.149505</td>
+          <td>0.135181</td>
+          <td>0.014324</td>
         </tr>
         <tr>
           <th>1</th>
-          <td>0.2826</td>
-          <td>0.3261</td>
-          <td>148</td>
-          <td>579</td>
-          <td>0.1130</td>
-          <td>0.1062</td>
-          <td>0.0068</td>
-        </tr>
-        <tr>
-          <th>2</th>
-          <td>0.3696</td>
-          <td>0.8478</td>
-          <td>1630</td>
-          <td>6382</td>
-          <td>0.0827</td>
-          <td>0.0825</td>
-          <td>0.0002</td>
-        </tr>
-      </tbody>
-    </table>
-    </div>
-    </div>
-    <br />
-    <br />
-
-.. GENERATED FROM PYTHON SOURCE LINES 54-55
-
-XGB-based weakspot for a single feature using MAE metric
-
-.. GENERATED FROM PYTHON SOURCE LINES 55-59
-
-.. code-block:: default
-
-    results = exp.model_diagnose(model="XGB2", show="weakspot", slice_method="xgb", 
-                                 slice_features=["atemp"], threshold=1.1, min_samples=60, use_test=True, 
-                                 metric="MAE", original_scale=True, return_data=True, figsize=(5, 4))
-    results.data
-
-
-
-.. image-sg:: /auto_examples/testing/images/sphx_glr_plot_1_weakspot_reg_006.png
-   :alt: Weak Regions
-   :srcset: /auto_examples/testing/images/sphx_glr_plot_1_weakspot_reg_006.png
-   :class: sphx-glr-single-img
-
-
-
-.. raw:: html
-
-    <div class="output_subarea output_html rendered_html output_result">
-    <div>
-    <style scoped>
-        .dataframe tbody tr th:only-of-type {
-            vertical-align: middle;
-        }
-
-        .dataframe tbody tr th {
-            vertical-align: top;
-        }
-
-        .dataframe thead th {
-            text-align: right;
-        }
-    </style>
-    <table border="1" class="dataframe">
-      <thead>
-        <tr style="text-align: right;">
-          <th></th>
-          <th>[atemp</th>
-          <th>atemp)</th>
-          <th>#Test</th>
-          <th>#Train</th>
-          <th>test_MAE</th>
-          <th>train_MAE</th>
-          <th>Gap</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <th>0</th>
-          <td>0.4545</td>
-          <td>0.4848</td>
-          <td>268</td>
-          <td>1110</td>
-          <td>0.0753</td>
-          <td>0.0634</td>
-          <td>0.0119</td>
-        </tr>
-        <tr>
-          <th>1</th>
-          <td>0.6364</td>
-          <td>0.6667</td>
-          <td>303</td>
-          <td>1239</td>
-          <td>0.0841</td>
-          <td>0.0778</td>
-          <td>0.0063</td>
-        </tr>
-        <tr>
-          <th>2</th>
-          <td>0.5152</td>
-          <td>0.5303</td>
-          <td>127</td>
-          <td>452</td>
-          <td>0.0746</td>
-          <td>0.0738</td>
-          <td>0.0008</td>
-        </tr>
-        <tr>
-          <th>3</th>
-          <td>0.6818</td>
-          <td>0.7273</td>
-          <td>146</td>
-          <td>555</td>
-          <td>0.0787</td>
-          <td>0.0803</td>
-          <td>-0.0016</td>
-        </tr>
-        <tr>
-          <th>4</th>
-          <td>0.6667</td>
-          <td>0.6818</td>
-          <td>74</td>
-          <td>307</td>
-          <td>0.0736</td>
-          <td>0.0756</td>
-          <td>-0.0020</td>
-        </tr>
-        <tr>
-          <th>5</th>
-          <td>0.5909</td>
-          <td>0.6212</td>
-          <td>294</td>
-          <td>1282</td>
-          <td>0.0790</td>
-          <td>0.0820</td>
-          <td>-0.0030</td>
-        </tr>
-        <tr>
-          <th>6</th>
-          <td>0.7273</td>
-          <td>0.9848</td>
-          <td>196</td>
-          <td>882</td>
-          <td>0.0744</td>
-          <td>0.0808</td>
-          <td>-0.0063</td>
+          <td>0.369565</td>
+          <td>1.000000</td>
+          <td>2214</td>
+          <td>8710</td>
+          <td>0.074912</td>
+          <td>0.074687</td>
+          <td>0.000226</td>
         </tr>
       </tbody>
     </table>
@@ -648,9 +507,9 @@ XGB-based weakspot for a single feature using MAE metric
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** ( 53 minutes  13.664 seconds)
+   **Total running time of the script:** ( 1 minutes  5.304 seconds)
 
-**Estimated memory usage:**  1386 MB
+**Estimated memory usage:**  21 MB
 
 
 .. _sphx_glr_download_auto_examples_testing_plot_1_weakspot_reg.py:

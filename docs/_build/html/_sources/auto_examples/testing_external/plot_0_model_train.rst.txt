@@ -43,17 +43,17 @@ Load PiML
  .. code-block:: none
 
            MedInc  HouseAge  AveRooms  AveBedrms  Population  AveOccup  Latitude  \
-    0      8.3252      41.0    6.9841     1.0238       322.0    2.5556     37.88   
-    1      8.3014      21.0    6.2381     0.9719      2401.0    2.1098     37.86   
-    2      7.2574      52.0    8.2881     1.0734       496.0    2.8023     37.85   
-    3      5.6431      52.0    5.8174     1.0731       558.0    2.5479     37.85   
-    4      3.8462      52.0    6.2819     1.0811       565.0    2.1815     37.85   
+    0      8.3252      41.0  6.984127   1.023810       322.0  2.555556     37.88   
+    1      8.3014      21.0  6.238137   0.971880      2401.0  2.109842     37.86   
+    2      7.2574      52.0  8.288136   1.073446       496.0  2.802260     37.85   
+    3      5.6431      52.0  5.817352   1.073059       558.0  2.547945     37.85   
+    4      3.8462      52.0  6.281853   1.081081       565.0  2.181467     37.85   
     ...       ...       ...       ...        ...         ...       ...       ...   
-    20635  1.5603      25.0    5.0455     1.1333       845.0    2.5606     39.48   
-    20636  2.5568      18.0    6.1140     1.3158       356.0    3.1228     39.49   
-    20637  1.7000      17.0    5.2055     1.1201      1007.0    2.3256     39.43   
-    20638  1.8672      18.0    5.3295     1.1719       741.0    2.1232     39.43   
-    20639  2.3886      16.0    5.2547     1.1623      1387.0    2.6170     39.37   
+    20635  1.5603      25.0  5.045455   1.133333       845.0  2.560606     39.48   
+    20636  2.5568      18.0  6.114035   1.315789       356.0  3.122807     39.49   
+    20637  1.7000      17.0  5.205543   1.120092      1007.0  2.325635     39.43   
+    20638  1.8672      18.0  5.329513   1.171920       741.0  2.123209     39.43   
+    20639  2.3886      16.0  5.254717   1.162264      1387.0  2.616981     39.37   
 
            Longitude  MedHouseVal  
     0        -122.23        4.526  
@@ -69,15 +69,14 @@ Load PiML
     20639    -121.24        0.894  
 
     [20640 rows x 9 columns]
-                           Config        Value
-    0            Excluded columns           []
-    1             Target variable  MedHouseVal
-    2               Sample weight         None
-    3                   Task type   Regression
-    4                Split method       Random
-    5                  Test ratio          0.2
-    6                Random state            0
-    7  Train test energy distance       0.0002
+                 Config        Value
+    0  Excluded columns           []
+    1   Target variable  MedHouseVal
+    2     Sample weight         None
+    3         Task type   regression
+    4      Split method       random
+    5        Test ratio          0.2
+    6      Random state            0
 
 
 
@@ -162,9 +161,9 @@ Run post-hoc explanation using PDP.
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** ( 0 minutes  54.781 seconds)
+   **Total running time of the script:** ( 0 minutes  48.757 seconds)
 
-**Estimated memory usage:**  1439 MB
+**Estimated memory usage:**  17 MB
 
 
 .. _sphx_glr_download_auto_examples_testing_external_plot_0_model_train.py:

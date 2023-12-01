@@ -132,6 +132,8 @@
 <li><a class="reference internal" href="#piml.models.GAMINetClassifier.get_params"><code class="docutils literal notranslate"><span class="pre">GAMINetClassifier.get_params</span></code></a></li>
 <li><a class="reference internal" href="#piml.models.GAMINetClassifier.get_raw_output"><code class="docutils literal notranslate"><span class="pre">GAMINetClassifier.get_raw_output</span></code></a></li>
 <li><a class="reference internal" href="#piml.models.GAMINetClassifier.load"><code class="docutils literal notranslate"><span class="pre">GAMINetClassifier.load</span></code></a></li>
+<li><a class="reference internal" href="#piml.models.GAMINetClassifier.parse_model"><code class="docutils literal notranslate"><span class="pre">GAMINetClassifier.parse_model</span></code></a></li>
+<li><a class="reference internal" href="#piml.models.GAMINetClassifier.partial_dependence"><code class="docutils literal notranslate"><span class="pre">GAMINetClassifier.partial_dependence</span></code></a></li>
 <li><a class="reference internal" href="#piml.models.GAMINetClassifier.partial_derivatives"><code class="docutils literal notranslate"><span class="pre">GAMINetClassifier.partial_derivatives</span></code></a></li>
 <li><a class="reference internal" href="#piml.models.GAMINetClassifier.predict"><code class="docutils literal notranslate"><span class="pre">GAMINetClassifier.predict</span></code></a></li>
 <li><a class="reference internal" href="#piml.models.GAMINetClassifier.predict_proba"><code class="docutils literal notranslate"><span class="pre">GAMINetClassifier.predict_proba</span></code></a></li>
@@ -399,6 +401,12 @@ self.global_explain() function.</p>
 <tr class="row-even"><td><p><a class="reference internal" href="#piml.models.GAMINetClassifier.load" title="piml.models.GAMINetClassifier.load"><code class="xref py py-obj docutils literal notranslate"><span class="pre">load</span></code></a>([folder, name])</p></td>
 <td><p>Load a model from local disk.</p></td>
 </tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#piml.models.GAMINetClassifier.parse_model" title="piml.models.GAMINetClassifier.parse_model"><code class="xref py py-obj docutils literal notranslate"><span class="pre">parse_model</span></code></a>()</p></td>
+<td><p>Interpret the model using functional ANOVA.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#piml.models.GAMINetClassifier.partial_dependence" title="piml.models.GAMINetClassifier.partial_dependence"><code class="xref py py-obj docutils literal notranslate"><span class="pre">partial_dependence</span></code></a>(fidx, X)</p></td>
+<td><p>Partial dependence of given effect index.</p></td>
+</tr>
 <tr class="row-odd"><td><p><a class="reference internal" href="#piml.models.GAMINetClassifier.partial_derivatives" title="piml.models.GAMINetClassifier.partial_derivatives"><code class="xref py py-obj docutils literal notranslate"><span class="pre">partial_derivatives</span></code></a>(feature_name[, n_samples])</p></td>
 <td><p>Plot the first-order partial derivatives w.r.t.</p></td>
 </tr>
@@ -419,17 +427,6 @@ self.global_explain() function.</p>
 </tr>
 <tr class="row-odd"><td><p><a class="reference internal" href="#piml.models.GAMINetClassifier.set_score_request" title="piml.models.GAMINetClassifier.set_score_request"><code class="xref py py-obj docutils literal notranslate"><span class="pre">set_score_request</span></code></a>(*[, sample_weight])</p></td>
 <td><p>Request metadata passed to the <code class="docutils literal notranslate"><span class="pre">score</span></code> method.</p></td>
-</tr>
-</tbody>
-</table>
-<table class="docutils align-default">
-<colgroup>
-<col style="width: 60%" />
-<col style="width: 40%" />
-</colgroup>
-<tbody>
-<tr class="row-odd"><td><p><strong>parse_model</strong></p></td>
-<td></td>
 </tr>
 </tbody>
 </table>
@@ -678,6 +675,42 @@ contained subobjects that are estimators.</p>
 </dd></dl>
 
 <dl class="py method">
+<dt class="sig sig-object py" id="piml.models.GAMINetClassifier.parse_model">
+<span class="sig-name descname"><span class="pre">parse_model</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#piml.models.GAMINetClassifier.parse_model" title="Permalink to this definition">¶</a></dt>
+<dd><p>Interpret the model using functional ANOVA.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><dl class="simple">
+<dt>An instance of FANOVAInterpreter</dt><dd><p>The interpretation results.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="piml.models.GAMINetClassifier.partial_dependence">
+<span class="sig-name descname"><span class="pre">partial_dependence</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">fidx</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">X</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#piml.models.GAMINetClassifier.partial_dependence" title="Permalink to this definition">¶</a></dt>
+<dd><p>Partial dependence of given effect index.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>fidx</strong><span class="classifier">tuple of int</span></dt><dd><p>The main effect or pairwise interaction feature index.</p>
+</dd>
+<dt><strong>X</strong><span class="classifier">np.ndarray of shape (n_samples, n_features)</span></dt><dd><p>Data features.</p>
+</dd>
+</dl>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><dl class="simple">
+<dt><strong>pred</strong><span class="classifier">np.ndarray of shape (n_samples, )</span></dt><dd><p>numpy array of predicted class values.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
 <dt class="sig sig-object py" id="piml.models.GAMINetClassifier.partial_derivatives">
 <span class="sig-name descname"><span class="pre">partial_derivatives</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">feature_name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n_samples</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">10000</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#piml.models.GAMINetClassifier.partial_derivatives" title="Permalink to this definition">¶</a></dt>
 <dd><p>Plot the first-order partial derivatives w.r.t. given feature index.</p>
@@ -810,7 +843,7 @@ possible to update each component of a nested object.</p>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="piml.models.GAMINetClassifier.set_score_request">
-<span class="sig-name descname"><span class="pre">set_score_request</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sample_weight</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Union" title="(in Python v3.11)"><span class="pre">Union</span></a><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.11)"><span class="pre">bool</span></a><span class="p"><span class="pre">,</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.11)"><span class="pre">None</span></a><span class="p"><span class="pre">,</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.11)"><span class="pre">str</span></a><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'$UNCHANGED$'</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#piml.models.GAMINetClassifier" title="piml.models.gaminet.api.GAMINetClassifier"><span class="pre">GAMINetClassifier</span></a></span></span><a class="headerlink" href="#piml.models.GAMINetClassifier.set_score_request" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">set_score_request</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sample_weight</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Union</span><span class="p"><span class="pre">[</span></span><span class="pre">bool</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">None</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'$UNCHANGED$'</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#piml.models.GAMINetClassifier" title="piml.models.gaminet.api.GAMINetClassifier"><span class="pre">GAMINetClassifier</span></a></span></span><a class="headerlink" href="#piml.models.GAMINetClassifier.set_score_request" title="Permalink to this definition">¶</a></dt>
 <dd><p>Request metadata passed to the <code class="docutils literal notranslate"><span class="pre">score</span></code> method.</p>
 <p>Note that this method is only relevant if
 <code class="docutils literal notranslate"><span class="pre">enable_metadata_routing=True</span></code> (see <code class="xref py py-func docutils literal notranslate"><span class="pre">sklearn.set_config</span></code>).

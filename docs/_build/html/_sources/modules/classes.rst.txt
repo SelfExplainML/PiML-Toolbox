@@ -8,19 +8,6 @@ This is the class and function reference of PiML.
 Please refer to the user guide for further details, as the class and function raw specifications may not be enough to give full guidelines on their uses.
 
 
-Experiment Class
-=======================================================
-
-.. currentmodule:: piml
-
-.. autosummary::
-   :nosignatures:
-   :toctree: generated/
-   :template: class.rst
-
-   Experiment
-
-
 Data Pipeline
 =======================================================
 
@@ -34,7 +21,7 @@ Functions
    Experiment.data_loader
    Experiment.data_summary
    Experiment.data_prepare
-   Experiment.data_quality_check
+   Experiment.data_quality
    Experiment.eda
    Experiment.feature_select
    Experiment.get_data
@@ -44,7 +31,7 @@ Functions
    Experiment.get_target_name
    Experiment.twosample_test
 
-Outlier Detection Methods
+Outlier Detection Algorithms
 ----------------------------
 .. currentmodule:: piml
 
@@ -57,6 +44,10 @@ Outlier Detection Methods
    data.outlier_detection.CBLOF
    data.outlier_detection.KMeansTree
    data.outlier_detection.IsolationForest
+   data.outlier_detection.OneClassSVM
+   data.outlier_detection.KNN
+   data.outlier_detection.HBOS
+   data.outlier_detection.ECOD
 
 Interpretable Models
 =======================================================
@@ -68,14 +59,17 @@ Functions
 .. autosummary::
 
    Experiment.model_train
+   Experiment.model_tune
+   Experiment.model_save
    Experiment.model_interpret
-   Experiment.register
    Experiment.make_pipeline
+   Experiment.register
+   Experiment.get_model_list
+   Experiment.get_interpretable_model_list
    Experiment.get_model
    Experiment.get_model_config
    Experiment.get_leaderboard
    Experiment.get_leaderboard_registered
-
 
 Model Classes
 --------------
@@ -119,6 +113,9 @@ Post-hoc Explainability
 Outcome Testing
 =======================================================
 
+Integrated High Code APIs
+--------------------------------------------------------
+
 .. currentmodule:: piml
 
 .. autosummary::
@@ -128,3 +125,30 @@ Outcome Testing
    Experiment.model_fairness
    Experiment.model_fairness_compare
    Experiment.model_fairness_solas
+   Experiment.segmented_diagnose
+
+
+Scored Test Function
+--------------------------------------------------------
+
+.. currentmodule:: piml.scored_test
+
+.. autosummary::
+   :nosignatures:
+   :toctree: generated/
+   :template: function.rst
+
+   test_accuracy_table
+   test_accuracy_residual
+   test_accuracy_plot
+   test_weakspot
+   test_overfit
+   test_reliability_table
+   test_reliability_distance
+   test_reliability_marginal
+   test_reliability_perf
+   test_reliability_calibration
+   test_resilience_perf
+   test_resilience_distance
+   test_resilience_shift_histogram
+   test_resilience_shift_density

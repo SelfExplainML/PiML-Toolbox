@@ -11,7 +11,7 @@ This section describes how different classification models with binary responses
 
 Accuracy Comparison
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-The `metric` can be chosen from "ACC", "AUC", and "F1".
+The `metric` can be chosen from "ACC", "AUC", "F1", "LogLoss", and "Brier".
 
 Accuracy Score
 """"""""""""""""""""""""""
@@ -169,7 +169,7 @@ The example below illustrates how to compare models' resilience performance usin
 
 Resilience Distance
 """""""""""""""""""""""""""""""""""""""""""
-By setting `show` to "resilience_distance", the distributional distance between the worst test sample and the full test sample will be calculated for each feature. Then the features will be ranked by distance, and the top 10 features with the largest distances will be displayed.
+By setting `show` to "resilience_distance", the distributional distance between the worst test sample and the remaining test sample will be calculated for each feature. Then the features will be ranked by distance, and the top 10 features with the largest distances will be displayed.
 
 .. jupyter-input::
 

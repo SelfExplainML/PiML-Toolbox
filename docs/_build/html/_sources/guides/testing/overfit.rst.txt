@@ -48,85 +48,14 @@ In the following demonstration, we will focus on a regression task using the Bik
 
    results = exp.model_diagnose(model="XGB2", show="overfit", slice_method="histogram", 
                                 slice_features=["hr"], threshold=1.05, min_samples=100,
-                                original_scale=True, return_data=True, figsize=(5, 4))
+                                return_data=True, figsize=(5, 4))
 
 .. figure:: ../../auto_examples/testing/images/sphx_glr_plot_2_overfit_reg_001.png
    :target: ../../auto_examples/testing/plot_2_overfit_reg.html 
    :align: left
 
-.. jupyter-input::
+The analysis of overfit regions reveals that the most significant overfit region occurs when the variable `hr` is within the range of (7am, 9am). In this region, the test set exhibits a Mean Squared Error (MSE) of 0.0171, while the train set demonstrates an MSE of 0.0156. The observed gap between the test and train MSE is 0.0015, which exceeds the threshold value of approximately 0.0004, see the detailed information in the examples.
 
-    results.data
-
-.. raw:: html
-
-    <div class="output_subarea output_html rendered_html output_result">
-    <div>
-    <style scoped>
-        .dataframe tbody tr th:only-of-type {
-            vertical-align: middle;
-        }
-
-        .dataframe tbody tr th {
-            vertical-align: top;
-        }
-
-        .dataframe thead th {
-            text-align: right;
-        }
-    </style>
-    <table border="1" class="dataframe">
-      <thead>
-        <tr style="text-align: right;">
-          <th></th>
-          <th>[hr</th>
-          <th>hr)</th>
-          <th>#Test</th>
-          <th>#Train</th>
-          <th>test_MSE</th>
-          <th>train_MSE</th>
-          <th>Gap</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <th>0</th>
-          <td>0.3</td>
-          <td>0.4</td>
-          <td>445</td>
-          <td>1736</td>
-          <td>0.017079</td>
-          <td>0.015575</td>
-          <td>0.001504</td>
-        </tr>
-        <tr>
-          <th>1</th>
-          <td>0.8</td>
-          <td>0.9</td>
-          <td>285</td>
-          <td>1171</td>
-          <td>0.005226</td>
-          <td>0.004305</td>
-          <td>0.000921</td>
-        </tr>
-        <tr>
-          <th>2</th>
-          <td>0.6</td>
-          <td>0.7</td>
-          <td>445</td>
-          <td>1743</td>
-          <td>0.006050</td>
-          <td>0.005585</td>
-          <td>0.000465</td>
-        </tr>
-      </tbody>
-    </table>
-    </div>
-    </div>
-
-The analysis of overfit regions reveals that the most significant overfit region occurs when the variable `hr` is within the range of (7am, 9am). In this region, the test set exhibits a Mean Squared Error (MSE) of 0.0171, while the train set demonstrates an MSE of 0.0156. The observed gap between the test and train MSE is 0.0015, which exceeds the threshold value of approximately 0.0004.
-
-It is important to note that the `original_scale` argument solely affects the plot visualization, allowing for the representation of data in its original scale. However, the table presented in the analysis retains the use of scaled values for consistency and accurate comparisons.
 
 Two-way Overfit Plot
 """"""""""""""""""""""""""
@@ -136,93 +65,13 @@ In the following analysis, we will identify overfit regions using histogram slic
 
    results=exp.model_diagnose(model="XGB2", show="overfit", slice_method="histogram", 
                               slice_features=["hr", "atemp"], threshold=1.05, min_samples=100,
-                              original_scale=True, return_data=True, figsize=(5, 4))
+                              return_data=True, figsize=(5, 4))
 
 .. figure:: ../../auto_examples/testing/images/sphx_glr_plot_2_overfit_reg_002.png
    :target: ../../auto_examples/testing/plot_2_overfit_reg.html 
    :align: left
 
-The analysis reveals the presence of three overfit regions based on the plot. Two of these regions are solely determined by the variable `hr` and span from 7am to 9am. The third overfit region is an interaction of `hr` (specifically, values less than 2am) and `atemp` (values less than 0.55).
 
-For more detailed information on each overfit region, refer to the table provided below. It contains specific details such as the range of values for `hr` and `atemp` in each region, as well as the corresponding performance metrics for the training and test sets.
-
-.. jupyter-input::
-
-    results.data
-
-.. raw:: html
-
-    <div class="output_subarea output_html rendered_html output_result">
-    <div>
-    <style scoped>
-        .dataframe tbody tr th:only-of-type {
-            vertical-align: middle;
-        }
-
-        .dataframe tbody tr th {
-            vertical-align: top;
-        }
-
-        .dataframe thead th {
-            text-align: right;
-        }
-    </style>
-    <table border="1" class="dataframe">
-      <thead>
-        <tr style="text-align: right;">
-          <th></th>
-          <th>[hr</th>
-          <th>hr)</th>
-          <th>[atemp</th>
-          <th>atemp)</th>
-          <th>#Test</th>
-          <th>#Train</th>
-          <th>test_MSE</th>
-          <th>train_MSE</th>
-          <th>Gap</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <th>0</th>
-          <td>0.326087</td>
-          <td>0.369565</td>
-          <td>0.0</td>
-          <td>0.98480</td>
-          <td>135</td>
-          <td>592</td>
-          <td>0.036693</td>
-          <td>0.029954</td>
-          <td>0.006739</td>
-        </tr>
-        <tr>
-          <th>1</th>
-          <td>0.282609</td>
-          <td>0.326087</td>
-          <td>0.0</td>
-          <td>0.98480</td>
-          <td>148</td>
-          <td>579</td>
-          <td>0.013106</td>
-          <td>0.011935</td>
-          <td>0.001172</td>
-        </tr>
-        <tr>
-          <th>2</th>
-          <td>0.000000</td>
-          <td>0.065217</td>
-          <td>0.0</td>
-          <td>0.55305</td>
-          <td>197</td>
-          <td>831</td>
-          <td>0.001208</td>
-          <td>0.000855</td>
-          <td>0.000353</td>
-        </tr>
-      </tbody>
-    </table>
-    </div>
-    </div>
 
 Examples
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^

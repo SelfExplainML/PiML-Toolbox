@@ -39,6 +39,7 @@ exp.model_interpret(model="ReLU-DNN", show="global_fi", figsize=(5, 4))
 # Global effect plot with one feature
 exp.model_interpret(model="ReLU-DNN", show="global_effect_plot", uni_feature="X0",
                     original_scale=True, figsize=(5, 4))
+
 #%%
 # Global effect plot with two features
 exp.model_interpret(model="ReLU-DNN", show="global_effect_plot", bi_features=["X0", "X2"],

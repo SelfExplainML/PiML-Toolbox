@@ -136,17 +136,17 @@ to download the full example code or to run this example in your browser via Bin
 <section class="sphx-glr-example-title" id="fairness-test-xgb2">
 <span id="sphx-glr-auto-examples-testing-plot-6-fairness-py"></span><h1>Fairness Test: XGB2<a class="headerlink" href="#fairness-test-xgb2" title="Permalink to this heading">¶</a></h1>
 <p>Experiment initialization and data preparation</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">piml</span> <span class="kn">import</span> <a href="../../modules/generated/piml.Experiment.html#piml.Experiment" title="piml.Experiment" class="sphx-glr-backref-module-piml sphx-glr-backref-type-py-class sphx-glr-backref-instance"><a href="../../modules/generated/piml.Experiment.html#piml.Experiment" title="piml.Experiment" class="sphx-glr-backref-module-piml sphx-glr-backref-type-py-class sphx-glr-backref-instance"><a href="../../modules/generated/piml.Experiment.html#piml.Experiment" title="piml.Experiment" class="sphx-glr-backref-module-piml sphx-glr-backref-type-py-class sphx-glr-backref-instance"><a href="../../modules/generated/piml.Experiment.html#piml.Experiment" title="piml.Experiment" class="sphx-glr-backref-module-piml sphx-glr-backref-type-py-class sphx-glr-backref-instance"><a href="../../modules/generated/piml.Experiment.html#piml.Experiment" title="piml.Experiment" class="sphx-glr-backref-module-piml sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">Experiment</span></a></a></a></a></a>
-<span class="kn">from</span> <span class="nn">piml.models</span> <span class="kn">import</span> <a href="../../modules/generated/piml.models.XGB2Classifier.html#piml.models.XGB2Classifier" title="piml.models.XGB2Classifier" class="sphx-glr-backref-module-piml-models sphx-glr-backref-type-py-class sphx-glr-backref-instance"><a href="../../modules/generated/piml.models.XGB2Classifier.html#piml.models.XGB2Classifier" title="piml.models.XGB2Classifier" class="sphx-glr-backref-module-piml-models sphx-glr-backref-type-py-class sphx-glr-backref-instance"><a href="../../modules/generated/piml.models.XGB2Classifier.html#piml.models.XGB2Classifier" title="piml.models.XGB2Classifier" class="sphx-glr-backref-module-piml-models sphx-glr-backref-type-py-class sphx-glr-backref-instance"><a href="../../modules/generated/piml.models.XGB2Classifier.html#piml.models.XGB2Classifier" title="piml.models.XGB2Classifier" class="sphx-glr-backref-module-piml-models sphx-glr-backref-type-py-class sphx-glr-backref-instance"><a href="../../modules/generated/piml.models.XGB2Classifier.html#piml.models.XGB2Classifier" title="piml.models.XGB2Classifier" class="sphx-glr-backref-module-piml-models sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">XGB2Classifier</span></a></a></a></a></a>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">piml</span> <span class="kn">import</span> <a href="../../modules/generated/piml.Experiment.html#piml.Experiment" title="piml.Experiment" class="sphx-glr-backref-module-piml sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">Experiment</span></a>
+<span class="kn">from</span> <span class="nn">piml.models</span> <span class="kn">import</span> <a href="../../modules/generated/piml.models.XGB2Classifier.html#piml.models.XGB2Classifier" title="piml.models.XGB2Classifier" class="sphx-glr-backref-module-piml-models sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">XGB2Classifier</span></a>
 
-<span class="n">exp</span> <span class="o">=</span> <a href="../../modules/generated/piml.Experiment.html#piml.Experiment" title="piml.Experiment" class="sphx-glr-backref-module-piml sphx-glr-backref-type-py-class sphx-glr-backref-instance"><a href="../../modules/generated/piml.Experiment.html#piml.Experiment" title="piml.Experiment" class="sphx-glr-backref-module-piml sphx-glr-backref-type-py-class sphx-glr-backref-instance"><a href="../../modules/generated/piml.Experiment.html#piml.Experiment" title="piml.Experiment" class="sphx-glr-backref-module-piml sphx-glr-backref-type-py-class sphx-glr-backref-instance"><a href="../../modules/generated/piml.Experiment.html#piml.Experiment" title="piml.Experiment" class="sphx-glr-backref-module-piml sphx-glr-backref-type-py-class sphx-glr-backref-instance"><a href="../../modules/generated/piml.Experiment.html#piml.Experiment" title="piml.Experiment" class="sphx-glr-backref-module-piml sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">Experiment</span></a></a></a></a></a><span class="p">()</span>
+<span class="n">exp</span> <span class="o">=</span> <a href="../../modules/generated/piml.Experiment.html#piml.Experiment" title="piml.Experiment" class="sphx-glr-backref-module-piml sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">Experiment</span></a><span class="p">()</span>
 <span class="n">exp</span><span class="o">.</span><span class="n">data_loader</span><span class="p">(</span><span class="s2">&quot;SimuCredit&quot;</span><span class="p">,</span> <span class="n">silent</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 <span class="n">exp</span><span class="o">.</span><span class="n">data_summary</span><span class="p">(</span><span class="n">feature_exclude</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;Race&quot;</span><span class="p">,</span> <span class="s2">&quot;Gender&quot;</span><span class="p">],</span> <span class="n">silent</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 <span class="n">exp</span><span class="o">.</span><span class="n">data_prepare</span><span class="p">(</span><span class="n">target</span><span class="o">=</span><span class="s2">&quot;Approved&quot;</span><span class="p">,</span> <span class="n">task_type</span><span class="o">=</span><span class="s2">&quot;classification&quot;</span><span class="p">,</span> <span class="n">silent</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>Train Model</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">exp</span><span class="o">.</span><span class="n">model_train</span><span class="p">(</span><a href="../../modules/generated/piml.models.XGB2Classifier.html#piml.models.XGB2Classifier" title="piml.models.XGB2Classifier" class="sphx-glr-backref-module-piml-models sphx-glr-backref-type-py-class sphx-glr-backref-instance"><a href="../../modules/generated/piml.models.XGB2Classifier.html#piml.models.XGB2Classifier" title="piml.models.XGB2Classifier" class="sphx-glr-backref-module-piml-models sphx-glr-backref-type-py-class sphx-glr-backref-instance"><a href="../../modules/generated/piml.models.XGB2Classifier.html#piml.models.XGB2Classifier" title="piml.models.XGB2Classifier" class="sphx-glr-backref-module-piml-models sphx-glr-backref-type-py-class sphx-glr-backref-instance"><a href="../../modules/generated/piml.models.XGB2Classifier.html#piml.models.XGB2Classifier" title="piml.models.XGB2Classifier" class="sphx-glr-backref-module-piml-models sphx-glr-backref-type-py-class sphx-glr-backref-instance"><a href="../../modules/generated/piml.models.XGB2Classifier.html#piml.models.XGB2Classifier" title="piml.models.XGB2Classifier" class="sphx-glr-backref-module-piml-models sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">XGB2Classifier</span></a></a></a></a></a><span class="p">(</span><span class="n">max_depth</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">exp</span><span class="o">.</span><span class="n">model_train</span><span class="p">(</span><a href="../../modules/generated/piml.models.XGB2Classifier.html#piml.models.XGB2Classifier" title="piml.models.XGB2Classifier" class="sphx-glr-backref-module-piml-models sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">XGB2Classifier</span></a><span class="p">(</span><span class="n">max_depth</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span>
                                <span class="n">n_estimators</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span>
                                <span class="n">mono_increasing_list</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;Mortgage&quot;</span><span class="p">,</span> <span class="s2">&quot;Balance&quot;</span><span class="p">],</span>
                                <span class="n">mono_decreasing_list</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;Amount Past Due&quot;</span><span class="p">,</span> <span class="s2">&quot;Utilization&quot;</span><span class="p">,</span> <span class="s2">&quot;Delinquency&quot;</span><span class="p">,</span>
@@ -201,7 +201,7 @@ to download the full example code or to run this example in your browser via Bin
       <td>Race</td>
       <td>1.0</td>
       <td>0.0</td>
-      <td>0.6037</td>
+      <td>0.612033</td>
     </tr>
     <tr>
       <th>1</th>
@@ -209,7 +209,7 @@ to download the full example code or to run this example in your browser via Bin
       <td>Gender</td>
       <td>1.0</td>
       <td>0.0</td>
-      <td>0.7451</td>
+      <td>0.745017</td>
     </tr>
   </tbody>
 </table>
@@ -220,12 +220,12 @@ to download the full example code or to run this example in your browser via Bin
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">segmented_result</span> <span class="o">=</span> <span class="n">exp</span><span class="o">.</span><span class="n">model_fairness</span><span class="p">(</span><span class="n">model</span><span class="o">=</span><span class="s2">&quot;XGB2_monotonic&quot;</span><span class="p">,</span>
                                       <span class="n">show</span><span class="o">=</span><span class="s2">&quot;segmented&quot;</span><span class="p">,</span>
                                       <span class="n">metric</span><span class="o">=</span><span class="s2">&quot;AIR&quot;</span><span class="p">,</span>
-                                      <span class="n">segmented_feature</span><span class="o">=</span><span class="s2">&quot;Balance&quot;</span><span class="p">,</span>
+                                      <span class="n">segment_feature</span><span class="o">=</span><span class="s2">&quot;Balance&quot;</span><span class="p">,</span>
                                       <span class="n">group_category</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;Race&quot;</span><span class="p">,</span> <span class="s2">&quot;Gender&quot;</span><span class="p">],</span>
                                       <span class="n">reference_group</span><span class="o">=</span><span class="p">[</span><span class="mf">1.</span><span class="p">,</span> <span class="mf">1.</span><span class="p">],</span>
                                       <span class="n">protected_group</span><span class="o">=</span><span class="p">[</span><span class="mf">0.</span><span class="p">,</span> <span class="mf">0.</span><span class="p">],</span>
                                       <span class="n">favorable_threshold</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span>
-                                      <span class="n">segmented_bins</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span>
+                                      <span class="n">segment_bins</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span>
                                       <span class="n">return_data</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
                                       <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">4</span><span class="p">))</span>
 <span class="n">segmented_result</span><span class="o">.</span><span class="n">data</span>
@@ -263,40 +263,40 @@ to download the full example code or to run this example in your browser via Bin
       <td>0</td>
       <td>0.97</td>
       <td>306.61</td>
-      <td>0.4512</td>
-      <td>0.6640</td>
+      <td>0.448478</td>
+      <td>0.660683</td>
     </tr>
     <tr>
       <th>1</th>
       <td>1</td>
       <td>306.62</td>
       <td>601.40</td>
-      <td>0.4780</td>
-      <td>0.6407</td>
+      <td>0.476657</td>
+      <td>0.642644</td>
     </tr>
     <tr>
       <th>2</th>
       <td>2</td>
       <td>601.47</td>
       <td>1027.23</td>
-      <td>0.6237</td>
-      <td>0.6577</td>
+      <td>0.631886</td>
+      <td>0.655566</td>
     </tr>
     <tr>
       <th>3</th>
       <td>3</td>
       <td>1027.29</td>
       <td>1864.90</td>
-      <td>0.6395</td>
-      <td>0.7769</td>
+      <td>0.648640</td>
+      <td>0.797800</td>
     </tr>
     <tr>
       <th>4</th>
       <td>4</td>
       <td>1864.94</td>
       <td>20384.87</td>
-      <td>0.8491</td>
-      <td>0.8150</td>
+      <td>0.878099</td>
+      <td>0.826573</td>
     </tr>
   </tbody>
 </table>
@@ -350,209 +350,209 @@ to download the full example code or to run this example in your browser via Bin
       <th>0</th>
       <td>0</td>
       <td>Original</td>
-      <td>0.7451</td>
-      <td>0.6037</td>
-      <td>0.7152</td>
+      <td>0.745017</td>
+      <td>0.612033</td>
+      <td>0.716314</td>
     </tr>
     <tr>
       <th>1</th>
       <td>1</td>
-      <td>Balance: 1, Mortgage: 1, Amount Past Due: (0, ...</td>
-      <td>1.0004</td>
-      <td>1.0035</td>
-      <td>0.5052</td>
+      <td>Balance: 1, Mortgage: 1, Amount Past Due: (0, 100)</td>
+      <td>1.000417</td>
+      <td>1.006274</td>
+      <td>0.504874</td>
     </tr>
     <tr>
       <th>2</th>
       <td>2</td>
-      <td>Balance: 1, Mortgage: 2, Amount Past Due: (0, ...</td>
-      <td>1.0004</td>
-      <td>1.0035</td>
-      <td>0.5052</td>
+      <td>Balance: 1, Mortgage: 2, Amount Past Due: (0, 100)</td>
+      <td>1.000923</td>
+      <td>1.000765</td>
+      <td>0.506355</td>
     </tr>
     <tr>
       <th>3</th>
       <td>3</td>
-      <td>Balance: 1, Mortgage: 3, Amount Past Due: (0, ...</td>
-      <td>1.0009</td>
-      <td>0.9980</td>
-      <td>0.5066</td>
+      <td>Balance: 1, Mortgage: 3, Amount Past Due: (0, 100)</td>
+      <td>1.003168</td>
+      <td>0.977638</td>
+      <td>0.512651</td>
     </tr>
     <tr>
       <th>4</th>
       <td>4</td>
-      <td>Balance: 1, Mortgage: 4, Amount Past Due: (0, ...</td>
-      <td>1.0034</td>
-      <td>0.9797</td>
-      <td>0.5113</td>
+      <td>Balance: 1, Mortgage: 4, Amount Past Due: (0, 100)</td>
+      <td>1.004761</td>
+      <td>0.927340</td>
+      <td>0.527559</td>
     </tr>
     <tr>
       <th>5</th>
       <td>5</td>
-      <td>Balance: 1, Mortgage: 5, Amount Past Due: (0, ...</td>
-      <td>1.0038</td>
-      <td>0.9408</td>
-      <td>0.5224</td>
+      <td>Balance: 1, Mortgage: 5, Amount Past Due: (0, 100)</td>
+      <td>1.016014</td>
+      <td>0.843932</td>
+      <td>0.537350</td>
     </tr>
     <tr>
       <th>6</th>
       <td>6</td>
-      <td>Balance: 2, Mortgage: 1, Amount Past Due: (0, ...</td>
-      <td>0.5803</td>
-      <td>0.9880</td>
-      <td>0.3608</td>
+      <td>Balance: 2, Mortgage: 1, Amount Past Due: (0, 100)</td>
+      <td>0.567428</td>
+      <td>0.987334</td>
+      <td>0.357741</td>
     </tr>
     <tr>
       <th>7</th>
       <td>7</td>
-      <td>Balance: 2, Mortgage: 2, Amount Past Due: (0, ...</td>
-      <td>0.5803</td>
-      <td>0.9880</td>
-      <td>0.3608</td>
+      <td>Balance: 2, Mortgage: 2, Amount Past Due: (0, 100)</td>
+      <td>0.571804</td>
+      <td>0.974271</td>
+      <td>0.361105</td>
     </tr>
     <tr>
       <th>8</th>
       <td>8</td>
-      <td>Balance: 2, Mortgage: 3, Amount Past Due: (0, ...</td>
-      <td>0.5846</td>
-      <td>0.9752</td>
-      <td>0.3641</td>
+      <td>Balance: 2, Mortgage: 3, Amount Past Due: (0, 100)</td>
+      <td>0.580483</td>
+      <td>0.932135</td>
+      <td>0.371267</td>
     </tr>
     <tr>
       <th>9</th>
       <td>9</td>
-      <td>Balance: 2, Mortgage: 4, Amount Past Due: (0, ...</td>
-      <td>0.5913</td>
-      <td>0.9350</td>
-      <td>0.3738</td>
+      <td>Balance: 2, Mortgage: 4, Amount Past Due: (0, 100)</td>
+      <td>0.592132</td>
+      <td>0.831032</td>
+      <td>0.399143</td>
     </tr>
     <tr>
       <th>10</th>
       <td>10</td>
-      <td>Balance: 2, Mortgage: 5, Amount Past Due: (0, ...</td>
-      <td>0.6006</td>
-      <td>0.8392</td>
-      <td>0.4007</td>
+      <td>Balance: 2, Mortgage: 5, Amount Past Due: (0, 100)</td>
+      <td>0.591780</td>
+      <td>0.662691</td>
+      <td>0.401393</td>
     </tr>
     <tr>
       <th>11</th>
       <td>11</td>
-      <td>Balance: 3, Mortgage: 1, Amount Past Due: (0, ...</td>
-      <td>0.4195</td>
-      <td>1.0111</td>
-      <td>0.3971</td>
+      <td>Balance: 3, Mortgage: 1, Amount Past Due: (0, 100)</td>
+      <td>0.434648</td>
+      <td>1.006134</td>
+      <td>0.387706</td>
     </tr>
     <tr>
       <th>12</th>
       <td>12</td>
-      <td>Balance: 3, Mortgage: 2, Amount Past Due: (0, ...</td>
-      <td>0.4195</td>
-      <td>1.0111</td>
-      <td>0.3971</td>
+      <td>Balance: 3, Mortgage: 2, Amount Past Due: (0, 100)</td>
+      <td>0.438844</td>
+      <td>0.992799</td>
+      <td>0.391476</td>
     </tr>
     <tr>
       <th>13</th>
       <td>13</td>
-      <td>Balance: 3, Mortgage: 3, Amount Past Due: (0, ...</td>
-      <td>0.4240</td>
-      <td>0.9977</td>
-      <td>0.4008</td>
+      <td>Balance: 3, Mortgage: 3, Amount Past Due: (0, 100)</td>
+      <td>0.456871</td>
+      <td>0.953012</td>
+      <td>0.401125</td>
     </tr>
     <tr>
       <th>14</th>
       <td>14</td>
-      <td>Balance: 3, Mortgage: 4, Amount Past Due: (0, ...</td>
-      <td>0.4423</td>
-      <td>0.9594</td>
-      <td>0.4102</td>
+      <td>Balance: 3, Mortgage: 4, Amount Past Due: (0, 100)</td>
+      <td>0.485168</td>
+      <td>0.857056</td>
+      <td>0.429040</td>
     </tr>
     <tr>
       <th>15</th>
       <td>15</td>
-      <td>Balance: 3, Mortgage: 5, Amount Past Due: (0, ...</td>
-      <td>0.4695</td>
-      <td>0.8657</td>
-      <td>0.4378</td>
+      <td>Balance: 3, Mortgage: 5, Amount Past Due: (0, 100)</td>
+      <td>0.512867</td>
+      <td>0.707792</td>
+      <td>0.433976</td>
     </tr>
     <tr>
       <th>16</th>
       <td>16</td>
-      <td>Balance: 4, Mortgage: 1, Amount Past Due: (0, ...</td>
-      <td>0.4605</td>
-      <td>0.9969</td>
-      <td>0.4218</td>
+      <td>Balance: 4, Mortgage: 1, Amount Past Due: (0, 100)</td>
+      <td>0.471957</td>
+      <td>0.996156</td>
+      <td>0.415318</td>
     </tr>
     <tr>
       <th>17</th>
       <td>17</td>
-      <td>Balance: 4, Mortgage: 2, Amount Past Due: (0, ...</td>
-      <td>0.4605</td>
-      <td>0.9969</td>
-      <td>0.4218</td>
+      <td>Balance: 4, Mortgage: 2, Amount Past Due: (0, 100)</td>
+      <td>0.474554</td>
+      <td>0.986532</td>
+      <td>0.417922</td>
     </tr>
     <tr>
       <th>18</th>
       <td>18</td>
-      <td>Balance: 4, Mortgage: 3, Amount Past Due: (0, ...</td>
-      <td>0.4634</td>
-      <td>0.9872</td>
-      <td>0.4243</td>
+      <td>Balance: 4, Mortgage: 3, Amount Past Due: (0, 100)</td>
+      <td>0.492126</td>
+      <td>0.947620</td>
+      <td>0.427600</td>
     </tr>
     <tr>
       <th>19</th>
       <td>19</td>
-      <td>Balance: 4, Mortgage: 4, Amount Past Due: (0, ...</td>
-      <td>0.4809</td>
-      <td>0.9512</td>
-      <td>0.4335</td>
+      <td>Balance: 4, Mortgage: 4, Amount Past Due: (0, 100)</td>
+      <td>0.519137</td>
+      <td>0.863248</td>
+      <td>0.451588</td>
     </tr>
     <tr>
       <th>20</th>
       <td>20</td>
-      <td>Balance: 4, Mortgage: 5, Amount Past Due: (0, ...</td>
-      <td>0.5066</td>
-      <td>0.8682</td>
-      <td>0.4572</td>
+      <td>Balance: 4, Mortgage: 5, Amount Past Due: (0, 100)</td>
+      <td>0.525922</td>
+      <td>0.678122</td>
+      <td>0.429242</td>
     </tr>
     <tr>
       <th>21</th>
       <td>21</td>
-      <td>Balance: 5, Mortgage: 1, Amount Past Due: (0, ...</td>
-      <td>0.4723</td>
-      <td>0.9994</td>
-      <td>0.4111</td>
+      <td>Balance: 5, Mortgage: 1, Amount Past Due: (0, 100)</td>
+      <td>0.483528</td>
+      <td>1.003555</td>
+      <td>0.405391</td>
     </tr>
     <tr>
       <th>22</th>
       <td>22</td>
-      <td>Balance: 5, Mortgage: 2, Amount Past Due: (0, ...</td>
-      <td>0.4723</td>
-      <td>0.9994</td>
-      <td>0.4111</td>
+      <td>Balance: 5, Mortgage: 2, Amount Past Due: (0, 100)</td>
+      <td>0.487295</td>
+      <td>0.991995</td>
+      <td>0.408717</td>
     </tr>
     <tr>
       <th>23</th>
       <td>23</td>
-      <td>Balance: 5, Mortgage: 3, Amount Past Due: (0, ...</td>
-      <td>0.4765</td>
-      <td>0.9881</td>
-      <td>0.4143</td>
+      <td>Balance: 5, Mortgage: 3, Amount Past Due: (0, 100)</td>
+      <td>0.504830</td>
+      <td>0.950847</td>
+      <td>0.418617</td>
     </tr>
     <tr>
       <th>24</th>
       <td>24</td>
-      <td>Balance: 5, Mortgage: 4, Amount Past Due: (0, ...</td>
-      <td>0.4898</td>
-      <td>0.9547</td>
-      <td>0.4222</td>
+      <td>Balance: 5, Mortgage: 4, Amount Past Due: (0, 100)</td>
+      <td>0.522744</td>
+      <td>0.873913</td>
+      <td>0.441206</td>
     </tr>
     <tr>
       <th>25</th>
       <td>25</td>
-      <td>Balance: 5, Mortgage: 5, Amount Past Due: (0, ...</td>
-      <td>0.5098</td>
-      <td>0.8781</td>
-      <td>0.4443</td>
+      <td>Balance: 5, Mortgage: 5, Amount Past Due: (0, 100)</td>
+      <td>0.517155</td>
+      <td>0.705468</td>
+      <td>0.430237</td>
     </tr>
   </tbody>
 </table>
@@ -608,9 +608,9 @@ to download the full example code or to run this example in your browser via Bin
       <td>Race</td>
       <td>1.0</td>
       <td>0.0</td>
-      <td>0.3313</td>
-      <td>0.8832</td>
-      <td>0.6765</td>
+      <td>0.332385</td>
+      <td>0.886243</td>
+      <td>0.67575</td>
     </tr>
     <tr>
       <th>1</th>
@@ -618,20 +618,20 @@ to download the full example code or to run this example in your browser via Bin
       <td>Gender</td>
       <td>1.0</td>
       <td>0.0</td>
-      <td>0.3313</td>
-      <td>0.8923</td>
-      <td>0.6765</td>
+      <td>0.332385</td>
+      <td>0.891746</td>
+      <td>0.67575</td>
     </tr>
   </tbody>
 </table>
 </div>
 </div>
 <br />
-<br /><p class="sphx-glr-timing"><strong>Total running time of the script:</strong> ( 0 minutes  55.903 seconds)</p>
-<p><strong>Estimated memory usage:</strong>  1509 MB</p>
+<br /><p class="sphx-glr-timing"><strong>Total running time of the script:</strong> ( 0 minutes  48.228 seconds)</p>
+<p><strong>Estimated memory usage:</strong>  37 MB</p>
 <div class="sphx-glr-footer sphx-glr-footer-example docutils container" id="sphx-glr-download-auto-examples-testing-plot-6-fairness-py">
 <div class="binder-badge docutils container">
-<a class="reference external image-reference" href="https://mybinder.org/v2/gh/selfexplainml/piml-toolbox/main?urlpath=lab/tree/./docs/_build/html/notebooks/auto_examples/testing/plot_6_fairness.ipynb"><img alt="Launch binder" src="../../_images/binder_badge_logo3.svg" width="150px" /></a>
+<a class="reference external image-reference" href="https://mybinder.org/v2/gh/selfexplainml/piml-toolbox/main?urlpath=lab/tree/./docs/_build/html/notebooks/auto_examples/testing/plot_6_fairness.ipynb"><img alt="Launch binder" src="../../_images/binder_badge_logo4.svg" width="150px" /></a>
 </div>
 <div class="sphx-glr-download sphx-glr-download-python docutils container">
 <p><a class="reference download internal" download="" href="../../_downloads/b61507f4fd480118d6263b3257c4b0fc/plot_6_fairness.py"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Python</span> <span class="pre">source</span> <span class="pre">code:</span> <span class="pre">plot_6_fairness.py</span></code></a></p>

@@ -18,7 +18,7 @@ exp.model_diagnose(model="XGB2", show="reliability_distance", alpha=0.1,
 
 
 exp.model_diagnose(model="XGB2", show="reliability_marginal", alpha=0.1,
-                   target_feature="hr", bins=10, threshold=1.1,
+                   show_feature="hr", bins=10, threshold=1.1,
                    original_scale=True, figsize=(5, 4))
 
 
@@ -33,7 +33,7 @@ exp.model_diagnose(model="XGB2", show="reliability_distance",
 
 
 exp.model_diagnose(model="GAM", show="reliability_marginal",
-                  target_feature="PAY_1", bins=10, threshold=1.1, figsize=(5, 4))
+                   show_feature="PAY_1", bins=10, threshold=1.1, figsize=(5, 4))
 
 
 # In[ ]:

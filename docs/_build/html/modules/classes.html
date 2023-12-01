@@ -113,17 +113,16 @@
             </a>
           </div>
           <!--div class="btn-group w-100 mb-2" role="group" aria-label="rellinks">
-              <a href="../install.html" role="button" class="btn sk-btn-rellink py-1" sk-rellink-tooltip="Installation">Prev</a>
+              <a href="../preface.html" role="button" class="btn sk-btn-rellink py-1" sk-rellink-tooltip="Welcome to PiML">Prev</a>
               <a href="#" role="button" class="btn sk-btn-rellink disabled py-1">Up</a>
-              <a href="generated/piml.Experiment.html" role="button" class="btn sk-btn-rellink py-1" sk-rellink-tooltip="piml.Experiment">Next</a>
+              <a href="generated/piml.data.outlier_detection.PCA.html" role="button" class="btn sk-btn-rellink py-1" sk-rellink-tooltip="piml.data.outlier_detection.PCA">Next</a>
           </div-->
               <div class="sk-sidebar-toc">
                 <ul>
 <li><a class="reference internal" href="#">API Reference</a><ul>
-<li><a class="reference internal" href="#experiment-class">Experiment Class</a></li>
 <li><a class="reference internal" href="#data-pipeline">Data Pipeline</a><ul>
 <li><a class="reference internal" href="#functions">Functions</a></li>
-<li><a class="reference internal" href="#outlier-detection-methods">Outlier Detection Methods</a></li>
+<li><a class="reference internal" href="#outlier-detection-algorithms">Outlier Detection Algorithms</a></li>
 </ul>
 </li>
 <li><a class="reference internal" href="#interpretable-models">Interpretable Models</a><ul>
@@ -132,7 +131,11 @@
 </ul>
 </li>
 <li><a class="reference internal" href="#post-hoc-explainability">Post-hoc Explainability</a></li>
-<li><a class="reference internal" href="#outcome-testing">Outcome Testing</a></li>
+<li><a class="reference internal" href="#outcome-testing">Outcome Testing</a><ul>
+<li><a class="reference internal" href="#integrated-high-code-apis">Integrated High Code APIs</a></li>
+<li><a class="reference internal" href="#scored-test-function">Scored Test Function</a></li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>
@@ -147,20 +150,6 @@
 <span id="api-ref"></span><h1>API Reference<a class="headerlink" href="#api-reference" title="Permalink to this heading">¶</a></h1>
 <p>This is the class and function reference of PiML.
 Please refer to the user guide for further details, as the class and function raw specifications may not be enough to give full guidelines on their uses.</p>
-<section id="experiment-class">
-<h2>Experiment Class<a class="headerlink" href="#experiment-class" title="Permalink to this heading">¶</a></h2>
-<table class="autosummary longtable docutils align-default">
-<colgroup>
-<col style="width: 10%" />
-<col style="width: 90%" />
-</colgroup>
-<tbody>
-<tr class="row-odd"><td><p><a class="reference internal" href="generated/piml.Experiment.html#piml.Experiment" title="piml.Experiment"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Experiment</span></code></a></p></td>
-<td><p>The workflow management class.</p></td>
-</tr>
-</tbody>
-</table>
-</section>
 <section id="data-pipeline">
 <h2>Data Pipeline<a class="headerlink" href="#data-pipeline" title="Permalink to this heading">¶</a></h2>
 <section id="functions">
@@ -171,7 +160,7 @@ Please refer to the user guide for further details, as the class and function ra
 <col style="width: 90%" />
 </colgroup>
 <tbody>
-<tr class="row-odd"><td><p><a class="reference internal" href="generated/piml.Experiment.html#piml.Experiment.data_loader" title="piml.Experiment.data_loader"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Experiment.data_loader</span></code></a>([data, silent])</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/piml.Experiment.html#piml.Experiment.data_loader" title="piml.Experiment.data_loader"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Experiment.data_loader</span></code></a>([data, silent, ...])</p></td>
 <td><p>Load data for experimentation.</p></td>
 </tr>
 <tr class="row-even"><td><p><a class="reference internal" href="generated/piml.Experiment.html#piml.Experiment.data_summary" title="piml.Experiment.data_summary"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Experiment.data_summary</span></code></a>([feature_type, ...])</p></td>
@@ -180,8 +169,8 @@ Please refer to the user guide for further details, as the class and function ra
 <tr class="row-odd"><td><p><a class="reference internal" href="generated/piml.Experiment.html#piml.Experiment.data_prepare" title="piml.Experiment.data_prepare"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Experiment.data_prepare</span></code></a>([target, ...])</p></td>
 <td><p>Prepare data for model fitting.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="generated/piml.Experiment.html#piml.Experiment.data_quality_check" title="piml.Experiment.data_quality_check"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Experiment.data_quality_check</span></code></a>([method, ...])</p></td>
-<td><p>Check the data quality</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="generated/piml.Experiment.html#piml.Experiment.data_quality" title="piml.Experiment.data_quality"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Experiment.data_quality</span></code></a>([method, dataset, ...])</p></td>
+<td><p>Check the data quality and remove outliers.</p></td>
 </tr>
 <tr class="row-odd"><td><p><a class="reference internal" href="generated/piml.Experiment.html#piml.Experiment.eda" title="piml.Experiment.eda"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Experiment.eda</span></code></a>([show, uni_feature, ...])</p></td>
 <td><p>Run exploratory data analysis.</p></td>
@@ -204,14 +193,14 @@ Please refer to the user guide for further details, as the class and function ra
 <tr class="row-odd"><td><p><a class="reference internal" href="generated/piml.Experiment.html#piml.Experiment.get_target_name" title="piml.Experiment.get_target_name"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Experiment.get_target_name</span></code></a>()</p></td>
 <td><p>Get the target feature name.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="generated/piml.Experiment.html#piml.Experiment.twosample_test" title="piml.Experiment.twosample_test"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Experiment.twosample_test</span></code></a>([metric, ...])</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="generated/piml.Experiment.html#piml.Experiment.twosample_test" title="piml.Experiment.twosample_test"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Experiment.twosample_test</span></code></a>([distance_metric, ...])</p></td>
 <td><p>Test the distributional difference of train_x and test_x.</p></td>
 </tr>
 </tbody>
 </table>
 </section>
-<section id="outlier-detection-methods">
-<h3>Outlier Detection Methods<a class="headerlink" href="#outlier-detection-methods" title="Permalink to this heading">¶</a></h3>
+<section id="outlier-detection-algorithms">
+<h3>Outlier Detection Algorithms<a class="headerlink" href="#outlier-detection-algorithms" title="Permalink to this heading">¶</a></h3>
 <table class="autosummary longtable docutils align-default">
 <colgroup>
 <col style="width: 10%" />
@@ -219,16 +208,28 @@ Please refer to the user guide for further details, as the class and function ra
 </colgroup>
 <tbody>
 <tr class="row-odd"><td><p><a class="reference internal" href="generated/piml.data.outlier_detection.PCA.html#piml.data.outlier_detection.PCA" title="piml.data.outlier_detection.PCA"><code class="xref py py-obj docutils literal notranslate"><span class="pre">data.outlier_detection.PCA</span></code></a></p></td>
-<td><p>PCA basd outlier detection.</p></td>
+<td><p>A wrapper of sklearn's PCA for outlier detection.</p></td>
 </tr>
 <tr class="row-even"><td><p><a class="reference internal" href="generated/piml.data.outlier_detection.CBLOF.html#piml.data.outlier_detection.CBLOF" title="piml.data.outlier_detection.CBLOF"><code class="xref py py-obj docutils literal notranslate"><span class="pre">data.outlier_detection.CBLOF</span></code></a></p></td>
-<td><p>Cluster-based local outlier factor.</p></td>
+<td><p>Cluster-based local outlier factor for outlier detection.</p></td>
 </tr>
 <tr class="row-odd"><td><p><a class="reference internal" href="generated/piml.data.outlier_detection.KMeansTree.html#piml.data.outlier_detection.KMeansTree" title="piml.data.outlier_detection.KMeansTree"><code class="xref py py-obj docutils literal notranslate"><span class="pre">data.outlier_detection.KMeansTree</span></code></a></p></td>
 <td><p>Recursive unsupervised splitting tree via KMeans (K=2).</p></td>
 </tr>
 <tr class="row-even"><td><p><a class="reference internal" href="generated/piml.data.outlier_detection.IsolationForest.html#piml.data.outlier_detection.IsolationForest" title="piml.data.outlier_detection.IsolationForest"><code class="xref py py-obj docutils literal notranslate"><span class="pre">data.outlier_detection.IsolationForest</span></code></a></p></td>
-<td><p>A wrapper of Isolation Forest in scikit-learn.</p></td>
+<td><p>A wrapper of sklearn's Isolation Forest for outlier detection.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/piml.data.outlier_detection.OneClassSVM.html#piml.data.outlier_detection.OneClassSVM" title="piml.data.outlier_detection.OneClassSVM"><code class="xref py py-obj docutils literal notranslate"><span class="pre">data.outlier_detection.OneClassSVM</span></code></a></p></td>
+<td><p>A wrapper of sklearn's OneClassSVM for outlier detection.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="generated/piml.data.outlier_detection.KNN.html#piml.data.outlier_detection.KNN" title="piml.data.outlier_detection.KNN"><code class="xref py py-obj docutils literal notranslate"><span class="pre">data.outlier_detection.KNN</span></code></a></p></td>
+<td><p>A wrapper of sklearn's K-Nearest Neighbor-based for outlier detection.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/piml.data.outlier_detection.HBOS.html#piml.data.outlier_detection.HBOS" title="piml.data.outlier_detection.HBOS"><code class="xref py py-obj docutils literal notranslate"><span class="pre">data.outlier_detection.HBOS</span></code></a></p></td>
+<td><p>A wrapper of PyOD's Histogram-based outlier detection (HBOS) for outlier detection.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="generated/piml.data.outlier_detection.ECOD.html#piml.data.outlier_detection.ECOD" title="piml.data.outlier_detection.ECOD"><code class="xref py py-obj docutils literal notranslate"><span class="pre">data.outlier_detection.ECOD</span></code></a></p></td>
+<td><p>A wrapper of PyOD's Cumulative Distribution Functions (ECOD) for Unsupervised Outlier Detection.</p></td>
 </tr>
 </tbody>
 </table>
@@ -244,17 +245,29 @@ Please refer to the user guide for further details, as the class and function ra
 <col style="width: 90%" />
 </colgroup>
 <tbody>
-<tr class="row-odd"><td><p><a class="reference internal" href="generated/piml.Experiment.html#piml.Experiment.model_train" title="piml.Experiment.model_train"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Experiment.model_train</span></code></a>([model, name, ...])</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/piml.Experiment.html#piml.Experiment.model_train" title="piml.Experiment.model_train"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Experiment.model_train</span></code></a>([model, name])</p></td>
 <td><p>Fit interpretable models.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="generated/piml.Experiment.html#piml.Experiment.model_tune" title="piml.Experiment.model_tune"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Experiment.model_tune</span></code></a>([model, method, ...])</p></td>
+<td><p>Refit a model with new parameters.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/piml.Experiment.html#piml.Experiment.model_save" title="piml.Experiment.model_save"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Experiment.model_save</span></code></a>(model[, path])</p></td>
+<td><p>Save a PiML-trained model as a pickle file.</p></td>
 </tr>
 <tr class="row-even"><td><p><a class="reference internal" href="generated/piml.Experiment.html#piml.Experiment.model_interpret" title="piml.Experiment.model_interpret"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Experiment.model_interpret</span></code></a>([model, show, ...])</p></td>
 <td><p>Interpret inherently interpretable models.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="generated/piml.Experiment.html#piml.Experiment.register" title="piml.Experiment.register"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Experiment.register</span></code></a>(pipeline, name)</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/piml.Experiment.html#piml.Experiment.make_pipeline" title="piml.Experiment.make_pipeline"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Experiment.make_pipeline</span></code></a>([model, task_type, ...])</p></td>
+<td><p>Customize a pipeline.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="generated/piml.Experiment.html#piml.Experiment.register" title="piml.Experiment.register"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Experiment.register</span></code></a>(pipeline, name)</p></td>
 <td><p>Register a pipeline.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="generated/piml.Experiment.html#piml.Experiment.make_pipeline" title="piml.Experiment.make_pipeline"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Experiment.make_pipeline</span></code></a>(model[, ...])</p></td>
-<td><p>Customize a pipeline.</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/piml.Experiment.html#piml.Experiment.get_model_list" title="piml.Experiment.get_model_list"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Experiment.get_model_list</span></code></a>()</p></td>
+<td><p>Get the list of names of all registered models.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="generated/piml.Experiment.html#piml.Experiment.get_interpretable_model_list" title="piml.Experiment.get_interpretable_model_list"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Experiment.get_interpretable_model_list</span></code></a>()</p></td>
+<td><p>Get the list of names of all registered interpretable models.</p></td>
 </tr>
 <tr class="row-odd"><td><p><a class="reference internal" href="generated/piml.Experiment.html#piml.Experiment.get_model" title="piml.Experiment.get_model"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Experiment.get_model</span></code></a>(model)</p></td>
 <td><p>Get a registered pipeline.</p></td>
@@ -353,6 +366,8 @@ Please refer to the user guide for further details, as the class and function ra
 </section>
 <section id="outcome-testing">
 <h2>Outcome Testing<a class="headerlink" href="#outcome-testing" title="Permalink to this heading">¶</a></h2>
+<section id="integrated-high-code-apis">
+<h3>Integrated High Code APIs<a class="headerlink" href="#integrated-high-code-apis" title="Permalink to this heading">¶</a></h3>
 <table class="autosummary longtable docutils align-default">
 <colgroup>
 <col style="width: 10%" />
@@ -374,8 +389,65 @@ Please refer to the user guide for further details, as the class and function ra
 <tr class="row-odd"><td><p><a class="reference internal" href="generated/piml.Experiment.html#piml.Experiment.model_fairness_solas" title="piml.Experiment.model_fairness_solas"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Experiment.model_fairness_solas</span></code></a>([model, ...])</p></td>
 <td><p>Test model fairness based on solas-ai.</p></td>
 </tr>
+<tr class="row-even"><td><p><a class="reference internal" href="generated/piml.Experiment.html#piml.Experiment.segmented_diagnose" title="piml.Experiment.segmented_diagnose"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Experiment.segmented_diagnose</span></code></a>([show, model, ...])</p></td>
+<td><p>Test model performance using various diagnostic tools after bucketing.</p></td>
+</tr>
 </tbody>
 </table>
+</section>
+<section id="scored-test-function">
+<h3>Scored Test Function<a class="headerlink" href="#scored-test-function" title="Permalink to this heading">¶</a></h3>
+<table class="autosummary longtable docutils align-default">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/piml.scored_test.test_accuracy_table.html#piml.scored_test.test_accuracy_table" title="piml.scored_test.test_accuracy_table"><code class="xref py py-obj docutils literal notranslate"><span class="pre">test_accuracy_table</span></code></a></p></td>
+<td><p>Get accuracy result.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="generated/piml.scored_test.test_accuracy_residual.html#piml.scored_test.test_accuracy_residual" title="piml.scored_test.test_accuracy_residual"><code class="xref py py-obj docutils literal notranslate"><span class="pre">test_accuracy_residual</span></code></a></p></td>
+<td><p>Get marginal residual plot based on a given feature.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/piml.scored_test.test_accuracy_plot.html#piml.scored_test.test_accuracy_plot" title="piml.scored_test.test_accuracy_plot"><code class="xref py py-obj docutils literal notranslate"><span class="pre">test_accuracy_plot</span></code></a></p></td>
+<td><p>Plot confusion matrix, ROC and Recall-Precision, only supports classifiers.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="generated/piml.scored_test.test_weakspot.html#piml.scored_test.test_weakspot" title="piml.scored_test.test_weakspot"><code class="xref py py-obj docutils literal notranslate"><span class="pre">test_weakspot</span></code></a></p></td>
+<td><p>Get marginal weakspot result based on a given feature.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/piml.scored_test.test_overfit.html#piml.scored_test.test_overfit" title="piml.scored_test.test_overfit"><code class="xref py py-obj docutils literal notranslate"><span class="pre">test_overfit</span></code></a></p></td>
+<td><p>Get marginal overfit result based on a given feature.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="generated/piml.scored_test.test_reliability_table.html#piml.scored_test.test_reliability_table" title="piml.scored_test.test_reliability_table"><code class="xref py py-obj docutils literal notranslate"><span class="pre">test_reliability_table</span></code></a></p></td>
+<td><p>Get empirical coverage and average bandwidth for regression or Brier Loss for classification.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/piml.scored_test.test_reliability_distance.html#piml.scored_test.test_reliability_distance" title="piml.scored_test.test_reliability_distance"><code class="xref py py-obj docutils literal notranslate"><span class="pre">test_reliability_distance</span></code></a></p></td>
+<td><p>Compare data distance between reliable and unreliable samples.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="generated/piml.scored_test.test_reliability_marginal.html#piml.scored_test.test_reliability_marginal" title="piml.scored_test.test_reliability_marginal"><code class="xref py py-obj docutils literal notranslate"><span class="pre">test_reliability_marginal</span></code></a></p></td>
+<td><p>Get marginal slicing reliability result based on a given feature.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/piml.scored_test.test_reliability_perf.html#piml.scored_test.test_reliability_perf" title="piml.scored_test.test_reliability_perf"><code class="xref py py-obj docutils literal notranslate"><span class="pre">test_reliability_perf</span></code></a></p></td>
+<td><p>Get reliability diagram, only for classifiers.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="generated/piml.scored_test.test_reliability_calibration.html#piml.scored_test.test_reliability_calibration" title="piml.scored_test.test_reliability_calibration"><code class="xref py py-obj docutils literal notranslate"><span class="pre">test_reliability_calibration</span></code></a></p></td>
+<td><p>Get the calibrated predicted probability vs.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/piml.scored_test.test_resilience_perf.html#piml.scored_test.test_resilience_perf" title="piml.scored_test.test_resilience_perf"><code class="xref py py-obj docutils literal notranslate"><span class="pre">test_resilience_perf</span></code></a></p></td>
+<td><p>Get resilience test result in each step.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="generated/piml.scored_test.test_resilience_distance.html#piml.scored_test.test_resilience_distance" title="piml.scored_test.test_resilience_distance"><code class="xref py py-obj docutils literal notranslate"><span class="pre">test_resilience_distance</span></code></a></p></td>
+<td><p>Compare data distance between samples in the worst region and the remaining region.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/piml.scored_test.test_resilience_shift_histogram.html#piml.scored_test.test_resilience_shift_histogram" title="piml.scored_test.test_resilience_shift_histogram"><code class="xref py py-obj docutils literal notranslate"><span class="pre">test_resilience_shift_histogram</span></code></a></p></td>
+<td><p>Compare marginal distribution histogram between the worst region and remaining region.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="generated/piml.scored_test.test_resilience_shift_density.html#piml.scored_test.test_resilience_shift_density" title="piml.scored_test.test_resilience_shift_density"><code class="xref py py-obj docutils literal notranslate"><span class="pre">test_resilience_shift_density</span></code></a></p></td>
+<td><p>Compare marginal distribution density between the worst region and remaining region.</p></td>
+</tr>
+</tbody>
+</table>
+</section>
 </section>
 </section>
 

@@ -146,29 +146,6 @@ Regression coefficient table for all features
 
 
 
-.. rst-class:: sphx-glr-script-out
-
- .. code-block:: none
-
-        Feature Name Coefficient
-    0       season_0      0.0000
-    1       season_1      0.0193
-    2       season_2     -0.0038
-    3       season_3      0.0659
-    4             hr      0.1742
-    5      holiday_0     -0.0000
-    6      holiday_1     -0.0250
-    7        weekday      0.0125
-    8   workingday_0     -0.0000
-    9   workingday_1      0.0035
-    10  weathersit_0      0.0000
-    11  weathersit_1      0.0104
-    12  weathersit_2     -0.0274
-    13  weathersit_3      0.0727
-    14         atemp      0.4082
-    15           hum     -0.2133
-    16     windspeed      0.0365
-
 
 
 
@@ -262,9 +239,7 @@ Local interpretation with centering and original scale of x
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** ( 2 minutes  34.042 seconds)
-
-**Estimated memory usage:**  1184 MB
+   **Total running time of the script:** (0 minutes 1.311 seconds)
 
 
 .. _sphx_glr_download_auto_examples_models_plot_0_glm_reg.py:

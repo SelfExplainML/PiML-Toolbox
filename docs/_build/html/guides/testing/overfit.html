@@ -275,7 +275,7 @@
 <div class="cell_input code_cell docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">results</span> <span class="o">=</span> <span class="n">exp</span><span class="o">.</span><span class="n">model_diagnose</span><span class="p">(</span><span class="n">model</span><span class="o">=</span><span class="s2">&quot;XGB2&quot;</span><span class="p">,</span> <span class="n">show</span><span class="o">=</span><span class="s2">&quot;overfit&quot;</span><span class="p">,</span> <span class="n">slice_method</span><span class="o">=</span><span class="s2">&quot;histogram&quot;</span><span class="p">,</span>
                              <span class="n">slice_features</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;hr&quot;</span><span class="p">],</span> <span class="n">threshold</span><span class="o">=</span><span class="mf">1.05</span><span class="p">,</span> <span class="n">min_samples</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span>
-                             <span class="n">original_scale</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">return_data</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">4</span><span class="p">))</span>
+                             <span class="n">return_data</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">4</span><span class="p">))</span>
 </pre></div>
 </div>
 </div>
@@ -285,79 +285,7 @@
 <figure class="align-left">
 <a class="reference external image-reference" href="../../auto_examples/testing/plot_2_overfit_reg.html"><img alt="../../_images/sphx_glr_plot_2_overfit_reg_001.png" src="../../_images/sphx_glr_plot_2_overfit_reg_001.png" /></a>
 </figure>
-<div class="jupyter_cell jupyter_container docutils container">
-<div class="cell_input code_cell docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">results</span><span class="o">.</span><span class="n">data</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-</div>
-</div>
-<div class="output_subarea output_html rendered_html output_result">
-<div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th>[hr</th>
-      <th>hr)</th>
-      <th>#Test</th>
-      <th>#Train</th>
-      <th>test_MSE</th>
-      <th>train_MSE</th>
-      <th>Gap</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>0</th>
-      <td>0.3</td>
-      <td>0.4</td>
-      <td>445</td>
-      <td>1736</td>
-      <td>0.017079</td>
-      <td>0.015575</td>
-      <td>0.001504</td>
-    </tr>
-    <tr>
-      <th>1</th>
-      <td>0.8</td>
-      <td>0.9</td>
-      <td>285</td>
-      <td>1171</td>
-      <td>0.005226</td>
-      <td>0.004305</td>
-      <td>0.000921</td>
-    </tr>
-    <tr>
-      <th>2</th>
-      <td>0.6</td>
-      <td>0.7</td>
-      <td>445</td>
-      <td>1743</td>
-      <td>0.006050</td>
-      <td>0.005585</td>
-      <td>0.000465</td>
-    </tr>
-  </tbody>
-</table>
-</div>
-</div><p>The analysis of overfit regions reveals that the most significant overfit region occurs when the variable <code class="docutils literal notranslate"><span class="pre">hr</span></code> is within the range of (7am, 9am). In this region, the test set exhibits a Mean Squared Error (MSE) of 0.0171, while the train set demonstrates an MSE of 0.0156. The observed gap between the test and train MSE is 0.0015, which exceeds the threshold value of approximately 0.0004.</p>
-<p>It is important to note that the <code class="docutils literal notranslate"><span class="pre">original_scale</span></code> argument solely affects the plot visualization, allowing for the representation of data in its original scale. However, the table presented in the analysis retains the use of scaled values for consistency and accurate comparisons.</p>
+<p>The analysis of overfit regions reveals that the most significant overfit region occurs when the variable <code class="docutils literal notranslate"><span class="pre">hr</span></code> is within the range of (7am, 9am). In this region, the test set exhibits a Mean Squared Error (MSE) of 0.0171, while the train set demonstrates an MSE of 0.0156. The observed gap between the test and train MSE is 0.0015, which exceeds the threshold value of approximately 0.0004, see the detailed information in the examples.</p>
 </section>
 <section id="two-way-overfit-plot">
 <h3><span class="section-number">6.3.2.2. </span>Two-way Overfit Plot<a class="headerlink" href="#two-way-overfit-plot" title="Permalink to this heading">¶</a></h3>
@@ -366,7 +294,7 @@
 <div class="cell_input code_cell docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">results</span><span class="o">=</span><span class="n">exp</span><span class="o">.</span><span class="n">model_diagnose</span><span class="p">(</span><span class="n">model</span><span class="o">=</span><span class="s2">&quot;XGB2&quot;</span><span class="p">,</span> <span class="n">show</span><span class="o">=</span><span class="s2">&quot;overfit&quot;</span><span class="p">,</span> <span class="n">slice_method</span><span class="o">=</span><span class="s2">&quot;histogram&quot;</span><span class="p">,</span>
                            <span class="n">slice_features</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;hr&quot;</span><span class="p">,</span> <span class="s2">&quot;atemp&quot;</span><span class="p">],</span> <span class="n">threshold</span><span class="o">=</span><span class="mf">1.05</span><span class="p">,</span> <span class="n">min_samples</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span>
-                           <span class="n">original_scale</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">return_data</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">4</span><span class="p">))</span>
+                           <span class="n">return_data</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">4</span><span class="p">))</span>
 </pre></div>
 </div>
 </div>
@@ -376,88 +304,7 @@
 <figure class="align-left">
 <a class="reference external image-reference" href="../../auto_examples/testing/plot_2_overfit_reg.html"><img alt="../../_images/sphx_glr_plot_2_overfit_reg_002.png" src="../../_images/sphx_glr_plot_2_overfit_reg_002.png" /></a>
 </figure>
-<p>The analysis reveals the presence of three overfit regions based on the plot. Two of these regions are solely determined by the variable <code class="docutils literal notranslate"><span class="pre">hr</span></code> and span from 7am to 9am. The third overfit region is an interaction of <code class="docutils literal notranslate"><span class="pre">hr</span></code> (specifically, values less than 2am) and <code class="docutils literal notranslate"><span class="pre">atemp</span></code> (values less than 0.55).</p>
-<p>For more detailed information on each overfit region, refer to the table provided below. It contains specific details such as the range of values for <code class="docutils literal notranslate"><span class="pre">hr</span></code> and <code class="docutils literal notranslate"><span class="pre">atemp</span></code> in each region, as well as the corresponding performance metrics for the training and test sets.</p>
-<div class="jupyter_cell jupyter_container docutils container">
-<div class="cell_input code_cell docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">results</span><span class="o">.</span><span class="n">data</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-</div>
-</div>
-<div class="output_subarea output_html rendered_html output_result">
-<div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th>[hr</th>
-      <th>hr)</th>
-      <th>[atemp</th>
-      <th>atemp)</th>
-      <th>#Test</th>
-      <th>#Train</th>
-      <th>test_MSE</th>
-      <th>train_MSE</th>
-      <th>Gap</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>0</th>
-      <td>0.326087</td>
-      <td>0.369565</td>
-      <td>0.0</td>
-      <td>0.98480</td>
-      <td>135</td>
-      <td>592</td>
-      <td>0.036693</td>
-      <td>0.029954</td>
-      <td>0.006739</td>
-    </tr>
-    <tr>
-      <th>1</th>
-      <td>0.282609</td>
-      <td>0.326087</td>
-      <td>0.0</td>
-      <td>0.98480</td>
-      <td>148</td>
-      <td>579</td>
-      <td>0.013106</td>
-      <td>0.011935</td>
-      <td>0.001172</td>
-    </tr>
-    <tr>
-      <th>2</th>
-      <td>0.000000</td>
-      <td>0.065217</td>
-      <td>0.0</td>
-      <td>0.55305</td>
-      <td>197</td>
-      <td>831</td>
-      <td>0.001208</td>
-      <td>0.000855</td>
-      <td>0.000353</td>
-    </tr>
-  </tbody>
-</table>
-</div>
-</div></section>
+</section>
 </section>
 <section id="examples">
 <h2><span class="section-number">6.3.3. </span>Examples<a class="headerlink" href="#examples" title="Permalink to this heading">¶</a></h2>

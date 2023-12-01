@@ -136,19 +136,19 @@ to download the full example code or to run this example in your browser via Bin
 <section class="sphx-glr-example-title" id="overfit-classification">
 <span id="sphx-glr-auto-examples-testing-plot-2-overfit-cls-py"></span><h1>Overfit: Classification<a class="headerlink" href="#overfit-classification" title="Permalink to this heading">¶</a></h1>
 <p>Experiment initialization and data preparation</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">piml</span> <span class="kn">import</span> <a href="../../modules/generated/piml.Experiment.html#piml.Experiment" title="piml.Experiment" class="sphx-glr-backref-module-piml sphx-glr-backref-type-py-class sphx-glr-backref-instance"><a href="../../modules/generated/piml.Experiment.html#piml.Experiment" title="piml.Experiment" class="sphx-glr-backref-module-piml sphx-glr-backref-type-py-class sphx-glr-backref-instance"><a href="../../modules/generated/piml.Experiment.html#piml.Experiment" title="piml.Experiment" class="sphx-glr-backref-module-piml sphx-glr-backref-type-py-class sphx-glr-backref-instance"><a href="../../modules/generated/piml.Experiment.html#piml.Experiment" title="piml.Experiment" class="sphx-glr-backref-module-piml sphx-glr-backref-type-py-class sphx-glr-backref-instance"><a href="../../modules/generated/piml.Experiment.html#piml.Experiment" title="piml.Experiment" class="sphx-glr-backref-module-piml sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">Experiment</span></a></a></a></a></a>
-<span class="kn">from</span> <span class="nn">piml.models</span> <span class="kn">import</span> <a href="../../modules/generated/piml.models.XGB2Classifier.html#piml.models.XGB2Classifier" title="piml.models.XGB2Classifier" class="sphx-glr-backref-module-piml-models sphx-glr-backref-type-py-class sphx-glr-backref-instance"><a href="../../modules/generated/piml.models.XGB2Classifier.html#piml.models.XGB2Classifier" title="piml.models.XGB2Classifier" class="sphx-glr-backref-module-piml-models sphx-glr-backref-type-py-class sphx-glr-backref-instance"><a href="../../modules/generated/piml.models.XGB2Classifier.html#piml.models.XGB2Classifier" title="piml.models.XGB2Classifier" class="sphx-glr-backref-module-piml-models sphx-glr-backref-type-py-class sphx-glr-backref-instance"><a href="../../modules/generated/piml.models.XGB2Classifier.html#piml.models.XGB2Classifier" title="piml.models.XGB2Classifier" class="sphx-glr-backref-module-piml-models sphx-glr-backref-type-py-class sphx-glr-backref-instance"><a href="../../modules/generated/piml.models.XGB2Classifier.html#piml.models.XGB2Classifier" title="piml.models.XGB2Classifier" class="sphx-glr-backref-module-piml-models sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">XGB2Classifier</span></a></a></a></a></a>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">piml</span> <span class="kn">import</span> <a href="../../modules/generated/piml.Experiment.html#piml.Experiment" title="piml.Experiment" class="sphx-glr-backref-module-piml sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">Experiment</span></a>
+<span class="kn">from</span> <span class="nn">piml.models</span> <span class="kn">import</span> <a href="../../modules/generated/piml.models.XGB2Classifier.html#piml.models.XGB2Classifier" title="piml.models.XGB2Classifier" class="sphx-glr-backref-module-piml-models sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">XGB2Classifier</span></a>
 </pre></div>
 </div>
 <p>Load data and train models.</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">exp</span> <span class="o">=</span> <a href="../../modules/generated/piml.Experiment.html#piml.Experiment" title="piml.Experiment" class="sphx-glr-backref-module-piml sphx-glr-backref-type-py-class sphx-glr-backref-instance"><a href="../../modules/generated/piml.Experiment.html#piml.Experiment" title="piml.Experiment" class="sphx-glr-backref-module-piml sphx-glr-backref-type-py-class sphx-glr-backref-instance"><a href="../../modules/generated/piml.Experiment.html#piml.Experiment" title="piml.Experiment" class="sphx-glr-backref-module-piml sphx-glr-backref-type-py-class sphx-glr-backref-instance"><a href="../../modules/generated/piml.Experiment.html#piml.Experiment" title="piml.Experiment" class="sphx-glr-backref-module-piml sphx-glr-backref-type-py-class sphx-glr-backref-instance"><a href="../../modules/generated/piml.Experiment.html#piml.Experiment" title="piml.Experiment" class="sphx-glr-backref-module-piml sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">Experiment</span></a></a></a></a></a><span class="p">()</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">exp</span> <span class="o">=</span> <a href="../../modules/generated/piml.Experiment.html#piml.Experiment" title="piml.Experiment" class="sphx-glr-backref-module-piml sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">Experiment</span></a><span class="p">()</span>
 <span class="n">exp</span><span class="o">.</span><span class="n">data_loader</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="s2">&quot;TaiwanCredit&quot;</span><span class="p">,</span> <span class="n">silent</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 <span class="n">exp</span><span class="o">.</span><span class="n">data_summary</span><span class="p">(</span><span class="n">feature_exclude</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;LIMIT_BAL&quot;</span><span class="p">,</span> <span class="s2">&quot;SEX&quot;</span><span class="p">,</span> <span class="s2">&quot;EDUCATION&quot;</span><span class="p">,</span> <span class="s2">&quot;MARRIAGE&quot;</span><span class="p">,</span> <span class="s2">&quot;AGE&quot;</span><span class="p">],</span> <span class="n">silent</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 <span class="n">exp</span><span class="o">.</span><span class="n">data_prepare</span><span class="p">(</span><span class="n">target</span><span class="o">=</span><span class="s2">&quot;FlagDefault&quot;</span><span class="p">,</span> <span class="n">task_type</span><span class="o">=</span><span class="s2">&quot;classification&quot;</span><span class="p">,</span> <span class="n">silent</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>Train Model</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">exp</span><span class="o">.</span><span class="n">model_train</span><span class="p">(</span><a href="../../modules/generated/piml.models.XGB2Classifier.html#piml.models.XGB2Classifier" title="piml.models.XGB2Classifier" class="sphx-glr-backref-module-piml-models sphx-glr-backref-type-py-class sphx-glr-backref-instance"><a href="../../modules/generated/piml.models.XGB2Classifier.html#piml.models.XGB2Classifier" title="piml.models.XGB2Classifier" class="sphx-glr-backref-module-piml-models sphx-glr-backref-type-py-class sphx-glr-backref-instance"><a href="../../modules/generated/piml.models.XGB2Classifier.html#piml.models.XGB2Classifier" title="piml.models.XGB2Classifier" class="sphx-glr-backref-module-piml-models sphx-glr-backref-type-py-class sphx-glr-backref-instance"><a href="../../modules/generated/piml.models.XGB2Classifier.html#piml.models.XGB2Classifier" title="piml.models.XGB2Classifier" class="sphx-glr-backref-module-piml-models sphx-glr-backref-type-py-class sphx-glr-backref-instance"><a href="../../modules/generated/piml.models.XGB2Classifier.html#piml.models.XGB2Classifier" title="piml.models.XGB2Classifier" class="sphx-glr-backref-module-piml-models sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">XGB2Classifier</span></a></a></a></a></a><span class="p">(),</span> <span class="n">name</span><span class="o">=</span><span class="s2">&quot;XGB2&quot;</span><span class="p">)</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">exp</span><span class="o">.</span><span class="n">model_train</span><span class="p">(</span><a href="../../modules/generated/piml.models.XGB2Classifier.html#piml.models.XGB2Classifier" title="piml.models.XGB2Classifier" class="sphx-glr-backref-module-piml-models sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">XGB2Classifier</span></a><span class="p">(),</span> <span class="n">name</span><span class="o">=</span><span class="s2">&quot;XGB2&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>Histogram-based overfit test for a single feature</p>
@@ -189,13 +189,13 @@ to download the full example code or to run this example in your browser via Bin
   <tbody>
     <tr>
       <th>0</th>
-      <td>0.2879</td>
-      <td>0.3781</td>
+      <td>0.287852</td>
+      <td>0.378122</td>
       <td>41</td>
       <td>131</td>
-      <td>0.7561</td>
-      <td>0.8473</td>
-      <td>-0.0912</td>
+      <td>0.756098</td>
+      <td>0.847328</td>
+      <td>-0.091231</td>
     </tr>
   </tbody>
 </table>
@@ -242,63 +242,63 @@ to download the full example code or to run this example in your browser via Bin
   <tbody>
     <tr>
       <th>0</th>
-      <td>0.2222</td>
-      <td>0.3333</td>
-      <td>0.7167</td>
-      <td>0.8037</td>
+      <td>0.222222</td>
+      <td>0.333333</td>
+      <td>0.716694</td>
+      <td>0.803749</td>
       <td>30</td>
       <td>117</td>
-      <td>0.6333</td>
-      <td>0.7350</td>
-      <td>-0.1017</td>
+      <td>0.633333</td>
+      <td>0.709402</td>
+      <td>-0.076068</td>
     </tr>
     <tr>
       <th>1</th>
-      <td>0.2222</td>
-      <td>0.3333</td>
-      <td>0.2814</td>
-      <td>0.3685</td>
-      <td>24</td>
-      <td>75</td>
-      <td>0.7083</td>
-      <td>0.8133</td>
-      <td>-0.1050</td>
+      <td>0.333333</td>
+      <td>0.444444</td>
+      <td>0.731146</td>
+      <td>0.795340</td>
+      <td>40</td>
+      <td>160</td>
+      <td>0.600000</td>
+      <td>0.700000</td>
+      <td>-0.100000</td>
     </tr>
     <tr>
       <th>2</th>
-      <td>0.3333</td>
-      <td>0.4444</td>
-      <td>0.9237</td>
-      <td>0.9558</td>
+      <td>0.333333</td>
+      <td>0.444444</td>
+      <td>0.923726</td>
+      <td>0.955823</td>
       <td>69</td>
       <td>338</td>
-      <td>0.5797</td>
-      <td>0.6893</td>
-      <td>-0.1096</td>
+      <td>0.579710</td>
+      <td>0.683432</td>
+      <td>-0.103722</td>
     </tr>
     <tr>
       <th>3</th>
-      <td>0.0000</td>
-      <td>0.1111</td>
-      <td>0.6213</td>
-      <td>0.6715</td>
-      <td>20</td>
-      <td>73</td>
-      <td>0.6500</td>
-      <td>0.7808</td>
-      <td>-0.1308</td>
+      <td>0.222222</td>
+      <td>0.333333</td>
+      <td>0.281421</td>
+      <td>0.368475</td>
+      <td>24</td>
+      <td>75</td>
+      <td>0.708333</td>
+      <td>0.813333</td>
+      <td>-0.105000</td>
     </tr>
     <tr>
       <th>4</th>
-      <td>0.3333</td>
-      <td>0.4444</td>
-      <td>0.7632</td>
-      <td>0.7953</td>
+      <td>0.000000</td>
+      <td>0.111111</td>
+      <td>0.621259</td>
+      <td>0.671508</td>
       <td>20</td>
-      <td>92</td>
-      <td>0.6000</td>
-      <td>0.7717</td>
-      <td>-0.1717</td>
+      <td>73</td>
+      <td>0.650000</td>
+      <td>0.780822</td>
+      <td>-0.130822</td>
     </tr>
   </tbody>
 </table>
@@ -343,24 +343,24 @@ to download the full example code or to run this example in your browser via Bin
   <tbody>
     <tr>
       <th>0</th>
-      <td>0.2879</td>
-      <td>0.3781</td>
+      <td>0.287852</td>
+      <td>0.378122</td>
       <td>41</td>
       <td>131</td>
-      <td>0.7561</td>
-      <td>0.8473</td>
-      <td>-0.0912</td>
+      <td>0.756098</td>
+      <td>0.847328</td>
+      <td>-0.091231</td>
     </tr>
   </tbody>
 </table>
 </div>
 </div>
 <br />
-<br /><p class="sphx-glr-timing"><strong>Total running time of the script:</strong> ( 0 minutes  34.138 seconds)</p>
-<p><strong>Estimated memory usage:</strong>  1711 MB</p>
+<br /><p class="sphx-glr-timing"><strong>Total running time of the script:</strong> ( 0 minutes  42.558 seconds)</p>
+<p><strong>Estimated memory usage:</strong>  39 MB</p>
 <div class="sphx-glr-footer sphx-glr-footer-example docutils container" id="sphx-glr-download-auto-examples-testing-plot-2-overfit-cls-py">
 <div class="binder-badge docutils container">
-<a class="reference external image-reference" href="https://mybinder.org/v2/gh/selfexplainml/piml-toolbox/main?urlpath=lab/tree/./docs/_build/html/notebooks/auto_examples/testing/plot_2_overfit_cls.ipynb"><img alt="Launch binder" src="../../_images/binder_badge_logo3.svg" width="150px" /></a>
+<a class="reference external image-reference" href="https://mybinder.org/v2/gh/selfexplainml/piml-toolbox/main?urlpath=lab/tree/./docs/_build/html/notebooks/auto_examples/testing/plot_2_overfit_cls.ipynb"><img alt="Launch binder" src="../../_images/binder_badge_logo4.svg" width="150px" /></a>
 </div>
 <div class="sphx-glr-download sphx-glr-download-python docutils container">
 <p><a class="reference download internal" download="" href="../../_downloads/fbde77d305a9fb5b0b7df022a471b755/plot_2_overfit_cls.py"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Python</span> <span class="pre">source</span> <span class="pre">code:</span> <span class="pre">plot_2_overfit_cls.py</span></code></a></p>

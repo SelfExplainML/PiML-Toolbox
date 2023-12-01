@@ -33,6 +33,7 @@ where :math:`x_{C}^{(i)}` is the complement features of the :math:`i`-th trainin
 
 .. _here: https://scikit-learn.org/stable/modules/partial_dependence.html
 
+
 .. warning::
 
    PDPs also have a few limitations, including:
@@ -40,6 +41,11 @@ where :math:`x_{C}^{(i)}` is the complement features of the :math:`i`-th trainin
    - Assumption of independence: PDPs assume that the features of interest are independent of each other. If the features are highly correlated, the results can be inaccurate, as they require extrapolation of the response at predictor values that are far outside the multivariate envelope of the training data.
 
    - Inconsistent global and local explanation: PDPs provide an average view of features' effect on the predicted response. Local effects or effects specific to certain subsets of data may be different from global ones.
+
+
+.. note::
+
+   For binary classification tasks, the PDP is computed by default using the predicted probability instead of log odds. In `exp.model_explain`, there exist an argument called `response_method`. If we want to use the predicted probability as the output, we can set `response_method` to "decision_function".
 
 
 Usage
@@ -54,14 +60,16 @@ The one-way PDP describes the relationship between the predicted response and a 
 
 .. jupyter-input::
 
-    exp.model_explain(model="XGB2", show="pdp", uni_feature="hr", 
+    exp.model_explain(model="XGB2", show="pdp", uni_feature="hr", use_test=False,
                       grid_size=50, original_scale=True, figsize=(5, 4))
 
 .. figure:: ../../auto_examples/explain/images/sphx_glr_plot_1_pdp_001.png
    :target: ../../auto_examples/explain/plot_1_pdp.html
    :align: left
 
-The plot above suggests a non-linear relationship between the predicted response and the input feature of interest (`hr`). The `grid_size` parameter controls the number of grid points in PDP. The `original_scale` is set to True if we want to use the original scale of that feature. 
+The plot above suggests a non-linear relationship between the predicted response and the input feature of interest (`hr`). The `grid_size` parameter controls the number of grid points in PDP. The `original_scale` is set to True if we want to use the original scale of that feature.
+
+For categorical features, the PDP is a bar chart. The plot below indicates that bike sharing tends to be more substantial in the 4th season.
 
 .. jupyter-input::
 
@@ -72,7 +80,6 @@ The plot above suggests a non-linear relationship between the predicted response
    :target: ../../auto_examples/explain/plot_1_pdp.html
    :align: left
 
-For categorical features, the PDP is a bar chart. The plot above indicates that bike sharing tends to be more substantial in the 4th season.
 
 Two-way PDPs
 """"""""""""""""""""""""""""""""
@@ -91,6 +98,7 @@ The two-way PDP shows the interaction between two features, which is useful for 
 The plot above shows the dependence of bike rental counts on the joint values of `workingday` and `hr` using a two-way PDP. We observe that the bike rental counts are higher during the working days (i.e., `workingday` = 1) than the non-working days (i.e., `workingday` = 0). The bike rental counts are also higher during the daytime than the nighttime. The interaction between `workingday` and `hr` is also observed in the plot.
 
 
+
 Examples 
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
@@ -99,3 +107,9 @@ Examples
   The first example below demonstrates how to use PiML with its high-code APIs for developing machine learning models for the BikeSharing data from the UCI repository, which consists of 17,389 samples of hourly counts of rental bikes in Capital bikeshare system; see details. The response `cnt` (hourly bike rental counts) is continuous and it is a regression problem.
  
  * :ref:`sphx_glr_auto_examples_explain_plot_1_pdp.py`
+
+.. topic:: Example 2: SimuCredit
+
+   The second example shows the option to use test set to generate the explanations.
+
+ * :ref:`sphx_glr_auto_examples_explain_plot_6_data_dependent_explain.py`

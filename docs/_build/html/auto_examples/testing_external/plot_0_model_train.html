@@ -136,24 +136,24 @@ to download the full example code or to run this example in your browser via Bin
 <section class="sphx-glr-example-title" id="train-external-models">
 <span id="sphx-glr-auto-examples-testing-external-plot-0-model-train-py"></span><h1>Train External Models<a class="headerlink" href="#train-external-models" title="Permalink to this heading">¶</a></h1>
 <p>Load PiML</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">piml</span> <span class="kn">import</span> <a href="../../modules/generated/piml.Experiment.html#piml.Experiment" title="piml.Experiment" class="sphx-glr-backref-module-piml sphx-glr-backref-type-py-class sphx-glr-backref-instance"><a href="../../modules/generated/piml.Experiment.html#piml.Experiment" title="piml.Experiment" class="sphx-glr-backref-module-piml sphx-glr-backref-type-py-class sphx-glr-backref-instance"><a href="../../modules/generated/piml.Experiment.html#piml.Experiment" title="piml.Experiment" class="sphx-glr-backref-module-piml sphx-glr-backref-type-py-class sphx-glr-backref-instance"><a href="../../modules/generated/piml.Experiment.html#piml.Experiment" title="piml.Experiment" class="sphx-glr-backref-module-piml sphx-glr-backref-type-py-class sphx-glr-backref-instance"><a href="../../modules/generated/piml.Experiment.html#piml.Experiment" title="piml.Experiment" class="sphx-glr-backref-module-piml sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">Experiment</span></a></a></a></a></a>
-<span class="n">exp</span> <span class="o">=</span> <a href="../../modules/generated/piml.Experiment.html#piml.Experiment" title="piml.Experiment" class="sphx-glr-backref-module-piml sphx-glr-backref-type-py-class sphx-glr-backref-instance"><a href="../../modules/generated/piml.Experiment.html#piml.Experiment" title="piml.Experiment" class="sphx-glr-backref-module-piml sphx-glr-backref-type-py-class sphx-glr-backref-instance"><a href="../../modules/generated/piml.Experiment.html#piml.Experiment" title="piml.Experiment" class="sphx-glr-backref-module-piml sphx-glr-backref-type-py-class sphx-glr-backref-instance"><a href="../../modules/generated/piml.Experiment.html#piml.Experiment" title="piml.Experiment" class="sphx-glr-backref-module-piml sphx-glr-backref-type-py-class sphx-glr-backref-instance"><a href="../../modules/generated/piml.Experiment.html#piml.Experiment" title="piml.Experiment" class="sphx-glr-backref-module-piml sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">Experiment</span></a></a></a></a></a><span class="p">()</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">piml</span> <span class="kn">import</span> <a href="../../modules/generated/piml.Experiment.html#piml.Experiment" title="piml.Experiment" class="sphx-glr-backref-module-piml sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">Experiment</span></a>
+<span class="n">exp</span> <span class="o">=</span> <a href="../../modules/generated/piml.Experiment.html#piml.Experiment" title="piml.Experiment" class="sphx-glr-backref-module-piml sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">Experiment</span></a><span class="p">()</span>
 <span class="n">exp</span><span class="o">.</span><span class="n">data_loader</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="s1">&#39;CaliforniaHousing_raw&#39;</span><span class="p">)</span>
 <span class="n">exp</span><span class="o">.</span><span class="n">data_prepare</span><span class="p">(</span><span class="n">target</span><span class="o">=</span><span class="s1">&#39;MedHouseVal&#39;</span><span class="p">,</span> <span class="n">task_type</span><span class="o">=</span><span class="s1">&#39;regression&#39;</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
 </pre></div>
 </div>
 <div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>       MedInc  HouseAge  AveRooms  AveBedrms  Population  AveOccup  Latitude  \
-0      8.3252      41.0    6.9841     1.0238       322.0    2.5556     37.88
-1      8.3014      21.0    6.2381     0.9719      2401.0    2.1098     37.86
-2      7.2574      52.0    8.2881     1.0734       496.0    2.8023     37.85
-3      5.6431      52.0    5.8174     1.0731       558.0    2.5479     37.85
-4      3.8462      52.0    6.2819     1.0811       565.0    2.1815     37.85
+0      8.3252      41.0  6.984127   1.023810       322.0  2.555556     37.88
+1      8.3014      21.0  6.238137   0.971880      2401.0  2.109842     37.86
+2      7.2574      52.0  8.288136   1.073446       496.0  2.802260     37.85
+3      5.6431      52.0  5.817352   1.073059       558.0  2.547945     37.85
+4      3.8462      52.0  6.281853   1.081081       565.0  2.181467     37.85
 ...       ...       ...       ...        ...         ...       ...       ...
-20635  1.5603      25.0    5.0455     1.1333       845.0    2.5606     39.48
-20636  2.5568      18.0    6.1140     1.3158       356.0    3.1228     39.49
-20637  1.7000      17.0    5.2055     1.1201      1007.0    2.3256     39.43
-20638  1.8672      18.0    5.3295     1.1719       741.0    2.1232     39.43
-20639  2.3886      16.0    5.2547     1.1623      1387.0    2.6170     39.37
+20635  1.5603      25.0  5.045455   1.133333       845.0  2.560606     39.48
+20636  2.5568      18.0  6.114035   1.315789       356.0  3.122807     39.49
+20637  1.7000      17.0  5.205543   1.120092      1007.0  2.325635     39.43
+20638  1.8672      18.0  5.329513   1.171920       741.0  2.123209     39.43
+20639  2.3886      16.0  5.254717   1.162264      1387.0  2.616981     39.37
 
        Longitude  MedHouseVal
 0        -122.23        4.526
@@ -169,15 +169,14 @@ to download the full example code or to run this example in your browser via Bin
 20639    -121.24        0.894
 
 [20640 rows x 9 columns]
-                       Config        Value
-0            Excluded columns           []
-1             Target variable  MedHouseVal
-2               Sample weight         None
-3                   Task type   Regression
-4                Split method       Random
-5                  Test ratio          0.2
-6                Random state            0
-7  Train test energy distance       0.0002
+             Config        Value
+0  Excluded columns           []
+1   Target variable  MedHouseVal
+2     Sample weight         None
+3         Task type   regression
+4      Split method       random
+5        Test ratio          0.2
+6      Random state            0
 </pre></div>
 </div>
 <p>Train and Register Models using piml</p>
@@ -199,11 +198,11 @@ to download the full example code or to run this example in your browser via Bin
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">exp</span><span class="o">.</span><span class="n">model_explain</span><span class="p">(</span><span class="n">model</span><span class="o">=</span><span class="s2">&quot;LGBM_2_load&quot;</span><span class="p">,</span> <span class="n">show</span><span class="o">=</span><span class="s2">&quot;pdp&quot;</span><span class="p">,</span> <span class="n">uni_feature</span><span class="o">=</span><span class="s2">&quot;MedInc&quot;</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">4</span><span class="p">))</span>
 </pre></div>
 </div>
-<img src="../../_images/sphx_glr_plot_0_model_train_001.png" srcset="../../_images/sphx_glr_plot_0_model_train_001.png" alt="Partial Dependence Plot" class = "sphx-glr-single-img"/><p class="sphx-glr-timing"><strong>Total running time of the script:</strong> ( 0 minutes  54.781 seconds)</p>
-<p><strong>Estimated memory usage:</strong>  1439 MB</p>
+<img src="../../_images/sphx_glr_plot_0_model_train_001.png" srcset="../../_images/sphx_glr_plot_0_model_train_001.png" alt="Partial Dependence Plot" class = "sphx-glr-single-img"/><p class="sphx-glr-timing"><strong>Total running time of the script:</strong> ( 0 minutes  48.757 seconds)</p>
+<p><strong>Estimated memory usage:</strong>  17 MB</p>
 <div class="sphx-glr-footer sphx-glr-footer-example docutils container" id="sphx-glr-download-auto-examples-testing-external-plot-0-model-train-py">
 <div class="binder-badge docutils container">
-<a class="reference external image-reference" href="https://mybinder.org/v2/gh/selfexplainml/piml-toolbox/main?urlpath=lab/tree/./docs/_build/html/notebooks/auto_examples/testing_external/plot_0_model_train.ipynb"><img alt="Launch binder" src="../../_images/binder_badge_logo5.svg" width="150px" /></a>
+<a class="reference external image-reference" href="https://mybinder.org/v2/gh/selfexplainml/piml-toolbox/main?urlpath=lab/tree/./docs/_build/html/notebooks/auto_examples/testing_external/plot_0_model_train.ipynb"><img alt="Launch binder" src="../../_images/binder_badge_logo6.svg" width="150px" /></a>
 </div>
 <div class="sphx-glr-download sphx-glr-download-python docutils container">
 <p><a class="reference download internal" download="" href="../../_downloads/300ab73c3ec3bb52efaee1664bc07e60/plot_0_model_train.py"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Python</span> <span class="pre">source</span> <span class="pre">code:</span> <span class="pre">plot_0_model_train.py</span></code></a></p>

@@ -63,14 +63,15 @@ Train Model
 
 .. GENERATED FROM PYTHON SOURCE LINES 23-24
 
-1D PDP for hr
+1D PDP for hr (use training data by default)
 
-.. GENERATED FROM PYTHON SOURCE LINES 24-26
+.. GENERATED FROM PYTHON SOURCE LINES 24-27
 
 .. code-block:: default
 
     exp.model_explain(model="XGB2", show="pdp", uni_feature="hr",
                       grid_size=50, original_scale=True, figsize=(5, 4))
+
 
 
 
@@ -83,16 +84,17 @@ Train Model
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 27-28
+.. GENERATED FROM PYTHON SOURCE LINES 28-29
 
-1D PDP for season
+1D PDP for hr (use test data)
 
-.. GENERATED FROM PYTHON SOURCE LINES 28-30
+.. GENERATED FROM PYTHON SOURCE LINES 29-32
 
 .. code-block:: default
 
-    exp.model_explain(model="XGB2", show="pdp", uni_feature='season',
-                      original_scale=True, figsize=(5, 4))
+    exp.model_explain(model="XGB2", show="pdp", uni_feature="hr", use_test=True,
+                      grid_size=50, original_scale=True, figsize=(5, 4))
+
 
 
 
@@ -105,16 +107,17 @@ Train Model
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 31-32
+.. GENERATED FROM PYTHON SOURCE LINES 33-34
 
-2D PDP for hr and workingday
+1D PDP for season
 
-.. GENERATED FROM PYTHON SOURCE LINES 32-34
+.. GENERATED FROM PYTHON SOURCE LINES 34-37
 
 .. code-block:: default
 
-    exp.model_explain(model="XGB2", show="pdp", bi_features=["hr", "workingday"],
-                      grid_size=10, pdp_size=10000, sliced_line=False, original_scale=True, figsize=(5, 4))
+    exp.model_explain(model="XGB2", show="pdp", uni_feature='season',
+                      original_scale=True, figsize=(5, 4))
+
 
 
 
@@ -127,12 +130,32 @@ Train Model
 
 
 
+.. GENERATED FROM PYTHON SOURCE LINES 38-39
+
+2D PDP for hr and workingday
+
+.. GENERATED FROM PYTHON SOURCE LINES 39-41
+
+.. code-block:: default
+
+    exp.model_explain(model="XGB2", show="pdp", bi_features=["hr", "workingday"],
+                      grid_size=10, sample_size=10000, sliced_line=False, original_scale=True, figsize=(5, 4))
+
+
+
+.. image-sg:: /auto_examples/explain/images/sphx_glr_plot_1_pdp_004.png
+   :alt: Partial Dependence Plot
+   :srcset: /auto_examples/explain/images/sphx_glr_plot_1_pdp_004.png
+   :class: sphx-glr-single-img
+
+
+
+
+
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** ( 0 minutes  57.509 seconds)
-
-**Estimated memory usage:**  1321 MB
+   **Total running time of the script:** (0 minutes 1.470 seconds)
 
 
 .. _sphx_glr_download_auto_examples_explain_plot_1_pdp.py:

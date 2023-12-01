@@ -136,23 +136,23 @@ to download the full example code or to run this example in your browser via Bin
 <section class="sphx-glr-example-title" id="overfit-regression">
 <span id="sphx-glr-auto-examples-testing-plot-2-overfit-reg-py"></span><h1>Overfit: Regression<a class="headerlink" href="#overfit-regression" title="Permalink to this heading">¶</a></h1>
 <p>Experiment initialization and data preparation</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">piml</span> <span class="kn">import</span> <a href="../../modules/generated/piml.Experiment.html#piml.Experiment" title="piml.Experiment" class="sphx-glr-backref-module-piml sphx-glr-backref-type-py-class sphx-glr-backref-instance"><a href="../../modules/generated/piml.Experiment.html#piml.Experiment" title="piml.Experiment" class="sphx-glr-backref-module-piml sphx-glr-backref-type-py-class sphx-glr-backref-instance"><a href="../../modules/generated/piml.Experiment.html#piml.Experiment" title="piml.Experiment" class="sphx-glr-backref-module-piml sphx-glr-backref-type-py-class sphx-glr-backref-instance"><a href="../../modules/generated/piml.Experiment.html#piml.Experiment" title="piml.Experiment" class="sphx-glr-backref-module-piml sphx-glr-backref-type-py-class sphx-glr-backref-instance"><a href="../../modules/generated/piml.Experiment.html#piml.Experiment" title="piml.Experiment" class="sphx-glr-backref-module-piml sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">Experiment</span></a></a></a></a></a>
-<span class="kn">from</span> <span class="nn">piml.models</span> <span class="kn">import</span> <a href="../../modules/generated/piml.models.XGB2Regressor.html#piml.models.XGB2Regressor" title="piml.models.XGB2Regressor" class="sphx-glr-backref-module-piml-models sphx-glr-backref-type-py-class sphx-glr-backref-instance"><a href="../../modules/generated/piml.models.XGB2Regressor.html#piml.models.XGB2Regressor" title="piml.models.XGB2Regressor" class="sphx-glr-backref-module-piml-models sphx-glr-backref-type-py-class sphx-glr-backref-instance"><a href="../../modules/generated/piml.models.XGB2Regressor.html#piml.models.XGB2Regressor" title="piml.models.XGB2Regressor" class="sphx-glr-backref-module-piml-models sphx-glr-backref-type-py-class sphx-glr-backref-instance"><a href="../../modules/generated/piml.models.XGB2Regressor.html#piml.models.XGB2Regressor" title="piml.models.XGB2Regressor" class="sphx-glr-backref-module-piml-models sphx-glr-backref-type-py-class sphx-glr-backref-instance"><a href="../../modules/generated/piml.models.XGB2Regressor.html#piml.models.XGB2Regressor" title="piml.models.XGB2Regressor" class="sphx-glr-backref-module-piml-models sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">XGB2Regressor</span></a></a></a></a></a>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">piml</span> <span class="kn">import</span> <a href="../../modules/generated/piml.Experiment.html#piml.Experiment" title="piml.Experiment" class="sphx-glr-backref-module-piml sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">Experiment</span></a>
+<span class="kn">from</span> <span class="nn">piml.models</span> <span class="kn">import</span> <a href="../../modules/generated/piml.models.XGB2Regressor.html#piml.models.XGB2Regressor" title="piml.models.XGB2Regressor" class="sphx-glr-backref-module-piml-models sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">XGB2Regressor</span></a>
 
-<span class="n">exp</span> <span class="o">=</span> <a href="../../modules/generated/piml.Experiment.html#piml.Experiment" title="piml.Experiment" class="sphx-glr-backref-module-piml sphx-glr-backref-type-py-class sphx-glr-backref-instance"><a href="../../modules/generated/piml.Experiment.html#piml.Experiment" title="piml.Experiment" class="sphx-glr-backref-module-piml sphx-glr-backref-type-py-class sphx-glr-backref-instance"><a href="../../modules/generated/piml.Experiment.html#piml.Experiment" title="piml.Experiment" class="sphx-glr-backref-module-piml sphx-glr-backref-type-py-class sphx-glr-backref-instance"><a href="../../modules/generated/piml.Experiment.html#piml.Experiment" title="piml.Experiment" class="sphx-glr-backref-module-piml sphx-glr-backref-type-py-class sphx-glr-backref-instance"><a href="../../modules/generated/piml.Experiment.html#piml.Experiment" title="piml.Experiment" class="sphx-glr-backref-module-piml sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">Experiment</span></a></a></a></a></a><span class="p">()</span>
+<span class="n">exp</span> <span class="o">=</span> <a href="../../modules/generated/piml.Experiment.html#piml.Experiment" title="piml.Experiment" class="sphx-glr-backref-module-piml sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">Experiment</span></a><span class="p">()</span>
 <span class="n">exp</span><span class="o">.</span><span class="n">data_loader</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="s2">&quot;BikeSharing&quot;</span><span class="p">,</span> <span class="n">silent</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 <span class="n">exp</span><span class="o">.</span><span class="n">data_summary</span><span class="p">(</span><span class="n">feature_exclude</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;yr&quot;</span><span class="p">,</span> <span class="s2">&quot;mnth&quot;</span><span class="p">,</span> <span class="s2">&quot;temp&quot;</span><span class="p">],</span> <span class="n">silent</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 <span class="n">exp</span><span class="o">.</span><span class="n">data_prepare</span><span class="p">(</span><span class="n">target</span><span class="o">=</span><span class="s2">&quot;cnt&quot;</span><span class="p">,</span> <span class="n">task_type</span><span class="o">=</span><span class="s2">&quot;regression&quot;</span><span class="p">,</span> <span class="n">silent</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>Train Model</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">exp</span><span class="o">.</span><span class="n">model_train</span><span class="p">(</span><span class="n">model</span><span class="o">=</span><a href="../../modules/generated/piml.models.XGB2Regressor.html#piml.models.XGB2Regressor" title="piml.models.XGB2Regressor" class="sphx-glr-backref-module-piml-models sphx-glr-backref-type-py-class sphx-glr-backref-instance"><a href="../../modules/generated/piml.models.XGB2Regressor.html#piml.models.XGB2Regressor" title="piml.models.XGB2Regressor" class="sphx-glr-backref-module-piml-models sphx-glr-backref-type-py-class sphx-glr-backref-instance"><a href="../../modules/generated/piml.models.XGB2Regressor.html#piml.models.XGB2Regressor" title="piml.models.XGB2Regressor" class="sphx-glr-backref-module-piml-models sphx-glr-backref-type-py-class sphx-glr-backref-instance"><a href="../../modules/generated/piml.models.XGB2Regressor.html#piml.models.XGB2Regressor" title="piml.models.XGB2Regressor" class="sphx-glr-backref-module-piml-models sphx-glr-backref-type-py-class sphx-glr-backref-instance"><a href="../../modules/generated/piml.models.XGB2Regressor.html#piml.models.XGB2Regressor" title="piml.models.XGB2Regressor" class="sphx-glr-backref-module-piml-models sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">XGB2Regressor</span></a></a></a></a></a><span class="p">(),</span> <span class="n">name</span><span class="o">=</span><span class="s2">&quot;XGB2&quot;</span><span class="p">)</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">exp</span><span class="o">.</span><span class="n">model_train</span><span class="p">(</span><span class="n">model</span><span class="o">=</span><a href="../../modules/generated/piml.models.XGB2Regressor.html#piml.models.XGB2Regressor" title="piml.models.XGB2Regressor" class="sphx-glr-backref-module-piml-models sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">XGB2Regressor</span></a><span class="p">(),</span> <span class="n">name</span><span class="o">=</span><span class="s2">&quot;XGB2&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>Histogram-based overfit test for a single feature</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">results</span> <span class="o">=</span> <span class="n">exp</span><span class="o">.</span><span class="n">model_diagnose</span><span class="p">(</span><span class="n">model</span><span class="o">=</span><span class="s2">&quot;XGB2&quot;</span><span class="p">,</span> <span class="n">show</span><span class="o">=</span><span class="s2">&quot;overfit&quot;</span><span class="p">,</span> <span class="n">slice_method</span><span class="o">=</span><span class="s2">&quot;histogram&quot;</span><span class="p">,</span>
                              <span class="n">slice_features</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;hr&quot;</span><span class="p">],</span> <span class="n">threshold</span><span class="o">=</span><span class="mf">1.05</span><span class="p">,</span> <span class="n">min_samples</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span>
-                             <span class="n">original_scale</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">return_data</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">4</span><span class="p">))</span>
+                             <span class="n">return_data</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">4</span><span class="p">))</span>
 <span class="n">results</span><span class="o">.</span><span class="n">data</span>
 </pre></div>
 </div>
@@ -191,19 +191,29 @@ to download the full example code or to run this example in your browser via Bin
       <td>0.4</td>
       <td>445</td>
       <td>1736</td>
-      <td>0.0226</td>
-      <td>0.0205</td>
-      <td>0.0021</td>
+      <td>0.021922</td>
+      <td>0.019718</td>
+      <td>0.002204</td>
     </tr>
     <tr>
       <th>1</th>
       <td>0.6</td>
+      <td>0.7</td>
+      <td>445</td>
+      <td>1743</td>
+      <td>0.010347</td>
+      <td>0.009588</td>
+      <td>0.000759</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>0.8</td>
       <td>0.9</td>
-      <td>1020</td>
-      <td>4082</td>
-      <td>0.0146</td>
-      <td>0.0139</td>
-      <td>0.0006</td>
+      <td>285</td>
+      <td>1171</td>
+      <td>0.008136</td>
+      <td>0.007511</td>
+      <td>0.000625</td>
     </tr>
   </tbody>
 </table>
@@ -213,7 +223,7 @@ to download the full example code or to run this example in your browser via Bin
 <br /><p>Histogram-based overfit test for two features</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">results</span> <span class="o">=</span> <span class="n">exp</span><span class="o">.</span><span class="n">model_diagnose</span><span class="p">(</span><span class="n">model</span><span class="o">=</span><span class="s2">&quot;XGB2&quot;</span><span class="p">,</span> <span class="n">show</span><span class="o">=</span><span class="s2">&quot;overfit&quot;</span><span class="p">,</span> <span class="n">slice_method</span><span class="o">=</span><span class="s2">&quot;histogram&quot;</span><span class="p">,</span>
                              <span class="n">slice_features</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;hr&quot;</span><span class="p">,</span> <span class="s2">&quot;atemp&quot;</span><span class="p">],</span> <span class="n">threshold</span><span class="o">=</span><span class="mf">1.05</span><span class="p">,</span> <span class="n">min_samples</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span>
-                             <span class="n">original_scale</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">return_data</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">4</span><span class="p">))</span>
+                             <span class="n">return_data</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">4</span><span class="p">))</span>
 <span class="n">results</span><span class="o">.</span><span class="n">data</span>
 </pre></div>
 </div>
@@ -252,49 +262,49 @@ to download the full example code or to run this example in your browser via Bin
       <th>0</th>
       <td>0.7</td>
       <td>0.8</td>
-      <td>0.5000</td>
-      <td>0.6636</td>
+      <td>0.50000</td>
+      <td>0.66364</td>
       <td>103</td>
       <td>366</td>
-      <td>0.0391</td>
-      <td>0.0325</td>
-      <td>0.0066</td>
+      <td>0.042139</td>
+      <td>0.035002</td>
+      <td>0.007137</td>
     </tr>
     <tr>
       <th>1</th>
       <td>0.3</td>
       <td>0.4</td>
-      <td>0.2318</td>
-      <td>0.4636</td>
+      <td>0.23181</td>
+      <td>0.46362</td>
       <td>173</td>
       <td>645</td>
-      <td>0.0260</td>
-      <td>0.0206</td>
-      <td>0.0054</td>
+      <td>0.024964</td>
+      <td>0.019805</td>
+      <td>0.005159</td>
     </tr>
     <tr>
       <th>2</th>
-      <td>0.5</td>
       <td>0.6</td>
-      <td>0.1803</td>
-      <td>0.4773</td>
-      <td>122</td>
-      <td>461</td>
-      <td>0.0087</td>
-      <td>0.0058</td>
-      <td>0.0030</td>
+      <td>0.7</td>
+      <td>0.13640</td>
+      <td>0.56060</td>
+      <td>240</td>
+      <td>882</td>
+      <td>0.009529</td>
+      <td>0.007840</td>
+      <td>0.001689</td>
     </tr>
     <tr>
       <th>3</th>
-      <td>0.6</td>
-      <td>0.7</td>
-      <td>0.1364</td>
-      <td>0.5606</td>
-      <td>240</td>
-      <td>882</td>
-      <td>0.0093</td>
-      <td>0.0077</td>
-      <td>0.0016</td>
+      <td>0.0</td>
+      <td>0.1</td>
+      <td>0.25457</td>
+      <td>0.39395</td>
+      <td>105</td>
+      <td>432</td>
+      <td>0.001970</td>
+      <td>0.001105</td>
+      <td>0.000865</td>
     </tr>
   </tbody>
 </table>
@@ -304,7 +314,7 @@ to download the full example code or to run this example in your browser via Bin
 <br /><p>Histogram-based overfit test for a single feature using MAE metric</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">results</span> <span class="o">=</span> <span class="n">exp</span><span class="o">.</span><span class="n">model_diagnose</span><span class="p">(</span><span class="n">model</span><span class="o">=</span><span class="s2">&quot;XGB2&quot;</span><span class="p">,</span> <span class="n">show</span><span class="o">=</span><span class="s2">&quot;overfit&quot;</span><span class="p">,</span> <span class="n">slice_method</span><span class="o">=</span><span class="s2">&quot;histogram&quot;</span><span class="p">,</span>
                              <span class="n">slice_features</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;atemp&quot;</span><span class="p">],</span> <span class="n">threshold</span><span class="o">=</span><span class="mf">1.05</span><span class="p">,</span> <span class="n">min_samples</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span>
-                             <span class="n">metric</span><span class="o">=</span><span class="s2">&quot;MAE&quot;</span><span class="p">,</span> <span class="n">original_scale</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">return_data</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">4</span><span class="p">))</span>
+                             <span class="n">metric</span><span class="o">=</span><span class="s2">&quot;MAE&quot;</span><span class="p">,</span> <span class="n">return_data</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">4</span><span class="p">))</span>
 <span class="n">results</span><span class="o">.</span><span class="n">data</span>
 </pre></div>
 </div>
@@ -339,24 +349,24 @@ to download the full example code or to run this example in your browser via Bin
   <tbody>
     <tr>
       <th>0</th>
-      <td>0.197</td>
+      <td>0.19696</td>
       <td>0.4924</td>
       <td>1649</td>
       <td>6580</td>
-      <td>0.062</td>
-      <td>0.057</td>
-      <td>0.005</td>
+      <td>0.06386</td>
+      <td>0.058902</td>
+      <td>0.004958</td>
     </tr>
   </tbody>
 </table>
 </div>
 </div>
 <br />
-<br /><p class="sphx-glr-timing"><strong>Total running time of the script:</strong> ( 0 minutes  42.953 seconds)</p>
-<p><strong>Estimated memory usage:</strong>  1393 MB</p>
+<br /><p class="sphx-glr-timing"><strong>Total running time of the script:</strong> ( 0 minutes  41.669 seconds)</p>
+<p><strong>Estimated memory usage:</strong>  28 MB</p>
 <div class="sphx-glr-footer sphx-glr-footer-example docutils container" id="sphx-glr-download-auto-examples-testing-plot-2-overfit-reg-py">
 <div class="binder-badge docutils container">
-<a class="reference external image-reference" href="https://mybinder.org/v2/gh/selfexplainml/piml-toolbox/main?urlpath=lab/tree/./docs/_build/html/notebooks/auto_examples/testing/plot_2_overfit_reg.ipynb"><img alt="Launch binder" src="../../_images/binder_badge_logo3.svg" width="150px" /></a>
+<a class="reference external image-reference" href="https://mybinder.org/v2/gh/selfexplainml/piml-toolbox/main?urlpath=lab/tree/./docs/_build/html/notebooks/auto_examples/testing/plot_2_overfit_reg.ipynb"><img alt="Launch binder" src="../../_images/binder_badge_logo4.svg" width="150px" /></a>
 </div>
 <div class="sphx-glr-download sphx-glr-download-python docutils container">
 <p><a class="reference download internal" download="" href="../../_downloads/8f248142c50810d44599d5cd47ebc2ca/plot_2_overfit_reg.py"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Python</span> <span class="pre">source</span> <span class="pre">code:</span> <span class="pre">plot_2_overfit_reg.py</span></code></a></p>

@@ -226,6 +226,10 @@
  \mathrm{ICE}_{S}^{i}(x_{S}) = \hat{f}(x_{S}, x_{C}^{(i)})
 \end{align}\]</div>
 <p>In PiML, the ICE plot is implemented using the scikit-learn package. For a more detailed analysis of this algorithm, please refer to the documentation available <a class="reference external" href="https://scikit-learn.org/stable/auto_examples/inspection/plot_partial_dependence.html">here</a>.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>For binary classification tasks, the ICE is computed by default using the predicted probability instead of log odds. In <code class="docutils literal notranslate"><span class="pre">exp.model_explain</span></code>, there exist an argument called <code class="docutils literal notranslate"><span class="pre">response_method</span></code>. If we want to use the predicted probability as the output, we can set <code class="docutils literal notranslate"><span class="pre">response_method</span></code> to “decision_function”.</p>
+</div>
 </section>
 <section id="usage">
 <h2><span class="section-number">4.1.3.2. </span>Usage<a class="headerlink" href="#usage" title="Permalink to this heading">¶</a></h2>
@@ -253,6 +257,13 @@
 </div></blockquote>
 <ul class="simple">
 <li><p><a class="reference internal" href="../../auto_examples/explain/plot_2_ice.html#sphx-glr-auto-examples-explain-plot-2-ice-py"><span class="std std-ref">Individual Conditional Expectation</span></a></p></li>
+</ul>
+</div>
+<div class="topic">
+<p class="topic-title">Example 2: SimuCredit</p>
+<p>The second example shows the option to use test set to generate the explanations.</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="../../auto_examples/explain/plot_6_data_dependent_explain.html#sphx-glr-auto-examples-explain-plot-6-data-dependent-explain-py"><span class="std std-ref">Data Dependent Explanation</span></a></p></li>
 </ul>
 </div>
 <div class="topic">

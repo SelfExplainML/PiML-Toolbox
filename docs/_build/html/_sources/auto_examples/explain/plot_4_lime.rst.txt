@@ -106,9 +106,7 @@ Plot LIME with centering
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** ( 0 minutes  35.665 seconds)
-
-**Estimated memory usage:**  1264 MB
+   **Total running time of the script:** (0 minutes 1.060 seconds)
 
 
 .. _sphx_glr_download_auto_examples_explain_plot_4_lime.py:

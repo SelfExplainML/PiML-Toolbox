@@ -19,7 +19,7 @@ PIML supports various fairness metrics, as shown below. In specific, we use the 
 .. math::
 
    \begin{align}     
-   AIR = \frac{(TP_{p}+FP_{p}) / n_{p}}{(TP_{r}+FP_{r}) / n_{r}}.
+   AIR = \frac{(TP_{p}+FP_{p}) / n_{r}}{(TP_{r}+FP_{r}) / n_{p}}.
    \end{align}
 
 - **Precision**: Positive predictive value disparity ratio.
@@ -66,9 +66,9 @@ The `favorable_threshold` parameter is the threshold for binarizing the predicte
 
 Fairness Segmented
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-By leveraging the `model_fairness` API, we can also display fairness results conditioning on a feature of interest. The keyword of the parameter `show` is "segmented", and the segmented feature can be specified by the parameter `segmented_feature`. 
+By leveraging the `model_fairness` API, we can also display fairness results conditioning on a feature of interest. The keyword of the parameter `show` is "segmented", and the segmented feature can be specified by the parameter `segment_feature`. 
 
-- For numerical features, the desired number of equal-space bins can be controlled by the parameter `segmented_bins`. 
+- For numerical features, the desired number of equal-space bins can be controlled by the parameter `segment_bins`. 
 - For categorical features, the samples are segmented according to the unique categories present in the feature. 
 
 Once the segmentation is completed, PIML generates the fairness results for each bucket. The supported metric types align with those outlined in the "Fairness Metric" section.  in PIML, users can effectively analyze and evaluate fairness at a granular level, allowing for a more comprehensive understanding of the model's fairness performance across various segments of the data.
@@ -76,9 +76,9 @@ Once the segmentation is completed, PIML generates the fairness results for each
 .. jupyter-input::
    
    segmented_result = exp.model_fairness(model="XGB2_monotonic", show="segmented", metric="AIR",
-                                          segmented_feature="Balance", group_category=["Race","Gender"],
+                                          segment_feature="Balance", group_category=["Race","Gender"],
                                           reference_group=[1., 1.], protected_group=[0., 0.],
-                                          segmented_bins=5, favorable_threshold=0.5,
+                                          segment_bins=5, favorable_threshold=0.5,
                                           return_data=True, figsize=(8, 4))
 
 .. figure:: ../../auto_examples/testing/images/sphx_glr_plot_6_fairness_002.png

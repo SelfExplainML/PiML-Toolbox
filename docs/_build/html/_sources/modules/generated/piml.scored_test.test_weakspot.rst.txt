@@ -1,0 +1,10 @@
+﻿:mod:`piml.scored_test`.test_weakspot
+==================================================
+
+.. currentmodule:: piml.scored_test
+
+.. autofunction:: test_weakspot
+
+.. raw:: html
+
+    <div class="clearer"></div>

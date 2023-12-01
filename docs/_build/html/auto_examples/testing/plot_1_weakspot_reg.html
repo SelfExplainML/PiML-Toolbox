@@ -136,23 +136,23 @@ to download the full example code or to run this example in your browser via Bin
 <section class="sphx-glr-example-title" id="weakspot-regression">
 <span id="sphx-glr-auto-examples-testing-plot-1-weakspot-reg-py"></span><h1>WeakSpot: Regression<a class="headerlink" href="#weakspot-regression" title="Permalink to this heading">¶</a></h1>
 <p>Experiment initialization and data preparation</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">piml</span> <span class="kn">import</span> <a href="../../modules/generated/piml.Experiment.html#piml.Experiment" title="piml.Experiment" class="sphx-glr-backref-module-piml sphx-glr-backref-type-py-class sphx-glr-backref-instance"><a href="../../modules/generated/piml.Experiment.html#piml.Experiment" title="piml.Experiment" class="sphx-glr-backref-module-piml sphx-glr-backref-type-py-class sphx-glr-backref-instance"><a href="../../modules/generated/piml.Experiment.html#piml.Experiment" title="piml.Experiment" class="sphx-glr-backref-module-piml sphx-glr-backref-type-py-class sphx-glr-backref-instance"><a href="../../modules/generated/piml.Experiment.html#piml.Experiment" title="piml.Experiment" class="sphx-glr-backref-module-piml sphx-glr-backref-type-py-class sphx-glr-backref-instance"><a href="../../modules/generated/piml.Experiment.html#piml.Experiment" title="piml.Experiment" class="sphx-glr-backref-module-piml sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">Experiment</span></a></a></a></a></a>
-<span class="kn">from</span> <span class="nn">piml.models</span> <span class="kn">import</span> <a href="../../modules/generated/piml.models.XGB2Regressor.html#piml.models.XGB2Regressor" title="piml.models.XGB2Regressor" class="sphx-glr-backref-module-piml-models sphx-glr-backref-type-py-class sphx-glr-backref-instance"><a href="../../modules/generated/piml.models.XGB2Regressor.html#piml.models.XGB2Regressor" title="piml.models.XGB2Regressor" class="sphx-glr-backref-module-piml-models sphx-glr-backref-type-py-class sphx-glr-backref-instance"><a href="../../modules/generated/piml.models.XGB2Regressor.html#piml.models.XGB2Regressor" title="piml.models.XGB2Regressor" class="sphx-glr-backref-module-piml-models sphx-glr-backref-type-py-class sphx-glr-backref-instance"><a href="../../modules/generated/piml.models.XGB2Regressor.html#piml.models.XGB2Regressor" title="piml.models.XGB2Regressor" class="sphx-glr-backref-module-piml-models sphx-glr-backref-type-py-class sphx-glr-backref-instance"><a href="../../modules/generated/piml.models.XGB2Regressor.html#piml.models.XGB2Regressor" title="piml.models.XGB2Regressor" class="sphx-glr-backref-module-piml-models sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">XGB2Regressor</span></a></a></a></a></a>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">piml</span> <span class="kn">import</span> <a href="../../modules/generated/piml.Experiment.html#piml.Experiment" title="piml.Experiment" class="sphx-glr-backref-module-piml sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">Experiment</span></a>
+<span class="kn">from</span> <span class="nn">piml.models</span> <span class="kn">import</span> <a href="../../modules/generated/piml.models.XGB2Regressor.html#piml.models.XGB2Regressor" title="piml.models.XGB2Regressor" class="sphx-glr-backref-module-piml-models sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">XGB2Regressor</span></a>
 
-<span class="n">exp</span> <span class="o">=</span> <a href="../../modules/generated/piml.Experiment.html#piml.Experiment" title="piml.Experiment" class="sphx-glr-backref-module-piml sphx-glr-backref-type-py-class sphx-glr-backref-instance"><a href="../../modules/generated/piml.Experiment.html#piml.Experiment" title="piml.Experiment" class="sphx-glr-backref-module-piml sphx-glr-backref-type-py-class sphx-glr-backref-instance"><a href="../../modules/generated/piml.Experiment.html#piml.Experiment" title="piml.Experiment" class="sphx-glr-backref-module-piml sphx-glr-backref-type-py-class sphx-glr-backref-instance"><a href="../../modules/generated/piml.Experiment.html#piml.Experiment" title="piml.Experiment" class="sphx-glr-backref-module-piml sphx-glr-backref-type-py-class sphx-glr-backref-instance"><a href="../../modules/generated/piml.Experiment.html#piml.Experiment" title="piml.Experiment" class="sphx-glr-backref-module-piml sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">Experiment</span></a></a></a></a></a><span class="p">()</span>
+<span class="n">exp</span> <span class="o">=</span> <a href="../../modules/generated/piml.Experiment.html#piml.Experiment" title="piml.Experiment" class="sphx-glr-backref-module-piml sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">Experiment</span></a><span class="p">()</span>
 <span class="n">exp</span><span class="o">.</span><span class="n">data_loader</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="s2">&quot;BikeSharing&quot;</span><span class="p">,</span> <span class="n">silent</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 <span class="n">exp</span><span class="o">.</span><span class="n">data_summary</span><span class="p">(</span><span class="n">feature_exclude</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;yr&quot;</span><span class="p">,</span> <span class="s2">&quot;mnth&quot;</span><span class="p">,</span> <span class="s2">&quot;temp&quot;</span><span class="p">],</span> <span class="n">silent</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 <span class="n">exp</span><span class="o">.</span><span class="n">data_prepare</span><span class="p">(</span><span class="n">target</span><span class="o">=</span><span class="s2">&quot;cnt&quot;</span><span class="p">,</span> <span class="n">task_type</span><span class="o">=</span><span class="s2">&quot;regression&quot;</span><span class="p">,</span> <span class="n">silent</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>Train Model</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">exp</span><span class="o">.</span><span class="n">model_train</span><span class="p">(</span><span class="n">model</span><span class="o">=</span><a href="../../modules/generated/piml.models.XGB2Regressor.html#piml.models.XGB2Regressor" title="piml.models.XGB2Regressor" class="sphx-glr-backref-module-piml-models sphx-glr-backref-type-py-class sphx-glr-backref-instance"><a href="../../modules/generated/piml.models.XGB2Regressor.html#piml.models.XGB2Regressor" title="piml.models.XGB2Regressor" class="sphx-glr-backref-module-piml-models sphx-glr-backref-type-py-class sphx-glr-backref-instance"><a href="../../modules/generated/piml.models.XGB2Regressor.html#piml.models.XGB2Regressor" title="piml.models.XGB2Regressor" class="sphx-glr-backref-module-piml-models sphx-glr-backref-type-py-class sphx-glr-backref-instance"><a href="../../modules/generated/piml.models.XGB2Regressor.html#piml.models.XGB2Regressor" title="piml.models.XGB2Regressor" class="sphx-glr-backref-module-piml-models sphx-glr-backref-type-py-class sphx-glr-backref-instance"><a href="../../modules/generated/piml.models.XGB2Regressor.html#piml.models.XGB2Regressor" title="piml.models.XGB2Regressor" class="sphx-glr-backref-module-piml-models sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">XGB2Regressor</span></a></a></a></a></a><span class="p">(),</span> <span class="n">name</span><span class="o">=</span><span class="s2">&quot;XGB2&quot;</span><span class="p">)</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">exp</span><span class="o">.</span><span class="n">model_train</span><span class="p">(</span><span class="n">model</span><span class="o">=</span><a href="../../modules/generated/piml.models.XGB2Regressor.html#piml.models.XGB2Regressor" title="piml.models.XGB2Regressor" class="sphx-glr-backref-module-piml-models sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">XGB2Regressor</span></a><span class="p">(),</span> <span class="n">name</span><span class="o">=</span><span class="s2">&quot;XGB2&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>Histogram-based weakspot for a single feature</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">results</span> <span class="o">=</span> <span class="n">exp</span><span class="o">.</span><span class="n">model_diagnose</span><span class="p">(</span><span class="n">model</span><span class="o">=</span><span class="s2">&quot;XGB2&quot;</span><span class="p">,</span> <span class="n">show</span><span class="o">=</span><span class="s2">&quot;weakspot&quot;</span><span class="p">,</span> <span class="n">slice_method</span><span class="o">=</span><span class="s2">&quot;histogram&quot;</span><span class="p">,</span>
                              <span class="n">slice_features</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;hr&quot;</span><span class="p">],</span> <span class="n">threshold</span><span class="o">=</span><span class="mf">1.1</span><span class="p">,</span> <span class="n">min_samples</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span>
-                             <span class="n">original_scale</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">return_data</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">4</span><span class="p">))</span>
+                             <span class="n">return_data</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">4</span><span class="p">))</span>
 <span class="n">results</span><span class="o">.</span><span class="n">data</span>
 </pre></div>
 </div>
@@ -191,9 +191,9 @@ to download the full example code or to run this example in your browser via Bin
       <td>0.4</td>
       <td>445</td>
       <td>1736</td>
-      <td>0.0226</td>
-      <td>0.0205</td>
-      <td>0.0021</td>
+      <td>0.021922</td>
+      <td>0.019718</td>
+      <td>0.002204</td>
     </tr>
     <tr>
       <th>1</th>
@@ -201,9 +201,9 @@ to download the full example code or to run this example in your browser via Bin
       <td>0.8</td>
       <td>290</td>
       <td>1168</td>
-      <td>0.0283</td>
-      <td>0.0277</td>
-      <td>0.0006</td>
+      <td>0.030705</td>
+      <td>0.030399</td>
+      <td>0.000306</td>
     </tr>
   </tbody>
 </table>
@@ -213,7 +213,7 @@ to download the full example code or to run this example in your browser via Bin
 <br /><p>Histogram-based weakspot for two features</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">results</span> <span class="o">=</span> <span class="n">exp</span><span class="o">.</span><span class="n">model_diagnose</span><span class="p">(</span><span class="n">model</span><span class="o">=</span><span class="s2">&quot;XGB2&quot;</span><span class="p">,</span> <span class="n">show</span><span class="o">=</span><span class="s2">&quot;weakspot&quot;</span><span class="p">,</span> <span class="n">slice_method</span><span class="o">=</span><span class="s2">&quot;histogram&quot;</span><span class="p">,</span>
                              <span class="n">slice_features</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;hr&quot;</span><span class="p">,</span> <span class="s2">&quot;workingday&quot;</span><span class="p">],</span> <span class="n">threshold</span><span class="o">=</span><span class="mf">1.1</span><span class="p">,</span> <span class="n">min_samples</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span>
-                             <span class="n">original_scale</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">return_data</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">4</span><span class="p">))</span>
+                             <span class="n">return_data</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">4</span><span class="p">))</span>
 <span class="n">results</span><span class="o">.</span><span class="n">data</span>
 </pre></div>
 </div>
@@ -256,9 +256,9 @@ to download the full example code or to run this example in your browser via Bin
       <td>1.0</td>
       <td>445</td>
       <td>1736</td>
-      <td>0.0226</td>
-      <td>0.0205</td>
-      <td>2.0938e-03</td>
+      <td>0.021922</td>
+      <td>0.019718</td>
+      <td>0.002204</td>
     </tr>
     <tr>
       <th>1</th>
@@ -268,9 +268,9 @@ to download the full example code or to run this example in your browser via Bin
       <td>0.5</td>
       <td>85</td>
       <td>377</td>
-      <td>0.0207</td>
-      <td>0.0200</td>
-      <td>6.3215e-04</td>
+      <td>0.021868</td>
+      <td>0.020749</td>
+      <td>0.001119</td>
     </tr>
     <tr>
       <th>2</th>
@@ -280,9 +280,9 @@ to download the full example code or to run this example in your browser via Bin
       <td>1.0</td>
       <td>290</td>
       <td>1168</td>
-      <td>0.0283</td>
-      <td>0.0277</td>
-      <td>5.8851e-04</td>
+      <td>0.030705</td>
+      <td>0.030399</td>
+      <td>0.000306</td>
     </tr>
     <tr>
       <th>3</th>
@@ -292,9 +292,9 @@ to download the full example code or to run this example in your browser via Bin
       <td>0.5</td>
       <td>155</td>
       <td>538</td>
-      <td>0.0153</td>
-      <td>0.0152</td>
-      <td>5.1004e-05</td>
+      <td>0.015925</td>
+      <td>0.015833</td>
+      <td>0.000092</td>
     </tr>
     <tr>
       <th>4</th>
@@ -304,9 +304,9 @@ to download the full example code or to run this example in your browser via Bin
       <td>0.5</td>
       <td>97</td>
       <td>365</td>
-      <td>0.0102</td>
-      <td>0.0108</td>
-      <td>-5.7190e-04</td>
+      <td>0.010331</td>
+      <td>0.011008</td>
+      <td>-0.000677</td>
     </tr>
   </tbody>
 </table>
@@ -316,7 +316,7 @@ to download the full example code or to run this example in your browser via Bin
 <br /><p>Histogram-based weakspot for a single feature on test set</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">results</span> <span class="o">=</span> <span class="n">exp</span><span class="o">.</span><span class="n">model_diagnose</span><span class="p">(</span><span class="n">model</span><span class="o">=</span><span class="s2">&quot;XGB2&quot;</span><span class="p">,</span> <span class="n">show</span><span class="o">=</span><span class="s2">&quot;weakspot&quot;</span><span class="p">,</span> <span class="n">slice_method</span><span class="o">=</span><span class="s2">&quot;histogram&quot;</span><span class="p">,</span>
                              <span class="n">slice_features</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;hr&quot;</span><span class="p">],</span> <span class="n">threshold</span><span class="o">=</span><span class="mf">1.1</span><span class="p">,</span> <span class="n">min_samples</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span>
-                             <span class="n">use_test</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">original_scale</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">return_data</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">4</span><span class="p">))</span>
+                             <span class="n">use_test</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">return_data</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">4</span><span class="p">))</span>
 <span class="n">results</span><span class="o">.</span><span class="n">data</span>
 </pre></div>
 </div>
@@ -355,9 +355,9 @@ to download the full example code or to run this example in your browser via Bin
       <td>0.4</td>
       <td>445</td>
       <td>1736</td>
-      <td>0.0226</td>
-      <td>0.0205</td>
-      <td>0.0021</td>
+      <td>0.021922</td>
+      <td>0.019718</td>
+      <td>0.002204</td>
     </tr>
     <tr>
       <th>1</th>
@@ -365,9 +365,9 @@ to download the full example code or to run this example in your browser via Bin
       <td>0.8</td>
       <td>290</td>
       <td>1168</td>
-      <td>0.0283</td>
-      <td>0.0277</td>
-      <td>0.0006</td>
+      <td>0.030705</td>
+      <td>0.030399</td>
+      <td>0.000306</td>
     </tr>
   </tbody>
 </table>
@@ -377,7 +377,7 @@ to download the full example code or to run this example in your browser via Bin
 <br /><p>Histogram-based weakspot for a single feature using MAE metric</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">results</span> <span class="o">=</span> <span class="n">exp</span><span class="o">.</span><span class="n">model_diagnose</span><span class="p">(</span><span class="n">model</span><span class="o">=</span><span class="s2">&quot;XGB2&quot;</span><span class="p">,</span> <span class="n">show</span><span class="o">=</span><span class="s2">&quot;weakspot&quot;</span><span class="p">,</span> <span class="n">slice_method</span><span class="o">=</span><span class="s2">&quot;histogram&quot;</span><span class="p">,</span>
                              <span class="n">slice_features</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;hr&quot;</span><span class="p">],</span> <span class="n">threshold</span><span class="o">=</span><span class="mf">1.1</span><span class="p">,</span> <span class="n">min_samples</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span>
-                             <span class="n">metric</span><span class="o">=</span><span class="s2">&quot;MAE&quot;</span><span class="p">,</span> <span class="n">original_scale</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">return_data</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">4</span><span class="p">))</span>
+                             <span class="n">metric</span><span class="o">=</span><span class="s2">&quot;MAE&quot;</span><span class="p">,</span> <span class="n">return_data</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">4</span><span class="p">))</span>
 <span class="n">results</span><span class="o">.</span><span class="n">data</span>
 </pre></div>
 </div>
@@ -416,19 +416,19 @@ to download the full example code or to run this example in your browser via Bin
       <td>0.4</td>
       <td>445</td>
       <td>1736</td>
-      <td>0.1175</td>
-      <td>0.1122</td>
-      <td>0.0053</td>
+      <td>0.116319</td>
+      <td>0.110566</td>
+      <td>0.005752</td>
     </tr>
     <tr>
       <th>1</th>
-      <td>0.5</td>
+      <td>0.6</td>
       <td>0.8</td>
-      <td>1026</td>
-      <td>4077</td>
-      <td>0.0931</td>
-      <td>0.0919</td>
-      <td>0.0012</td>
+      <td>735</td>
+      <td>2911</td>
+      <td>0.104566</td>
+      <td>0.103100</td>
+      <td>0.001466</td>
     </tr>
   </tbody>
 </table>
@@ -438,7 +438,7 @@ to download the full example code or to run this example in your browser via Bin
 <br /><p>Tree-based weakspot for a single feature using MAE metric</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">results</span> <span class="o">=</span> <span class="n">exp</span><span class="o">.</span><span class="n">model_diagnose</span><span class="p">(</span><span class="n">model</span><span class="o">=</span><span class="s2">&quot;XGB2&quot;</span><span class="p">,</span> <span class="n">show</span><span class="o">=</span><span class="s2">&quot;weakspot&quot;</span><span class="p">,</span> <span class="n">slice_method</span><span class="o">=</span><span class="s2">&quot;tree&quot;</span><span class="p">,</span>
                              <span class="n">slice_features</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;hr&quot;</span><span class="p">],</span> <span class="n">threshold</span><span class="o">=</span><span class="mf">1.1</span><span class="p">,</span> <span class="n">min_samples</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span>
-                             <span class="n">metric</span><span class="o">=</span><span class="s2">&quot;MAE&quot;</span><span class="p">,</span> <span class="n">original_scale</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">return_data</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">4</span><span class="p">))</span>
+                             <span class="n">metric</span><span class="o">=</span><span class="s2">&quot;MAE&quot;</span><span class="p">,</span> <span class="n">return_data</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">4</span><span class="p">))</span>
 <span class="n">results</span><span class="o">.</span><span class="n">data</span>
 </pre></div>
 </div>
@@ -473,155 +473,34 @@ to download the full example code or to run this example in your browser via Bin
   <tbody>
     <tr>
       <th>0</th>
-      <td>0.3261</td>
-      <td>0.3696</td>
-      <td>135</td>
-      <td>592</td>
-      <td>0.1947</td>
-      <td>0.1677</td>
-      <td>0.0270</td>
+      <td>0.282609</td>
+      <td>0.369565</td>
+      <td>283</td>
+      <td>1171</td>
+      <td>0.149505</td>
+      <td>0.135181</td>
+      <td>0.014324</td>
     </tr>
     <tr>
       <th>1</th>
-      <td>0.2826</td>
-      <td>0.3261</td>
-      <td>148</td>
-      <td>579</td>
-      <td>0.1130</td>
-      <td>0.1062</td>
-      <td>0.0068</td>
-    </tr>
-    <tr>
-      <th>2</th>
-      <td>0.3696</td>
-      <td>0.8478</td>
-      <td>1630</td>
-      <td>6382</td>
-      <td>0.0827</td>
-      <td>0.0825</td>
-      <td>0.0002</td>
+      <td>0.369565</td>
+      <td>1.000000</td>
+      <td>2214</td>
+      <td>8710</td>
+      <td>0.074912</td>
+      <td>0.074687</td>
+      <td>0.000226</td>
     </tr>
   </tbody>
 </table>
 </div>
 </div>
 <br />
-<br /><p>XGB-based weakspot for a single feature using MAE metric</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">results</span> <span class="o">=</span> <span class="n">exp</span><span class="o">.</span><span class="n">model_diagnose</span><span class="p">(</span><span class="n">model</span><span class="o">=</span><span class="s2">&quot;XGB2&quot;</span><span class="p">,</span> <span class="n">show</span><span class="o">=</span><span class="s2">&quot;weakspot&quot;</span><span class="p">,</span> <span class="n">slice_method</span><span class="o">=</span><span class="s2">&quot;xgb&quot;</span><span class="p">,</span>
-                             <span class="n">slice_features</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;atemp&quot;</span><span class="p">],</span> <span class="n">threshold</span><span class="o">=</span><span class="mf">1.1</span><span class="p">,</span> <span class="n">min_samples</span><span class="o">=</span><span class="mi">60</span><span class="p">,</span> <span class="n">use_test</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
-                             <span class="n">metric</span><span class="o">=</span><span class="s2">&quot;MAE&quot;</span><span class="p">,</span> <span class="n">original_scale</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">return_data</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">4</span><span class="p">))</span>
-<span class="n">results</span><span class="o">.</span><span class="n">data</span>
-</pre></div>
-</div>
-<img src="../../_images/sphx_glr_plot_1_weakspot_reg_006.png" srcset="../../_images/sphx_glr_plot_1_weakspot_reg_006.png" alt="Weak Regions" class = "sphx-glr-single-img"/><div class="output_subarea output_html rendered_html output_result">
-<div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th>[atemp</th>
-      <th>atemp)</th>
-      <th>#Test</th>
-      <th>#Train</th>
-      <th>test_MAE</th>
-      <th>train_MAE</th>
-      <th>Gap</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>0</th>
-      <td>0.4545</td>
-      <td>0.4848</td>
-      <td>268</td>
-      <td>1110</td>
-      <td>0.0753</td>
-      <td>0.0634</td>
-      <td>0.0119</td>
-    </tr>
-    <tr>
-      <th>1</th>
-      <td>0.6364</td>
-      <td>0.6667</td>
-      <td>303</td>
-      <td>1239</td>
-      <td>0.0841</td>
-      <td>0.0778</td>
-      <td>0.0063</td>
-    </tr>
-    <tr>
-      <th>2</th>
-      <td>0.5152</td>
-      <td>0.5303</td>
-      <td>127</td>
-      <td>452</td>
-      <td>0.0746</td>
-      <td>0.0738</td>
-      <td>0.0008</td>
-    </tr>
-    <tr>
-      <th>3</th>
-      <td>0.6818</td>
-      <td>0.7273</td>
-      <td>146</td>
-      <td>555</td>
-      <td>0.0787</td>
-      <td>0.0803</td>
-      <td>-0.0016</td>
-    </tr>
-    <tr>
-      <th>4</th>
-      <td>0.6667</td>
-      <td>0.6818</td>
-      <td>74</td>
-      <td>307</td>
-      <td>0.0736</td>
-      <td>0.0756</td>
-      <td>-0.0020</td>
-    </tr>
-    <tr>
-      <th>5</th>
-      <td>0.5909</td>
-      <td>0.6212</td>
-      <td>294</td>
-      <td>1282</td>
-      <td>0.0790</td>
-      <td>0.0820</td>
-      <td>-0.0030</td>
-    </tr>
-    <tr>
-      <th>6</th>
-      <td>0.7273</td>
-      <td>0.9848</td>
-      <td>196</td>
-      <td>882</td>
-      <td>0.0744</td>
-      <td>0.0808</td>
-      <td>-0.0063</td>
-    </tr>
-  </tbody>
-</table>
-</div>
-</div>
-<br />
-<br /><p class="sphx-glr-timing"><strong>Total running time of the script:</strong> ( 53 minutes  13.664 seconds)</p>
-<p><strong>Estimated memory usage:</strong>  1386 MB</p>
+<br /><p class="sphx-glr-timing"><strong>Total running time of the script:</strong> ( 1 minutes  5.304 seconds)</p>
+<p><strong>Estimated memory usage:</strong>  21 MB</p>
 <div class="sphx-glr-footer sphx-glr-footer-example docutils container" id="sphx-glr-download-auto-examples-testing-plot-1-weakspot-reg-py">
 <div class="binder-badge docutils container">
-<a class="reference external image-reference" href="https://mybinder.org/v2/gh/selfexplainml/piml-toolbox/main?urlpath=lab/tree/./docs/_build/html/notebooks/auto_examples/testing/plot_1_weakspot_reg.ipynb"><img alt="Launch binder" src="../../_images/binder_badge_logo3.svg" width="150px" /></a>
+<a class="reference external image-reference" href="https://mybinder.org/v2/gh/selfexplainml/piml-toolbox/main?urlpath=lab/tree/./docs/_build/html/notebooks/auto_examples/testing/plot_1_weakspot_reg.ipynb"><img alt="Launch binder" src="../../_images/binder_badge_logo4.svg" width="150px" /></a>
 </div>
 <div class="sphx-glr-download sphx-glr-download-python docutils container">
 <p><a class="reference download internal" download="" href="../../_downloads/f8327694724aebfa8bf2a4e695b4f9db/plot_1_weakspot_reg.py"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Python</span> <span class="pre">source</span> <span class="pre">code:</span> <span class="pre">plot_1_weakspot_reg.py</span></code></a></p>

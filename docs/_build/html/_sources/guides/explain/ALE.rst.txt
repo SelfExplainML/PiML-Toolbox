@@ -34,6 +34,11 @@ Note that the computation of ALE is faster than that of PDP, as it requires less
    When features are strongly correlated, it is not suggested to do the interpretation of the effect across intervals. That is because the effects are computed per interval (locally), and require no extrapolation beyond the data envelope. If fix one feature and move another feature (highly correlated with the fixed one) from one interval to another one, the model being explained :math:`\hat{f}` may output unreliable predictions, which will lead to unreliable ALE values. In other words, the ALE values are not reliable when the model is extrapolating outside
    of the data envelope. Therefore, as features are strongly correlated, we should interpret ALE plots locally for each bin.
 
+.. note::
+
+   For binary classification tasks, the ALE is computed by default using the predicted probability instead of log odds. In `exp.model_explain`, there exist an argument called `response_method`. If we want to use the predicted probability as the output, we can set `response_method` to "decision_function".
+
+
 
 Usage
 ^^^^^^^^^^^^^^^^^
@@ -103,3 +108,10 @@ Examples
   The first example below demonstrates how to use PiML with its high-code APIs for developing machine learning models for the BikeSharing data from the UCI repository, which consists of 17,389 samples of hourly counts of rental bikes in Capital bikeshare system; see details. The response `cnt` (hourly bike rental counts) is continuous and it is a regression problem.
                           
  * :ref:`sphx_glr_auto_examples_explain_plot_3_ale.py`
+
+
+.. topic:: Example 2: SimuCredit
+
+   The second example shows the option to use test set to generate the explanations.
+
+   * :ref:`sphx_glr_auto_examples_explain_plot_6_data_dependent_explain.py`

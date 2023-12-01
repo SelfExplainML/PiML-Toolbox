@@ -27,7 +27,7 @@ EDA plots using the BikeSharing dataset as example.
 
 Experiment initialization and data preparation
 
-.. GENERATED FROM PYTHON SOURCE LINES 11-17
+.. GENERATED FROM PYTHON SOURCE LINES 11-16
 
 .. code-block:: default
 
@@ -35,7 +35,6 @@ Experiment initialization and data preparation
 
     exp = Experiment()
     exp.data_loader(data="BikeSharing", silent=True)
-    exp.data_prepare(silent=True)
 
 
 
@@ -44,11 +43,11 @@ Experiment initialization and data preparation
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 18-19
+.. GENERATED FROM PYTHON SOURCE LINES 17-18
 
 histogram-density plot
 
-.. GENERATED FROM PYTHON SOURCE LINES 19-21
+.. GENERATED FROM PYTHON SOURCE LINES 18-20
 
 .. code-block:: default
 
@@ -66,11 +65,11 @@ histogram-density plot
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 22-23
+.. GENERATED FROM PYTHON SOURCE LINES 21-22
 
 bar plot
 
-.. GENERATED FROM PYTHON SOURCE LINES 23-25
+.. GENERATED FROM PYTHON SOURCE LINES 22-24
 
 .. code-block:: default
 
@@ -88,11 +87,11 @@ bar plot
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 26-27
+.. GENERATED FROM PYTHON SOURCE LINES 25-26
 
 scatter plot
 
-.. GENERATED FROM PYTHON SOURCE LINES 27-29
+.. GENERATED FROM PYTHON SOURCE LINES 26-28
 
 .. code-block:: default
 
@@ -110,11 +109,11 @@ scatter plot
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 30-31
+.. GENERATED FROM PYTHON SOURCE LINES 29-30
 
 box plot
 
-.. GENERATED FROM PYTHON SOURCE LINES 31-33
+.. GENERATED FROM PYTHON SOURCE LINES 30-32
 
 .. code-block:: default
 
@@ -132,11 +131,11 @@ box plot
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 34-35
+.. GENERATED FROM PYTHON SOURCE LINES 33-34
 
 stack bar plot
 
-.. GENERATED FROM PYTHON SOURCE LINES 35-37
+.. GENERATED FROM PYTHON SOURCE LINES 34-36
 
 .. code-block:: default
 
@@ -154,11 +153,11 @@ stack bar plot
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 38-39
+.. GENERATED FROM PYTHON SOURCE LINES 37-38
 
 correlation heatmap
 
-.. GENERATED FROM PYTHON SOURCE LINES 39-41
+.. GENERATED FROM PYTHON SOURCE LINES 38-40
 
 .. code-block:: default
 
@@ -176,11 +175,11 @@ correlation heatmap
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 42-43
+.. GENERATED FROM PYTHON SOURCE LINES 41-42
 
 correlation graph
 
-.. GENERATED FROM PYTHON SOURCE LINES 43-44
+.. GENERATED FROM PYTHON SOURCE LINES 42-43
 
 .. code-block:: default
 
@@ -200,9 +199,9 @@ correlation graph
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** ( 2 minutes  9.255 seconds)
+   **Total running time of the script:** ( 0 minutes  48.515 seconds)
 
-**Estimated memory usage:**  1270 MB
+**Estimated memory usage:**  23 MB
 
 
 .. _sphx_glr_download_auto_examples_data_plot_2_data_eda.py:

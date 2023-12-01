@@ -63,15 +63,14 @@ Random split
 
  .. code-block:: none
 
-                           Config       Value
-    0            Excluded columns          []
-    1             Target variable         cnt
-    2               Sample weight        None
-    3                   Task type  Regression
-    4                Split method      Random
-    5                  Test ratio         0.2
-    6                Random state           0
-    7  Train test energy distance    0.000586
+                 Config       Value
+    0  Excluded columns          []
+    1   Target variable         cnt
+    2     Sample weight        None
+    3         Task type  regression
+    4      Split method      random
+    5        Test ratio         0.2
+    6      Random state           0
 
 
 
@@ -95,15 +94,14 @@ Outer-sample-based split
 
  .. code-block:: none
 
-                           Config         Value
-    0            Excluded columns            []
-    1             Target variable           cnt
-    2               Sample weight          None
-    3                   Task type    Regression
-    4                Split method  Outer-Sample
-    5                  Test ratio           0.2
-    6                Random state             0
-    7  Train test energy distance      0.175758
+                 Config         Value
+    0  Excluded columns            []
+    1   Target variable           cnt
+    2     Sample weight          None
+    3         Task type    regression
+    4      Split method  outer-sample
+    5        Test ratio           0.2
+    6      Random state             0
 
 
 
@@ -127,15 +125,14 @@ KMeans-based split
 
  .. code-block:: none
 
-                           Config       Value
-    0            Excluded columns          []
-    1             Target variable         cnt
-    2               Sample weight        None
-    3                   Task type  Regression
-    4                Split method      KMeans
-    5                  Test ratio    0.419127
-    6                Random state           0
-    7  Train test energy distance    0.179331
+                 Config       Value
+    0  Excluded columns          []
+    1   Target variable         cnt
+    2     Sample weight        None
+    3         Task type  regression
+    4      Split method      kmeans
+    5        Test ratio    0.420277
+    6      Random state           0
 
 
 
@@ -159,15 +156,14 @@ Custom split
 
  .. code-block:: none
 
-                           Config       Value
-    0            Excluded columns          []
-    1             Target variable         cnt
-    2               Sample weight        None
-    3                   Task type  Regression
-    4                Split method      Manual
-    5                  Test ratio    0.079349
-    6                Random state           0
-    7  Train test energy distance    0.542053
+                 Config       Value
+    0  Excluded columns          []
+    1   Target variable         cnt
+    2     Sample weight        None
+    3         Task type  regression
+    4      Split method      manual
+    5        Test ratio    0.079349
+    6      Random state           0
 
 
 
@@ -175,9 +171,9 @@ Custom split
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** ( 1 minutes  6.108 seconds)
+   **Total running time of the script:** ( 0 minutes  38.990 seconds)
 
-**Estimated memory usage:**  2208 MB
+**Estimated memory usage:**  20 MB
 
 
 .. _sphx_glr_download_auto_examples_data_plot_3_data_prepare.py:

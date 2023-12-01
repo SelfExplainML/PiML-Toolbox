@@ -25,11 +25,10 @@ ReLU DNN Classification (Taiwan Credit)
 
 Experiment initialization and data preparation
 
-.. GENERATED FROM PYTHON SOURCE LINES 9-18
+.. GENERATED FROM PYTHON SOURCE LINES 9-17
 
 .. code-block:: default
 
-    import matplotlib.pyplot as plt
     from piml import Experiment
     from piml.models import ReluDNNClassifier
 
@@ -45,11 +44,11 @@ Experiment initialization and data preparation
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 19-20
+.. GENERATED FROM PYTHON SOURCE LINES 18-19
 
 Train Model
 
-.. GENERATED FROM PYTHON SOURCE LINES 20-22
+.. GENERATED FROM PYTHON SOURCE LINES 19-21
 
 .. code-block:: default
 
@@ -62,11 +61,11 @@ Train Model
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 23-24
+.. GENERATED FROM PYTHON SOURCE LINES 22-23
 
 Evaluate predictive performance
 
-.. GENERATED FROM PYTHON SOURCE LINES 24-26
+.. GENERATED FROM PYTHON SOURCE LINES 23-25
 
 .. code-block:: default
 
@@ -80,20 +79,20 @@ Evaluate predictive performance
 
  .. code-block:: none
 
-              ACC      AUC      F1
-                              
-    Train  0.8200   0.7723  0.4722
-    Test   0.8300   0.7708  0.4817
-    Gap    0.0100  -0.0015  0.0095
+              ACC      AUC      F1  LogLoss    Brier
+                                                
+    Train  0.8201   0.7727  0.4750   0.4331   0.1356
+    Test   0.8298   0.7708  0.4836   0.4251   0.1318
+    Gap    0.0097  -0.0020  0.0086  -0.0081  -0.0039
 
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 27-28
+.. GENERATED FROM PYTHON SOURCE LINES 26-27
 
 Local Linear Model (LLM) summary plot
 
-.. GENERATED FROM PYTHON SOURCE LINES 28-29
+.. GENERATED FROM PYTHON SOURCE LINES 27-28
 
 .. code-block:: default
 
@@ -106,31 +105,29 @@ Local Linear Model (LLM) summary plot
 
  .. code-block:: none
 
-    Degrees of freedom <= 0 for slice
-    invalid value encountered in double_scalars
           Count  Response Mean  Response Std  Local AUC  Global AUC
-    0    6535.0         0.1053        0.3069     0.6037      0.7349
-    1    4166.0         0.1066        0.3086     0.6477      0.6261
-    2    1307.0         0.2295        0.4207     0.5999      0.5003
-    3    1158.0         0.3100        0.4627     0.7819      0.7348
-    4     903.0         0.1595        0.3663     0.6118      0.5528
+    0    4462.0         0.1024        0.3032     0.6443      0.6252
+    1    4379.0         0.1103        0.3133     0.5791      0.7350
+    2    2345.0         0.1164        0.3208     0.5766      0.7346
+    3    1361.0         0.2307        0.4214     0.6007      0.4976
+    4     992.0         0.1704        0.3761     0.5924      0.5489
     ..      ...            ...           ...        ...         ...
-    300     1.0         0.0000           NaN        NaN      0.6987
-    301     1.0         0.0000           NaN        NaN      0.6715
-    302     1.0         1.0000           NaN        NaN      0.7090
-    303     1.0         0.0000           NaN        NaN      0.3122
-    304     1.0         0.0000           NaN        NaN      0.7051
+    321     1.0         1.0000        0.0000        NaN      0.7268
+    322     1.0         1.0000        0.0000        NaN      0.7370
+    323     1.0         0.0000        0.0000        NaN      0.6499
+    324     1.0         1.0000        0.0000        NaN      0.6726
+    325     1.0         1.0000        0.0000        NaN      0.7215
 
-    [305 rows x 5 columns]
-
-
+    [326 rows x 5 columns]
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 30-31
+
+
+.. GENERATED FROM PYTHON SOURCE LINES 29-30
 
 Local Linear Model (LLM) parallel coordinate plot
 
-.. GENERATED FROM PYTHON SOURCE LINES 31-32
+.. GENERATED FROM PYTHON SOURCE LINES 30-31
 
 .. code-block:: default
 
@@ -147,11 +144,11 @@ Local Linear Model (LLM) parallel coordinate plot
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 33-34
+.. GENERATED FROM PYTHON SOURCE LINES 32-33
 
 Local Linear Model (LLM) violin plot
 
-.. GENERATED FROM PYTHON SOURCE LINES 34-35
+.. GENERATED FROM PYTHON SOURCE LINES 33-34
 
 .. code-block:: default
 
@@ -168,11 +165,11 @@ Local Linear Model (LLM) violin plot
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 36-37
+.. GENERATED FROM PYTHON SOURCE LINES 35-36
 
 Global feature importance
 
-.. GENERATED FROM PYTHON SOURCE LINES 37-38
+.. GENERATED FROM PYTHON SOURCE LINES 36-37
 
 .. code-block:: default
 
@@ -189,11 +186,11 @@ Global feature importance
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 39-40
+.. GENERATED FROM PYTHON SOURCE LINES 38-39
 
 Global effect plot: with one feature
 
-.. GENERATED FROM PYTHON SOURCE LINES 40-42
+.. GENERATED FROM PYTHON SOURCE LINES 39-41
 
 .. code-block:: default
 
@@ -203,19 +200,99 @@ Global effect plot: with one feature
 
 
 .. image-sg:: /auto_examples/models/images/sphx_glr_plot_8_reludnn_cls_004.png
-   :alt: LLM Feature Importance of PAY_1: 62.54%
+   :alt: LLM Feature Importance of PAY_1: 67.34%
    :srcset: /auto_examples/models/images/sphx_glr_plot_8_reludnn_cls_004.png
    :class: sphx-glr-single-img
 
 
+.. rst-class:: sphx-glr-script-out
+
+ .. code-block:: none
+
+    Support for multi-dimensional indexing (e.g. `obj[:, None]`) is deprecated and will be removed in a future version.  Convert to a numpy array before indexing instead.
+    Support for multi-dimensional indexing (e.g. `obj[:, None]`) is deprecated and will be removed in a future version.  Convert to a numpy array before indexing instead.
+    Support for multi-dimensional indexing (e.g. `obj[:, None]`) is deprecated and will be removed in a future version.  Convert to a numpy array before indexing instead.
+    Support for multi-dimensional indexing (e.g. `obj[:, None]`) is deprecated and will be removed in a future version.  Convert to a numpy array before indexing instead.
+    Support for multi-dimensional indexing (e.g. `obj[:, None]`) is deprecated and will be removed in a future version.  Convert to a numpy array before indexing instead.
+    Support for multi-dimensional indexing (e.g. `obj[:, None]`) is deprecated and will be removed in a future version.  Convert to a numpy array before indexing instead.
+    Support for multi-dimensional indexing (e.g. `obj[:, None]`) is deprecated and will be removed in a future version.  Convert to a numpy array before indexing instead.
+    Support for multi-dimensional indexing (e.g. `obj[:, None]`) is deprecated and will be removed in a future version.  Convert to a numpy array before indexing instead.
+    Support for multi-dimensional indexing (e.g. `obj[:, None]`) is deprecated and will be removed in a future version.  Convert to a numpy array before indexing instead.
+    Support for multi-dimensional indexing (e.g. `obj[:, None]`) is deprecated and will be removed in a future version.  Convert to a numpy array before indexing instead.
+    Support for multi-dimensional indexing (e.g. `obj[:, None]`) is deprecated and will be removed in a future version.  Convert to a numpy array before indexing instead.
+    Support for multi-dimensional indexing (e.g. `obj[:, None]`) is deprecated and will be removed in a future version.  Convert to a numpy array before indexing instead.
+    Support for multi-dimensional indexing (e.g. `obj[:, None]`) is deprecated and will be removed in a future version.  Convert to a numpy array before indexing instead.
+    Support for multi-dimensional indexing (e.g. `obj[:, None]`) is deprecated and will be removed in a future version.  Convert to a numpy array before indexing instead.
+    Support for multi-dimensional indexing (e.g. `obj[:, None]`) is deprecated and will be removed in a future version.  Convert to a numpy array before indexing instead.
+    Support for multi-dimensional indexing (e.g. `obj[:, None]`) is deprecated and will be removed in a future version.  Convert to a numpy array before indexing instead.
+    Support for multi-dimensional indexing (e.g. `obj[:, None]`) is deprecated and will be removed in a future version.  Convert to a numpy array before indexing instead.
+    Support for multi-dimensional indexing (e.g. `obj[:, None]`) is deprecated and will be removed in a future version.  Convert to a numpy array before indexing instead.
+    Support for multi-dimensional indexing (e.g. `obj[:, None]`) is deprecated and will be removed in a future version.  Convert to a numpy array before indexing instead.
+    Support for multi-dimensional indexing (e.g. `obj[:, None]`) is deprecated and will be removed in a future version.  Convert to a numpy array before indexing instead.
+    Support for multi-dimensional indexing (e.g. `obj[:, None]`) is deprecated and will be removed in a future version.  Convert to a numpy array before indexing instead.
+    Support for multi-dimensional indexing (e.g. `obj[:, None]`) is deprecated and will be removed in a future version.  Convert to a numpy array before indexing instead.
+    Support for multi-dimensional indexing (e.g. `obj[:, None]`) is deprecated and will be removed in a future version.  Convert to a numpy array before indexing instead.
+    Support for multi-dimensional indexing (e.g. `obj[:, None]`) is deprecated and will be removed in a future version.  Convert to a numpy array before indexing instead.
+    Support for multi-dimensional indexing (e.g. `obj[:, None]`) is deprecated and will be removed in a future version.  Convert to a numpy array before indexing instead.
+    Support for multi-dimensional indexing (e.g. `obj[:, None]`) is deprecated and will be removed in a future version.  Convert to a numpy array before indexing instead.
+    Support for multi-dimensional indexing (e.g. `obj[:, None]`) is deprecated and will be removed in a future version.  Convert to a numpy array before indexing instead.
+    Support for multi-dimensional indexing (e.g. `obj[:, None]`) is deprecated and will be removed in a future version.  Convert to a numpy array before indexing instead.
+    Support for multi-dimensional indexing (e.g. `obj[:, None]`) is deprecated and will be removed in a future version.  Convert to a numpy array before indexing instead.
+    Support for multi-dimensional indexing (e.g. `obj[:, None]`) is deprecated and will be removed in a future version.  Convert to a numpy array before indexing instead.
+    Support for multi-dimensional indexing (e.g. `obj[:, None]`) is deprecated and will be removed in a future version.  Convert to a numpy array before indexing instead.
+    Support for multi-dimensional indexing (e.g. `obj[:, None]`) is deprecated and will be removed in a future version.  Convert to a numpy array before indexing instead.
+    Support for multi-dimensional indexing (e.g. `obj[:, None]`) is deprecated and will be removed in a future version.  Convert to a numpy array before indexing instead.
+    Support for multi-dimensional indexing (e.g. `obj[:, None]`) is deprecated and will be removed in a future version.  Convert to a numpy array before indexing instead.
+    Support for multi-dimensional indexing (e.g. `obj[:, None]`) is deprecated and will be removed in a future version.  Convert to a numpy array before indexing instead.
+    Support for multi-dimensional indexing (e.g. `obj[:, None]`) is deprecated and will be removed in a future version.  Convert to a numpy array before indexing instead.
+    Support for multi-dimensional indexing (e.g. `obj[:, None]`) is deprecated and will be removed in a future version.  Convert to a numpy array before indexing instead.
+    Support for multi-dimensional indexing (e.g. `obj[:, None]`) is deprecated and will be removed in a future version.  Convert to a numpy array before indexing instead.
+    Support for multi-dimensional indexing (e.g. `obj[:, None]`) is deprecated and will be removed in a future version.  Convert to a numpy array before indexing instead.
+    Support for multi-dimensional indexing (e.g. `obj[:, None]`) is deprecated and will be removed in a future version.  Convert to a numpy array before indexing instead.
+    Support for multi-dimensional indexing (e.g. `obj[:, None]`) is deprecated and will be removed in a future version.  Convert to a numpy array before indexing instead.
+    Support for multi-dimensional indexing (e.g. `obj[:, None]`) is deprecated and will be removed in a future version.  Convert to a numpy array before indexing instead.
+    Support for multi-dimensional indexing (e.g. `obj[:, None]`) is deprecated and will be removed in a future version.  Convert to a numpy array before indexing instead.
+    Support for multi-dimensional indexing (e.g. `obj[:, None]`) is deprecated and will be removed in a future version.  Convert to a numpy array before indexing instead.
+    Support for multi-dimensional indexing (e.g. `obj[:, None]`) is deprecated and will be removed in a future version.  Convert to a numpy array before indexing instead.
+    Support for multi-dimensional indexing (e.g. `obj[:, None]`) is deprecated and will be removed in a future version.  Convert to a numpy array before indexing instead.
+    Support for multi-dimensional indexing (e.g. `obj[:, None]`) is deprecated and will be removed in a future version.  Convert to a numpy array before indexing instead.
+    Support for multi-dimensional indexing (e.g. `obj[:, None]`) is deprecated and will be removed in a future version.  Convert to a numpy array before indexing instead.
+    Support for multi-dimensional indexing (e.g. `obj[:, None]`) is deprecated and will be removed in a future version.  Convert to a numpy array before indexing instead.
+    Support for multi-dimensional indexing (e.g. `obj[:, None]`) is deprecated and will be removed in a future version.  Convert to a numpy array before indexing instead.
+    Support for multi-dimensional indexing (e.g. `obj[:, None]`) is deprecated and will be removed in a future version.  Convert to a numpy array before indexing instead.
+    Support for multi-dimensional indexing (e.g. `obj[:, None]`) is deprecated and will be removed in a future version.  Convert to a numpy array before indexing instead.
+    Support for multi-dimensional indexing (e.g. `obj[:, None]`) is deprecated and will be removed in a future version.  Convert to a numpy array before indexing instead.
+    Support for multi-dimensional indexing (e.g. `obj[:, None]`) is deprecated and will be removed in a future version.  Convert to a numpy array before indexing instead.
+    Support for multi-dimensional indexing (e.g. `obj[:, None]`) is deprecated and will be removed in a future version.  Convert to a numpy array before indexing instead.
+    Support for multi-dimensional indexing (e.g. `obj[:, None]`) is deprecated and will be removed in a future version.  Convert to a numpy array before indexing instead.
+    Support for multi-dimensional indexing (e.g. `obj[:, None]`) is deprecated and will be removed in a future version.  Convert to a numpy array before indexing instead.
+    Support for multi-dimensional indexing (e.g. `obj[:, None]`) is deprecated and will be removed in a future version.  Convert to a numpy array before indexing instead.
+    Support for multi-dimensional indexing (e.g. `obj[:, None]`) is deprecated and will be removed in a future version.  Convert to a numpy array before indexing instead.
+    Support for multi-dimensional indexing (e.g. `obj[:, None]`) is deprecated and will be removed in a future version.  Convert to a numpy array before indexing instead.
+    Support for multi-dimensional indexing (e.g. `obj[:, None]`) is deprecated and will be removed in a future version.  Convert to a numpy array before indexing instead.
+    Support for multi-dimensional indexing (e.g. `obj[:, None]`) is deprecated and will be removed in a future version.  Convert to a numpy array before indexing instead.
+    Support for multi-dimensional indexing (e.g. `obj[:, None]`) is deprecated and will be removed in a future version.  Convert to a numpy array before indexing instead.
+    Support for multi-dimensional indexing (e.g. `obj[:, None]`) is deprecated and will be removed in a future version.  Convert to a numpy array before indexing instead.
+    Support for multi-dimensional indexing (e.g. `obj[:, None]`) is deprecated and will be removed in a future version.  Convert to a numpy array before indexing instead.
+    Support for multi-dimensional indexing (e.g. `obj[:, None]`) is deprecated and will be removed in a future version.  Convert to a numpy array before indexing instead.
+    Support for multi-dimensional indexing (e.g. `obj[:, None]`) is deprecated and will be removed in a future version.  Convert to a numpy array before indexing instead.
+    Support for multi-dimensional indexing (e.g. `obj[:, None]`) is deprecated and will be removed in a future version.  Convert to a numpy array before indexing instead.
+    Support for multi-dimensional indexing (e.g. `obj[:, None]`) is deprecated and will be removed in a future version.  Convert to a numpy array before indexing instead.
+    Support for multi-dimensional indexing (e.g. `obj[:, None]`) is deprecated and will be removed in a future version.  Convert to a numpy array before indexing instead.
+    Support for multi-dimensional indexing (e.g. `obj[:, None]`) is deprecated and will be removed in a future version.  Convert to a numpy array before indexing instead.
+    Support for multi-dimensional indexing (e.g. `obj[:, None]`) is deprecated and will be removed in a future version.  Convert to a numpy array before indexing instead.
+    Support for multi-dimensional indexing (e.g. `obj[:, None]`) is deprecated and will be removed in a future version.  Convert to a numpy array before indexing instead.
+    Support for multi-dimensional indexing (e.g. `obj[:, None]`) is deprecated and will be removed in a future version.  Convert to a numpy array before indexing instead.
+    Support for multi-dimensional indexing (e.g. `obj[:, None]`) is deprecated and will be removed in a future version.  Convert to a numpy array before indexing instead.
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 43-44
+
+.. GENERATED FROM PYTHON SOURCE LINES 42-43
 
 Global effect plot: with two features
 
-.. GENERATED FROM PYTHON SOURCE LINES 44-47
+.. GENERATED FROM PYTHON SOURCE LINES 43-46
 
 .. code-block:: default
 
@@ -234,11 +311,11 @@ Global effect plot: with two features
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 48-49
+.. GENERATED FROM PYTHON SOURCE LINES 47-48
 
 Local feature importance without centering
 
-.. GENERATED FROM PYTHON SOURCE LINES 49-51
+.. GENERATED FROM PYTHON SOURCE LINES 48-50
 
 .. code-block:: default
 
@@ -248,7 +325,7 @@ Local feature importance without centering
 
 
 .. image-sg:: /auto_examples/models/images/sphx_glr_plot_8_reludnn_cls_006.png
-   :alt: Predicted: 0.3117 | Actual: 0.0000
+   :alt: Predicted: 0.2998 | Actual: 0.0000
    :srcset: /auto_examples/models/images/sphx_glr_plot_8_reludnn_cls_006.png
    :class: sphx-glr-single-img
 
@@ -256,11 +333,11 @@ Local feature importance without centering
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 52-53
+.. GENERATED FROM PYTHON SOURCE LINES 51-52
 
 Local feature importance with centering
 
-.. GENERATED FROM PYTHON SOURCE LINES 53-55
+.. GENERATED FROM PYTHON SOURCE LINES 52-54
 
 .. code-block:: default
 
@@ -270,7 +347,7 @@ Local feature importance with centering
 
 
 .. image-sg:: /auto_examples/models/images/sphx_glr_plot_8_reludnn_cls_007.png
-   :alt: Predicted: 0.3117 | Actual: 0.0000
+   :alt: Predicted: 0.2998 | Actual: 0.0000
    :srcset: /auto_examples/models/images/sphx_glr_plot_8_reludnn_cls_007.png
    :class: sphx-glr-single-img
 
@@ -281,9 +358,7 @@ Local feature importance with centering
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** ( 2 minutes  1.293 seconds)
-
-**Estimated memory usage:**  1808 MB
+   **Total running time of the script:** (0 minutes 44.109 seconds)
 
 
 .. _sphx_glr_download_auto_examples_models_plot_8_reludnn_cls.py:

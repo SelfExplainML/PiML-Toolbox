@@ -32,7 +32,7 @@ Conformalized residual quantile regression (CRQR) is a model-agnostic approach f
       [\hat{f}(x_{test})+\hat{g}_{\frac{\alpha}{2}} (x_{test})-\hat{q}, \hat{f}(x_{test})+\hat{g}_{(1-\frac{\alpha}{2})} (x_{test})+\hat{q}].
    \end{align}
 
-In PiML, the test set is further divided into three subsets for different purposes. The first subset, comprising 40% of the test set, is used to train the quantile regression model. The second subset, which accounts for 20% of the test set, is employed for calibration. The remaining 40% of the test set is dedicated to evaluating the quality of prediction intervals. In this process, we utilize the HistGradientBoostingRegressor_ quantile regression model from the sklearn library, with the max depth parameter set to 5. If the version of sklearn is below 1.1, the raw GBDT model is utilized instead
+In PiML, the test set is further divided into three subsets for different purposes. The first subset, comprising 40% of the test set, is used to train the quantile regression model. The second subset, which accounts for 20% of the test set, is employed for calibration. The remaining 40% of the test set is dedicated to evaluating the quality of prediction intervals. In this process, we utilize the HistGradientBoostingRegressor_ quantile regression model from the sklearn library, with the max depth parameter set to 5. If the version of sklearn is below 1.1, the raw GBDT model is utilized instead.
 
 .. _HistGradientBoostingRegressor: https://scikit-learn.org/stable/modules/generated/sklearn.ensemble.HistGradientBoostingRegressor.html
 
@@ -44,43 +44,7 @@ To demonstrate the process, we utilize an XGB2 model on the BikeSharing dataset.
 
    exp.model_diagnose(model="XGB2", show="reliability_table", alpha=0.1)
 
-.. raw:: html
-
-    <div class="output_subarea output_html rendered_html output_result">
-    <div>
-    <style scoped>
-        .dataframe tbody tr th:only-of-type {
-            vertical-align: middle;
-        }
-
-        .dataframe tbody tr th {
-            vertical-align: top;
-        }
-
-        .dataframe thead th {
-            text-align: right;
-        }
-    </style>
-    <table border="1" class="dataframe">
-      <thead>
-        <tr style="text-align: right;">
-          <th></th>
-          <th>Empirical Coverage</th>
-          <th>Average Bandwidth</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <th>0</th>
-          <td>0.88705</td>
-          <td>0.232974</td>
-        </tr>
-      </tbody>
-    </table>
-    </div>
-    </div>
-
-Based on the above table, we can observe that the coverage of the prediction intervals is approximately 88.7%, which is close to the predefined level of 90% (1 - `alpha=0.1`). Additionally, the average bandwidth of the prediction intervals is 0.233, which refers to the average width of the prediction intervals and serves as a measure of the uncertainty. Smaller bandwidth values indicate more precise and reliable predictions.
+The results is a table showing a) the coverage of the prediction intervals, which should be close to the predefined level of 90% (1 - `alpha=0.1`); b) the average bandwidth of the prediction intervals, which serves as a measure of the prediction uncertainty. Smaller bandwidth values indicate more precise and reliable predictions.
 
 Distance of Reliable and Un-reliable Data 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -110,12 +74,12 @@ Based on the above figure, it is evident that the distributional distance of the
 
 Marginal Bandwidth 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""
-To analyze the bandwidth against each feature, we can utilize the "reliability_marginal" option of the `show` parameter. This will provide us with the average width of prediction intervals for the individual feature of interest, by specifying the `target_feature` argument. Additionally, the bins argument allows us to determine the number of bins to discretize the feature. Similar to the previous plots, it is necessary to define the values for `alpha` and `threshold` in order to obtain meaningful results.
+To analyze the bandwidth against each feature, we can utilize the "reliability_marginal" option of the `show` parameter. This will provide us with the average width of prediction intervals for the individual feature of interest, by specifying the `show_feature` argument. Additionally, the bins argument allows us to determine the number of bins to discretize the feature. Similar to the previous plots, it is necessary to define the values for `alpha` and `threshold` in order to obtain meaningful results.
 
 .. jupyter-input::
 
       exp.model_diagnose(model="XGB2", show="reliability_marginal", alpha=0.1,
-                         target_feature="hr", bins=10, threshold=1.1,
+                         show_feature="hr", bins=10, threshold=1.1,
                          original_scale=True, figsize=(5, 4))
 
 .. figure:: ../../auto_examples/testing/images/sphx_glr_plot_3_reliability_reg_002.png
@@ -144,12 +108,12 @@ To obtain the distributional distance between reliable and unreliable data, set 
 
 Marginal Bandwidth 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""
-Similarly, the marginal bandwidth plot of each feature can be shown using the keyword "reliability_marginal". We can further adjust the plot using arguments `target_feature`, `threshold`, and `bins`.
+Similarly, the marginal bandwidth plot of each feature can be shown using the keyword "reliability_marginal". We can further adjust the plot using arguments `show_feature`, `threshold`, and `bins`.
 
 .. jupyter-input::
 
       exp.model_diagnose(model="GAM", show="reliability_marginal",
-                        target_feature="PAY_1", bins=10, threshold=1.1, figsize=(5, 4))
+                         show_feature="PAY_1", bins=10, threshold=1.1, figsize=(5, 4))
 
 .. figure:: ../../auto_examples/testing/images/sphx_glr_plot_3_reliability_cls_002.png
    :target: ../../auto_examples/testing/plot_3_reliability_cls.html
@@ -189,42 +153,6 @@ To get the Brier score individually, we can use the keyword "reliability_table",
 
    results = exp.model_diagnose(model="GAM", show="reliability_table", return_data=True)
    results.data
-
-.. raw:: html
-
-    <div class="output_subarea output_html rendered_html output_result">
-    <div>
-    <style scoped>
-        .dataframe tbody tr th:only-of-type {
-            vertical-align: middle;
-        }
-
-        .dataframe tbody tr th {
-            vertical-align: top;
-        }
-
-        .dataframe thead th {
-            text-align: right;
-        }
-    </style>
-    <table border="1" class="dataframe">
-      <thead>
-        <tr style="text-align: right;">
-          <th></th>
-          <th>Original</th>
-          <th>Calibrated</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <th>0</th>
-          <td>0.1258</td>
-          <td>0.1276</td>
-        </tr>
-      </tbody>
-    </table>
-    </div>
-    </div>
 
 
 Examples

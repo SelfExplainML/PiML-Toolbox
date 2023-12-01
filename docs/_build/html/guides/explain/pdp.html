@@ -238,6 +238,10 @@
 <li><p>Inconsistent global and local explanation: PDPs provide an average view of features’ effect on the predicted response. Local effects or effects specific to certain subsets of data may be different from global ones.</p></li>
 </ul>
 </div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>For binary classification tasks, the PDP is computed by default using the predicted probability instead of log odds. In <code class="docutils literal notranslate"><span class="pre">exp.model_explain</span></code>, there exist an argument called <code class="docutils literal notranslate"><span class="pre">response_method</span></code>. If we want to use the predicted probability as the output, we can set <code class="docutils literal notranslate"><span class="pre">response_method</span></code> to “decision_function”.</p>
+</div>
 </section>
 <section id="usage">
 <h2><span class="section-number">4.1.2.2. </span>Usage<a class="headerlink" href="#usage" title="Permalink to this heading">¶</a></h2>
@@ -247,7 +251,7 @@
 <p>The one-way PDP describes the relationship between the predicted response and a single feature. To trigger one-way PDP, we need to specify a feature name in <code class="docutils literal notranslate"><span class="pre">uni_feature</span></code>. The following code shows how to visualize the one-way PDP for the numerical feature <code class="docutils literal notranslate"><span class="pre">hr</span></code>.</p>
 <div class="jupyter_cell jupyter_container docutils container">
 <div class="cell_input code_cell docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">exp</span><span class="o">.</span><span class="n">model_explain</span><span class="p">(</span><span class="n">model</span><span class="o">=</span><span class="s2">&quot;XGB2&quot;</span><span class="p">,</span> <span class="n">show</span><span class="o">=</span><span class="s2">&quot;pdp&quot;</span><span class="p">,</span> <span class="n">uni_feature</span><span class="o">=</span><span class="s2">&quot;hr&quot;</span><span class="p">,</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">exp</span><span class="o">.</span><span class="n">model_explain</span><span class="p">(</span><span class="n">model</span><span class="o">=</span><span class="s2">&quot;XGB2&quot;</span><span class="p">,</span> <span class="n">show</span><span class="o">=</span><span class="s2">&quot;pdp&quot;</span><span class="p">,</span> <span class="n">uni_feature</span><span class="o">=</span><span class="s2">&quot;hr&quot;</span><span class="p">,</span> <span class="n">use_test</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
                   <span class="n">grid_size</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span> <span class="n">original_scale</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">4</span><span class="p">))</span>
 </pre></div>
 </div>
@@ -259,6 +263,7 @@
 <a class="reference external image-reference" href="../../auto_examples/explain/plot_1_pdp.html"><img alt="../../_images/sphx_glr_plot_1_pdp_001.png" src="../../_images/sphx_glr_plot_1_pdp_001.png" /></a>
 </figure>
 <p>The plot above suggests a non-linear relationship between the predicted response and the input feature of interest (<code class="docutils literal notranslate"><span class="pre">hr</span></code>). The <code class="docutils literal notranslate"><span class="pre">grid_size</span></code> parameter controls the number of grid points in PDP. The <code class="docutils literal notranslate"><span class="pre">original_scale</span></code> is set to True if we want to use the original scale of that feature.</p>
+<p>For categorical features, the PDP is a bar chart. The plot below indicates that bike sharing tends to be more substantial in the 4th season.</p>
 <div class="jupyter_cell jupyter_container docutils container">
 <div class="cell_input code_cell docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">exp</span><span class="o">.</span><span class="n">model_explain</span><span class="p">(</span><span class="n">model</span><span class="o">=</span><span class="s2">&quot;XGB2&quot;</span><span class="p">,</span> <span class="n">show</span><span class="o">=</span><span class="s2">&quot;pdp&quot;</span><span class="p">,</span> <span class="n">uni_feature</span><span class="o">=</span><span class="s2">&quot;season&quot;</span><span class="p">,</span>
@@ -272,7 +277,6 @@
 <figure class="align-left">
 <a class="reference external image-reference" href="../../auto_examples/explain/plot_1_pdp.html"><img alt="../../_images/sphx_glr_plot_1_pdp_002.png" src="../../_images/sphx_glr_plot_1_pdp_002.png" /></a>
 </figure>
-<p>For categorical features, the PDP is a bar chart. The plot above indicates that bike sharing tends to be more substantial in the 4th season.</p>
 </section>
 <section id="two-way-pdps">
 <h3><span class="section-number">4.1.2.2.2. </span>Two-way PDPs<a class="headerlink" href="#two-way-pdps" title="Permalink to this heading">¶</a></h3>
@@ -302,6 +306,15 @@
 </div></blockquote>
 <ul class="simple">
 <li><p><a class="reference internal" href="../../auto_examples/explain/plot_1_pdp.html#sphx-glr-auto-examples-explain-plot-1-pdp-py"><span class="std std-ref">Partial Dependence Plot</span></a></p></li>
+</ul>
+</div>
+<div class="topic">
+<p class="topic-title">Example 2: SimuCredit</p>
+<blockquote>
+<div><p>The second example shows the option to use test set to generate the explanations.</p>
+</div></blockquote>
+<ul class="simple">
+<li><p><a class="reference internal" href="../../auto_examples/explain/plot_6_data_dependent_explain.html#sphx-glr-auto-examples-explain-plot-6-data-dependent-explain-py"><span class="std std-ref">Data Dependent Explanation</span></a></p></li>
 </ul>
 </div>
 </section>

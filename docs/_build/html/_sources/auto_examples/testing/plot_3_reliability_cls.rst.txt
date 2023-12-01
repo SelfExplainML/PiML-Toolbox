@@ -75,7 +75,7 @@ Calculate distribution shift distance of each feature between reliable and un-re
 
 
 .. image-sg:: /auto_examples/testing/images/sphx_glr_plot_3_reliability_cls_001.png
-   :alt: Distribution Shift: Unreliable Regions vs. Remaining Regions
+   :alt: Distribution Shift: Unreliable vs. Remaining Regions
    :srcset: /auto_examples/testing/images/sphx_glr_plot_3_reliability_cls_001.png
    :class: sphx-glr-single-img
 
@@ -92,7 +92,7 @@ Plot the histogram of bandwidth against a given feature
 .. code-block:: default
 
     exp.model_diagnose(model="GAM", show="reliability_marginal",
-                       target_feature="PAY_1", bins=10, threshold=1.1, 
+                       show_feature="PAY_1", bins=10, threshold=1.1, 
                        original_scale=True, figsize=(5, 4))
 
 
@@ -165,8 +165,8 @@ Brier Score
 
  .. code-block:: none
 
-       Original  Calibrated
-    0    0.1258      0.1276
+      Original Calibrated
+    0   0.1258     0.1276
 
 
 
@@ -174,9 +174,9 @@ Brier Score
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** ( 1 minutes  29.094 seconds)
+   **Total running time of the script:** ( 1 minutes  23.796 seconds)
 
-**Estimated memory usage:**  1924 MB
+**Estimated memory usage:**  543 MB
 
 
 .. _sphx_glr_download_auto_examples_testing_plot_3_reliability_cls.py:

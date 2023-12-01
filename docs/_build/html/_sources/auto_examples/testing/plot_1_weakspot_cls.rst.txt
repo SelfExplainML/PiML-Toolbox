@@ -65,14 +65,15 @@ Train Model
 
 Histogram-based weakspot for a single feature
 
-.. GENERATED FROM PYTHON SOURCE LINES 23-27
+.. GENERATED FROM PYTHON SOURCE LINES 23-28
 
 .. code-block:: default
 
     results = exp.model_diagnose(model="XGB2", show="weakspot", slice_method="histogram", 
                                  slice_features=["PAY_1"], threshold=1.1, min_samples=100,
-                                 original_scale=True, return_data=True, figsize=(5, 4))
+                                 return_data=True, figsize=(5, 4))
     results.data
+
 
 
 
@@ -117,12 +118,12 @@ Histogram-based weakspot for a single feature
         <tr>
           <th>0</th>
           <td>0.2</td>
-          <td>0.4</td>
-          <td>1265</td>
-          <td>5090</td>
-          <td>0.6957</td>
-          <td>0.6896</td>
-          <td>0.0061</td>
+          <td>0.8</td>
+          <td>1350</td>
+          <td>5440</td>
+          <td>0.705185</td>
+          <td>0.688787</td>
+          <td>0.016398</td>
         </tr>
       </tbody>
     </table>
@@ -131,17 +132,17 @@ Histogram-based weakspot for a single feature
     <br />
     <br />
 
-.. GENERATED FROM PYTHON SOURCE LINES 28-29
+.. GENERATED FROM PYTHON SOURCE LINES 29-30
 
 Histogram-based weakspot for two features
 
-.. GENERATED FROM PYTHON SOURCE LINES 29-34
+.. GENERATED FROM PYTHON SOURCE LINES 30-35
 
 .. code-block:: default
 
     results = exp.model_diagnose(model="XGB2", show="weakspot", slice_method="histogram", 
                                  slice_features=["PAY_1", "PAY_2"], threshold=1.1, min_samples=100,
-                                 original_scale=True, return_data=True, figsize=(5, 4))
+                                 return_data=True, figsize=(5, 4))
     results.data
 
 
@@ -189,63 +190,75 @@ Histogram-based weakspot for two features
       <tbody>
         <tr>
           <th>0</th>
-          <td>0.3</td>
           <td>0.4</td>
-          <td>0.0000</td>
-          <td>0.2500</td>
-          <td>191</td>
-          <td>800</td>
-          <td>0.6911</td>
-          <td>0.6787</td>
-          <td>0.0123</td>
+          <td>0.5</td>
+          <td>0.375000</td>
+          <td>0.562500</td>
+          <td>69</td>
+          <td>244</td>
+          <td>0.855072</td>
+          <td>0.733607</td>
+          <td>0.121466</td>
         </tr>
         <tr>
           <th>1</th>
-          <td>0.2</td>
           <td>0.3</td>
-          <td>0.1111</td>
-          <td>0.2222</td>
-          <td>268</td>
-          <td>956</td>
-          <td>0.7276</td>
-          <td>0.7176</td>
-          <td>0.0100</td>
+          <td>0.4</td>
+          <td>0.000000</td>
+          <td>0.250000</td>
+          <td>191</td>
+          <td>800</td>
+          <td>0.696335</td>
+          <td>0.667500</td>
+          <td>0.028835</td>
         </tr>
         <tr>
           <th>2</th>
+          <td>0.2</td>
           <td>0.3</td>
-          <td>0.4</td>
-          <td>0.3750</td>
-          <td>0.6250</td>
-          <td>322</td>
-          <td>1354</td>
-          <td>0.7205</td>
-          <td>0.7171</td>
-          <td>0.0034</td>
+          <td>0.111111</td>
+          <td>0.222222</td>
+          <td>268</td>
+          <td>956</td>
+          <td>0.727612</td>
+          <td>0.720711</td>
+          <td>0.006901</td>
         </tr>
         <tr>
           <th>3</th>
-          <td>0.2</td>
           <td>0.3</td>
-          <td>0.3333</td>
-          <td>0.5556</td>
-          <td>351</td>
-          <td>1430</td>
-          <td>0.6125</td>
-          <td>0.6147</td>
-          <td>-0.0021</td>
+          <td>0.4</td>
+          <td>0.375000</td>
+          <td>0.625000</td>
+          <td>322</td>
+          <td>1354</td>
+          <td>0.720497</td>
+          <td>0.716396</td>
+          <td>0.004101</td>
         </tr>
         <tr>
           <th>4</th>
+          <td>0.2</td>
+          <td>0.3</td>
+          <td>0.333333</td>
+          <td>0.555556</td>
+          <td>351</td>
+          <td>1430</td>
+          <td>0.615385</td>
+          <td>0.611888</td>
+          <td>0.003497</td>
+        </tr>
+        <tr>
+          <th>5</th>
           <td>0.0</td>
           <td>0.1</td>
-          <td>0.3750</td>
-          <td>0.7500</td>
-          <td>82</td>
-          <td>360</td>
-          <td>0.6220</td>
-          <td>0.6250</td>
-          <td>-0.0030</td>
+          <td>0.375000</td>
+          <td>0.625000</td>
+          <td>77</td>
+          <td>357</td>
+          <td>0.623377</td>
+          <td>0.630252</td>
+          <td>-0.006875</td>
         </tr>
       </tbody>
     </table>
@@ -254,17 +267,17 @@ Histogram-based weakspot for two features
     <br />
     <br />
 
-.. GENERATED FROM PYTHON SOURCE LINES 35-36
+.. GENERATED FROM PYTHON SOURCE LINES 36-37
 
 Histogram-based weakspot for a single feature on test set
 
-.. GENERATED FROM PYTHON SOURCE LINES 36-40
+.. GENERATED FROM PYTHON SOURCE LINES 37-41
 
 .. code-block:: default
 
     results = exp.model_diagnose(model="XGB2", show="weakspot", slice_method="histogram", 
                                  slice_features=["PAY_1"], threshold=1.1, min_samples=100,
-                                 use_test=True, original_scale=True, return_data=True, figsize=(5, 4))
+                                 use_test=True, return_data=True, figsize=(5, 4))
     results.data
 
 
@@ -309,13 +322,13 @@ Histogram-based weakspot for a single feature on test set
       <tbody>
         <tr>
           <th>0</th>
-          <td>0.2222</td>
-          <td>0.4444</td>
+          <td>0.222222</td>
+          <td>0.444444</td>
           <td>1265</td>
           <td>5090</td>
-          <td>0.6957</td>
-          <td>0.6896</td>
-          <td>0.0061</td>
+          <td>0.696443</td>
+          <td>0.687623</td>
+          <td>0.00882</td>
         </tr>
       </tbody>
     </table>
@@ -324,17 +337,17 @@ Histogram-based weakspot for a single feature on test set
     <br />
     <br />
 
-.. GENERATED FROM PYTHON SOURCE LINES 41-42
+.. GENERATED FROM PYTHON SOURCE LINES 42-43
 
 Histogram-based weakspot for a single feature using AUC metric
 
-.. GENERATED FROM PYTHON SOURCE LINES 42-47
+.. GENERATED FROM PYTHON SOURCE LINES 43-48
 
 .. code-block:: default
 
     results = exp.model_diagnose(model="XGB2", show="weakspot", slice_method="histogram", 
                                  slice_features=["PAY_1"], threshold=1.1, min_samples=100,
-                                 metric="AUC", original_scale=True, return_data=True, figsize=(5, 4))
+                                 metric="AUC", return_data=True, figsize=(5, 4))
     results.data
 
 
@@ -384,9 +397,9 @@ Histogram-based weakspot for a single feature using AUC metric
           <td>0.3</td>
           <td>752</td>
           <td>2936</td>
-          <td>0.6444</td>
-          <td>0.7049</td>
-          <td>-0.0605</td>
+          <td>0.647843</td>
+          <td>0.707116</td>
+          <td>-0.059273</td>
         </tr>
         <tr>
           <th>1</th>
@@ -394,9 +407,9 @@ Histogram-based weakspot for a single feature using AUC metric
           <td>0.2</td>
           <td>3521</td>
           <td>13975</td>
-          <td>0.6348</td>
-          <td>0.6958</td>
-          <td>-0.0610</td>
+          <td>0.635018</td>
+          <td>0.697042</td>
+          <td>-0.062024</td>
         </tr>
         <tr>
           <th>2</th>
@@ -404,9 +417,9 @@ Histogram-based weakspot for a single feature using AUC metric
           <td>0.4</td>
           <td>513</td>
           <td>2154</td>
-          <td>0.5452</td>
-          <td>0.6348</td>
-          <td>-0.0896</td>
+          <td>0.548108</td>
+          <td>0.632486</td>
+          <td>-0.084378</td>
         </tr>
         <tr>
           <th>3</th>
@@ -414,9 +427,9 @@ Histogram-based weakspot for a single feature using AUC metric
           <td>0.6</td>
           <td>14</td>
           <td>62</td>
-          <td>0.5750</td>
-          <td>0.7060</td>
-          <td>-0.1310</td>
+          <td>0.525000</td>
+          <td>0.717857</td>
+          <td>-0.192857</td>
         </tr>
         <tr>
           <th>4</th>
@@ -425,7 +438,7 @@ Histogram-based weakspot for a single feature using AUC metric
           <td>1</td>
           <td>25</td>
           <td>NaN</td>
-          <td>0.6410</td>
+          <td>0.631410</td>
           <td>NaN</td>
         </tr>
         <tr>
@@ -435,17 +448,7 @@ Histogram-based weakspot for a single feature using AUC metric
           <td>1</td>
           <td>10</td>
           <td>NaN</td>
-          <td>0.4000</td>
-          <td>NaN</td>
-        </tr>
-        <tr>
-          <th>6</th>
-          <td>0.8</td>
-          <td>0.9</td>
-          <td>0</td>
-          <td>9</td>
-          <td>NaN</td>
-          <td>0.6786</td>
+          <td>0.440000</td>
           <td>NaN</td>
         </tr>
       </tbody>
@@ -455,17 +458,17 @@ Histogram-based weakspot for a single feature using AUC metric
     <br />
     <br />
 
-.. GENERATED FROM PYTHON SOURCE LINES 48-49
+.. GENERATED FROM PYTHON SOURCE LINES 49-50
 
 Tree-based weakspot for a single feature using ACC metric
 
-.. GENERATED FROM PYTHON SOURCE LINES 49-54
+.. GENERATED FROM PYTHON SOURCE LINES 50-55
 
 .. code-block:: default
 
     results = exp.model_diagnose(model="XGB2", show="weakspot", slice_method="tree", 
                                  slice_features=["PAY_1"], threshold=1.1, min_samples=100,
-                                 metric="ACC", original_scale=True, return_data=True, figsize=(5, 4))
+                                 metric="ACC", return_data=True, figsize=(5, 4))
     results.data
 
 
@@ -511,103 +514,23 @@ Tree-based weakspot for a single feature using ACC metric
       <tbody>
         <tr>
           <th>0</th>
-          <td>0.5000</td>
-          <td>1.0000</td>
-          <td>20</td>
-          <td>121</td>
-          <td>0.7000</td>
-          <td>0.6364</td>
-          <td>0.0636</td>
+          <td>0.277778</td>
+          <td>1.000000</td>
+          <td>602</td>
+          <td>2528</td>
+          <td>0.727575</td>
+          <td>0.699367</td>
+          <td>0.028208</td>
         </tr>
         <tr>
           <th>1</th>
-          <td>0.2778</td>
-          <td>0.5000</td>
-          <td>582</td>
-          <td>2407</td>
-          <td>0.7268</td>
-          <td>0.7084</td>
-          <td>0.0185</td>
-        </tr>
-        <tr>
-          <th>2</th>
-          <td>0.1667</td>
-          <td>0.2778</td>
+          <td>0.166667</td>
+          <td>0.277778</td>
           <td>752</td>
           <td>2936</td>
-          <td>0.6862</td>
-          <td>0.6798</td>
-          <td>0.0063</td>
-        </tr>
-      </tbody>
-    </table>
-    </div>
-    </div>
-    <br />
-    <br />
-
-.. GENERATED FROM PYTHON SOURCE LINES 55-56
-
-XGB-based weakspot for a single feature using ACC metric
-
-.. GENERATED FROM PYTHON SOURCE LINES 56-60
-
-.. code-block:: default
-
-    results = exp.model_diagnose(model="XGB2", show="weakspot", slice_method="xgb", 
-                                 slice_features=["BILL_AMT1"], threshold=1.1, min_samples=60, use_test=True,
-                                 metric="ACC", original_scale=True, return_data=True, figsize=(5, 4))
-    results.data
-
-
-
-.. image-sg:: /auto_examples/testing/images/sphx_glr_plot_1_weakspot_cls_006.png
-   :alt: Weak Regions
-   :srcset: /auto_examples/testing/images/sphx_glr_plot_1_weakspot_cls_006.png
-   :class: sphx-glr-single-img
-
-
-
-.. raw:: html
-
-    <div class="output_subarea output_html rendered_html output_result">
-    <div>
-    <style scoped>
-        .dataframe tbody tr th:only-of-type {
-            vertical-align: middle;
-        }
-
-        .dataframe tbody tr th {
-            vertical-align: top;
-        }
-
-        .dataframe thead th {
-            text-align: right;
-        }
-    </style>
-    <table border="1" class="dataframe">
-      <thead>
-        <tr style="text-align: right;">
-          <th></th>
-          <th>[BILL_AMT1</th>
-          <th>BILL_AMT1)</th>
-          <th>#Test</th>
-          <th>#Train</th>
-          <th>test_ACC</th>
-          <th>train_ACC</th>
-          <th>Gap</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <th>0</th>
-          <td>0.4705</td>
-          <td>0.6824</td>
-          <td>488</td>
-          <td>1817</td>
-          <td>0.7377</td>
-          <td>0.7342</td>
-          <td>0.0035</td>
+          <td>0.686170</td>
+          <td>0.679837</td>
+          <td>0.006334</td>
         </tr>
       </tbody>
     </table>
@@ -619,9 +542,9 @@ XGB-based weakspot for a single feature using ACC metric
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** ( 0 minutes  55.872 seconds)
+   **Total running time of the script:** ( 0 minutes  41.346 seconds)
 
-**Estimated memory usage:**  1805 MB
+**Estimated memory usage:**  41 MB
 
 
 .. _sphx_glr_download_auto_examples_testing_plot_1_weakspot_cls.py:

@@ -75,7 +75,7 @@ Instead of relying solely on automatic feature type determination, you also have
 
 .. jupyter-execute::
 
-      exp.data_summary(feature_type={"weekday": "categorical"})
+      exp.data_summary(feature_exclude=["yr", "mnth", "temp"], feature_type={"weekday": "categorical"})
 
 By explicitly setting the feature type, you have greater control over how the data is categorized and can ensure it aligns with your specific requirements.
 

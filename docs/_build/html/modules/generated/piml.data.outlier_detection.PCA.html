@@ -113,7 +113,7 @@
             </a>
           </div>
           <!--div class="btn-group w-100 mb-2" role="group" aria-label="rellinks">
-              <a href="piml.Experiment.html" role="button" class="btn sk-btn-rellink py-1" sk-rellink-tooltip="piml.Experiment">Prev</a><a href="../classes.html" role="button" class="btn sk-btn-rellink py-1" sk-rellink-tooltip="API Reference">Up</a>
+              <a href="../classes.html" role="button" class="btn sk-btn-rellink py-1" sk-rellink-tooltip="API Reference">Prev</a><a href="../classes.html" role="button" class="btn sk-btn-rellink py-1" sk-rellink-tooltip="API Reference">Up</a>
               <a href="piml.data.outlier_detection.CBLOF.html" role="button" class="btn sk-btn-rellink py-1" sk-rellink-tooltip="piml.data.outlier_detection.CBLOF">Next</a>
           </div-->
               <div class="sk-sidebar-toc">
@@ -122,6 +122,7 @@
 <li><a class="reference internal" href="#piml.data.outlier_detection.PCA"><code class="docutils literal notranslate"><span class="pre">PCA</span></code></a><ul>
 <li><a class="reference internal" href="#piml.data.outlier_detection.PCA.decision_function"><code class="docutils literal notranslate"><span class="pre">PCA.decision_function</span></code></a></li>
 <li><a class="reference internal" href="#piml.data.outlier_detection.PCA.fit"><code class="docutils literal notranslate"><span class="pre">PCA.fit</span></code></a></li>
+<li><a class="reference internal" href="#piml.data.outlier_detection.PCA.predict"><code class="docutils literal notranslate"><span class="pre">PCA.predict</span></code></a></li>
 </ul>
 </li>
 <li><a class="reference internal" href="#examples-using-piml-data-outlier-detection-pca">Examples using <code class="docutils literal notranslate"><span class="pre">piml.data.outlier_detection.PCA</span></code></a></li>
@@ -139,8 +140,8 @@
 <h1><code class="xref py py-mod docutils literal notranslate"><span class="pre">piml.data.outlier_detection</span></code>.PCA<a class="headerlink" href="#piml-data-outlier-detection-pca" title="Permalink to this heading">¶</a></h1>
 <dl class="py class">
 <dt class="sig sig-object py" id="piml.data.outlier_detection.PCA">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">piml.data.outlier_detection.</span></span><span class="sig-name descname"><span class="pre">PCA</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">iqr_scale</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1.5</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n_components</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n_selected_components</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cumulative_variance</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">score_type</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'mahalanobis'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">d_reduction_method</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'pca'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">copy</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">whiten</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">svd_solver</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'auto'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tol</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">iterated_power</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'auto'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">alpha</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">random_state</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">standardization</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#piml.data.outlier_detection.PCA" title="Permalink to this definition">¶</a></dt>
-<dd><p>PCA basd outlier detection.</p>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">piml.data.outlier_detection.</span></span><span class="sig-name descname"><span class="pre">PCA</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">n_components</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n_selected_components</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cumulative_variance</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">score_type</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'mahalanobis'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">d_reduction_method</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'pca'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">copy</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">whiten</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">svd_solver</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'auto'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tol</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">iterated_power</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'auto'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">alpha</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">random_state</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">standardization</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#piml.data.outlier_detection.PCA" title="Permalink to this definition">¶</a></dt>
+<dd><p>A wrapper of sklearn’s PCA for outlier detection.</p>
 <dl class="field-list">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><dl>
@@ -156,10 +157,11 @@ of components such that the amount of variance that needs to be
 explained is greater than the percentage specified by n_components
 n_components cannot be equal to n_features for svd_solver == ‘arpack’.</p>
 </dd>
-<dt><strong>n_selected_components</strong><span class="classifier">int, default=None</span></dt><dd><p>Number of selected principal components
-for calculating the outlier scores. It is not necessarily equal to
-the total number of the principal components. If not set, use
-all principal components.</p>
+<dt><strong>n_selected_components</strong><span class="classifier">int, default=None</span></dt><dd><p>Number of selected principal components.
+Only used as cumulative_variance is not None, otherwise, n_selected_components will be automated overwritten by this cumulative_variance.
+If None, will use all principal components.</p>
+</dd>
+<dt><strong>cumulative_variance</strong><span class="classifier">float, default=None</span></dt><dd><p>The cumulative variance limit (between 0.0 and 1.0) of the top principal components.</p>
 </dd>
 <dt><strong>copy</strong><span class="classifier">bool, default=True</span></dt><dd><p>If False, data passed to fit are overwritten and running
 fit(X).transform(X) will not yield the expected results,
@@ -216,31 +218,23 @@ See <a class="reference external" href="http://scikit-learn.org/stable/auto_exam
 </colgroup>
 <tbody>
 <tr class="row-odd"><td><p><a class="reference internal" href="#piml.data.outlier_detection.PCA.decision_function" title="piml.data.outlier_detection.PCA.decision_function"><code class="xref py py-obj docutils literal notranslate"><span class="pre">decision_function</span></code></a>(X[, scale])</p></td>
-<td><p>Predict raw anomaly score of X using the fitted detector.</p></td>
+<td><p>Predict raw outliers score of X using the fitted detector.</p></td>
 </tr>
 <tr class="row-even"><td><p><a class="reference internal" href="#piml.data.outlier_detection.PCA.fit" title="piml.data.outlier_detection.PCA.fit"><code class="xref py py-obj docutils literal notranslate"><span class="pre">fit</span></code></a>(X[, y])</p></td>
-<td><p>Fit detector.</p></td>
+<td><p>Fit the model.</p></td>
 </tr>
-</tbody>
-</table>
-<table class="docutils align-default">
-<colgroup>
-<col style="width: 52%" />
-<col style="width: 48%" />
-</colgroup>
-<tbody>
-<tr class="row-odd"><td><p><strong>predict</strong></p></td>
-<td></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#piml.data.outlier_detection.PCA.predict" title="piml.data.outlier_detection.PCA.predict"><code class="xref py py-obj docutils literal notranslate"><span class="pre">predict</span></code></a>([X, scale, threshold])</p></td>
+<td><p>Predict raw outlier indicator.</p></td>
 </tr>
 </tbody>
 </table>
 <dl class="py method">
 <dt class="sig sig-object py" id="piml.data.outlier_detection.PCA.decision_function">
 <span class="sig-name descname"><span class="pre">decision_function</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">X</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">scale</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#piml.data.outlier_detection.PCA.decision_function" title="Permalink to this definition">¶</a></dt>
-<dd><p>Predict raw anomaly score of X using the fitted detector.</p>
-<p>The anomaly score of an input sample is computed based on different
-detector algorithms. For consistency, outliers are assigned with
-larger anomaly scores.</p>
+<dd><dl class="simple">
+<dt>Predict raw outliers score of X using the fitted detector.</dt><dd><p>For consistency, outliers are assigned with larger anomaly scores.</p>
+</dd>
+</dl>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><dl class="simple">
@@ -253,7 +247,7 @@ if they are supported by the base estimator.</p>
 </dd>
 <dt class="field-even">Returns</dt>
 <dd class="field-even"><dl class="simple">
-<dt><strong>scores</strong><span class="classifier">numpy array of shape (n_samples,)</span></dt><dd><p>The anomaly score of the input samples.</p>
+<dt><strong>outlier_scores</strong><span class="classifier">numpy array of shape (n_samples,)</span></dt><dd><p>The anomaly score of the input samples.</p>
 </dd>
 </dl>
 </dd>
@@ -263,19 +257,40 @@ if they are supported by the base estimator.</p>
 <dl class="py method">
 <dt class="sig sig-object py" id="piml.data.outlier_detection.PCA.fit">
 <span class="sig-name descname"><span class="pre">fit</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">X</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#piml.data.outlier_detection.PCA.fit" title="Permalink to this definition">¶</a></dt>
-<dd><p>Fit detector. y is ignored in unsupervised methods.</p>
+<dd><p>Fit the model.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><dl class="simple">
-<dt><strong>X</strong><span class="classifier">numpy array of shape (n_samples, n_features)</span></dt><dd><p>The input samples.</p>
+<dt><strong>X</strong><span class="classifier">np.ndarray of shape (n_samples, n_features)</span></dt><dd><p>Data features.</p>
 </dd>
-<dt><strong>y</strong><span class="classifier">Ignored</span></dt><dd><p>Not used, present for API consistency by convention.</p>
+<dt><strong>y</strong><span class="classifier">np.ndarray of shape (n_samples,), default=None</span></dt><dd><p>Data response.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="piml.data.outlier_detection.PCA.predict">
+<span class="sig-name descname"><span class="pre">predict</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">X</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">scale</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">threshold</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.9</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#piml.data.outlier_detection.PCA.predict" title="Permalink to this definition">¶</a></dt>
+<dd><p>Predict raw outlier indicator.</p>
+<p>Normal samples are classified as 1 and outliers are classified as -1.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>X</strong><span class="classifier">numpy array of shape (n_samples, n_features)</span></dt><dd><p>The training input samples. Sparse matrices are accepted only
+if they are supported by the base estimator.</p>
+</dd>
+<dt><strong>scale</strong><span class="classifier">bool, default=True</span></dt><dd><p>If True, scale X before calculating the outlier score.</p>
+</dd>
+<dt><strong>threshold</strong><span class="classifier">float, default=0.9</span></dt><dd><p>The quantile threshold of outliers.
+For example, the samples with outlier scores greater than 90% quantile of the whole sample will be classified as outliers.</p>
 </dd>
 </dl>
 </dd>
 <dt class="field-even">Returns</dt>
 <dd class="field-even"><dl class="simple">
-<dt><strong>self</strong><span class="classifier">object</span></dt><dd><p>Fitted estimator.</p>
+<dt><strong>outlier_indicator</strong><span class="classifier">numpy array of shape (n_samples,)</span></dt><dd><p>The binary array indicating whether each sample is outlier.</p>
 </dd>
 </dl>
 </dd>
@@ -286,7 +301,7 @@ if they are supported by the base estimator.</p>
 
 <section id="examples-using-piml-data-outlier-detection-pca">
 <h2>Examples using <code class="docutils literal notranslate"><span class="pre">piml.data.outlier_detection.PCA</span></code><a class="headerlink" href="#examples-using-piml-data-outlier-detection-pca" title="Permalink to this heading">¶</a></h2>
-<div class="sphx-glr-thumbnails"><div class="sphx-glr-thumbcontainer" tooltip="Data quality analysis result using the BikeSharing dataset as example."><img alt="" src="../../_images/sphx_glr_plot_4_data_quality_thumb.png" />
+<div class="sphx-glr-thumbnails"><div class="sphx-glr-thumbcontainer" tooltip="Data Quality Check"><img alt="" src="../../_images/sphx_glr_plot_4_data_quality_thumb.png" />
 <p><a class="reference internal" href="../../auto_examples/data/plot_4_data_quality.html#sphx-glr-auto-examples-data-plot-4-data-quality-py"><span class="std std-ref">Data Quality Check</span></a></p>
   <div class="sphx-glr-thumbnail-title">Data Quality Check</div>
 </div></div><div class="clearer"></div></section>

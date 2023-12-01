@@ -1,0 +1,10 @@
+﻿:mod:`piml.scored_test`.test_resilience_distance
+=============================================================
+
+.. currentmodule:: piml.scored_test
+
+.. autofunction:: test_resilience_distance
+
+.. raw:: html
+
+    <div class="clearer"></div>

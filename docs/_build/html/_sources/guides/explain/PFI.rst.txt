@@ -57,6 +57,12 @@ Example
  
  * :ref:`sphx_glr_auto_examples_explain_plot_0_pfi.py`
 
+.. topic:: Example 2: SimuCredit
+
+   The second example shows the option to use test set to generate the explanations.
+
+   * :ref:`sphx_glr_auto_examples_explain_plot_6_data_dependent_explain.py`
+
 .. topic:: References
 
      .. [L2001] Breiman L,

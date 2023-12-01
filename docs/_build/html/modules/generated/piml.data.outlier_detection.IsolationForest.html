@@ -114,25 +114,18 @@
           </div>
           <!--div class="btn-group w-100 mb-2" role="group" aria-label="rellinks">
               <a href="piml.data.outlier_detection.KMeansTree.html" role="button" class="btn sk-btn-rellink py-1" sk-rellink-tooltip="piml.data.outlier_detection.KMeansTree">Prev</a><a href="../classes.html" role="button" class="btn sk-btn-rellink py-1" sk-rellink-tooltip="API Reference">Up</a>
-              <a href="piml.models.GLMRegressor.html" role="button" class="btn sk-btn-rellink py-1" sk-rellink-tooltip="piml.models.GLMRegressor">Next</a>
+              <a href="piml.data.outlier_detection.OneClassSVM.html" role="button" class="btn sk-btn-rellink py-1" sk-rellink-tooltip="piml.data.outlier_detection.OneClassSVM">Next</a>
           </div-->
               <div class="sk-sidebar-toc">
                 <ul>
 <li><a class="reference internal" href="#"><code class="xref py py-mod docutils literal notranslate"><span class="pre">piml.data.outlier_detection</span></code>.IsolationForest</a><ul>
 <li><a class="reference internal" href="#piml.data.outlier_detection.IsolationForest"><code class="docutils literal notranslate"><span class="pre">IsolationForest</span></code></a><ul>
-<li><a class="reference internal" href="#piml.data.outlier_detection.IsolationForest.base_estimator_"><code class="docutils literal notranslate"><span class="pre">IsolationForest.base_estimator_</span></code></a></li>
 <li><a class="reference internal" href="#piml.data.outlier_detection.IsolationForest.decision_function"><code class="docutils literal notranslate"><span class="pre">IsolationForest.decision_function</span></code></a></li>
-<li><a class="reference internal" href="#piml.data.outlier_detection.IsolationForest.estimators_samples_"><code class="docutils literal notranslate"><span class="pre">IsolationForest.estimators_samples_</span></code></a></li>
 <li><a class="reference internal" href="#piml.data.outlier_detection.IsolationForest.fit"><code class="docutils literal notranslate"><span class="pre">IsolationForest.fit</span></code></a></li>
-<li><a class="reference internal" href="#piml.data.outlier_detection.IsolationForest.fit_predict"><code class="docutils literal notranslate"><span class="pre">IsolationForest.fit_predict</span></code></a></li>
-<li><a class="reference internal" href="#piml.data.outlier_detection.IsolationForest.get_metadata_routing"><code class="docutils literal notranslate"><span class="pre">IsolationForest.get_metadata_routing</span></code></a></li>
-<li><a class="reference internal" href="#piml.data.outlier_detection.IsolationForest.get_params"><code class="docutils literal notranslate"><span class="pre">IsolationForest.get_params</span></code></a></li>
 <li><a class="reference internal" href="#piml.data.outlier_detection.IsolationForest.predict"><code class="docutils literal notranslate"><span class="pre">IsolationForest.predict</span></code></a></li>
-<li><a class="reference internal" href="#piml.data.outlier_detection.IsolationForest.score_samples"><code class="docutils literal notranslate"><span class="pre">IsolationForest.score_samples</span></code></a></li>
-<li><a class="reference internal" href="#piml.data.outlier_detection.IsolationForest.set_fit_request"><code class="docutils literal notranslate"><span class="pre">IsolationForest.set_fit_request</span></code></a></li>
-<li><a class="reference internal" href="#piml.data.outlier_detection.IsolationForest.set_params"><code class="docutils literal notranslate"><span class="pre">IsolationForest.set_params</span></code></a></li>
 </ul>
 </li>
+<li><a class="reference internal" href="#examples-using-piml-data-outlier-detection-isolationforest">Examples using <code class="docutils literal notranslate"><span class="pre">piml.data.outlier_detection.IsolationForest</span></code></a></li>
 </ul>
 </li>
 </ul>
@@ -147,14 +140,99 @@
 <h1><code class="xref py py-mod docutils literal notranslate"><span class="pre">piml.data.outlier_detection</span></code>.IsolationForest<a class="headerlink" href="#piml-data-outlier-detection-isolationforest" title="Permalink to this heading">¶</a></h1>
 <dl class="py class">
 <dt class="sig sig-object py" id="piml.data.outlier_detection.IsolationForest">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">piml.data.outlier_detection.</span></span><span class="sig-name descname"><span class="pre">IsolationForest</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">n_estimators</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">100</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">max_samples</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'auto'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">iqr_scale</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.15</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">max_features</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">bootstrap</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n_jobs</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">random_state</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">verbose</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">warm_start</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">standardization</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#piml.data.outlier_detection.IsolationForest" title="Permalink to this definition">¶</a></dt>
-<dd><p>A wrapper of Isolation Forest in scikit-learn.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Attributes</dt>
-<dd class="field-odd"><dl class="simple">
-<dt><a class="reference internal" href="#piml.data.outlier_detection.IsolationForest.base_estimator_" title="piml.data.outlier_detection.IsolationForest.base_estimator_"><code class="xref py py-obj docutils literal notranslate"><span class="pre">base_estimator_</span></code></a></dt><dd><p>Estimator used to grow the ensemble.</p>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">piml.data.outlier_detection.</span></span><span class="sig-name descname"><span class="pre">IsolationForest</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">n_estimators</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">100</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">max_samples</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'auto'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">max_features</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">bootstrap</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n_jobs</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">random_state</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">verbose</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">warm_start</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">standardization</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#piml.data.outlier_detection.IsolationForest" title="Permalink to this definition">¶</a></dt>
+<dd><p>A wrapper of sklearn’s Isolation Forest for outlier detection.</p>
+<p>Return the anomaly score of each sample using the IsolationForest algorithm</p>
+<p>The IsolationForest ‘isolates’ observations by randomly selecting a feature
+and then randomly selecting a split value between the maximum and minimum
+values of the selected feature.</p>
+<p>Since recursive partitioning can be represented by a tree structure, the
+number of splittings required to isolate a sample is equivalent to the path
+length from the root node to the terminating node.</p>
+<p>This path length, averaged over a forest of such random trees, is a
+measure of normality and our decision function.</p>
+<p>Random partitioning produces noticeably shorter paths for anomalies.
+Hence, when a forest of random trees collectively produce shorter path
+lengths for particular samples, they are highly likely to be anomalies.</p>
+<dl class="field-list">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><dl>
+<dt><strong>n_estimators</strong><span class="classifier">int, default=100</span></dt><dd><p>The number of base estimators in the ensemble.</p>
 </dd>
-<dt><a class="reference internal" href="#piml.data.outlier_detection.IsolationForest.estimators_samples_" title="piml.data.outlier_detection.IsolationForest.estimators_samples_"><code class="xref py py-obj docutils literal notranslate"><span class="pre">estimators_samples_</span></code></a></dt><dd><p>The subset of drawn samples for each base estimator.</p>
+<dt><strong>max_samples</strong><span class="classifier">“auto”, int or float, default=”auto”</span></dt><dd><dl class="simple">
+<dt>The number of samples to draw from X to train each base estimator.</dt><dd><ul class="simple">
+<li><p>If int, then draw <code class="docutils literal notranslate"><span class="pre">max_samples</span></code> samples.</p></li>
+<li><p>If float, then draw <code class="docutils literal notranslate"><span class="pre">max_samples</span> <span class="pre">*</span> <span class="pre">X.shape[0]</span></code> samples.</p></li>
+<li><p>If “auto”, then <code class="docutils literal notranslate"><span class="pre">max_samples=min(256,</span> <span class="pre">n_samples)</span></code>.</p></li>
+</ul>
+</dd>
+</dl>
+<p>If max_samples is larger than the number of samples provided,
+all samples will be used for all trees (no sampling).</p>
+</dd>
+<dt><strong>max_features</strong><span class="classifier">int or float, default=1.0</span></dt><dd><p>The number of features to draw from X to train each base estimator.</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>If int, then draw <code class="docutils literal notranslate"><span class="pre">max_features</span></code> features.</p></li>
+<li><p>If float, then draw <code class="docutils literal notranslate"><span class="pre">max(1,</span> <span class="pre">int(max_features</span> <span class="pre">*</span> <span class="pre">n_features_in_))</span></code> features.</p></li>
+</ul>
+</div></blockquote>
+<p>Note: using a float number less than 1.0 or integer less than number of
+features will enable feature subsampling and leads to a longer runtime.</p>
+</dd>
+<dt><strong>bootstrap</strong><span class="classifier">bool, default=False</span></dt><dd><p>If True, individual trees are fit on random subsets of the training
+data sampled with replacement. If False, sampling without replacement
+is performed.</p>
+</dd>
+<dt><strong>n_jobs</strong><span class="classifier">int, default=None</span></dt><dd><p>The number of jobs to run in parallel for both <code class="docutils literal notranslate"><span class="pre">fit</span></code> and
+<code class="docutils literal notranslate"><span class="pre">predict</span></code>. <code class="docutils literal notranslate"><span class="pre">None</span></code> means 1 unless in a
+<code class="xref py py-obj docutils literal notranslate"><span class="pre">joblib.parallel_backend</span></code> context. <code class="docutils literal notranslate"><span class="pre">-1</span></code> means using all
+processors.</p>
+</dd>
+<dt><strong>random_state</strong><span class="classifier">int, RandomState instance or None, default=None</span></dt><dd><p>Controls the pseudo-randomness of the selection of the feature
+and split values for each branching step and each tree in the forest.</p>
+<p>Pass an int for reproducible results across multiple function calls.</p>
+</dd>
+<dt><strong>verbose</strong><span class="classifier">int, default=0</span></dt><dd><p>Controls the verbosity of the tree building process.</p>
+</dd>
+<dt><strong>warm_start</strong><span class="classifier">bool, default=False</span></dt><dd><p>When set to <code class="docutils literal notranslate"><span class="pre">True</span></code>, reuse the solution of the previous call to fit
+and add more estimators to the ensemble, otherwise, just fit a whole
+new forest.</p>
+</dd>
+<dt><strong>standardization</strong><span class="classifier">bool, default=True</span></dt><dd><p>Whether to standardize covariates before running the algorithm.</p>
+</dd>
+</dl>
+</dd>
+<dt class="field-even">Attributes</dt>
+<dd class="field-even"><dl>
+<dt><strong>estimator_</strong><span class="classifier"><code class="docutils literal notranslate"><span class="pre">~sklearn.tree.ExtraTreeRegressor</span></code> instance</span></dt><dd><p>The child estimator template used to create the collection of
+fitted sub-estimators.</p>
+</dd>
+<dt><strong>base_estimator_</strong><span class="classifier">ExtraTreeRegressor instance</span></dt><dd><p>The child estimator template used to create the collection of
+fitted sub-estimators.</p>
+</dd>
+<dt><strong>estimators_</strong><span class="classifier">list of ExtraTreeRegressor instances</span></dt><dd><p>The collection of fitted sub-estimators.</p>
+</dd>
+<dt><strong>estimators_features_</strong><span class="classifier">list of ndarray</span></dt><dd><p>The subset of drawn features for each base estimator.</p>
+</dd>
+<dt><strong>estimators_samples_</strong><span class="classifier">list of ndarray</span></dt><dd><p>The subset of drawn samples (i.e., the in-bag samples) for each base
+estimator.</p>
+</dd>
+<dt><strong>max_samples_</strong><span class="classifier">int</span></dt><dd><p>The actual number of samples.</p>
+</dd>
+<dt><strong>offset_</strong><span class="classifier">float</span></dt><dd><p>Offset used to define the decision function from the raw scores. We
+have the relation: <code class="docutils literal notranslate"><span class="pre">decision_function</span> <span class="pre">=</span> <span class="pre">score_samples</span> <span class="pre">-</span> <span class="pre">offset_</span></code>.
+<code class="docutils literal notranslate"><span class="pre">offset_</span></code> is defined as follows. When the contamination parameter is
+set to “auto”, the offset is equal to -0.5 as the scores of inliers are
+close to 0 and the scores of outliers are close to -1. When a
+contamination parameter different than “auto” is provided, the offset
+is defined in such a way we obtain the expected number of outliers
+(samples with decision function &lt; 0) in training.</p>
+</dd>
+<dt><strong>n_features_in_</strong><span class="classifier">int</span></dt><dd><p>Number of features seen during <code class="docutils literal notranslate"><span class="pre">fit</span></code>.</p>
+</dd>
+<dt><strong>feature_names_in_</strong><span class="classifier">ndarray of shape (<code class="docutils literal notranslate"><span class="pre">n_features_in_</span></code>,)</span></dt><dd><p>Names of features seen during <code class="docutils literal notranslate"><span class="pre">fit</span></code>. Defined only when <code class="docutils literal notranslate"><span class="pre">X</span></code>
+has feature names that are all strings.</p>
 </dd>
 </dl>
 </dd>
@@ -166,173 +244,55 @@
 <col style="width: 90%" />
 </colgroup>
 <tbody>
-<tr class="row-odd"><td><p><a class="reference internal" href="#piml.data.outlier_detection.IsolationForest.fit_predict" title="piml.data.outlier_detection.IsolationForest.fit_predict"><code class="xref py py-obj docutils literal notranslate"><span class="pre">fit_predict</span></code></a>(X[, y])</p></td>
-<td><p>Perform fit on X and returns labels for X.</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#piml.data.outlier_detection.IsolationForest.decision_function" title="piml.data.outlier_detection.IsolationForest.decision_function"><code class="xref py py-obj docutils literal notranslate"><span class="pre">decision_function</span></code></a>(X[, scale])</p></td>
+<td><p>Predict raw outliers score of X using the fitted detector.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#piml.data.outlier_detection.IsolationForest.get_metadata_routing" title="piml.data.outlier_detection.IsolationForest.get_metadata_routing"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_metadata_routing</span></code></a>()</p></td>
-<td><p>Get metadata routing of this object.</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#piml.data.outlier_detection.IsolationForest.fit" title="piml.data.outlier_detection.IsolationForest.fit"><code class="xref py py-obj docutils literal notranslate"><span class="pre">fit</span></code></a>(X[, y, sample_weight])</p></td>
+<td><p>Fit the model.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#piml.data.outlier_detection.IsolationForest.get_params" title="piml.data.outlier_detection.IsolationForest.get_params"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_params</span></code></a>([deep])</p></td>
-<td><p>Get parameters for this estimator.</p></td>
-</tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#piml.data.outlier_detection.IsolationForest.score_samples" title="piml.data.outlier_detection.IsolationForest.score_samples"><code class="xref py py-obj docutils literal notranslate"><span class="pre">score_samples</span></code></a>(X)</p></td>
-<td><p>Opposite of the anomaly score defined in the original paper.</p></td>
-</tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#piml.data.outlier_detection.IsolationForest.set_fit_request" title="piml.data.outlier_detection.IsolationForest.set_fit_request"><code class="xref py py-obj docutils literal notranslate"><span class="pre">set_fit_request</span></code></a>(*[, sample_weight])</p></td>
-<td><p>Request metadata passed to the <code class="docutils literal notranslate"><span class="pre">fit</span></code> method.</p></td>
-</tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#piml.data.outlier_detection.IsolationForest.set_params" title="piml.data.outlier_detection.IsolationForest.set_params"><code class="xref py py-obj docutils literal notranslate"><span class="pre">set_params</span></code></a>(**params)</p></td>
-<td><p>Set the parameters of this estimator.</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#piml.data.outlier_detection.IsolationForest.predict" title="piml.data.outlier_detection.IsolationForest.predict"><code class="xref py py-obj docutils literal notranslate"><span class="pre">predict</span></code></a>([X, scale, threshold])</p></td>
+<td><p>Predict raw outlier indicator.</p></td>
 </tr>
 </tbody>
 </table>
-<table class="docutils align-default">
-<colgroup>
-<col style="width: 68%" />
-<col style="width: 32%" />
-</colgroup>
-<tbody>
-<tr class="row-odd"><td><p><strong>decision_function</strong></p></td>
-<td></td>
-</tr>
-<tr class="row-even"><td><p><strong>fit</strong></p></td>
-<td></td>
-</tr>
-<tr class="row-odd"><td><p><strong>predict</strong></p></td>
-<td></td>
-</tr>
-</tbody>
-</table>
-<dl class="py property">
-<dt class="sig sig-object py" id="piml.data.outlier_detection.IsolationForest.base_estimator_">
-<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">base_estimator_</span></span><a class="headerlink" href="#piml.data.outlier_detection.IsolationForest.base_estimator_" title="Permalink to this definition">¶</a></dt>
-<dd><p>Estimator used to grow the ensemble.</p>
-</dd></dl>
-
 <dl class="py method">
 <dt class="sig sig-object py" id="piml.data.outlier_detection.IsolationForest.decision_function">
 <span class="sig-name descname"><span class="pre">decision_function</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">X</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">scale</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#piml.data.outlier_detection.IsolationForest.decision_function" title="Permalink to this definition">¶</a></dt>
-<dd><p>Average anomaly score of X of the base classifiers.</p>
-<p>The anomaly score of an input sample is computed as
-the mean anomaly score of the trees in the forest.</p>
-<p>The measure of normality of an observation given a tree is the depth
-of the leaf containing this observation, which is equivalent to
-the number of splittings required to isolate this point. In case of
-several observations n_left in the leaf, the average path length of
-a n_left samples isolation tree is added.</p>
+<dd><dl class="simple">
+<dt>Predict raw outliers score of X using the fitted detector.</dt><dd><p>For consistency, outliers are assigned with larger anomaly scores.</p>
+</dd>
+</dl>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><dl class="simple">
-<dt><strong>X</strong><span class="classifier">{array-like, sparse matrix} of shape (n_samples, n_features)</span></dt><dd><p>The input samples. Internally, it will be converted to
-<code class="docutils literal notranslate"><span class="pre">dtype=np.float32</span></code> and if a sparse matrix is provided
-to a sparse <code class="docutils literal notranslate"><span class="pre">csr_matrix</span></code>.</p>
+<dt><strong>X</strong><span class="classifier">numpy array of shape (n_samples, n_features)</span></dt><dd><p>The training input samples. Sparse matrices are accepted only
+if they are supported by the base estimator.</p>
+</dd>
+<dt><strong>scale</strong><span class="classifier">bool, default=True</span></dt><dd><p>If True, scale X before calculating the outlier score.</p>
 </dd>
 </dl>
 </dd>
 <dt class="field-even">Returns</dt>
 <dd class="field-even"><dl class="simple">
-<dt><strong>scores</strong><span class="classifier">ndarray of shape (n_samples,)</span></dt><dd><p>The anomaly score of the input samples.
-The lower, the more abnormal. Negative scores represent outliers,
-positive scores represent inliers.</p>
+<dt><strong>outlier_scores</strong><span class="classifier">numpy array of shape (n_samples,)</span></dt><dd><p>The anomaly score of the input samples.</p>
 </dd>
 </dl>
 </dd>
 </dl>
-</dd></dl>
-
-<dl class="py property">
-<dt class="sig sig-object py" id="piml.data.outlier_detection.IsolationForest.estimators_samples_">
-<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">estimators_samples_</span></span><a class="headerlink" href="#piml.data.outlier_detection.IsolationForest.estimators_samples_" title="Permalink to this definition">¶</a></dt>
-<dd><p>The subset of drawn samples for each base estimator.</p>
-<p>Returns a dynamically generated list of indices identifying
-the samples used for fitting each member of the ensemble, i.e.,
-the in-bag samples.</p>
-<p>Note: the list is re-created at each call to the property in order
-to reduce the object memory footprint by not storing the sampling
-data. Thus fetching the property may be slower than expected.</p>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="piml.data.outlier_detection.IsolationForest.fit">
 <span class="sig-name descname"><span class="pre">fit</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">X</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sample_weight</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#piml.data.outlier_detection.IsolationForest.fit" title="Permalink to this definition">¶</a></dt>
-<dd><p>Fit estimator.</p>
+<dd><p>Fit the model.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><dl class="simple">
-<dt><strong>X</strong><span class="classifier">{array-like, sparse matrix} of shape (n_samples, n_features)</span></dt><dd><p>The input samples. Use <code class="docutils literal notranslate"><span class="pre">dtype=np.float32</span></code> for maximum
-efficiency. Sparse matrices are also supported, use sparse
-<code class="docutils literal notranslate"><span class="pre">csc_matrix</span></code> for maximum efficiency.</p>
+<dt><strong>X</strong><span class="classifier">np.ndarray of shape (n_samples, n_features)</span></dt><dd><p>Data features.</p>
 </dd>
-<dt><strong>y</strong><span class="classifier">Ignored</span></dt><dd><p>Not used, present for API consistency by convention.</p>
+<dt><strong>y</strong><span class="classifier">np.ndarray of shape (n_samples,), default=None</span></dt><dd><p>Data response.</p>
 </dd>
-<dt><strong>sample_weight</strong><span class="classifier">array-like of shape (n_samples,), default=None</span></dt><dd><p>Sample weights. If None, then samples are equally weighted.</p>
-</dd>
-</dl>
-</dd>
-<dt class="field-even">Returns</dt>
-<dd class="field-even"><dl class="simple">
-<dt><strong>self</strong><span class="classifier">object</span></dt><dd><p>Fitted estimator.</p>
-</dd>
-</dl>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="piml.data.outlier_detection.IsolationForest.fit_predict">
-<span class="sig-name descname"><span class="pre">fit_predict</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">X</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#piml.data.outlier_detection.IsolationForest.fit_predict" title="Permalink to this definition">¶</a></dt>
-<dd><p>Perform fit on X and returns labels for X.</p>
-<p>Returns -1 for outliers and 1 for inliers.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><dl class="simple">
-<dt><strong>X</strong><span class="classifier">{array-like, sparse matrix} of shape (n_samples, n_features)</span></dt><dd><p>The input samples.</p>
-</dd>
-<dt><strong>y</strong><span class="classifier">Ignored</span></dt><dd><p>Not used, present for API consistency by convention.</p>
-</dd>
-</dl>
-</dd>
-<dt class="field-even">Returns</dt>
-<dd class="field-even"><dl class="simple">
-<dt><strong>y</strong><span class="classifier">ndarray of shape (n_samples,)</span></dt><dd><p>1 for inliers, -1 for outliers.</p>
-</dd>
-</dl>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="piml.data.outlier_detection.IsolationForest.get_metadata_routing">
-<span class="sig-name descname"><span class="pre">get_metadata_routing</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#piml.data.outlier_detection.IsolationForest.get_metadata_routing" title="Permalink to this definition">¶</a></dt>
-<dd><p>Get metadata routing of this object.</p>
-<p>Please check <span class="xref std std-ref">User Guide</span> on how the routing
-mechanism works.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Returns</dt>
-<dd class="field-odd"><dl class="simple">
-<dt><strong>routing</strong><span class="classifier">MetadataRequest</span></dt><dd><p>A <code class="xref py py-class docutils literal notranslate"><span class="pre">MetadataRequest</span></code> encapsulating
-routing information.</p>
-</dd>
-</dl>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="piml.data.outlier_detection.IsolationForest.get_params">
-<span class="sig-name descname"><span class="pre">get_params</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">deep</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#piml.data.outlier_detection.IsolationForest.get_params" title="Permalink to this definition">¶</a></dt>
-<dd><p>Get parameters for this estimator.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><dl class="simple">
-<dt><strong>deep</strong><span class="classifier">bool, default=True</span></dt><dd><p>If True, will return the parameters for this estimator and
-contained subobjects that are estimators.</p>
-</dd>
-</dl>
-</dd>
-<dt class="field-even">Returns</dt>
-<dd class="field-even"><dl class="simple">
-<dt><strong>params</strong><span class="classifier">dict</span></dt><dd><p>Parameter names mapped to their values.</p>
+<dt><strong>sample_weight</strong><span class="classifier">np.ndarray of shape (n_samples, ), default=None</span></dt><dd><p>Sample weight.</p>
 </dd>
 </dl>
 </dd>
@@ -341,116 +301,25 @@ contained subobjects that are estimators.</p>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="piml.data.outlier_detection.IsolationForest.predict">
-<span class="sig-name descname"><span class="pre">predict</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">X</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">threshold</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#piml.data.outlier_detection.IsolationForest.predict" title="Permalink to this definition">¶</a></dt>
-<dd><p>Predict if a particular sample is an outlier or not.</p>
+<span class="sig-name descname"><span class="pre">predict</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">X</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">scale</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">threshold</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.9</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#piml.data.outlier_detection.IsolationForest.predict" title="Permalink to this definition">¶</a></dt>
+<dd><p>Predict raw outlier indicator.</p>
+<p>Normal samples are classified as 1 and outliers are classified as -1.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><dl class="simple">
-<dt><strong>X</strong><span class="classifier">{array-like, sparse matrix} of shape (n_samples, n_features)</span></dt><dd><p>The input samples. Internally, it will be converted to
-<code class="docutils literal notranslate"><span class="pre">dtype=np.float32</span></code> and if a sparse matrix is provided
-to a sparse <code class="docutils literal notranslate"><span class="pre">csr_matrix</span></code>.</p>
+<dt><strong>X</strong><span class="classifier">numpy array of shape (n_samples, n_features)</span></dt><dd><p>The training input samples. Sparse matrices are accepted only
+if they are supported by the base estimator.</p>
+</dd>
+<dt><strong>scale</strong><span class="classifier">bool, default=True</span></dt><dd><p>If True, scale X before calculating the outlier score.</p>
+</dd>
+<dt><strong>threshold</strong><span class="classifier">float, default=0.9</span></dt><dd><p>The quantile threshold of outliers.
+For example, the samples with outlier scores greater than 90% quantile of the whole sample will be classified as outliers.</p>
 </dd>
 </dl>
 </dd>
 <dt class="field-even">Returns</dt>
 <dd class="field-even"><dl class="simple">
-<dt><strong>is_inlier</strong><span class="classifier">ndarray of shape (n_samples,)</span></dt><dd><p>For each observation, tells whether or not (+1 or -1) it should
-be considered as an inlier according to the fitted model.</p>
-</dd>
-</dl>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="piml.data.outlier_detection.IsolationForest.score_samples">
-<span class="sig-name descname"><span class="pre">score_samples</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">X</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#piml.data.outlier_detection.IsolationForest.score_samples" title="Permalink to this definition">¶</a></dt>
-<dd><p>Opposite of the anomaly score defined in the original paper.</p>
-<p>The anomaly score of an input sample is computed as
-the mean anomaly score of the trees in the forest.</p>
-<p>The measure of normality of an observation given a tree is the depth
-of the leaf containing this observation, which is equivalent to
-the number of splittings required to isolate this point. In case of
-several observations n_left in the leaf, the average path length of
-a n_left samples isolation tree is added.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><dl class="simple">
-<dt><strong>X</strong><span class="classifier">{array-like, sparse matrix} of shape (n_samples, n_features)</span></dt><dd><p>The input samples.</p>
-</dd>
-</dl>
-</dd>
-<dt class="field-even">Returns</dt>
-<dd class="field-even"><dl class="simple">
-<dt><strong>scores</strong><span class="classifier">ndarray of shape (n_samples,)</span></dt><dd><p>The anomaly score of the input samples.
-The lower, the more abnormal.</p>
-</dd>
-</dl>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="piml.data.outlier_detection.IsolationForest.set_fit_request">
-<span class="sig-name descname"><span class="pre">set_fit_request</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sample_weight</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Union" title="(in Python v3.11)"><span class="pre">Union</span></a><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.11)"><span class="pre">bool</span></a><span class="p"><span class="pre">,</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.11)"><span class="pre">None</span></a><span class="p"><span class="pre">,</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.11)"><span class="pre">str</span></a><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'$UNCHANGED$'</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#piml.data.outlier_detection.IsolationForest" title="piml.data.outlier_detection.isolation_forest.IsolationForest"><span class="pre">IsolationForest</span></a></span></span><a class="headerlink" href="#piml.data.outlier_detection.IsolationForest.set_fit_request" title="Permalink to this definition">¶</a></dt>
-<dd><p>Request metadata passed to the <code class="docutils literal notranslate"><span class="pre">fit</span></code> method.</p>
-<p>Note that this method is only relevant if
-<code class="docutils literal notranslate"><span class="pre">enable_metadata_routing=True</span></code> (see <code class="xref py py-func docutils literal notranslate"><span class="pre">sklearn.set_config</span></code>).
-Please see <span class="xref std std-ref">User Guide</span> on how the routing
-mechanism works.</p>
-<p>The options for each parameter are:</p>
-<ul class="simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">True</span></code>: metadata is requested, and passed to <code class="docutils literal notranslate"><span class="pre">fit</span></code> if provided. The request is ignored if metadata is not provided.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">False</span></code>: metadata is not requested and the meta-estimator will not pass it to <code class="docutils literal notranslate"><span class="pre">fit</span></code>.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">None</span></code>: metadata is not requested, and the meta-estimator will raise an error if the user provides it.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">str</span></code>: metadata should be passed to the meta-estimator with this given alias instead of the original name.</p></li>
-</ul>
-<p>The default (<code class="docutils literal notranslate"><span class="pre">sklearn.utils.metadata_routing.UNCHANGED</span></code>) retains the
-existing request. This allows you to change the request for some
-parameters and not others.</p>
-<div class="versionadded">
-<p><span class="versionmodified added">New in version 1.3.</span></p>
-</div>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>This method is only relevant if this estimator is used as a
-sub-estimator of a meta-estimator, e.g. used inside a
-<code class="xref py py-class docutils literal notranslate"><span class="pre">pipeline.Pipeline</span></code>. Otherwise it has no effect.</p>
-</div>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><dl class="simple">
-<dt><strong>sample_weight</strong><span class="classifier">str, True, False, or None,                     default=sklearn.utils.metadata_routing.UNCHANGED</span></dt><dd><p>Metadata routing for <code class="docutils literal notranslate"><span class="pre">sample_weight</span></code> parameter in <code class="docutils literal notranslate"><span class="pre">fit</span></code>.</p>
-</dd>
-</dl>
-</dd>
-<dt class="field-even">Returns</dt>
-<dd class="field-even"><dl class="simple">
-<dt><strong>self</strong><span class="classifier">object</span></dt><dd><p>The updated object.</p>
-</dd>
-</dl>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="piml.data.outlier_detection.IsolationForest.set_params">
-<span class="sig-name descname"><span class="pre">set_params</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">params</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#piml.data.outlier_detection.IsolationForest.set_params" title="Permalink to this definition">¶</a></dt>
-<dd><p>Set the parameters of this estimator.</p>
-<p>The method works on simple estimators as well as on nested objects
-(such as <code class="xref py py-class docutils literal notranslate"><span class="pre">Pipeline</span></code>). The latter have
-parameters of the form <code class="docutils literal notranslate"><span class="pre">&lt;component&gt;__&lt;parameter&gt;</span></code> so that it’s
-possible to update each component of a nested object.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><dl class="simple">
-<dt><strong>**params</strong><span class="classifier">dict</span></dt><dd><p>Estimator parameters.</p>
-</dd>
-</dl>
-</dd>
-<dt class="field-even">Returns</dt>
-<dd class="field-even"><dl class="simple">
-<dt><strong>self</strong><span class="classifier">estimator instance</span></dt><dd><p>Estimator instance.</p>
+<dt><strong>outlier_indicator</strong><span class="classifier">numpy array of shape (n_samples,)</span></dt><dd><p>The binary array indicating whether each sample is outlier.</p>
 </dd>
 </dl>
 </dd>
@@ -459,7 +328,13 @@ possible to update each component of a nested object.</p>
 
 </dd></dl>
 
-<div class="clearer"></div></section>
+<section id="examples-using-piml-data-outlier-detection-isolationforest">
+<h2>Examples using <code class="docutils literal notranslate"><span class="pre">piml.data.outlier_detection.IsolationForest</span></code><a class="headerlink" href="#examples-using-piml-data-outlier-detection-isolationforest" title="Permalink to this heading">¶</a></h2>
+<div class="sphx-glr-thumbnails"><div class="sphx-glr-thumbcontainer" tooltip="Data Quality Check"><img alt="" src="../../_images/sphx_glr_plot_4_data_quality_thumb.png" />
+<p><a class="reference internal" href="../../auto_examples/data/plot_4_data_quality.html#sphx-glr-auto-examples-data-plot-4-data-quality-py"><span class="std std-ref">Data Quality Check</span></a></p>
+  <div class="sphx-glr-thumbnail-title">Data Quality Check</div>
+</div></div><div class="clearer"></div></section>
+</section>
 
 
         </div>

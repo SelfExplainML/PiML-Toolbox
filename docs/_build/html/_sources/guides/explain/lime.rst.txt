@@ -69,4 +69,10 @@ Examples
 
   The first example below demonstrates how to use PiML with its high-code APIs for developing machine learning models for the BikeSharing data from the UCI repository, which consists of 17,389 samples of hourly counts of rental bikes in Capital bikeshare system; see details. The response `cnt` (hourly bike rental counts) is continuous and it is a regression problem.
  
+.. topic:: Example 2: SimuCredit
+
+   The second example shows the option to use test set to generate the explanations.
+
+   * :ref:`sphx_glr_auto_examples_explain_plot_6_data_dependent_explain.py`
+
  * :ref:`sphx_glr_auto_examples_explain_plot_4_lime.py`

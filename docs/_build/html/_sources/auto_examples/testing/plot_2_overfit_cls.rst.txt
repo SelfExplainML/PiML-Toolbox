@@ -131,13 +131,13 @@ Histogram-based overfit test for a single feature
       <tbody>
         <tr>
           <th>0</th>
-          <td>0.2879</td>
-          <td>0.3781</td>
+          <td>0.287852</td>
+          <td>0.378122</td>
           <td>41</td>
           <td>131</td>
-          <td>0.7561</td>
-          <td>0.8473</td>
-          <td>-0.0912</td>
+          <td>0.756098</td>
+          <td>0.847328</td>
+          <td>-0.091231</td>
         </tr>
       </tbody>
     </table>
@@ -204,63 +204,63 @@ Histogram-based overfit test for two features
       <tbody>
         <tr>
           <th>0</th>
-          <td>0.2222</td>
-          <td>0.3333</td>
-          <td>0.7167</td>
-          <td>0.8037</td>
+          <td>0.222222</td>
+          <td>0.333333</td>
+          <td>0.716694</td>
+          <td>0.803749</td>
           <td>30</td>
           <td>117</td>
-          <td>0.6333</td>
-          <td>0.7350</td>
-          <td>-0.1017</td>
+          <td>0.633333</td>
+          <td>0.709402</td>
+          <td>-0.076068</td>
         </tr>
         <tr>
           <th>1</th>
-          <td>0.2222</td>
-          <td>0.3333</td>
-          <td>0.2814</td>
-          <td>0.3685</td>
-          <td>24</td>
-          <td>75</td>
-          <td>0.7083</td>
-          <td>0.8133</td>
-          <td>-0.1050</td>
+          <td>0.333333</td>
+          <td>0.444444</td>
+          <td>0.731146</td>
+          <td>0.795340</td>
+          <td>40</td>
+          <td>160</td>
+          <td>0.600000</td>
+          <td>0.700000</td>
+          <td>-0.100000</td>
         </tr>
         <tr>
           <th>2</th>
-          <td>0.3333</td>
-          <td>0.4444</td>
-          <td>0.9237</td>
-          <td>0.9558</td>
+          <td>0.333333</td>
+          <td>0.444444</td>
+          <td>0.923726</td>
+          <td>0.955823</td>
           <td>69</td>
           <td>338</td>
-          <td>0.5797</td>
-          <td>0.6893</td>
-          <td>-0.1096</td>
+          <td>0.579710</td>
+          <td>0.683432</td>
+          <td>-0.103722</td>
         </tr>
         <tr>
           <th>3</th>
-          <td>0.0000</td>
-          <td>0.1111</td>
-          <td>0.6213</td>
-          <td>0.6715</td>
-          <td>20</td>
-          <td>73</td>
-          <td>0.6500</td>
-          <td>0.7808</td>
-          <td>-0.1308</td>
+          <td>0.222222</td>
+          <td>0.333333</td>
+          <td>0.281421</td>
+          <td>0.368475</td>
+          <td>24</td>
+          <td>75</td>
+          <td>0.708333</td>
+          <td>0.813333</td>
+          <td>-0.105000</td>
         </tr>
         <tr>
           <th>4</th>
-          <td>0.3333</td>
-          <td>0.4444</td>
-          <td>0.7632</td>
-          <td>0.7953</td>
+          <td>0.000000</td>
+          <td>0.111111</td>
+          <td>0.621259</td>
+          <td>0.671508</td>
           <td>20</td>
-          <td>92</td>
-          <td>0.6000</td>
-          <td>0.7717</td>
-          <td>-0.1717</td>
+          <td>73</td>
+          <td>0.650000</td>
+          <td>0.780822</td>
+          <td>-0.130822</td>
         </tr>
       </tbody>
     </table>
@@ -324,13 +324,13 @@ Histogram-based overfit test for a single feature on test set
       <tbody>
         <tr>
           <th>0</th>
-          <td>0.2879</td>
-          <td>0.3781</td>
+          <td>0.287852</td>
+          <td>0.378122</td>
           <td>41</td>
           <td>131</td>
-          <td>0.7561</td>
-          <td>0.8473</td>
-          <td>-0.0912</td>
+          <td>0.756098</td>
+          <td>0.847328</td>
+          <td>-0.091231</td>
         </tr>
       </tbody>
     </table>
@@ -342,9 +342,9 @@ Histogram-based overfit test for a single feature on test set
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** ( 0 minutes  34.138 seconds)
+   **Total running time of the script:** ( 0 minutes  42.558 seconds)
 
-**Estimated memory usage:**  1711 MB
+**Estimated memory usage:**  39 MB
 
 
 .. _sphx_glr_download_auto_examples_testing_plot_2_overfit_cls.py:

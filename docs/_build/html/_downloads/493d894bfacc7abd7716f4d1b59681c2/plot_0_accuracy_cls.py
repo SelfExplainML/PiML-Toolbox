@@ -26,13 +26,13 @@ exp.model_diagnose(model="XGB2", show="accuracy_plot", figsize=(10, 4))
 
 #%%
 #Plot residual with respect to the feature PAY_1
-exp.model_diagnose(model="XGB2", show="accuracy_residual", target_feature="PAY_1",
+exp.model_diagnose(model="XGB2", show="accuracy_residual", show_feature="PAY_1",
                    use_test=False, original_scale=True, figsize=(5, 4))
 #%%
 #Plot residual with respect to the target feature
-exp.model_diagnose(model="XGB2", show="accuracy_residual", target_feature="FlagDefault",
+exp.model_diagnose(model="XGB2", show="accuracy_residual", show_feature="FlagDefault",
                    use_test=False, figsize=(5, 4))
 #%%
 #Plot residual with respect to the predicted response
-exp.model_diagnose(model="XGB2", show="accuracy_residual", target_feature="FlagDefault_predict",
+exp.model_diagnose(model="XGB2", show="accuracy_residual", show_feature="FlagDefault_predict",
                    use_test=False, figsize=(5, 4))

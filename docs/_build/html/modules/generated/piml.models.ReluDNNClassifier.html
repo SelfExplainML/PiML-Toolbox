@@ -114,7 +114,7 @@
           </div>
           <!--div class="btn-group w-100 mb-2" role="group" aria-label="rellinks">
               <a href="piml.models.ReluDNNRegressor.html" role="button" class="btn sk-btn-rellink py-1" sk-rellink-tooltip="piml.models.ReluDNNRegressor">Prev</a><a href="../classes.html" role="button" class="btn sk-btn-rellink py-1" sk-rellink-tooltip="API Reference">Up</a>
-              <a href="../../user_guide.html" role="button" class="btn sk-btn-rellink py-1" sk-rellink-tooltip="User Guide">Next</a>
+              <a href="piml.scored_test.test_accuracy_table.html" role="button" class="btn sk-btn-rellink py-1" sk-rellink-tooltip="piml.scored_test.test_accuracy_table">Next</a>
           </div-->
               <div class="sk-sidebar-toc">
                 <ul>
@@ -371,7 +371,7 @@ contained subobjects that are estimators.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Returns</dt>
 <dd class="field-odd"><dl class="simple">
-<dt><strong>unp</strong><span class="classifier">an instance of UnwrapperClassifier</span></dt><dd><p>The interpretation results.</p>
+<dt>An instance of ReLUDNNInterpreterRegressor</dt><dd><p>The interpretation results.</p>
 </dd>
 </dl>
 </dd>
@@ -387,8 +387,10 @@ contained subobjects that are estimators.</p>
 <dd class="field-odd"><dl class="simple">
 <dt><strong>X</strong><span class="classifier">np.ndarray of shape (n_samples, n_features)</span></dt><dd><p>Data features.</p>
 </dd>
-<dt><strong>Returns</strong></dt><dd></dd>
-<dt><strong>——-</strong></dt><dd></dd>
+</dl>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><dl class="simple">
 <dt><strong>pred</strong><span class="classifier">np.ndarray of shape (n_samples, )</span></dt><dd><p>The predicted label.</p>
 </dd>
 </dl>
@@ -405,8 +407,10 @@ contained subobjects that are estimators.</p>
 <dd class="field-odd"><dl class="simple">
 <dt><strong>X</strong><span class="classifier">np.ndarray of shape (n_samples, n_features)</span></dt><dd><p>Data features.</p>
 </dd>
-<dt><strong>Returns</strong></dt><dd></dd>
-<dt><strong>——-</strong></dt><dd></dd>
+</dl>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><dl class="simple">
 <dt><strong>pred_proba</strong><span class="classifier">np.ndarray of shape (n_samples, 2)</span></dt><dd><p>The predicted probability.</p>
 </dd>
 </dl>
@@ -467,7 +471,7 @@ possible to update each component of a nested object.</p>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="piml.models.ReluDNNClassifier.set_score_request">
-<span class="sig-name descname"><span class="pre">set_score_request</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sample_weight</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Union" title="(in Python v3.11)"><span class="pre">Union</span></a><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.11)"><span class="pre">bool</span></a><span class="p"><span class="pre">,</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.11)"><span class="pre">None</span></a><span class="p"><span class="pre">,</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.11)"><span class="pre">str</span></a><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'$UNCHANGED$'</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#piml.models.ReluDNNClassifier" title="piml.models.reludnn.reludnn.ReluDNNClassifier"><span class="pre">ReluDNNClassifier</span></a></span></span><a class="headerlink" href="#piml.models.ReluDNNClassifier.set_score_request" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">set_score_request</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sample_weight</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Union</span><span class="p"><span class="pre">[</span></span><span class="pre">bool</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">None</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'$UNCHANGED$'</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#piml.models.ReluDNNClassifier" title="piml.models.reludnn.reludnn.ReluDNNClassifier"><span class="pre">ReluDNNClassifier</span></a></span></span><a class="headerlink" href="#piml.models.ReluDNNClassifier.set_score_request" title="Permalink to this definition">¶</a></dt>
 <dd><p>Request metadata passed to the <code class="docutils literal notranslate"><span class="pre">score</span></code> method.</p>
 <p>Note that this method is only relevant if
 <code class="docutils literal notranslate"><span class="pre">enable_metadata_routing=True</span></code> (see <code class="xref py py-func docutils literal notranslate"><span class="pre">sklearn.set_config</span></code>).
@@ -512,10 +516,7 @@ sub-estimator of a meta-estimator, e.g. used inside a
 
 <section id="examples-using-piml-models-reludnnclassifier">
 <h2>Examples using <code class="docutils literal notranslate"><span class="pre">piml.models.ReluDNNClassifier</span></code><a class="headerlink" href="#examples-using-piml-models-reludnnclassifier" title="Permalink to this heading">¶</a></h2>
-<div class="sphx-glr-thumbnails"><div class="sphx-glr-thumbcontainer" tooltip="ReLU DNN Classification (Taiwan Credit)"><img alt="" src="../../_images/sphx_glr_plot_8_reludnn_cls_thumb.png" />
-<p><a class="reference internal" href="../../auto_examples/models/plot_8_reludnn_cls.html#sphx-glr-auto-examples-models-plot-8-reludnn-cls-py"><span class="std std-ref">ReLU DNN Classification (Taiwan Credit)</span></a></p>
-  <div class="sphx-glr-thumbnail-title">ReLU DNN Classification (Taiwan Credit)</div>
-</div><div class="sphx-glr-thumbcontainer" tooltip="Robustness: Classification"><img alt="" src="../../_images/sphx_glr_plot_4_robustness_cls_thumb.png" />
+<div class="sphx-glr-thumbnails"><div class="sphx-glr-thumbcontainer" tooltip="Robustness: Classification"><img alt="" src="../../_images/sphx_glr_plot_4_robustness_cls_thumb.png" />
 <p><a class="reference internal" href="../../auto_examples/testing/plot_4_robustness_cls.html#sphx-glr-auto-examples-testing-plot-4-robustness-cls-py"><span class="std std-ref">Robustness: Classification</span></a></p>
   <div class="sphx-glr-thumbnail-title">Robustness: Classification</div>
 </div></div><div class="clearer"></div></section>

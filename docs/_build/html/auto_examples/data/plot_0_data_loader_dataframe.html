@@ -137,44 +137,44 @@ to download the full example code or to run this example in your browser via Bin
 <span id="sphx-glr-auto-examples-data-plot-0-data-loader-dataframe-py"></span><h1>Data Load (Pandas DataFrame)<a class="headerlink" href="#data-load-pandas-dataframe" title="Permalink to this heading">¶</a></h1>
 <p>Experiment initialization and data preparation</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
-<span class="kn">from</span> <span class="nn">piml</span> <span class="kn">import</span> <a href="../../modules/generated/piml.Experiment.html#piml.Experiment" title="piml.Experiment" class="sphx-glr-backref-module-piml sphx-glr-backref-type-py-class sphx-glr-backref-instance"><a href="../../modules/generated/piml.Experiment.html#piml.Experiment" title="piml.Experiment" class="sphx-glr-backref-module-piml sphx-glr-backref-type-py-class sphx-glr-backref-instance"><a href="../../modules/generated/piml.Experiment.html#piml.Experiment" title="piml.Experiment" class="sphx-glr-backref-module-piml sphx-glr-backref-type-py-class sphx-glr-backref-instance"><a href="../../modules/generated/piml.Experiment.html#piml.Experiment" title="piml.Experiment" class="sphx-glr-backref-module-piml sphx-glr-backref-type-py-class sphx-glr-backref-instance"><a href="../../modules/generated/piml.Experiment.html#piml.Experiment" title="piml.Experiment" class="sphx-glr-backref-module-piml sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">Experiment</span></a></a></a></a></a>
+<span class="kn">from</span> <span class="nn">piml</span> <span class="kn">import</span> <a href="../../modules/generated/piml.Experiment.html#piml.Experiment" title="piml.Experiment" class="sphx-glr-backref-module-piml sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">Experiment</span></a>
 
-<span class="n">exp</span> <span class="o">=</span> <a href="../../modules/generated/piml.Experiment.html#piml.Experiment" title="piml.Experiment" class="sphx-glr-backref-module-piml sphx-glr-backref-type-py-class sphx-glr-backref-instance"><a href="../../modules/generated/piml.Experiment.html#piml.Experiment" title="piml.Experiment" class="sphx-glr-backref-module-piml sphx-glr-backref-type-py-class sphx-glr-backref-instance"><a href="../../modules/generated/piml.Experiment.html#piml.Experiment" title="piml.Experiment" class="sphx-glr-backref-module-piml sphx-glr-backref-type-py-class sphx-glr-backref-instance"><a href="../../modules/generated/piml.Experiment.html#piml.Experiment" title="piml.Experiment" class="sphx-glr-backref-module-piml sphx-glr-backref-type-py-class sphx-glr-backref-instance"><a href="../../modules/generated/piml.Experiment.html#piml.Experiment" title="piml.Experiment" class="sphx-glr-backref-module-piml sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">Experiment</span></a></a></a></a></a><span class="p">()</span>
-<span class="n">data</span> <span class="o">=</span> <a href="https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.read_csv.html#pandas.read_csv" title="pandas.read_csv" class="sphx-glr-backref-module-pandas sphx-glr-backref-type-py-function"><a href="https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.read_csv.html#pandas.read_csv" title="pandas.read_csv" class="sphx-glr-backref-module-pandas sphx-glr-backref-type-py-function"><a href="https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.read_csv.html#pandas.read_csv" title="pandas.read_csv" class="sphx-glr-backref-module-pandas sphx-glr-backref-type-py-function"><span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span></a></a></a><span class="p">(</span><span class="s1">&#39;https://github.com/SelfExplainML/PiML-Toolbox/blob/main/datasets/BikeSharing.csv?raw=true&#39;</span><span class="p">)</span>
+<span class="n">exp</span> <span class="o">=</span> <a href="../../modules/generated/piml.Experiment.html#piml.Experiment" title="piml.Experiment" class="sphx-glr-backref-module-piml sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">Experiment</span></a><span class="p">()</span>
+<span class="n">data</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;https://github.com/SelfExplainML/PiML-Toolbox/blob/main/datasets/BikeSharing.csv?raw=true&#39;</span><span class="p">)</span>
 <span class="n">exp</span><span class="o">.</span><span class="n">data_loader</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">data</span><span class="p">)</span>
 </pre></div>
 </div>
-<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>       season   yr  mnth    hr  holiday  weekday  workingday  weathersit  \
-0         1.0  0.0   1.0   0.0      0.0      6.0         0.0         1.0
-1         1.0  0.0   1.0   1.0      0.0      6.0         0.0         1.0
-2         1.0  0.0   1.0   2.0      0.0      6.0         0.0         1.0
-3         1.0  0.0   1.0   3.0      0.0      6.0         0.0         1.0
-4         1.0  0.0   1.0   4.0      0.0      6.0         0.0         1.0
-...       ...  ...   ...   ...      ...      ...         ...         ...
-17374     1.0  1.0  12.0  19.0      0.0      1.0         1.0         2.0
-17375     1.0  1.0  12.0  20.0      0.0      1.0         1.0         2.0
-17376     1.0  1.0  12.0  21.0      0.0      1.0         1.0         1.0
-17377     1.0  1.0  12.0  22.0      0.0      1.0         1.0         1.0
-17378     1.0  1.0  12.0  23.0      0.0      1.0         1.0         1.0
+<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>       season  yr  mnth  hr  holiday  weekday  workingday  weathersit  temp  \
+0           1   0     1   0        0        6           0           1  0.24
+1           1   0     1   1        0        6           0           1  0.22
+2           1   0     1   2        0        6           0           1  0.22
+3           1   0     1   3        0        6           0           1  0.24
+4           1   0     1   4        0        6           0           1  0.24
+...       ...  ..   ...  ..      ...      ...         ...         ...   ...
+17374       1   1    12  19        0        1           1           2  0.26
+17375       1   1    12  20        0        1           1           2  0.26
+17376       1   1    12  21        0        1           1           1  0.26
+17377       1   1    12  22        0        1           1           1  0.26
+17378       1   1    12  23        0        1           1           1  0.26
 
-       temp   atemp   hum  windspeed    cnt
-0      0.24  0.2879  0.81     0.0000   16.0
-1      0.22  0.2727  0.80     0.0000   40.0
-2      0.22  0.2727  0.80     0.0000   32.0
-3      0.24  0.2879  0.75     0.0000   13.0
-4      0.24  0.2879  0.75     0.0000    1.0
-...     ...     ...   ...        ...    ...
-17374  0.26  0.2576  0.60     0.1642  119.0
-17375  0.26  0.2576  0.60     0.1642   89.0
-17376  0.26  0.2576  0.60     0.1642   90.0
-17377  0.26  0.2727  0.56     0.1343   61.0
-17378  0.26  0.2727  0.65     0.1343   49.0
+        atemp   hum  windspeed  cnt
+0      0.2879  0.81     0.0000   16
+1      0.2727  0.80     0.0000   40
+2      0.2727  0.80     0.0000   32
+3      0.2879  0.75     0.0000   13
+4      0.2879  0.75     0.0000    1
+...       ...   ...        ...  ...
+17374  0.2576  0.60     0.1642  119
+17375  0.2576  0.60     0.1642   89
+17376  0.2576  0.60     0.1642   90
+17377  0.2727  0.56     0.1343   61
+17378  0.2727  0.65     0.1343   49
 
 [17379 rows x 13 columns]
 </pre></div>
 </div>
-<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> ( 0 minutes  9.514 seconds)</p>
-<p><strong>Estimated memory usage:</strong>  26 MB</p>
+<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> ( 0 minutes  5.933 seconds)</p>
+<p><strong>Estimated memory usage:</strong>  17 MB</p>
 <div class="sphx-glr-footer sphx-glr-footer-example docutils container" id="sphx-glr-download-auto-examples-data-plot-0-data-loader-dataframe-py">
 <div class="binder-badge docutils container">
 <a class="reference external image-reference" href="https://mybinder.org/v2/gh/selfexplainml/piml-toolbox/main?urlpath=lab/tree/./docs/_build/html/notebooks/auto_examples/data/plot_0_data_loader_dataframe.ipynb"><img alt="Launch binder" src="../../_images/binder_badge_logo.svg" width="150px" /></a>

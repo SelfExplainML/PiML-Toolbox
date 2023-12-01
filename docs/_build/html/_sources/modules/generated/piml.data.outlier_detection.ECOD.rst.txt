@@ -1,0 +1,12 @@
+﻿:mod:`piml.data.outlier_detection`.ECOD
+==============================================
+
+.. currentmodule:: piml.data.outlier_detection
+
+.. autoclass:: ECOD
+
+.. include:: piml.data.outlier_detection.ECOD.examples
+
+.. raw:: html
+
+    <div class="clearer"></div>

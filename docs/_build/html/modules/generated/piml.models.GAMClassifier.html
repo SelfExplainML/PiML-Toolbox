@@ -124,6 +124,8 @@
 <li><a class="reference internal" href="#piml.models.GAMClassifier.fit"><code class="docutils literal notranslate"><span class="pre">GAMClassifier.fit</span></code></a></li>
 <li><a class="reference internal" href="#piml.models.GAMClassifier.get_metadata_routing"><code class="docutils literal notranslate"><span class="pre">GAMClassifier.get_metadata_routing</span></code></a></li>
 <li><a class="reference internal" href="#piml.models.GAMClassifier.get_params"><code class="docutils literal notranslate"><span class="pre">GAMClassifier.get_params</span></code></a></li>
+<li><a class="reference internal" href="#piml.models.GAMClassifier.parse_model"><code class="docutils literal notranslate"><span class="pre">GAMClassifier.parse_model</span></code></a></li>
+<li><a class="reference internal" href="#piml.models.GAMClassifier.partial_dependence"><code class="docutils literal notranslate"><span class="pre">GAMClassifier.partial_dependence</span></code></a></li>
 <li><a class="reference internal" href="#piml.models.GAMClassifier.predict"><code class="docutils literal notranslate"><span class="pre">GAMClassifier.predict</span></code></a></li>
 <li><a class="reference internal" href="#piml.models.GAMClassifier.predict_proba"><code class="docutils literal notranslate"><span class="pre">GAMClassifier.predict_proba</span></code></a></li>
 <li><a class="reference internal" href="#piml.models.GAMClassifier.score"><code class="docutils literal notranslate"><span class="pre">GAMClassifier.score</span></code></a></li>
@@ -194,6 +196,12 @@ If iterable is passed, the length of lam must be equal to the length of penaltie
 <tr class="row-even"><td><p><a class="reference internal" href="#piml.models.GAMClassifier.get_params" title="piml.models.GAMClassifier.get_params"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_params</span></code></a>([deep])</p></td>
 <td><p>Get parameters for this estimator.</p></td>
 </tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#piml.models.GAMClassifier.parse_model" title="piml.models.GAMClassifier.parse_model"><code class="xref py py-obj docutils literal notranslate"><span class="pre">parse_model</span></code></a>()</p></td>
+<td><p>Interpret the model using functional ANOVA.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#piml.models.GAMClassifier.partial_dependence" title="piml.models.GAMClassifier.partial_dependence"><code class="xref py py-obj docutils literal notranslate"><span class="pre">partial_dependence</span></code></a>(fidx, X)</p></td>
+<td><p>Partial dependence of given effect index.</p></td>
+</tr>
 <tr class="row-odd"><td><p><a class="reference internal" href="#piml.models.GAMClassifier.predict" title="piml.models.GAMClassifier.predict"><code class="xref py py-obj docutils literal notranslate"><span class="pre">predict</span></code></a>(X)</p></td>
 <td><p>Predict function.</p></td>
 </tr>
@@ -205,17 +213,6 @@ If iterable is passed, the length of lam must be equal to the length of penaltie
 </tr>
 <tr class="row-even"><td><p><a class="reference internal" href="#piml.models.GAMClassifier.set_params" title="piml.models.GAMClassifier.set_params"><code class="xref py py-obj docutils literal notranslate"><span class="pre">set_params</span></code></a>(**params)</p></td>
 <td><p>Set the parameters of this estimator.</p></td>
-</tr>
-</tbody>
-</table>
-<table class="docutils align-default">
-<colgroup>
-<col style="width: 60%" />
-<col style="width: 40%" />
-</colgroup>
-<tbody>
-<tr class="row-odd"><td><p><strong>parse_model</strong></p></td>
-<td></td>
 </tr>
 </tbody>
 </table>
@@ -289,6 +286,42 @@ contained subobjects that are estimators.</p>
 <dt class="field-even">Returns</dt>
 <dd class="field-even"><dl class="simple">
 <dt><strong>params</strong><span class="classifier">dict</span></dt><dd><p>Parameter names mapped to their values.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="piml.models.GAMClassifier.parse_model">
+<span class="sig-name descname"><span class="pre">parse_model</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#piml.models.GAMClassifier.parse_model" title="Permalink to this definition">¶</a></dt>
+<dd><p>Interpret the model using functional ANOVA.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><dl class="simple">
+<dt>An instance of FANOVAINterpreter</dt><dd><p>The interpretation results.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="piml.models.GAMClassifier.partial_dependence">
+<span class="sig-name descname"><span class="pre">partial_dependence</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">fidx</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">X</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#piml.models.GAMClassifier.partial_dependence" title="Permalink to this definition">¶</a></dt>
+<dd><p>Partial dependence of given effect index.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>fidx</strong><span class="classifier">tuple of int</span></dt><dd><p>The main effect or pairwise interaction feature index.</p>
+</dd>
+<dt><strong>X</strong><span class="classifier">np.ndarray of shape (n_samples, n_features)</span></dt><dd><p>Data features.</p>
+</dd>
+</dl>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><dl class="simple">
+<dt><strong>pred</strong><span class="classifier">np.ndarray of shape (n_samples, )</span></dt><dd><p>numpy array of predicted class values.</p>
 </dd>
 </dl>
 </dd>

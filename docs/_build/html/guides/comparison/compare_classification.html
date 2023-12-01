@@ -235,7 +235,7 @@
 <p>This section describes how different classification models with binary responses can be compared based on different metrics. In PiML, this can be done by using the <code class="docutils literal notranslate"><span class="pre">model_compare</span></code> function. We use results from the TaiwanCredit data for illustration.</p>
 <section id="accuracy-comparison">
 <h2><span class="section-number">7.2.1. </span>Accuracy Comparison<a class="headerlink" href="#accuracy-comparison" title="Permalink to this heading">¶</a></h2>
-<p>The <code class="docutils literal notranslate"><span class="pre">metric</span></code> can be chosen from “ACC”, “AUC”, and “F1”.</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">metric</span></code> can be chosen from “ACC”, “AUC”, “F1”, “LogLoss”, and “Brier”.</p>
 <section id="accuracy-score">
 <h3><span class="section-number">7.2.1.1. </span>Accuracy Score<a class="headerlink" href="#accuracy-score" title="Permalink to this heading">¶</a></h3>
 <p>The bar chart below compares models based on ACC score, with <code class="docutils literal notranslate"><span class="pre">metric</span></code> = “ACC”. As the legend indicates, the plot compares the models on training and testing data. The results indicate that these three models have similar performance.</p>
@@ -417,7 +417,7 @@
 </section>
 <section id="resilience-distance">
 <h3><span class="section-number">7.2.5.2. </span>Resilience Distance<a class="headerlink" href="#resilience-distance" title="Permalink to this heading">¶</a></h3>
-<p>By setting <code class="docutils literal notranslate"><span class="pre">show</span></code> to “resilience_distance”, the distributional distance between the worst test sample and the full test sample will be calculated for each feature. Then the features will be ranked by distance, and the top 10 features with the largest distances will be displayed.</p>
+<p>By setting <code class="docutils literal notranslate"><span class="pre">show</span></code> to “resilience_distance”, the distributional distance between the worst test sample and the remaining test sample will be calculated for each feature. Then the features will be ranked by distance, and the top 10 features with the largest distances will be displayed.</p>
 <div class="jupyter_cell jupyter_container docutils container">
 <div class="cell_input code_cell docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">exp</span><span class="o">.</span><span class="n">model_compare</span><span class="p">(</span><span class="n">models</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;Tree&quot;</span><span class="p">,</span> <span class="s2">&quot;FIGS&quot;</span><span class="p">,</span> <span class="s2">&quot;XGB2&quot;</span><span class="p">],</span> <span class="n">show</span><span class="o">=</span><span class="s2">&quot;resilience_distance&quot;</span><span class="p">,</span>

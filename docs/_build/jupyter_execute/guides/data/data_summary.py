@@ -25,5 +25,5 @@ exp.data_summary(feature_exclude=["yr", "mnth", "temp"])
 # In[4]:
 
 
-exp.data_summary(feature_type={"weekday": "categorical"})
+exp.data_summary(feature_exclude=["yr", "mnth", "temp"], feature_type={"weekday": "categorical"})
 

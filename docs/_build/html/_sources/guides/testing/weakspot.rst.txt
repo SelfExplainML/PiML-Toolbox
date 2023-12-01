@@ -19,7 +19,7 @@ To conduct a weakspot test on a fitted model, the following steps are performed:
 - **Evaluate performance metric**: Calculate the performance metric of interest for each binning segment.
 - **Filter out weak regions**: Apply filters based on performance thresholds and minimum sample constraints to identify weak regions. These filters help determine regions where the model's performance falls below a certain threshold and where the number of samples is sufficient for reliable analysis.
 
-By following these steps, you can effectively identify and analyze areas of weakness in the model's predictions. Specifically, in PiML, there are three available slicing methods for detecting weak regions: histogram slicing, tree slicing, and ensemble tree slicing.
+By following these steps, you can effectively identify and analyze areas of weakness in the model's predictions. Specifically, in PiML, there are three available slicing methods for detecting weak regions: histogram slicing and tree slicing.
 
 - **Histogram Slicing**: This method utilizes unsupervised binning to partition the features of interest into equal-space bins. The number of bins defaults to 10. However, if the number of unique values is less than 10, these unique values are utilized as the split points. When two slicing features are specified, the process begins by conducting histogram binning on one feature. Subsequently, for each bin, histogram binning is performed on the second feature.
 
@@ -27,18 +27,16 @@ If connected bins are identified as weak regions, our approach involves merging 
 
 - **Tree Slicing**: This approach employs a supervised binning method. The initial step is to calculate a specific metric for each sample, such as square error for MSE, absolute error for MAE, or correct/incorrect status for accuracy score. Next, a decision tree model is fitted using the features of interest as predictors and the individual metrics as the response. The decision tree is configured with `max_depth=3` and `min_samples_leaf` as the minimum sample size. The generated decision tree is then utilized to create bins, and the performance of each bin is assessed accordingly.
 
-- **Ensemble Tree Slicing**: This method shares similarities with tree slicing. Instead of using decision trees, it leverages xgboost with specific configurations (`max_depth=2`, `n_estimators=100`, `tree_method="hist"`, `max_bin=20`) to generate bins based on the metrics of individual samples. The binning results obtained from xgboost tend to be more fine-grained and detailed compared to tree-based approaches.
-
 .. note::
 
-    The supervised binning methods, i.e., tree slicing and ensemble tree slicing, are suitable for cases where the metric is additive. This means that the metric for the entire sample can be calculated by aggregating the metric values of individual samples. For instance, metrics such as "MSE" (Mean Squared Error), "MAE" (Mean Absolute Error), and "ACC" (Accuracy Score) are additive in nature. However, metrics like "R2" (R-squared), "AUC" (Area Under the Curve), and "F1" (F1 Score) are not additive. By default, the "MSE" metric is used for regression tasks, while "ACC" is used for classification tasks. 
+    The supervised binning method, i.e., tree slicing, is suitable for cases where the metric is additive. This means that the metric for the entire sample can be calculated by aggregating the metric values of individual samples. For instance, metrics such as "MSE" (Mean Squared Error), "MAE" (Mean Absolute Error), "ACC" (Accuracy Score), "LogLoss" (Log Loss), and "Brier" (Brier Score) are additive in nature. However, metrics like "R2" (R-squared), "AUC" (Area Under the Curve), and "F1" (F1 Score) are not additive. By default, the "MSE" metric is used for regression tasks, while "ACC" is used for classification tasks. 
 
 
 Usage
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 For demonstration purposes, we consider an XGB2 model on the TaiwanCredit data. Weakspot assessment can be conducted by employing the `model_diagnose` function. To evaluate weak regions, simply set the `show` parameter to "weakspot". Moreover, the following parameters offer increased flexibility for customization and analysis.
 
-- `slice_method`: This parameter allows you to select the desired slicing method from the available options: "histogram", "tree", and "xgb", which correspond to the three aforementioned slicing methods. The default value is set to "histogram".
+- `slice_method`: This parameter allows you to select the desired slicing method from the available options: "histogram" and "tree", which correspond to the three aforementioned slicing methods. The default value is "histogram".
 
 - `slice_features`: This argument is used to specify the list of slicing features. For weakspot analysis, you need to specify 1 or 2 slicing features; otherwise, a warning message will be displayed.
 
@@ -60,68 +58,15 @@ In the following demonstration, we will identify weak regions using the testing 
 
     results = exp.model_diagnose(model="XGB2", show="weakspot", slice_method="histogram", 
                             slice_features=["PAY_1"], threshold=1.1, min_samples=100, metric="ACC",
-                            use_test=True, return_data=True, original_scale=True, figsize=(5, 4))
+                            use_test=True, return_data=True, figsize=(5, 4))
 
 .. figure:: ../../auto_examples/testing/images/sphx_glr_plot_1_weakspot_cls_001.png
    :target: ../../auto_examples/testing/plot_1_weakspot_cls.html
    :align: left
 
-The above plot illustrates the detection of a single weak region for the feature `PAY_1`, within the range of 0.2 to 0.4. The red dotted line represents the performance threshold, which is calculated by dividing the average metric (around 0.82) by the user-specified threshold ratio (1.1), resulting in a threshold value of approximately 0.75. Each weak region is annotated with its corresponding weak region number.
+The above plot illustrates the detection of a single weak region for the feature `PAY_1`. The red dotted line represents the performance threshold, which is calculated by dividing the average metric (around 0.82) by the user-specified threshold ratio (1.1), resulting in a threshold value of approximately 0.75. Each weak region is annotated with its corresponding weak region number.
 
 On the x-axis, we have the variable of interest (`PAY_1`), while the y-axis represents the density and accuracy score of each segment. In the density plot, the "Above threshold" and "Below threshold" labels indicate the population segments with prediction errors greater or less than the threshold, respectively. However, it is important to note that for metrics such as "AUC", "F1" in classification tasks, or "R2" in regression tasks, which are not additive, the density plot does not display the "Above threshold" and "Below threshold" labels. The detailed information of detected weak regions can be found in the returned table, as we set `return_data` to True. 
-
-.. jupyter-input::
-
-    results.data
-
-.. raw:: html
-
-    <div class="output_subarea output_html rendered_html output_result">
-    <div>
-    <style scoped>
-        .dataframe tbody tr th:only-of-type {
-            vertical-align: middle;
-            align: left;
-        }
-
-        .dataframe tbody tr th {
-            vertical-align: top;
-            align: left;
-        }
-
-        .dataframe thead th {
-            text-align: right;
-            align: left;
-        }
-    </style>
-    <table border="1" class="dataframe">
-      <thead>
-        <tr style="text-align: right;">
-          <th></th>
-          <th>[PAY_1</th>
-          <th>PAY_1)</th>
-          <th>#Test</th>
-          <th>#Train</th>
-          <th>test_ACC</th>
-          <th>train_ACC</th>
-          <th>Gap</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <th>0</th>
-          <td>0.2</td>
-          <td>0.4</td>
-          <td>1265</td>
-          <td>5090</td>
-          <td>0.695652</td>
-          <td>0.689587</td>
-          <td>0.006065</td>
-        </tr>
-      </tbody>
-    </table>
-    </div>
-    </div>
 
 The table above shows the weak regions of the testing data. It contains the following columns:
 
@@ -146,116 +91,13 @@ In the following demo, we identify weak regions of the testing data (`use_test=T
 .. jupyter-input::
      
     results = exp.model_diagnose(model="XGB2", show="weakspot", slice_method="histogram", 
-                           slice_features=["PAY_1", "PAY_2"], threshold=1.1, min_samples=100, metric="ACC",
-                           use_test=True, return_data=True, original_scale=True, figsize=(5, 4))
+                           slice_features=["PAY_1", "PAY_2"], threshold=1.1, min_samples=100, metric="ACC", use_test=True, return_data=True, figsize=(5, 4))
 
 .. figure:: ../../auto_examples/testing/images/sphx_glr_plot_1_weakspot_cls_002.png
    :target: ../../auto_examples/testing/plot_1_weakspot_cls.html
    :align: left
 
-.. jupyter-input::
-
-    results.data
-
-.. raw:: html
-
-    <div class="output_subarea output_html rendered_html output_result">
-    <div>
-    <style scoped>
-        .dataframe tbody tr th:only-of-type {
-            vertical-align: left;
-        }
-
-        .dataframe tbody tr th {
-            vertical-align: top;
-        }
-
-        .dataframe thead th {
-            text-align: right;
-        }
-    </style>
-    <table border="1" class="dataframe">
-      <thead>
-        <tr style="text-align: right;">
-          <th></th>
-          <th>[PAY_1</th>
-          <th>PAY_1)</th>
-          <th>[PAY_2</th>
-          <th>PAY_2)</th>
-          <th>#Test</th>
-          <th>#Train</th>
-          <th>test_ACC</th>
-          <th>train_ACC</th>
-          <th>Gap</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <th>0</th>
-          <td>0.3</td>
-          <td>0.4</td>
-          <td>0.000000</td>
-          <td>0.250000</td>
-          <td>191</td>
-          <td>800</td>
-          <td>0.691099</td>
-          <td>0.678750</td>
-          <td>0.012349</td>
-        </tr>
-        <tr>
-          <th>1</th>
-          <td>0.2</td>
-          <td>0.3</td>
-          <td>0.111111</td>
-          <td>0.222222</td>
-          <td>268</td>
-          <td>956</td>
-          <td>0.727612</td>
-          <td>0.717573</td>
-          <td>0.010039</td>
-        </tr>
-        <tr>
-          <th>2</th>
-          <td>0.3</td>
-          <td>0.4</td>
-          <td>0.375000</td>
-          <td>0.625000</td>
-          <td>322</td>
-          <td>1354</td>
-          <td>0.720497</td>
-          <td>0.717134</td>
-          <td>0.003362</td>
-        </tr>
-        <tr>
-          <th>3</th>
-          <td>0.2</td>
-          <td>0.3</td>
-          <td>0.333333</td>
-          <td>0.555556</td>
-          <td>351</td>
-          <td>1430</td>
-          <td>0.612536</td>
-          <td>0.614685</td>
-          <td>-0.002150</td>
-        </tr>
-        <tr>
-          <th>4</th>
-          <td>0.0</td>
-          <td>0.1</td>
-          <td>0.375000</td>
-          <td>0.750000</td>
-          <td>82</td>
-          <td>360</td>
-          <td>0.621951</td>
-          <td>0.625000</td>
-          <td>-0.003049</td>
-        </tr>
-      </tbody>
-    </table>
-    </div>
-    </div>
-
-In this particular demonstration involving two variables, the plot reveals the presence of 5 weak regions. The accompanying summary table provides additional information regarding each region. It includes the testing and training accuracy scores for the samples within each region, as well as the gap between the testing and training ACC scores. These details offer insights into the performance discrepancy between the testing and training datasets for each specific region. Let's take Region 0 as an example, which consists of 191 testing samples and 800 training samples. This region corresponds to the range of `PAY_1` values between 0.3 and 1.4, and `PAY_AMT2` values between 0.00 and 0.25.
+In this particular demonstration involving two variables, the plot reveals the presence of 5 weak regions. The accompanying summary table provides additional information regarding each region. It includes the testing and training accuracy scores for the samples within each region, as well as the gap between the testing and training ACC scores. These details offer insights into the performance discrepancy between the testing and training datasets for each specific region. Let's take Region 0 as an example, which consists of 191 testing samples and 800 training samples. This region corresponds to the range of `PAY_1` values between 2.6 and 3.5, and `PAY_2` values between 2.2 and 3.6.
 
 
 Examples

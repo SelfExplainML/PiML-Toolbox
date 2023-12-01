@@ -1,0 +1,15 @@
+
+:orphan:
+
+.. _sphx_glr_auto_examples_testing_segmented_sg_execution_times:
+
+
+Computation times
+=================
+**02:23.671** total execution time for **auto_examples_testing_segmented** files:
+
++---------------------------------------------------------------------------------------------------------+-----------+---------+
+| :ref:`sphx_glr_auto_examples_testing_segmented_plot_0_classification.py` (``plot_0_classification.py``) | 01:15.902 | 28.8 MB |
++---------------------------------------------------------------------------------------------------------+-----------+---------+
+| :ref:`sphx_glr_auto_examples_testing_segmented_plot_0_regression.py` (``plot_0_regression.py``)         | 01:07.769 | 16.0 MB |
++---------------------------------------------------------------------------------------------------------+-----------+---------+

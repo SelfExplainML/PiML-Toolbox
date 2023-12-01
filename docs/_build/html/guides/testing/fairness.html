@@ -257,7 +257,7 @@
 </ul>
 <div class="math notranslate nohighlight">
 \[\begin{align}
-AIR = \frac{(TP_{p}+FP_{p}) / n_{p}}{(TP_{r}+FP_{r}) / n_{r}}.
+AIR = \frac{(TP_{p}+FP_{p}) / n_{r}}{(TP_{r}+FP_{r}) / n_{p}}.
 \end{align}\]</div>
 <ul class="simple">
 <li><p><strong>Precision</strong>: Positive predictive value disparity ratio.</p></li>
@@ -307,18 +307,18 @@ Recall Ratio = \frac{(TP_{p}) / (TP_{p}+FN_{p})}{(TP_{r}) / (TP_{r}+FN_{r})}.
 </section>
 <section id="fairness-segmented">
 <h2><span class="section-number">6.7.2. </span>Fairness Segmented<a class="headerlink" href="#fairness-segmented" title="Permalink to this heading">¶</a></h2>
-<p>By leveraging the <code class="docutils literal notranslate"><span class="pre">model_fairness</span></code> API, we can also display fairness results conditioning on a feature of interest. The keyword of the parameter <code class="docutils literal notranslate"><span class="pre">show</span></code> is “segmented”, and the segmented feature can be specified by the parameter <code class="docutils literal notranslate"><span class="pre">segmented_feature</span></code>.</p>
+<p>By leveraging the <code class="docutils literal notranslate"><span class="pre">model_fairness</span></code> API, we can also display fairness results conditioning on a feature of interest. The keyword of the parameter <code class="docutils literal notranslate"><span class="pre">show</span></code> is “segmented”, and the segmented feature can be specified by the parameter <code class="docutils literal notranslate"><span class="pre">segment_feature</span></code>.</p>
 <ul class="simple">
-<li><p>For numerical features, the desired number of equal-space bins can be controlled by the parameter <code class="docutils literal notranslate"><span class="pre">segmented_bins</span></code>.</p></li>
+<li><p>For numerical features, the desired number of equal-space bins can be controlled by the parameter <code class="docutils literal notranslate"><span class="pre">segment_bins</span></code>.</p></li>
 <li><p>For categorical features, the samples are segmented according to the unique categories present in the feature.</p></li>
 </ul>
 <p>Once the segmentation is completed, PIML generates the fairness results for each bucket. The supported metric types align with those outlined in the “Fairness Metric” section.  in PIML, users can effectively analyze and evaluate fairness at a granular level, allowing for a more comprehensive understanding of the model’s fairness performance across various segments of the data.</p>
 <div class="jupyter_cell jupyter_container docutils container">
 <div class="cell_input code_cell docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">segmented_result</span> <span class="o">=</span> <span class="n">exp</span><span class="o">.</span><span class="n">model_fairness</span><span class="p">(</span><span class="n">model</span><span class="o">=</span><span class="s2">&quot;XGB2_monotonic&quot;</span><span class="p">,</span> <span class="n">show</span><span class="o">=</span><span class="s2">&quot;segmented&quot;</span><span class="p">,</span> <span class="n">metric</span><span class="o">=</span><span class="s2">&quot;AIR&quot;</span><span class="p">,</span>
-                                       <span class="n">segmented_feature</span><span class="o">=</span><span class="s2">&quot;Balance&quot;</span><span class="p">,</span> <span class="n">group_category</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;Race&quot;</span><span class="p">,</span><span class="s2">&quot;Gender&quot;</span><span class="p">],</span>
+                                       <span class="n">segment_feature</span><span class="o">=</span><span class="s2">&quot;Balance&quot;</span><span class="p">,</span> <span class="n">group_category</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;Race&quot;</span><span class="p">,</span><span class="s2">&quot;Gender&quot;</span><span class="p">],</span>
                                        <span class="n">reference_group</span><span class="o">=</span><span class="p">[</span><span class="mf">1.</span><span class="p">,</span> <span class="mf">1.</span><span class="p">],</span> <span class="n">protected_group</span><span class="o">=</span><span class="p">[</span><span class="mf">0.</span><span class="p">,</span> <span class="mf">0.</span><span class="p">],</span>
-                                       <span class="n">segmented_bins</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span> <span class="n">favorable_threshold</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span>
+                                       <span class="n">segment_bins</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span> <span class="n">favorable_threshold</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span>
                                        <span class="n">return_data</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span> <span class="mi">4</span><span class="p">))</span>
 </pre></div>
 </div>

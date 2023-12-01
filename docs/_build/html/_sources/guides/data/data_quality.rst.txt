@@ -76,7 +76,7 @@ The KmeansTree method takes advantage of the splitting behavior of the K-means c
 
 Analysis and Comparison
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-This subsection briefly introduces the usage of outlier detection methods in PiML. The function name is `data_quality_check`. The key parameters include:
+This subsection briefly introduces the usage of outlier detection methods in PiML. The function name is `data_quality`. The key parameters include:
 
 - `method`: The outlier detection method to be used, which needs to be an instance of IsolationForest_, CBLOF_, PCA_, or KMeansTree_.
 
@@ -86,12 +86,12 @@ This subsection briefly introduces the usage of outlier detection methods in PiM
 
 Outlier Score distribution
 """"""""""""""""""""""""""""""""
-Here is an example of displaying the score distribution of the PCA-based outlier detection method. The keyword of this plot is "score_distribution". The parameter `threshold` is used to decide whether a sample is an outlier, which is the quantile of the outlier score of all samples, within 0 and 1.
+Here is an example of displaying the score distribution of the PCA-based outlier detection method. The keyword of this plot is "od_score_distribution". The parameter `threshold` is used to decide whether a sample is an outlier, which is the quantile of the outlier score of all samples, within 0 and 1.
 
 .. jupyter-input::
 
     from piml.data.outlier_detection import PCA
-    exp.data_quality_check(method=PCA(), show='score_distribution', threshold=0.999)
+    exp.data_quality(method=PCA(), show='od_score_distribution', threshold=0.999)
 
 .. figure:: ../../auto_examples/data/images/sphx_glr_plot_4_data_quality_001.png
    :target: ../../auto_examples/data/plot_4_data_quality.html
@@ -101,14 +101,14 @@ In this plot, the red dotted line represents the actual threshold of the outlier
 
 Marginal Distribution of Outliers
 """"""""""""""""""""""""""""""""""""
-Here is an example of displaying the marginal distribution of detected outliers against a feature of interest. The keyword of this plot is "marginal_outlier_distribution".
+Here is an example of displaying the marginal distribution of detected outliers against a feature of interest. The keyword of this plot is "od_marginal_outlier_distribution".
 
 .. jupyter-input::
 
     from piml.data.outlier_detection import PCA
-    exp.data_quality_check(method=PCA(), show='marginal_outlier_distribution', threshold=0.999)
+    exp.data_quality(method=PCA(), show='od_marginal_outlier_distribution', threshold=0.999)
 
-.. figure:: ../../auto_examples/data/images/sphx_glr_plot_4_data_quality_002.png
+.. figure:: ../../auto_examples/data/images/sphx_glr_plot_4_data_quality_009.png
    :target: ../../auto_examples/data/plot_4_data_quality.html
    :align: left
 
@@ -116,14 +116,14 @@ In this plot, a circle mark is used to indicate the presence of outliers. Althou
 
 Comparison of Different Methods
 """"""""""""""""""""""""""""""""""""
-We use t-SNE to reduce the dimension of data to 2D for better visualization. Below is an example of comparing different methods, and the keyword of this plot is "tsne_comparison".
+We use t-SNE to reduce the dimension of data to 2D for better visualization. Below is an example of comparing different methods, and the keyword of this plot is "od_tsne_comparison".
 
 .. jupyter-input::
 
     from piml.data.outlier_detection import PCA, CBLOF
-    exp.data_quality_check(method=[PCA(), CBLOF()], show='tsne_comparison', threshold=[0.999, 0.999])
+    exp.data_quality(method=[PCA(), CBLOF()], show='od_tsne_comparison', threshold=[0.999, 0.999])
 
-.. figure:: ../../auto_examples/data/images/sphx_glr_plot_4_data_quality_003.png
+.. figure:: ../../auto_examples/data/images/sphx_glr_plot_4_data_quality_010.png
    :target: ../../auto_examples/data/plot_4_data_quality.html
    :align: left
 

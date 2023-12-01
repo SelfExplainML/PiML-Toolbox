@@ -50,6 +50,23 @@ Data Pipeline
 
 .. raw:: html
 
+    <div class="sphx-glr-thumbcontainer" tooltip="Data Load (Pandas DataFrame)">
+
+.. only:: html
+
+  .. image:: /auto_examples/data/images/thumb/sphx_glr_plot_0_data_loader_spark_thumb.png
+    :alt:
+
+  :ref:`sphx_glr_auto_examples_data_plot_0_data_loader_spark.py`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Data Load (Pandas DataFrame)</div>
+    </div>
+
+
+.. raw:: html
+
     <div class="sphx-glr-thumbcontainer" tooltip="Showing data summary result using the BikeSharing dataset as example.">
 
 .. only:: html
@@ -101,7 +118,7 @@ Data Pipeline
 
 .. raw:: html
 
-    <div class="sphx-glr-thumbcontainer" tooltip="Data quality analysis result using the BikeSharing dataset as example.">
+    <div class="sphx-glr-thumbcontainer" tooltip="Data Quality Check">
 
 .. only:: html
 
@@ -160,6 +177,7 @@ Data Pipeline
 
    /auto_examples/data/plot_0_data_loader_builtin
    /auto_examples/data/plot_0_data_loader_dataframe
+   /auto_examples/data/plot_0_data_loader_spark
    /auto_examples/data/plot_1_data_summary
    /auto_examples/data/plot_2_data_eda
    /auto_examples/data/plot_3_data_prepare

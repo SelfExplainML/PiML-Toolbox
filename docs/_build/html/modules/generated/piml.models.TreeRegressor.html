@@ -128,14 +128,10 @@
 <li><a class="reference internal" href="#piml.models.TreeRegressor.feature_importances_"><code class="docutils literal notranslate"><span class="pre">TreeRegressor.feature_importances_</span></code></a></li>
 <li><a class="reference internal" href="#piml.models.TreeRegressor.fit"><code class="docutils literal notranslate"><span class="pre">TreeRegressor.fit</span></code></a></li>
 <li><a class="reference internal" href="#piml.models.TreeRegressor.get_depth"><code class="docutils literal notranslate"><span class="pre">TreeRegressor.get_depth</span></code></a></li>
-<li><a class="reference internal" href="#piml.models.TreeRegressor.get_local_tree"><code class="docutils literal notranslate"><span class="pre">TreeRegressor.get_local_tree</span></code></a></li>
 <li><a class="reference internal" href="#piml.models.TreeRegressor.get_metadata_routing"><code class="docutils literal notranslate"><span class="pre">TreeRegressor.get_metadata_routing</span></code></a></li>
 <li><a class="reference internal" href="#piml.models.TreeRegressor.get_n_leaves"><code class="docutils literal notranslate"><span class="pre">TreeRegressor.get_n_leaves</span></code></a></li>
 <li><a class="reference internal" href="#piml.models.TreeRegressor.get_params"><code class="docutils literal notranslate"><span class="pre">TreeRegressor.get_params</span></code></a></li>
-<li><a class="reference internal" href="#piml.models.TreeRegressor.get_tree_diag"><code class="docutils literal notranslate"><span class="pre">TreeRegressor.get_tree_diag</span></code></a></li>
-<li><a class="reference internal" href="#piml.models.TreeRegressor.global_interpret"><code class="docutils literal notranslate"><span class="pre">TreeRegressor.global_interpret</span></code></a></li>
-<li><a class="reference internal" href="#piml.models.TreeRegressor.plot_local_tree"><code class="docutils literal notranslate"><span class="pre">TreeRegressor.plot_local_tree</span></code></a></li>
-<li><a class="reference internal" href="#piml.models.TreeRegressor.plot_tree_diag"><code class="docutils literal notranslate"><span class="pre">TreeRegressor.plot_tree_diag</span></code></a></li>
+<li><a class="reference internal" href="#piml.models.TreeRegressor.parse_model"><code class="docutils literal notranslate"><span class="pre">TreeRegressor.parse_model</span></code></a></li>
 <li><a class="reference internal" href="#piml.models.TreeRegressor.predict"><code class="docutils literal notranslate"><span class="pre">TreeRegressor.predict</span></code></a></li>
 <li><a class="reference internal" href="#piml.models.TreeRegressor.score"><code class="docutils literal notranslate"><span class="pre">TreeRegressor.score</span></code></a></li>
 <li><a class="reference internal" href="#piml.models.TreeRegressor.set_fit_request"><code class="docutils literal notranslate"><span class="pre">TreeRegressor.set_fit_request</span></code></a></li>
@@ -299,29 +295,17 @@ subtree with the largest cost complexity that is smaller than
 <tr class="row-odd"><td><p><a class="reference internal" href="#piml.models.TreeRegressor.get_depth" title="piml.models.TreeRegressor.get_depth"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_depth</span></code></a>()</p></td>
 <td><p>Return the depth of the decision tree.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#piml.models.TreeRegressor.get_local_tree" title="piml.models.TreeRegressor.get_local_tree"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_local_tree</span></code></a>(X[, tree_idx])</p></td>
-<td><p>Interpret local tree for specific sample.</p></td>
-</tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#piml.models.TreeRegressor.get_metadata_routing" title="piml.models.TreeRegressor.get_metadata_routing"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_metadata_routing</span></code></a>()</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#piml.models.TreeRegressor.get_metadata_routing" title="piml.models.TreeRegressor.get_metadata_routing"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_metadata_routing</span></code></a>()</p></td>
 <td><p>Get metadata routing of this object.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#piml.models.TreeRegressor.get_n_leaves" title="piml.models.TreeRegressor.get_n_leaves"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_n_leaves</span></code></a>()</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#piml.models.TreeRegressor.get_n_leaves" title="piml.models.TreeRegressor.get_n_leaves"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_n_leaves</span></code></a>()</p></td>
 <td><p>Return the number of leaves of the decision tree.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#piml.models.TreeRegressor.get_params" title="piml.models.TreeRegressor.get_params"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_params</span></code></a>([deep])</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#piml.models.TreeRegressor.get_params" title="piml.models.TreeRegressor.get_params"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_params</span></code></a>([deep])</p></td>
 <td><p>Get parameters for this estimator.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#piml.models.TreeRegressor.get_tree_diag" title="piml.models.TreeRegressor.get_tree_diag"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_tree_diag</span></code></a>(depth, root, tree_idx)</p></td>
-<td><p>Get tree diagram data.</p></td>
-</tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#piml.models.TreeRegressor.global_interpret" title="piml.models.TreeRegressor.global_interpret"><code class="xref py py-obj docutils literal notranslate"><span class="pre">global_interpret</span></code></a>(**kwargs)</p></td>
-<td><p>Global interpretation.</p></td>
-</tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#piml.models.TreeRegressor.plot_local_tree" title="piml.models.TreeRegressor.plot_local_tree"><code class="xref py py-obj docutils literal notranslate"><span class="pre">plot_local_tree</span></code></a>(interpret_result[, scaler, ...])</p></td>
-<td><p>The plot function for local tree diagram</p></td>
-</tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#piml.models.TreeRegressor.plot_tree_diag" title="piml.models.TreeRegressor.plot_tree_diag"><code class="xref py py-obj docutils literal notranslate"><span class="pre">plot_tree_diag</span></code></a>(interpret_result[, scaler, ...])</p></td>
-<td><p>The plot function for global tree diagram</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#piml.models.TreeRegressor.parse_model" title="piml.models.TreeRegressor.parse_model"><code class="xref py py-obj docutils literal notranslate"><span class="pre">parse_model</span></code></a>()</p></td>
+<td><p>Interpret the model.</p></td>
 </tr>
 <tr class="row-even"><td><p><a class="reference internal" href="#piml.models.TreeRegressor.predict" title="piml.models.TreeRegressor.predict"><code class="xref py py-obj docutils literal notranslate"><span class="pre">predict</span></code></a>(X[, check_input])</p></td>
 <td><p>Predict class or regression value for X.</p></td>
@@ -340,23 +324,6 @@ subtree with the largest cost complexity that is smaller than
 </tr>
 <tr class="row-odd"><td><p><a class="reference internal" href="#piml.models.TreeRegressor.set_score_request" title="piml.models.TreeRegressor.set_score_request"><code class="xref py py-obj docutils literal notranslate"><span class="pre">set_score_request</span></code></a>(*[, sample_weight])</p></td>
 <td><p>Request metadata passed to the <code class="docutils literal notranslate"><span class="pre">score</span></code> method.</p></td>
-</tr>
-</tbody>
-</table>
-<table class="docutils align-default">
-<colgroup>
-<col style="width: 68%" />
-<col style="width: 32%" />
-</colgroup>
-<tbody>
-<tr class="row-odd"><td><p><strong>init_params</strong></p></td>
-<td></td>
-</tr>
-<tr class="row-even"><td><p><strong>parse_model</strong></p></td>
-<td></td>
-</tr>
-<tr class="row-odd"><td><p><strong>set_truncate_dict</strong></p></td>
-<td></td>
 </tr>
 </tbody>
 </table>
@@ -521,28 +488,6 @@ and any leaf.</p>
 </dd></dl>
 
 <dl class="py method">
-<dt class="sig sig-object py" id="piml.models.TreeRegressor.get_local_tree">
-<span class="sig-name descname"><span class="pre">get_local_tree</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">X</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tree_idx</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Optional" title="(in Python v3.11)"><span class="pre">Optional</span></a><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.11)"><span class="pre">int</span></a><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#piml.models.TreeRegressor.get_local_tree" title="Permalink to this definition">¶</a></dt>
-<dd><p>Interpret local tree for specific sample.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><dl class="simple">
-<dt><strong>X</strong><span class="classifier">np.array</span></dt><dd><p>Data to interpret, should be shape(1, :)</p>
-</dd>
-<dt><strong>tree_idx</strong><span class="classifier">int, optional</span></dt><dd><p>Useless for this function, by default None</p>
-</dd>
-</dl>
-</dd>
-<dt class="field-even">Returns</dt>
-<dd class="field-even"><dl class="simple">
-<dt>TestDataResult</dt><dd><p>Interpret result of local tree for specific sample</p>
-</dd>
-</dl>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py method">
 <dt class="sig sig-object py" id="piml.models.TreeRegressor.get_metadata_routing">
 <span class="sig-name descname"><span class="pre">get_metadata_routing</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#piml.models.TreeRegressor.get_metadata_routing" title="Permalink to this definition">¶</a></dt>
 <dd><p>Get metadata routing of this object.</p>
@@ -595,69 +540,13 @@ contained subobjects that are estimators.</p>
 </dd></dl>
 
 <dl class="py method">
-<dt class="sig sig-object py" id="piml.models.TreeRegressor.get_tree_diag">
-<span class="sig-name descname"><span class="pre">get_tree_diag</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">depth</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.11)"><span class="pre">int</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">root</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.11)"><span class="pre">int</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">tree_idx</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.11)"><span class="pre">int</span></a></span></em><span class="sig-paren">)</span><a class="headerlink" href="#piml.models.TreeRegressor.get_tree_diag" title="Permalink to this definition">¶</a></dt>
-<dd><p>Get tree diagram data.</p>
+<dt class="sig sig-object py" id="piml.models.TreeRegressor.parse_model">
+<span class="sig-name descname"><span class="pre">parse_model</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#piml.models.TreeRegressor.parse_model" title="Permalink to this definition">¶</a></dt>
+<dd><p>Interpret the model.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Returns</dt>
 <dd class="field-odd"><dl class="simple">
-<dt><strong>depth</strong><span class="classifier">int</span></dt><dd><p>The max depth to display.</p>
-</dd>
-<dt><strong>root</strong><span class="classifier">int</span></dt><dd><p>The root node index for display.</p>
-</dd>
-<dt><strong>tree_idx</strong><span class="classifier">int</span></dt><dd><p>Useless in this function.</p>
-</dd>
-</dl>
-</dd>
-<dt class="field-even">Returns</dt>
-<dd class="field-even"><dl class="simple">
-<dt>TestDataResult</dt><dd><p>Global tree diagram result under specific arguments.</p>
-</dd>
-</dl>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="piml.models.TreeRegressor.global_interpret">
-<span class="sig-name descname"><span class="pre">global_interpret</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#piml.models.TreeRegressor.global_interpret" title="Permalink to this definition">¶</a></dt>
-<dd><p>Global interpretation.</p>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="piml.models.TreeRegressor.plot_local_tree">
-<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">plot_local_tree</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">interpret_result</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">TestDataResult</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">scaler</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">return_fig</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.11)"><span class="pre">bool</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">figsize</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#tuple" title="(in Python v3.11)"><span class="pre">tuple</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">(20,</span> <span class="pre">10)</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#piml.models.TreeRegressor.plot_local_tree" title="Permalink to this definition">¶</a></dt>
-<dd><p>The plot function for local tree diagram</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><dl class="simple">
-<dt><strong>interpret_result</strong><span class="classifier">TestDataResult</span></dt><dd><p>The result of “get_tree_diag”.</p>
-</dd>
-<dt><strong>scaler</strong><span class="classifier">callable function, default=None</span></dt><dd><p>If not None, it will transfrom covariates into the original scale.</p>
-</dd>
-<dt><strong>return_fig</strong><span class="classifier">bool, default=False</span></dt><dd><p>Whether to return the figure.</p>
-</dd>
-<dt><strong>figsize</strong><span class="classifier">tuple, optional</span></dt><dd><p>The figure size, by default (20, 10)</p>
-</dd>
-</dl>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="piml.models.TreeRegressor.plot_tree_diag">
-<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">plot_tree_diag</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">interpret_result</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">TestDataResult</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">scaler</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">return_fig</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">figsize</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#tuple" title="(in Python v3.11)"><span class="pre">tuple</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">(20,</span> <span class="pre">10)</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#piml.models.TreeRegressor.plot_tree_diag" title="Permalink to this definition">¶</a></dt>
-<dd><p>The plot function for global tree diagram</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><dl class="simple">
-<dt><strong>interpret_result</strong><span class="classifier">TestDataResult</span></dt><dd><p>The result of “get_tree_diag”.</p>
-</dd>
-<dt><strong>scaler</strong><span class="classifier">scaler object, default=None</span></dt><dd><p>Whether to scale it to the original scale.</p>
-</dd>
-<dt><strong>return_fig</strong><span class="classifier">bool, default=False</span></dt><dd><p>Whether to return the figure.</p>
-</dd>
-<dt><strong>figsize</strong><span class="classifier">tuple, optional</span></dt><dd><p>The figure size, by default (20, 10)</p>
+<dt>An instance of TreeInterpreter</dt><dd><p>The interpretation results.</p>
 </dd>
 </dl>
 </dd>
@@ -736,7 +625,7 @@ regressors (except for
 
 <dl class="py method">
 <dt class="sig sig-object py" id="piml.models.TreeRegressor.set_fit_request">
-<span class="sig-name descname"><span class="pre">set_fit_request</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">check_input</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Union" title="(in Python v3.11)"><span class="pre">Union</span></a><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.11)"><span class="pre">bool</span></a><span class="p"><span class="pre">,</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.11)"><span class="pre">None</span></a><span class="p"><span class="pre">,</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.11)"><span class="pre">str</span></a><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'$UNCHANGED$'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sample_weight</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Union" title="(in Python v3.11)"><span class="pre">Union</span></a><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.11)"><span class="pre">bool</span></a><span class="p"><span class="pre">,</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.11)"><span class="pre">None</span></a><span class="p"><span class="pre">,</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.11)"><span class="pre">str</span></a><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'$UNCHANGED$'</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#piml.models.TreeRegressor" title="piml.models.tree.TreeRegressor"><span class="pre">TreeRegressor</span></a></span></span><a class="headerlink" href="#piml.models.TreeRegressor.set_fit_request" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">set_fit_request</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">check_input</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Union</span><span class="p"><span class="pre">[</span></span><span class="pre">bool</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">None</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'$UNCHANGED$'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sample_weight</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Union</span><span class="p"><span class="pre">[</span></span><span class="pre">bool</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">None</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'$UNCHANGED$'</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#piml.models.TreeRegressor" title="piml.models.tree.TreeRegressor"><span class="pre">TreeRegressor</span></a></span></span><a class="headerlink" href="#piml.models.TreeRegressor.set_fit_request" title="Permalink to this definition">¶</a></dt>
 <dd><p>Request metadata passed to the <code class="docutils literal notranslate"><span class="pre">fit</span></code> method.</p>
 <p>Note that this method is only relevant if
 <code class="docutils literal notranslate"><span class="pre">enable_metadata_routing=True</span></code> (see <code class="xref py py-func docutils literal notranslate"><span class="pre">sklearn.set_config</span></code>).
@@ -805,7 +694,7 @@ possible to update each component of a nested object.</p>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="piml.models.TreeRegressor.set_predict_request">
-<span class="sig-name descname"><span class="pre">set_predict_request</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">check_input</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Union" title="(in Python v3.11)"><span class="pre">Union</span></a><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.11)"><span class="pre">bool</span></a><span class="p"><span class="pre">,</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.11)"><span class="pre">None</span></a><span class="p"><span class="pre">,</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.11)"><span class="pre">str</span></a><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'$UNCHANGED$'</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#piml.models.TreeRegressor" title="piml.models.tree.TreeRegressor"><span class="pre">TreeRegressor</span></a></span></span><a class="headerlink" href="#piml.models.TreeRegressor.set_predict_request" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">set_predict_request</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">check_input</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Union</span><span class="p"><span class="pre">[</span></span><span class="pre">bool</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">None</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'$UNCHANGED$'</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#piml.models.TreeRegressor" title="piml.models.tree.TreeRegressor"><span class="pre">TreeRegressor</span></a></span></span><a class="headerlink" href="#piml.models.TreeRegressor.set_predict_request" title="Permalink to this definition">¶</a></dt>
 <dd><p>Request metadata passed to the <code class="docutils literal notranslate"><span class="pre">predict</span></code> method.</p>
 <p>Note that this method is only relevant if
 <code class="docutils literal notranslate"><span class="pre">enable_metadata_routing=True</span></code> (see <code class="xref py py-func docutils literal notranslate"><span class="pre">sklearn.set_config</span></code>).
@@ -848,7 +737,7 @@ sub-estimator of a meta-estimator, e.g. used inside a
 
 <dl class="py method">
 <dt class="sig sig-object py" id="piml.models.TreeRegressor.set_score_request">
-<span class="sig-name descname"><span class="pre">set_score_request</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sample_weight</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Union" title="(in Python v3.11)"><span class="pre">Union</span></a><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.11)"><span class="pre">bool</span></a><span class="p"><span class="pre">,</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.11)"><span class="pre">None</span></a><span class="p"><span class="pre">,</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.11)"><span class="pre">str</span></a><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'$UNCHANGED$'</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#piml.models.TreeRegressor" title="piml.models.tree.TreeRegressor"><span class="pre">TreeRegressor</span></a></span></span><a class="headerlink" href="#piml.models.TreeRegressor.set_score_request" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">set_score_request</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sample_weight</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Union</span><span class="p"><span class="pre">[</span></span><span class="pre">bool</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">None</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'$UNCHANGED$'</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#piml.models.TreeRegressor" title="piml.models.tree.TreeRegressor"><span class="pre">TreeRegressor</span></a></span></span><a class="headerlink" href="#piml.models.TreeRegressor.set_score_request" title="Permalink to this definition">¶</a></dt>
 <dd><p>Request metadata passed to the <code class="docutils literal notranslate"><span class="pre">score</span></code> method.</p>
 <p>Note that this method is only relevant if
 <code class="docutils literal notranslate"><span class="pre">enable_metadata_routing=True</span></code> (see <code class="xref py py-func docutils literal notranslate"><span class="pre">sklearn.set_config</span></code>).

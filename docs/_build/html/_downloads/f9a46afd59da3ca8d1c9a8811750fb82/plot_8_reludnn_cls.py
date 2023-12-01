@@ -6,7 +6,6 @@ ReLU DNN Classification (Taiwan Credit)
 
 #%%
 # Experiment initialization and data preparation
-import matplotlib.pyplot as plt
 from piml import Experiment
 from piml.models import ReluDNNClassifier
 

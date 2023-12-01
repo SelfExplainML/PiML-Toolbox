@@ -39,11 +39,12 @@ exp.model_compare(models=["GLM", "XGB2", "XGB7"], show="accuracy_plot", metric="
 exp.model_compare(models=["GLM", "XGB2", "XGB7"], show="overfit",
                   slice_method="histogram", slice_feature="hr", 
                   bins=10, metric="MSE", original_scale=True, figsize=(5, 4))
+
 #%%
-# Overfit comparison with R2 metric
+# Overfit comparison with MAE metric
 exp.model_compare(models=["GLM", "XGB2", "XGB7"], show="overfit",
                   slice_method="histogram", slice_feature="hr", 
-                  metric="R2", original_scale=True, figsize=(5, 4))
+                  metric="MAE", original_scale=True, figsize=(5, 4))
 
 #%%
 # Reliability coverage comparison 

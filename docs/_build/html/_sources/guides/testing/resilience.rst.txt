@@ -76,7 +76,7 @@ With the resilience test, you can assess the performance of the worst samples in
    :target: ../../auto_examples/testing/plot_5_resilience_cls.html
    :align: left
 
-- **outer-sample**: Based on the observed plot, it is evident that even in the worst-10% test sample scenario, the model demonstrates relatively good performance, achieving an AUC above 0.7. Interestingly, the model's performance reaches its peak around the worst sample ratio of approximately 0.7, after which it gradually declines. This trend could be attributed to the nature of the scenario being unsupervised. In such cases, the samples identified as "worst" may not consistently exhibit the worst performance across all instances. It is plausible that in some cases, these "worst samples" may actually outperform the full test sample set.
+- **outer-sample**: Based on the observed plot, it is evident that even in the worst-10% test sample scenario, the model demonstrates relatively good performance, achieving an AUC above 0.7. Interestingly, the model's performance reaches its peak around the worst sample ratio of approximately 0.7, after which it gradually declines. This trend could be attributed to the nature of the scenario being unsupervised. In such cases, the samples identified as "worst" may not consistently exhibit the worst performance across all instances. It is plausible that in some cases, these "worst samples" may actually outperform the remaining test sample set.
 
 The fluctuations in performance observed at different worst sample ratios highlight the complexity of assessing the worst samples in unsupervised scenarios. The model's performance may be influenced by various factors, including the characteristics of the data and the specific criteria used to define the "worst" samples.
 
@@ -102,7 +102,7 @@ The fluctuations in performance observed at different worst sample ratios highli
 
 Resilience Distance
 """""""""""""""""""""""""""""""""""""
-By setting `show` to "resilience_distance", the distributional distance between the worst test sample and the full test sample will be calculated for each feature. Then the features will be ranked by distance, and the top 10 features with the largest distances will be displayed.
+By setting `show` to "resilience_distance", the distributional distance between the worst test sample and the remaining test sample will be calculated for each feature. Then the features will be ranked by distance, and the top 10 features with the largest distances will be displayed.
 
 In the first example, we set the `distance_metrics` to "PSI", and you can also use "WD1" and "KS" instead. The worst sample ratio `alpha` is set to 0.3. The plot suggests the variable `Pay_1` has the largest PSI (around 0.55), which is usually thought of as a significant distribution change.
 
@@ -139,12 +139,12 @@ The third example shows the resilience distance plot for the "worst-cluster" sce
 
 Marginal Density Comparison
 """"""""""""""""""""""""""""""""""""""""""
-The marginal density plot shows the distributional difference between the worst test samples and full test samples for a single feature. To generate this plot, set `show` to "resilience_shift_density", and also specify the `target_feature` to be plotted.
+The marginal density plot shows the distributional difference between the worst test samples and remaining test samples for a single feature. To generate this plot, set `show` to "resilience_shift_density", and also specify the `show_feature` to be plotted.
 
 .. jupyter-input::
 
       exp.model_diagnose(model="XGB2", show="resilience_shift_density",  
-                         target_feature="Pay_1", original_scale=True, figsize=(5, 4))
+                         show_feature="Pay_1", original_scale=True, figsize=(5, 4))
    
 .. figure:: ../../auto_examples/testing/images/sphx_glr_plot_5_resilience_cls_008.png
    :target: ../../auto_examples/testing/plot_5_resilience_cls.html
@@ -152,12 +152,12 @@ The marginal density plot shows the distributional difference between the worst 
 
 Marginal Histogram Comparison
 """"""""""""""""""""""""""""""""""""""""""
-Similar to the density plot, we also provide the option to draw the histogram comparison of the worst test samples and full test samples for a single feature, by using the keyword "resilience_shift_histogram".
+Similar to the density plot, we also provide the option to draw the histogram comparison of the worst test samples and remaining test samples for a single feature, by using the keyword "resilience_shift_histogram".
 
 .. jupyter-input::
 
       exp.model_diagnose(model="XGB2", show="resilience_shift_histogram",  
-                         target_feature="Pay_1", original_scale=True, figsize=(5, 4))
+                         show_feature="Pay_1", original_scale=True, figsize=(5, 4))
 
 .. figure:: ../../auto_examples/testing/images/sphx_glr_plot_5_resilience_cls_009.png
    :target: ../../auto_examples/testing/plot_5_resilience_cls.html

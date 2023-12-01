@@ -1,0 +1,12 @@
+﻿:mod:`piml.data.outlier_detection`.HBOS
+==============================================
+
+.. currentmodule:: piml.data.outlier_detection
+
+.. autoclass:: HBOS
+
+.. include:: piml.data.outlier_detection.HBOS.examples
+
+.. raw:: html
+
+    <div class="clearer"></div>

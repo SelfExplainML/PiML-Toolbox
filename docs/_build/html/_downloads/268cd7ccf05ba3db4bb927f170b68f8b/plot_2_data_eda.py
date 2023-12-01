@@ -12,7 +12,6 @@ from piml import Experiment
 
 exp = Experiment()
 exp.data_loader(data="BikeSharing", silent=True)
-exp.data_prepare(silent=True)
 
 # %%
 # histogram-density plot

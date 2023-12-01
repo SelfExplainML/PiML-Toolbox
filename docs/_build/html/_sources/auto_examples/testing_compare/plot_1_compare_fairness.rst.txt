@@ -157,12 +157,12 @@ Fairness Segmented
     segmented_result = exp.model_fairness_compare(models=["GLM", "EBM"],
                                                   show="segmented",
                                                   metric="AIR",
-                                                  segmented_feature="Balance",
+                                                  segment_feature="Balance",
                                                   group_category=["Race", "Gender"],
                                                   reference_group=[1., 1.],
                                                   protected_group=[0., 0.],
                                                   favorable_threshold=0.5,
-                                                  segmented_bins=5,
+                                                  segment_bins=5,
                                                   return_data=True,
                                                   figsize=(8, 4))
     segmented_result.data
@@ -306,9 +306,9 @@ Fairness Segmented
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** ( 0 minutes  47.193 seconds)
+   **Total running time of the script:** ( 1 minutes  1.336 seconds)
 
-**Estimated memory usage:**  1238 MB
+**Estimated memory usage:**  25 MB
 
 
 .. _sphx_glr_download_auto_examples_testing_compare_plot_1_compare_fairness.py:

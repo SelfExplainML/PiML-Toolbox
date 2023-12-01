@@ -33,35 +33,86 @@ Training and Testing External Models
 
 .. raw:: html
 
-    <div class="sphx-glr-thumbcontainer" tooltip="Registering Fitted Models and Run Diagnostic Tests">
+    <div class="sphx-glr-thumbcontainer" tooltip="Registering Arbitrary Models">
 
 .. only:: html
 
-  .. image:: /auto_examples/testing_external/images/thumb/sphx_glr_plot_1_register_testing_thumb.png
+  .. image:: /auto_examples/testing_external/images/thumb/sphx_glr_plot_1_register_arbitrary_thumb.png
     :alt:
 
-  :ref:`sphx_glr_auto_examples_testing_external_plot_1_register_testing.py`
+  :ref:`sphx_glr_auto_examples_testing_external_plot_1_register_arbitrary.py`
 
 .. raw:: html
 
-      <div class="sphx-glr-thumbnail-title">Registering Fitted Models and Run Diagnostic Tests</div>
+      <div class="sphx-glr-thumbnail-title">Registering Arbitrary Models</div>
     </div>
 
 
 .. raw:: html
 
-    <div class="sphx-glr-thumbcontainer" tooltip="Testing External Models without Model Objects as Input">
+    <div class="sphx-glr-thumbcontainer" tooltip="Registering H2O Models">
 
 .. only:: html
 
-  .. image:: /auto_examples/testing_external/images/thumb/sphx_glr_plot_2_test_wo_model_thumb.png
+  .. image:: /auto_examples/testing_external/images/thumb/sphx_glr_plot_1_register_h2o_thumb.png
     :alt:
 
-  :ref:`sphx_glr_auto_examples_testing_external_plot_2_test_wo_model.py`
+  :ref:`sphx_glr_auto_examples_testing_external_plot_1_register_h2o.py`
 
 .. raw:: html
 
-      <div class="sphx-glr-thumbnail-title">Testing External Models without Model Objects as Input</div>
+      <div class="sphx-glr-thumbnail-title">Registering H2O Models</div>
+    </div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="Registering sklearn Style Models">
+
+.. only:: html
+
+  .. image:: /auto_examples/testing_external/images/thumb/sphx_glr_plot_1_register_sklearn_thumb.png
+    :alt:
+
+  :ref:`sphx_glr_auto_examples_testing_external_plot_1_register_sklearn.py`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Registering sklearn Style Models</div>
+    </div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="Scored Test (Classification)">
+
+.. only:: html
+
+  .. image:: /auto_examples/testing_external/images/thumb/sphx_glr_plot_2_test_wo_model_cls_thumb.png
+    :alt:
+
+  :ref:`sphx_glr_auto_examples_testing_external_plot_2_test_wo_model_cls.py`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Scored Test (Classification)</div>
+    </div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="Scored Test (Regression)">
+
+.. only:: html
+
+  .. image:: /auto_examples/testing_external/images/thumb/sphx_glr_plot_2_test_wo_model_reg_thumb.png
+    :alt:
+
+  :ref:`sphx_glr_auto_examples_testing_external_plot_2_test_wo_model_reg.py`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Scored Test (Regression)</div>
     </div>
 
 
@@ -74,6 +125,9 @@ Training and Testing External Models
    :hidden:
 
    /auto_examples/testing_external/plot_0_model_train
-   /auto_examples/testing_external/plot_1_register_testing
-   /auto_examples/testing_external/plot_2_test_wo_model
+   /auto_examples/testing_external/plot_1_register_arbitrary
+   /auto_examples/testing_external/plot_1_register_h2o
+   /auto_examples/testing_external/plot_1_register_sklearn
+   /auto_examples/testing_external/plot_2_test_wo_model_cls
+   /auto_examples/testing_external/plot_2_test_wo_model_reg
 

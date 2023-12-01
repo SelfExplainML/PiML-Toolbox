@@ -14,16 +14,16 @@ exp.data_prepare(target="cnt", task_type="regression", silent=True)
 
 # %%
 # Distributional shift distance with PSI
-exp.twosample_test(metric="PSI", psi_buckets='uniform', figsize=(5, 4))
+exp.twosample_test(distance_metric="PSI", psi_buckets='uniform', figsize=(5, 4))
 
 # %%
 # Distributional shift distance with WD1
-exp.twosample_test(metric="WD1", figsize=(5, 4))
+exp.twosample_test(distance_metric="WD1", figsize=(5, 4))
 
 # %%
 # Distributional shift distance with KS
-exp.twosample_test(metric="KS", figsize=(5, 4))
+exp.twosample_test(distance_metric="KS", figsize=(5, 4))
 
 # %%
 # Distributional shift plot for a single feature
-exp.twosample_test(metric="PSI", psi_buckets='quantile', feature="atemp", figsize=(5, 4))
+exp.twosample_test(distance_metric="PSI", psi_buckets='quantile', show_feature="atemp", figsize=(5, 4))

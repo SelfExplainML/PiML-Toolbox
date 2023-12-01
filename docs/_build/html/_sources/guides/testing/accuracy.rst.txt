@@ -80,21 +80,21 @@ By setting `show` to "accuracy_table", the function would generate a summary tab
       <tbody>
         <tr>
           <th>Train</th>
-          <td>0.0087</td>
-          <td>0.0649</td>
-          <td>0.7469</td>
+          <td>0.0090</td>
+          <td>0.0669</td>
+          <td>0.7382</td>
         </tr>
         <tr>
           <th>Test</th>
-          <td>0.0092</td>
-          <td>0.0668</td>
-          <td>0.7368</td>
+          <td>0.0095</td>
+          <td>0.0688</td>
+          <td>0.7287</td>
         </tr>
         <tr>
           <th>Gap</th>
           <td>0.0005</td>
-          <td>0.0018</td>
-          <td>-0.0101</td>
+          <td>0.0019</td>
+          <td>-0.0095</td>
         </tr>
       </tbody>
     </table>
@@ -103,7 +103,7 @@ This table displays performance metrics for both the train and test sets, along 
 
 Residual Plot
 """"""""""""""""""""
-The residual is the disparity between the actual response and the predicted response values. A residual plot is employed to showcase the relationship between residuals and a specific feature. An ideal residual plot, known as the null residual plot, exhibits a random scattering of points forming a band of approximately constant width around the identity line. In PiML, we can generate residual plots for the testing set by configuring the `show` parameter as "residual_plot" and specifying the desired `target_feature`. The `use_test` argument, which is set to False by default (using the training set), can be set to True to generate the residual plot for the testing set.
+The residual is the disparity between the actual response and the predicted response values. A residual plot is employed to showcase the relationship between residuals and a specific feature. An ideal residual plot, known as the null residual plot, exhibits a random scattering of points forming a band of approximately constant width around the identity line. In PiML, we can generate residual plots for the testing set by configuring the `show` parameter as "residual_plot" and specifying the desired `show_feature`. The `use_test` argument, which is set to False by default (using the training set), can be set to True to generate the residual plot for the testing set.
 
 **Numerical Features**
 
@@ -111,7 +111,7 @@ The first example below displays the residual plot against a numerical feature `
 
 .. jupyter-input::
    
-   exp.model_diagnose(model="XGB2", show="accuracy_residual", target_feature="hr",
+   exp.model_diagnose(model="XGB2", show="accuracy_residual", show_feature="hr",
                       use_test=False, original_scale=True, figsize=(5, 4))
 
 .. figure:: ../../auto_examples/testing/images/sphx_glr_plot_0_accuracy_reg_001.png
@@ -124,7 +124,7 @@ The following example presents a bar chart residual plot for a categorical featu
 
 .. jupyter-input::
    
-   exp.model_diagnose(model="XGB2", show="accuracy_residual", target_feature="season",
+   exp.model_diagnose(model="XGB2", show="accuracy_residual", show_feature="season",
                       use_test=False, original_scale=True, figsize=(5, 4))
 
 .. figure:: ../../auto_examples/testing/images/sphx_glr_plot_0_accuracy_reg_002.png
@@ -137,7 +137,7 @@ In addition to generating residual plots for input features, we can also generat
 
 .. jupyter-input::
    
-   exp.model_diagnose(model="XGB2", show="accuracy_residual", target_feature="cnt",
+   exp.model_diagnose(model="XGB2", show="accuracy_residual", show_feature="cnt",
                       use_test=False, figsize=(5, 4))
 
 .. figure:: ../../auto_examples/testing/images/sphx_glr_plot_0_accuracy_reg_003.png
@@ -146,11 +146,11 @@ In addition to generating residual plots for input features, we can also generat
 
 **Predicted Value**
 
-Lastly, the residual plot against the predicted values is depicted below. To generate this plot, the `target_feature` argument should be set to the name of the response feature followed by "_predict". From this plot, we can observe a positive relationship between the predicted values and the variability of residuals. This observation aligns with the earlier residual plot, indicating that predicting bike sharing during rush hours is more challenging than during non-peak hours. Furthermore, we notice that the scatter plot appears to be constrained at the lower end by the line :math:`x+y=0`. This boundary exists because the predicted values (:math:`x`) plus the residuals (:math:`y`) equal the response variable, and the minimum value for bike sharing is zero.
+Lastly, the residual plot against the predicted values is depicted below. To generate this plot, the `show_feature` argument should be set to the name of the response feature followed by "_predict". From this plot, we can observe a positive relationship between the predicted values and the variability of residuals. This observation aligns with the earlier residual plot, indicating that predicting bike sharing during rush hours is more challenging than during non-peak hours. Furthermore, we notice that the scatter plot appears to be constrained at the lower end by the line :math:`x+y=0`. This boundary exists because the predicted values (:math:`x`) plus the residuals (:math:`y`) equal the response variable, and the minimum value for bike sharing is zero.
 
 .. jupyter-input::
    
-   exp.model_diagnose(model="XGB2", show="accuracy_residual", target_feature="cnt_predict",
+   exp.model_diagnose(model="XGB2", show="accuracy_residual", show_feature="cnt_predict",
                       use_test=False, figsize=(5, 4))
 
 .. figure:: ../../auto_examples/testing/images/sphx_glr_plot_0_accuracy_reg_004.png
@@ -173,6 +173,21 @@ For binary classification tasks, the following metrics are supported:
    \end{align}
 
 The F1 score combines both precision and recall into a single metric, providing a balanced measure of a classifier's performance. By considering both precision (the ability to correctly identify positive instances) and recall (the ability to capture all positive instances), the F1 score offers a comprehensive evaluation of the model's effectiveness in handling both true positives and false negatives.
+
+- **Log loss (LogLOss)**: is also known as cross-entropy loss, which is a popular evaluation metric for binary classification problems. Log loss increases as the predicted probability diverges from the actual label.
+
+.. math::
+   \begin{align}
+      LogLoss = - \frac{1}{n}\sum_{i=1}^{n}y_{i}\log(p_{i}) + (1 - y_{i})\log(1 - p_{i}). \tag{5}
+   \end{align}
+
+- **Brier Score (Brier)**: is another metric commonly used to assess the performance of probabilistic predictions, particularly in the context of binary classification problems. It measures the mean squared difference between predicted probabilities and the actual outcomes. The Brier Score is defined as:
+
+.. math::
+   \begin{align}
+       Brier = \frac{1}{n}\sum_{i=1}^{n}(y_{i} - p_{i})^{2}. \tag{6}
+   \end{align}
+
 
 Accuracy Table
 """"""""""""""""""""
@@ -205,8 +220,8 @@ In a binary classification task, the accuracy table consists of three essential 
           <th></th>
           <th>ACC</th>
           <th>AUC</th>
-          <th>Recall</th>
-          <th>Precision</th>
+          <th>LogLoss</th>
+          <th>Brier</th>
           <th>F1</th>
         </tr>
         <tr>
@@ -221,42 +236,42 @@ In a binary classification task, the accuracy table consists of three essential 
       <tbody>
         <tr>
           <th>Train</th>
-          <td>0.8223</td>
-          <td>0.7970</td>
-          <td>0.3617</td>
-          <td>0.6924</td>
-          <td>0.4751</td>
+          <td>0.8219</td>
+          <td>0.7978</td>
+          <td>0.4759</td>
+          <td>0.4196</td>
+          <td>0.1316</td>
         </tr>
         <tr>
           <th>Test</th>
-          <td>0.8288</td>
-          <td>0.7732</td>
-          <td>0.3624</td>
-          <td>0.7015</td>
-          <td>0.4779</td>
+          <td>0.8290</td>
+          <td>0.7728</td>
+          <td>0.4797</td>
+          <td>0.4252</td>
+          <td>0.1319</td>
         </tr>
         <tr>
           <th>Gap</th>
-          <td>0.0066</td>
-          <td>-0.0237</td>
-          <td>0.0007</td>
-          <td>0.0091</td>
-          <td>0.0027</td>
+          <td>0.0071</td>
+          <td>-0.0251</td>
+          <td>0.0038</td>
+          <td>0.0057</td>
+          <td>0.0004</td>
         </tr>
       </tbody>
     </table>
     </div>
     </div>
 
-The accuracy table for binary classification tasks follows a similar structure to that of regression tasks. By considering the values of "ACC," "AUC," and "F1," as well as the "Gap" column, the accuracy table provides a comprehensive evaluation of the model's performance in binary classification tasks.
+The accuracy table for binary classification tasks follows a similar structure to that of regression tasks. By considering the values of "ACC," "AUC,", "F1,", "LogLoss", and "Brier", as well as the "Gap" column, the accuracy table provides a comprehensive evaluation of the model's performance in binary classification tasks.
 
 Residual Plot
 """"""""""""""""""""
-This plot displays the prediction residuals (between the target and the predicted probability) against a specific variable of interest. To generate this plot, we utilize the "residual_plot" option for the `show` parameter and specify the feature name of interest using the `target_feature` parameter. This plot shares similarities with the residual plots used in regression tasks, providing insights into the relationship between the residuals and the variable of interest. By examining this plot, we can analyze patterns and trends in the residuals and assess how they vary with changes in the selected feature.
+This plot displays the prediction residuals (between the target and the predicted probability) against a specific variable of interest. To generate this plot, we utilize the "residual_plot" option for the `show` parameter and specify the feature name of interest using the `show_feature` parameter. This plot shares similarities with the residual plots used in regression tasks, providing insights into the relationship between the residuals and the variable of interest. By examining this plot, we can analyze patterns and trends in the residuals and assess how they vary with changes in the selected feature.
 
 .. jupyter-input::
       
-   exp.model_diagnose(model="XGB2", show="residual_plot", target_feature="PAY_1",
+   exp.model_diagnose(model="XGB2", show="residual_plot", show_feature="PAY_1",
                       use_test=False, original_scale=True, figsize=(5, 4))
 
 .. figure:: ../../auto_examples/testing/images/sphx_glr_plot_0_accuracy_cls_002.png

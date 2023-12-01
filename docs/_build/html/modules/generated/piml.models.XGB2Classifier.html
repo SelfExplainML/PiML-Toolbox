@@ -125,6 +125,7 @@
 <li><a class="reference internal" href="#piml.models.XGB2Classifier.get_metadata_routing"><code class="docutils literal notranslate"><span class="pre">XGB2Classifier.get_metadata_routing</span></code></a></li>
 <li><a class="reference internal" href="#piml.models.XGB2Classifier.get_params"><code class="docutils literal notranslate"><span class="pre">XGB2Classifier.get_params</span></code></a></li>
 <li><a class="reference internal" href="#piml.models.XGB2Classifier.parse_model"><code class="docutils literal notranslate"><span class="pre">XGB2Classifier.parse_model</span></code></a></li>
+<li><a class="reference internal" href="#piml.models.XGB2Classifier.partial_dependence"><code class="docutils literal notranslate"><span class="pre">XGB2Classifier.partial_dependence</span></code></a></li>
 <li><a class="reference internal" href="#piml.models.XGB2Classifier.predict"><code class="docutils literal notranslate"><span class="pre">XGB2Classifier.predict</span></code></a></li>
 <li><a class="reference internal" href="#piml.models.XGB2Classifier.predict_proba"><code class="docutils literal notranslate"><span class="pre">XGB2Classifier.predict_proba</span></code></a></li>
 <li><a class="reference internal" href="#piml.models.XGB2Classifier.score"><code class="docutils literal notranslate"><span class="pre">XGB2Classifier.score</span></code></a></li>
@@ -147,7 +148,7 @@
 <h1><code class="xref py py-mod docutils literal notranslate"><span class="pre">piml.models</span></code>.XGB2Classifier<a class="headerlink" href="#piml-models-xgb2classifier" title="Permalink to this heading">¶</a></h1>
 <dl class="py class">
 <dt class="sig sig-object py" id="piml.models.XGB2Classifier">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">piml.models.</span></span><span class="sig-name descname"><span class="pre">XGB2Classifier</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">n_estimators</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">100</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">eta</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.3</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">max_depth</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">2</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tree_method</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'auto'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">max_bin</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">256</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">reg_lambda</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">reg_alpha</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">gamma</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">feature_names</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">feature_types</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mono_increasing_list</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">()</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mono_decreasing_list</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">()</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">random_state</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#piml.models.XGB2Classifier" title="Permalink to this definition">¶</a></dt>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">piml.models.</span></span><span class="sig-name descname"><span class="pre">XGB2Classifier</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">n_estimators</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">100</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">eta</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.3</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">max_depth</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">2</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tree_method</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'auto'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">max_bin</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">256</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">reg_lambda</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">reg_alpha</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">gamma</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">feature_names</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">feature_types</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mono_increasing_list</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">()</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mono_decreasing_list</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">()</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">random_state</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#piml.models.XGB2Classifier" title="Permalink to this definition">¶</a></dt>
 <dd><p>Depth-2 XGBoostClassifier.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -223,19 +224,22 @@
 <tr class="row-odd"><td><p><a class="reference internal" href="#piml.models.XGB2Classifier.parse_model" title="piml.models.XGB2Classifier.parse_model"><code class="xref py py-obj docutils literal notranslate"><span class="pre">parse_model</span></code></a>()</p></td>
 <td><p>Interpret the model using functional ANOVA.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#piml.models.XGB2Classifier.predict" title="piml.models.XGB2Classifier.predict"><code class="xref py py-obj docutils literal notranslate"><span class="pre">predict</span></code></a>(X)</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#piml.models.XGB2Classifier.partial_dependence" title="piml.models.XGB2Classifier.partial_dependence"><code class="xref py py-obj docutils literal notranslate"><span class="pre">partial_dependence</span></code></a>(fidx, X)</p></td>
+<td><p>Partial dependence of given effect index.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#piml.models.XGB2Classifier.predict" title="piml.models.XGB2Classifier.predict"><code class="xref py py-obj docutils literal notranslate"><span class="pre">predict</span></code></a>(X)</p></td>
 <td><p>Returns numpy array of predicted class.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#piml.models.XGB2Classifier.predict_proba" title="piml.models.XGB2Classifier.predict_proba"><code class="xref py py-obj docutils literal notranslate"><span class="pre">predict_proba</span></code></a>(X)</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#piml.models.XGB2Classifier.predict_proba" title="piml.models.XGB2Classifier.predict_proba"><code class="xref py py-obj docutils literal notranslate"><span class="pre">predict_proba</span></code></a>(X)</p></td>
 <td><p>Returns numpy array of predicted probabilities of each class.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#piml.models.XGB2Classifier.score" title="piml.models.XGB2Classifier.score"><code class="xref py py-obj docutils literal notranslate"><span class="pre">score</span></code></a>(X, y[, sample_weight])</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#piml.models.XGB2Classifier.score" title="piml.models.XGB2Classifier.score"><code class="xref py py-obj docutils literal notranslate"><span class="pre">score</span></code></a>(X, y[, sample_weight])</p></td>
 <td><p>Return the mean accuracy on the given test data and labels.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#piml.models.XGB2Classifier.set_params" title="piml.models.XGB2Classifier.set_params"><code class="xref py py-obj docutils literal notranslate"><span class="pre">set_params</span></code></a>(**params)</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#piml.models.XGB2Classifier.set_params" title="piml.models.XGB2Classifier.set_params"><code class="xref py py-obj docutils literal notranslate"><span class="pre">set_params</span></code></a>(**params)</p></td>
 <td><p>Set the parameters of this estimator.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#piml.models.XGB2Classifier.set_score_request" title="piml.models.XGB2Classifier.set_score_request"><code class="xref py py-obj docutils literal notranslate"><span class="pre">set_score_request</span></code></a>(*[, sample_weight])</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#piml.models.XGB2Classifier.set_score_request" title="piml.models.XGB2Classifier.set_score_request"><code class="xref py py-obj docutils literal notranslate"><span class="pre">set_score_request</span></code></a>(*[, sample_weight])</p></td>
 <td><p>Request metadata passed to the <code class="docutils literal notranslate"><span class="pre">score</span></code> method.</p></td>
 </tr>
 </tbody>
@@ -329,7 +333,29 @@ contained subobjects that are estimators.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Returns</dt>
 <dd class="field-odd"><dl class="simple">
-<dt><strong>unp</strong><span class="classifier">an instance of XGBUnwrapperClassifier</span></dt><dd><p>The interpretation results.</p>
+<dt>An instance of FANOVAInterpreter</dt><dd><p>The interpretation results.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="piml.models.XGB2Classifier.partial_dependence">
+<span class="sig-name descname"><span class="pre">partial_dependence</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">fidx</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">X</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#piml.models.XGB2Classifier.partial_dependence" title="Permalink to this definition">¶</a></dt>
+<dd><p>Partial dependence of given effect index.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>fidx</strong><span class="classifier">tuple of int</span></dt><dd><p>The main effect or pairwise interaction feature index.</p>
+</dd>
+<dt><strong>X</strong><span class="classifier">np.ndarray of shape (n_samples, n_features)</span></dt><dd><p>Data features.</p>
+</dd>
+</dl>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><dl class="simple">
+<dt><strong>pred</strong><span class="classifier">np.ndarray of shape (n_samples, )</span></dt><dd><p>numpy array of predicted class values.</p>
 </dd>
 </dl>
 </dd>
@@ -429,7 +455,7 @@ possible to update each component of a nested object.</p>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="piml.models.XGB2Classifier.set_score_request">
-<span class="sig-name descname"><span class="pre">set_score_request</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sample_weight</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Union" title="(in Python v3.11)"><span class="pre">Union</span></a><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.11)"><span class="pre">bool</span></a><span class="p"><span class="pre">,</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.11)"><span class="pre">None</span></a><span class="p"><span class="pre">,</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.11)"><span class="pre">str</span></a><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'$UNCHANGED$'</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#piml.models.XGB2Classifier" title="piml.models.xgb2.xgboost.XGB2Classifier"><span class="pre">XGB2Classifier</span></a></span></span><a class="headerlink" href="#piml.models.XGB2Classifier.set_score_request" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">set_score_request</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sample_weight</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Union</span><span class="p"><span class="pre">[</span></span><span class="pre">bool</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">None</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'$UNCHANGED$'</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#piml.models.XGB2Classifier" title="piml.models.xgb2.xgboost.XGB2Classifier"><span class="pre">XGB2Classifier</span></a></span></span><a class="headerlink" href="#piml.models.XGB2Classifier.set_score_request" title="Permalink to this definition">¶</a></dt>
 <dd><p>Request metadata passed to the <code class="docutils literal notranslate"><span class="pre">score</span></code> method.</p>
 <p>Note that this method is only relevant if
 <code class="docutils literal notranslate"><span class="pre">enable_metadata_routing=True</span></code> (see <code class="xref py py-func docutils literal notranslate"><span class="pre">sklearn.set_config</span></code>).
@@ -474,9 +500,27 @@ sub-estimator of a meta-estimator, e.g. used inside a
 
 <section id="examples-using-piml-models-xgb2classifier">
 <h2>Examples using <code class="docutils literal notranslate"><span class="pre">piml.models.XGB2Classifier</span></code><a class="headerlink" href="#examples-using-piml-models-xgb2classifier" title="Permalink to this heading">¶</a></h2>
-<div class="sphx-glr-thumbnails"><div class="sphx-glr-thumbcontainer" tooltip="Model Comparison: Classification"><img alt="" src="../../_images/sphx_glr_plot_0_compare_classification_thumb.png" />
+<div class="sphx-glr-thumbnails"><div class="sphx-glr-thumbcontainer" tooltip="Accuracy: Classification"><img alt="" src="../../_images/sphx_glr_plot_0_accuracy_cls_thumb.png" />
+<p><a class="reference internal" href="../../auto_examples/testing/plot_0_accuracy_cls.html#sphx-glr-auto-examples-testing-plot-0-accuracy-cls-py"><span class="std std-ref">Accuracy: Classification</span></a></p>
+  <div class="sphx-glr-thumbnail-title">Accuracy: Classification</div>
+</div><div class="sphx-glr-thumbcontainer" tooltip="WeakSpot: Classification"><img alt="" src="../../_images/sphx_glr_plot_1_weakspot_cls_thumb.png" />
+<p><a class="reference internal" href="../../auto_examples/testing/plot_1_weakspot_cls.html#sphx-glr-auto-examples-testing-plot-1-weakspot-cls-py"><span class="std std-ref">WeakSpot: Classification</span></a></p>
+  <div class="sphx-glr-thumbnail-title">WeakSpot: Classification</div>
+</div><div class="sphx-glr-thumbcontainer" tooltip="Overfit: Classification"><img alt="" src="../../_images/sphx_glr_plot_2_overfit_cls_thumb.png" />
+<p><a class="reference internal" href="../../auto_examples/testing/plot_2_overfit_cls.html#sphx-glr-auto-examples-testing-plot-2-overfit-cls-py"><span class="std std-ref">Overfit: Classification</span></a></p>
+  <div class="sphx-glr-thumbnail-title">Overfit: Classification</div>
+</div><div class="sphx-glr-thumbcontainer" tooltip="Resilience:  Classification"><img alt="" src="../../_images/sphx_glr_plot_5_resilience_cls_thumb.png" />
+<p><a class="reference internal" href="../../auto_examples/testing/plot_5_resilience_cls.html#sphx-glr-auto-examples-testing-plot-5-resilience-cls-py"><span class="std std-ref">Resilience:  Classification</span></a></p>
+  <div class="sphx-glr-thumbnail-title">Resilience:  Classification</div>
+</div><div class="sphx-glr-thumbcontainer" tooltip="Fairness Test: XGB2"><img alt="" src="../../_images/sphx_glr_plot_6_fairness_thumb.png" />
+<p><a class="reference internal" href="../../auto_examples/testing/plot_6_fairness.html#sphx-glr-auto-examples-testing-plot-6-fairness-py"><span class="std std-ref">Fairness Test: XGB2</span></a></p>
+  <div class="sphx-glr-thumbnail-title">Fairness Test: XGB2</div>
+</div><div class="sphx-glr-thumbcontainer" tooltip="Model Comparison: Classification"><img alt="" src="../../_images/sphx_glr_plot_0_compare_classification_thumb.png" />
 <p><a class="reference internal" href="../../auto_examples/testing_compare/plot_0_compare_classification.html#sphx-glr-auto-examples-testing-compare-plot-0-compare-classification-py"><span class="std std-ref">Model Comparison: Classification</span></a></p>
   <div class="sphx-glr-thumbnail-title">Model Comparison: Classification</div>
+</div><div class="sphx-glr-thumbcontainer" tooltip="Segmented Diagnose (Classification)"><img alt="" src="../../_images/sphx_glr_plot_0_classification_thumb.png" />
+<p><a class="reference internal" href="../../auto_examples/testing_segmented/plot_0_classification.html#sphx-glr-auto-examples-testing-segmented-plot-0-classification-py"><span class="std std-ref">Segmented Diagnose (Classification)</span></a></p>
+  <div class="sphx-glr-thumbnail-title">Segmented Diagnose (Classification)</div>
 </div></div><div class="clearer"></div></section>
 </section>
 

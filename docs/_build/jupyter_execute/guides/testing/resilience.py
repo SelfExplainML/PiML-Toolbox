@@ -54,12 +54,12 @@ exp.model_diagnose(model="XGB2", show="resilience_distance", resilience_method="
 
 
 exp.model_diagnose(model="XGB2", show="resilience_shift_density",
-                   target_feature="Pay_1", original_scale=True, figsize=(5, 4))
+                   show_feature="Pay_1", original_scale=True, figsize=(5, 4))
 
 
 # In[ ]:
 
 
 exp.model_diagnose(model="XGB2", show="resilience_shift_histogram",
-                   target_feature="Pay_1", original_scale=True, figsize=(5, 4))
+                   show_feature="Pay_1", original_scale=True, figsize=(5, 4))
 

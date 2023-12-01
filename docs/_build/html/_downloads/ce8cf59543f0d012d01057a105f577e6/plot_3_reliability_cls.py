@@ -25,7 +25,7 @@ exp.model_diagnose(model="GAM", show="reliability_distance",
 #%%
 #Plot the histogram of bandwidth against a given feature
 exp.model_diagnose(model="GAM", show="reliability_marginal",
-                   target_feature="PAY_1", bins=10, threshold=1.1, 
+                   show_feature="PAY_1", bins=10, threshold=1.1, 
                    original_scale=True, figsize=(5, 4))
 #%%
 #Show the calibrated predicted probability vs. original predicted probability

@@ -311,7 +311,7 @@
 <div class="cell_input code_cell docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">exp</span><span class="o">.</span><span class="n">model_compare</span><span class="p">(</span><span class="n">models</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;GLM&quot;</span><span class="p">,</span> <span class="s2">&quot;XGB2&quot;</span><span class="p">,</span> <span class="s2">&quot;XGB7&quot;</span><span class="p">],</span> <span class="n">show</span><span class="o">=</span><span class="s2">&quot;overfit&quot;</span><span class="p">,</span>
                   <span class="n">slice_method</span><span class="o">=</span><span class="s2">&quot;histogram&quot;</span><span class="p">,</span> <span class="n">slice_feature</span><span class="o">=</span><span class="s2">&quot;hr&quot;</span><span class="p">,</span>
-                  <span class="n">metric</span><span class="o">=</span><span class="s2">&quot;R2&quot;</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">4</span><span class="p">))</span>
+                  <span class="n">metric</span><span class="o">=</span><span class="s2">&quot;MAE&quot;</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">4</span><span class="p">))</span>
 </pre></div>
 </div>
 </div>
@@ -425,7 +425,7 @@
 </section>
 <section id="resilience-distance">
 <h3><span class="section-number">7.1.5.2. </span>Resilience Distance<a class="headerlink" href="#resilience-distance" title="Permalink to this heading">¶</a></h3>
-<p>By setting <code class="docutils literal notranslate"><span class="pre">show</span></code> to “resilience_distance”, the distributional distance between the worst test sample and the full test sample will be calculated for each feature. Then the features will be ranked by distance, and the top 10 features with the largest distances will be displayed.</p>
+<p>By setting <code class="docutils literal notranslate"><span class="pre">show</span></code> to “resilience_distance”, the distributional distance between the worst test sample and the remaining test sample will be calculated for each feature. Then the features will be ranked by distance, and the top 10 features with the largest distances will be displayed.</p>
 <div class="jupyter_cell jupyter_container docutils container">
 <div class="cell_input code_cell docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">exp</span><span class="o">.</span><span class="n">model_compare</span><span class="p">(</span><span class="n">models</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;GLM&quot;</span><span class="p">,</span> <span class="s2">&quot;XGB2&quot;</span><span class="p">,</span> <span class="s2">&quot;XGB7&quot;</span><span class="p">],</span> <span class="n">show</span><span class="o">=</span><span class="s2">&quot;resilience_distance&quot;</span><span class="p">,</span>

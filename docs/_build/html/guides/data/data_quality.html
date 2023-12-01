@@ -300,7 +300,7 @@
 </section>
 <section id="analysis-and-comparison">
 <h2><span class="section-number">2.5.2. </span>Analysis and Comparison<a class="headerlink" href="#analysis-and-comparison" title="Permalink to this heading">¶</a></h2>
-<p>This subsection briefly introduces the usage of outlier detection methods in PiML. The function name is <code class="docutils literal notranslate"><span class="pre">data_quality_check</span></code>. The key parameters include:</p>
+<p>This subsection briefly introduces the usage of outlier detection methods in PiML. The function name is <code class="docutils literal notranslate"><span class="pre">data_quality</span></code>. The key parameters include:</p>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">method</span></code>: The outlier detection method to be used, which needs to be an instance of <a class="reference external" href="../../modules/generated/piml.data.outlier_detection.IsolationForest.html">IsolationForest</a>, <a class="reference external" href="../../modules/generated/piml.data.outlier_detection.CBLOF.html">CBLOF</a>, <a class="reference external" href="../../modules/generated/piml.data.outlier_detection.PCA.html">PCA</a>, or <a class="reference external" href="../../modules/generated/piml.data.outlier_detection.KMeansTree.html">KMeansTree</a>.</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">show</span></code>: The type of analysis to be performed.</p></li>
@@ -308,11 +308,11 @@
 </ul>
 <section id="outlier-score-distribution">
 <h3><span class="section-number">2.5.2.1. </span>Outlier Score distribution<a class="headerlink" href="#outlier-score-distribution" title="Permalink to this heading">¶</a></h3>
-<p>Here is an example of displaying the score distribution of the PCA-based outlier detection method. The keyword of this plot is “score_distribution”. The parameter <code class="docutils literal notranslate"><span class="pre">threshold</span></code> is used to decide whether a sample is an outlier, which is the quantile of the outlier score of all samples, within 0 and 1.</p>
+<p>Here is an example of displaying the score distribution of the PCA-based outlier detection method. The keyword of this plot is “od_score_distribution”. The parameter <code class="docutils literal notranslate"><span class="pre">threshold</span></code> is used to decide whether a sample is an outlier, which is the quantile of the outlier score of all samples, within 0 and 1.</p>
 <div class="jupyter_cell jupyter_container docutils container">
 <div class="cell_input code_cell docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">piml.data.outlier_detection</span> <span class="kn">import</span> <span class="n">PCA</span>
-<span class="n">exp</span><span class="o">.</span><span class="n">data_quality_check</span><span class="p">(</span><span class="n">method</span><span class="o">=</span><span class="n">PCA</span><span class="p">(),</span> <span class="n">show</span><span class="o">=</span><span class="s1">&#39;score_distribution&#39;</span><span class="p">,</span> <span class="n">threshold</span><span class="o">=</span><span class="mf">0.999</span><span class="p">)</span>
+<span class="n">exp</span><span class="o">.</span><span class="n">data_quality</span><span class="p">(</span><span class="n">method</span><span class="o">=</span><span class="n">PCA</span><span class="p">(),</span> <span class="n">show</span><span class="o">=</span><span class="s1">&#39;od_score_distribution&#39;</span><span class="p">,</span> <span class="n">threshold</span><span class="o">=</span><span class="mf">0.999</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -326,11 +326,11 @@
 </section>
 <section id="marginal-distribution-of-outliers">
 <h3><span class="section-number">2.5.2.2. </span>Marginal Distribution of Outliers<a class="headerlink" href="#marginal-distribution-of-outliers" title="Permalink to this heading">¶</a></h3>
-<p>Here is an example of displaying the marginal distribution of detected outliers against a feature of interest. The keyword of this plot is “marginal_outlier_distribution”.</p>
+<p>Here is an example of displaying the marginal distribution of detected outliers against a feature of interest. The keyword of this plot is “od_marginal_outlier_distribution”.</p>
 <div class="jupyter_cell jupyter_container docutils container">
 <div class="cell_input code_cell docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">piml.data.outlier_detection</span> <span class="kn">import</span> <span class="n">PCA</span>
-<span class="n">exp</span><span class="o">.</span><span class="n">data_quality_check</span><span class="p">(</span><span class="n">method</span><span class="o">=</span><span class="n">PCA</span><span class="p">(),</span> <span class="n">show</span><span class="o">=</span><span class="s1">&#39;marginal_outlier_distribution&#39;</span><span class="p">,</span> <span class="n">threshold</span><span class="o">=</span><span class="mf">0.999</span><span class="p">)</span>
+<span class="n">exp</span><span class="o">.</span><span class="n">data_quality</span><span class="p">(</span><span class="n">method</span><span class="o">=</span><span class="n">PCA</span><span class="p">(),</span> <span class="n">show</span><span class="o">=</span><span class="s1">&#39;od_marginal_outlier_distribution&#39;</span><span class="p">,</span> <span class="n">threshold</span><span class="o">=</span><span class="mf">0.999</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -338,17 +338,17 @@
 </div>
 </div>
 <figure class="align-left">
-<a class="reference external image-reference" href="../../auto_examples/data/plot_4_data_quality.html"><img alt="../../_images/sphx_glr_plot_4_data_quality_002.png" src="../../_images/sphx_glr_plot_4_data_quality_002.png" /></a>
+<a class="reference external image-reference" href="../../auto_examples/data/plot_4_data_quality.html"><img alt="../../_images/sphx_glr_plot_4_data_quality_009.png" src="../../_images/sphx_glr_plot_4_data_quality_009.png" /></a>
 </figure>
 <p>In this plot, a circle mark is used to indicate the presence of outliers. Although many of the outliers may fall within the normal range of individual features, they are still considered outliers in the context of the multivariate feature space. This phenomenon highlights the importance of considering the relationships and interactions between multiple features when identifying outliers.</p>
 </section>
 <section id="comparison-of-different-methods">
 <h3><span class="section-number">2.5.2.3. </span>Comparison of Different Methods<a class="headerlink" href="#comparison-of-different-methods" title="Permalink to this heading">¶</a></h3>
-<p>We use t-SNE to reduce the dimension of data to 2D for better visualization. Below is an example of comparing different methods, and the keyword of this plot is “tsne_comparison”.</p>
+<p>We use t-SNE to reduce the dimension of data to 2D for better visualization. Below is an example of comparing different methods, and the keyword of this plot is “od_tsne_comparison”.</p>
 <div class="jupyter_cell jupyter_container docutils container">
 <div class="cell_input code_cell docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">piml.data.outlier_detection</span> <span class="kn">import</span> <span class="n">PCA</span><span class="p">,</span> <span class="n">CBLOF</span>
-<span class="n">exp</span><span class="o">.</span><span class="n">data_quality_check</span><span class="p">(</span><span class="n">method</span><span class="o">=</span><span class="p">[</span><span class="n">PCA</span><span class="p">(),</span> <span class="n">CBLOF</span><span class="p">()],</span> <span class="n">show</span><span class="o">=</span><span class="s1">&#39;tsne_comparison&#39;</span><span class="p">,</span> <span class="n">threshold</span><span class="o">=</span><span class="p">[</span><span class="mf">0.999</span><span class="p">,</span> <span class="mf">0.999</span><span class="p">])</span>
+<span class="n">exp</span><span class="o">.</span><span class="n">data_quality</span><span class="p">(</span><span class="n">method</span><span class="o">=</span><span class="p">[</span><span class="n">PCA</span><span class="p">(),</span> <span class="n">CBLOF</span><span class="p">()],</span> <span class="n">show</span><span class="o">=</span><span class="s1">&#39;od_tsne_comparison&#39;</span><span class="p">,</span> <span class="n">threshold</span><span class="o">=</span><span class="p">[</span><span class="mf">0.999</span><span class="p">,</span> <span class="mf">0.999</span><span class="p">])</span>
 </pre></div>
 </div>
 </div>
@@ -356,7 +356,7 @@
 </div>
 </div>
 <figure class="align-left">
-<a class="reference external image-reference" href="../../auto_examples/data/plot_4_data_quality.html"><img alt="../../_images/sphx_glr_plot_4_data_quality_003.png" src="../../_images/sphx_glr_plot_4_data_quality_003.png" /></a>
+<a class="reference external image-reference" href="../../auto_examples/data/plot_4_data_quality.html"><img alt="../../_images/sphx_glr_plot_4_data_quality_010.png" src="../../_images/sphx_glr_plot_4_data_quality_010.png" /></a>
 </figure>
 <p>It is worth noting that, to mitigate the computational burden, the t-SNE algorithm used for visualization purposes is fitted using subsampled data. This subsampling technique allows for a representative subset of the data to be used, reducing the complexity of the t-SNE computation while still providing meaningful insights. In the plot mentioned above, the visualization reveals that the outliers detected by the two algorithms under comparison are noticeably distinct from each other. This discrepancy suggests that the algorithms may consider different aspects of the data when identifying outliers.</p>
 </section>

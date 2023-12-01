@@ -68,7 +68,7 @@ Change feature types
 
 .. code-block:: default
 
-    exp.data_summary(feature_type={"weekday": "categorical"}, silent=True)
+    exp.data_summary(feature_exclude=["yr", "mnth", "temp"], feature_type={"weekday": "categorical"}, silent=True)
 
 
 
@@ -79,9 +79,9 @@ Change feature types
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** ( 0 minutes  35.303 seconds)
+   **Total running time of the script:** ( 9 minutes  5.842 seconds)
 
-**Estimated memory usage:**  26 MB
+**Estimated memory usage:**  13 MB
 
 
 .. _sphx_glr_download_auto_examples_data_plot_1_data_summary.py:

@@ -19,4 +19,4 @@ exp.data_summary(feature_exclude=["yr", "mnth", "temp"], silent=True)
 
 #%%
 # Change feature types
-exp.data_summary(feature_type={"weekday": "categorical"}, silent=True)
+exp.data_summary(feature_exclude=["yr", "mnth", "temp"], feature_type={"weekday": "categorical"}, silent=True)

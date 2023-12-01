@@ -79,11 +79,11 @@ Evaluate predictive performance
 
  .. code-block:: none
 
-              ACC      AUC      F1
-                              
-    Train  0.8083   0.7375  0.3745
-    Test   0.8150   0.7356  0.3764
-    Gap    0.0067  -0.0019  0.0019
+              ACC      AUC      F1  LogLoss    Brier
+                                                
+    Train  0.8083   0.7375  0.3745   0.4585   0.1431
+    Test   0.8150   0.7356  0.3764   0.4458   0.1385
+    Gap    0.0067  -0.0019  0.0019  -0.0127  -0.0046
 
 
 
@@ -123,30 +123,6 @@ Regression coefficient table for all features
 
 
 
-
-.. rst-class:: sphx-glr-script-out
-
- .. code-block:: none
-
-       Feature Name Coefficient
-    0         PAY_1      5.2420
-    1         PAY_2      0.4080
-    2         PAY_3      0.8883
-    3         PAY_4     -0.0329
-    4         PAY_5      0.6885
-    5         PAY_6      1.0435
-    6     BILL_AMT1     -0.0168
-    7     BILL_AMT2      0.1473
-    8     BILL_AMT3      0.6271
-    9     BILL_AMT4      0.7107
-    10    BILL_AMT5     -0.1892
-    11    BILL_AMT6      0.8201
-    12     PAY_AMT1     -0.6464
-    13     PAY_AMT2     -0.5927
-    14     PAY_AMT3     -0.6906
-    15     PAY_AMT4     -0.4080
-    16     PAY_AMT5     -0.3122
-    17     PAY_AMT6     -0.3255
 
 
 
@@ -241,9 +217,7 @@ Local interpretation with centering and original scale of x
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** ( 1 minutes  53.398 seconds)
-
-**Estimated memory usage:**  1979 MB
+   **Total running time of the script:** (0 minutes 1.721 seconds)
 
 
 .. _sphx_glr_download_auto_examples_models_plot_0_glm_cls.py:

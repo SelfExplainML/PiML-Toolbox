@@ -70,7 +70,7 @@ Histogram-based overfit test for a single feature
 
     results = exp.model_diagnose(model="XGB2", show="overfit", slice_method="histogram", 
                                  slice_features=["hr"], threshold=1.05, min_samples=100,
-                                 original_scale=True, return_data=True, figsize=(5, 4))
+                                 return_data=True, figsize=(5, 4))
     results.data
 
 
@@ -119,19 +119,29 @@ Histogram-based overfit test for a single feature
           <td>0.4</td>
           <td>445</td>
           <td>1736</td>
-          <td>0.0226</td>
-          <td>0.0205</td>
-          <td>0.0021</td>
+          <td>0.021922</td>
+          <td>0.019718</td>
+          <td>0.002204</td>
         </tr>
         <tr>
           <th>1</th>
           <td>0.6</td>
+          <td>0.7</td>
+          <td>445</td>
+          <td>1743</td>
+          <td>0.010347</td>
+          <td>0.009588</td>
+          <td>0.000759</td>
+        </tr>
+        <tr>
+          <th>2</th>
+          <td>0.8</td>
           <td>0.9</td>
-          <td>1020</td>
-          <td>4082</td>
-          <td>0.0146</td>
-          <td>0.0139</td>
-          <td>0.0006</td>
+          <td>285</td>
+          <td>1171</td>
+          <td>0.008136</td>
+          <td>0.007511</td>
+          <td>0.000625</td>
         </tr>
       </tbody>
     </table>
@@ -150,7 +160,7 @@ Histogram-based overfit test for two features
 
     results = exp.model_diagnose(model="XGB2", show="overfit", slice_method="histogram", 
                                  slice_features=["hr", "atemp"], threshold=1.05, min_samples=100,
-                                 original_scale=True, return_data=True, figsize=(5, 4))
+                                 return_data=True, figsize=(5, 4))
     results.data
 
 
@@ -199,49 +209,49 @@ Histogram-based overfit test for two features
           <th>0</th>
           <td>0.7</td>
           <td>0.8</td>
-          <td>0.5000</td>
-          <td>0.6636</td>
+          <td>0.50000</td>
+          <td>0.66364</td>
           <td>103</td>
           <td>366</td>
-          <td>0.0391</td>
-          <td>0.0325</td>
-          <td>0.0066</td>
+          <td>0.042139</td>
+          <td>0.035002</td>
+          <td>0.007137</td>
         </tr>
         <tr>
           <th>1</th>
           <td>0.3</td>
           <td>0.4</td>
-          <td>0.2318</td>
-          <td>0.4636</td>
+          <td>0.23181</td>
+          <td>0.46362</td>
           <td>173</td>
           <td>645</td>
-          <td>0.0260</td>
-          <td>0.0206</td>
-          <td>0.0054</td>
+          <td>0.024964</td>
+          <td>0.019805</td>
+          <td>0.005159</td>
         </tr>
         <tr>
           <th>2</th>
-          <td>0.5</td>
           <td>0.6</td>
-          <td>0.1803</td>
-          <td>0.4773</td>
-          <td>122</td>
-          <td>461</td>
-          <td>0.0087</td>
-          <td>0.0058</td>
-          <td>0.0030</td>
+          <td>0.7</td>
+          <td>0.13640</td>
+          <td>0.56060</td>
+          <td>240</td>
+          <td>882</td>
+          <td>0.009529</td>
+          <td>0.007840</td>
+          <td>0.001689</td>
         </tr>
         <tr>
           <th>3</th>
-          <td>0.6</td>
-          <td>0.7</td>
-          <td>0.1364</td>
-          <td>0.5606</td>
-          <td>240</td>
-          <td>882</td>
-          <td>0.0093</td>
-          <td>0.0077</td>
-          <td>0.0016</td>
+          <td>0.0</td>
+          <td>0.1</td>
+          <td>0.25457</td>
+          <td>0.39395</td>
+          <td>105</td>
+          <td>432</td>
+          <td>0.001970</td>
+          <td>0.001105</td>
+          <td>0.000865</td>
         </tr>
       </tbody>
     </table>
@@ -260,7 +270,7 @@ Histogram-based overfit test for a single feature using MAE metric
 
     results = exp.model_diagnose(model="XGB2", show="overfit", slice_method="histogram", 
                                  slice_features=["atemp"], threshold=1.05, min_samples=100,
-                                 metric="MAE", original_scale=True, return_data=True, figsize=(5, 4))
+                                 metric="MAE", return_data=True, figsize=(5, 4))
     results.data
 
 
@@ -305,13 +315,13 @@ Histogram-based overfit test for a single feature using MAE metric
       <tbody>
         <tr>
           <th>0</th>
-          <td>0.197</td>
+          <td>0.19696</td>
           <td>0.4924</td>
           <td>1649</td>
           <td>6580</td>
-          <td>0.062</td>
-          <td>0.057</td>
-          <td>0.005</td>
+          <td>0.06386</td>
+          <td>0.058902</td>
+          <td>0.004958</td>
         </tr>
       </tbody>
     </table>
@@ -323,9 +333,9 @@ Histogram-based overfit test for a single feature using MAE metric
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** ( 0 minutes  42.953 seconds)
+   **Total running time of the script:** ( 0 minutes  41.669 seconds)
 
-**Estimated memory usage:**  1393 MB
+**Estimated memory usage:**  28 MB
 
 
 .. _sphx_glr_download_auto_examples_testing_plot_2_overfit_reg.py:

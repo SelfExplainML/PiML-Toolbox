@@ -42,12 +42,12 @@ metrics_result.data
 segmented_result = exp.model_fairness(model="XGB2_monotonic",
                                       show="segmented",
                                       metric="AIR",
-                                      segmented_feature="Balance",
+                                      segment_feature="Balance",
                                       group_category=["Race", "Gender"],
                                       reference_group=[1., 1.],
                                       protected_group=[0., 0.],
                                       favorable_threshold=0.5,
-                                      segmented_bins=5,
+                                      segment_bins=5,
                                       return_data=True,
                                       figsize=(10, 4))
 segmented_result.data

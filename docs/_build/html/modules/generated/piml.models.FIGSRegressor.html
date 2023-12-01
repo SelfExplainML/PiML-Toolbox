@@ -125,6 +125,7 @@
 <li><a class="reference internal" href="#piml.models.FIGSRegressor.fit"><code class="docutils literal notranslate"><span class="pre">FIGSRegressor.fit</span></code></a></li>
 <li><a class="reference internal" href="#piml.models.FIGSRegressor.get_metadata_routing"><code class="docutils literal notranslate"><span class="pre">FIGSRegressor.get_metadata_routing</span></code></a></li>
 <li><a class="reference internal" href="#piml.models.FIGSRegressor.get_params"><code class="docutils literal notranslate"><span class="pre">FIGSRegressor.get_params</span></code></a></li>
+<li><a class="reference internal" href="#piml.models.FIGSRegressor.parse_model"><code class="docutils literal notranslate"><span class="pre">FIGSRegressor.parse_model</span></code></a></li>
 <li><a class="reference internal" href="#piml.models.FIGSRegressor.predict"><code class="docutils literal notranslate"><span class="pre">FIGSRegressor.predict</span></code></a></li>
 <li><a class="reference internal" href="#piml.models.FIGSRegressor.score"><code class="docutils literal notranslate"><span class="pre">FIGSRegressor.score</span></code></a></li>
 <li><a class="reference internal" href="#piml.models.FIGSRegressor.set_params"><code class="docutils literal notranslate"><span class="pre">FIGSRegressor.set_params</span></code></a></li>
@@ -214,28 +215,20 @@ This may have the effect of smoothing the model, especially in regression.</p>
 <tr class="row-odd"><td><p><a class="reference internal" href="#piml.models.FIGSRegressor.get_params" title="piml.models.FIGSRegressor.get_params"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_params</span></code></a>([deep])</p></td>
 <td><p>Get parameters for this estimator.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#piml.models.FIGSRegressor.predict" title="piml.models.FIGSRegressor.predict"><code class="xref py py-obj docutils literal notranslate"><span class="pre">predict</span></code></a>(X)</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#piml.models.FIGSRegressor.parse_model" title="piml.models.FIGSRegressor.parse_model"><code class="xref py py-obj docutils literal notranslate"><span class="pre">parse_model</span></code></a>()</p></td>
+<td><p>Interpret the model.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#piml.models.FIGSRegressor.predict" title="piml.models.FIGSRegressor.predict"><code class="xref py py-obj docutils literal notranslate"><span class="pre">predict</span></code></a>(X)</p></td>
 <td><p>Returns numpy array of predicted value.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#piml.models.FIGSRegressor.score" title="piml.models.FIGSRegressor.score"><code class="xref py py-obj docutils literal notranslate"><span class="pre">score</span></code></a>(X, y[, sample_weight])</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#piml.models.FIGSRegressor.score" title="piml.models.FIGSRegressor.score"><code class="xref py py-obj docutils literal notranslate"><span class="pre">score</span></code></a>(X, y[, sample_weight])</p></td>
 <td><p>Return the coefficient of determination of the prediction.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#piml.models.FIGSRegressor.set_params" title="piml.models.FIGSRegressor.set_params"><code class="xref py py-obj docutils literal notranslate"><span class="pre">set_params</span></code></a>(**params)</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#piml.models.FIGSRegressor.set_params" title="piml.models.FIGSRegressor.set_params"><code class="xref py py-obj docutils literal notranslate"><span class="pre">set_params</span></code></a>(**params)</p></td>
 <td><p>Set the parameters of this estimator.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#piml.models.FIGSRegressor.set_score_request" title="piml.models.FIGSRegressor.set_score_request"><code class="xref py py-obj docutils literal notranslate"><span class="pre">set_score_request</span></code></a>(*[, sample_weight])</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#piml.models.FIGSRegressor.set_score_request" title="piml.models.FIGSRegressor.set_score_request"><code class="xref py py-obj docutils literal notranslate"><span class="pre">set_score_request</span></code></a>(*[, sample_weight])</p></td>
 <td><p>Request metadata passed to the <code class="docutils literal notranslate"><span class="pre">score</span></code> method.</p></td>
-</tr>
-</tbody>
-</table>
-<table class="docutils align-default">
-<colgroup>
-<col style="width: 60%" />
-<col style="width: 40%" />
-</colgroup>
-<tbody>
-<tr class="row-odd"><td><p><strong>parse_model</strong></p></td>
-<td></td>
 </tr>
 </tbody>
 </table>
@@ -295,6 +288,20 @@ contained subobjects that are estimators.</p>
 <dt class="field-even">Returns</dt>
 <dd class="field-even"><dl class="simple">
 <dt><strong>params</strong><span class="classifier">dict</span></dt><dd><p>Parameter names mapped to their values.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="piml.models.FIGSRegressor.parse_model">
+<span class="sig-name descname"><span class="pre">parse_model</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#piml.models.FIGSRegressor.parse_model" title="Permalink to this definition">¶</a></dt>
+<dd><p>Interpret the model.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><dl class="simple">
+<dt>An instance of FIGSInterpreter</dt><dd><p>The interpretation results.</p>
 </dd>
 </dl>
 </dd>
@@ -389,7 +396,7 @@ possible to update each component of a nested object.</p>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="piml.models.FIGSRegressor.set_score_request">
-<span class="sig-name descname"><span class="pre">set_score_request</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sample_weight</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Union" title="(in Python v3.11)"><span class="pre">Union</span></a><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.11)"><span class="pre">bool</span></a><span class="p"><span class="pre">,</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.11)"><span class="pre">None</span></a><span class="p"><span class="pre">,</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.11)"><span class="pre">str</span></a><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'$UNCHANGED$'</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#piml.models.FIGSRegressor" title="piml.models.figs.base.FIGSRegressor"><span class="pre">FIGSRegressor</span></a></span></span><a class="headerlink" href="#piml.models.FIGSRegressor.set_score_request" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">set_score_request</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sample_weight</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Union</span><span class="p"><span class="pre">[</span></span><span class="pre">bool</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">None</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'$UNCHANGED$'</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#piml.models.FIGSRegressor" title="piml.models.figs.base.FIGSRegressor"><span class="pre">FIGSRegressor</span></a></span></span><a class="headerlink" href="#piml.models.FIGSRegressor.set_score_request" title="Permalink to this definition">¶</a></dt>
 <dd><p>Request metadata passed to the <code class="docutils literal notranslate"><span class="pre">score</span></code> method.</p>
 <p>Note that this method is only relevant if
 <code class="docutils literal notranslate"><span class="pre">enable_metadata_routing=True</span></code> (see <code class="xref py py-func docutils literal notranslate"><span class="pre">sklearn.set_config</span></code>).
@@ -434,10 +441,7 @@ sub-estimator of a meta-estimator, e.g. used inside a
 
 <section id="examples-using-piml-models-figsregressor">
 <h2>Examples using <code class="docutils literal notranslate"><span class="pre">piml.models.FIGSRegressor</span></code><a class="headerlink" href="#examples-using-piml-models-figsregressor" title="Permalink to this heading">¶</a></h2>
-<div class="sphx-glr-thumbnails"><div class="sphx-glr-thumbcontainer" tooltip="FIGS Regression (California Housing)"><img alt="" src="../../_images/sphx_glr_plot_3_figs_reg_thumb.png" />
-<p><a class="reference internal" href="../../auto_examples/models/plot_3_figs_reg.html#sphx-glr-auto-examples-models-plot-3-figs-reg-py"><span class="std std-ref">FIGS Regression (California Housing)</span></a></p>
-  <div class="sphx-glr-thumbnail-title">FIGS Regression (California Housing)</div>
-</div><div class="sphx-glr-thumbcontainer" tooltip="Robustness:  Regression"><img alt="" src="../../_images/sphx_glr_plot_4_robustness_reg_thumb.png" />
+<div class="sphx-glr-thumbnails"><div class="sphx-glr-thumbcontainer" tooltip="Robustness:  Regression"><img alt="" src="../../_images/sphx_glr_plot_4_robustness_reg_thumb.png" />
 <p><a class="reference internal" href="../../auto_examples/testing/plot_4_robustness_reg.html#sphx-glr-auto-examples-testing-plot-4-robustness-reg-py"><span class="std std-ref">Robustness:  Regression</span></a></p>
   <div class="sphx-glr-thumbnail-title">Robustness:  Regression</div>
 </div></div><div class="clearer"></div></section>

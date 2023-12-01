@@ -44,8 +44,8 @@ exp.model_diagnose(model="XGB2", show="resilience_distance", resilience_method="
 #%%
 # Marginal histogram plot for full sample and worst sample
 exp.model_diagnose(model="XGB2", show="resilience_shift_histogram", resilience_method="worst-sample",
-                   target_feature="PAY_1", original_scale=True, figsize=(5, 4))
+                   show_feature="PAY_1", original_scale=True, figsize=(5, 4))
 #%%
 # Marginal density plot for full sample and worst sample
 exp.model_diagnose(model="XGB2", show="resilience_shift_density", resilience_method="worst-sample",
-                   target_feature="PAY_1", original_scale=True, figsize=(5, 4))
+                   show_feature="PAY_1", original_scale=True, figsize=(5, 4))

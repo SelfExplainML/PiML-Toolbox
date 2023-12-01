@@ -119,12 +119,7 @@
               <div class="sk-sidebar-toc">
                 <ul>
 <li><a class="reference internal" href="#"><code class="xref py py-mod docutils literal notranslate"><span class="pre">piml.models</span></code>.GLMClassifier</a><ul>
-<li><a class="reference internal" href="#piml.models.GLMClassifier"><code class="docutils literal notranslate"><span class="pre">GLMClassifier</span></code></a><ul>
-<li><a class="reference internal" href="#piml.models.GLMClassifier.get_metadata_routing"><code class="docutils literal notranslate"><span class="pre">GLMClassifier.get_metadata_routing</span></code></a></li>
-<li><a class="reference internal" href="#piml.models.GLMClassifier.get_params"><code class="docutils literal notranslate"><span class="pre">GLMClassifier.get_params</span></code></a></li>
-<li><a class="reference internal" href="#piml.models.GLMClassifier.set_params"><code class="docutils literal notranslate"><span class="pre">GLMClassifier.set_params</span></code></a></li>
-</ul>
-</li>
+<li><a class="reference internal" href="#piml.models.GLMClassifier"><code class="docutils literal notranslate"><span class="pre">GLMClassifier</span></code></a></li>
 <li><a class="reference internal" href="#examples-using-piml-models-glmclassifier">Examples using <code class="docutils literal notranslate"><span class="pre">piml.models.GLMClassifier</span></code></a></li>
 </ul>
 </li>
@@ -164,86 +159,6 @@
 </dl>
 </dd>
 </dl>
-<p class="rubric">Methods</p>
-<table class="autosummary longtable docutils align-default">
-<colgroup>
-<col style="width: 10%" />
-<col style="width: 90%" />
-</colgroup>
-<tbody>
-<tr class="row-odd"><td><p><a class="reference internal" href="#piml.models.GLMClassifier.get_metadata_routing" title="piml.models.GLMClassifier.get_metadata_routing"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_metadata_routing</span></code></a>()</p></td>
-<td><p>Get metadata routing of this object.</p></td>
-</tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#piml.models.GLMClassifier.get_params" title="piml.models.GLMClassifier.get_params"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_params</span></code></a>([deep])</p></td>
-<td><p>Get parameters for this estimator.</p></td>
-</tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#piml.models.GLMClassifier.set_params" title="piml.models.GLMClassifier.set_params"><code class="xref py py-obj docutils literal notranslate"><span class="pre">set_params</span></code></a>(**params)</p></td>
-<td><p>Set the parameters of this estimator.</p></td>
-</tr>
-</tbody>
-</table>
-<dl class="py method">
-<dt class="sig sig-object py" id="piml.models.GLMClassifier.get_metadata_routing">
-<span class="sig-name descname"><span class="pre">get_metadata_routing</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#piml.models.GLMClassifier.get_metadata_routing" title="Permalink to this definition">¶</a></dt>
-<dd><p>Get metadata routing of this object.</p>
-<p>Please check <span class="xref std std-ref">User Guide</span> on how the routing
-mechanism works.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Returns</dt>
-<dd class="field-odd"><dl class="simple">
-<dt><strong>routing</strong><span class="classifier">MetadataRequest</span></dt><dd><p>A <code class="xref py py-class docutils literal notranslate"><span class="pre">MetadataRequest</span></code> encapsulating
-routing information.</p>
-</dd>
-</dl>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="piml.models.GLMClassifier.get_params">
-<span class="sig-name descname"><span class="pre">get_params</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">deep</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#piml.models.GLMClassifier.get_params" title="Permalink to this definition">¶</a></dt>
-<dd><p>Get parameters for this estimator.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><dl class="simple">
-<dt><strong>deep</strong><span class="classifier">bool, default=True</span></dt><dd><p>If True, will return the parameters for this estimator and
-contained subobjects that are estimators.</p>
-</dd>
-</dl>
-</dd>
-<dt class="field-even">Returns</dt>
-<dd class="field-even"><dl class="simple">
-<dt><strong>params</strong><span class="classifier">dict</span></dt><dd><p>Parameter names mapped to their values.</p>
-</dd>
-</dl>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="piml.models.GLMClassifier.set_params">
-<span class="sig-name descname"><span class="pre">set_params</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">params</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#piml.models.GLMClassifier.set_params" title="Permalink to this definition">¶</a></dt>
-<dd><p>Set the parameters of this estimator.</p>
-<p>The method works on simple estimators as well as on nested objects
-(such as <code class="xref py py-class docutils literal notranslate"><span class="pre">Pipeline</span></code>). The latter have
-parameters of the form <code class="docutils literal notranslate"><span class="pre">&lt;component&gt;__&lt;parameter&gt;</span></code> so that it’s
-possible to update each component of a nested object.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><dl class="simple">
-<dt><strong>**params</strong><span class="classifier">dict</span></dt><dd><p>Estimator parameters.</p>
-</dd>
-</dl>
-</dd>
-<dt class="field-even">Returns</dt>
-<dd class="field-even"><dl class="simple">
-<dt><strong>self</strong><span class="classifier">estimator instance</span></dt><dd><p>Estimator instance.</p>
-</dd>
-</dl>
-</dd>
-</dl>
-</dd></dl>
-
 </dd></dl>
 
 <section id="examples-using-piml-models-glmclassifier">

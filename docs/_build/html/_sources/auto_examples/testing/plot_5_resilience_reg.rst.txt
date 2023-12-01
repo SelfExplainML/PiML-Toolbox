@@ -220,7 +220,7 @@ Marginal histogram plot for full sample and worst sample
 .. code-block:: default
 
     exp.model_diagnose(model="XGB2", show="resilience_shift_histogram", resilience_method="worst-sample",
-                       target_feature="hr", original_scale=True, figsize=(5, 4))
+                       show_feature="hr", original_scale=True, figsize=(5, 4))
 
 
 
@@ -242,7 +242,7 @@ Marginal density plot for full sample and worst sample
 .. code-block:: default
 
     exp.model_diagnose(model="XGB2", show="resilience_shift_density", resilience_method="worst-sample",
-                       target_feature="hr", original_scale=True, figsize=(5, 4))
+                       show_feature="hr", original_scale=True, figsize=(5, 4))
 
 
 
@@ -258,9 +258,9 @@ Marginal density plot for full sample and worst sample
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** ( 2 minutes  23.383 seconds)
+   **Total running time of the script:** ( 1 minutes  33.701 seconds)
 
-**Estimated memory usage:**  1142 MB
+**Estimated memory usage:**  18 MB
 
 
 .. _sphx_glr_download_auto_examples_testing_plot_5_resilience_reg.py:

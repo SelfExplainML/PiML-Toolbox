@@ -256,25 +256,24 @@
 <li><p><strong>Evaluate performance metric</strong>: Calculate the performance metric of interest for each binning segment.</p></li>
 <li><p><strong>Filter out weak regions</strong>: Apply filters based on performance thresholds and minimum sample constraints to identify weak regions. These filters help determine regions where the model’s performance falls below a certain threshold and where the number of samples is sufficient for reliable analysis.</p></li>
 </ul>
-<p>By following these steps, you can effectively identify and analyze areas of weakness in the model’s predictions. Specifically, in PiML, there are three available slicing methods for detecting weak regions: histogram slicing, tree slicing, and ensemble tree slicing.</p>
+<p>By following these steps, you can effectively identify and analyze areas of weakness in the model’s predictions. Specifically, in PiML, there are three available slicing methods for detecting weak regions: histogram slicing and tree slicing.</p>
 <ul class="simple">
 <li><p><strong>Histogram Slicing</strong>: This method utilizes unsupervised binning to partition the features of interest into equal-space bins. The number of bins defaults to 10. However, if the number of unique values is less than 10, these unique values are utilized as the split points. When two slicing features are specified, the process begins by conducting histogram binning on one feature. Subsequently, for each bin, histogram binning is performed on the second feature.</p></li>
 </ul>
 <p>If connected bins are identified as weak regions, our approach involves merging them into a single bin. This merging process is relatively simple when dealing with only one slicing feature. However, when two slicing features are involved, we condition one dimension and merge the weak regions along the other dimension.</p>
 <ul class="simple">
 <li><p><strong>Tree Slicing</strong>: This approach employs a supervised binning method. The initial step is to calculate a specific metric for each sample, such as square error for MSE, absolute error for MAE, or correct/incorrect status for accuracy score. Next, a decision tree model is fitted using the features of interest as predictors and the individual metrics as the response. The decision tree is configured with <code class="docutils literal notranslate"><span class="pre">max_depth=3</span></code> and <code class="docutils literal notranslate"><span class="pre">min_samples_leaf</span></code> as the minimum sample size. The generated decision tree is then utilized to create bins, and the performance of each bin is assessed accordingly.</p></li>
-<li><p><strong>Ensemble Tree Slicing</strong>: This method shares similarities with tree slicing. Instead of using decision trees, it leverages xgboost with specific configurations (<code class="docutils literal notranslate"><span class="pre">max_depth=2</span></code>, <code class="docutils literal notranslate"><span class="pre">n_estimators=100</span></code>, <code class="docutils literal notranslate"><span class="pre">tree_method=&quot;hist&quot;</span></code>, <code class="docutils literal notranslate"><span class="pre">max_bin=20</span></code>) to generate bins based on the metrics of individual samples. The binning results obtained from xgboost tend to be more fine-grained and detailed compared to tree-based approaches.</p></li>
 </ul>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>The supervised binning methods, i.e., tree slicing and ensemble tree slicing, are suitable for cases where the metric is additive. This means that the metric for the entire sample can be calculated by aggregating the metric values of individual samples. For instance, metrics such as “MSE” (Mean Squared Error), “MAE” (Mean Absolute Error), and “ACC” (Accuracy Score) are additive in nature. However, metrics like “R2” (R-squared), “AUC” (Area Under the Curve), and “F1” (F1 Score) are not additive. By default, the “MSE” metric is used for regression tasks, while “ACC” is used for classification tasks.</p>
+<p>The supervised binning method, i.e., tree slicing, is suitable for cases where the metric is additive. This means that the metric for the entire sample can be calculated by aggregating the metric values of individual samples. For instance, metrics such as “MSE” (Mean Squared Error), “MAE” (Mean Absolute Error), “ACC” (Accuracy Score), “LogLoss” (Log Loss), and “Brier” (Brier Score) are additive in nature. However, metrics like “R2” (R-squared), “AUC” (Area Under the Curve), and “F1” (F1 Score) are not additive. By default, the “MSE” metric is used for regression tasks, while “ACC” is used for classification tasks.</p>
 </div>
 </section>
 <section id="usage">
 <h2><span class="section-number">6.2.2. </span>Usage<a class="headerlink" href="#usage" title="Permalink to this heading">¶</a></h2>
 <p>For demonstration purposes, we consider an XGB2 model on the TaiwanCredit data. Weakspot assessment can be conducted by employing the <code class="docutils literal notranslate"><span class="pre">model_diagnose</span></code> function. To evaluate weak regions, simply set the <code class="docutils literal notranslate"><span class="pre">show</span></code> parameter to “weakspot”. Moreover, the following parameters offer increased flexibility for customization and analysis.</p>
 <ul class="simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">slice_method</span></code>: This parameter allows you to select the desired slicing method from the available options: “histogram”, “tree”, and “xgb”, which correspond to the three aforementioned slicing methods. The default value is set to “histogram”.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">slice_method</span></code>: This parameter allows you to select the desired slicing method from the available options: “histogram” and “tree”, which correspond to the three aforementioned slicing methods. The default value is “histogram”.</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">slice_features</span></code>: This argument is used to specify the list of slicing features. For weakspot analysis, you need to specify 1 or 2 slicing features; otherwise, a warning message will be displayed.</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">bins</span></code>: This parameter determines the number of bins used for histogram slicing. By default, it is set to 10.</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">metric</span></code>: You can choose the performance metric for evaluation, which includes “MSE”, “MAE”, and “R2” for regression tasks, and “ACC”, “AUC”, and “F1” for classification tasks. The default metric is “MSE” for regression and “ACC” for classification.</p></li>
@@ -289,7 +288,7 @@
 <div class="cell_input code_cell docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">results</span> <span class="o">=</span> <span class="n">exp</span><span class="o">.</span><span class="n">model_diagnose</span><span class="p">(</span><span class="n">model</span><span class="o">=</span><span class="s2">&quot;XGB2&quot;</span><span class="p">,</span> <span class="n">show</span><span class="o">=</span><span class="s2">&quot;weakspot&quot;</span><span class="p">,</span> <span class="n">slice_method</span><span class="o">=</span><span class="s2">&quot;histogram&quot;</span><span class="p">,</span>
                         <span class="n">slice_features</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;PAY_1&quot;</span><span class="p">],</span> <span class="n">threshold</span><span class="o">=</span><span class="mf">1.1</span><span class="p">,</span> <span class="n">min_samples</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">metric</span><span class="o">=</span><span class="s2">&quot;ACC&quot;</span><span class="p">,</span>
-                        <span class="n">use_test</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">return_data</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">original_scale</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">4</span><span class="p">))</span>
+                        <span class="n">use_test</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">return_data</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">4</span><span class="p">))</span>
 </pre></div>
 </div>
 </div>
@@ -299,63 +298,9 @@
 <figure class="align-left">
 <a class="reference external image-reference" href="../../auto_examples/testing/plot_1_weakspot_cls.html"><img alt="../../_images/sphx_glr_plot_1_weakspot_cls_001.png" src="../../_images/sphx_glr_plot_1_weakspot_cls_001.png" /></a>
 </figure>
-<p>The above plot illustrates the detection of a single weak region for the feature <code class="docutils literal notranslate"><span class="pre">PAY_1</span></code>, within the range of 0.2 to 0.4. The red dotted line represents the performance threshold, which is calculated by dividing the average metric (around 0.82) by the user-specified threshold ratio (1.1), resulting in a threshold value of approximately 0.75. Each weak region is annotated with its corresponding weak region number.</p>
+<p>The above plot illustrates the detection of a single weak region for the feature <code class="docutils literal notranslate"><span class="pre">PAY_1</span></code>. The red dotted line represents the performance threshold, which is calculated by dividing the average metric (around 0.82) by the user-specified threshold ratio (1.1), resulting in a threshold value of approximately 0.75. Each weak region is annotated with its corresponding weak region number.</p>
 <p>On the x-axis, we have the variable of interest (<code class="docutils literal notranslate"><span class="pre">PAY_1</span></code>), while the y-axis represents the density and accuracy score of each segment. In the density plot, the “Above threshold” and “Below threshold” labels indicate the population segments with prediction errors greater or less than the threshold, respectively. However, it is important to note that for metrics such as “AUC”, “F1” in classification tasks, or “R2” in regression tasks, which are not additive, the density plot does not display the “Above threshold” and “Below threshold” labels. The detailed information of detected weak regions can be found in the returned table, as we set <code class="docutils literal notranslate"><span class="pre">return_data</span></code> to True.</p>
-<div class="jupyter_cell jupyter_container docutils container">
-<div class="cell_input code_cell docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">results</span><span class="o">.</span><span class="n">data</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-</div>
-</div>
-<div class="output_subarea output_html rendered_html output_result">
-<div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-        align: left;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-        align: left;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-        align: left;
-    }
-</style>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th>[PAY_1</th>
-      <th>PAY_1)</th>
-      <th>#Test</th>
-      <th>#Train</th>
-      <th>test_ACC</th>
-      <th>train_ACC</th>
-      <th>Gap</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>0</th>
-      <td>0.2</td>
-      <td>0.4</td>
-      <td>1265</td>
-      <td>5090</td>
-      <td>0.695652</td>
-      <td>0.689587</td>
-      <td>0.006065</td>
-    </tr>
-  </tbody>
-</table>
-</div>
-</div><p>The table above shows the weak regions of the testing data. It contains the following columns:</p>
+<p>The table above shows the weak regions of the testing data. It contains the following columns:</p>
 <blockquote>
 <div><ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">[feature_name</span></code>: The lower bound of the slicing feature;</p></li>
@@ -377,8 +322,7 @@
 <div class="jupyter_cell jupyter_container docutils container">
 <div class="cell_input code_cell docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">results</span> <span class="o">=</span> <span class="n">exp</span><span class="o">.</span><span class="n">model_diagnose</span><span class="p">(</span><span class="n">model</span><span class="o">=</span><span class="s2">&quot;XGB2&quot;</span><span class="p">,</span> <span class="n">show</span><span class="o">=</span><span class="s2">&quot;weakspot&quot;</span><span class="p">,</span> <span class="n">slice_method</span><span class="o">=</span><span class="s2">&quot;histogram&quot;</span><span class="p">,</span>
-                       <span class="n">slice_features</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;PAY_1&quot;</span><span class="p">,</span> <span class="s2">&quot;PAY_2&quot;</span><span class="p">],</span> <span class="n">threshold</span><span class="o">=</span><span class="mf">1.1</span><span class="p">,</span> <span class="n">min_samples</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">metric</span><span class="o">=</span><span class="s2">&quot;ACC&quot;</span><span class="p">,</span>
-                       <span class="n">use_test</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">return_data</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">original_scale</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">4</span><span class="p">))</span>
+                       <span class="n">slice_features</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;PAY_1&quot;</span><span class="p">,</span> <span class="s2">&quot;PAY_2&quot;</span><span class="p">],</span> <span class="n">threshold</span><span class="o">=</span><span class="mf">1.1</span><span class="p">,</span> <span class="n">min_samples</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">metric</span><span class="o">=</span><span class="s2">&quot;ACC&quot;</span><span class="p">,</span> <span class="n">use_test</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">return_data</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">4</span><span class="p">))</span>
 </pre></div>
 </div>
 </div>
@@ -388,110 +332,7 @@
 <figure class="align-left">
 <a class="reference external image-reference" href="../../auto_examples/testing/plot_1_weakspot_cls.html"><img alt="../../_images/sphx_glr_plot_1_weakspot_cls_002.png" src="../../_images/sphx_glr_plot_1_weakspot_cls_002.png" /></a>
 </figure>
-<div class="jupyter_cell jupyter_container docutils container">
-<div class="cell_input code_cell docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">results</span><span class="o">.</span><span class="n">data</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-</div>
-</div>
-<div class="output_subarea output_html rendered_html output_result">
-<div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: left;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th>[PAY_1</th>
-      <th>PAY_1)</th>
-      <th>[PAY_2</th>
-      <th>PAY_2)</th>
-      <th>#Test</th>
-      <th>#Train</th>
-      <th>test_ACC</th>
-      <th>train_ACC</th>
-      <th>Gap</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>0</th>
-      <td>0.3</td>
-      <td>0.4</td>
-      <td>0.000000</td>
-      <td>0.250000</td>
-      <td>191</td>
-      <td>800</td>
-      <td>0.691099</td>
-      <td>0.678750</td>
-      <td>0.012349</td>
-    </tr>
-    <tr>
-      <th>1</th>
-      <td>0.2</td>
-      <td>0.3</td>
-      <td>0.111111</td>
-      <td>0.222222</td>
-      <td>268</td>
-      <td>956</td>
-      <td>0.727612</td>
-      <td>0.717573</td>
-      <td>0.010039</td>
-    </tr>
-    <tr>
-      <th>2</th>
-      <td>0.3</td>
-      <td>0.4</td>
-      <td>0.375000</td>
-      <td>0.625000</td>
-      <td>322</td>
-      <td>1354</td>
-      <td>0.720497</td>
-      <td>0.717134</td>
-      <td>0.003362</td>
-    </tr>
-    <tr>
-      <th>3</th>
-      <td>0.2</td>
-      <td>0.3</td>
-      <td>0.333333</td>
-      <td>0.555556</td>
-      <td>351</td>
-      <td>1430</td>
-      <td>0.612536</td>
-      <td>0.614685</td>
-      <td>-0.002150</td>
-    </tr>
-    <tr>
-      <th>4</th>
-      <td>0.0</td>
-      <td>0.1</td>
-      <td>0.375000</td>
-      <td>0.750000</td>
-      <td>82</td>
-      <td>360</td>
-      <td>0.621951</td>
-      <td>0.625000</td>
-      <td>-0.003049</td>
-    </tr>
-  </tbody>
-</table>
-</div>
-</div><p>In this particular demonstration involving two variables, the plot reveals the presence of 5 weak regions. The accompanying summary table provides additional information regarding each region. It includes the testing and training accuracy scores for the samples within each region, as well as the gap between the testing and training ACC scores. These details offer insights into the performance discrepancy between the testing and training datasets for each specific region. Let’s take Region 0 as an example, which consists of 191 testing samples and 800 training samples. This region corresponds to the range of <code class="docutils literal notranslate"><span class="pre">PAY_1</span></code> values between 0.3 and 1.4, and <code class="docutils literal notranslate"><span class="pre">PAY_AMT2</span></code> values between 0.00 and 0.25.</p>
+<p>In this particular demonstration involving two variables, the plot reveals the presence of 5 weak regions. The accompanying summary table provides additional information regarding each region. It includes the testing and training accuracy scores for the samples within each region, as well as the gap between the testing and training ACC scores. These details offer insights into the performance discrepancy between the testing and training datasets for each specific region. Let’s take Region 0 as an example, which consists of 191 testing samples and 800 training samples. This region corresponds to the range of <code class="docutils literal notranslate"><span class="pre">PAY_1</span></code> values between 2.6 and 3.5, and <code class="docutils literal notranslate"><span class="pre">PAY_2</span></code> values between 2.2 and 3.6.</p>
 </section>
 </section>
 <section id="examples">

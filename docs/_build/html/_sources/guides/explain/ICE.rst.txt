@@ -27,6 +27,11 @@ In PiML, the ICE plot is implemented using the scikit-learn package. For a more 
 .. _here: https://scikit-learn.org/stable/auto_examples/inspection/plot_partial_dependence.html 
 
 
+.. note::
+
+   For binary classification tasks, the ICE is computed by default using the predicted probability instead of log odds. In `exp.model_explain`, there exist an argument called `response_method`. If we want to use the predicted probability as the output, we can set `response_method` to "decision_function".
+
+
 Usage
 ^^^^^^^^^^^^^^^^^
 
@@ -51,6 +56,13 @@ Examples
   The first example below demonstrates how to use PiML with its high-code APIs for developing machine learning models for the BikeSharing data from the UCI repository, which consists of 17,389 samples of hourly counts of rental bikes in Capital bikeshare system; see details. The response `cnt` (hourly bike rental counts) is continuous and it is a regression problem.
                           
  * :ref:`sphx_glr_auto_examples_explain_plot_2_ice.py`
+
+
+.. topic:: Example 2: SimuCredit
+
+   The second example shows the option to use test set to generate the explanations.
+
+   * :ref:`sphx_glr_auto_examples_explain_plot_6_data_dependent_explain.py`
 
 .. topic:: References
 

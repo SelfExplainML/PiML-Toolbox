@@ -313,9 +313,9 @@ Resilience distance comparison with worst-sample scenario
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** ( 1 minutes  43.954 seconds)
+   **Total running time of the script:** ( 1 minutes  37.535 seconds)
 
-**Estimated memory usage:**  1827 MB
+**Estimated memory usage:**  116 MB
 
 
 .. _sphx_glr_download_auto_examples_testing_compare_plot_0_compare_classification.py:

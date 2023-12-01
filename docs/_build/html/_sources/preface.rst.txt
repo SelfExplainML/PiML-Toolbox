@@ -11,14 +11,5 @@
 .. include:: tune_toc.rst
 
 =======================
-Welcome to scikit-learn
+Welcome to PiML
 =======================
-
-|
-
-.. toctree::
-    :maxdepth: 2
-
-    install
-
-|

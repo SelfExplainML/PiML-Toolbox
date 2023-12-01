@@ -6,7 +6,7 @@
 
 `pip install PiML`
   
-🎄 **Dec 4, 2023:**  V0.6.0 is released with data handling, model tuning and test suite enhancements.
+🎄 **Dec 1, 2023:**  V0.6.0 is released with data handling, model interpretation and test suite enhancements.
 
 :rocket: **May 4, 2023:**  V0.5.0 is released together with PiML user guide.
 

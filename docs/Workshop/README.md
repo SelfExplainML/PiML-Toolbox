@@ -1,14 +1,47 @@
 ## Workshop Info and Materials
 
 <details open>
+  <summary><h3><strong>Machine Learning Model Validation, Dec 4, 2023 & Jan XX,  2024 | Information Sharing with GM Financial</strong></h3></summary><br /> 
+
+**Speaker:** Aijun Zhang
+
+**Slides:** 
+
+- [Session 1: Model Interpretability](https://github.com/SelfExplainML/PiML-Toolbox/blob/main/docs/Workshop/202311PiML_GMFinancial_Session1.pdf) 
+- Session 2: Outcome Testing
+
+**Codes:** 
+<a style="text-laign: 'center'" target="_blank" href="https://colab.research.google.com/github/SelfExplainML/PiML-Toolbox/blob/main/docs/Workshop/202312PiML-SimuCredit Example.ipynb">SimuCredit Example using PiML</a>  
+</details>  
+
+
+<details open>
+  <summary><h3><strong>Model Diagnostics Lecture Materials | Model Validation Class, UNCC Master of Data Science, Fall 2023</strong></h3></summary><br /> 
+
+Instructor: Aijun Zhang
+
+Click the ipynb links to run notebooks through Google Colab:
+
+## Part 1: Error and Resilience (<a href="https://github.com/SelfExplainML/PiML-Toolbox/blob/main/docs/Workshop/202310-UNCC/202310ModelDiagTrilogyPart1.pdf">PDF</a>)
+ 
+- CaliforniaHousing Case (Regression) <a style="text-laign: 'center'" target="_blank" href="https://colab.research.google.com/github/SelfExplainML/PiML-Toolbox/blob/main/docs/Workshop/202310-UNCC/ModelDiagPart1_Error-n-Resilience_CaliforniaHousing.ipynb"><img src="https://github.com/SelfExplainML/PiML-Toolbox/blob/main/examples/results/LogoColab.png" width="20">  ipynb</a>  
+- SimuCredit Case (Binary Classification) <a style="text-laign: 'center'" target="_blank" href="https://colab.research.google.com/github/SelfExplainML/PiML-Toolbox/blob/main/docs/Workshop/202310-UNCC/ModelDiagPart1_Error-n-Resilience_SimuCredit.ipynb"><img src="https://github.com/SelfExplainML/PiML-Toolbox/blob/main/examples/results/LogoColab.png" width="20">  ipynb</a>
+
+## Part 2: Prediction Uncertainty (<a href="https://github.com/SelfExplainML/PiML-Toolbox/blob/main/docs/Workshop/202310-UNCC/202310ModelDiagnosticsPart2.pdf">PDF</a>)
+
+- CaliforniaHousing Case (Regression) <a style="text-laign: 'center'" target="_blank" href="https://colab.research.google.com/github/SelfExplainML/PiML-Toolbox/blob/main/docs/Workshop/202310-UNCC/ModelDiagPart2_PredictionUncertainty_CaliforniaHousing.ipynb"><img src="https://github.com/SelfExplainML/PiML-Toolbox/blob/main/examples/results/LogoColab.png" width="20">  ipynb</a>  
+- SimuCredit Case (Binary Classification) <a style="text-laign: 'center'" target="_blank" href="https://colab.research.google.com/github/SelfExplainML/PiML-Toolbox/blob/main/docs/Workshop/202310-UNCC/ModelDiagPart2_PredictionUncertainty_SimuCredit.ipynb"><img src="https://github.com/SelfExplainML/PiML-Toolbox/blob/main/examples/results/LogoColab.png" width="20">  ipynb</a>
+</details>  
+
+
+<details open>
   <summary><h3><strong>Workshop at GFMI 2nd Edition Credit Risk Modeling, September 6-7, 2023 | Chicago</strong></h3></summary><br /> 
 
 **Speaker:** Aijun Zhang
 
 **Slides:** [Develop Enhanced Credit Risk Models through Interpretable Machine Learning](https://github.com/SelfExplainML/PiML-Toolbox/blob/main/docs/Workshop/202309CreditRisk.pdf) 
 
-**Codes:** <a style="text-laign: 'center'" target="_blank" href="https://colab.research.google.com/github/SelfExplainML/PiML-Toolbox/blob/main/docs/Workshop/202309PiML-CreditRisk.ipynb">Hands-on PiML tutorials</a>  
-
+**Codes:** <a style="text-laign: 'center'" target="_blank" href="https://colab.research.google.com/github/SelfExplainML/PiML-Toolbox/blob/main/docs/Workshop/202309PiML-CreditRisk.ipynb">Hands-on PiML Tutorial with SimuCredit Data</a>  
 </details>  
 
 <details open>

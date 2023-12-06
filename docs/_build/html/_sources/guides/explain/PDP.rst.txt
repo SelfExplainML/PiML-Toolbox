@@ -84,12 +84,12 @@ For categorical features, the PDP is a bar chart. The plot below indicates that 
 Two-way PDPs
 """"""""""""""""""""""""""""""""
 
-The two-way PDP shows the interaction between two features, which is useful for visualizing the joint effect of two features on the predicted response. To trigger two-way PDP, we need to specify two feature names in `bi_features`. The argument `pdp_size` is used to speed up the computation of 2D PDP, which works by subsampling a subset of the data, and the default value is 2000. If the sample size is less than `pdp_size`, then the entire training dataset will be used. In addition to the heatmap, we also provide an alternative sliced 1D plot, which can be triggered by setting  `sliced_line` to True.
+The two-way PDP shows the interaction between two features, which is useful for visualizing the joint effect of two features on the predicted response. To trigger two-way PDP, we need to specify two feature names in `bi_features`. The argument `sample_size` is used to speed up the computation of 2D PDP, which works by subsampling a subset of the data, and the default value is 2000. If the sample size is less than `sample_size`, then the entire training dataset will be used. In addition to the heatmap, we also provide an alternative sliced 1D plot, which can be triggered by setting  `sliced_line` to True.
 
 .. jupyter-input::
 
     exp.model_explain(model="XGB2", show="pdp", bi_features=["hr", "workingday"],
-                      grid_size=10, pdp_size=10000, sliced_line=False, original_scale=True, figsize=(5, 4))
+                      grid_size=10, sample_size=10000, sliced_line=False, original_scale=True, figsize=(5, 4))
 
 .. figure:: ../../auto_examples/explain/images/sphx_glr_plot_1_pdp_003.png
    :target: ../../auto_examples/explain/plot_1_pdp.html

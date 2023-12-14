@@ -61,8 +61,8 @@ With the resilience test, you can assess the performance of the worst samples in
    exp.model_diagnose(model="XGB2", show="resilience_perf", resilience_method="worst-sample", 
                       metric="AUC", figsize=(5, 4))
 
-.. figure:: ../../auto_examples/testing/images/sphx_glr_plot_5_resilience_cls_001.png
-   :target: ../../auto_examples/testing/plot_5_resilience_cls.html
+.. figure:: ../../auto_examples/4_testing/images/sphx_glr_plot_5_resilience_cls_001.png
+   :target: ../../auto_examples/4_testing/plot_5_resilience_cls.html
    :align: left
 
 - **hard-sample**: As the worst sample ratio decreases to less than 0.4, the AUC values hover around 0.5. This observation indicates that the model's performance is comparable to that of a random classifier. However, as the worst sample ratio increases, there is a noticeable improvement in the model's performance. 
@@ -72,8 +72,8 @@ With the resilience test, you can assess the performance of the worst samples in
    exp.model_diagnose(model="XGB2", show="resilience_perf", resilience_method="hard-sample",
                       metric="AUC", figsize=(5, 4))
    
-.. figure:: ../../auto_examples/testing/images/sphx_glr_plot_5_resilience_cls_002.png
-   :target: ../../auto_examples/testing/plot_5_resilience_cls.html
+.. figure:: ../../auto_examples/4_testing/images/sphx_glr_plot_5_resilience_cls_002.png
+   :target: ../../auto_examples/4_testing/plot_5_resilience_cls.html
    :align: left
 
 - **outer-sample**: Based on the observed plot, it is evident that even in the worst-10% test sample scenario, the model demonstrates relatively good performance, achieving an AUC above 0.7. Interestingly, the model's performance reaches its peak around the worst sample ratio of approximately 0.7, after which it gradually declines. This trend could be attributed to the nature of the scenario being unsupervised. In such cases, the samples identified as "worst" may not consistently exhibit the worst performance across all instances. It is plausible that in some cases, these "worst samples" may actually outperform the remaining test sample set.
@@ -85,8 +85,8 @@ The fluctuations in performance observed at different worst sample ratios highli
    exp.model_diagnose(model="XGB2", show="resilience_perf", resilience_method="outer-sample",
                       metric="AUC", figsize=(5, 4))
 
-.. figure:: ../../auto_examples/testing/images/sphx_glr_plot_5_resilience_cls_003.png
-   :target: ../../auto_examples/testing/plot_5_resilience_cls.html
+.. figure:: ../../auto_examples/4_testing/images/sphx_glr_plot_5_resilience_cls_003.png
+   :target: ../../auto_examples/4_testing/plot_5_resilience_cls.html
    :align: left
 
 - **worst-cluster**: The last scenario, known as the "worst-cluster" method, introduces a slight variation compared to the previous methods. In this method, the x-axis of the plot represents the number of clusters, ranging from 1 to 10. The approach involves adjusting the value of :math:`K` in the K-means algorithm and identifying the worst cluster as the worst sample. The worst cluster is determined based on the lowest performance metric observed within the clusters. It is important to note that when :math:`K=1`, it represents the entire test sample as a single cluster. 
@@ -96,8 +96,8 @@ The fluctuations in performance observed at different worst sample ratios highli
    exp.model_diagnose(model="XGB2", show="resilience_perf", resilience_method="worst-cluster",
                       metric="AUC", figsize=(5, 4))
 
-.. figure:: ../../auto_examples/testing/images/sphx_glr_plot_5_resilience_cls_004.png
-   :target: ../../auto_examples/testing/plot_5_resilience_cls.html
+.. figure:: ../../auto_examples/4_testing/images/sphx_glr_plot_5_resilience_cls_004.png
+   :target: ../../auto_examples/4_testing/plot_5_resilience_cls.html
    :align: left
 
 Resilience Distance
@@ -111,8 +111,8 @@ In the first example, we set the `distance_metrics` to "PSI", and you can also u
       exp.model_diagnose(model="XGB2", show="resilience_distance", resilience_method="worst-sample", 
                          distance_metric="PSI", alpha=0.3, figsize=(5, 4))
 
-.. figure:: ../../auto_examples/testing/images/sphx_glr_plot_5_resilience_cls_005.png
-   :target: ../../auto_examples/testing/plot_5_resilience_cls.html
+.. figure:: ../../auto_examples/4_testing/images/sphx_glr_plot_5_resilience_cls_005.png
+   :target: ../../auto_examples/4_testing/plot_5_resilience_cls.html
    :align: left
 
 In the second example, we still use the same setting, but with `immu_feature` not None. By conditioning on  `PAY_1`, we recalculate the resilience distance. It can be found that the PSI distance of that immutable feature becomes much smaller.
@@ -122,8 +122,8 @@ In the second example, we still use the same setting, but with `immu_feature` no
       exp.model_diagnose(model="XGB2", show="resilience_distance", resilience_method="worst-sample", 
                          distance_metric="PSI", immu_feature="PAY_1", alpha=0.3, figsize=(5, 4))
 
-.. figure:: ../../auto_examples/testing/images/sphx_glr_plot_5_resilience_cls_006.png
-   :target: ../../auto_examples/testing/plot_5_resilience_cls.html
+.. figure:: ../../auto_examples/4_testing/images/sphx_glr_plot_5_resilience_cls_006.png
+   :target: ../../auto_examples/4_testing/plot_5_resilience_cls.html
    :align: left
 
 The third example shows the resilience distance plot for the "worst-cluster" scenario. The `n_clusters` is set to 10, and the `distance_metrics` is set to "WD1". The plot suggests the variable `Pay_1` has the largest WD1 (0.12), which is usually thought of as a moderate distribution change.
@@ -133,8 +133,8 @@ The third example shows the resilience distance plot for the "worst-cluster" sce
       exp.model_diagnose(model="XGB2", show="resilience_distance", resilience_method="worst-cluster",
                          distance_metric="WD1", n_clusters=10, figsize=(5, 4))
 
-.. figure:: ../../auto_examples/testing/images/sphx_glr_plot_5_resilience_cls_007.png
-   :target: ../../auto_examples/testing/plot_5_resilience_cls.html
+.. figure:: ../../auto_examples/4_testing/images/sphx_glr_plot_5_resilience_cls_007.png
+   :target: ../../auto_examples/4_testing/plot_5_resilience_cls.html
    :align: left
 
 Marginal Density Comparison
@@ -146,8 +146,8 @@ The marginal density plot shows the distributional difference between the worst 
       exp.model_diagnose(model="XGB2", show="resilience_shift_density",  
                          show_feature="Pay_1", original_scale=True, figsize=(5, 4))
    
-.. figure:: ../../auto_examples/testing/images/sphx_glr_plot_5_resilience_cls_008.png
-   :target: ../../auto_examples/testing/plot_5_resilience_cls.html
+.. figure:: ../../auto_examples/4_testing/images/sphx_glr_plot_5_resilience_cls_008.png
+   :target: ../../auto_examples/4_testing/plot_5_resilience_cls.html
    :align: left
 
 Marginal Histogram Comparison
@@ -159,8 +159,8 @@ Similar to the density plot, we also provide the option to draw the histogram co
       exp.model_diagnose(model="XGB2", show="resilience_shift_histogram",  
                          show_feature="Pay_1", original_scale=True, figsize=(5, 4))
 
-.. figure:: ../../auto_examples/testing/images/sphx_glr_plot_5_resilience_cls_009.png
-   :target: ../../auto_examples/testing/plot_5_resilience_cls.html
+.. figure:: ../../auto_examples/4_testing/images/sphx_glr_plot_5_resilience_cls_009.png
+   :target: ../../auto_examples/4_testing/plot_5_resilience_cls.html
    :align: left
 
 
@@ -171,10 +171,10 @@ Examples
 
   The example below demonstrates how to use PiML with its high-code APis for the California Housing dataset from the UCI repository, which consists of 20,640 samples and 9 features, fetched by sklearn.datasets. The response variable MedHouseVal (Median Home Value) is continuous and is a regression problem.
 
-   * :ref:`sphx_glr_auto_examples_testing_plot_5_resilience_reg.py`
+   * :ref:`sphx_glr_auto_examples_4_testing_plot_5_resilience_reg.py`
 
 .. topic:: Examples 2: Taiwan Credit
 
    The second example below demonstrates how to use PiML's high-code APIs for the TaiwanCredit dataset from the UCI repository. This dataset comprises the credit card details of 30,000 clients in Taiwan from April 2005 to September 2005, and more information can be found on the TaiwanCreditData website. The `FlagDefault` variable serves as the response for this classification problem.
 
-   * :ref:`sphx_glr_auto_examples_testing_plot_5_resilience_cls.py`
+   * :ref:`sphx_glr_auto_examples_4_testing_plot_5_resilience_cls.py`

@@ -1,0 +1,748 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+
+  <meta charset="utf-8">
+  <meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  
+  <title>PiML Toolbox</title>
+  
+
+  
+  <link rel="shortcut icon" href="../../_static/favicon.ico"/>
+  
+
+  <link rel="stylesheet" href="../../_static/css/vendor/bootstrap.min.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/plot_directive.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/jupyter-sphinx.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/thebelab.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/sg_gallery.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/sg_gallery-binder.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/sg_gallery-dataframe.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/sg_gallery-rendered-html.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
+<script id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+<script src="../../_static/jquery.js"></script>
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="../../_static/doctools.js"></script>
+        <script src="../../_static/sphinx_highlight.js"></script>
+        <script src="../../_static/thebelab-helper.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/@jupyter-widgets/html-manager@^1.0.1/dist/embed-amd.js"></script>
+        <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="../../_static/js/theme.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav">
+
+  
+
+
+<nav id="navbar" class="sk-docs-navbar navbar navbar-expand-md navbar-light bg-light py-0">
+  <div class="container-fluid sk-docs-container px-0">
+      <a class="navbar-brand py-0" href="../../index.html">
+        <img
+          class="sk-brand-img"
+          src="../../_static/piml-logo.png"
+          alt="logo"/>
+      </a>
+    <button
+      id="sk-navbar-toggler"
+      class="navbar-toggler"
+      type="button"
+      data-toggle="collapse"
+      data-target="#navbarSupportedContent"
+      aria-controls="navbarSupportedContent"
+      aria-expanded="false"
+      aria-label="Toggle navigation"
+    >
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="sk-navbar-collapse collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item">
+          <a class="sk-nav-link nav-link" href="../../install.html">Install</a>
+        </li>
+        <li class="nav-item">
+          <a class="sk-nav-link nav-link" href="../../user_guide.html">User Guide</a>
+        </li>
+        <li class="nav-item">
+          <a class="sk-nav-link nav-link" href="../../modules/classes.html">API</a>
+        </li>
+        <li class="nav-item">
+          <a class="sk-nav-link nav-link" href="../../auto_examples/index.html">Examples</a>
+        </li>
+     </ul>
+      <div id="searchbox" role="search">
+          <div class="searchformwrapper">
+          <form class="search" action="../../search.html" method="get">
+            <input class="sk-search-text-input" type="text" name="q" aria-labelledby="searchlabel" />
+            <input class="sk-search-text-btn" type="submit" value="Go" />
+          </form>
+          </div>
+      </div>
+    </div>
+  </div>
+</nav>
+  <div class="d-flex" id="sk-doc-wrapper">
+      <input type="checkbox" name="sk-toggle-checkbox" id="sk-toggle-checkbox">
+      <label id="sk-sidemenu-toggle" class="sk-btn-toggle-toc btn sk-btn-primary" for="sk-toggle-checkbox">Toggle Menu</label>
+      <div id="sk-sidebar-wrapper" class="border-right">
+        <div class="sk-sidebar-toc-wrapper">
+          <div class="sk-sidebar-toc-logo">
+            <a href="../../index.html">
+              <img
+                class="sk-brand-img"
+                src="../../_static/piml-logo.png"
+                alt="logo"/>
+            </a>
+          </div>
+          <!--div class="btn-group w-100 mb-2" role="group" aria-label="rellinks">
+              <a href="fairness.html" role="button" class="btn sk-btn-rellink py-1" sk-rellink-tooltip="6.7. Fairness">Prev</a><a href="../testing.html" role="button" class="btn sk-btn-rellink py-1" sk-rellink-tooltip="6. Diagnostic Suite">Up</a>
+              <a href="scored_test.html" role="button" class="btn sk-btn-rellink py-1" sk-rellink-tooltip="6.9. Scored Test">Next</a>
+          </div-->
+              <div class="sk-sidebar-toc">
+              
+                <ul>
+                
+                
+                
+                
+                
+                
+                <li>
+                  <a href="../../user_guide.html" class="sk-toc-active">User Guide</a>
+                </li>
+                <ul>
+                
+                  <li>
+                    <a href="../introduction.html" class="">1. Introduction</a>
+                    
+                  </li>
+                
+                  <li>
+                    <a href="../data.html" class="">2. Data Pipeline</a>
+                    
+                  </li>
+                
+                  <li>
+                    <a href="../train.html" class="">3. Model Train and Tune</a>
+                    
+                  </li>
+                
+                  <li>
+                    <a href="../explain.html" class="">4. Post-hoc Explainability</a>
+                    
+                  </li>
+                
+                  <li>
+                    <a href="../models.html" class="">5. Interpretable Models</a>
+                    
+                  </li>
+                
+                  <li>
+                    <a href="../testing.html" class="sk-toc-active">6. Diagnostic Suite</a>
+                    
+                    <ul>
+                      
+                        <li class="sk-toctree-l3">
+                          <a href="accuracy.html">6.1. Accuracy</a>
+                        </li>
+                      
+                        <li class="sk-toctree-l3">
+                          <a href="weakspot.html">6.2. WeakSpot</a>
+                        </li>
+                      
+                        <li class="sk-toctree-l3">
+                          <a href="overfit.html">6.3. Overfit</a>
+                        </li>
+                      
+                        <li class="sk-toctree-l3">
+                          <a href="reliability.html">6.4. Reliability</a>
+                        </li>
+                      
+                        <li class="sk-toctree-l3">
+                          <a href="robustness.html">6.5. Robustness</a>
+                        </li>
+                      
+                        <li class="sk-toctree-l3">
+                          <a href="resilience.html">6.6. Resilience</a>
+                        </li>
+                      
+                        <li class="sk-toctree-l3">
+                          <a href="fairness.html">6.7. Fairness</a>
+                        </li>
+                      
+                        <li class="sk-toctree-l3">
+                          <a href="">6.8. Segmented</a>
+                        </li>
+                      
+                        <li class="sk-toctree-l3">
+                          <a href="scored_test.html">6.9. Scored Test</a>
+                        </li>
+                      
+                    </ul>
+                    
+                  </li>
+                
+                  <li>
+                    <a href="../compare.html" class="">7. Model Comparison</a>
+                    
+                  </li>
+                
+                  <li>
+                    <a href="../cases.html" class="">8. Case Studies</a>
+                    
+                  </li>
+                
+                </ul>
+                
+                
+                
+                
+                </ul>
+              </div>
+        </div>
+      </div>
+      <div id="sk-page-content-wrapper">
+        <div class="sk-page-content container-fluid body px-md-3" role="main">
+          
+  <style type="text/css">
+  div.body div.toctree-wrapper ul {
+      padding-left: 0;
+  }
+
+  div.body li.toctree-l1 {
+      padding: 0 0 0.5em 0;
+      list-style-type: none;
+      font-size: 150%;
+      font-weight: bold;
+  }
+
+  div.body li.toctree-l2 {
+      font-size: 70%;
+      list-style-type: square;
+      font-weight: normal;
+      margin-left: 40px;
+  }
+
+  div.body li.toctree-l3 {
+      font-size: 85%;
+      list-style-type: circle;
+      font-weight: normal;
+      margin-left: 40px;
+  }
+
+  div.body li.toctree-l4 {
+      margin-left: 40px;
+  }
+
+</style><section id="segmented">
+<h1><span class="section-number">6.8. </span>Segmented<a class="headerlink" href="#segmented" title="Permalink to this heading">¶</a></h1>
+<p>Segmented test is a separate model diagnostic module that is designed to diagnose the performance of a model in different segments. It is a powerful tool that can help users identify the weak regions of a model and provide insights into the root causes of the underperformance. In PiML, it can be triggered by the <code class="docutils literal notranslate"><span class="pre">exp.segmented_diagnose</span></code> function.</p>
+<section id="methodology">
+<h2><span class="section-number">6.8.1. </span>Methodology<a class="headerlink" href="#methodology" title="Permalink to this heading">¶</a></h2>
+<p>Once a model is fitted and registered in PiML, this test facilitates a detailed evaluation of model weaknesses. It begins by segmenting the data into distinct subsets based on a selected feature of interest, followed by individual analyses for each subset. Notably, three segmentation methods are available:</p>
+<ul class="simple">
+<li><p>‘uniform’: Segmentation based on equal intervals.</p></li>
+<li><p>‘quantile’: Segmentation based on equal quantiles.</p></li>
+<li><p>‘auto’: Automatic segmentation of feature segments determined by a surrogate model. The process involves fitting an <a class="reference external" href="../../modules/generated/piml.models.XGB1Regressor.html">XGB1</a> model between covariates and the residual, extracting split points from the XGB1 model, and using these points to segment the data. It’s important to note that some features may have no split points.</p></li>
+</ul>
+</section>
+<section id="usage">
+<h2><span class="section-number">6.8.2. </span>Usage<a class="headerlink" href="#usage" title="Permalink to this heading">¶</a></h2>
+<p>The <code class="docutils literal notranslate"><span class="pre">exp.segmented_diagnose</span></code> function has the following arguments.</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">show</span></code>: The available test keywords include</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>‘segment_table’: the accuracy of each segment. If <code class="docutils literal notranslate"><span class="pre">segment_feature</span></code> = None, the results for all features will be output.</p></li>
+<li><p>‘accuracy_residual’: the residual plot of the specified segment and feature of interest.</p></li>
+<li><p>‘accuracy_table’: the accuracy results of the specified segment.</p></li>
+<li><p>‘weakspot’: the weakspot test of the specified segment.</p></li>
+<li><p>distribution_shift: the density plot comparison between the specified segment and its complement.</p></li>
+</ul>
+</div></blockquote>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">segment_method</span></code>: The segmentation method, including “uniform”, “quantile”, and “auto”.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">segment_bins</span></code>: The number of bins, used when <code class="docutils literal notranslate"><span class="pre">segment_method</span></code> is “uniform” or “quantile”.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">segment_feature</span></code>: Feature filter for bucketing, only works when <code class="docutils literal notranslate"><span class="pre">show</span></code> = “segment_table”.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">segment_id</span></code>: The ID of the segment to diagnose.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">metric</span></code>: The performance metric for evaluation, which includes “MSE”, “MAE”, and “R2” for regression tasks, and “ACC”, “AUC”, ‘LogLoss’, ‘Brier’ and “F1” for classification tasks. The default metric is “MSE” for regression and “ACC” for classification.</p></li>
+</ul>
+<section id="segments-summary">
+<h3><span class="section-number">6.8.2.1. </span>Segments summary<a class="headerlink" href="#segments-summary" title="Permalink to this heading">¶</a></h3>
+<p>In the segmented diagnose module, you can start by obtaining a summary of the segments, by setting the parameter <code class="docutils literal notranslate"><span class="pre">show</span></code> to ‘segment_table’. This table provides a summary of all segments and helps users quickly identify any regions of interest. Additionally, if you define the <code class="docutils literal notranslate"><span class="pre">segment_feature</span></code> parameter, the table will be filtered to only show the feature-related results of the segments.</p>
+<div class="jupyter_cell jupyter_container docutils container">
+<div class="cell_input code_cell docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">result</span> <span class="o">=</span> <span class="n">exp</span><span class="o">.</span><span class="n">segmented_diagnose</span><span class="p">(</span><span class="n">model</span><span class="o">=</span><span class="s1">&#39;XGB2&#39;</span><span class="p">,</span> <span class="n">show</span><span class="o">=</span><span class="s1">&#39;segment_table&#39;</span><span class="p">,</span>
+                                <span class="n">segment_method</span><span class="o">=</span><span class="s1">&#39;uniform&#39;</span><span class="p">,</span> <span class="n">segment_bins</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span> <span class="n">return_data</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">result</span><span class="o">.</span><span class="n">data</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+</div>
+</div>
+<div class="output_subarea output_html rendered_html output_result">
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+<thead>
+    <tr style="text-align: right;">
+    <th></th>
+    <th>Segment ID</th>
+    <th>Feature</th>
+    <th>Segment</th>
+    <th>Size</th>
+    <th>MSE</th>
+    </tr>
+</thead>
+<tbody>
+    <tr>
+    <th>0</th>
+    <td>0</td>
+    <td>hr</td>
+    <td>[0.6, 0.8)</td>
+    <td>735</td>
+    <td>0.018380</td>
+    </tr>
+    <tr>
+    <th>1</th>
+    <td>1</td>
+    <td>hr</td>
+    <td>[0.2, 0.4)</td>
+    <td>712</td>
+    <td>0.014116</td>
+    </tr>
+    <tr>
+    <th>2</th>
+    <td>2</td>
+    <td>hum</td>
+    <td>[0.0, 0.2)</td>
+    <td>15</td>
+    <td>0.013335</td>
+    </tr>
+    <tr>
+    <th>3</th>
+    <td>3</td>
+    <td>hum</td>
+    <td>[0.2, 0.4)</td>
+    <td>441</td>
+    <td>0.013161</td>
+    </tr>
+    <tr>
+    <th>4</th>
+    <td>4</td>
+    <td>atemp</td>
+    <td>[0.5909, 0.7878)</td>
+    <td>1026</td>
+    <td>0.012643</td>
+    </tr>
+    <tr>
+    <th>5</th>
+    <td>5</td>
+    <td>season</td>
+    <td>2.0</td>
+    <td>912</td>
+    <td>0.011245</td>
+    </tr>
+    <tr>
+    <th>6</th>
+    <td>6</td>
+    <td>windspeed</td>
+    <td>[0.7298, 0.9123]</td>
+    <td>12</td>
+    <td>0.011149</td>
+    </tr>
+    <tr>
+    <th>7</th>
+    <td>7</td>
+    <td>workingday</td>
+    <td>0.0</td>
+    <td>1131</td>
+    <td>0.010764</td>
+    </tr>
+    <tr>
+    <th>8</th>
+    <td>8</td>
+    <td>windspeed</td>
+    <td>[0.1825, 0.3649)</td>
+    <td>1598</td>
+    <td>0.010634</td>
+    </tr>
+    <tr>
+    <th>9</th>
+    <td>9</td>
+    <td>season</td>
+    <td>3.0</td>
+    <td>874</td>
+    <td>0.010363</td>
+    </tr>
+</tbody>
+</table>
+</div>
+</div><p>The table displayed above presents the top 10 weakest segments. It consists of the following columns:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">Segment</span> <span class="pre">ID</span></code>: The ID of each segment.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Feature</span></code>: The segmented feature.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Segment</span></code>: The segment range if it is a numerical feature, segment value if it is a categorical feature.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Size</span></code>: The number of samples contained within each segment.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">metric</span></code>: The metric value corresponding to each segment.</p></li>
+</ul>
+</div></blockquote>
+</section>
+<section id="accuracy-table">
+<h3><span class="section-number">6.8.2.2. </span>Accuracy Table<a class="headerlink" href="#accuracy-table" title="Permalink to this heading">¶</a></h3>
+<p>Once you have specified a specific <code class="docutils literal notranslate"><span class="pre">segment_id</span></code>, you can further analyze the performance of that segment. By setting <code class="docutils literal notranslate"><span class="pre">show</span></code> to ‘accuracy_table’, an accuracy table will be presented. This table provides information and insights regarding the accuracy of the segment you have chosen. It can provide valuable metrics and metrics-based analysis to help you understand the performance of that segment. For more details about the metrics, you can see: <a class="reference external" href="../../guides/testing/accuracy.html">test_accuracy</a>.</p>
+<div class="jupyter_cell jupyter_container docutils container">
+<div class="cell_input code_cell docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">result</span> <span class="o">=</span> <span class="n">exp</span><span class="o">.</span><span class="n">segmented_diagnose</span><span class="p">(</span><span class="n">model</span><span class="o">=</span><span class="s1">&#39;XGB2&#39;</span><span class="p">,</span> <span class="n">show</span><span class="o">=</span><span class="s1">&#39;accuracy_table&#39;</span><span class="p">,</span> <span class="n">segment_id</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">return_data</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">result</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+</div>
+</div>
+<div class="output_subarea output_html rendered_html output_result">
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>MSE</th>
+      <th>MAE</th>
+      <th>R2</th>
+    </tr>
+    <tr>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>Train</th>
+      <td>0.0081</td>
+      <td>0.0692</td>
+      <td>0.8144</td>
+    </tr>
+    <tr>
+      <th>Test</th>
+      <td>0.0089</td>
+      <td>0.0721</td>
+      <td>0.8018</td>
+    </tr>
+    <tr>
+      <th>Gap</th>
+      <td>0.0008</td>
+      <td>0.0028</td>
+      <td>-0.0126</td>
+    </tr>
+  </tbody>
+</table></section>
+<section id="residual-plot">
+<h3><span class="section-number">6.8.2.3. </span>Residual Plot<a class="headerlink" href="#residual-plot" title="Permalink to this heading">¶</a></h3>
+<p>The residual represents the distinction between the actual response values and the predicted response values, showcasing the variance between anticipated and observed outcomes. When the <code class="docutils literal notranslate"><span class="pre">show</span></code> parameter is configured as ‘accuracy_residual’, the corresponding residual plot will be generated. Nevertheless, to produce this plot, it is essential to define the <code class="docutils literal notranslate"><span class="pre">show_feature</span></code> parameter. This parameter is instrumental in pinpointing the particular feature or variable under analysis concerning the residuals. For a more comprehensive understanding of the residual plot, refer to the documentation on <a class="reference external" href="../../guides/testing/accuracy.html#residual-plot">test_accuracy_residual</a>.</p>
+<div class="jupyter_cell jupyter_container docutils container">
+<div class="cell_input code_cell docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">exp</span><span class="o">.</span><span class="n">segmented_diagnose</span><span class="p">(</span><span class="n">model</span><span class="o">=</span><span class="s1">&#39;XGB2&#39;</span><span class="p">,</span> <span class="n">show</span><span class="o">=</span><span class="s1">&#39;accuracy_residual&#39;</span><span class="p">,</span> <span class="n">segment_id</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">show_feature</span><span class="o">=</span><span class="s1">&#39;atemp&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+</div>
+</div>
+<figure class="align-left">
+<a class="reference external image-reference" href="../../auto_examples/4_testing/plot_7_segmented_reg.html"><img alt="../../_images/sphx_glr_plot_7_segmented_reg_001.png" src="../../_images/sphx_glr_plot_7_segmented_reg_001.png" /></a>
+</figure>
+</section>
+<section id="weakspot">
+<h3><span class="section-number">6.8.2.4. </span>Weakspot<a class="headerlink" href="#weakspot" title="Permalink to this heading">¶</a></h3>
+<p>When <code class="docutils literal notranslate"><span class="pre">show</span></code> is set to ‘weakspot’, the weakspot test will be executed. Similar to the weakspot in the model diagnose module, there are several arguments that can be customized. These arguments include:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">slice_method</span></code>: Specifies the method to slice the data for analysis.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">slice_features</span></code>: Determines the features or variables to consider during the slicing process.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">bins</span></code>: Defines the number of bins or intervals to divide the data into.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">metric</span></code>: Refers to the evaluation metric used to measure the strength of the weak regions.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">threshold</span></code>: Sets the threshold value for identifying weak regions.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">min_samples</span></code>: Specifies the minimum number of samples required to consider a region as weak.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">use_test</span></code>: Determines whether to use the test set for analysis.</p></li>
+</ul>
+</div></blockquote>
+<p>By adjusting these arguments, you can customize the weakspot analysis to suit your specific needs. For more details about weakspot, you can find from <a class="reference external" href="../../guides/testing/weakspot.html">test_weakspot</a>.</p>
+<div class="jupyter_cell jupyter_container docutils container">
+<div class="cell_input code_cell docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">exp</span><span class="o">.</span><span class="n">segmented_diagnose</span><span class="p">(</span><span class="n">model</span><span class="o">=</span><span class="s1">&#39;XGB2&#39;</span><span class="p">,</span> <span class="n">show</span><span class="o">=</span><span class="s1">&#39;weakspot&#39;</span><span class="p">,</span> <span class="n">segment_id</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">slice_features</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;atemp&#39;</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+</div>
+</div>
+<figure class="align-left">
+<a class="reference external image-reference" href="../../auto_examples/4_testing/plot_7_segmented_reg.html"><img alt="../../_images/sphx_glr_plot_7_segmented_reg_002.png" src="../../_images/sphx_glr_plot_7_segmented_reg_002.png" /></a>
+</figure>
+</section>
+<section id="distribution-shift">
+<h3><span class="section-number">6.8.2.5. </span>Distribution shift<a class="headerlink" href="#distribution-shift" title="Permalink to this heading">¶</a></h3>
+<p>After pinpointing a specific segment, it becomes crucial to comprehend the extent to which that segment differs from its complement, i.e., the data drift test with the keyword ‘distribution_shift’. The test introduces additional arguments:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">show_feature</span></code>: This parameter can be employed to compare the marginal densities of the segment and its complement for a particular feature. If the <code class="docutils literal notranslate"><span class="pre">show_feature</span></code> parameter is undefined, the marginal distances for all features will be displayed.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">distance_metric</span></code>: This parameter provides the flexibility to alter the distance metric shown on the plot. The default distance metric is PSI. It can also be set to “WD1” or “KS”.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">psi_buckets</span></code>: Responsible for modifying the binning method during PSI (Population Stability Index) calculation. The default binning method is “uniform”, and it can be adjusted to “quantile”.</p></li>
+</ul>
+<p>For more details, see: <a class="reference external" href="../../guides/data/twosample_test.html">twosample_test</a>.</p>
+<div class="jupyter_cell jupyter_container docutils container">
+<div class="cell_input code_cell docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">exp</span><span class="o">.</span><span class="n">segmented_diagnose</span><span class="p">(</span><span class="n">model</span><span class="o">=</span><span class="s1">&#39;XGB2&#39;</span><span class="p">,</span> <span class="n">show</span><span class="o">=</span><span class="s1">&#39;distribution_shift&#39;</span><span class="p">,</span> <span class="n">segment_id</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+</div>
+</div>
+<figure class="align-left">
+<a class="reference external image-reference" href="../../auto_examples/4_testing/plot_7_segmented_reg.html"><img alt="../../_images/sphx_glr_plot_7_segmented_reg_003.png" src="../../_images/sphx_glr_plot_7_segmented_reg_003.png" /></a>
+</figure>
+<p>The presented plot offers valuable insights into disparities in feature distributions, offering clarity on the underlying reasons for underperformance within the segment. Moreover, the optional argument <code class="docutils literal notranslate"><span class="pre">distance_metric</span></code> provides the flexibility to choose the preferred distance metric for the analysis.</p>
+<p>If the <code class="docutils literal notranslate"><span class="pre">show_feature</span></code> parameter is specified, the generated plot will center specifically on the distribution drift of the chosen feature, providing a more focused examination.</p>
+<div class="jupyter_cell jupyter_container docutils container">
+<div class="cell_input code_cell docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">exp</span><span class="o">.</span><span class="n">segmented_diagnose</span><span class="p">(</span><span class="n">model</span><span class="o">=</span><span class="s1">&#39;XGB2&#39;</span><span class="p">,</span> <span class="n">show</span><span class="o">=</span><span class="s1">&#39;distribution_shift&#39;</span><span class="p">,</span> <span class="n">segment_id</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">show_feature</span><span class="o">=</span><span class="s1">&#39;hum&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+</div>
+</div>
+<figure class="align-left">
+<a class="reference external image-reference" href="../../auto_examples/4_testing/plot_7_segmented_reg.html"><img alt="../../_images/sphx_glr_plot_7_segmented_reg_004.png" src="../../_images/sphx_glr_plot_7_segmented_reg_004.png" /></a>
+</figure>
+</section>
+</section>
+<section id="examples">
+<h2><span class="section-number">6.8.3. </span>Examples<a class="headerlink" href="#examples" title="Permalink to this heading">¶</a></h2>
+<div class="topic">
+<p class="topic-title">Example 1: BikeSharing</p>
+<blockquote>
+<div><p>The first example below demonstrates how to use PiML with its high-code APIs for developing machine learning models for the BikeSharing data from the UCI repository, which consists of 17,389 samples of hourly counts of rental bikes in Capital bikeshare system; see details. The response <code class="docutils literal notranslate"><span class="pre">cnt</span></code> (hourly bike rental counts) is continuous and it is a regression problem.</p>
+</div></blockquote>
+<ul class="simple">
+<li><p><a class="reference internal" href="../../auto_examples/4_testing/plot_7_segmented_reg.html#sphx-glr-auto-examples-4-testing-plot-7-segmented-reg-py"><span class="std std-ref">Segmented Diagnose (Regression)</span></a></p></li>
+</ul>
+</div>
+<div class="topic">
+<p class="topic-title">Examples 2: SimuCredit</p>
+<blockquote>
+<div><p>The second example below demonstrates how to use PiML’s high-code APIs for the SimuCredit dataset. The Approved variable serves as the response for this classification problem.</p>
+</div></blockquote>
+<ul class="simple">
+<li><p><a class="reference internal" href="../../auto_examples/4_testing/plot_7_segmented_cls.html#sphx-glr-auto-examples-4-testing-plot-7-segmented-cls-py"><span class="std std-ref">Segmented Diagnose (Classification)</span></a></p></li>
+</ul>
+</div>
+</section>
+</section>
+
+
+        </div>
+      <div class="container">
+        <footer class="sk-content-footer">
+              &copy; Copyright 2022-, PiML-Toolbox authors.
+            <a href="../../_sources/guides/testing/segmented_diagnose.rst.txt" rel="nofollow">Show this page source</a>
+        </footer>
+      </div>
+    </div>
+  </div>
+
+
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(false);
+      });
+      
+      const tooltipTriggerList = document.querySelectorAll('[data-bs-toggle="tooltip"]')
+      const tooltipList = [...tooltipTriggerList].map(tooltipTriggerEl => new bootstrap.Tooltip(tooltipTriggerEl))
+  </script>
+
+<script>
+$(document).ready(function() {
+    /* Add a [>>>] button on the top-right corner of code samples to hide
+     * the >>> and ... prompts and the output and thus make the code
+     * copyable. */
+    var div = $('.highlight-python .highlight,' +
+                '.highlight-python3 .highlight,' +
+                '.highlight-pycon .highlight,' +
+		'.highlight-default .highlight')
+    var pre = div.find('pre');
+
+    // get the styles from the current theme
+    pre.parent().parent().css('position', 'relative');
+    var hide_text = 'Hide prompts and outputs';
+    var show_text = 'Show prompts and outputs';
+
+    // create and add the button to all the code blocks that contain >>>
+    div.each(function(index) {
+        var jthis = $(this);
+        if (jthis.find('.gp').length > 0) {
+            var button = $('<span class="copybutton">&gt;&gt;&gt;</span>');
+            button.attr('title', hide_text);
+            button.data('hidden', 'false');
+            jthis.prepend(button);
+        }
+        // tracebacks (.gt) contain bare text elements that need to be
+        // wrapped in a span to work with .nextUntil() (see later)
+        jthis.find('pre:has(.gt)').contents().filter(function() {
+            return ((this.nodeType == 3) && (this.data.trim().length > 0));
+        }).wrap('<span>');
+    });
+
+    // define the behavior of the button when it's clicked
+    $('.copybutton').click(function(e){
+        e.preventDefault();
+        var button = $(this);
+        if (button.data('hidden') === 'false') {
+            // hide the code output
+            button.parent().find('.go, .gp, .gt').hide();
+            button.next('pre').find('.gt').nextUntil('.gp, .go').css('visibility', 'hidden');
+            button.css('text-decoration', 'line-through');
+            button.attr('title', show_text);
+            button.data('hidden', 'true');
+        } else {
+            // show the code output
+            button.parent().find('.go, .gp, .gt').show();
+            button.next('pre').find('.gt').nextUntil('.gp, .go').css('visibility', 'visible');
+            button.css('text-decoration', 'none');
+            button.attr('title', hide_text);
+            button.data('hidden', 'false');
+        }
+    });
+
+	/*** Add permalink buttons next to glossary terms ***/
+	$('dl.glossary > dt[id]').append(function() {
+		return ('<a class="headerlink" href="#' +
+			    this.getAttribute('id') +
+			    '" title="Permalink to this term">¶</a>');
+	});
+  /*** Hide navbar when scrolling down ***/
+  // Returns true when headerlink target matches hash in url
+  (function() {
+    hashTargetOnTop = function() {
+        var hash = window.location.hash;
+        if ( hash.length < 2 ) { return false; }
+
+        var target = document.getElementById( hash.slice(1) );
+        if ( target === null ) { return false; }
+
+        var top = target.getBoundingClientRect().top;
+        return (top < 2) && (top > -2);
+    };
+
+    // Hide navbar on load if hash target is on top
+    var navBar = document.getElementById("navbar");
+    var navBarToggler = document.getElementById("sk-navbar-toggler");
+    var navBarHeightHidden = "-" + navBar.getBoundingClientRect().height + "px";
+    var $window = $(window);
+
+    hideNavBar = function() {
+        navBar.style.top = navBarHeightHidden;
+    };
+
+    showNavBar = function() {
+        navBar.style.top = "0";
+    }
+
+    if (hashTargetOnTop()) {
+        hideNavBar()
+    }
+
+    var prevScrollpos = window.pageYOffset;
+    hideOnScroll = function(lastScrollTop) {
+        if (($window.width() < 768) && (navBarToggler.getAttribute("aria-expanded") === 'true')) {
+            return;
+        }
+        if (lastScrollTop > 2 && (prevScrollpos <= lastScrollTop) || hashTargetOnTop()){
+            hideNavBar()
+        } else {
+            showNavBar()
+        }
+        prevScrollpos = lastScrollTop;
+    };
+
+    /*** high performance scroll event listener***/
+    var raf = window.requestAnimationFrame ||
+        window.webkitRequestAnimationFrame ||
+        window.mozRequestAnimationFrame ||
+        window.msRequestAnimationFrame ||
+        window.oRequestAnimationFrame;
+    var lastScrollTop = $window.scrollTop();
+
+    if (raf) {
+        loop();
+    }
+
+    function loop() {
+        var scrollTop = $window.scrollTop();
+        if (lastScrollTop === scrollTop) {
+            raf(loop);
+            return;
+        } else {
+            lastScrollTop = scrollTop;
+            hideOnScroll(lastScrollTop);
+            raf(loop);
+        }
+    }
+  })();
+});
+
+</script>
+    
+
+<script src="_static/js/vendor/bootstrap.min.js"></script>
+
+</body>
+</html>

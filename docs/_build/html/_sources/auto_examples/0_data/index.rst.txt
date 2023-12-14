@@ -1,0 +1,169 @@
+
+
+.. _sphx_glr_auto_examples_0_data:
+
+.. _data_examples:
+
+Data Pipeline
+--------------------------------
+
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbnails">
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="Data Load (Built-in Dataset)">
+
+.. only:: html
+
+  .. image:: /auto_examples/0_data/images/thumb/sphx_glr_plot_0_data_loader_builtin_thumb.png
+    :alt:
+
+  :ref:`sphx_glr_auto_examples_0_data_plot_0_data_loader_builtin.py`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Data Load (Built-in Dataset)</div>
+    </div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="Data Load (Pandas DataFrame)">
+
+.. only:: html
+
+  .. image:: /auto_examples/0_data/images/thumb/sphx_glr_plot_0_data_loader_dataframe_thumb.png
+    :alt:
+
+  :ref:`sphx_glr_auto_examples_0_data_plot_0_data_loader_dataframe.py`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Data Load (Pandas DataFrame)</div>
+    </div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="Data Load (Spark)">
+
+.. only:: html
+
+  .. image:: /auto_examples/0_data/images/thumb/sphx_glr_plot_0_data_loader_spark_thumb.png
+    :alt:
+
+  :ref:`sphx_glr_auto_examples_0_data_plot_0_data_loader_spark.py`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Data Load (Spark)</div>
+    </div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="Showing data summary result using the BikeSharing dataset as example.">
+
+.. only:: html
+
+  .. image:: /auto_examples/0_data/images/thumb/sphx_glr_plot_1_data_summary_thumb.png
+    :alt:
+
+  :ref:`sphx_glr_auto_examples_0_data_plot_1_data_summary.py`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Data Summary</div>
+    </div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="EDA plots using the BikeSharing dataset as example.">
+
+.. only:: html
+
+  .. image:: /auto_examples/0_data/images/thumb/sphx_glr_plot_2_data_eda_thumb.png
+    :alt:
+
+  :ref:`sphx_glr_auto_examples_0_data_plot_2_data_eda.py`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">EDA</div>
+    </div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="Display data prepare result using the BikeSharing dataset as example.">
+
+.. only:: html
+
+  .. image:: /auto_examples/0_data/images/thumb/sphx_glr_plot_3_data_prepare_thumb.png
+    :alt:
+
+  :ref:`sphx_glr_auto_examples_0_data_plot_3_data_prepare.py`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Data Preparation</div>
+    </div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="Data Quality Check">
+
+.. only:: html
+
+  .. image:: /auto_examples/0_data/images/thumb/sphx_glr_plot_4_data_quality_thumb.png
+    :alt:
+
+  :ref:`sphx_glr_auto_examples_0_data_plot_4_data_quality.py`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Data Quality Check</div>
+    </div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="Four built-in feature selection strategies using the BikeSharing dataset as example.">
+
+.. only:: html
+
+  .. image:: /auto_examples/0_data/images/thumb/sphx_glr_plot_5_feature_select_thumb.png
+    :alt:
+
+  :ref:`sphx_glr_auto_examples_0_data_plot_5_feature_select.py`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Feature Selection</div>
+    </div>
+
+
+.. raw:: html
+
+    </div>
+
+
+.. toctree::
+   :hidden:
+
+   /auto_examples/0_data/plot_0_data_loader_builtin
+   /auto_examples/0_data/plot_0_data_loader_dataframe
+   /auto_examples/0_data/plot_0_data_loader_spark
+   /auto_examples/0_data/plot_1_data_summary
+   /auto_examples/0_data/plot_2_data_eda
+   /auto_examples/0_data/plot_3_data_prepare
+   /auto_examples/0_data/plot_4_data_quality
+   /auto_examples/0_data/plot_5_feature_select
+

@@ -21,4 +21,5 @@ Interpretable Models
    models/ebm.rst
    models/gaminet.rst
    models/reludnn.rst
+   models/hpo.rst
 	

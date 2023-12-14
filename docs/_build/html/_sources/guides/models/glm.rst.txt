@@ -92,8 +92,8 @@ In PiML, we use the following command to show the regression coefficients of a f
 
     exp.model_interpret(model="GLM", show="glm_coef_plot", figsize=(5, 4))
 
-.. figure:: ../../auto_examples/models/images/sphx_glr_plot_0_glm_reg_001.png
-   :target: ../../auto_examples/models/plot_0_glm_reg.html
+.. figure:: ../../auto_examples/3_models/images/sphx_glr_plot_0_glm_reg_001.png
+   :target: ../../auto_examples/3_models/plot_0_glm_reg.html
    :align: left
 
 This plot shows the coefficients of the top 10 numerical features in a linear regression model, ranked by their absolute magnitude. A positive coefficient indicates that an increase in the corresponding feature value is associated with an increase in the response variable, while a negative coefficient indicates the opposite.
@@ -106,8 +106,8 @@ It is important to note that, in GLM, categorical variables are preprocessed by 
 
     exp.model_interpret(model="GLM", show="glm_coef_plot", uni_feature="season", figsize=(5, 4))
 
-.. figure:: ../../auto_examples/models/images/sphx_glr_plot_0_glm_reg_002.png
-   :target: ../../auto_examples/models/plot_0_glm.html
+.. figure:: ../../auto_examples/3_models/images/sphx_glr_plot_0_glm_reg_002.png
+   :target: ../../auto_examples/3_models/plot_0_glm.html
    :align: left
 
 In this example, the categorical variable `season` has four categories, which are represented by four binary dummy variables: `season_1`, `season_2`, `season_3`, and `season_4`. To avoid overparameterization, only three of the four dummy variables are used for model fitting, and the fourth one (`season_1`) is dropped and assigned a coefficient of zero.
@@ -128,8 +128,8 @@ The feature importance measures the relative importance of each input feature in
 
      exp.model_interpret(model="GLM", show="global_fi", figsize=(5, 4))
 
-.. figure:: ../../auto_examples/models/images/sphx_glr_plot_0_glm_reg_003.png
-   :target: ../../auto_examples/models/plot_0_glm_reg.html
+.. figure:: ../../auto_examples/3_models/images/sphx_glr_plot_0_glm_reg_003.png
+   :target: ../../auto_examples/3_models/plot_0_glm_reg.html
    :align: left
 
 In order to interpret the relative importance of each feature as a proportion of the total importance across all features, we normalize the feature importance so that their sum equals 1. Because there may be many input features in a machine learning model, it can be helpful to focus on the most important features for interpretation and visualization purposes. Therefore, the feature importance plot typically shows only the top 10 most important features, to help identify which features are most relevant for understanding the model's behavior and making predictions. To get the full results, you can set the parameter `return_data` to True.
@@ -144,8 +144,8 @@ Local interpretation refers to the local contribution of each feature for a part
 
    exp.model_interpret(model="GLM", show="local_fi", sample_id=0, centered=False, original_scale=False, figsize=(5, 4))
 
-.. figure:: ../../auto_examples/models/images/sphx_glr_plot_0_glm_reg_004.png
-   :target: ../../auto_examples/models/plot_0_glm_reg.html
+.. figure:: ../../auto_examples/3_models/images/sphx_glr_plot_0_glm_reg_004.png
+   :target: ../../auto_examples/3_models/plot_0_glm_reg.html
    :align: left
 
 In this plot, the bars show the marginal contribution (effects) of each feature. The longer the bar, the larger the marginal effect, and the more contribution the corresponding feature has on the prediction. In contrast, the regression coefficients (weights) indicate the strength and direction of the relationship between each feature and the target variable. The larger the coefficient, the more sensitive the corresponding feature' contribution to the prediction.
@@ -161,8 +161,8 @@ The right axis of the local interpretation plot shows the scaled feature values.
 
    exp.model_interpret(model="GLM", show="local_fi", sample_id=0, centered=False, original_scale=True, figsize=(5, 4))
 
-.. figure:: ../../auto_examples/models/images/sphx_glr_plot_0_glm_reg_005.png
-   :target: ../../auto_examples/models/plot_0_glm_reg.html
+.. figure:: ../../auto_examples/3_models/images/sphx_glr_plot_0_glm_reg_005.png
+   :target: ../../auto_examples/3_models/plot_0_glm_reg.html
    :align: left
 
 Centered Option
@@ -176,12 +176,35 @@ To address this issue, a common approach is to center the features by subtractin
 
    exp.model_interpret(model="GLM", show="local_fi", sample_id=0, centered=True, original_scale=True, figsize=(5, 4))
 
-.. figure:: ../../auto_examples/models/images/sphx_glr_plot_0_glm_reg_006.png
-   :target: ../../auto_examples/models/plot_0_glm_reg.html
+.. figure:: ../../auto_examples/3_models/images/sphx_glr_plot_0_glm_reg_006.png
+   :target: ../../auto_examples/3_models/plot_0_glm_reg.html
    :align: left
 
 By centering the data and calculating the marginal effects, the model itself remains unchanged, but the interpretation of the marginal effects may change significantly, as we are essentially comparing the contribution of each feature to the average population, rather than the individual sample values. For instance, `hum` has a large contribution to the prediction in the uncentered data. However, when the data is centered, its contribution becomes negligible. This is because the feature value of this sample is close to the population mean, and its contribution is now mainly captured by the intercept term.
 
+
+Data Dependent Interpretation
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+The model interpretation can be affected by the data distribution. For example, the feature importance of a feature can be very different for different data sets. To address this issue, we can use the `use_test` parameter to switch between training and testing data for interpretation. For example, the following command shows the feature importance of the GLM model on the testing data.
+
+.. jupyter-input::
+
+   exp.model_interpret(model="GLM", show="global_fi", use_test=True, figsize=(5, 4))
+
+.. figure:: ../../auto_examples/3_models/images/sphx_glr_plot_0_glm_reg_007.png
+   :target: ../../auto_examples/3_models/plot_0_glm_reg.html
+   :align: left
+
+For local interpretation, the `sample_id` parameter is used to select the sample in the training set. If you would like to interpret samples in the testing set, just set `use_test` to True. Then, the `sample_id` stands for the index of test set data.
+
+.. jupyter-input::
+
+   exp.model_interpret(model="GLM", show="local_fi", sample_id=0, use_test=True,
+                       original_scale=True, figsize=(5, 4))
+
+.. figure:: ../../auto_examples/3_models/images/sphx_glr_plot_0_glm_reg_008.png
+   :target: ../../auto_examples/3_models/plot_0_glm_reg.html
+   :align: left
 
 
 Examples
@@ -191,13 +214,13 @@ Examples
 
   The first example below demonstrates how to use PiML with its high-code APIs for developing machine learning models for the BikeSharing data from the UCI repository, which consists of 17,389 samples of hourly counts of rental bikes in Capital bikeshare system; see details. The response `cnt` (hourly bike rental counts) is continuous and it is a regression problem.
  
- * :ref:`sphx_glr_auto_examples_models_plot_0_glm_reg.py`
+ * :ref:`sphx_glr_auto_examples_3_models_plot_0_glm_reg.py`
 
 .. topic:: Example 2: Taiwan Credit
 
   The second example below demonstrates how to use PiML’s high-code APIs for the TaiwanCredit dataset from the UCI repository. This dataset comprises the credit card details of 30,000 clients in Taiwan from April 2005 to September 2005, and more information can be found on the TaiwanCreditData website. The data can be loaded directly into PiML, although it requires some preprocessing. The FlagDefault variable serves as the response for this classification problem.
 
- * :ref:`sphx_glr_auto_examples_models_plot_0_glm_cls.py`
+ * :ref:`sphx_glr_auto_examples_3_models_plot_0_glm_cls.py`
 
 
 .. topic:: References

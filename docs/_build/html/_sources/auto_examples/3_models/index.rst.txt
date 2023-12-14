@@ -1,0 +1,349 @@
+
+
+.. _sphx_glr_auto_examples_3_models:
+
+.. _models_examples:
+
+Interpretable Models
+--------------------------------
+
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbnails">
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="GLM Logistic Regression (Taiwan Credit)">
+
+.. only:: html
+
+  .. image:: /auto_examples/3_models/images/thumb/sphx_glr_plot_0_glm_cls_thumb.png
+    :alt:
+
+  :ref:`sphx_glr_auto_examples_3_models_plot_0_glm_cls.py`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">GLM Logistic Regression (Taiwan Credit)</div>
+    </div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="GLM Linear Regression (Bike Sharing)">
+
+.. only:: html
+
+  .. image:: /auto_examples/3_models/images/thumb/sphx_glr_plot_0_glm_reg_thumb.png
+    :alt:
+
+  :ref:`sphx_glr_auto_examples_3_models_plot_0_glm_reg.py`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">GLM Linear Regression (Bike Sharing)</div>
+    </div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="GAM Classification (CoCircles)">
+
+.. only:: html
+
+  .. image:: /auto_examples/3_models/images/thumb/sphx_glr_plot_1_gam_cls_thumb.png
+    :alt:
+
+  :ref:`sphx_glr_auto_examples_3_models_plot_1_gam_cls.py`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">GAM Classification (CoCircles)</div>
+    </div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="GAM Regression (California Housing)">
+
+.. only:: html
+
+  .. image:: /auto_examples/3_models/images/thumb/sphx_glr_plot_1_gam_reg_thumb.png
+    :alt:
+
+  :ref:`sphx_glr_auto_examples_3_models_plot_1_gam_reg.py`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">GAM Regression (California Housing)</div>
+    </div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="Tree Classification (TaiwanCredit)">
+
+.. only:: html
+
+  .. image:: /auto_examples/3_models/images/thumb/sphx_glr_plot_2_tree_cls_thumb.png
+    :alt:
+
+  :ref:`sphx_glr_auto_examples_3_models_plot_2_tree_cls.py`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Tree Classification (TaiwanCredit)</div>
+    </div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="Tree Regression (California Housing)">
+
+.. only:: html
+
+  .. image:: /auto_examples/3_models/images/thumb/sphx_glr_plot_2_tree_reg_thumb.png
+    :alt:
+
+  :ref:`sphx_glr_auto_examples_3_models_plot_2_tree_reg.py`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Tree Regression (California Housing)</div>
+    </div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="FIGS Classification (Taiwan Credit)">
+
+.. only:: html
+
+  .. image:: /auto_examples/3_models/images/thumb/sphx_glr_plot_3_figs_cls_thumb.png
+    :alt:
+
+  :ref:`sphx_glr_auto_examples_3_models_plot_3_figs_cls.py`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">FIGS Classification (Taiwan Credit)</div>
+    </div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="FIGS Regression (California Housing)">
+
+.. only:: html
+
+  .. image:: /auto_examples/3_models/images/thumb/sphx_glr_plot_3_figs_reg_thumb.png
+    :alt:
+
+  :ref:`sphx_glr_auto_examples_3_models_plot_3_figs_reg.py`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">FIGS Regression (California Housing)</div>
+    </div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="XGB-1 Classification (CoCircles)">
+
+.. only:: html
+
+  .. image:: /auto_examples/3_models/images/thumb/sphx_glr_plot_4_xgb1_cls_thumb.png
+    :alt:
+
+  :ref:`sphx_glr_auto_examples_3_models_plot_4_xgb1_cls.py`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">XGB-1 Classification (CoCircles)</div>
+    </div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="XGB-1 Regression (California Housing)">
+
+.. only:: html
+
+  .. image:: /auto_examples/3_models/images/thumb/sphx_glr_plot_4_xgb1_reg_thumb.png
+    :alt:
+
+  :ref:`sphx_glr_auto_examples_3_models_plot_4_xgb1_reg.py`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">XGB-1 Regression (California Housing)</div>
+    </div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="XGB-2 Classification (Taiwan Credit)">
+
+.. only:: html
+
+  .. image:: /auto_examples/3_models/images/thumb/sphx_glr_plot_5_xgb2_cls_thumb.png
+    :alt:
+
+  :ref:`sphx_glr_auto_examples_3_models_plot_5_xgb2_cls.py`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">XGB-2 Classification (Taiwan Credit)</div>
+    </div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="XGB-2 Regression (Bike Sharing)">
+
+.. only:: html
+
+  .. image:: /auto_examples/3_models/images/thumb/sphx_glr_plot_5_xgb2_reg_thumb.png
+    :alt:
+
+  :ref:`sphx_glr_auto_examples_3_models_plot_5_xgb2_reg.py`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">XGB-2 Regression (Bike Sharing)</div>
+    </div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="EBM Classification (Taiwan Credit)">
+
+.. only:: html
+
+  .. image:: /auto_examples/3_models/images/thumb/sphx_glr_plot_6_ebm_cls_thumb.png
+    :alt:
+
+  :ref:`sphx_glr_auto_examples_3_models_plot_6_ebm_cls.py`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">EBM Classification (Taiwan Credit)</div>
+    </div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="EBM Regression (Bike Sharing)">
+
+.. only:: html
+
+  .. image:: /auto_examples/3_models/images/thumb/sphx_glr_plot_6_ebm_reg_thumb.png
+    :alt:
+
+  :ref:`sphx_glr_auto_examples_3_models_plot_6_ebm_reg.py`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">EBM Regression (Bike Sharing)</div>
+    </div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="GAMI-Net Classification (Taiwan Credit)">
+
+.. only:: html
+
+  .. image:: /auto_examples/3_models/images/thumb/sphx_glr_plot_7_gaminet_cls_thumb.png
+    :alt:
+
+  :ref:`sphx_glr_auto_examples_3_models_plot_7_gaminet_cls.py`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">GAMI-Net Classification (Taiwan Credit)</div>
+    </div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="GAMI-Net Regression (Bike Sharing)">
+
+.. only:: html
+
+  .. image:: /auto_examples/3_models/images/thumb/sphx_glr_plot_7_gaminet_reg_thumb.png
+    :alt:
+
+  :ref:`sphx_glr_auto_examples_3_models_plot_7_gaminet_reg.py`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">GAMI-Net Regression (Bike Sharing)</div>
+    </div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="ReLU DNN Classification (Taiwan Credit)">
+
+.. only:: html
+
+  .. image:: /auto_examples/3_models/images/thumb/sphx_glr_plot_8_reludnn_cls_thumb.png
+    :alt:
+
+  :ref:`sphx_glr_auto_examples_3_models_plot_8_reludnn_cls.py`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">ReLU DNN Classification (Taiwan Credit)</div>
+    </div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="ReLU DNN Regression (Friedman)">
+
+.. only:: html
+
+  .. image:: /auto_examples/3_models/images/thumb/sphx_glr_plot_8_reludnn_reg_thumb.png
+    :alt:
+
+  :ref:`sphx_glr_auto_examples_3_models_plot_8_reludnn_reg.py`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">ReLU DNN Regression (Friedman)</div>
+    </div>
+
+
+.. raw:: html
+
+    </div>
+
+
+.. toctree::
+   :hidden:
+
+   /auto_examples/3_models/plot_0_glm_cls
+   /auto_examples/3_models/plot_0_glm_reg
+   /auto_examples/3_models/plot_1_gam_cls
+   /auto_examples/3_models/plot_1_gam_reg
+   /auto_examples/3_models/plot_2_tree_cls
+   /auto_examples/3_models/plot_2_tree_reg
+   /auto_examples/3_models/plot_3_figs_cls
+   /auto_examples/3_models/plot_3_figs_reg
+   /auto_examples/3_models/plot_4_xgb1_cls
+   /auto_examples/3_models/plot_4_xgb1_reg
+   /auto_examples/3_models/plot_5_xgb2_cls
+   /auto_examples/3_models/plot_5_xgb2_reg
+   /auto_examples/3_models/plot_6_ebm_cls
+   /auto_examples/3_models/plot_6_ebm_reg
+   /auto_examples/3_models/plot_7_gaminet_cls
+   /auto_examples/3_models/plot_7_gaminet_reg
+   /auto_examples/3_models/plot_8_reludnn_cls
+   /auto_examples/3_models/plot_8_reludnn_reg
+

@@ -143,12 +143,12 @@
                   </li>
                 
                   <li>
-                    <a href="../extmodels.html" class="">3. Black-box Models</a>
+                    <a href="../model_train.html" class="">3. Model Train and Tune</a>
                     
                   </li>
                 
                   <li>
-                    <a href="../explainability.html" class="">4. Post-hoc Explainability</a>
+                    <a href="../explain.html" class="">4. Post-hoc Explainability</a>
                     
                   </li>
                 
@@ -190,12 +190,20 @@
                           <a href="fairness.html">6.7. Fairness</a>
                         </li>
                       
+                        <li class="sk-toctree-l3">
+                          <a href="segmented_diagnose.html">6.8. Segmented</a>
+                        </li>
+                      
+                        <li class="sk-toctree-l3">
+                          <a href="scored_test.html">6.9. Scored Test</a>
+                        </li>
+                      
                     </ul>
                     
                   </li>
                 
                   <li>
-                    <a href="../comparison.html" class="">7. Model Comparison</a>
+                    <a href="../compare.html" class="">7. Model Comparison</a>
                     
                   </li>
                 
@@ -348,7 +356,7 @@
 </div>
 </div>
 <figure class="align-left">
-<a class="reference external image-reference" href="../../auto_examples/testing/plot_4_robustness_reg.html"><img alt="../../_images/sphx_glr_plot_4_robustness_reg_001.png" src="../../_images/sphx_glr_plot_4_robustness_reg_001.png" /></a>
+<a class="reference external image-reference" href="../../auto_examples/4_testing/plot_4_robustness_reg.html"><img alt="../../_images/sphx_glr_plot_4_robustness_reg_001.png" src="../../_images/sphx_glr_plot_4_robustness_reg_001.png" /></a>
 </figure>
 <p>In the figure above, the x-axis represents the noise level, indicating the magnitude of perturbation applied to the data. The y-axis displays the test set performance of the model after perturbation. The box plot illustrates the results obtained from ten repetitions of the experiment. When the noise level is set to 0.0, there is no perturbation applied, resulting in no variation in the model’s performance. As the noise level increases, we observe a degradation in the model’s performance, which is expected. The full plot captures the model’s performance at each noise level, providing an overview of how the model’s performance changes with increasing perturbation.</p>
 <p>In the second example, we will specifically perturb two features: <code class="docutils literal notranslate"><span class="pre">hr</span></code> and <code class="docutils literal notranslate"><span class="pre">atemp</span></code>. The remaining settings will be kept the same as in the first example. This means we will use the same perturbation method, perturbation step, and performance metric. By perturbing a smaller number of features, the observed degradation in model performance is expected to be smaller compared to the first example where all features were perturbed.</p>
@@ -363,7 +371,7 @@
 </div>
 </div>
 <figure class="align-left">
-<a class="reference external image-reference" href="../../auto_examples/testing/plot_4_robustness_reg.html"><img alt="../../_images/sphx_glr_plot_4_robustness_reg_002.png" src="../../_images/sphx_glr_plot_4_robustness_reg_002.png" /></a>
+<a class="reference external image-reference" href="../../auto_examples/4_testing/plot_4_robustness_reg.html"><img alt="../../_images/sphx_glr_plot_4_robustness_reg_002.png" src="../../_images/sphx_glr_plot_4_robustness_reg_002.png" /></a>
 </figure>
 <p>In summary, these plots can be used to assess model robustness under different input perturbation settings, as illustrated in the examples above. The extent to which a model’s performance drops under input perturbation serves as an indication of its robustness. A robust model will exhibit minimal performance degradation when subjected to perturbations.</p>
 </section>
@@ -381,7 +389,7 @@
 </div>
 </div>
 <figure class="align-left">
-<a class="reference external image-reference" href="../../auto_examples/testing/plot_4_robustness_reg.html"><img alt="../../_images/sphx_glr_plot_4_robustness_reg_006.png" src="../../_images/sphx_glr_plot_4_robustness_reg_006.png" /></a>
+<a class="reference external image-reference" href="../../auto_examples/4_testing/plot_4_robustness_reg.html"><img alt="../../_images/sphx_glr_plot_4_robustness_reg_006.png" src="../../_images/sphx_glr_plot_4_robustness_reg_006.png" /></a>
 </figure>
 <p>The x-axis shows the noise level (perturbation size), and the y-axis is the model performance (MSE). Under perturbation, we observe that the worst test sample performance is much worse than that of the full test sample. The drop in model performance also increases with the increase in noise level. This plot tells us how poorly the model may perform under the input perturbation and worst cases.</p>
 </section>
@@ -394,7 +402,7 @@
 <div><p>The first example below demonstrates how to use PiML with its high-code APIs for developing machine learning models for the BikeSharing data from the UCI repository, which consists of 17,389 samples of hourly counts of rental bikes in Capital bikeshare system; see details. The response <code class="docutils literal notranslate"><span class="pre">cnt</span></code> (hourly bike rental counts) is continuous and it is a regression problem.</p>
 </div></blockquote>
 <ul class="simple">
-<li><p><a class="reference internal" href="../../auto_examples/testing/plot_4_robustness_reg.html#sphx-glr-auto-examples-testing-plot-4-robustness-reg-py"><span class="std std-ref">Robustness:  Regression</span></a></p></li>
+<li><p><a class="reference internal" href="../../auto_examples/4_testing/plot_4_robustness_reg.html#sphx-glr-auto-examples-4-testing-plot-4-robustness-reg-py"><span class="std std-ref">Robustness:  Regression</span></a></p></li>
 </ul>
 </div>
 <div class="topic">
@@ -403,7 +411,7 @@
 <div><p>The second example below demonstrates how to use PiML’s high-code APIs for the TaiwanCredit dataset from the UCI repository. This dataset comprises the credit card details of 30,000 clients in Taiwan from April 2005 to September 2005, and more information can be found on the TaiwanCreditData website. The data can be loaded directly into PiML, although it requires some preprocessing. The FlagDefault variable serves as the response for this classification problem.</p>
 </div></blockquote>
 <ul class="simple">
-<li><p><a class="reference internal" href="../../auto_examples/testing/plot_4_robustness_cls.html#sphx-glr-auto-examples-testing-plot-4-robustness-cls-py"><span class="std std-ref">Robustness: Classification</span></a></p></li>
+<li><p><a class="reference internal" href="../../auto_examples/4_testing/plot_4_robustness_cls.html#sphx-glr-auto-examples-4-testing-plot-4-robustness-cls-py"><span class="std std-ref">Robustness: Classification</span></a></p></li>
 </ul>
 </div>
 </section>

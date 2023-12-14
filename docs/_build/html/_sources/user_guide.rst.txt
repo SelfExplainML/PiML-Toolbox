@@ -22,9 +22,9 @@ User Guide
    
    guides/introduction.rst
    guides/data.rst
-   guides/extmodels.rst
-   guides/explainability.rst
+   guides/train.rst
+   guides/explain.rst
    guides/models.rst
    guides/testing.rst
-   guides/comparison.rst
-   guides/cases.rst 
+   guides/compare.rst
+   guides/cases.rst

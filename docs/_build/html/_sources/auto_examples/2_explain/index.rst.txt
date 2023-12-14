@@ -1,0 +1,169 @@
+
+
+.. _sphx_glr_auto_examples_2_explain:
+
+.. _explain_examples:
+
+Post hoc Explainability
+--------------------------------
+
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbnails">
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="Permutation Feature Importance">
+
+.. only:: html
+
+  .. image:: /auto_examples/2_explain/images/thumb/sphx_glr_plot_0_pfi_thumb.png
+    :alt:
+
+  :ref:`sphx_glr_auto_examples_2_explain_plot_0_pfi.py`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Permutation Feature Importance</div>
+    </div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="Partial Dependence Plot">
+
+.. only:: html
+
+  .. image:: /auto_examples/2_explain/images/thumb/sphx_glr_plot_1_pdp_thumb.png
+    :alt:
+
+  :ref:`sphx_glr_auto_examples_2_explain_plot_1_pdp.py`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Partial Dependence Plot</div>
+    </div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="H-statistics">
+
+.. only:: html
+
+  .. image:: /auto_examples/2_explain/images/thumb/sphx_glr_plot_1_pdp_hstats_thumb.png
+    :alt:
+
+  :ref:`sphx_glr_auto_examples_2_explain_plot_1_pdp_hstats.py`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">H-statistics</div>
+    </div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="Individual Conditional Expectation">
+
+.. only:: html
+
+  .. image:: /auto_examples/2_explain/images/thumb/sphx_glr_plot_2_ice_thumb.png
+    :alt:
+
+  :ref:`sphx_glr_auto_examples_2_explain_plot_2_ice.py`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Individual Conditional Expectation</div>
+    </div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="Accumulated Local Effects">
+
+.. only:: html
+
+  .. image:: /auto_examples/2_explain/images/thumb/sphx_glr_plot_3_ale_thumb.png
+    :alt:
+
+  :ref:`sphx_glr_auto_examples_2_explain_plot_3_ale.py`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Accumulated Local Effects</div>
+    </div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="Local Interpretable Model-Agnostic Explanation">
+
+.. only:: html
+
+  .. image:: /auto_examples/2_explain/images/thumb/sphx_glr_plot_4_lime_thumb.png
+    :alt:
+
+  :ref:`sphx_glr_auto_examples_2_explain_plot_4_lime.py`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Local Interpretable Model-Agnostic Explanation</div>
+    </div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="SHapley Additive exPlanations">
+
+.. only:: html
+
+  .. image:: /auto_examples/2_explain/images/thumb/sphx_glr_plot_5_shap_thumb.png
+    :alt:
+
+  :ref:`sphx_glr_auto_examples_2_explain_plot_5_shap.py`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">SHapley Additive exPlanations</div>
+    </div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="Data Dependent Explanation">
+
+.. only:: html
+
+  .. image:: /auto_examples/2_explain/images/thumb/sphx_glr_plot_6_data_dependent_explain_thumb.png
+    :alt:
+
+  :ref:`sphx_glr_auto_examples_2_explain_plot_6_data_dependent_explain.py`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Data Dependent Explanation</div>
+    </div>
+
+
+.. raw:: html
+
+    </div>
+
+
+.. toctree::
+   :hidden:
+
+   /auto_examples/2_explain/plot_0_pfi
+   /auto_examples/2_explain/plot_1_pdp
+   /auto_examples/2_explain/plot_1_pdp_hstats
+   /auto_examples/2_explain/plot_2_ice
+   /auto_examples/2_explain/plot_3_ale
+   /auto_examples/2_explain/plot_4_lime
+   /auto_examples/2_explain/plot_5_shap
+   /auto_examples/2_explain/plot_6_data_dependent_explain
+

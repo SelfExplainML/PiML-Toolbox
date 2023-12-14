@@ -143,12 +143,12 @@
                   </li>
                 
                   <li>
-                    <a href="../extmodels.html" class="">3. Black-box Models</a>
+                    <a href="../model_train.html" class="">3. Model Train and Tune</a>
                     
                   </li>
                 
                   <li>
-                    <a href="../explainability.html" class="">4. Post-hoc Explainability</a>
+                    <a href="../explain.html" class="">4. Post-hoc Explainability</a>
                     
                   </li>
                 
@@ -203,7 +203,7 @@
                   </li>
                 
                   <li>
-                    <a href="../comparison.html" class="">7. Model Comparison</a>
+                    <a href="../compare.html" class="">7. Model Comparison</a>
                     
                   </li>
                 
@@ -306,7 +306,7 @@ developed by Microsoft Research <a class="reference internal" href="../introduct
 </div>
 </div>
 <figure class="align-left">
-<a class="reference external image-reference" href="../../auto_examples/models/plot_6_ebm_reg.html"><img alt="../../_images/sphx_glr_plot_6_ebm_reg_001.png" src="../../_images/sphx_glr_plot_6_ebm_reg_001.png" /></a>
+<a class="reference external image-reference" href="../../auto_examples/3_models/plot_6_ebm_reg.html"><img alt="../../_images/sphx_glr_plot_6_ebm_reg_001.png" src="../../_images/sphx_glr_plot_6_ebm_reg_001.png" /></a>
 </figure>
 <p>The figure above shows the estimated shape functions for the feature <code class="docutils literal notranslate"><span class="pre">hr</span></code>, together with the histogram plot on the bottom. The shape function is piecewise constant, and the number of bins is upper bounded by the hyperparameter <code class="docutils literal notranslate"><span class="pre">max_bins</span></code>. It can be observed that there exist 2 peaks of bike sharing around 8 AM and 5 PM, which correspond to the rush hour in a day.</p>
 </section>
@@ -324,7 +324,7 @@ developed by Microsoft Research <a class="reference internal" href="../introduct
 </div>
 </div>
 <figure class="align-left">
-<a class="reference external image-reference" href="../../auto_examples/models/plot_6_ebm_reg.html"><img alt="../../_images/sphx_glr_plot_6_ebm_reg_003.png" src="../../_images/sphx_glr_plot_6_ebm_reg_003.png" /></a>
+<a class="reference external image-reference" href="../../auto_examples/3_models/plot_6_ebm_reg.html"><img alt="../../_images/sphx_glr_plot_6_ebm_reg_003.png" src="../../_images/sphx_glr_plot_6_ebm_reg_003.png" /></a>
 </figure>
 <p>The figure above shows the estimated pairwise interaction between <code class="docutils literal notranslate"><span class="pre">hr</span></code> and <code class="docutils literal notranslate"><span class="pre">season</span></code>. The interaction captures the main effects’ residual pattern, and somehow, can be interpreted as the correction to the prediction of the main effects. For instance, it can be observed that there exists a minor positive effect at the night hours (around 7 pm to 7 am) of spring.</p>
 </section>
@@ -341,7 +341,7 @@ developed by Microsoft Research <a class="reference internal" href="../introduct
 </div>
 </div>
 <figure class="align-left">
-<a class="reference external image-reference" href="../../auto_examples/models/plot_6_ebm_reg.html"><img alt="../../_images/sphx_glr_plot_6_ebm_reg_004.png" src="../../_images/sphx_glr_plot_6_ebm_reg_004.png" /></a>
+<a class="reference external image-reference" href="../../auto_examples/3_models/plot_6_ebm_reg.html"><img alt="../../_images/sphx_glr_plot_6_ebm_reg_004.png" src="../../_images/sphx_glr_plot_6_ebm_reg_004.png" /></a>
 </figure>
 <p>It can be observed that the main effect of <code class="docutils literal notranslate"><span class="pre">hr</span></code> is the most important, followed by <code class="docutils literal notranslate"><span class="pre">atemp</span></code> and the pairwise interaction between <code class="docutils literal notranslate"><span class="pre">hr</span></code> and <code class="docutils literal notranslate"><span class="pre">workingday</span></code>. Here we only plot the top-10 effect importance. Note that this plot only shows the top 10 effects with the largest importance. To get the full results, you can set the parameter <code class="docutils literal notranslate"><span class="pre">return_data</span></code> to True.</p>
 </section>
@@ -358,7 +358,7 @@ developed by Microsoft Research <a class="reference internal" href="../introduct
 </div>
 </div>
 <figure class="align-left">
-<a class="reference external image-reference" href="../../auto_examples/models/plot_6_ebm_reg.html"><img alt="../../_images/sphx_glr_plot_6_ebm_reg_005.png" src="../../_images/sphx_glr_plot_6_ebm_reg_005.png" /></a>
+<a class="reference external image-reference" href="../../auto_examples/3_models/plot_6_ebm_reg.html"><img alt="../../_images/sphx_glr_plot_6_ebm_reg_005.png" src="../../_images/sphx_glr_plot_6_ebm_reg_005.png" /></a>
 </figure>
 <p>From this plot, we can observe that the two features <code class="docutils literal notranslate"><span class="pre">hr</span></code> and <code class="docutils literal notranslate"><span class="pre">atemp</span></code> take the dominant role in the model, followed by <code class="docutils literal notranslate"><span class="pre">season</span></code> and <code class="docutils literal notranslate"><span class="pre">hum</span></code>. The findings are quite close to that of the XGB2 model, as they share a similar model structure. Note that this plot only shows the top 10 features with the largest importance. To get the full results, you can set the parameter <code class="docutils literal notranslate"><span class="pre">return_data</span></code> to True.</p>
 </section>
@@ -379,7 +379,7 @@ developed by Microsoft Research <a class="reference internal" href="../introduct
 </div>
 </div>
 <figure class="align-left">
-<a class="reference external image-reference" href="../../auto_examples/models/plot_6_ebm_reg.html"><img alt="../../_images/sphx_glr_plot_6_ebm_reg_006.png" src="../../_images/sphx_glr_plot_6_ebm_reg_006.png" /></a>
+<a class="reference external image-reference" href="../../auto_examples/3_models/plot_6_ebm_reg.html"><img alt="../../_images/sphx_glr_plot_6_ebm_reg_006.png" src="../../_images/sphx_glr_plot_6_ebm_reg_006.png" /></a>
 </figure>
 <p>The right axis of the plot displays the predictor values for each effect, while the left axis shows the corresponding effect names. The title indicates that the predicted value for this sample is 0.0818, which differs slightly from the actual response of 0.16. The main effect of <code class="docutils literal notranslate"><span class="pre">atemp</span></code> makes the largest contribution to the final prediction, with a negative effect (approximately -0.06). The main effect of <code class="docutils literal notranslate"><span class="pre">season</span></code> and the pairwise interaction (<code class="docutils literal notranslate"><span class="pre">hr</span></code> and <code class="docutils literal notranslate"><span class="pre">workingday</span></code>) also have negative effects on the final prediction, following atemp. Note that only the top 10 effects with the largest contribution are shown in this plot. To see the complete results, set the return_data parameter to True.</p>
 </section>
@@ -396,7 +396,7 @@ developed by Microsoft Research <a class="reference internal" href="../introduct
 </div>
 </div>
 <figure class="align-left">
-<a class="reference external image-reference" href="../../auto_examples/models/plot_6_ebm_reg.html"><img alt="../../_images/sphx_glr_plot_6_ebm_reg_007.png" src="../../_images/sphx_glr_plot_6_ebm_reg_007.png" /></a>
+<a class="reference external image-reference" href="../../auto_examples/3_models/plot_6_ebm_reg.html"><img alt="../../_images/sphx_glr_plot_6_ebm_reg_007.png" src="../../_images/sphx_glr_plot_6_ebm_reg_007.png" /></a>
 </figure>
 <p>The feature contribution plot has a similar interpretation to that of the local effect contribution plot, but it displays the contribution by feature instead of by effect. For this sample, the main effects of <code class="docutils literal notranslate"><span class="pre">atemp</span></code> and <code class="docutils literal notranslate"><span class="pre">season</span></code> still have negative contributions to the final prediction. However, the contribution of feature <code class="docutils literal notranslate"><span class="pre">hr</span></code> almost equals zero at the feature level, in contrast to the significant positive contribution of its main effect. Note that only the top 10 features with the largest contribution are shown in this plot. To view the complete results, set the <code class="docutils literal notranslate"><span class="pre">return_data</span></code> parameter to True.</p>
 </section>
@@ -409,7 +409,7 @@ developed by Microsoft Research <a class="reference internal" href="../introduct
 <div><p>The first example below demonstrates how to use PiML with its high-code APIs for developing machine learning models for the BikeSharing data from the UCI repository, which consists of 17,389 samples of hourly counts of rental bikes in Capital bikeshare system; see details. The response <code class="docutils literal notranslate"><span class="pre">cnt</span></code> (hourly bike rental counts) is continuous and it is a regression problem.</p>
 </div></blockquote>
 <ul class="simple">
-<li><p><a class="reference internal" href="../../auto_examples/models/plot_6_ebm_reg.html#sphx-glr-auto-examples-models-plot-6-ebm-reg-py"><span class="std std-ref">EBM Regression (Bike Sharing)</span></a></p></li>
+<li><p><a class="reference internal" href="../../auto_examples/3_models/plot_6_ebm_reg.html#sphx-glr-auto-examples-3-models-plot-6-ebm-reg-py"><span class="std std-ref">EBM Regression (Bike Sharing)</span></a></p></li>
 </ul>
 </div>
 <div class="topic">
@@ -418,7 +418,7 @@ developed by Microsoft Research <a class="reference internal" href="../introduct
 <div><p>The second example below demonstrates how to use PiML’s high-code APIs for the TaiwanCredit dataset from the UCI repository. This dataset comprises the credit card details of 30,000 clients in Taiwan from April 2005 to September 2005, and more information can be found on the TaiwanCreditData website. The data can be loaded directly into PiML, although it requires some preprocessing. The FlagDefault variable serves as the response for this classification problem.</p>
 </div></blockquote>
 <ul class="simple">
-<li><p><a class="reference internal" href="../../auto_examples/models/plot_6_ebm_cls.html#sphx-glr-auto-examples-models-plot-6-ebm-cls-py"><span class="std std-ref">EBM Classification (Taiwan Credit)</span></a></p></li>
+<li><p><a class="reference internal" href="../../auto_examples/3_models/plot_6_ebm_cls.html#sphx-glr-auto-examples-3-models-plot-6-ebm-cls-py"><span class="std std-ref">EBM Classification (Taiwan Credit)</span></a></p></li>
 </ul>
 </div>
 </section>

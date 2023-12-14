@@ -35,14 +35,19 @@ The larger the average performance degradation, the more important the feature i
 Usage
 ^^^^^^^^^^^^^^^^^
 
-As the data and model are already prepared in PiML, we can directly use the `model_explain` function to show the PFI plot. Note that this function is the one-site API for all the post-hoc explainability methods. For PFI, we can specify the explainability method by setting the parameter `show` to "pfi". The example below demonstrates how to use PiML with its high-code APIs to develop machine learning models for the BikeSharing data. The argument `n_repeats` defines the number of repetitions for reducing the randomness. To reduce the computation time, its default value is 1, both in the low-code and high-code modes. 
+As the data and model are already prepared in PiML, we can directly use the `model_explain` function to show the PFI plot. Note that this function is the one-site API for all the post-hoc explainability methods. For PFI, we can specify the explainability method by setting the parameter `show` to "pfi".
+
+- `n_repeats`: The number of permutation repetitions, by default 1.
+- `use_test`: If True, the test data will be used to generate the explanations. Otherwise, the training data will be used. The default value is False.
+
+ The example below demonstrates how to use PiML with its high-code APIs to develop machine learning models for the BikeSharing data.
 
 .. jupyter-input::
   
     exp.model_explain(model="XGB2", show="pfi", n_repeats=10, figsize=(5, 4))
 
-.. figure:: ../../auto_examples/explain/images/sphx_glr_plot_0_pfi_001.png
-   :target: ../../auto_examples/explain/plot_0_pfi.html
+.. figure:: ../../auto_examples/2_explain/images/sphx_glr_plot_0_pfi_001.png
+   :target: ../../auto_examples/2_explain/plot_0_pfi.html
    :align: left
 
 This analysis gives us valuable insights into how our model makes predictions. We see that the variable `hr` is the most important feature. `atemp`, and `workingday` also appear to be important predictors. The variable `holiday` seems to have zero contribution to the model. This is not surprising, as the dataset does not contain any holiday data. 
@@ -55,13 +60,13 @@ Example
 
   The first example below demonstrates how to use PiML with its high-code APIs for developing machine learning models for the BikeSharing data from the UCI repository, which consists of 17,389 samples of hourly counts of rental bikes in Capital bikeshare system; see details. The response `cnt` (hourly bike rental counts) is continuous and it is a regression problem.
  
- * :ref:`sphx_glr_auto_examples_explain_plot_0_pfi.py`
+ * :ref:`sphx_glr_auto_examples_2_explain_plot_0_pfi.py`
 
 .. topic:: Example 2: SimuCredit
 
    The second example shows the option to use test set to generate the explanations.
 
-   * :ref:`sphx_glr_auto_examples_explain_plot_6_data_dependent_explain.py`
+   * :ref:`sphx_glr_auto_examples_2_explain_plot_6_data_dependent_explain.py`
 
 .. topic:: References
 

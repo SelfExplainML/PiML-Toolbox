@@ -143,12 +143,12 @@
                   </li>
                 
                   <li>
-                    <a href="../extmodels.html" class="">3. Black-box Models</a>
+                    <a href="../model_train.html" class="">3. Model Train and Tune</a>
                     
                   </li>
                 
                   <li>
-                    <a href="../explainability.html" class="">4. Post-hoc Explainability</a>
+                    <a href="../explain.html" class="">4. Post-hoc Explainability</a>
                     
                   </li>
                 
@@ -203,7 +203,7 @@
                   </li>
                 
                   <li>
-                    <a href="../comparison.html" class="">7. Model Comparison</a>
+                    <a href="../compare.html" class="">7. Model Comparison</a>
                     
                   </li>
                 
@@ -307,7 +307,7 @@
 </div>
 </div>
 <figure class="align-left">
-<a class="reference external image-reference" href="../../auto_examples/models/plot_7_gaminet_reg.html"><img alt="../../_images/sphx_glr_plot_7_gaminet_reg_002.png" src="../../_images/sphx_glr_plot_7_gaminet_reg_002.png" /></a>
+<a class="reference external image-reference" href="../../auto_examples/3_models/plot_7_gaminet_reg.html"><img alt="../../_images/sphx_glr_plot_7_gaminet_reg_002.png" src="../../_images/sphx_glr_plot_7_gaminet_reg_002.png" /></a>
 </figure>
 <p>The figure above shows the estimated shape functions for the feature <code class="docutils literal notranslate"><span class="pre">hr</span></code>, together with the histogram plot on the bottom. Consistent with other interpretable models, it is found that there exist 2 peaks of bike sharing around 8 AM and 5 PM, which correspond to the rush hour in a day. The key difference between GAMI-Net and other interpretable models (XGB2 and EBM) is that the estimated shape function is continuous and smooth, which is a favorable feature for model interpretation.</p>
 </section>
@@ -325,7 +325,7 @@
 </div>
 </div>
 <figure class="align-left">
-<a class="reference external image-reference" href="../../auto_examples/models/plot_7_gaminet_reg.html"><img alt="../../_images/sphx_glr_plot_7_gaminet_reg_001.png" src="../../_images/sphx_glr_plot_7_gaminet_reg_001.png" /></a>
+<a class="reference external image-reference" href="../../auto_examples/3_models/plot_7_gaminet_reg.html"><img alt="../../_images/sphx_glr_plot_7_gaminet_reg_001.png" src="../../_images/sphx_glr_plot_7_gaminet_reg_001.png" /></a>
 </figure>
 <p>The figure above shows the estimated pairwise interaction between <code class="docutils literal notranslate"><span class="pre">hr</span></code> and <code class="docutils literal notranslate"><span class="pre">weekday</span></code>. From the plot, we find that there is a positive effect (+0.07) for bike sharing at 2 pm on Saturday and Sunday, and also some negative effect (-0.06) at 2 pm from Monday to Friday.</p>
 </section>
@@ -342,7 +342,7 @@
 </div>
 </div>
 <figure class="align-left">
-<a class="reference external image-reference" href="../../auto_examples/models/plot_7_gaminet_reg.html"><img alt="../../_images/sphx_glr_plot_7_gaminet_reg_004.png" src="../../_images/sphx_glr_plot_7_gaminet_reg_004.png" /></a>
+<a class="reference external image-reference" href="../../auto_examples/3_models/plot_7_gaminet_reg.html"><img alt="../../_images/sphx_glr_plot_7_gaminet_reg_004.png" src="../../_images/sphx_glr_plot_7_gaminet_reg_004.png" /></a>
 </figure>
 <p>Here we only plot the top-10 effect importance. It can be observed that the main effect of <code class="docutils literal notranslate"><span class="pre">hr</span></code> is the most important, followed by the pairwise interaction between <code class="docutils literal notranslate"><span class="pre">hr</span></code> and <code class="docutils literal notranslate"><span class="pre">workingday</span></code>. This result is slightly different from that of XGB2 and EBM. Note that this plot only shows the top 10 effects with the largest importance. To get the full results, you can set the parameter <code class="docutils literal notranslate"><span class="pre">return_data</span></code> to True.</p>
 </section>
@@ -359,7 +359,7 @@
 </div>
 </div>
 <figure class="align-left">
-<a class="reference external image-reference" href="../../auto_examples/models/plot_7_gaminet_reg.html"><img alt="../../_images/sphx_glr_plot_7_gaminet_reg_005.png" src="../../_images/sphx_glr_plot_7_gaminet_reg_005.png" /></a>
+<a class="reference external image-reference" href="../../auto_examples/3_models/plot_7_gaminet_reg.html"><img alt="../../_images/sphx_glr_plot_7_gaminet_reg_005.png" src="../../_images/sphx_glr_plot_7_gaminet_reg_005.png" /></a>
 </figure>
 <p>From this plot, we can observe that the top-3 important features are <code class="docutils literal notranslate"><span class="pre">hr</span></code>, <code class="docutils literal notranslate"><span class="pre">atemp</span></code>, and <code class="docutils literal notranslate"><span class="pre">workingday</span></code>. Note that this plot only shows the top 10 features with the largest importance. To get the full results, you can set the parameter <code class="docutils literal notranslate"><span class="pre">return_data</span></code> to True.</p>
 </section>
@@ -380,7 +380,7 @@
 </div>
 </div>
 <figure class="align-left">
-<a class="reference external image-reference" href="../../auto_examples/models/plot_7_gaminet_reg.html"><img alt="../../_images/sphx_glr_plot_7_gaminet_reg_006.png" src="../../_images/sphx_glr_plot_7_gaminet_reg_006.png" /></a>
+<a class="reference external image-reference" href="../../auto_examples/3_models/plot_7_gaminet_reg.html"><img alt="../../_images/sphx_glr_plot_7_gaminet_reg_006.png" src="../../_images/sphx_glr_plot_7_gaminet_reg_006.png" /></a>
 </figure>
 <p>The right axis of the plot displays the predictor values for each effect, while the left axis shows the corresponding effect names. The title indicates that the predicted value for this sample is 0.0324, which differs from the actual response of 0.16. The main effect of atemp makes the largest contribution to the final prediction, with a negative effect (approximately -0.06). The pairwise interactions (<code class="docutils literal notranslate"><span class="pre">hr</span></code>, <code class="docutils literal notranslate"><span class="pre">workingday</span></code>), (<code class="docutils literal notranslate"><span class="pre">hr</span></code>, <code class="docutils literal notranslate"><span class="pre">windspeed</span></code>), and (<code class="docutils literal notranslate"><span class="pre">hr</span></code>, <code class="docutils literal notranslate"><span class="pre">weekday</span></code>) also have negative effects on the final prediction, following atemp. Note that only the top 10 effects with the largest contribution are shown in this plot. To see the complete results, set the return_data parameter to True.</p>
 </section>
@@ -397,7 +397,7 @@
 </div>
 </div>
 <figure class="align-left">
-<a class="reference external image-reference" href="../../auto_examples/models/plot_7_gaminet_reg.html"><img alt="../../_images/sphx_glr_plot_7_gaminet_reg_007.png" src="../../_images/sphx_glr_plot_7_gaminet_reg_007.png" /></a>
+<a class="reference external image-reference" href="../../auto_examples/3_models/plot_7_gaminet_reg.html"><img alt="../../_images/sphx_glr_plot_7_gaminet_reg_007.png" src="../../_images/sphx_glr_plot_7_gaminet_reg_007.png" /></a>
 </figure>
 <p>This plot displays the contribution at the feature level. For this chosen sample (<code class="docutils literal notranslate"><span class="pre">sample_id</span></code> = 0), the top-5 features (<code class="docutils literal notranslate"><span class="pre">atemp</span></code>, <code class="docutils literal notranslate"><span class="pre">hr</span></code>, <code class="docutils literal notranslate"><span class="pre">workingday</span></code>, <code class="docutils literal notranslate"><span class="pre">season</span></code>, <code class="docutils literal notranslate"><span class="pre">windspeed</span></code>) all have negative contributions to the final prediction. Although the main effect of <code class="docutils literal notranslate"><span class="pre">hr</span></code> is small, the aggregated effects of its related pairwise interactions make it the second important feature for this specific sample. Note that only the top 10 features with the largest contribution are shown in this plot. To view the complete results, set the <code class="docutils literal notranslate"><span class="pre">return_data</span></code> parameter to True.</p>
 </section>
@@ -410,7 +410,7 @@
 <div><p>The first example below demonstrates how to use PiML with its high-code APIs for developing machine learning models for the BikeSharing data from the UCI repository, which consists of 17,389 samples of hourly counts of rental bikes in Capital bikeshare system; see details. The response <code class="docutils literal notranslate"><span class="pre">cnt</span></code> (hourly bike rental counts) is continuous and it is a regression problem.</p>
 </div></blockquote>
 <ul class="simple">
-<li><p><a class="reference internal" href="../../auto_examples/models/plot_7_gaminet_reg.html#sphx-glr-auto-examples-models-plot-7-gaminet-reg-py"><span class="std std-ref">GAMI-Net Regression (Bike Sharing)</span></a></p></li>
+<li><p><a class="reference internal" href="../../auto_examples/3_models/plot_7_gaminet_reg.html#sphx-glr-auto-examples-3-models-plot-7-gaminet-reg-py"><span class="std std-ref">GAMI-Net Regression (Bike Sharing)</span></a></p></li>
 </ul>
 </div>
 <div class="topic">
@@ -419,7 +419,7 @@
 <div><p>The second example below demonstrates how to use PiML’s high-code APIs for the TaiwanCredit dataset from the UCI repository. This dataset comprises the credit card details of 30,000 clients in Taiwan from April 2005 to September 2005, and more information can be found on the TaiwanCreditData website. The <code class="docutils literal notranslate"><span class="pre">FlagDefault</span></code> variable serves as the response for this classification problem.</p>
 </div></blockquote>
 <ul class="simple">
-<li><p><a class="reference internal" href="../../auto_examples/models/plot_7_gaminet_cls.html#sphx-glr-auto-examples-models-plot-7-gaminet-cls-py"><span class="std std-ref">GAMI-Net Classification (Taiwan Credit)</span></a></p></li>
+<li><p><a class="reference internal" href="../../auto_examples/3_models/plot_7_gaminet_cls.html#sphx-glr-auto-examples-3-models-plot-7-gaminet-cls-py"><span class="std std-ref">GAMI-Net Classification (Taiwan Credit)</span></a></p></li>
 </ul>
 </div>
 </section>

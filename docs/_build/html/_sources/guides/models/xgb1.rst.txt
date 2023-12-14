@@ -92,8 +92,8 @@ This plot shows the estimated effect of each feature on the predicted response w
      exp.model_interpret(model="XGB1", show="global_effect_plot", uni_feature="MedInc",
                          original_scale=True, figsize=(5, 4))
 
-.. figure:: ../../auto_examples/models/images/sphx_glr_plot_4_xgb1_reg_001.png
-   :target: ../../auto_examples/models/plot_4_xgb1_reg.html
+.. figure:: ../../auto_examples/3_models/images/sphx_glr_plot_4_xgb1_reg_001.png
+   :target: ../../auto_examples/3_models/plot_4_xgb1_reg.html
    :align: left
 
 The above figure displays the estimated shape functions for the feature `MedInc`, accompanied by a histogram plot at the bottom. The estimated shape function appears to be piecewise constant, with an increasing trend for values of `MedInc` less than approximately 9.2, followed by a plateau.
@@ -107,8 +107,8 @@ The keyword "global_fi" corresponds to the feature importance plot. Consistent w
 
      exp.model_interpret(model="XGB1", show="global_fi", figsize=(5, 4))
 
-.. figure:: ../../auto_examples/models/images/sphx_glr_plot_4_xgb1_reg_002.png
-   :target: ../../auto_examples/models/plot_4_xgb1_reg.html
+.. figure:: ../../auto_examples/3_models/images/sphx_glr_plot_4_xgb1_reg_002.png
+   :target: ../../auto_examples/3_models/plot_4_xgb1_reg.html
    :align: left
 
 The two geographical features `latitude` and `longitude` are the most important features in the model, followed by `MedInc` and `AveOccup`. The feature `Population` is the least important in the model. Note that this plot only shows the top 10 features with the largest importance. To get the full results, you can set the parameter `return_data` to True.
@@ -137,8 +137,8 @@ In PiML, you can draw the WoE plot of a given feature using the keyword "xgb1_wo
      exp.model_interpret(model="XGB1", show="xgb1_woe", uni_feature="MedInc",
                         original_scale=True, figsize=(5, 4))
 
-.. figure:: ../../auto_examples/models/images/sphx_glr_plot_4_xgb1_reg_003.png
-   :target: ../../auto_examples/models/plot_4_xgb1_reg.html
+.. figure:: ../../auto_examples/3_models/images/sphx_glr_plot_4_xgb1_reg_003.png
+   :target: ../../auto_examples/3_models/plot_4_xgb1_reg.html
    :align: left
 
 Comparing the WoE of `MedInc` to its main effect plot, it is evident that they are quite similar. However, the main effect plot has a smaller range compared to WoE. This is because WoE only displays the effect of `MedInc` on the target variable, while the main effect function factors in the impact of other features in the model, controlling for their effects while measuring the effect of `MedInc` on the target variable.
@@ -159,8 +159,8 @@ The code below shows the usage of drawing top-10 features IV with the keyword "x
      
      exp.model_interpret(model="XGB1", show="xgb1_iv", figsize=(5, 4))
 
-.. figure:: ../../auto_examples/models/images/sphx_glr_plot_4_xgb1_reg_004.png
-   :target: ../../auto_examples/models/plot_4_xgb1_reg.html
+.. figure:: ../../auto_examples/3_models/images/sphx_glr_plot_4_xgb1_reg_004.png
+   :target: ../../auto_examples/3_models/plot_4_xgb1_reg.html
    :align: left
 
 It turns out that the rank ordering of the IV plot is different from that of the feature importance plot. The feature `MedInc` is ranked as the most important feature in IV, followed by `latitude`, `AveRooms`, and `longitude`. The feature `Population` is still ranked as the least important feature. As `latitude` and `longitude` are highly correlated, the model may amplify the effect of `latitude` and `longitude`, which explains why they are ranked as the most important features in the feature importance plot. In contrast, the IV plot shows that `MedInc` is the most important feature, since the IV plot only considers the effect of each feature on the target variable. Note that this plot only shows the top 10 features with the largest information value. To get the full results, you can set the parameter `return_data` to True.
@@ -174,8 +174,8 @@ The local interpretation can be triggered by the keyword "local_fi".
 
     exp.model_interpret(model="XGB1", show="local_fi", sample_id=0, original_scale=True, figsize=(5, 4))
 
-.. figure:: ../../auto_examples/models/images/sphx_glr_plot_4_xgb1_reg_005.png
-   :target: ../../auto_examples/models/plot_4_xgb1_reg.html
+.. figure:: ../../auto_examples/3_models/images/sphx_glr_plot_4_xgb1_reg_005.png
+   :target: ../../auto_examples/3_models/plot_4_xgb1_reg.html
    :align: left
 
 The title shows the actual response value and the predicted value of the chosen sample. Each bar in the plot represents the estimated effect value :math:`\hat{f}_j(x)` of the chosen sample, which is the additive decomposition of the prediction. The right axis shows the feature values of the chosen sample. The feature `Lontitude` has the largest negative effect on the prediction, followed by `Latitude` and `AveRooms`. The feature `Population` has the least effect on the prediction. Note that this plot only shows the top 10 features with the largest contribution. To get the full results, you can set the parameter `return_data` to True.
@@ -187,10 +187,10 @@ Examples
 
   The first example below demonstrates how to use PiML with its high-code APIs for developing machine learning models for the BikeSharing data from the UCI repository, which consists of 17,389 samples of hourly counts of rental bikes in Capital bikeshare system; see details. The response `cnt` (hourly bike rental counts) is continuous and it is a regression problem.
  
- * :ref:`sphx_glr_auto_examples_models_plot_4_xgb1_reg.py`
+ * :ref:`sphx_glr_auto_examples_3_models_plot_4_xgb1_reg.py`
 
 .. topic:: Example 2: CoCircles
 
   The example below demonstrates how to use PiML with the CoCircles data, which is a simulated binary classification data with two features exactly follow the GAM assumptions. 
 
- * :ref:`sphx_glr_auto_examples_models_plot_4_xgb1_cls.py`
+ * :ref:`sphx_glr_auto_examples_3_models_plot_4_xgb1_cls.py`

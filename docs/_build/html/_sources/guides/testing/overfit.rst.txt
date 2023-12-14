@@ -50,8 +50,8 @@ In the following demonstration, we will focus on a regression task using the Bik
                                 slice_features=["hr"], threshold=1.05, min_samples=100,
                                 return_data=True, figsize=(5, 4))
 
-.. figure:: ../../auto_examples/testing/images/sphx_glr_plot_2_overfit_reg_001.png
-   :target: ../../auto_examples/testing/plot_2_overfit_reg.html 
+.. figure:: ../../auto_examples/4_testing/images/sphx_glr_plot_2_overfit_reg_001.png
+   :target: ../../auto_examples/4_testing/plot_2_overfit_reg.html 
    :align: left
 
 The analysis of overfit regions reveals that the most significant overfit region occurs when the variable `hr` is within the range of (7am, 9am). In this region, the test set exhibits a Mean Squared Error (MSE) of 0.0171, while the train set demonstrates an MSE of 0.0156. The observed gap between the test and train MSE is 0.0015, which exceeds the threshold value of approximately 0.0004, see the detailed information in the examples.
@@ -67,8 +67,8 @@ In the following analysis, we will identify overfit regions using histogram slic
                               slice_features=["hr", "atemp"], threshold=1.05, min_samples=100,
                               return_data=True, figsize=(5, 4))
 
-.. figure:: ../../auto_examples/testing/images/sphx_glr_plot_2_overfit_reg_002.png
-   :target: ../../auto_examples/testing/plot_2_overfit_reg.html 
+.. figure:: ../../auto_examples/4_testing/images/sphx_glr_plot_2_overfit_reg_002.png
+   :target: ../../auto_examples/4_testing/plot_2_overfit_reg.html 
    :align: left
 
 
@@ -81,10 +81,10 @@ Examples
 
   The first example below demonstrates how to use PiML with its high-code APIs for developing machine learning models for the BikeSharing data from the UCI repository, which consists of 17,389 samples of hourly counts of rental bikes in Capital bikeshare system; see details. The response `cnt` (hourly bike rental counts) is continuous and it is a regression problem.
  
- * :ref:`sphx_glr_auto_examples_testing_plot_2_overfit_reg.py`
+ * :ref:`sphx_glr_auto_examples_4_testing_plot_2_overfit_reg.py`
 
 .. topic:: Examples 2: Taiwan Credit
 
   The second example below demonstrates how to use PiML’s high-code APIs for the TaiwanCredit dataset from the UCI repository. This dataset comprises the credit card details of 30,000 clients in Taiwan from April 2005 to September 2005, and more information can be found on the TaiwanCreditData website. The data can be loaded directly into PiML, although it requires some preprocessing. The FlagDefault variable serves as the response for this classification problem.
     
- * :ref:`sphx_glr_auto_examples_testing_plot_2_overfit_cls.py`
+ * :ref:`sphx_glr_auto_examples_4_testing_plot_2_overfit_cls.py`

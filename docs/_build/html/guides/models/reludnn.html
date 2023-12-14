@@ -143,12 +143,12 @@
                   </li>
                 
                   <li>
-                    <a href="../extmodels.html" class="">3. Black-box Models</a>
+                    <a href="../train.html" class="">3. Model Train and Tune</a>
                     
                   </li>
                 
                   <li>
-                    <a href="../explainability.html" class="">4. Post-hoc Explainability</a>
+                    <a href="../explain.html" class="">4. Post-hoc Explainability</a>
                     
                   </li>
                 
@@ -203,7 +203,7 @@
                   </li>
                 
                   <li>
-                    <a href="../comparison.html" class="">7. Model Comparison</a>
+                    <a href="../compare.html" class="">7. Model Comparison</a>
                     
                   </li>
                 
@@ -353,7 +353,7 @@
 </div>
 </div>
 <figure class="align-left">
-<a class="reference external image-reference" href="../../auto_examples/models/plot_plot_8_reludnn_cls.html"><img alt="../../_images/sphx_glr_plot_8_reludnn_cls_001.png" src="../../_images/sphx_glr_plot_8_reludnn_cls_001.png" /></a>
+<a class="reference external image-reference" href="../../auto_examples/3_models/plot_8_reludnn_cls.html"><img alt="../../_images/sphx_glr_plot_8_reludnn_cls_001.png" src="../../_images/sphx_glr_plot_8_reludnn_cls_001.png" /></a>
 </figure>
 <p>This plot is used for visualizing coefficients of different LLMs, where each line represents a single LLM. The x-axis shows feature names and the y-axis shows the coefficient values. As this is a static plot, we only plot the top 10 important features, see the <code class="docutils literal notranslate"><span class="pre">Feature</span> <span class="pre">Importance</span> <span class="pre">Plot</span></code> section for details. From the figure above, we can see that <code class="docutils literal notranslate"><span class="pre">Pay_1</span></code> is the most important feature, with a wide range of coefficient values. The second and the third important variables are <code class="docutils literal notranslate"><span class="pre">PAY_AMT1</span></code> and <code class="docutils literal notranslate"><span class="pre">PAY_3</span></code>, respectively.</p>
 <p>In general, this plot can be roughly interpreted in the following way.</p>
@@ -376,7 +376,7 @@
 </div>
 </div>
 <figure class="align-left">
-<a class="reference external image-reference" href="../../auto_examples/models/plot_plot_8_reludnn_cls.html"><img alt="../../_images/sphx_glr_plot_8_reludnn_cls_002.png" src="../../_images/sphx_glr_plot_8_reludnn_cls_002.png" /></a>
+<a class="reference external image-reference" href="../../auto_examples/3_models/plot_8_reludnn_cls.html"><img alt="../../_images/sphx_glr_plot_8_reludnn_cls_002.png" src="../../_images/sphx_glr_plot_8_reludnn_cls_002.png" /></a>
 </figure>
 <p>Similar to the parallel coordinate plot, this plot shows the LLM coefficient distribution per feature weighted by the sample size of each LLM.</p>
 </section>
@@ -393,7 +393,7 @@
 </div>
 </div>
 <figure class="align-left">
-<a class="reference external image-reference" href="../../auto_examples/models/plot_plot_8_reludnn_cls.html"><img alt="../../_images/sphx_glr_plot_8_reludnn_cls_003.png" src="../../_images/sphx_glr_plot_8_reludnn_cls_003.png" /></a>
+<a class="reference external image-reference" href="../../auto_examples/3_models/plot_8_reludnn_cls.html"><img alt="../../_images/sphx_glr_plot_8_reludnn_cls_003.png" src="../../_images/sphx_glr_plot_8_reludnn_cls_003.png" /></a>
 </figure>
 <p>To calculate the feature importance, we first calculate the squared sum of LLM coefficients per feature; then the importance values are normalized such that their sum equals one.</p>
 </section>
@@ -410,7 +410,7 @@
 </div>
 </div>
 <figure class="align-left">
-<a class="reference external image-reference" href="../../auto_examples/models/plot_plot_8_reludnn_cls.html"><img alt="../../_images/sphx_glr_plot_8_reludnn_cls_004.png" src="../../_images/sphx_glr_plot_8_reludnn_cls_004.png" /></a>
+<a class="reference external image-reference" href="../../auto_examples/3_models/plot_8_reludnn_cls.html"><img alt="../../_images/sphx_glr_plot_8_reludnn_cls_004.png" src="../../_images/sphx_glr_plot_8_reludnn_cls_004.png" /></a>
 </figure>
 <p>In this plot, each line represents an LLM. The x-axis shows unique values of the specified feature (<code class="docutils literal notranslate"><span class="pre">PAY_1</span></code> in this example), and the y-axis is the marginal effect (coefficient times feature values) of that feature. To make this plot more elegant, we only visualize the top 30 LLMs and the marginal effects are all de-meaned.</p>
 </section>
@@ -427,7 +427,7 @@
 </div>
 </div>
 <figure class="align-left">
-<a class="reference external image-reference" href="../../auto_examples/models/plot_plot_8_reludnn_cls.html"><img alt="../../_images/sphx_glr_plot_8_reludnn_cls_005.png" src="../../_images/sphx_glr_plot_8_reludnn_cls_005.png" /></a>
+<a class="reference external image-reference" href="../../auto_examples/3_models/plot_8_reludnn_cls.html"><img alt="../../_images/sphx_glr_plot_8_reludnn_cls_005.png" src="../../_images/sphx_glr_plot_8_reludnn_cls_005.png" /></a>
 </figure>
 <p>The plot above consists of 2 * 2 subplots, which are used to show how the coefficient would change as the feature value changes.
 In particular, each point represents an LLM, and the x-axis is calculated as the average of samples belonging to that LLM. The diagonal subplots show the main effect of the selected two features, and the off-diagonal subplots show the interaction effects.</p>
@@ -448,7 +448,7 @@ In particular, each point represents an LLM, and the x-axis is calculated as the
 </div>
 </div>
 <figure class="align-left">
-<a class="reference external image-reference" href="../../auto_examples/models/plot_plot_8_reludnn_cls.html"><img alt="../../_images/sphx_glr_plot_8_reludnn_cls_006.png" src="../../_images/sphx_glr_plot_8_reludnn_cls_006.png" /></a>
+<a class="reference external image-reference" href="../../auto_examples/3_models/plot_8_reludnn_cls.html"><img alt="../../_images/sphx_glr_plot_8_reludnn_cls_006.png" src="../../_images/sphx_glr_plot_8_reludnn_cls_006.png" /></a>
 </figure>
 <p>The definition of <code class="docutils literal notranslate"><span class="pre">Weight</span></code> and <code class="docutils literal notranslate"><span class="pre">Effect</span></code> can be found in the introduction for GLM. The stems represent the coefficients and the bars show the effect. Similarly, we provide the <code class="docutils literal notranslate"><span class="pre">centered</span></code> option, as shown below.</p>
 <div class="jupyter_cell jupyter_container docutils container">
@@ -461,7 +461,7 @@ In particular, each point represents an LLM, and the x-axis is calculated as the
 </div>
 </div>
 <figure class="align-left">
-<a class="reference external image-reference" href="../../auto_examples/models/plot_plot_8_reludnn_cls.html"><img alt="../../_images/sphx_glr_plot_8_reludnn_cls_007.png" src="../../_images/sphx_glr_plot_8_reludnn_cls_007.png" /></a>
+<a class="reference external image-reference" href="../../auto_examples/3_models/plot_8_reludnn_cls.html"><img alt="../../_images/sphx_glr_plot_8_reludnn_cls_007.png" src="../../_images/sphx_glr_plot_8_reludnn_cls_007.png" /></a>
 </figure>
 <p>After centering, we find that <code class="docutils literal notranslate"><span class="pre">PAY_3</span></code> contributes the most to the final prediction, while <code class="docutils literal notranslate"><span class="pre">PAY_1</span></code> is still the most sensitive feature.</p>
 </section>
@@ -480,7 +480,7 @@ Inputs X are independent features uniformly distributed on the interval [0, 1]. 
 <p>Out of the n_features features, only 5 are used to compute y. The remaining features are independent of y.</p>
 </div></blockquote>
 <ul class="simple">
-<li><p><a class="reference internal" href="../../auto_examples/models/plot_8_reludnn_reg.html#sphx-glr-auto-examples-models-plot-8-reludnn-reg-py"><span class="std std-ref">ReLU DNN Regression (Friedman)</span></a></p></li>
+<li><p><a class="reference internal" href="../../auto_examples/3_models/plot_8_reludnn_reg.html#sphx-glr-auto-examples-3-models-plot-8-reludnn-reg-py"><span class="std std-ref">ReLU DNN Regression (Friedman)</span></a></p></li>
 </ul>
 </div>
 <div class="topic">
@@ -489,7 +489,7 @@ Inputs X are independent features uniformly distributed on the interval [0, 1]. 
 <div><p>The second example below demonstrates how to use PiML’s high-code APIs for the TaiwanCredit dataset from the UCI repository. This dataset comprises the credit card details of 30,000 clients in Taiwan from April 2005 to September 2005, and more information can be found on the TaiwanCreditData website. The <code class="docutils literal notranslate"><span class="pre">FlagDefault</span></code> variable serves as the response for this classification problem.</p>
 </div></blockquote>
 <ul class="simple">
-<li><p><a class="reference internal" href="../../auto_examples/models/plot_8_reludnn_cls.html#sphx-glr-auto-examples-models-plot-8-reludnn-cls-py"><span class="std std-ref">ReLU DNN Classification (Taiwan Credit)</span></a></p></li>
+<li><p><a class="reference internal" href="../../auto_examples/3_models/plot_8_reludnn_cls.html#sphx-glr-auto-examples-3-models-plot-8-reludnn-cls-py"><span class="std std-ref">ReLU DNN Classification (Taiwan Credit)</span></a></p></li>
 </ul>
 </div>
 </section>

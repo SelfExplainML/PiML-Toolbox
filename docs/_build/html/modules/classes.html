@@ -125,14 +125,11 @@
 <li><a class="reference internal" href="#outlier-detection-algorithms">Outlier Detection Algorithms</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#interpretable-models">Interpretable Models</a><ul>
-<li><a class="reference internal" href="#id1">Functions</a></li>
-<li><a class="reference internal" href="#model-classes">Model Classes</a></li>
-</ul>
-</li>
+<li><a class="reference internal" href="#model-training">Model Training</a></li>
 <li><a class="reference internal" href="#post-hoc-explainability">Post-hoc Explainability</a></li>
+<li><a class="reference internal" href="#interpretable-models">Interpretable Models</a></li>
 <li><a class="reference internal" href="#outcome-testing">Outcome Testing</a><ul>
-<li><a class="reference internal" href="#integrated-high-code-apis">Integrated High Code APIs</a></li>
+<li><a class="reference internal" href="#integrated-functions">Integrated Functions</a></li>
 <li><a class="reference internal" href="#scored-test-function">Scored Test Function</a></li>
 </ul>
 </li>
@@ -193,9 +190,6 @@ Please refer to the user guide for further details, as the class and function ra
 <tr class="row-odd"><td><p><a class="reference internal" href="generated/piml.Experiment.html#piml.Experiment.get_target_name" title="piml.Experiment.get_target_name"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Experiment.get_target_name</span></code></a>()</p></td>
 <td><p>Get the target feature name.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="generated/piml.Experiment.html#piml.Experiment.twosample_test" title="piml.Experiment.twosample_test"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Experiment.twosample_test</span></code></a>([distance_metric, ...])</p></td>
-<td><p>Test the distributional difference of train_x and test_x.</p></td>
-</tr>
 </tbody>
 </table>
 </section>
@@ -235,10 +229,8 @@ Please refer to the user guide for further details, as the class and function ra
 </table>
 </section>
 </section>
-<section id="interpretable-models">
-<h2>Interpretable Models<a class="headerlink" href="#interpretable-models" title="Permalink to this heading">¶</a></h2>
-<section id="id1">
-<h3>Functions<a class="headerlink" href="#id1" title="Permalink to this heading">¶</a></h3>
+<section id="model-training">
+<h2>Model Training<a class="headerlink" href="#model-training" title="Permalink to this heading">¶</a></h2>
 <table class="autosummary longtable docutils align-default">
 <colgroup>
 <col style="width: 10%" />
@@ -284,8 +276,22 @@ Please refer to the user guide for further details, as the class and function ra
 </tbody>
 </table>
 </section>
-<section id="model-classes">
-<h3>Model Classes<a class="headerlink" href="#model-classes" title="Permalink to this heading">¶</a></h3>
+<section id="post-hoc-explainability">
+<h2>Post-hoc Explainability<a class="headerlink" href="#post-hoc-explainability" title="Permalink to this heading">¶</a></h2>
+<table class="autosummary longtable docutils align-default">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/piml.Experiment.html#piml.Experiment.model_explain" title="piml.Experiment.model_explain"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Experiment.model_explain</span></code></a>([model, show, ...])</p></td>
+<td><p>Explain an arbitrary fitted model using post-hoc explanation tools.</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="interpretable-models">
+<h2>Interpretable Models<a class="headerlink" href="#interpretable-models" title="Permalink to this heading">¶</a></h2>
 <table class="autosummary longtable docutils align-default">
 <colgroup>
 <col style="width: 10%" />
@@ -349,25 +355,10 @@ Please refer to the user guide for further details, as the class and function ra
 </tbody>
 </table>
 </section>
-</section>
-<section id="post-hoc-explainability">
-<h2>Post-hoc Explainability<a class="headerlink" href="#post-hoc-explainability" title="Permalink to this heading">¶</a></h2>
-<table class="autosummary longtable docutils align-default">
-<colgroup>
-<col style="width: 10%" />
-<col style="width: 90%" />
-</colgroup>
-<tbody>
-<tr class="row-odd"><td><p><a class="reference internal" href="generated/piml.Experiment.html#piml.Experiment.model_explain" title="piml.Experiment.model_explain"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Experiment.model_explain</span></code></a>([model, show, ...])</p></td>
-<td><p>Explain an arbitrary fitted model using post-hoc explanation tools.</p></td>
-</tr>
-</tbody>
-</table>
-</section>
 <section id="outcome-testing">
 <h2>Outcome Testing<a class="headerlink" href="#outcome-testing" title="Permalink to this heading">¶</a></h2>
-<section id="integrated-high-code-apis">
-<h3>Integrated High Code APIs<a class="headerlink" href="#integrated-high-code-apis" title="Permalink to this heading">¶</a></h3>
+<section id="integrated-functions">
+<h3>Integrated Functions<a class="headerlink" href="#integrated-functions" title="Permalink to this heading">¶</a></h3>
 <table class="autosummary longtable docutils align-default">
 <colgroup>
 <col style="width: 10%" />
@@ -431,7 +422,7 @@ Please refer to the user guide for further details, as the class and function ra
 <td><p>Get reliability diagram, only for classifiers.</p></td>
 </tr>
 <tr class="row-even"><td><p><a class="reference internal" href="generated/piml.scored_test.test_reliability_calibration.html#piml.scored_test.test_reliability_calibration" title="piml.scored_test.test_reliability_calibration"><code class="xref py py-obj docutils literal notranslate"><span class="pre">test_reliability_calibration</span></code></a></p></td>
-<td><p>Get the calibrated predicted probability vs.</p></td>
+<td><p>Get the calibrated predicted probability vs original predicted probability, only for classifiers.</p></td>
 </tr>
 <tr class="row-odd"><td><p><a class="reference internal" href="generated/piml.scored_test.test_resilience_perf.html#piml.scored_test.test_resilience_perf" title="piml.scored_test.test_resilience_perf"><code class="xref py py-obj docutils literal notranslate"><span class="pre">test_resilience_perf</span></code></a></p></td>
 <td><p>Get resilience test result in each step.</p></td>

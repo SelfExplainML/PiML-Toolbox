@@ -141,12 +141,12 @@
                   </li>
                 
                   <li>
-                    <a href="../extmodels.html" class="">3. Black-box Models</a>
+                    <a href="../model_train.html" class="">3. Model Train and Tune</a>
                     
                   </li>
                 
                   <li>
-                    <a href="../explainability.html" class="">4. Post-hoc Explainability</a>
+                    <a href="../explain.html" class="">4. Post-hoc Explainability</a>
                     
                   </li>
                 
@@ -188,12 +188,20 @@
                           <a href="fairness.html">6.7. Fairness</a>
                         </li>
                       
+                        <li class="sk-toctree-l3">
+                          <a href="segmented_diagnose.html">6.8. Segmented</a>
+                        </li>
+                      
+                        <li class="sk-toctree-l3">
+                          <a href="scored_test.html">6.9. Scored Test</a>
+                        </li>
+                      
                     </ul>
                     
                   </li>
                 
                   <li>
-                    <a href="../comparison.html" class="">7. Model Comparison</a>
+                    <a href="../compare.html" class="">7. Model Comparison</a>
                     
                   </li>
                 
@@ -296,7 +304,7 @@
 </div>
 </div>
 <figure class="align-left">
-<a class="reference external image-reference" href="../../auto_examples/testing/plot_1_weakspot_cls.html"><img alt="../../_images/sphx_glr_plot_1_weakspot_cls_001.png" src="../../_images/sphx_glr_plot_1_weakspot_cls_001.png" /></a>
+<a class="reference external image-reference" href="../../auto_examples/4_testing/plot_1_weakspot_cls.html"><img alt="../../_images/sphx_glr_plot_1_weakspot_cls_001.png" src="../../_images/sphx_glr_plot_1_weakspot_cls_001.png" /></a>
 </figure>
 <p>The above plot illustrates the detection of a single weak region for the feature <code class="docutils literal notranslate"><span class="pre">PAY_1</span></code>. The red dotted line represents the performance threshold, which is calculated by dividing the average metric (around 0.82) by the user-specified threshold ratio (1.1), resulting in a threshold value of approximately 0.75. Each weak region is annotated with its corresponding weak region number.</p>
 <p>On the x-axis, we have the variable of interest (<code class="docutils literal notranslate"><span class="pre">PAY_1</span></code>), while the y-axis represents the density and accuracy score of each segment. In the density plot, the “Above threshold” and “Below threshold” labels indicate the population segments with prediction errors greater or less than the threshold, respectively. However, it is important to note that for metrics such as “AUC”, “F1” in classification tasks, or “R2” in regression tasks, which are not additive, the density plot does not display the “Above threshold” and “Below threshold” labels. The detailed information of detected weak regions can be found in the returned table, as we set <code class="docutils literal notranslate"><span class="pre">return_data</span></code> to True.</p>
@@ -330,7 +338,7 @@
 </div>
 </div>
 <figure class="align-left">
-<a class="reference external image-reference" href="../../auto_examples/testing/plot_1_weakspot_cls.html"><img alt="../../_images/sphx_glr_plot_1_weakspot_cls_002.png" src="../../_images/sphx_glr_plot_1_weakspot_cls_002.png" /></a>
+<a class="reference external image-reference" href="../../auto_examples/4_testing/plot_1_weakspot_cls.html"><img alt="../../_images/sphx_glr_plot_1_weakspot_cls_002.png" src="../../_images/sphx_glr_plot_1_weakspot_cls_002.png" /></a>
 </figure>
 <p>In this particular demonstration involving two variables, the plot reveals the presence of 5 weak regions. The accompanying summary table provides additional information regarding each region. It includes the testing and training accuracy scores for the samples within each region, as well as the gap between the testing and training ACC scores. These details offer insights into the performance discrepancy between the testing and training datasets for each specific region. Let’s take Region 0 as an example, which consists of 191 testing samples and 800 training samples. This region corresponds to the range of <code class="docutils literal notranslate"><span class="pre">PAY_1</span></code> values between 2.6 and 3.5, and <code class="docutils literal notranslate"><span class="pre">PAY_2</span></code> values between 2.2 and 3.6.</p>
 </section>
@@ -343,7 +351,7 @@
 <div><p>The first example below demonstrates how to use PiML with its high-code APIs for developing machine learning models for the BikeSharing data from the UCI repository, which consists of 17,389 samples of hourly counts of rental bikes in Capital bikeshare system; see details. The response <code class="docutils literal notranslate"><span class="pre">cnt</span></code> (hourly bike rental counts) is continuous and it is a regression problem.</p>
 </div></blockquote>
 <ul class="simple">
-<li><p><a class="reference internal" href="../../auto_examples/testing/plot_1_weakspot_reg.html#sphx-glr-auto-examples-testing-plot-1-weakspot-reg-py"><span class="std std-ref">WeakSpot: Regression</span></a></p></li>
+<li><p><a class="reference internal" href="../../auto_examples/4_testing/plot_1_weakspot_reg.html#sphx-glr-auto-examples-4-testing-plot-1-weakspot-reg-py"><span class="std std-ref">WeakSpot: Regression</span></a></p></li>
 </ul>
 </div>
 <div class="topic">
@@ -352,7 +360,7 @@
 <div><p>The second example below demonstrates how to use PiML’s high-code APIs for the TaiwanCredit dataset from the UCI repository. This dataset comprises the credit card details of 30,000 clients in Taiwan from April 2005 to September 2005, and more information can be found on the TaiwanCreditData website. The data can be loaded directly into PiML, although it requires some preprocessing. The FlagDefault variable serves as the response for this classification problem.</p>
 </div></blockquote>
 <ul class="simple">
-<li><p><a class="reference internal" href="../../auto_examples/testing/plot_1_weakspot_cls.html#sphx-glr-auto-examples-testing-plot-1-weakspot-cls-py"><span class="std std-ref">WeakSpot: Classification</span></a></p></li>
+<li><p><a class="reference internal" href="../../auto_examples/4_testing/plot_1_weakspot_cls.html#sphx-glr-auto-examples-4-testing-plot-1-weakspot-cls-py"><span class="std std-ref">WeakSpot: Classification</span></a></p></li>
 </ul>
 </div>
 </section>

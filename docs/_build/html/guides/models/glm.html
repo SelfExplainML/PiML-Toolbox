@@ -143,12 +143,12 @@
                   </li>
                 
                   <li>
-                    <a href="../extmodels.html" class="">3. Black-box Models</a>
+                    <a href="../train.html" class="">3. Model Train and Tune</a>
                     
                   </li>
                 
                   <li>
-                    <a href="../explainability.html" class="">4. Post-hoc Explainability</a>
+                    <a href="../explain.html" class="">4. Post-hoc Explainability</a>
                     
                   </li>
                 
@@ -203,7 +203,7 @@
                   </li>
                 
                   <li>
-                    <a href="../comparison.html" class="">7. Model Comparison</a>
+                    <a href="../compare.html" class="">7. Model Comparison</a>
                     
                   </li>
                 
@@ -327,7 +327,7 @@ The different combinations of these two hyperparameters would lead to different 
 </div>
 </div>
 <figure class="align-left">
-<a class="reference external image-reference" href="../../auto_examples/models/plot_0_glm_reg.html"><img alt="../../_images/sphx_glr_plot_0_glm_reg_001.png" src="../../_images/sphx_glr_plot_0_glm_reg_001.png" /></a>
+<a class="reference external image-reference" href="../../auto_examples/3_models/plot_0_glm_reg.html"><img alt="../../_images/sphx_glr_plot_0_glm_reg_001.png" src="../../_images/sphx_glr_plot_0_glm_reg_001.png" /></a>
 </figure>
 <p>This plot shows the coefficients of the top 10 numerical features in a linear regression model, ranked by their absolute magnitude. A positive coefficient indicates that an increase in the corresponding feature value is associated with an increase in the response variable, while a negative coefficient indicates the opposite.</p>
 <p>In this case, the plot suggests that the most important numerical feature in the model is <code class="docutils literal notranslate"><span class="pre">temp</span></code> (temperature), with a positive effect on the response variable. This is followed by <code class="docutils literal notranslate"><span class="pre">hum</span></code> (humidity), which has a negative effect on the response variable, and <code class="docutils literal notranslate"><span class="pre">hr</span></code> (hour), which has a positive effect on the response variable.</p>
@@ -342,7 +342,7 @@ The different combinations of these two hyperparameters would lead to different 
 </div>
 </div>
 <figure class="align-left">
-<a class="reference external image-reference" href="../../auto_examples/models/plot_0_glm.html"><img alt="../../_images/sphx_glr_plot_0_glm_reg_002.png" src="../../_images/sphx_glr_plot_0_glm_reg_002.png" /></a>
+<a class="reference external image-reference" href="../../auto_examples/3_models/plot_0_glm.html"><img alt="../../_images/sphx_glr_plot_0_glm_reg_002.png" src="../../_images/sphx_glr_plot_0_glm_reg_002.png" /></a>
 </figure>
 <p>In this example, the categorical variable <code class="docutils literal notranslate"><span class="pre">season</span></code> has four categories, which are represented by four binary dummy variables: <code class="docutils literal notranslate"><span class="pre">season_1</span></code>, <code class="docutils literal notranslate"><span class="pre">season_2</span></code>, <code class="docutils literal notranslate"><span class="pre">season_3</span></code>, and <code class="docutils literal notranslate"><span class="pre">season_4</span></code>. To avoid overparameterization, only three of the four dummy variables are used for model fitting, and the fourth one (<code class="docutils literal notranslate"><span class="pre">season_1</span></code>) is dropped and assigned a coefficient of zero.
 Note that the choice of which dummy variable to drop can affect the interpretation of the coefficients for the remaining variables, especially if there are interactions or nonlinear effects between categories.</p>
@@ -370,7 +370,7 @@ Note that the choice of which dummy variable to drop can affect the interpretati
 </div>
 </div>
 <figure class="align-left">
-<a class="reference external image-reference" href="../../auto_examples/models/plot_0_glm_reg.html"><img alt="../../_images/sphx_glr_plot_0_glm_reg_003.png" src="../../_images/sphx_glr_plot_0_glm_reg_003.png" /></a>
+<a class="reference external image-reference" href="../../auto_examples/3_models/plot_0_glm_reg.html"><img alt="../../_images/sphx_glr_plot_0_glm_reg_003.png" src="../../_images/sphx_glr_plot_0_glm_reg_003.png" /></a>
 </figure>
 <p>In order to interpret the relative importance of each feature as a proportion of the total importance across all features, we normalize the feature importance so that their sum equals 1. Because there may be many input features in a machine learning model, it can be helpful to focus on the most important features for interpretation and visualization purposes. Therefore, the feature importance plot typically shows only the top 10 most important features, to help identify which features are most relevant for understanding the model’s behavior and making predictions. To get the full results, you can set the parameter <code class="docutils literal notranslate"><span class="pre">return_data</span></code> to True.</p>
 </section>
@@ -388,7 +388,7 @@ Note that the choice of which dummy variable to drop can affect the interpretati
 </div>
 </div>
 <figure class="align-left">
-<a class="reference external image-reference" href="../../auto_examples/models/plot_0_glm_reg.html"><img alt="../../_images/sphx_glr_plot_0_glm_reg_004.png" src="../../_images/sphx_glr_plot_0_glm_reg_004.png" /></a>
+<a class="reference external image-reference" href="../../auto_examples/3_models/plot_0_glm_reg.html"><img alt="../../_images/sphx_glr_plot_0_glm_reg_004.png" src="../../_images/sphx_glr_plot_0_glm_reg_004.png" /></a>
 </figure>
 <p>In this plot, the bars show the marginal contribution (effects) of each feature. The longer the bar, the larger the marginal effect, and the more contribution the corresponding feature has on the prediction. In contrast, the regression coefficients (weights) indicate the strength and direction of the relationship between each feature and the target variable. The larger the coefficient, the more sensitive the corresponding feature’ contribution to the prediction.</p>
 <p>The <code class="docutils literal notranslate"><span class="pre">sample_id=0</span></code> indicates that the plot is showing the marginal effects for the first sample in the training set, and the feature values for this sample are shown on the right axis. Note that this plot only shows the top 10 features with the largest contributions. To get the full results, you can set the parameter <code class="docutils literal notranslate"><span class="pre">return_data</span></code> to True.</p>
@@ -405,7 +405,7 @@ Note that the choice of which dummy variable to drop can affect the interpretati
 </div>
 </div>
 <figure class="align-left">
-<a class="reference external image-reference" href="../../auto_examples/models/plot_0_glm_reg.html"><img alt="../../_images/sphx_glr_plot_0_glm_reg_005.png" src="../../_images/sphx_glr_plot_0_glm_reg_005.png" /></a>
+<a class="reference external image-reference" href="../../auto_examples/3_models/plot_0_glm_reg.html"><img alt="../../_images/sphx_glr_plot_0_glm_reg_005.png" src="../../_images/sphx_glr_plot_0_glm_reg_005.png" /></a>
 </figure>
 </section>
 <section id="centered-option">
@@ -422,20 +422,50 @@ Note that the choice of which dummy variable to drop can affect the interpretati
 </div>
 </div>
 <figure class="align-left">
-<a class="reference external image-reference" href="../../auto_examples/models/plot_0_glm_reg.html"><img alt="../../_images/sphx_glr_plot_0_glm_reg_006.png" src="../../_images/sphx_glr_plot_0_glm_reg_006.png" /></a>
+<a class="reference external image-reference" href="../../auto_examples/3_models/plot_0_glm_reg.html"><img alt="../../_images/sphx_glr_plot_0_glm_reg_006.png" src="../../_images/sphx_glr_plot_0_glm_reg_006.png" /></a>
 </figure>
 <p>By centering the data and calculating the marginal effects, the model itself remains unchanged, but the interpretation of the marginal effects may change significantly, as we are essentially comparing the contribution of each feature to the average population, rather than the individual sample values. For instance, <code class="docutils literal notranslate"><span class="pre">hum</span></code> has a large contribution to the prediction in the uncentered data. However, when the data is centered, its contribution becomes negligible. This is because the feature value of this sample is close to the population mean, and its contribution is now mainly captured by the intercept term.</p>
 </section>
 </section>
+<section id="data-dependent-interpretation">
+<h2><span class="section-number">5.1.4. </span>Data Dependent Interpretation<a class="headerlink" href="#data-dependent-interpretation" title="Permalink to this heading">¶</a></h2>
+<p>The model interpretation can be affected by the data distribution. For example, the feature importance of a feature can be very different for different data sets. To address this issue, we can use the <code class="docutils literal notranslate"><span class="pre">use_test</span></code> parameter to switch between training and testing data for interpretation. For example, the following command shows the feature importance of the GLM model on the testing data.</p>
+<div class="jupyter_cell jupyter_container docutils container">
+<div class="cell_input code_cell docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">exp</span><span class="o">.</span><span class="n">model_interpret</span><span class="p">(</span><span class="n">model</span><span class="o">=</span><span class="s2">&quot;GLM&quot;</span><span class="p">,</span> <span class="n">show</span><span class="o">=</span><span class="s2">&quot;global_fi&quot;</span><span class="p">,</span> <span class="n">use_test</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">4</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+</div>
+</div>
+<figure class="align-left">
+<a class="reference external image-reference" href="../../auto_examples/3_models/plot_0_glm_reg.html"><img alt="../../_images/sphx_glr_plot_0_glm_reg_007.png" src="../../_images/sphx_glr_plot_0_glm_reg_007.png" /></a>
+</figure>
+<p>For local interpretation, the <code class="docutils literal notranslate"><span class="pre">sample_id</span></code> parameter is used to select the sample in the training set. If you would like to interpret samples in the testing set, just set <code class="docutils literal notranslate"><span class="pre">use_test</span></code> to True. Then, the <code class="docutils literal notranslate"><span class="pre">sample_id</span></code> stands for the index of test set data.</p>
+<div class="jupyter_cell jupyter_container docutils container">
+<div class="cell_input code_cell docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">exp</span><span class="o">.</span><span class="n">model_interpret</span><span class="p">(</span><span class="n">model</span><span class="o">=</span><span class="s2">&quot;GLM&quot;</span><span class="p">,</span> <span class="n">show</span><span class="o">=</span><span class="s2">&quot;local_fi&quot;</span><span class="p">,</span> <span class="n">sample_id</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">use_test</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+                    <span class="n">original_scale</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">4</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+</div>
+</div>
+<figure class="align-left">
+<a class="reference external image-reference" href="../../auto_examples/3_models/plot_0_glm_reg.html"><img alt="../../_images/sphx_glr_plot_0_glm_reg_008.png" src="../../_images/sphx_glr_plot_0_glm_reg_008.png" /></a>
+</figure>
+</section>
 <section id="examples">
-<h2><span class="section-number">5.1.4. </span>Examples<a class="headerlink" href="#examples" title="Permalink to this heading">¶</a></h2>
+<h2><span class="section-number">5.1.5. </span>Examples<a class="headerlink" href="#examples" title="Permalink to this heading">¶</a></h2>
 <div class="topic">
 <p class="topic-title">Example 1: Bike Sharing</p>
 <blockquote>
 <div><p>The first example below demonstrates how to use PiML with its high-code APIs for developing machine learning models for the BikeSharing data from the UCI repository, which consists of 17,389 samples of hourly counts of rental bikes in Capital bikeshare system; see details. The response <code class="docutils literal notranslate"><span class="pre">cnt</span></code> (hourly bike rental counts) is continuous and it is a regression problem.</p>
 </div></blockquote>
 <ul class="simple">
-<li><p><a class="reference internal" href="../../auto_examples/models/plot_0_glm_reg.html#sphx-glr-auto-examples-models-plot-0-glm-reg-py"><span class="std std-ref">GLM Linear Regression (Bike Sharing)</span></a></p></li>
+<li><p><a class="reference internal" href="../../auto_examples/3_models/plot_0_glm_reg.html#sphx-glr-auto-examples-3-models-plot-0-glm-reg-py"><span class="std std-ref">GLM Linear Regression (Bike Sharing)</span></a></p></li>
 </ul>
 </div>
 <div class="topic">
@@ -444,7 +474,7 @@ Note that the choice of which dummy variable to drop can affect the interpretati
 <div><p>The second example below demonstrates how to use PiML’s high-code APIs for the TaiwanCredit dataset from the UCI repository. This dataset comprises the credit card details of 30,000 clients in Taiwan from April 2005 to September 2005, and more information can be found on the TaiwanCreditData website. The data can be loaded directly into PiML, although it requires some preprocessing. The FlagDefault variable serves as the response for this classification problem.</p>
 </div></blockquote>
 <ul class="simple">
-<li><p><a class="reference internal" href="../../auto_examples/models/plot_0_glm_cls.html#sphx-glr-auto-examples-models-plot-0-glm-cls-py"><span class="std std-ref">GLM Logistic Regression (Taiwan Credit)</span></a></p></li>
+<li><p><a class="reference internal" href="../../auto_examples/3_models/plot_0_glm_cls.html#sphx-glr-auto-examples-3-models-plot-0-glm-cls-py"><span class="std std-ref">GLM Logistic Regression (Taiwan Credit)</span></a></p></li>
 </ul>
 </div>
 <div class="topic">

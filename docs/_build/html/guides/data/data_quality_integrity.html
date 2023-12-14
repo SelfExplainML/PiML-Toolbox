@@ -1,0 +1,1273 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+
+  <meta charset="utf-8">
+  <meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  
+  <title>PiML Toolbox</title>
+  
+
+  
+  <link rel="shortcut icon" href="../../_static/favicon.ico"/>
+  
+
+  <link rel="stylesheet" href="../../_static/css/vendor/bootstrap.min.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/plot_directive.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/jupyter-sphinx.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/thebelab.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/sg_gallery.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/sg_gallery-binder.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/sg_gallery-dataframe.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/sg_gallery-rendered-html.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
+<script id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+<script src="../../_static/jquery.js"></script>
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="../../_static/doctools.js"></script>
+        <script src="../../_static/sphinx_highlight.js"></script>
+        <script src="../../_static/thebelab-helper.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/@jupyter-widgets/html-manager@^1.0.1/dist/embed-amd.js"></script>
+        <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+        <script>window.MathJax = {"tex": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true}, "options": {"ignoreHtmlClass": "tex2jax_ignore|mathjax_ignore|document", "processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+        <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
+    <script src="../../_static/js/theme.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav">
+
+  
+
+
+<nav id="navbar" class="sk-docs-navbar navbar navbar-expand-md navbar-light bg-light py-0">
+  <div class="container-fluid sk-docs-container px-0">
+      <a class="navbar-brand py-0" href="../../index.html">
+        <img
+          class="sk-brand-img"
+          src="../../_static/piml-logo.png"
+          alt="logo"/>
+      </a>
+    <button
+      id="sk-navbar-toggler"
+      class="navbar-toggler"
+      type="button"
+      data-toggle="collapse"
+      data-target="#navbarSupportedContent"
+      aria-controls="navbarSupportedContent"
+      aria-expanded="false"
+      aria-label="Toggle navigation"
+    >
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="sk-navbar-collapse collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item">
+          <a class="sk-nav-link nav-link" href="../../install.html">Install</a>
+        </li>
+        <li class="nav-item">
+          <a class="sk-nav-link nav-link" href="../../user_guide.html">User Guide</a>
+        </li>
+        <li class="nav-item">
+          <a class="sk-nav-link nav-link" href="../../modules/classes.html">API</a>
+        </li>
+        <li class="nav-item">
+          <a class="sk-nav-link nav-link" href="../../auto_examples/index.html">Examples</a>
+        </li>
+     </ul>
+      <div id="searchbox" role="search">
+          <div class="searchformwrapper">
+          <form class="search" action="../../search.html" method="get">
+            <input class="sk-search-text-input" type="text" name="q" aria-labelledby="searchlabel" />
+            <input class="sk-search-text-btn" type="submit" value="Go" />
+          </form>
+          </div>
+      </div>
+    </div>
+  </div>
+</nav>
+  <div class="d-flex" id="sk-doc-wrapper">
+      <input type="checkbox" name="sk-toggle-checkbox" id="sk-toggle-checkbox">
+      <label id="sk-sidemenu-toggle" class="sk-btn-toggle-toc btn sk-btn-primary" for="sk-toggle-checkbox">Toggle Menu</label>
+      <div id="sk-sidebar-wrapper" class="border-right">
+        <div class="sk-sidebar-toc-wrapper">
+          <div class="sk-sidebar-toc-logo">
+            <a href="../../index.html">
+              <img
+                class="sk-brand-img"
+                src="../../_static/piml-logo.png"
+                alt="logo"/>
+            </a>
+          </div>
+          <!--div class="btn-group w-100 mb-2" role="group" aria-label="rellinks">
+              <a href="data_eda.html" role="button" class="btn sk-btn-rellink py-1" sk-rellink-tooltip="2.4. Exploratory Analysis">Prev</a><a href="../data.html" role="button" class="btn sk-btn-rellink py-1" sk-rellink-tooltip="2. Data Pipeline">Up</a>
+              <a href="data_quality_outlier.html" role="button" class="btn sk-btn-rellink py-1" sk-rellink-tooltip="2.6. Data Quality (Outlier Detection)">Next</a>
+          </div-->
+              <div class="sk-sidebar-toc">
+              
+                <ul>
+                
+                
+                
+                
+                
+                
+                <li>
+                  <a href="../../user_guide.html" class="sk-toc-active">User Guide</a>
+                </li>
+                <ul>
+                
+                  <li>
+                    <a href="../introduction.html" class="">1. Introduction</a>
+                    
+                  </li>
+                
+                  <li>
+                    <a href="../data.html" class="sk-toc-active">2. Data Pipeline</a>
+                    
+                    <ul>
+                      
+                        <li class="sk-toctree-l3">
+                          <a href="data_load.html">2.1. Data Load</a>
+                        </li>
+                      
+                        <li class="sk-toctree-l3">
+                          <a href="data_summary.html">2.2. Data Summary</a>
+                        </li>
+                      
+                        <li class="sk-toctree-l3">
+                          <a href="data_prepare.html">2.3. Data Preparation</a>
+                        </li>
+                      
+                        <li class="sk-toctree-l3">
+                          <a href="data_eda.html">2.4. Exploratory Analysis</a>
+                        </li>
+                      
+                        <li class="sk-toctree-l3">
+                          <a href="">2.5. Data Quality (Integrity Check)</a>
+                        </li>
+                      
+                        <li class="sk-toctree-l3">
+                          <a href="data_quality_outlier.html">2.6. Data Quality (Outlier Detection)</a>
+                        </li>
+                      
+                        <li class="sk-toctree-l3">
+                          <a href="data_quality_drift.html">2.7. Data Quality (Drift Test)</a>
+                        </li>
+                      
+                        <li class="sk-toctree-l3">
+                          <a href="feature_select.html">2.8. Feature Selection</a>
+                        </li>
+                      
+                    </ul>
+                    
+                  </li>
+                
+                  <li>
+                    <a href="../train.html" class="">3. Model Train and Tune</a>
+                    
+                  </li>
+                
+                  <li>
+                    <a href="../explain.html" class="">4. Post-hoc Explainability</a>
+                    
+                  </li>
+                
+                  <li>
+                    <a href="../models.html" class="">5. Interpretable Models</a>
+                    
+                  </li>
+                
+                  <li>
+                    <a href="../testing.html" class="">6. Diagnostic Suite</a>
+                    
+                  </li>
+                
+                  <li>
+                    <a href="../compare.html" class="">7. Model Comparison</a>
+                    
+                  </li>
+                
+                  <li>
+                    <a href="../cases.html" class="">8. Case Studies</a>
+                    
+                  </li>
+                
+                </ul>
+                
+                
+                
+                
+                </ul>
+              </div>
+        </div>
+      </div>
+      <div id="sk-page-content-wrapper">
+        <div class="sk-page-content container-fluid body px-md-3" role="main">
+          
+  <style type="text/css">
+  div.body div.toctree-wrapper ul {
+      padding-left: 0;
+  }
+
+  div.body li.toctree-l1 {
+      padding: 0 0 0.5em 0;
+      list-style-type: none;
+      font-size: 150%;
+      font-weight: bold;
+  }
+
+  div.body li.toctree-l2 {
+      font-size: 70%;
+      list-style-type: square;
+      font-weight: normal;
+      margin-left: 40px;
+  }
+
+  div.body li.toctree-l3 {
+      font-size: 85%;
+      list-style-type: circle;
+      font-weight: normal;
+      margin-left: 40px;
+  }
+
+  div.body li.toctree-l4 {
+      margin-left: 40px;
+  }
+
+</style><section id="data-quality-integrity-check">
+<h1><span class="section-number">2.5. </span>Data Quality (Integrity Check)<a class="headerlink" href="#data-quality-integrity-check" title="Permalink to this heading">¶</a></h1>
+<p>The data quality module in PiML is designed to identify issues related to data. It comprises three submodules: data integrity check, outlier detection, and train-test data drift detection. This article focuses on introducing the data integrity check, a critical test ensuring data accuracy by validating that data values align with the anticipated format, range, and type.</p>
+<p>The data integrity check can be used as data is loaded, and all columns except the ones removed in the <code class="docutils literal notranslate"><span class="pre">exp.data_summary</span></code> module will be tested. Three types of data integrity checks are provided: single-column checks, duplicated samples, and highly correlated features. Note that most of the checks in this submodule are developed based on the <a class="reference external" href="https://docs.deepchecks.com/stable/getting-started/installation.html">deepchecks</a> Python package.</p>
+<section id="single-column-checks">
+<h2><span class="section-number">2.5.1. </span>Single-column Checks<a class="headerlink" href="#single-column-checks" title="Permalink to this heading">¶</a></h2>
+<p>This set of integrity tests is specifically tailored for the analysis of individual columns. It can be used by the following command:</p>
+<div class="jupyter_cell jupyter_container docutils container">
+<div class="cell_input code_cell docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">exp</span><span class="o">.</span><span class="n">data_quality</span><span class="p">(</span><span class="n">show</span><span class="o">=</span><span class="s2">&quot;integrity_single_column_check&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+</div>
+</div>
+<div class="output_subarea output_html rendered_html output_result">
+<style type="text/css">
+#T_f60f6 th.col_heading {
+text-align: center;
+}
+#T_f60f6 th.col_heading.level0 {
+font-size: 1.0em;
+}
+#T_f60f6 th {
+border-style: solid;
+border-width: 1px;
+}
+#T_f60f6 td {
+border-style: solid;
+border-width: 1px;
+}
+</style>
+<table id="T_f60f6">
+<thead>
+    <tr>
+    <th class="blank level0" >&nbsp;</th>
+    <th id="T_f60f6_level0_col0" class="col_heading level0 col0" >Is Single Value</th>
+    <th id="T_f60f6_level0_col1" class="col_heading level0 col1" >Null Ratio</th>
+    <th id="T_f60f6_level0_col2" class="col_heading level0 col2" colspan="2">Mixed Data Types</th>
+    <th id="T_f60f6_level0_col4" class="col_heading level0 col4" colspan="2">Long String</th>
+    <th id="T_f60f6_level0_col6" class="col_heading level0 col6" colspan="2">Special Characters</th>
+    <th id="T_f60f6_level0_col8" class="col_heading level0 col8" colspan="2">New Categories</th>
+    </tr>
+    <tr>
+    <th class="blank level1" >&nbsp;</th>
+    <th id="T_f60f6_level1_col0" class="col_heading level1 col0" ></th>
+    <th id="T_f60f6_level1_col1" class="col_heading level1 col1" ></th>
+    <th id="T_f60f6_level1_col2" class="col_heading level1 col2" >Mixed</th>
+    <th id="T_f60f6_level1_col3" class="col_heading level1 col3" >Categorical : Numerical</th>
+    <th id="T_f60f6_level1_col4" class="col_heading level1 col4" >Num</th>
+    <th id="T_f60f6_level1_col5" class="col_heading level1 col5" >Index</th>
+    <th id="T_f60f6_level1_col6" class="col_heading level1 col6" >Ratio</th>
+    <th id="T_f60f6_level1_col7" class="col_heading level1 col7" >Example Samples</th>
+    <th id="T_f60f6_level1_col8" class="col_heading level1 col8" >Num</th>
+    <th id="T_f60f6_level1_col9" class="col_heading level1 col9" >Example Samples</th>
+    </tr>
+</thead>
+<tbody>
+    <tr>
+    <th id="T_f60f6_level0_row0" class="row_heading level0 row0" >season</th>
+    <td id="T_f60f6_row0_col0" class="data row0 col0" >False</td>
+    <td id="T_f60f6_row0_col1" class="data row0 col1" >0.000000</td>
+    <td id="T_f60f6_row0_col2" class="data row0 col2" >False</td>
+    <td id="T_f60f6_row0_col3" class="data row0 col3" >-</td>
+    <td id="T_f60f6_row0_col4" class="data row0 col4" >0</td>
+    <td id="T_f60f6_row0_col5" class="data row0 col5" >[]</td>
+    <td id="T_f60f6_row0_col6" class="data row0 col6" >0.000000</td>
+    <td id="T_f60f6_row0_col7" class="data row0 col7" >[]</td>
+    <td id="T_f60f6_row0_col8" class="data row0 col8" >0</td>
+    <td id="T_f60f6_row0_col9" class="data row0 col9" >[]</td>
+    </tr>
+    <tr>
+    <th id="T_f60f6_level0_row1" class="row_heading level0 row1" >hr</th>
+    <td id="T_f60f6_row1_col0" class="data row1 col0" >False</td>
+    <td id="T_f60f6_row1_col1" class="data row1 col1" >0.000000</td>
+    <td id="T_f60f6_row1_col2" class="data row1 col2" >False</td>
+    <td id="T_f60f6_row1_col3" class="data row1 col3" >-</td>
+    <td id="T_f60f6_row1_col4" class="data row1 col4" >0</td>
+    <td id="T_f60f6_row1_col5" class="data row1 col5" >[]</td>
+    <td id="T_f60f6_row1_col6" class="data row1 col6" >0.000000</td>
+    <td id="T_f60f6_row1_col7" class="data row1 col7" >[]</td>
+    <td id="T_f60f6_row1_col8" class="data row1 col8" >-</td>
+    <td id="T_f60f6_row1_col9" class="data row1 col9" >-</td>
+    </tr>
+    <tr>
+    <th id="T_f60f6_level0_row2" class="row_heading level0 row2" >holiday</th>
+    <td id="T_f60f6_row2_col0" class="data row2 col0" >False</td>
+    <td id="T_f60f6_row2_col1" class="data row2 col1" >0.000000</td>
+    <td id="T_f60f6_row2_col2" class="data row2 col2" >False</td>
+    <td id="T_f60f6_row2_col3" class="data row2 col3" >-</td>
+    <td id="T_f60f6_row2_col4" class="data row2 col4" >0</td>
+    <td id="T_f60f6_row2_col5" class="data row2 col5" >[]</td>
+    <td id="T_f60f6_row2_col6" class="data row2 col6" >0.000000</td>
+    <td id="T_f60f6_row2_col7" class="data row2 col7" >[]</td>
+    <td id="T_f60f6_row2_col8" class="data row2 col8" >0</td>
+    <td id="T_f60f6_row2_col9" class="data row2 col9" >[]</td>
+    </tr>
+    <tr>
+    <th id="T_f60f6_level0_row3" class="row_heading level0 row3" >weekday</th>
+    <td id="T_f60f6_row3_col0" class="data row3 col0" >False</td>
+    <td id="T_f60f6_row3_col1" class="data row3 col1" >0.000000</td>
+    <td id="T_f60f6_row3_col2" class="data row3 col2" >False</td>
+    <td id="T_f60f6_row3_col3" class="data row3 col3" >-</td>
+    <td id="T_f60f6_row3_col4" class="data row3 col4" >0</td>
+    <td id="T_f60f6_row3_col5" class="data row3 col5" >[]</td>
+    <td id="T_f60f6_row3_col6" class="data row3 col6" >0.000000</td>
+    <td id="T_f60f6_row3_col7" class="data row3 col7" >[]</td>
+    <td id="T_f60f6_row3_col8" class="data row3 col8" >-</td>
+    <td id="T_f60f6_row3_col9" class="data row3 col9" >-</td>
+    </tr>
+    <tr>
+    <th id="T_f60f6_level0_row4" class="row_heading level0 row4" >workingday</th>
+    <td id="T_f60f6_row4_col0" class="data row4 col0" >False</td>
+    <td id="T_f60f6_row4_col1" class="data row4 col1" >0.000000</td>
+    <td id="T_f60f6_row4_col2" class="data row4 col2" >False</td>
+    <td id="T_f60f6_row4_col3" class="data row4 col3" >-</td>
+    <td id="T_f60f6_row4_col4" class="data row4 col4" >0</td>
+    <td id="T_f60f6_row4_col5" class="data row4 col5" >[]</td>
+    <td id="T_f60f6_row4_col6" class="data row4 col6" >0.000000</td>
+    <td id="T_f60f6_row4_col7" class="data row4 col7" >[]</td>
+    <td id="T_f60f6_row4_col8" class="data row4 col8" >0</td>
+    <td id="T_f60f6_row4_col9" class="data row4 col9" >[]</td>
+    </tr>
+    <tr>
+    <th id="T_f60f6_level0_row5" class="row_heading level0 row5" >weathersit</th>
+    <td id="T_f60f6_row5_col0" class="data row5 col0" >False</td>
+    <td id="T_f60f6_row5_col1" class="data row5 col1" >0.000000</td>
+    <td id="T_f60f6_row5_col2" class="data row5 col2" >False</td>
+    <td id="T_f60f6_row5_col3" class="data row5 col3" >-</td>
+    <td id="T_f60f6_row5_col4" class="data row5 col4" >0</td>
+    <td id="T_f60f6_row5_col5" class="data row5 col5" >[]</td>
+    <td id="T_f60f6_row5_col6" class="data row5 col6" >0.000000</td>
+    <td id="T_f60f6_row5_col7" class="data row5 col7" >[]</td>
+    <td id="T_f60f6_row5_col8" class="data row5 col8" >0</td>
+    <td id="T_f60f6_row5_col9" class="data row5 col9" >[]</td>
+    </tr>
+    <tr>
+    <th id="T_f60f6_level0_row6" class="row_heading level0 row6" >atemp</th>
+    <td id="T_f60f6_row6_col0" class="data row6 col0" >False</td>
+    <td id="T_f60f6_row6_col1" class="data row6 col1" >0.000000</td>
+    <td id="T_f60f6_row6_col2" class="data row6 col2" >False</td>
+    <td id="T_f60f6_row6_col3" class="data row6 col3" >-</td>
+    <td id="T_f60f6_row6_col4" class="data row6 col4" >0</td>
+    <td id="T_f60f6_row6_col5" class="data row6 col5" >[]</td>
+    <td id="T_f60f6_row6_col6" class="data row6 col6" >0.000000</td>
+    <td id="T_f60f6_row6_col7" class="data row6 col7" >[]</td>
+    <td id="T_f60f6_row6_col8" class="data row6 col8" >-</td>
+    <td id="T_f60f6_row6_col9" class="data row6 col9" >-</td>
+    </tr>
+    <tr>
+    <th id="T_f60f6_level0_row7" class="row_heading level0 row7" >hum</th>
+    <td id="T_f60f6_row7_col0" class="data row7 col0" >False</td>
+    <td id="T_f60f6_row7_col1" class="data row7 col1" >0.000000</td>
+    <td id="T_f60f6_row7_col2" class="data row7 col2" >False</td>
+    <td id="T_f60f6_row7_col3" class="data row7 col3" >-</td>
+    <td id="T_f60f6_row7_col4" class="data row7 col4" >0</td>
+    <td id="T_f60f6_row7_col5" class="data row7 col5" >[]</td>
+    <td id="T_f60f6_row7_col6" class="data row7 col6" >0.000000</td>
+    <td id="T_f60f6_row7_col7" class="data row7 col7" >[]</td>
+    <td id="T_f60f6_row7_col8" class="data row7 col8" >-</td>
+    <td id="T_f60f6_row7_col9" class="data row7 col9" >-</td>
+    </tr>
+    <tr>
+    <th id="T_f60f6_level0_row8" class="row_heading level0 row8" >windspeed</th>
+    <td id="T_f60f6_row8_col0" class="data row8 col0" >False</td>
+    <td id="T_f60f6_row8_col1" class="data row8 col1" >0.000000</td>
+    <td id="T_f60f6_row8_col2" class="data row8 col2" >False</td>
+    <td id="T_f60f6_row8_col3" class="data row8 col3" >-</td>
+    <td id="T_f60f6_row8_col4" class="data row8 col4" >0</td>
+    <td id="T_f60f6_row8_col5" class="data row8 col5" >[]</td>
+    <td id="T_f60f6_row8_col6" class="data row8 col6" >0.000000</td>
+    <td id="T_f60f6_row8_col7" class="data row8 col7" >[]</td>
+    <td id="T_f60f6_row8_col8" class="data row8 col8" >-</td>
+    <td id="T_f60f6_row8_col9" class="data row8 col9" >-</td>
+    </tr>
+    <tr>
+    <th id="T_f60f6_level0_row9" class="row_heading level0 row9" >cnt</th>
+    <td id="T_f60f6_row9_col0" class="data row9 col0" >False</td>
+    <td id="T_f60f6_row9_col1" class="data row9 col1" >0.000000</td>
+    <td id="T_f60f6_row9_col2" class="data row9 col2" >False</td>
+    <td id="T_f60f6_row9_col3" class="data row9 col3" >-</td>
+    <td id="T_f60f6_row9_col4" class="data row9 col4" >0</td>
+    <td id="T_f60f6_row9_col5" class="data row9 col5" >[]</td>
+    <td id="T_f60f6_row9_col6" class="data row9 col6" >0.000000</td>
+    <td id="T_f60f6_row9_col7" class="data row9 col7" >[]</td>
+    <td id="T_f60f6_row9_col8" class="data row9 col8" >-</td>
+    <td id="T_f60f6_row9_col9" class="data row9 col9" >-</td>
+    </tr>
+</tbody>
+</table>
+</div><p>The output of this method is a table that includes the following columns:</p>
+<ul>
+<li><p>‘Is Single Value’: checks whether any columns have only a single unique value across all rows.</p></li>
+<li><p>‘Null Ratio’: calculates the ratio of ‘null’ or ‘nan’ values in each column.</p></li>
+<li><p>‘Mixed Data Types’: detects columns containing a mixture of numerical and string values.</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>‘Mixed’: an indicator of whether the column includes mixed data types.</p></li>
+<li><p>‘Categorical : Numerical’: when ‘Mixed’ is True, it indicates the ratio of categorical data to numerical data.</p></li>
+</ul>
+</div></blockquote>
+</li>
+<li><p>‘Long String’: identifies strings with lengths significantly longer than the expected “normal” string lengths.</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>‘Num’: indicates the size of long string samples.</p></li>
+<li><p>‘Index’: specifies the sample index of the long string samples.</p></li>
+</ul>
+</div></blockquote>
+</li>
+<li><p>‘Special Characters’: this test checks for the presence of special characters in each column.</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>‘Ratio’: represents the proportion of special characters compared to all samples.</p></li>
+<li><p>‘Example Samples’: displays the top two examples of special characters.</p></li>
+</ul>
+</div></blockquote>
+</li>
+<li><p>‘New Categories’: identifies new categories in the test set. Note that this functionality only works as <code class="docutils literal notranslate"><span class="pre">exp.data_prepare</span></code> is executed.</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>‘Num’: indicates the sample size of new categories.</p></li>
+<li><p>‘Example Samples’: lists new categories present in the test dataset.</p></li>
+</ul>
+</div></blockquote>
+</li>
+</ul>
+</section>
+<section id="duplicated-samples">
+<h2><span class="section-number">2.5.2. </span>Duplicated Samples<a class="headerlink" href="#duplicated-samples" title="Permalink to this heading">¶</a></h2>
+<p>This method includes a test for detecting duplicated samples, which means two samples are the same. See the usage and results below.</p>
+<div class="jupyter_cell jupyter_container docutils container">
+<div class="cell_input code_cell docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">exp</span><span class="o">.</span><span class="n">data_quality</span><span class="p">(</span><span class="n">show</span><span class="o">=</span><span class="s2">&quot;integrity_duplicated_samples&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+</div>
+</div>
+<div class="output_subarea output_html rendered_html output_result">
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+<thead>
+    <tr style="text-align: right;">
+    <th></th>
+    <th>Leakage</th>
+    <th>season</th>
+    <th>hr</th>
+    <th>holiday</th>
+    <th>weekday</th>
+    <th>workingday</th>
+    <th>weathersit</th>
+    <th>atemp</th>
+    <th>hum</th>
+    <th>windspeed</th>
+    <th>cnt</th>
+    </tr>
+</thead>
+<tbody>
+    <tr>
+    <th>[1507, 9867]</th>
+    <td>False</td>
+    <td>1.0</td>
+    <td>4.0</td>
+    <td>0.0</td>
+    <td>2.0</td>
+    <td>1.0</td>
+    <td>1.0</td>
+    <td>0.2727</td>
+    <td>0.64</td>
+    <td>0.0000</td>
+    <td>2.0</td>
+    </tr>
+    <tr>
+    <th>[9822, 17336]</th>
+    <td>False</td>
+    <td>1.0</td>
+    <td>5.0</td>
+    <td>0.0</td>
+    <td>0.0</td>
+    <td>0.0</td>
+    <td>2.0</td>
+    <td>0.2273</td>
+    <td>0.48</td>
+    <td>0.2985</td>
+    <td>2.0</td>
+    </tr>
+    <tr>
+    <th>[13559, 13727]</th>
+    <td>True</td>
+    <td>3.0</td>
+    <td>4.0</td>
+    <td>0.0</td>
+    <td>2.0</td>
+    <td>1.0</td>
+    <td>1.0</td>
+    <td>0.6061</td>
+    <td>0.83</td>
+    <td>0.0896</td>
+    <td>6.0</td>
+    </tr>
+    <tr>
+    <th>[5598, 14639]</th>
+    <td>False</td>
+    <td>3.0</td>
+    <td>4.0</td>
+    <td>0.0</td>
+    <td>5.0</td>
+    <td>1.0</td>
+    <td>1.0</td>
+    <td>0.5606</td>
+    <td>0.88</td>
+    <td>0.0000</td>
+    <td>8.0</td>
+    </tr>
+    <tr>
+    <th>[7958, 8126]</th>
+    <td>False</td>
+    <td>4.0</td>
+    <td>6.0</td>
+    <td>0.0</td>
+    <td>6.0</td>
+    <td>0.0</td>
+    <td>1.0</td>
+    <td>0.2576</td>
+    <td>0.65</td>
+    <td>0.1045</td>
+    <td>11.0</td>
+    </tr>
+</tbody>
+</table>
+</div>
+</div><p>The table above is a summary of all detected duplicated samples. Each row shows a duplicated sample. If no duplication is found, then this table will be empty. The index column shows the duplicated sample indexes (the raw data index). For example, the first row has an index [1507, 9867], which means that the samples with index 1507 and index 9867 are the same, and their feature values are listed in the table.</p>
+<p>As the <code class="docutils literal notranslate"><span class="pre">exp.data_prepare</span></code> is executed, there will be an additional column called “leakage”. If the same sample is found in both the training and testing sets, the value of ‘leakage’ will be set to True, indicating the presence of data leakage. Otherwise, it will be set to False.</p>
+</section>
+<section id="highly-correlated-features">
+<h2><span class="section-number">2.5.3. </span>Highly correlated features<a class="headerlink" href="#highly-correlated-features" title="Permalink to this heading">¶</a></h2>
+<p>This is a test for detecting highly correlated features. Depending on the data types of each two features, different correlation methods are used:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>numerical-numerical: Spearman’s correlation coefficient is used to assess the strength and direction of the monotonic relationship between two numerical variables. For more information, please refer to <a class="reference external" href="../../guides/data/feature_select.html">feature_select</a>.</p></li>
+<li><p>numerical-categorical: The correlation ratio is used to measure the level of correlation between a numerical variable and a categorical variable. It ranges from 0 to 1, where 0 indicates no relationship and 1 indicates a perfect relationship. Assume each observation is <span class="math notranslate nohighlight">\(y_{xi}\)</span>, <span class="math notranslate nohighlight">\(x\)</span> is the category, and <span class="math notranslate nohighlight">\(i\)</span> is the index. Let <span class="math notranslate nohighlight">\(n_x\)</span> be the number of observations in category <span class="math notranslate nohighlight">\(x\)</span>. <span class="math notranslate nohighlight">\(\overline {y}_{x}\)</span> is the mean of the category <span class="math notranslate nohighlight">\(x\)</span> and <span class="math notranslate nohighlight">\(\overline {y}\)</span> is the mean of the whole population. The formula of correlation ratio <span class="math notranslate nohighlight">\(\eta\)</span> is</p></li>
+</ul>
+<div class="math notranslate nohighlight">
+\[\begin{aligned}
+    \eta = \sqrt{ {\frac  {\sum _{x}n_{x}(\overline {y}_{x}-\overline {y})^{2}}{\sum _{{x,i}}(y_{{xi}}-\overline {y})^{2}}}}.
+\end{aligned}\]</div>
+<p>The numerator is the between-group variability and the denominator is the total variability. In other words, it measures the proportion of variance in the continuous variable that can be explained by the categorical variable.</p>
+<ul class="simple">
+<li><p>categorical-categorical: Symmetric Theil’s U correlation is used to evaluate how well a categorical variable explains another categorical variable. Theil’s U is an asymmetric measure based on entropy.</p></li>
+</ul>
+<div class="math notranslate nohighlight">
+\[\begin{aligned}
+    U(X|Y) = \frac{H(X) - H(X|Y)}{H(X)},
+\end{aligned}\]</div>
+<div class="math notranslate nohighlight">
+\[\begin{aligned}
+    U(Y|X) = \frac{H(Y) - H(Y|X)}{H(Y)},
+\end{aligned}\]</div>
+<p>where <span class="math notranslate nohighlight">\(H(X)\)</span> and <span class="math notranslate nohighlight">\(H(Y)\)</span> is entropy of variable <span class="math notranslate nohighlight">\(X\)</span> and <span class="math notranslate nohighlight">\(Y\)</span>, respectively.
+And <span class="math notranslate nohighlight">\(H(X|Y)\)</span> is the conditional entropy of <span class="math notranslate nohighlight">\(X\)</span> given <span class="math notranslate nohighlight">\(Y\)</span>. <span class="math notranslate nohighlight">\(H(Y|X)\)</span> is the conditional entropy of <span class="math notranslate nohighlight">\(Y\)</span> given <span class="math notranslate nohighlight">\(X\)</span>. The uncertainty coefficient is not symmetric with respect to the roles of <span class="math notranslate nohighlight">\(X\)</span> and <span class="math notranslate nohighlight">\(Y\)</span>. The roles can be reversed and a symmetrical measure is thus defined as a weighted average between the two:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{aligned}
+U(X, Y) &amp; =\frac{H(X) U(X \mid Y)+H(Y) U(Y \mid X)}{H(X)+H(Y)} \\
+&amp; =2\left[\frac{H(X)+H(Y)-H(X, Y)}{H(X)+H(Y)}\right] .
+\end{aligned}\end{split}\]</div>
+<p>The output values lie in [0, 1], where a zero value means <span class="math notranslate nohighlight">\(Y\)</span> has no information about <span class="math notranslate nohighlight">\(X\)</span> while value 1 means <span class="math notranslate nohighlight">\(Y\)</span> has complete information about <span class="math notranslate nohighlight">\(X\)</span>.</p>
+</div></blockquote>
+<div class="jupyter_cell jupyter_container docutils container">
+<div class="cell_input code_cell docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">exp</span><span class="o">.</span><span class="n">data_quality</span><span class="p">(</span><span class="n">show</span><span class="o">=</span><span class="s2">&quot;integrity_highly_correlated_features&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+</div>
+</div>
+<div class="output_subarea output_html rendered_html output_result">
+<style type="text/css">
+#T_99f6b_row0_col0, #T_99f6b_row1_col1, #T_99f6b_row2_col2, #T_99f6b_row3_col3, #T_99f6b_row4_col4, #T_99f6b_row5_col5, #T_99f6b_row6_col6, #T_99f6b_row7_col7, #T_99f6b_row8_col8, #T_99f6b_row9_col9 {
+background-color: #d73c5b;
+color: #f1f1f1;
+width: 15em;
+text-align: center;
+}
+#T_99f6b_row0_col1, #T_99f6b_row6_col7 {
+background-color: #91afd4;
+color: #000000;
+width: 15em;
+text-align: center;
+}
+#T_99f6b_row0_col2, #T_99f6b_row0_col4, #T_99f6b_row0_col5, #T_99f6b_row1_col2, #T_99f6b_row1_col4, #T_99f6b_row2_col0, #T_99f6b_row2_col5, #T_99f6b_row3_col5, #T_99f6b_row4_col0, #T_99f6b_row4_col5, #T_99f6b_row5_col0, #T_99f6b_row5_col2, #T_99f6b_row5_col4, #T_99f6b_row7_col1, #T_99f6b_row7_col3, #T_99f6b_row7_col6, #T_99f6b_row7_col8, #T_99f6b_row7_col9, #T_99f6b_row8_col2, #T_99f6b_row9_col7 {
+background-color: #4479bb;
+color: #f1f1f1;
+width: 15em;
+text-align: center;
+}
+#T_99f6b_row0_col3, #T_99f6b_row8_col3 {
+background-color: #5383bf;
+color: #f1f1f1;
+width: 15em;
+text-align: center;
+}
+#T_99f6b_row0_col6 {
+background-color: #e38b9d;
+color: #f1f1f1;
+width: 15em;
+text-align: center;
+}
+#T_99f6b_row0_col7 {
+background-color: #c8d5e5;
+color: #000000;
+width: 15em;
+text-align: center;
+}
+#T_99f6b_row0_col8 {
+background-color: #bdcde2;
+color: #000000;
+width: 15em;
+text-align: center;
+}
+#T_99f6b_row0_col9 {
+background-color: #e2e7ee;
+color: #000000;
+width: 15em;
+text-align: center;
+}
+#T_99f6b_row1_col0, #T_99f6b_row3_col0, #T_99f6b_row7_col2, #T_99f6b_row8_col4, #T_99f6b_row8_col6 {
+background-color: #477bbb;
+color: #f1f1f1;
+width: 15em;
+text-align: center;
+}
+#T_99f6b_row1_col3 {
+background-color: #4f80be;
+color: #f1f1f1;
+width: 15em;
+text-align: center;
+}
+#T_99f6b_row1_col5, #T_99f6b_row8_col7 {
+background-color: #5484c0;
+color: #f1f1f1;
+width: 15em;
+text-align: center;
+}
+#T_99f6b_row1_col6 {
+background-color: #81a3ce;
+color: #f1f1f1;
+width: 15em;
+text-align: center;
+}
+#T_99f6b_row1_col7 {
+background-color: #5887c1;
+color: #f1f1f1;
+width: 15em;
+text-align: center;
+}
+#T_99f6b_row1_col8 {
+background-color: #b8c9e0;
+color: #000000;
+width: 15em;
+text-align: center;
+}
+#T_99f6b_row1_col9 {
+background-color: #ebbfc8;
+color: #000000;
+width: 15em;
+text-align: center;
+}
+#T_99f6b_row2_col1, #T_99f6b_row3_col1 {
+background-color: #8eadd3;
+color: #f1f1f1;
+width: 15em;
+text-align: center;
+}
+#T_99f6b_row2_col3 {
+background-color: #7299c9;
+color: #f1f1f1;
+width: 15em;
+text-align: center;
+}
+#T_99f6b_row2_col4, #T_99f6b_row4_col2 {
+background-color: #628ec4;
+color: #f1f1f1;
+width: 15em;
+text-align: center;
+}
+#T_99f6b_row2_col6, #T_99f6b_row8_col5 {
+background-color: #5f8cc3;
+color: #f1f1f1;
+width: 15em;
+text-align: center;
+}
+#T_99f6b_row2_col7 {
+background-color: #a2bad9;
+color: #000000;
+width: 15em;
+text-align: center;
+}
+#T_99f6b_row2_col8 {
+background-color: #92b0d4;
+color: #000000;
+width: 15em;
+text-align: center;
+}
+#T_99f6b_row2_col9, #T_99f6b_row3_col9, #T_99f6b_row4_col9, #T_99f6b_row5_col8 {
+background-color: #a7bedb;
+color: #000000;
+width: 15em;
+text-align: center;
+}
+#T_99f6b_row3_col2, #T_99f6b_row4_col6 {
+background-color: #6791c6;
+color: #f1f1f1;
+width: 15em;
+text-align: center;
+}
+#T_99f6b_row3_col4, #T_99f6b_row3_col6, #T_99f6b_row5_col3 {
+background-color: #5081bf;
+color: #f1f1f1;
+width: 15em;
+text-align: center;
+}
+#T_99f6b_row3_col7, #T_99f6b_row3_col8, #T_99f6b_row4_col8 {
+background-color: #95b1d5;
+color: #000000;
+width: 15em;
+text-align: center;
+}
+#T_99f6b_row4_col1 {
+background-color: #90aed3;
+color: #f1f1f1;
+width: 15em;
+text-align: center;
+}
+#T_99f6b_row4_col3 {
+background-color: #5b89c2;
+color: #f1f1f1;
+width: 15em;
+text-align: center;
+}
+#T_99f6b_row4_col7 {
+background-color: #a3bbd9;
+color: #000000;
+width: 15em;
+text-align: center;
+}
+#T_99f6b_row5_col1 {
+background-color: #9eb8d8;
+color: #000000;
+width: 15em;
+text-align: center;
+}
+#T_99f6b_row5_col6 {
+background-color: #779dcb;
+color: #f1f1f1;
+width: 15em;
+text-align: center;
+}
+#T_99f6b_row5_col7 {
+background-color: #efd7dc;
+color: #000000;
+width: 15em;
+text-align: center;
+}
+#T_99f6b_row5_col9 {
+background-color: #c5d3e4;
+color: #000000;
+width: 15em;
+text-align: center;
+}
+#T_99f6b_row6_col0 {
+background-color: #e48fa0;
+color: #f1f1f1;
+width: 15em;
+text-align: center;
+}
+#T_99f6b_row6_col1 {
+background-color: #b4c7df;
+color: #000000;
+width: 15em;
+text-align: center;
+}
+#T_99f6b_row6_col2, #T_99f6b_row9_col2, #T_99f6b_row9_col4 {
+background-color: #4d7fbe;
+color: #f1f1f1;
+width: 15em;
+text-align: center;
+}
+#T_99f6b_row6_col3 {
+background-color: #4b7ebd;
+color: #f1f1f1;
+width: 15em;
+text-align: center;
+}
+#T_99f6b_row6_col4 {
+background-color: #5585c0;
+color: #f1f1f1;
+width: 15em;
+text-align: center;
+}
+#T_99f6b_row6_col5 {
+background-color: #6892c6;
+color: #f1f1f1;
+width: 15em;
+text-align: center;
+}
+#T_99f6b_row6_col8 {
+background-color: #88a8d0;
+color: #f1f1f1;
+width: 15em;
+text-align: center;
+}
+#T_99f6b_row6_col9 {
+background-color: #eed6db;
+color: #000000;
+width: 15em;
+text-align: center;
+}
+#T_99f6b_row7_col0 {
+background-color: #799ecc;
+color: #f1f1f1;
+width: 15em;
+text-align: center;
+}
+#T_99f6b_row7_col4 {
+background-color: #487cbc;
+color: #f1f1f1;
+width: 15em;
+text-align: center;
+}
+#T_99f6b_row7_col5 {
+background-color: #d4dde9;
+color: #000000;
+width: 15em;
+text-align: center;
+}
+#T_99f6b_row8_col0 {
+background-color: #7a9fcc;
+color: #f1f1f1;
+width: 15em;
+text-align: center;
+}
+#T_99f6b_row8_col1, #T_99f6b_row9_col8 {
+background-color: #b5c8df;
+color: #000000;
+width: 15em;
+text-align: center;
+}
+#T_99f6b_row8_col9 {
+background-color: #c0cfe3;
+color: #000000;
+width: 15em;
+text-align: center;
+}
+#T_99f6b_row9_col0 {
+background-color: #9db7d7;
+color: #000000;
+width: 15em;
+text-align: center;
+}
+#T_99f6b_row9_col1 {
+background-color: #ecc6ce;
+color: #000000;
+width: 15em;
+text-align: center;
+}
+#T_99f6b_row9_col3 {
+background-color: #5a88c2;
+color: #f1f1f1;
+width: 15em;
+text-align: center;
+}
+#T_99f6b_row9_col5 {
+background-color: #769ccb;
+color: #f1f1f1;
+width: 15em;
+text-align: center;
+}
+#T_99f6b_row9_col6 {
+background-color: #e0e6ed;
+color: #000000;
+width: 15em;
+text-align: center;
+}
+</style>
+<table id="T_99f6b">
+<thead>
+    <tr>
+    <th class="blank level0" >&nbsp;</th>
+    <th id="T_99f6b_level0_col0" class="col_heading level0 col0" >season</th>
+    <th id="T_99f6b_level0_col1" class="col_heading level0 col1" >hr</th>
+    <th id="T_99f6b_level0_col2" class="col_heading level0 col2" >holiday</th>
+    <th id="T_99f6b_level0_col3" class="col_heading level0 col3" >weekday</th>
+    <th id="T_99f6b_level0_col4" class="col_heading level0 col4" >workingday</th>
+    <th id="T_99f6b_level0_col5" class="col_heading level0 col5" >weathersit</th>
+    <th id="T_99f6b_level0_col6" class="col_heading level0 col6" >atemp</th>
+    <th id="T_99f6b_level0_col7" class="col_heading level0 col7" >hum</th>
+    <th id="T_99f6b_level0_col8" class="col_heading level0 col8" >windspeed</th>
+    <th id="T_99f6b_level0_col9" class="col_heading level0 col9" >cnt</th>
+    </tr>
+</thead>
+<tbody>
+    <tr>
+    <th id="T_99f6b_level0_row0" class="row_heading level0 row0" >season</th>
+    <td id="T_99f6b_row0_col0" class="data row0 col0" >1.00</td>
+    <td id="T_99f6b_row0_col1" class="data row0 col1" >0.01</td>
+    <td id="T_99f6b_row0_col2" class="data row0 col2" >0.00</td>
+    <td id="T_99f6b_row0_col3" class="data row0 col3" >0.01</td>
+    <td id="T_99f6b_row0_col4" class="data row0 col4" >0.00</td>
+    <td id="T_99f6b_row0_col5" class="data row0 col5" >0.00</td>
+    <td id="T_99f6b_row0_col6" class="data row0 col6" >0.77</td>
+    <td id="T_99f6b_row0_col7" class="data row0 col7" >0.16</td>
+    <td id="T_99f6b_row0_col8" class="data row0 col8" >0.16</td>
+    <td id="T_99f6b_row0_col9" class="data row0 col9" >0.26</td>
+    </tr>
+    <tr>
+    <th id="T_99f6b_level0_row1" class="row_heading level0 row1" >hr</th>
+    <td id="T_99f6b_row1_col0" class="data row1 col0" >0.01</td>
+    <td id="T_99f6b_row1_col1" class="data row1 col1" >1.00</td>
+    <td id="T_99f6b_row1_col2" class="data row1 col2" >0.00</td>
+    <td id="T_99f6b_row1_col3" class="data row1 col3" >-0.00</td>
+    <td id="T_99f6b_row1_col4" class="data row1 col4" >0.00</td>
+    <td id="T_99f6b_row1_col5" class="data row1 col5" >0.05</td>
+    <td id="T_99f6b_row1_col6" class="data row1 col6" >0.13</td>
+    <td id="T_99f6b_row1_col7" class="data row1 col7" >-0.28</td>
+    <td id="T_99f6b_row1_col8" class="data row1 col8" >0.14</td>
+    <td id="T_99f6b_row1_col9" class="data row1 col9" >0.51</td>
+    </tr>
+    <tr>
+    <th id="T_99f6b_level0_row2" class="row_heading level0 row2" >holiday</th>
+    <td id="T_99f6b_row2_col0" class="data row2 col0" >0.00</td>
+    <td id="T_99f6b_row2_col1" class="data row2 col1" >0.00</td>
+    <td id="T_99f6b_row2_col2" class="data row2 col2" >1.00</td>
+    <td id="T_99f6b_row2_col3" class="data row2 col3" >0.10</td>
+    <td id="T_99f6b_row2_col4" class="data row2 col4" >0.09</td>
+    <td id="T_99f6b_row2_col5" class="data row2 col5" >0.00</td>
+    <td id="T_99f6b_row2_col6" class="data row2 col6" >0.03</td>
+    <td id="T_99f6b_row2_col7" class="data row2 col7" >0.01</td>
+    <td id="T_99f6b_row2_col8" class="data row2 col8" >0.00</td>
+    <td id="T_99f6b_row2_col9" class="data row2 col9" >0.03</td>
+    </tr>
+    <tr>
+    <th id="T_99f6b_level0_row3" class="row_heading level0 row3" >weekday</th>
+    <td id="T_99f6b_row3_col0" class="data row3 col0" >0.01</td>
+    <td id="T_99f6b_row3_col1" class="data row3 col1" >-0.00</td>
+    <td id="T_99f6b_row3_col2" class="data row3 col2" >0.10</td>
+    <td id="T_99f6b_row3_col3" class="data row3 col3" >1.00</td>
+    <td id="T_99f6b_row3_col4" class="data row3 col4" >0.04</td>
+    <td id="T_99f6b_row3_col5" class="data row3 col5" >0.00</td>
+    <td id="T_99f6b_row3_col6" class="data row3 col6" >-0.01</td>
+    <td id="T_99f6b_row3_col7" class="data row3 col7" >-0.04</td>
+    <td id="T_99f6b_row3_col8" class="data row3 col8" >0.01</td>
+    <td id="T_99f6b_row3_col9" class="data row3 col9" >0.03</td>
+    </tr>
+    <tr>
+    <th id="T_99f6b_level0_row4" class="row_heading level0 row4" >workingday</th>
+    <td id="T_99f6b_row4_col0" class="data row4 col0" >0.00</td>
+    <td id="T_99f6b_row4_col1" class="data row4 col1" >0.00</td>
+    <td id="T_99f6b_row4_col2" class="data row4 col2" >0.09</td>
+    <td id="T_99f6b_row4_col3" class="data row4 col3" >0.04</td>
+    <td id="T_99f6b_row4_col4" class="data row4 col4" >1.00</td>
+    <td id="T_99f6b_row4_col5" class="data row4 col5" >0.00</td>
+    <td id="T_99f6b_row4_col6" class="data row4 col6" >0.05</td>
+    <td id="T_99f6b_row4_col7" class="data row4 col7" >0.02</td>
+    <td id="T_99f6b_row4_col8" class="data row4 col8" >0.01</td>
+    <td id="T_99f6b_row4_col9" class="data row4 col9" >0.03</td>
+    </tr>
+    <tr>
+    <th id="T_99f6b_level0_row5" class="row_heading level0 row5" >weathersit</th>
+    <td id="T_99f6b_row5_col0" class="data row5 col0" >0.00</td>
+    <td id="T_99f6b_row5_col1" class="data row5 col1" >0.05</td>
+    <td id="T_99f6b_row5_col2" class="data row5 col2" >0.00</td>
+    <td id="T_99f6b_row5_col3" class="data row5 col3" >0.00</td>
+    <td id="T_99f6b_row5_col4" class="data row5 col4" >0.00</td>
+    <td id="T_99f6b_row5_col5" class="data row5 col5" >1.00</td>
+    <td id="T_99f6b_row5_col6" class="data row5 col6" >0.11</td>
+    <td id="T_99f6b_row5_col7" class="data row5 col7" >0.42</td>
+    <td id="T_99f6b_row5_col8" class="data row5 col8" >0.08</td>
+    <td id="T_99f6b_row5_col9" class="data row5 col9" >0.15</td>
+    </tr>
+    <tr>
+    <th id="T_99f6b_level0_row6" class="row_heading level0 row6" >atemp</th>
+    <td id="T_99f6b_row6_col0" class="data row6 col0" >0.77</td>
+    <td id="T_99f6b_row6_col1" class="data row6 col1" >0.13</td>
+    <td id="T_99f6b_row6_col2" class="data row6 col2" >0.03</td>
+    <td id="T_99f6b_row6_col3" class="data row6 col3" >-0.01</td>
+    <td id="T_99f6b_row6_col4" class="data row6 col4" >0.05</td>
+    <td id="T_99f6b_row6_col5" class="data row6 col5" >0.11</td>
+    <td id="T_99f6b_row6_col6" class="data row6 col6" >1.00</td>
+    <td id="T_99f6b_row6_col7" class="data row6 col7" >-0.05</td>
+    <td id="T_99f6b_row6_col8" class="data row6 col8" >-0.04</td>
+    <td id="T_99f6b_row6_col9" class="data row6 col9" >0.42</td>
+    </tr>
+    <tr>
+    <th id="T_99f6b_level0_row7" class="row_heading level0 row7" >hum</th>
+    <td id="T_99f6b_row7_col0" class="data row7 col0" >0.16</td>
+    <td id="T_99f6b_row7_col1" class="data row7 col1" >-0.28</td>
+    <td id="T_99f6b_row7_col2" class="data row7 col2" >0.01</td>
+    <td id="T_99f6b_row7_col3" class="data row7 col3" >-0.04</td>
+    <td id="T_99f6b_row7_col4" class="data row7 col4" >0.02</td>
+    <td id="T_99f6b_row7_col5" class="data row7 col5" >0.42</td>
+    <td id="T_99f6b_row7_col6" class="data row7 col6" >-0.05</td>
+    <td id="T_99f6b_row7_col7" class="data row7 col7" >1.00</td>
+    <td id="T_99f6b_row7_col8" class="data row7 col8" >-0.29</td>
+    <td id="T_99f6b_row7_col9" class="data row7 col9" >-0.36</td>
+    </tr>
+    <tr>
+    <th id="T_99f6b_level0_row8" class="row_heading level0 row8" >windspeed</th>
+    <td id="T_99f6b_row8_col0" class="data row8 col0" >0.16</td>
+    <td id="T_99f6b_row8_col1" class="data row8 col1" >0.14</td>
+    <td id="T_99f6b_row8_col2" class="data row8 col2" >0.00</td>
+    <td id="T_99f6b_row8_col3" class="data row8 col3" >0.01</td>
+    <td id="T_99f6b_row8_col4" class="data row8 col4" >0.01</td>
+    <td id="T_99f6b_row8_col5" class="data row8 col5" >0.08</td>
+    <td id="T_99f6b_row8_col6" class="data row8 col6" >-0.04</td>
+    <td id="T_99f6b_row8_col7" class="data row8 col7" >-0.29</td>
+    <td id="T_99f6b_row8_col8" class="data row8 col8" >1.00</td>
+    <td id="T_99f6b_row8_col9" class="data row8 col9" >0.13</td>
+    </tr>
+    <tr>
+    <th id="T_99f6b_level0_row9" class="row_heading level0 row9" >cnt</th>
+    <td id="T_99f6b_row9_col0" class="data row9 col0" >0.26</td>
+    <td id="T_99f6b_row9_col1" class="data row9 col1" >0.51</td>
+    <td id="T_99f6b_row9_col2" class="data row9 col2" >0.03</td>
+    <td id="T_99f6b_row9_col3" class="data row9 col3" >0.03</td>
+    <td id="T_99f6b_row9_col4" class="data row9 col4" >0.03</td>
+    <td id="T_99f6b_row9_col5" class="data row9 col5" >0.15</td>
+    <td id="T_99f6b_row9_col6" class="data row9 col6" >0.42</td>
+    <td id="T_99f6b_row9_col7" class="data row9 col7" >-0.36</td>
+    <td id="T_99f6b_row9_col8" class="data row9 col8" >0.13</td>
+    <td id="T_99f6b_row9_col9" class="data row9 col9" >1.00</td>
+    </tr>
+</tbody>
+</table>
+</div></section>
+<section id="examples">
+<h2><span class="section-number">2.5.4. </span>Examples<a class="headerlink" href="#examples" title="Permalink to this heading">¶</a></h2>
+<p>The full example codes of this section can be found in the following link.</p>
+<div class="topic">
+<p class="topic-title">Example</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="../../auto_examples/0_data/plot_4_data_quality.html#sphx-glr-auto-examples-0-data-plot-4-data-quality-py"><span class="std std-ref">Data Quality Check</span></a></p></li>
+</ul>
+</div>
+</section>
+</section>
+
+
+        </div>
+      <div class="container">
+        <footer class="sk-content-footer">
+              &copy; Copyright 2022-, PiML-Toolbox authors.
+            <a href="../../_sources/guides/data/data_quality_integrity.rst.txt" rel="nofollow">Show this page source</a>
+        </footer>
+      </div>
+    </div>
+  </div>
+
+
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(false);
+      });
+      
+      const tooltipTriggerList = document.querySelectorAll('[data-bs-toggle="tooltip"]')
+      const tooltipList = [...tooltipTriggerList].map(tooltipTriggerEl => new bootstrap.Tooltip(tooltipTriggerEl))
+  </script>
+
+<script>
+$(document).ready(function() {
+    /* Add a [>>>] button on the top-right corner of code samples to hide
+     * the >>> and ... prompts and the output and thus make the code
+     * copyable. */
+    var div = $('.highlight-python .highlight,' +
+                '.highlight-python3 .highlight,' +
+                '.highlight-pycon .highlight,' +
+		'.highlight-default .highlight')
+    var pre = div.find('pre');
+
+    // get the styles from the current theme
+    pre.parent().parent().css('position', 'relative');
+    var hide_text = 'Hide prompts and outputs';
+    var show_text = 'Show prompts and outputs';
+
+    // create and add the button to all the code blocks that contain >>>
+    div.each(function(index) {
+        var jthis = $(this);
+        if (jthis.find('.gp').length > 0) {
+            var button = $('<span class="copybutton">&gt;&gt;&gt;</span>');
+            button.attr('title', hide_text);
+            button.data('hidden', 'false');
+            jthis.prepend(button);
+        }
+        // tracebacks (.gt) contain bare text elements that need to be
+        // wrapped in a span to work with .nextUntil() (see later)
+        jthis.find('pre:has(.gt)').contents().filter(function() {
+            return ((this.nodeType == 3) && (this.data.trim().length > 0));
+        }).wrap('<span>');
+    });
+
+    // define the behavior of the button when it's clicked
+    $('.copybutton').click(function(e){
+        e.preventDefault();
+        var button = $(this);
+        if (button.data('hidden') === 'false') {
+            // hide the code output
+            button.parent().find('.go, .gp, .gt').hide();
+            button.next('pre').find('.gt').nextUntil('.gp, .go').css('visibility', 'hidden');
+            button.css('text-decoration', 'line-through');
+            button.attr('title', show_text);
+            button.data('hidden', 'true');
+        } else {
+            // show the code output
+            button.parent().find('.go, .gp, .gt').show();
+            button.next('pre').find('.gt').nextUntil('.gp, .go').css('visibility', 'visible');
+            button.css('text-decoration', 'none');
+            button.attr('title', hide_text);
+            button.data('hidden', 'false');
+        }
+    });
+
+	/*** Add permalink buttons next to glossary terms ***/
+	$('dl.glossary > dt[id]').append(function() {
+		return ('<a class="headerlink" href="#' +
+			    this.getAttribute('id') +
+			    '" title="Permalink to this term">¶</a>');
+	});
+  /*** Hide navbar when scrolling down ***/
+  // Returns true when headerlink target matches hash in url
+  (function() {
+    hashTargetOnTop = function() {
+        var hash = window.location.hash;
+        if ( hash.length < 2 ) { return false; }
+
+        var target = document.getElementById( hash.slice(1) );
+        if ( target === null ) { return false; }
+
+        var top = target.getBoundingClientRect().top;
+        return (top < 2) && (top > -2);
+    };
+
+    // Hide navbar on load if hash target is on top
+    var navBar = document.getElementById("navbar");
+    var navBarToggler = document.getElementById("sk-navbar-toggler");
+    var navBarHeightHidden = "-" + navBar.getBoundingClientRect().height + "px";
+    var $window = $(window);
+
+    hideNavBar = function() {
+        navBar.style.top = navBarHeightHidden;
+    };
+
+    showNavBar = function() {
+        navBar.style.top = "0";
+    }
+
+    if (hashTargetOnTop()) {
+        hideNavBar()
+    }
+
+    var prevScrollpos = window.pageYOffset;
+    hideOnScroll = function(lastScrollTop) {
+        if (($window.width() < 768) && (navBarToggler.getAttribute("aria-expanded") === 'true')) {
+            return;
+        }
+        if (lastScrollTop > 2 && (prevScrollpos <= lastScrollTop) || hashTargetOnTop()){
+            hideNavBar()
+        } else {
+            showNavBar()
+        }
+        prevScrollpos = lastScrollTop;
+    };
+
+    /*** high performance scroll event listener***/
+    var raf = window.requestAnimationFrame ||
+        window.webkitRequestAnimationFrame ||
+        window.mozRequestAnimationFrame ||
+        window.msRequestAnimationFrame ||
+        window.oRequestAnimationFrame;
+    var lastScrollTop = $window.scrollTop();
+
+    if (raf) {
+        loop();
+    }
+
+    function loop() {
+        var scrollTop = $window.scrollTop();
+        if (lastScrollTop === scrollTop) {
+            raf(loop);
+            return;
+        } else {
+            lastScrollTop = scrollTop;
+            hideOnScroll(lastScrollTop);
+            raf(loop);
+        }
+    }
+  })();
+});
+
+</script>
+    
+
+<script src="_static/js/vendor/bootstrap.min.js"></script>
+
+</body>
+</html>

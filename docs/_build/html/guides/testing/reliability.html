@@ -143,12 +143,12 @@
                   </li>
                 
                   <li>
-                    <a href="../extmodels.html" class="">3. Black-box Models</a>
+                    <a href="../model_train.html" class="">3. Model Train and Tune</a>
                     
                   </li>
                 
                   <li>
-                    <a href="../explainability.html" class="">4. Post-hoc Explainability</a>
+                    <a href="../explain.html" class="">4. Post-hoc Explainability</a>
                     
                   </li>
                 
@@ -190,12 +190,20 @@
                           <a href="fairness.html">6.7. Fairness</a>
                         </li>
                       
+                        <li class="sk-toctree-l3">
+                          <a href="segmented_diagnose.html">6.8. Segmented</a>
+                        </li>
+                      
+                        <li class="sk-toctree-l3">
+                          <a href="scored_test.html">6.9. Scored Test</a>
+                        </li>
+                      
                     </ul>
                     
                   </li>
                 
                   <li>
-                    <a href="../comparison.html" class="">7. Model Comparison</a>
+                    <a href="../compare.html" class="">7. Model Comparison</a>
                     
                   </li>
                 
@@ -308,7 +316,7 @@
 </div>
 </div>
 <figure class="align-left">
-<a class="reference external image-reference" href="../../auto_examples/testing/plot_3_reliability_reg.html"><img alt="../../_images/sphx_glr_plot_3_reliability_reg_001.png" src="../../_images/sphx_glr_plot_3_reliability_reg_001.png" /></a>
+<a class="reference external image-reference" href="../../auto_examples/4_testing/plot_3_reliability_reg.html"><img alt="../../_images/sphx_glr_plot_3_reliability_reg_001.png" src="../../_images/sphx_glr_plot_3_reliability_reg_001.png" /></a>
 </figure>
 <p>Based on the above figure, it is evident that the distributional distance of the feature <code class="docutils literal notranslate"><span class="pre">hr</span></code> is the largest when comparing reliable and unreliable data. However, it is important to note that this result merely suggests a relationship between the feature <code class="docutils literal notranslate"><span class="pre">hr</span></code> and model uncertainty. It does not allow us to draw conclusions regarding causality. The observed association may be indicative of a correlation, but further analysis is necessary to establish any causal relationship.</p>
 </section>
@@ -327,7 +335,7 @@
 </div>
 </div>
 <figure class="align-left">
-<a class="reference external image-reference" href="../../auto_examples/testing/plot_3_reliability_reg.html"><img alt="../../_images/sphx_glr_plot_3_reliability_reg_002.png" src="../../_images/sphx_glr_plot_3_reliability_reg_002.png" /></a>
+<a class="reference external image-reference" href="../../auto_examples/4_testing/plot_3_reliability_reg.html"><img alt="../../_images/sphx_glr_plot_3_reliability_reg_002.png" src="../../_images/sphx_glr_plot_3_reliability_reg_002.png" /></a>
 </figure>
 <p>In the plot above, we can see that the marginal bandwidth of <code class="docutils literal notranslate"><span class="pre">hr</span></code> exceeds the threshold (red dotted line) specifically during rush hours. This observation aligns with the findings from the weakspot tests, further supporting the notion that the feature <code class="docutils literal notranslate"><span class="pre">hr</span></code> is associated with increased model uncertainty during these specific time periods.</p>
 </section>
@@ -349,7 +357,7 @@
 </div>
 </div>
 <figure class="align-left">
-<a class="reference external image-reference" href="../../auto_examples/testing/plot_3_reliability_cls.html"><img alt="../../_images/sphx_glr_plot_3_reliability_cls_001.png" src="../../_images/sphx_glr_plot_3_reliability_cls_001.png" /></a>
+<a class="reference external image-reference" href="../../auto_examples/4_testing/plot_3_reliability_cls.html"><img alt="../../_images/sphx_glr_plot_3_reliability_cls_001.png" src="../../_images/sphx_glr_plot_3_reliability_cls_001.png" /></a>
 </figure>
 </section>
 <section id="id2">
@@ -366,7 +374,7 @@
 </div>
 </div>
 <figure class="align-left">
-<a class="reference external image-reference" href="../../auto_examples/testing/plot_3_reliability_cls.html"><img alt="../../_images/sphx_glr_plot_3_reliability_cls_002.png" src="../../_images/sphx_glr_plot_3_reliability_cls_002.png" /></a>
+<a class="reference external image-reference" href="../../auto_examples/4_testing/plot_3_reliability_cls.html"><img alt="../../_images/sphx_glr_plot_3_reliability_cls_002.png" src="../../_images/sphx_glr_plot_3_reliability_cls_002.png" /></a>
 </figure>
 </section>
 <section id="classifier-calibration">
@@ -382,7 +390,7 @@
 </div>
 </div>
 <figure class="align-left">
-<a class="reference external image-reference" href="../../auto_examples/testing/plot_3_reliability_cls.html"><img alt="../../_images/sphx_glr_plot_3_reliability_cls_003.png" src="../../_images/sphx_glr_plot_3_reliability_cls_003.png" /></a>
+<a class="reference external image-reference" href="../../auto_examples/4_testing/plot_3_reliability_cls.html"><img alt="../../_images/sphx_glr_plot_3_reliability_cls_003.png" src="../../_images/sphx_glr_plot_3_reliability_cls_003.png" /></a>
 </figure>
 </section>
 <section id="reliability-diagram">
@@ -398,7 +406,7 @@
 </div>
 </div>
 <figure class="align-left">
-<a class="reference external image-reference" href="../../auto_examples/testing/plot_3_reliability_cls.html"><img alt="../../_images/sphx_glr_plot_3_reliability_cls_004.png" src="../../_images/sphx_glr_plot_3_reliability_cls_004.png" /></a>
+<a class="reference external image-reference" href="../../auto_examples/4_testing/plot_3_reliability_cls.html"><img alt="../../_images/sphx_glr_plot_3_reliability_cls_004.png" src="../../_images/sphx_glr_plot_3_reliability_cls_004.png" /></a>
 </figure>
 <p>The Brier score is a metric that is analogous to the Mean Squared Error (MSE), and it is employed to assess the reliability of probability predictions. A lower Brier score indicates a better-performing model.</p>
 </section>
@@ -425,7 +433,7 @@
 <div><p>The first example below demonstrates how to use PiML with its high-code APIs for developing machine learning models for the BikeSharing data from the UCI repository, which consists of 17,389 samples of hourly counts of rental bikes in Capital bikeshare system; see details. The response <code class="docutils literal notranslate"><span class="pre">cnt</span></code> (hourly bike rental counts) is continuous and it is a regression problem.</p>
 </div></blockquote>
 <ul class="simple">
-<li><p><a class="reference internal" href="../../auto_examples/testing/plot_3_reliability_reg.html#sphx-glr-auto-examples-testing-plot-3-reliability-reg-py"><span class="std std-ref">Reliability: Regression</span></a></p></li>
+<li><p><a class="reference internal" href="../../auto_examples/4_testing/plot_3_reliability_reg.html#sphx-glr-auto-examples-4-testing-plot-3-reliability-reg-py"><span class="std std-ref">Reliability: Regression</span></a></p></li>
 </ul>
 </div>
 <div class="topic">
@@ -434,7 +442,7 @@
 <div><p>The second example below demonstrates how to use PiML’s high-code APIs for the TaiwanCredit dataset from the UCI repository. This dataset comprises the credit card details of 30,000 clients in Taiwan from April 2005 to September 2005, and more information can be found on the TaiwanCreditData website. The data can be loaded directly into PiML, although it requires some preprocessing. The FlagDefault variable serves as the response for this classification problem.</p>
 </div></blockquote>
 <ul class="simple">
-<li><p><a class="reference internal" href="../../auto_examples/testing/plot_3_reliability_cls.html#sphx-glr-auto-examples-testing-plot-3-reliability-cls-py"><span class="std std-ref">Reliability: Classification</span></a></p></li>
+<li><p><a class="reference internal" href="../../auto_examples/4_testing/plot_3_reliability_cls.html#sphx-glr-auto-examples-4-testing-plot-3-reliability-cls-py"><span class="std std-ref">Reliability: Classification</span></a></p></li>
 </ul>
 </div>
 </section>

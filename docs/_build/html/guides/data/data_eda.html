@@ -114,7 +114,7 @@
           </div>
           <!--div class="btn-group w-100 mb-2" role="group" aria-label="rellinks">
               <a href="data_prepare.html" role="button" class="btn sk-btn-rellink py-1" sk-rellink-tooltip="2.3. Data Preparation">Prev</a><a href="../data.html" role="button" class="btn sk-btn-rellink py-1" sk-rellink-tooltip="2. Data Pipeline">Up</a>
-              <a href="data_quality.html" role="button" class="btn sk-btn-rellink py-1" sk-rellink-tooltip="2.5. Data Quality">Next</a>
+              <a href="data_quality_integrity.html" role="button" class="btn sk-btn-rellink py-1" sk-rellink-tooltip="2.5. Data Quality (Integrity Check)">Next</a>
           </div-->
               <div class="sk-sidebar-toc">
               
@@ -157,15 +157,19 @@
                         </li>
                       
                         <li class="sk-toctree-l3">
-                          <a href="data_quality.html">2.5. Data Quality</a>
+                          <a href="data_quality_integrity.html">2.5. Data Quality (Integrity Check)</a>
                         </li>
                       
                         <li class="sk-toctree-l3">
-                          <a href="feature_select.html">2.6. Feature Selection</a>
+                          <a href="data_quality_outlier.html">2.6. Data Quality (Outlier Detection)</a>
                         </li>
                       
                         <li class="sk-toctree-l3">
-                          <a href="twosample_test.html">2.7. Two Sample Test</a>
+                          <a href="data_quality_drift.html">2.7. Data Quality (Drift Test)</a>
+                        </li>
+                      
+                        <li class="sk-toctree-l3">
+                          <a href="feature_select.html">2.8. Feature Selection</a>
                         </li>
                       
                     </ul>
@@ -173,12 +177,12 @@
                   </li>
                 
                   <li>
-                    <a href="../extmodels.html" class="">3. Black-box Models</a>
+                    <a href="../model_train.html" class="">3. Model Train and Tune</a>
                     
                   </li>
                 
                   <li>
-                    <a href="../explainability.html" class="">4. Post-hoc Explainability</a>
+                    <a href="../explain.html" class="">4. Post-hoc Explainability</a>
                     
                   </li>
                 
@@ -193,7 +197,7 @@
                   </li>
                 
                   <li>
-                    <a href="../comparison.html" class="">7. Model Comparison</a>
+                    <a href="../compare.html" class="">7. Model Comparison</a>
                     
                   </li>
                 
@@ -263,7 +267,7 @@
 </div>
 </div>
 <figure class="align-left">
-<a class="reference external image-reference" href="../../auto_examples/data/plot_2_data_eda.html"><img alt="../../_images/sphx_glr_plot_2_data_eda_001.png" src="../../_images/sphx_glr_plot_2_data_eda_001.png" /></a>
+<a class="reference external image-reference" href="../../auto_examples/0_data/plot_2_data_eda.html"><img alt="../../_images/sphx_glr_plot_2_data_eda_001.png" src="../../_images/sphx_glr_plot_2_data_eda_001.png" /></a>
 </figure>
 <ul class="simple">
 <li><p><strong>Categorical Feature</strong>: We show the bar chart that displays the frequency of each category.</p></li>
@@ -278,7 +282,7 @@
 </div>
 </div>
 <figure class="align-left">
-<a class="reference external image-reference" href="../../auto_examples/data/plot_2_data_eda.html"><img alt="../../_images/sphx_glr_plot_2_data_eda_002.png" src="../../_images/sphx_glr_plot_2_data_eda_002.png" /></a>
+<a class="reference external image-reference" href="../../auto_examples/0_data/plot_2_data_eda.html"><img alt="../../_images/sphx_glr_plot_2_data_eda_002.png" src="../../_images/sphx_glr_plot_2_data_eda_002.png" /></a>
 </figure>
 </section>
 <section id="bivariate-plots">
@@ -297,7 +301,7 @@
 </div>
 </div>
 <figure class="align-left">
-<a class="reference external image-reference" href="../../auto_examples/data/plot_2_data_eda.html"><img alt="../../_images/sphx_glr_plot_2_data_eda_003.png" src="../../_images/sphx_glr_plot_2_data_eda_003.png" /></a>
+<a class="reference external image-reference" href="../../auto_examples/0_data/plot_2_data_eda.html"><img alt="../../_images/sphx_glr_plot_2_data_eda_003.png" src="../../_images/sphx_glr_plot_2_data_eda_003.png" /></a>
 </figure>
 <ul class="simple">
 <li><p><strong>Numerical &amp; Categorical</strong>: We use the box plot to show the relationship by displaying the numerical feature distribution conditional on each category of the categorical feature.</p></li>
@@ -312,7 +316,7 @@
 </div>
 </div>
 <figure class="align-left">
-<a class="reference external image-reference" href="../../auto_examples/data/plot_2_data_eda.html"><img alt="../../_images/sphx_glr_plot_2_data_eda_004.png" src="../../_images/sphx_glr_plot_2_data_eda_004.png" /></a>
+<a class="reference external image-reference" href="../../auto_examples/0_data/plot_2_data_eda.html"><img alt="../../_images/sphx_glr_plot_2_data_eda_004.png" src="../../_images/sphx_glr_plot_2_data_eda_004.png" /></a>
 </figure>
 <ul class="simple">
 <li><p><strong>Categorical &amp; Categorical</strong>: We use the stack bar plot, each bar represents a category in one variable and is divided into segments representing the frequency of the second variable within that category.</p></li>
@@ -327,12 +331,13 @@
 </div>
 </div>
 <figure class="align-left">
-<a class="reference external image-reference" href="../../auto_examples/data/plot_2_data_eda.html"><img alt="../../_images/sphx_glr_plot_2_data_eda_005.png" src="../../_images/sphx_glr_plot_2_data_eda_005.png" /></a>
+<a class="reference external image-reference" href="../../auto_examples/0_data/plot_2_data_eda.html"><img alt="../../_images/sphx_glr_plot_2_data_eda_005.png" src="../../_images/sphx_glr_plot_2_data_eda_005.png" /></a>
 </figure>
 </section>
 <section id="multivariate-plots">
 <h2><span class="section-number">2.4.3. </span>Multivariate Plots<a class="headerlink" href="#multivariate-plots" title="Permalink to this heading">¶</a></h2>
-<p>There are two types of multivariate charts in PiML: correlation heatmap and correlation graph. Both the correlation heatmap and correlation graph display pairwise Pearson correlations, using different representations.</p>
+<p>There are two types of multivariate charts in PiML: correlation heatmap and correlation graph. Both the correlation heatmap and correlation graph display the pairwise correlations.</p>
+<p>The correlation calculation methods used in these charts are the same as those used for data quality checks. For more detailed information, please refer to the <a class="reference external" href="../../guides/data/data_quality_integrity.html">integrity_check</a>.</p>
 <ul class="simple">
 <li><p><strong>Correlation Heatmap</strong>: This heatmap displays the correlation matrix using heatmap directly.</p></li>
 </ul>
@@ -346,7 +351,7 @@
 </div>
 </div>
 <figure class="align-left">
-<a class="reference external image-reference" href="../../auto_examples/data/plot_2_data_eda.html"><img alt="../../_images/sphx_glr_plot_2_data_eda_006.png" src="../../_images/sphx_glr_plot_2_data_eda_006.png" /></a>
+<a class="reference external image-reference" href="../../auto_examples/0_data/plot_2_data_eda.html"><img alt="../../_images/sphx_glr_plot_2_data_eda_006.png" src="../../_images/sphx_glr_plot_2_data_eda_006.png" /></a>
 </figure>
 <ul class="simple">
 <li><p><strong>Correlation Graph</strong>: This is an alternative plot to the correlation heatmap, where we use nodes to represent features and connecting lines to show the correlation coefficients.</p></li>
@@ -361,7 +366,7 @@
 </div>
 </div>
 <figure class="align-left">
-<a class="reference external image-reference" href="../../auto_examples/data/plot_2_data_eda.html"><img alt="../../_images/sphx_glr_plot_2_data_eda_007.png" src="../../_images/sphx_glr_plot_2_data_eda_007.png" /></a>
+<a class="reference external image-reference" href="../../auto_examples/0_data/plot_2_data_eda.html"><img alt="../../_images/sphx_glr_plot_2_data_eda_007.png" src="../../_images/sphx_glr_plot_2_data_eda_007.png" /></a>
 </figure>
 </section>
 <section id="examples">
@@ -370,7 +375,7 @@
 <div class="topic">
 <p class="topic-title">Example</p>
 <ul class="simple">
-<li><p><a class="reference internal" href="../../auto_examples/data/plot_2_data_eda.html#sphx-glr-auto-examples-data-plot-2-data-eda-py"><span class="std std-ref">EDA</span></a></p></li>
+<li><p><a class="reference internal" href="../../auto_examples/0_data/plot_2_data_eda.html#sphx-glr-auto-examples-0-data-plot-2-data-eda-py"><span class="std std-ref">EDA</span></a></p></li>
 </ul>
 </div>
 </section>

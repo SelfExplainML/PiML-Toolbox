@@ -1,0 +1,89 @@
+Train and Register Sklearn Style Model
+========================================
+
+Assume you have already prepared the data.
+ 
+.. jupyter-input::
+
+	from piml import Experiment
+	exp = Experiment()
+	exp.data_loader(data='CaliforniaHousing_raw')
+	exp.data_prepare(target='MedHouseVal', task_type='regression', random_state=0)
+
+
+Train and Register Models
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Then you can initialize a black-box model object and then put it into PiML for model training.
+
+.. jupyter-input::
+
+    from lightgbm import LGBMRegressor
+    lgbm2 = LGBMRegressor(max_depth=2)
+    exp.model_train(lgbm2, name='LGBM_2')
+
+
+Save Fitted Models
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+After that, you are able to extract the fitted model and save it for future use.
+
+.. jupyter-input::
+
+    exp.model_save("LGBM_2", "CH_LGBM_2.pkl")
+
+
+Load and Register Fitted Models
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+You can also load a fitted model from pickle files, and register it into PiML.
+
+.. jupyter-input::
+
+    pipeline = exp.make_pipeline(model='CH_LGBM_2.pkl')
+    exp.register(pipeline, "LGBM_2_load")	
+
+
+Register Arbitrary Models and Data
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+If you don't want to use the data prepared by the data module, you can also register arbitrary data and model into PiML.
+
+.. jupyter-input::
+
+    from sklearn.model_selection import train_test_split
+    train_x, test_x, train_y, test_y = train_test_split(exp.dataset.x, exp.dataset.y, test_size=0.2)
+
+    lgbm7 = LGBMRegressor(max_depth=7, n_estimators=100)
+    lgbm7.fit(train_x, train_y)
+
+    pipeline = exp.make_pipeline(model=lgbm7, train_x=train_x, train_y=train_y.ravel(),
+                                 test_x=test_x, test_y=test_y.ravel())
+    exp.register(pipeline, "LGBM_7")
+
+
+Run Diagnostic Tests
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+As a model is registered, then all the tests and explanation tools in PiML can be used. For example,
+
+.. jupyter-input::
+
+    exp.model_explain(model="LGBM_7", show="pdp", uni_feature="MedInc", figsize=(5, 4))
+
+.. figure:: ../../auto_examples/1_train/images/sphx_glr_plot_0_model_train_001.png
+   :target: ../../auto_examples/1_train/plot_0_model_train.html
+   :align: left
+
+
+
+Examples
+^^^^^^^^^^^^^^^^^^
+
+.. topic:: Example 1:
+
+ * :ref:`sphx_glr_auto_examples_1_train_plot_0_model_train.py`
+
+.. topic:: Example 2:
+
+ * :ref:`sphx_glr_auto_examples_1_train_plot_2_register_0_sklearn.py`

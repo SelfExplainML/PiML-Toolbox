@@ -93,4 +93,4 @@ The full example codes of this section can be found in the following link.
 
 .. topic:: Example
 
-  * :ref:`sphx_glr_auto_examples_data_plot_3_data_prepare.py`
+  * :ref:`sphx_glr_auto_examples_0_data_plot_3_data_prepare.py`

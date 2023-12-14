@@ -60,8 +60,8 @@ In the following demonstration, we will identify weak regions using the testing 
                             slice_features=["PAY_1"], threshold=1.1, min_samples=100, metric="ACC",
                             use_test=True, return_data=True, figsize=(5, 4))
 
-.. figure:: ../../auto_examples/testing/images/sphx_glr_plot_1_weakspot_cls_001.png
-   :target: ../../auto_examples/testing/plot_1_weakspot_cls.html
+.. figure:: ../../auto_examples/4_testing/images/sphx_glr_plot_1_weakspot_cls_001.png
+   :target: ../../auto_examples/4_testing/plot_1_weakspot_cls.html
    :align: left
 
 The above plot illustrates the detection of a single weak region for the feature `PAY_1`. The red dotted line represents the performance threshold, which is calculated by dividing the average metric (around 0.82) by the user-specified threshold ratio (1.1), resulting in a threshold value of approximately 0.75. Each weak region is annotated with its corresponding weak region number.
@@ -93,8 +93,8 @@ In the following demo, we identify weak regions of the testing data (`use_test=T
     results = exp.model_diagnose(model="XGB2", show="weakspot", slice_method="histogram", 
                            slice_features=["PAY_1", "PAY_2"], threshold=1.1, min_samples=100, metric="ACC", use_test=True, return_data=True, figsize=(5, 4))
 
-.. figure:: ../../auto_examples/testing/images/sphx_glr_plot_1_weakspot_cls_002.png
-   :target: ../../auto_examples/testing/plot_1_weakspot_cls.html
+.. figure:: ../../auto_examples/4_testing/images/sphx_glr_plot_1_weakspot_cls_002.png
+   :target: ../../auto_examples/4_testing/plot_1_weakspot_cls.html
    :align: left
 
 In this particular demonstration involving two variables, the plot reveals the presence of 5 weak regions. The accompanying summary table provides additional information regarding each region. It includes the testing and training accuracy scores for the samples within each region, as well as the gap between the testing and training ACC scores. These details offer insights into the performance discrepancy between the testing and training datasets for each specific region. Let's take Region 0 as an example, which consists of 191 testing samples and 800 training samples. This region corresponds to the range of `PAY_1` values between 2.6 and 3.5, and `PAY_2` values between 2.2 and 3.6.
@@ -107,10 +107,10 @@ Examples
 
   The first example below demonstrates how to use PiML with its high-code APIs for developing machine learning models for the BikeSharing data from the UCI repository, which consists of 17,389 samples of hourly counts of rental bikes in Capital bikeshare system; see details. The response `cnt` (hourly bike rental counts) is continuous and it is a regression problem.
  
- * :ref:`sphx_glr_auto_examples_testing_plot_1_weakspot_reg.py`
+ * :ref:`sphx_glr_auto_examples_4_testing_plot_1_weakspot_reg.py`
 
 .. topic:: Examples 2: Taiwan Credit
 
   The second example below demonstrates how to use PiML’s high-code APIs for the TaiwanCredit dataset from the UCI repository. This dataset comprises the credit card details of 30,000 clients in Taiwan from April 2005 to September 2005, and more information can be found on the TaiwanCreditData website. The data can be loaded directly into PiML, although it requires some preprocessing. The FlagDefault variable serves as the response for this classification problem.
     
- * :ref:`sphx_glr_auto_examples_testing_plot_1_weakspot_cls.py`
+ * :ref:`sphx_glr_auto_examples_4_testing_plot_1_weakspot_cls.py`

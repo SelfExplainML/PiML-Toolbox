@@ -1,0 +1,214 @@
+
+.. Places parent toc into the sidebar
+
+:parenttoc: True
+
+.. include:: ../../includes/big_toc_css.rst
+
+========================================
+Hyperparameter Optimization (Model Tune)
+========================================
+Hyperparameter tuning is a crucial step in the process of training machine learning models. Examples of hyperparameters include learning rate, batch size, the number of hidden layers in a neural network, and the number of trees in a random forest.
+
+The goal of hyperparameter tuning is to find the optimal set of hyperparameters that maximizes the performance of a model on a given task. The process involves experimenting with different hyperparameter values and assessing their impact on the model's performance. The performance is typically evaluated using a validation set or through cross-validation.
+
+Methodology
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+In PiML, we integrate two common techniques used in hyperparameter tuning:
+
+- Grid Search: This is a brute-force approach where a predefined set of hyperparameter values is specified, and the model is trained and evaluated for all possible combinations. While comprehensive, it can be computationally expensive. The grid search in PiML is implemented based on scikit-learn's GridSearchCV_.
+
+.. _GridSearchCV: https://scikit-learn.org/stable/modules/generated/sklearn.model_selection.GridSearchCV.html.
+
+- Random Search: In contrast to grid search, random search involves randomly selecting a combination of hyperparameter values from a predefined range. This method is more efficient than grid search and often yields similar or better results. The random search in PiML is implemented based on scikit-learn's RandomizedSearchCV_.
+
+.. _RandomizedSearchCV: https://scikit-learn.org/stable/modules/generated/sklearn.model_selection.RandomizedSearchCV.html.
+
+Usage
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+As an experiment is initialized with data and models, we can use the function `exp.model_tune`_ to tune the models. The function incorporates several key parameters:
+
+- `method`: The method parameter dictates the search strategy employed, offering options between 'grid' and 'randomized' search methods.
+
+- `parameters`: This parameter allows you to define the search space through a dictionary. Keys in the dictionary represent parameter names (as strings), and corresponding values are lists of values to be explored. It is usually set as a list of candidate values, e.g.,  {'kernel': ['linear', 'rbf'], 'alpha': np.linspace(0, 1, 20)}. For random search, you can also specify distributions using scipy.stats distributions, e.g., {'alpha': scipy.stats.uniform(0, 1)}.
+
+- `metric`: Determines the evaluation metrics for model tuning. It can be a single metric or a list of metrics. For regression tasks, options include "MSE," "MAE," and "R2." For classification tasks, metrics including "ACC," "AUC," "F1," "LogLoss," and "Brier" are available. The default is "MSE" for regression and "ACC" for classification.
+
+- `n_runs`: Relevant only when the search method is 'randomized,' specifying the number of runs or iterations during the search process.
+
+- `cv`: Defines the number of folds for cross-validation. By default, set as None, indicating the use of hold-out validation. If cross-validation is desired, set it as an integer.
+
+- `test_ratio`: If cv is None, this parameter determines the proportion of the training set (default is 20%) allocated for validation in the absence of cross-validation.
+
+.. _`exp.model_tune`: ../../modules/generated/piml.Experiment.html#piml.Experiment.model_tune
+
+Get model tunning result
+""""""""""""""""""""""""""
+Assume we have already fitted an XGB2 model via PiML. Next, we can use the `exp.model_tune` function to optimize its hyperparameters, as shown below. 
+
+.. jupyter-input::
+
+    parameters = {'n_estimators': [100, 300, 500],
+                  'eta': [0.1, 0.3, 0.5],
+                  'reg_lambda': [0.0, 0.5, 1.0],
+                  'reg_alpha': [0.0, 0.5, 1.0]}
+    result = exp.model_tune("XGB2", method="grid", parameters=parameters, metric=['MSE', 'MAE'], test_ratio=0.2)
+
+In this example, we begin by defining the hyperparameter search space. Specifically, we target the tuning of four hyperparameters in XGBoost ('n_estimators', 'eta', 'reg_lambda', and 'reg_alpha'). Each hyperparameter is assigned three candidate values. Subsequently, the model tuning API in PiML is invoked, employing grid search for the optimization process.
+
+For the assessment of model performance, we utilize a hold-out validation set, constituting 20% of the original training set. The evaluation metrics employed are 'MSE' (Mean Squared Error) and 'MAE' (Mean Absolute Error). Upon executing the code, we can proceed with a detailed analysis of the obtained results.
+
+.. jupyter-input::
+
+    result.data
+
+.. raw:: html
+
+    <div class="output_subarea output_html rendered_html output_result">
+    <div>
+    <style scoped>
+        .dataframe tbody tr th:only-of-type {
+            vertical-align: middle;
+        }
+
+        .dataframe tbody tr th {
+            vertical-align: top;
+        }
+
+        .dataframe thead th {
+            text-align: right;
+        }
+    </style>
+    <table border="1" class="dataframe">
+    <thead>
+        <tr style="text-align: right;">
+        <th></th>
+        <th>Rank(by MSE)</th>
+        <th>MSE</th>
+        <th>MAE</th>
+        <th>time</th>
+        </tr>
+        <tr>
+        <th>params</th>
+        <th></th>
+        <th></th>
+        <th></th>
+        <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+        <th>{'eta': 0.5, 'n_estimators': 500, 'reg_alpha': 0.5, 'reg_lambda': 0.0}</th>
+        <td>1</td>
+        <td>0.006082</td>
+        <td>0.055082</td>
+        <td>4.965160</td>
+        </tr>
+        <tr>
+        <th>{'eta': 0.5, 'n_estimators': 500, 'reg_alpha': 0.5, 'reg_lambda': 1.0}</th>
+        <td>2</td>
+        <td>0.006267</td>
+        <td>0.055823</td>
+        <td>4.432415</td>
+        </tr>
+        <tr>
+        <th>{'eta': 0.5, 'n_estimators': 500, 'reg_alpha': 0.5, 'reg_lambda': 0.5}</th>
+        <td>3</td>
+        <td>0.006328</td>
+        <td>0.056353</td>
+        <td>4.303924</td>
+        </tr>
+        <tr>
+        <th>{'eta': 0.5, 'n_estimators': 500, 'reg_alpha': 0.0, 'reg_lambda': 1.0}</th>
+        <td>4</td>
+        <td>0.006331</td>
+        <td>0.056674</td>
+        <td>5.095008</td>
+        </tr>
+        <tr>
+        <th>{'eta': 0.5, 'n_estimators': 500, 'reg_alpha': 0.0, 'reg_lambda': 0.0}</th>
+        <td>5</td>
+        <td>0.006416</td>
+        <td>0.056506</td>
+        <td>3.485461</td>
+        </tr>
+        <tr>
+        <th>...</th>
+        <td>...</td>
+        <td>...</td>
+        <td>...</td>
+        <td>...</td>
+        </tr>
+        <tr>
+        <th>{'eta': 0.1, 'n_estimators': 100, 'reg_alpha': 0.5, 'reg_lambda': 0.0}</th>
+        <td>77</td>
+        <td>0.011644</td>
+        <td>0.074410</td>
+        <td>0.885018</td>
+        </tr>
+        <tr>
+        <th>{'eta': 0.1, 'n_estimators': 100, 'reg_alpha': 0.5, 'reg_lambda': 1.0}</th>
+        <td>78</td>
+        <td>0.011669</td>
+        <td>0.074375</td>
+        <td>0.912729</td>
+        </tr>
+        <tr>
+        <th>{'eta': 0.1, 'n_estimators': 100, 'reg_alpha': 1.0, 'reg_lambda': 0.0}</th>
+        <td>79</td>
+        <td>0.011741</td>
+        <td>0.074464</td>
+        <td>0.948782</td>
+        </tr>
+        <tr>
+        <th>{'eta': 0.1, 'n_estimators': 100, 'reg_alpha': 1.0, 'reg_lambda': 1.0}</th>
+        <td>80</td>
+        <td>0.011752</td>
+        <td>0.074676</td>
+        <td>1.801720</td>
+        </tr>
+        <tr>
+        <th>{'eta': 0.1, 'n_estimators': 100, 'reg_alpha': 1.0, 'reg_lambda': 0.5}</th>
+        <td>81</td>
+        <td>0.011808</td>
+        <td>0.074723</td>
+        <td>0.921155</td>
+        </tr>
+    </tbody>
+    </table>
+    </div>
+    </div>
+
+.. jupyter-input::
+
+    result.plot(param='n_estimators', figsize=(6, 4.5))
+
+.. figure:: ../../auto_examples/1_train/images/sphx_glr_plot_1_hpo_grid_001.png
+   :target: ../../auto_examples/1_train/plot_1_hpo_grid.html
+   :align: left
+
+In the context of this plot, metrics that are considered better when smaller are all negated. Consequently, the expectation is that all metrics displayed in the plot should be larger for better performance.
+
+In practice, achieving optimal predictive performance is not the sole objective of modeling. There is often a preference for simpler models, even if there is a trade-off in predictive accuracy. Model developers can manually identify the most suitable hyperparameter configuration by examining the tables and plots presented above.
+
+The result object incorporates a built-in function known as "get_params_rank," enabling the retrieval of parameters based on the specified rank ID from the results. After determining the best parameters, a refined model can be trained and subsequently registered within the PIML experiment.
+
+.. jupyter-input::
+
+    params = result.get_params_ranks(rank=1)
+    exp.model_train(XGB2Regressor(**params), name="XGB2-HPO-GridSearch")
+
+The codes above first retrieve the top-1 hyperparameter, i.e., {'eta': 0.5, 'n_estimators': 500, 'reg_alpha': 0.5, 'reg_lambda': 0.0}, and refit the model using the `exp.model_train` API.
+
+Examples
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+There are two HPO example codes in the following link.
+
+.. topic:: Example 1: Grid Search
+
+    * :ref:`sphx_glr_auto_examples_1_train_plot_1_hpo_grid.py`
+
+.. topic:: Example 2: Randomized Search
+
+    * :ref:`sphx_glr_auto_examples_1_train_plot_1_hpo_random.py`

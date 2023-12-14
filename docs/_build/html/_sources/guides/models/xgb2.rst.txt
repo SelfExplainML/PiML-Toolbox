@@ -75,8 +75,8 @@ The main effect plot in XGB2 shows the estimated effect :math:`\hat{h}_{j}(x_{j}
      exp.model_interpret(model="XGB2", show="global_effect_plot", uni_feature="atemp",
                          original_scale=True, figsize=(5, 4))
 
-.. figure:: ../../auto_examples/models/images/sphx_glr_plot_5_xgb2_reg_002.png
-   :target: ../../auto_examples/models/plot_5_xgb2_reg.html
+.. figure:: ../../auto_examples/3_models/images/sphx_glr_plot_5_xgb2_reg_002.png
+   :target: ../../auto_examples/3_models/plot_5_xgb2_reg.html
    :align: left
 
 The plot illustrates the impact of the `atemp` feature (normalized feeling temperature in Celsius. The values are divided into 50) on bike sharing and includes its corresponding histogram. The data indicate that the peak of bike sharing activity occurs when `atemp` is around 0.7, which is considered a comfortable temperature for outdoor activities. Any temperature that is either cooler or hotter than this range tends to reduce people's willingness to ride bicycles.
@@ -91,8 +91,8 @@ To visualize the estimated pairwise interaction, we can still use the keyword "g
      exp.model_interpret(model="XGB2", show="global_effect_plot", bi_features=["hr", "workingday"],
                          sliced_line=False, original_scale=True, figsize=(5, 4))
 
-.. figure:: ../../auto_examples/models/images/sphx_glr_plot_5_xgb2_reg_003.png
-   :target: ../../auto_examples/models/plot_5_xgb2_reg.html
+.. figure:: ../../auto_examples/3_models/images/sphx_glr_plot_5_xgb2_reg_003.png
+   :target: ../../auto_examples/3_models/plot_5_xgb2_reg.html
    :align: left
 
 The estimated pairwise interaction between `hr` and `workingday` is shown in the figure above. The plot reveals that the best hours of bike sharing can be quite different for workingday and non-working days. Similar to two-way PDP and ALE, the interaction heatmap can be viewed via sliced 1D line plot, by setting `sliced_line=True`. (This is the same for all the GAMI models, including EBM, GAMI-Net)
@@ -107,8 +107,8 @@ The effect importance is calculated as the variance of the estimated shape funct
      
      exp.model_interpret(model="XGB2", show="global_ei", figsize=(5, 4))
 
-.. figure:: ../../auto_examples/models/images/sphx_glr_plot_5_xgb2_reg_004.png
-   :target: ../../auto_examples/models/plot_5_xgb2_reg.html
+.. figure:: ../../auto_examples/3_models/images/sphx_glr_plot_5_xgb2_reg_004.png
+   :target: ../../auto_examples/3_models/plot_5_xgb2_reg.html
    :align: left
 
 Here we only plot the top-10 effect importance. It can be observed that the main effect of `hr` is the most important, followed by `atemp` and the pairwise interaction between `hr` and `workingday`. Note that this plot only shows the top 10 effects with the largest importance. To get the full results, you can set the parameter `return_data` to True.
@@ -129,8 +129,8 @@ Feature importance is calculated as the variance of :math:`\hat{z}_{j}(x_{j})`, 
      
      exp.model_interpret(model='XGB2', show="global_fi", figsize=(5, 4))
 
-.. figure:: ../../auto_examples/models/images/sphx_glr_plot_5_xgb2_reg_005.png
-   :target: ../../auto_examples/models/plot_5_xgb2_reg.html
+.. figure:: ../../auto_examples/3_models/images/sphx_glr_plot_5_xgb2_reg_005.png
+   :target: ../../auto_examples/3_models/plot_5_xgb2_reg.html
    :align: left
 
 From this plot, we can observe that the two features `hr` and `atemp` take the dominant role in the model, followed by `season` and `hum`. Note that this plot only shows the top 10 features with the largest importance. To get the full results, you can set the parameter `return_data` to True.
@@ -148,8 +148,8 @@ Given a sample, the local effect contribution displays the outputs of each main 
 
     exp.model_interpret(model='XGB2', show="local_ei", sample_id=0, original_scale=True, figsize=(5, 4))
 
-.. figure:: ../../auto_examples/models/images/sphx_glr_plot_5_xgb2_reg_006.png
-   :target: ../../auto_examples/models/plot_5_xgb2_reg.html
+.. figure:: ../../auto_examples/3_models/images/sphx_glr_plot_5_xgb2_reg_006.png
+   :target: ../../auto_examples/3_models/plot_5_xgb2_reg.html
    :align: left
 
 The predictor values of each effect are shown on the right axis, and the corresponding effect names are shown on the left axis. From the title, we can see that the predicted value of this sample is 0.0606, which is slightly different from the actual response of 0.16. The predicted value 0.0606 is then additively decomposed as the summation of all effect contributions plus the intercept term (not shown in this plot). The main effect of `atemp` contributes the most to the final prediction, with a negative contribution (around -0.06). Followed by `atemp`, the main effect of `season` and the pairwise interaction (`hr`, `workingday`) also show negative contributions to the final prediction. Note that this plot only shows the top 10 effects with the largest contribution. To get the full results, you can set the parameter `return_data` to True.
@@ -163,8 +163,8 @@ The local feature contribution plot shows the aggregated local effect contributi
 
     exp.model_interpret(model="XGB2", show="local_fi", sample_id=0, original_scale=True, figsize=(5, 4))
 
-.. figure:: ../../auto_examples/models/images/sphx_glr_plot_5_xgb2_reg_007.png
-   :target: ../../auto_examples/models/plot_5_xgb2_reg.html
+.. figure:: ../../auto_examples/3_models/images/sphx_glr_plot_5_xgb2_reg_007.png
+   :target: ../../auto_examples/3_models/plot_5_xgb2_reg.html
    :align: left
 
 The interpretation of the feature contribution plot is similar to that of the local effect contribution plot, except that the contribution is shown by feature instead of effect. For this specific sample, the main effect of `atemp` and `season` still negatively contribute to the final prediction. In contrast to the positive contribution of its main effect, the feature `hr` shows a negative contribution from the feature level. Note that this plot only shows the top 10 features with the largest contribution. To get the full results, you can set the parameter `return_data` to True.
@@ -177,10 +177,10 @@ Examples
 
   The first example below demonstrates how to use PiML with its high-code APIs for developing machine learning models for the BikeSharing data from the UCI repository, which consists of 17,389 samples of hourly counts of rental bikes in Capital bikeshare system; see details. The response `cnt` (hourly bike rental counts) is continuous and it is a regression problem.
  
- * :ref:`sphx_glr_auto_examples_models_plot_5_xgb2_reg.py`
+ * :ref:`sphx_glr_auto_examples_3_models_plot_5_xgb2_reg.py`
 
 .. topic:: Examples 2: Taiwan Credit
 
   The second example below demonstrates how to use PiML’s high-code APIs for the TaiwanCredit dataset from the UCI repository. This dataset comprises the credit card details of 30,000 clients in Taiwan from April 2005 to September 2005, and more information can be found on the TaiwanCreditData website. The data can be loaded directly into PiML, although it requires some preprocessing. The FlagDefault variable serves as the response for this classification problem.
 
- * :ref:`sphx_glr_auto_examples_models_plot_5_xgb2_cls.py`
+ * :ref:`sphx_glr_auto_examples_3_models_plot_5_xgb2_cls.py`

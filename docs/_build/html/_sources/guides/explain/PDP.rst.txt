@@ -43,15 +43,21 @@ where :math:`x_{C}^{(i)}` is the complement features of the :math:`i`-th trainin
    - Inconsistent global and local explanation: PDPs provide an average view of features' effect on the predicted response. Local effects or effects specific to certain subsets of data may be different from global ones.
 
 
-.. note::
-
-   For binary classification tasks, the PDP is computed by default using the predicted probability instead of log odds. In `exp.model_explain`, there exist an argument called `response_method`. If we want to use the predicted probability as the output, we can set `response_method` to "decision_function".
-
 
 Usage
 ^^^^^^^^^^^^^^^^^
 
-Visualizing PDPs using PiML is a straightforward process that can be accomplished with the `model_explain` function. The keyword for PDP is "pdp", i.e., we should set `show` = "pdp". For illustration purposes, we use PDPs to explain a fitted XGB2 model fitted on the BikeSharing dataset. 
+Visualizing PDPs using PiML is a straightforward process that can be accomplished with the `model_explain` function. The keyword for PDP is "pdp", i.e., we should set `show` = "pdp". Additionally, the following arguments are relevant to this analysis:
+
+- `uni_feature`: The name of the feature of interest for one-way PDPs. 
+- `bi_features`: The names of the features of interest for two-way PDPs. 
+- `use_test`: If True, the test data will be used to generate the explanations. Otherwise, the training data will be used. The default value is False.
+- `sample_size`: To speed up the computation, we subsample a subset of the data to calculate PDP. The default value is 2000. To use the full data, you can set `sample_size` to be larger than the number of samples in the data.
+- `grid_size`: The number of grid points in PDP. The default value is 100 for 1D PDP and 10 for 2D PDP.
+- `response_method`: For binary classification tasks, the PDP is computed by default using the predicted probability instead of log odds; If the model does not have "predict_proba" or we set `response_method` to "decision_function", then the log odds would be used as the response.
+- `sliced_line`: A parameter for two-way PDP. If True, the two-way PDP will be visualized using sliced 1D line plot. Otherwise, the two-way PDP will be visualized using 2D heatmap. The default value is False.
+
+For illustration purposes, we use PDPs to explain a fitted XGB2 model fitted on the BikeSharing dataset. 
 
 One-way PDPs
 """"""""""""""""""""""""""""""""
@@ -63,8 +69,8 @@ The one-way PDP describes the relationship between the predicted response and a 
     exp.model_explain(model="XGB2", show="pdp", uni_feature="hr", use_test=False,
                       grid_size=50, original_scale=True, figsize=(5, 4))
 
-.. figure:: ../../auto_examples/explain/images/sphx_glr_plot_1_pdp_001.png
-   :target: ../../auto_examples/explain/plot_1_pdp.html
+.. figure:: ../../auto_examples/2_explain/images/sphx_glr_plot_1_pdp_001.png
+   :target: ../../auto_examples/2_explain/plot_1_pdp.html
    :align: left
 
 The plot above suggests a non-linear relationship between the predicted response and the input feature of interest (`hr`). The `grid_size` parameter controls the number of grid points in PDP. The `original_scale` is set to True if we want to use the original scale of that feature.
@@ -76,8 +82,8 @@ For categorical features, the PDP is a bar chart. The plot below indicates that 
     exp.model_explain(model="XGB2", show="pdp", uni_feature="season",
                       original_scale=True, figsize=(5, 4))
 
-.. figure:: ../../auto_examples/explain/images/sphx_glr_plot_1_pdp_002.png
-   :target: ../../auto_examples/explain/plot_1_pdp.html
+.. figure:: ../../auto_examples/2_explain/images/sphx_glr_plot_1_pdp_002.png
+   :target: ../../auto_examples/2_explain/plot_1_pdp.html
    :align: left
 
 
@@ -91,8 +97,8 @@ The two-way PDP shows the interaction between two features, which is useful for 
     exp.model_explain(model="XGB2", show="pdp", bi_features=["hr", "workingday"],
                       grid_size=10, sample_size=10000, sliced_line=False, original_scale=True, figsize=(5, 4))
 
-.. figure:: ../../auto_examples/explain/images/sphx_glr_plot_1_pdp_003.png
-   :target: ../../auto_examples/explain/plot_1_pdp.html
+.. figure:: ../../auto_examples/2_explain/images/sphx_glr_plot_1_pdp_003.png
+   :target: ../../auto_examples/2_explain/plot_1_pdp.html
    :align: left
 
 The plot above shows the dependence of bike rental counts on the joint values of `workingday` and `hr` using a two-way PDP. We observe that the bike rental counts are higher during the working days (i.e., `workingday` = 1) than the non-working days (i.e., `workingday` = 0). The bike rental counts are also higher during the daytime than the nighttime. The interaction between `workingday` and `hr` is also observed in the plot.
@@ -106,10 +112,10 @@ Examples
 
   The first example below demonstrates how to use PiML with its high-code APIs for developing machine learning models for the BikeSharing data from the UCI repository, which consists of 17,389 samples of hourly counts of rental bikes in Capital bikeshare system; see details. The response `cnt` (hourly bike rental counts) is continuous and it is a regression problem.
  
- * :ref:`sphx_glr_auto_examples_explain_plot_1_pdp.py`
+ * :ref:`sphx_glr_auto_examples_2_explain_plot_1_pdp.py`
 
 .. topic:: Example 2: SimuCredit
 
    The second example shows the option to use test set to generate the explanations.
 
- * :ref:`sphx_glr_auto_examples_explain_plot_6_data_dependent_explain.py`
+ * :ref:`sphx_glr_auto_examples_2_explain_plot_6_data_dependent_explain.py`

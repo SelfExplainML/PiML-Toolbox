@@ -35,14 +35,22 @@ In PiML, the ICE plot is implemented using the scikit-learn package. For a more 
 Usage
 ^^^^^^^^^^^^^^^^^
 
-Below we still use a fitted XGB2 model on the BikeSharing dataset for illustration. The code snippet below provides an example of how to generate an ICE plot using PiML. The `show` parameter is set to "global_ice", while the `uni_feature` parameter is set to "hr". This configuration will produce a line plot, with each line representing an instance in the dataset. The plot shows how the predicted response varies when the value of "hr" changes, while all other features remain constant. By examining the individual lines in the ICE plot, we can better understand how the model makes predictions for each instance in the dataset. We can also identify any patterns or interactions that may be relevant to our analysis.
+Below we still use a fitted XGB2 model on the BikeSharing dataset for illustration. The `show` parameter needs to be "global_ice", and the following parameters are also related to ICE plots:
+
+- `uni_feature`: The name of the feature of interest for one-way ICE. 
+- `use_test`: If True, the test data will be used to generate the explanations. Otherwise, the training data will be used. The default value is False.
+- `sample_size`: To speed up the computation, we subsample a subset of the data to calculate ICE. The default value is 2000. To use the full data, you can set `sample_size` to be larger than the number of samples in the data.
+- `grid_size`: The number of grid points in ICE. The default value is 100 for 1D ICE.
+- `response_method`: For binary classification tasks, the ICE is computed by default using the predicted probability instead of log odds; If the model does not have "predict_proba" or we set `response_method` to "decision_function", then the log odds would be used as the response.
+
+The code snippet below provides an example of how to generate an ICE plot using PiML. The `uni_feature` parameter is set to "hr". This configuration will produce a line plot, with each line representing an instance in the dataset. The plot shows how the predicted response varies when the value of "hr" changes, while all other features remain constant. By examining the individual lines in the ICE plot, we can better understand how the model makes predictions for each instance in the dataset. We can also identify any patterns or interactions that may be relevant to our analysis.
 
 .. jupyter-input::
 
     exp.model_explain(model="XGB2", show="ice", uni_feature="hr", original_scale=True, figsize=(6, 5))
 
-.. figure:: ../../auto_examples/explain/images/sphx_glr_plot_2_ice_001.png
-   :target: ../../auto_examples/explain/plot_2_ice.html
+.. figure:: ../../auto_examples/2_explain/images/sphx_glr_plot_2_ice_001.png
+   :target: ../../auto_examples/2_explain/plot_2_ice.html
    :align: left
 
 From the plot, we observe a similar pattern as the value of `hr` increases for all instances, which is also consistent with the PDP plot generated in the previous section. The predicted values are generally lower when `hr` is less than 4.6. For values of `hr` between 4.6 and 8.3, and between 10 and 18, most of the instances record an increase in prediction as the value of `hr` increases. Apart from that, we also observe that the bandwidth of the predicted response is much larger as `hr` is greater than around 9. This indicates that the rest variables have more contributions to the final prediction during that period of the day.  
@@ -55,14 +63,14 @@ Examples
 
   The first example below demonstrates how to use PiML with its high-code APIs for developing machine learning models for the BikeSharing data from the UCI repository, which consists of 17,389 samples of hourly counts of rental bikes in Capital bikeshare system; see details. The response `cnt` (hourly bike rental counts) is continuous and it is a regression problem.
                           
- * :ref:`sphx_glr_auto_examples_explain_plot_2_ice.py`
+ * :ref:`sphx_glr_auto_examples_2_explain_plot_2_ice.py`
 
 
 .. topic:: Example 2: SimuCredit
 
    The second example shows the option to use test set to generate the explanations.
 
-   * :ref:`sphx_glr_auto_examples_explain_plot_6_data_dependent_explain.py`
+   * :ref:`sphx_glr_auto_examples_2_explain_plot_6_data_dependent_explain.py`
 
 .. topic:: References
 

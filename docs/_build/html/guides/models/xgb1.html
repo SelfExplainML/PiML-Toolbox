@@ -143,12 +143,12 @@
                   </li>
                 
                   <li>
-                    <a href="../extmodels.html" class="">3. Black-box Models</a>
+                    <a href="../model_train.html" class="">3. Model Train and Tune</a>
                     
                   </li>
                 
                   <li>
-                    <a href="../explainability.html" class="">4. Post-hoc Explainability</a>
+                    <a href="../explain.html" class="">4. Post-hoc Explainability</a>
                     
                   </li>
                 
@@ -203,7 +203,7 @@
                   </li>
                 
                   <li>
-                    <a href="../comparison.html" class="">7. Model Comparison</a>
+                    <a href="../compare.html" class="">7. Model Comparison</a>
                     
                   </li>
                 
@@ -322,7 +322,7 @@
 </div>
 </div>
 <figure class="align-left">
-<a class="reference external image-reference" href="../../auto_examples/models/plot_4_xgb1_reg.html"><img alt="../../_images/sphx_glr_plot_4_xgb1_reg_001.png" src="../../_images/sphx_glr_plot_4_xgb1_reg_001.png" /></a>
+<a class="reference external image-reference" href="../../auto_examples/3_models/plot_4_xgb1_reg.html"><img alt="../../_images/sphx_glr_plot_4_xgb1_reg_001.png" src="../../_images/sphx_glr_plot_4_xgb1_reg_001.png" /></a>
 </figure>
 <p>The above figure displays the estimated shape functions for the feature <code class="docutils literal notranslate"><span class="pre">MedInc</span></code>, accompanied by a histogram plot at the bottom. The estimated shape function appears to be piecewise constant, with an increasing trend for values of <code class="docutils literal notranslate"><span class="pre">MedInc</span></code> less than approximately 9.2, followed by a plateau.</p>
 </section>
@@ -339,7 +339,7 @@
 </div>
 </div>
 <figure class="align-left">
-<a class="reference external image-reference" href="../../auto_examples/models/plot_4_xgb1_reg.html"><img alt="../../_images/sphx_glr_plot_4_xgb1_reg_002.png" src="../../_images/sphx_glr_plot_4_xgb1_reg_002.png" /></a>
+<a class="reference external image-reference" href="../../auto_examples/3_models/plot_4_xgb1_reg.html"><img alt="../../_images/sphx_glr_plot_4_xgb1_reg_002.png" src="../../_images/sphx_glr_plot_4_xgb1_reg_002.png" /></a>
 </figure>
 <p>The two geographical features <code class="docutils literal notranslate"><span class="pre">latitude</span></code> and <code class="docutils literal notranslate"><span class="pre">longitude</span></code> are the most important features in the model, followed by <code class="docutils literal notranslate"><span class="pre">MedInc</span></code> and <code class="docutils literal notranslate"><span class="pre">AveOccup</span></code>. The feature <code class="docutils literal notranslate"><span class="pre">Population</span></code> is the least important in the model. Note that this plot only shows the top 10 features with the largest importance. To get the full results, you can set the parameter <code class="docutils literal notranslate"><span class="pre">return_data</span></code> to True.</p>
 </section>
@@ -367,7 +367,7 @@
 </div>
 </div>
 <figure class="align-left">
-<a class="reference external image-reference" href="../../auto_examples/models/plot_4_xgb1_reg.html"><img alt="../../_images/sphx_glr_plot_4_xgb1_reg_003.png" src="../../_images/sphx_glr_plot_4_xgb1_reg_003.png" /></a>
+<a class="reference external image-reference" href="../../auto_examples/3_models/plot_4_xgb1_reg.html"><img alt="../../_images/sphx_glr_plot_4_xgb1_reg_003.png" src="../../_images/sphx_glr_plot_4_xgb1_reg_003.png" /></a>
 </figure>
 <p>Comparing the WoE of <code class="docutils literal notranslate"><span class="pre">MedInc</span></code> to its main effect plot, it is evident that they are quite similar. However, the main effect plot has a smaller range compared to WoE. This is because WoE only displays the effect of <code class="docutils literal notranslate"><span class="pre">MedInc</span></code> on the target variable, while the main effect function factors in the impact of other features in the model, controlling for their effects while measuring the effect of <code class="docutils literal notranslate"><span class="pre">MedInc</span></code> on the target variable.</p>
 </section>
@@ -389,7 +389,7 @@
 </div>
 </div>
 <figure class="align-left">
-<a class="reference external image-reference" href="../../auto_examples/models/plot_4_xgb1_reg.html"><img alt="../../_images/sphx_glr_plot_4_xgb1_reg_004.png" src="../../_images/sphx_glr_plot_4_xgb1_reg_004.png" /></a>
+<a class="reference external image-reference" href="../../auto_examples/3_models/plot_4_xgb1_reg.html"><img alt="../../_images/sphx_glr_plot_4_xgb1_reg_004.png" src="../../_images/sphx_glr_plot_4_xgb1_reg_004.png" /></a>
 </figure>
 <p>It turns out that the rank ordering of the IV plot is different from that of the feature importance plot. The feature <code class="docutils literal notranslate"><span class="pre">MedInc</span></code> is ranked as the most important feature in IV, followed by <code class="docutils literal notranslate"><span class="pre">latitude</span></code>, <code class="docutils literal notranslate"><span class="pre">AveRooms</span></code>, and <code class="docutils literal notranslate"><span class="pre">longitude</span></code>. The feature <code class="docutils literal notranslate"><span class="pre">Population</span></code> is still ranked as the least important feature. As <code class="docutils literal notranslate"><span class="pre">latitude</span></code> and <code class="docutils literal notranslate"><span class="pre">longitude</span></code> are highly correlated, the model may amplify the effect of <code class="docutils literal notranslate"><span class="pre">latitude</span></code> and <code class="docutils literal notranslate"><span class="pre">longitude</span></code>, which explains why they are ranked as the most important features in the feature importance plot. In contrast, the IV plot shows that <code class="docutils literal notranslate"><span class="pre">MedInc</span></code> is the most important feature, since the IV plot only considers the effect of each feature on the target variable. Note that this plot only shows the top 10 features with the largest information value. To get the full results, you can set the parameter <code class="docutils literal notranslate"><span class="pre">return_data</span></code> to True.</p>
 </section>
@@ -407,7 +407,7 @@
 </div>
 </div>
 <figure class="align-left">
-<a class="reference external image-reference" href="../../auto_examples/models/plot_4_xgb1_reg.html"><img alt="../../_images/sphx_glr_plot_4_xgb1_reg_005.png" src="../../_images/sphx_glr_plot_4_xgb1_reg_005.png" /></a>
+<a class="reference external image-reference" href="../../auto_examples/3_models/plot_4_xgb1_reg.html"><img alt="../../_images/sphx_glr_plot_4_xgb1_reg_005.png" src="../../_images/sphx_glr_plot_4_xgb1_reg_005.png" /></a>
 </figure>
 <p>The title shows the actual response value and the predicted value of the chosen sample. Each bar in the plot represents the estimated effect value <span class="math notranslate nohighlight">\(\hat{f}_j(x)\)</span> of the chosen sample, which is the additive decomposition of the prediction. The right axis shows the feature values of the chosen sample. The feature <code class="docutils literal notranslate"><span class="pre">Lontitude</span></code> has the largest negative effect on the prediction, followed by <code class="docutils literal notranslate"><span class="pre">Latitude</span></code> and <code class="docutils literal notranslate"><span class="pre">AveRooms</span></code>. The feature <code class="docutils literal notranslate"><span class="pre">Population</span></code> has the least effect on the prediction. Note that this plot only shows the top 10 features with the largest contribution. To get the full results, you can set the parameter <code class="docutils literal notranslate"><span class="pre">return_data</span></code> to True.</p>
 </section>
@@ -419,7 +419,7 @@
 <div><p>The first example below demonstrates how to use PiML with its high-code APIs for developing machine learning models for the BikeSharing data from the UCI repository, which consists of 17,389 samples of hourly counts of rental bikes in Capital bikeshare system; see details. The response <code class="docutils literal notranslate"><span class="pre">cnt</span></code> (hourly bike rental counts) is continuous and it is a regression problem.</p>
 </div></blockquote>
 <ul class="simple">
-<li><p><a class="reference internal" href="../../auto_examples/models/plot_4_xgb1_reg.html#sphx-glr-auto-examples-models-plot-4-xgb1-reg-py"><span class="std std-ref">XGB-1 Regression (California Housing)</span></a></p></li>
+<li><p><a class="reference internal" href="../../auto_examples/3_models/plot_4_xgb1_reg.html#sphx-glr-auto-examples-3-models-plot-4-xgb1-reg-py"><span class="std std-ref">XGB-1 Regression (California Housing)</span></a></p></li>
 </ul>
 </div>
 <div class="topic">
@@ -428,7 +428,7 @@
 <div><p>The example below demonstrates how to use PiML with the CoCircles data, which is a simulated binary classification data with two features exactly follow the GAM assumptions.</p>
 </div></blockquote>
 <ul class="simple">
-<li><p><a class="reference internal" href="../../auto_examples/models/plot_4_xgb1_cls.html#sphx-glr-auto-examples-models-plot-4-xgb1-cls-py"><span class="std std-ref">XGB-1 Classification (CoCircles)</span></a></p></li>
+<li><p><a class="reference internal" href="../../auto_examples/3_models/plot_4_xgb1_cls.html#sphx-glr-auto-examples-3-models-plot-4-xgb1-cls-py"><span class="std std-ref">XGB-1 Classification (CoCircles)</span></a></p></li>
 </ul>
 </div>
 </section>

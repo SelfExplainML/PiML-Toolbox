@@ -1,0 +1,603 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+
+  <meta charset="utf-8">
+  <meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  
+  <title>PiML Toolbox</title>
+  
+
+  
+  <link rel="shortcut icon" href="../../_static/favicon.ico"/>
+  
+
+  <link rel="stylesheet" href="../../_static/css/vendor/bootstrap.min.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/plot_directive.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/jupyter-sphinx.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/thebelab.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/sg_gallery.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/sg_gallery-binder.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/sg_gallery-dataframe.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/sg_gallery-rendered-html.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
+<script id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+<script src="../../_static/jquery.js"></script>
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="../../_static/doctools.js"></script>
+        <script src="../../_static/sphinx_highlight.js"></script>
+        <script src="../../_static/thebelab-helper.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/@jupyter-widgets/html-manager@^1.0.1/dist/embed-amd.js"></script>
+        <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="../../_static/js/theme.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav">
+
+  
+
+
+<nav id="navbar" class="sk-docs-navbar navbar navbar-expand-md navbar-light bg-light py-0">
+  <div class="container-fluid sk-docs-container px-0">
+      <a class="navbar-brand py-0" href="../../index.html">
+        <img
+          class="sk-brand-img"
+          src="../../_static/piml-logo.png"
+          alt="logo"/>
+      </a>
+    <button
+      id="sk-navbar-toggler"
+      class="navbar-toggler"
+      type="button"
+      data-toggle="collapse"
+      data-target="#navbarSupportedContent"
+      aria-controls="navbarSupportedContent"
+      aria-expanded="false"
+      aria-label="Toggle navigation"
+    >
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="sk-navbar-collapse collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item">
+          <a class="sk-nav-link nav-link" href="../../install.html">Install</a>
+        </li>
+        <li class="nav-item">
+          <a class="sk-nav-link nav-link" href="../../user_guide.html">User Guide</a>
+        </li>
+        <li class="nav-item">
+          <a class="sk-nav-link nav-link" href="../../modules/classes.html">API</a>
+        </li>
+        <li class="nav-item">
+          <a class="sk-nav-link nav-link" href="../../auto_examples/index.html">Examples</a>
+        </li>
+     </ul>
+      <div id="searchbox" role="search">
+          <div class="searchformwrapper">
+          <form class="search" action="../../search.html" method="get">
+            <input class="sk-search-text-input" type="text" name="q" aria-labelledby="searchlabel" />
+            <input class="sk-search-text-btn" type="submit" value="Go" />
+          </form>
+          </div>
+      </div>
+    </div>
+  </div>
+</nav>
+  <div class="d-flex" id="sk-doc-wrapper">
+      <input type="checkbox" name="sk-toggle-checkbox" id="sk-toggle-checkbox">
+      <label id="sk-sidemenu-toggle" class="sk-btn-toggle-toc btn sk-btn-primary" for="sk-toggle-checkbox">Toggle Menu</label>
+      <div id="sk-sidebar-wrapper" class="border-right">
+        <div class="sk-sidebar-toc-wrapper">
+          <div class="sk-sidebar-toc-logo">
+            <a href="../../index.html">
+              <img
+                class="sk-brand-img"
+                src="../../_static/piml-logo.png"
+                alt="logo"/>
+            </a>
+          </div>
+          <!--div class="btn-group w-100 mb-2" role="group" aria-label="rellinks">
+              <a href="arbitrary.html" role="button" class="btn sk-btn-rellink py-1" sk-rellink-tooltip="3.3. Register Arbitrary Models">Prev</a><a href="../model_train.html" role="button" class="btn sk-btn-rellink py-1" sk-rellink-tooltip="3. Model Train and Tune">Up</a>
+              <a href="../explain.html" role="button" class="btn sk-btn-rellink py-1" sk-rellink-tooltip="4. Post-hoc Explainability">Next</a>
+          </div-->
+              <div class="sk-sidebar-toc">
+              
+                <ul>
+                
+                
+                
+                
+                
+                
+                <li>
+                  <a href="../../user_guide.html" class="sk-toc-active">User Guide</a>
+                </li>
+                <ul>
+                
+                  <li>
+                    <a href="../introduction.html" class="">1. Introduction</a>
+                    
+                  </li>
+                
+                  <li>
+                    <a href="../data.html" class="">2. Data Pipeline</a>
+                    
+                  </li>
+                
+                  <li>
+                    <a href="../model_train.html" class="sk-toc-active">3. Model Train and Tune</a>
+                    
+                    <ul>
+                      
+                        <li class="sk-toctree-l3">
+                          <a href="sklearn.html">3.1. Train and Register Sklearn Style Model</a>
+                        </li>
+                      
+                        <li class="sk-toctree-l3">
+                          <a href="h2o.html">3.2. Register H2O Models</a>
+                        </li>
+                      
+                        <li class="sk-toctree-l3">
+                          <a href="arbitrary.html">3.3. Register Arbitrary Models</a>
+                        </li>
+                      
+                        <li class="sk-toctree-l3">
+                          <a href="">3.4. Hyperparameter Optimization (Model Tune)</a>
+                        </li>
+                      
+                    </ul>
+                    
+                  </li>
+                
+                  <li>
+                    <a href="../explain.html" class="">4. Post-hoc Explainability</a>
+                    
+                  </li>
+                
+                  <li>
+                    <a href="../models.html" class="">5. Interpretable Models</a>
+                    
+                  </li>
+                
+                  <li>
+                    <a href="../testing.html" class="">6. Diagnostic Suite</a>
+                    
+                  </li>
+                
+                  <li>
+                    <a href="../compare.html" class="">7. Model Comparison</a>
+                    
+                  </li>
+                
+                  <li>
+                    <a href="../cases.html" class="">8. Case Studies</a>
+                    
+                  </li>
+                
+                </ul>
+                
+                
+                
+                
+                </ul>
+              </div>
+        </div>
+      </div>
+      <div id="sk-page-content-wrapper">
+        <div class="sk-page-content container-fluid body px-md-3" role="main">
+          
+  <style type="text/css">
+  div.body div.toctree-wrapper ul {
+      padding-left: 0;
+  }
+
+  div.body li.toctree-l1 {
+      padding: 0 0 0.5em 0;
+      list-style-type: none;
+      font-size: 150%;
+      font-weight: bold;
+  }
+
+  div.body li.toctree-l2 {
+      font-size: 70%;
+      list-style-type: square;
+      font-weight: normal;
+      margin-left: 40px;
+  }
+
+  div.body li.toctree-l3 {
+      font-size: 85%;
+      list-style-type: circle;
+      font-weight: normal;
+      margin-left: 40px;
+  }
+
+  div.body li.toctree-l4 {
+      margin-left: 40px;
+  }
+
+</style><section id="hyperparameter-optimization-model-tune">
+<h1><span class="section-number">3.4. </span>Hyperparameter Optimization (Model Tune)<a class="headerlink" href="#hyperparameter-optimization-model-tune" title="Permalink to this heading">¶</a></h1>
+<p>Hyperparameter tuning is a crucial step in the process of training machine learning models. Examples of hyperparameters include learning rate, batch size, the number of hidden layers in a neural network, and the number of trees in a random forest.</p>
+<p>The goal of hyperparameter tuning is to find the optimal set of hyperparameters that maximizes the performance of a model on a given task. The process involves experimenting with different hyperparameter values and assessing their impact on the model’s performance. The performance is typically evaluated using a validation set or through cross-validation.</p>
+<section id="methodology">
+<h2><span class="section-number">3.4.1. </span>Methodology<a class="headerlink" href="#methodology" title="Permalink to this heading">¶</a></h2>
+<p>In PiML, we integrate two common techniques used in hyperparameter tuning:</p>
+<ul class="simple">
+<li><p>Grid Search: This is a brute-force approach where a predefined set of hyperparameter values is specified, and the model is trained and evaluated for all possible combinations. While comprehensive, it can be computationally expensive. The grid search in PiML is implemented based on scikit-learn’s <a class="reference external" href="https://scikit-learn.org/stable/modules/generated/sklearn.model_selection.GridSearchCV.html.">GridSearchCV</a>.</p></li>
+</ul>
+<ul class="simple">
+<li><p>Random Search: In contrast to grid search, random search involves randomly selecting a combination of hyperparameter values from a predefined range. This method is more efficient than grid search and often yields similar or better results. The random search in PiML is implemented based on scikit-learn’s <a class="reference external" href="https://scikit-learn.org/stable/modules/generated/sklearn.model_selection.RandomizedSearchCV.html.">RandomizedSearchCV</a>.</p></li>
+</ul>
+</section>
+<section id="usage">
+<h2><span class="section-number">3.4.2. </span>Usage<a class="headerlink" href="#usage" title="Permalink to this heading">¶</a></h2>
+<p>As an experiment is initialized with data and models, we can use the function <a class="reference external" href="../../modules/generated/piml.Experiment.html#piml.Experiment.model_tune">exp.model_tune</a> to tune the models. The function incorporates several key parameters:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">method</span></code>: The method parameter dictates the search strategy employed, offering options between ‘grid’ and ‘randomized’ search methods.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">parameters</span></code>: This parameter allows you to define the search space through a dictionary. Keys in the dictionary represent parameter names (as strings), and corresponding values are lists of values to be explored. It is usually set as a list of candidate values, e.g.,  {‘kernel’: [‘linear’, ‘rbf’], ‘alpha’: np.linspace(0, 1, 20)}. For random search, you can also specify distributions using scipy.stats distributions, e.g., {‘alpha’: scipy.stats.uniform(0, 1)}.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">metric</span></code>: Determines the evaluation metrics for model tuning. It can be a single metric or a list of metrics. For regression tasks, options include “MSE,” “MAE,” and “R2.” For classification tasks, metrics including “ACC,” “AUC,” “F1,” “LogLoss,” and “Brier” are available. The default is “MSE” for regression and “ACC” for classification.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">n_runs</span></code>: Relevant only when the search method is ‘randomized,’ specifying the number of runs or iterations during the search process.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">cv</span></code>: Defines the number of folds for cross-validation. By default, set as None, indicating the use of hold-out validation. If cross-validation is desired, set it as an integer.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">test_ratio</span></code>: If cv is None, this parameter determines the proportion of the training set (default is 20%) allocated for validation in the absence of cross-validation.</p></li>
+</ul>
+<section id="get-model-tunning-result">
+<h3><span class="section-number">3.4.2.1. </span>Get model tunning result<a class="headerlink" href="#get-model-tunning-result" title="Permalink to this heading">¶</a></h3>
+<p>Assume we have already fitted an XGB2 model via PiML. Next, we can use the <code class="docutils literal notranslate"><span class="pre">exp.model_tune</span></code> function to optimize its hyperparameters, as shown below.</p>
+<div class="jupyter_cell jupyter_container docutils container">
+<div class="cell_input code_cell docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">parameters</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;n_estimators&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">100</span><span class="p">,</span> <span class="mi">300</span><span class="p">,</span> <span class="mi">500</span><span class="p">],</span>
+              <span class="s1">&#39;eta&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mf">0.1</span><span class="p">,</span> <span class="mf">0.3</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">],</span>
+              <span class="s1">&#39;reg_lambda&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">],</span>
+              <span class="s1">&#39;reg_alpha&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">]}</span>
+<span class="n">result</span> <span class="o">=</span> <span class="n">exp</span><span class="o">.</span><span class="n">model_tune</span><span class="p">(</span><span class="s2">&quot;XGB2&quot;</span><span class="p">,</span> <span class="n">method</span><span class="o">=</span><span class="s2">&quot;grid&quot;</span><span class="p">,</span> <span class="n">parameters</span><span class="o">=</span><span class="n">parameters</span><span class="p">,</span> <span class="n">metric</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;MSE&#39;</span><span class="p">,</span> <span class="s1">&#39;MAE&#39;</span><span class="p">],</span> <span class="n">test_ratio</span><span class="o">=</span><span class="mf">0.2</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+</div>
+</div>
+<p>In this example, we begin by defining the hyperparameter search space. Specifically, we target the tuning of four hyperparameters in XGBoost (‘n_estimators’, ‘eta’, ‘reg_lambda’, and ‘reg_alpha’). Each hyperparameter is assigned three candidate values. Subsequently, the model tuning API in PiML is invoked, employing grid search for the optimization process.</p>
+<p>For the assessment of model performance, we utilize a hold-out validation set, constituting 20% of the original training set. The evaluation metrics employed are ‘MSE’ (Mean Squared Error) and ‘MAE’ (Mean Absolute Error). Upon executing the code, we can proceed with a detailed analysis of the obtained results.</p>
+<div class="jupyter_cell jupyter_container docutils container">
+<div class="cell_input code_cell docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">result</span><span class="o">.</span><span class="n">data</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+</div>
+</div>
+<div class="output_subarea output_html rendered_html output_result">
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+<thead>
+    <tr style="text-align: right;">
+    <th></th>
+    <th>Rank(by MSE)</th>
+    <th>MSE</th>
+    <th>MAE</th>
+    <th>time</th>
+    </tr>
+    <tr>
+    <th>params</th>
+    <th></th>
+    <th></th>
+    <th></th>
+    <th></th>
+    </tr>
+</thead>
+<tbody>
+    <tr>
+    <th>{'eta': 0.5, 'n_estimators': 500, 'reg_alpha': 0.5, 'reg_lambda': 0.0}</th>
+    <td>1</td>
+    <td>0.006082</td>
+    <td>0.055082</td>
+    <td>4.965160</td>
+    </tr>
+    <tr>
+    <th>{'eta': 0.5, 'n_estimators': 500, 'reg_alpha': 0.5, 'reg_lambda': 1.0}</th>
+    <td>2</td>
+    <td>0.006267</td>
+    <td>0.055823</td>
+    <td>4.432415</td>
+    </tr>
+    <tr>
+    <th>{'eta': 0.5, 'n_estimators': 500, 'reg_alpha': 0.5, 'reg_lambda': 0.5}</th>
+    <td>3</td>
+    <td>0.006328</td>
+    <td>0.056353</td>
+    <td>4.303924</td>
+    </tr>
+    <tr>
+    <th>{'eta': 0.5, 'n_estimators': 500, 'reg_alpha': 0.0, 'reg_lambda': 1.0}</th>
+    <td>4</td>
+    <td>0.006331</td>
+    <td>0.056674</td>
+    <td>5.095008</td>
+    </tr>
+    <tr>
+    <th>{'eta': 0.5, 'n_estimators': 500, 'reg_alpha': 0.0, 'reg_lambda': 0.0}</th>
+    <td>5</td>
+    <td>0.006416</td>
+    <td>0.056506</td>
+    <td>3.485461</td>
+    </tr>
+    <tr>
+    <th>...</th>
+    <td>...</td>
+    <td>...</td>
+    <td>...</td>
+    <td>...</td>
+    </tr>
+    <tr>
+    <th>{'eta': 0.1, 'n_estimators': 100, 'reg_alpha': 0.5, 'reg_lambda': 0.0}</th>
+    <td>77</td>
+    <td>0.011644</td>
+    <td>0.074410</td>
+    <td>0.885018</td>
+    </tr>
+    <tr>
+    <th>{'eta': 0.1, 'n_estimators': 100, 'reg_alpha': 0.5, 'reg_lambda': 1.0}</th>
+    <td>78</td>
+    <td>0.011669</td>
+    <td>0.074375</td>
+    <td>0.912729</td>
+    </tr>
+    <tr>
+    <th>{'eta': 0.1, 'n_estimators': 100, 'reg_alpha': 1.0, 'reg_lambda': 0.0}</th>
+    <td>79</td>
+    <td>0.011741</td>
+    <td>0.074464</td>
+    <td>0.948782</td>
+    </tr>
+    <tr>
+    <th>{'eta': 0.1, 'n_estimators': 100, 'reg_alpha': 1.0, 'reg_lambda': 1.0}</th>
+    <td>80</td>
+    <td>0.011752</td>
+    <td>0.074676</td>
+    <td>1.801720</td>
+    </tr>
+    <tr>
+    <th>{'eta': 0.1, 'n_estimators': 100, 'reg_alpha': 1.0, 'reg_lambda': 0.5}</th>
+    <td>81</td>
+    <td>0.011808</td>
+    <td>0.074723</td>
+    <td>0.921155</td>
+    </tr>
+</tbody>
+</table>
+</div>
+</div><div class="jupyter_cell jupyter_container docutils container">
+<div class="cell_input code_cell docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">result</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">param</span><span class="o">=</span><span class="s1">&#39;n_estimators&#39;</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">6</span><span class="p">,</span> <span class="mf">4.5</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+</div>
+</div>
+<figure class="align-left">
+<a class="reference external image-reference" href="../../auto_examples/1_model_train/plot_1_hpo_grid.html"><img alt="../../_images/sphx_glr_plot_1_hpo_grid_001.png" src="../../_images/sphx_glr_plot_1_hpo_grid_001.png" /></a>
+</figure>
+<p>In the context of this plot, metrics that are considered better when smaller are all negated. Consequently, the expectation is that all metrics displayed in the plot should be larger for better performance.</p>
+<p>In practice, achieving optimal predictive performance is not the sole objective of modeling. There is often a preference for simpler models, even if there is a trade-off in predictive accuracy. Model developers can manually identify the most suitable hyperparameter configuration by examining the tables and plots presented above.</p>
+<p>The result object incorporates a built-in function known as “get_params_rank,” enabling the retrieval of parameters based on the specified rank ID from the results. After determining the best parameters, a refined model can be trained and subsequently registered within the PIML experiment.</p>
+<div class="jupyter_cell jupyter_container docutils container">
+<div class="cell_input code_cell docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">params</span> <span class="o">=</span> <span class="n">result</span><span class="o">.</span><span class="n">get_params_ranks</span><span class="p">(</span><span class="n">rank</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">exp</span><span class="o">.</span><span class="n">model_train</span><span class="p">(</span><span class="n">XGB2Regressor</span><span class="p">(</span><span class="o">**</span><span class="n">params</span><span class="p">),</span> <span class="n">name</span><span class="o">=</span><span class="s2">&quot;XGB2-HPO-GridSearch&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+</div>
+</div>
+<p>The codes above first retrieve the top-1 hyperparameter, i.e., {‘eta’: 0.5, ‘n_estimators’: 500, ‘reg_alpha’: 0.5, ‘reg_lambda’: 0.0}, and refit the model using the <code class="docutils literal notranslate"><span class="pre">exp.model_train</span></code> API.</p>
+</section>
+</section>
+<section id="examples">
+<h2><span class="section-number">3.4.3. </span>Examples<a class="headerlink" href="#examples" title="Permalink to this heading">¶</a></h2>
+<p>There are two HPO example codes in the following link.</p>
+<div class="topic">
+<p class="topic-title">Example 1: Grid Search</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="../../auto_examples/1_model_train/plot_1_hpo_grid.html#sphx-glr-auto-examples-1-model-train-plot-1-hpo-grid-py"><span class="std std-ref">HPO - XGB - Grid Search (Bike Sharing)</span></a></p></li>
+</ul>
+</div>
+<div class="topic">
+<p class="topic-title">Example 2: Randomized Search</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="../../auto_examples/1_model_train/plot_1_hpo_random.html#sphx-glr-auto-examples-1-model-train-plot-1-hpo-random-py"><span class="std std-ref">HPO - GLM - Random Search (SimuCredit)</span></a></p></li>
+</ul>
+</div>
+</section>
+</section>
+
+
+        </div>
+      <div class="container">
+        <footer class="sk-content-footer">
+              &copy; Copyright 2022-, PiML-Toolbox authors.
+            <a href="../../_sources/guides/model_train/hpo.rst.txt" rel="nofollow">Show this page source</a>
+        </footer>
+      </div>
+    </div>
+  </div>
+
+
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(false);
+      });
+      
+      const tooltipTriggerList = document.querySelectorAll('[data-bs-toggle="tooltip"]')
+      const tooltipList = [...tooltipTriggerList].map(tooltipTriggerEl => new bootstrap.Tooltip(tooltipTriggerEl))
+  </script>
+
+<script>
+$(document).ready(function() {
+    /* Add a [>>>] button on the top-right corner of code samples to hide
+     * the >>> and ... prompts and the output and thus make the code
+     * copyable. */
+    var div = $('.highlight-python .highlight,' +
+                '.highlight-python3 .highlight,' +
+                '.highlight-pycon .highlight,' +
+		'.highlight-default .highlight')
+    var pre = div.find('pre');
+
+    // get the styles from the current theme
+    pre.parent().parent().css('position', 'relative');
+    var hide_text = 'Hide prompts and outputs';
+    var show_text = 'Show prompts and outputs';
+
+    // create and add the button to all the code blocks that contain >>>
+    div.each(function(index) {
+        var jthis = $(this);
+        if (jthis.find('.gp').length > 0) {
+            var button = $('<span class="copybutton">&gt;&gt;&gt;</span>');
+            button.attr('title', hide_text);
+            button.data('hidden', 'false');
+            jthis.prepend(button);
+        }
+        // tracebacks (.gt) contain bare text elements that need to be
+        // wrapped in a span to work with .nextUntil() (see later)
+        jthis.find('pre:has(.gt)').contents().filter(function() {
+            return ((this.nodeType == 3) && (this.data.trim().length > 0));
+        }).wrap('<span>');
+    });
+
+    // define the behavior of the button when it's clicked
+    $('.copybutton').click(function(e){
+        e.preventDefault();
+        var button = $(this);
+        if (button.data('hidden') === 'false') {
+            // hide the code output
+            button.parent().find('.go, .gp, .gt').hide();
+            button.next('pre').find('.gt').nextUntil('.gp, .go').css('visibility', 'hidden');
+            button.css('text-decoration', 'line-through');
+            button.attr('title', show_text);
+            button.data('hidden', 'true');
+        } else {
+            // show the code output
+            button.parent().find('.go, .gp, .gt').show();
+            button.next('pre').find('.gt').nextUntil('.gp, .go').css('visibility', 'visible');
+            button.css('text-decoration', 'none');
+            button.attr('title', hide_text);
+            button.data('hidden', 'false');
+        }
+    });
+
+	/*** Add permalink buttons next to glossary terms ***/
+	$('dl.glossary > dt[id]').append(function() {
+		return ('<a class="headerlink" href="#' +
+			    this.getAttribute('id') +
+			    '" title="Permalink to this term">¶</a>');
+	});
+  /*** Hide navbar when scrolling down ***/
+  // Returns true when headerlink target matches hash in url
+  (function() {
+    hashTargetOnTop = function() {
+        var hash = window.location.hash;
+        if ( hash.length < 2 ) { return false; }
+
+        var target = document.getElementById( hash.slice(1) );
+        if ( target === null ) { return false; }
+
+        var top = target.getBoundingClientRect().top;
+        return (top < 2) && (top > -2);
+    };
+
+    // Hide navbar on load if hash target is on top
+    var navBar = document.getElementById("navbar");
+    var navBarToggler = document.getElementById("sk-navbar-toggler");
+    var navBarHeightHidden = "-" + navBar.getBoundingClientRect().height + "px";
+    var $window = $(window);
+
+    hideNavBar = function() {
+        navBar.style.top = navBarHeightHidden;
+    };
+
+    showNavBar = function() {
+        navBar.style.top = "0";
+    }
+
+    if (hashTargetOnTop()) {
+        hideNavBar()
+    }
+
+    var prevScrollpos = window.pageYOffset;
+    hideOnScroll = function(lastScrollTop) {
+        if (($window.width() < 768) && (navBarToggler.getAttribute("aria-expanded") === 'true')) {
+            return;
+        }
+        if (lastScrollTop > 2 && (prevScrollpos <= lastScrollTop) || hashTargetOnTop()){
+            hideNavBar()
+        } else {
+            showNavBar()
+        }
+        prevScrollpos = lastScrollTop;
+    };
+
+    /*** high performance scroll event listener***/
+    var raf = window.requestAnimationFrame ||
+        window.webkitRequestAnimationFrame ||
+        window.mozRequestAnimationFrame ||
+        window.msRequestAnimationFrame ||
+        window.oRequestAnimationFrame;
+    var lastScrollTop = $window.scrollTop();
+
+    if (raf) {
+        loop();
+    }
+
+    function loop() {
+        var scrollTop = $window.scrollTop();
+        if (lastScrollTop === scrollTop) {
+            raf(loop);
+            return;
+        } else {
+            lastScrollTop = scrollTop;
+            hideOnScroll(lastScrollTop);
+            raf(loop);
+        }
+    }
+  })();
+});
+
+</script>
+    
+
+<script src="_static/js/vendor/bootstrap.min.js"></script>
+
+</body>
+</html>

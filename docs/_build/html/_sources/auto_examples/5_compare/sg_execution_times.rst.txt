@@ -1,0 +1,17 @@
+
+:orphan:
+
+.. _sphx_glr_auto_examples_5_compare_sg_execution_times:
+
+
+Computation times
+=================
+**03:40.316** total execution time for **auto_examples_5_compare** files:
+
++-----------------------------------------------------------------------------------------------------------------+-----------+----------+
+| :ref:`sphx_glr_auto_examples_5_compare_plot_0_compare_classification.py` (``plot_0_compare_classification.py``) | 01:21.717 | 120.0 MB |
++-----------------------------------------------------------------------------------------------------------------+-----------+----------+
+| :ref:`sphx_glr_auto_examples_5_compare_plot_0_compare_regression.py` (``plot_0_compare_regression.py``)         | 01:21.459 | 81.3 MB  |
++-----------------------------------------------------------------------------------------------------------------+-----------+----------+
+| :ref:`sphx_glr_auto_examples_5_compare_plot_1_compare_fairness.py` (``plot_1_compare_fairness.py``)             | 00:57.140 | 20.7 MB  |
++-----------------------------------------------------------------------------------------------------------------+-----------+----------+

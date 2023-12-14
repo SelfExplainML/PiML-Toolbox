@@ -1,0 +1,88 @@
+.. Places parent toc into the sidebar
+
+:parenttoc: True
+
+.. include:: ../../includes/big_toc_css.rst
+
+============================
+Scored Test
+============================
+The scored test is a distinctive element of PiML diagnostic testing, specifically tailored for scenarios where the model object is absent, and only the model predictions are provided. This test necessitates solely the input features, target response data, and the corresponding model predictions.
+
+In PiML, the scored test consists of a set of individual functions outside the `Experiment` workflow. These functions follow a consistent naming convention observed in other tests within the "model diagnose" module. These tests generally share a common prefix of "test", such as "test_accuracy_table" and "test_accuracy_residual". 
+
+Usage
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+The scored test covers all the tests in `exp.model_diagnose`, except for the robustness test. As the robustness test requires the model object to get the prediction of perturbed samples, it does not fit the requirements of the scored test. Here is a list of the supported scored tests:
+
+    - test_accuracy_table_: Get the accuracy result
+    - test_accuracy_plot_: Plot confusion matrix, ROC, and Recall-Precision, only support classifiers.
+    - test_accuracy_residual_: Get marginal residual plot based on a given feature.
+    - test_weakspot_: Get marginal weakspot result based on a given feature.
+    - test_overfit_: Get marginal overfit result based on a given feature.
+    - test_reliability_table_: Get empirical coverage and average bandwidth for regression or Brier Loss for classification.
+    - test_reliability_distance_: Compare data distance between reliable and unreliable samples.
+    - test_reliability_marginal_: Get marginal slicing reliability result based on a given feature.
+    - test_reliability_perf_: Get a reliability diagram, only for classifiers.
+    - test_reliability_calibration_: Get the calibrated predicted probability vs. original predicted probability, only for classifiers.
+    - test_resilience_perf_: Get resilience test results in each step.
+    - test_resilience_distance_: Compare data distance between samples in the worst region and the remaining region.
+    - test_resilience_shift_histogram_: Compare marginal distribution histogram between the worst region and remaining region.
+    - test_resilience_shift_density_: Compare marginal distribution density between the worst region and the remaining region.
+
+.. _test_accuracy_table: ../../modules/generated/piml.scored_test.test_accuracy_table.html
+.. _test_accuracy_plot: ../../modules/generated/piml.scored_test.test_accuracy_plot.html
+.. _test_accuracy_residual: ../../modules/generated/piml.scored_test.test_accuracy_residual.html
+.. _test_weakspot: ../../modules/generated/piml.scored_test.test_weakspot.html
+.. _test_overfit: ../../modules/generated/piml.scored_test.test_overfit.html
+.. _test_reliability_table: ../../modules/generated/piml.scored_test.test_reliability_table.html
+.. _test_reliability_distance: ../../modules/generated/piml.scored_test.test_reliability_distance.html
+.. _test_reliability_marginal: ../../modules/generated/piml.scored_test.test_reliability_marginal.html
+.. _test_reliability_perf: ../../modules/generated/piml.scored_test.test_reliability_perf.html
+.. _test_reliability_calibration: ../../modules/generated/piml.scored_test.test_reliability_calibration.html
+.. _test_resilience_perf: ../../modules/generated/piml.scored_test.test_resilience_perf.html
+.. _test_resilience_distance: ../../modules/generated/piml.scored_test.test_resilience_distance.html
+.. _test_resilience_shift_histogram: ../../modules/generated/piml.scored_test.test_resilience_shift_histogram.html
+.. _test_resilience_shift_density: ../../modules/generated/piml.scored_test.test_resilience_shift_density.html
+
+All the scored tests share the same data inputs, as shown below:
+
+    - `x`: Input data in the type of numpy array, including all train and test data
+    - `y`: Target data in the type of numpy array, including all train and test data
+    - `prediction`: Prediction result of model to test
+    - `prediction_proba`: Prediction probability of model to test, only for classifiers
+    - `feature_names`: List of feature names of input data, e.g., ['temperature', 'season']
+    - `feature_types`: List of feature types of input data, e.g., ['numerical', 'categorical']
+    - `target_name`: Target feature name
+    - `task_type`: Task type, can be 'regression' or 'classification'
+    - `train_idx`: Train samples index 
+    - `test_idx`: Test samples index
+    - `random_state`: Random seed
+
+To simplify the input parameters for each scored test function, we can consolidate all data-related parameters into a single dictionary. Then, we can pass the data information and additional parameters to execute different tests. For example, the `test_accuracy_residual` test shows the residual plot against one feature of interest.
+
+.. jupyter-input::
+     
+    from piml.scored_test import test_accuracy_residual
+    result = test_accuracy_residual(**data_dict, show_feature='MedInc', figsize=(5, 4))
+
+.. figure:: ../../auto_examples/4_testing/images/sphx_glr_plot_8_scored_test_reg_001.png
+   :target: ../../auto_examples/4_testing/plot_8_scored_test_reg.html
+   :align: left
+
+Here, we first pass the data_dict to the function. This test further requires the `show_feature` parameter, which is the feature of interest. Finally, the `figsize` parameter controls the size of the figure.
+
+Examples
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. topic:: Example 1: California Housing
+
+  The first example below demonstrates how to use PiML with its high-code APIs for developing machine learning models for the BikeSharing data from the UCI repository, which consists of 17,389 samples of hourly counts of rental bikes in Capital bikeshare system; see details. The response `cnt` (hourly bike rental counts) is continuous and it is a regression problem.
+ 
+ * :ref:`sphx_glr_auto_examples_4_testing_plot_8_scored_test_reg.py`
+
+.. topic:: Examples 2: Taiwan Credit
+
+  The second example below demonstrates how to use PiML's high-code APIs for the TaiwanCredit dataset from the UCI repository. This dataset comprises the credit card details of 30,000 clients in Taiwan from April 2005 to September 2005, and more information can be found on the TaiwanCreditData website. The data can be loaded directly into PiML, although it requires some preprocessing. The FlagDefault variable serves as the response for this classification problem.
+    
+ * :ref:`sphx_glr_auto_examples_4_testing_plot_8_scored_test_cls.py`

@@ -157,15 +157,19 @@
                         </li>
                       
                         <li class="sk-toctree-l3">
-                          <a href="data_quality.html">2.5. Data Quality</a>
+                          <a href="data_quality_integrity.html">2.5. Data Quality (Integrity Check)</a>
                         </li>
                       
                         <li class="sk-toctree-l3">
-                          <a href="feature_select.html">2.6. Feature Selection</a>
+                          <a href="data_quality_outlier.html">2.6. Data Quality (Outlier Detection)</a>
                         </li>
                       
                         <li class="sk-toctree-l3">
-                          <a href="twosample_test.html">2.7. Two Sample Test</a>
+                          <a href="data_quality_drift.html">2.7. Data Quality (Drift Test)</a>
+                        </li>
+                      
+                        <li class="sk-toctree-l3">
+                          <a href="feature_select.html">2.8. Feature Selection</a>
                         </li>
                       
                     </ul>
@@ -173,12 +177,12 @@
                   </li>
                 
                   <li>
-                    <a href="../extmodels.html" class="">3. Black-box Models</a>
+                    <a href="../model_train.html" class="">3. Model Train and Tune</a>
                     
                   </li>
                 
                   <li>
-                    <a href="../explainability.html" class="">4. Post-hoc Explainability</a>
+                    <a href="../explain.html" class="">4. Post-hoc Explainability</a>
                     
                   </li>
                 
@@ -193,7 +197,7 @@
                   </li>
                 
                   <li>
-                    <a href="../comparison.html" class="">7. Model Comparison</a>
+                    <a href="../compare.html" class="">7. Model Comparison</a>
                     
                   </li>
                 
@@ -267,8 +271,7 @@
 </div></blockquote>
 </div></blockquote>
 <p>You could load these datasets using the code below, where <code class="docutils literal notranslate"><span class="pre">data=&quot;</span> <span class="pre">&quot;</span></code> indicates the dataset to be included. For example,</p>
-<blockquote>
-<div><div class="jupyter_cell jupyter_container docutils container">
+<div class="jupyter_cell jupyter_container docutils container">
 <div class="cell_input code_cell docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">exp</span><span class="o">.</span><span class="n">data_loader</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="s2">&quot;CoCircles&quot;</span><span class="p">)</span>
 </pre></div>
@@ -277,7 +280,6 @@
 <div class="cell_output docutils container">
 </div>
 </div>
-</div></blockquote>
 <div class="output_subarea output_html rendered_html output_result">
 <div>
 <style scoped>
@@ -349,14 +351,14 @@
 </table>
 </div>
 </div></section>
-<section id="external-dataset">
-<h2><span class="section-number">2.1.2. </span>External Dataset<a class="headerlink" href="#external-dataset" title="Permalink to this heading">¶</a></h2>
-<p>There are two ways of loading external datasets in PiML.</p>
-<p>In low-code mode, you could just click the “upload new data” button to upload your data.
-In high-code mode, you can use pandas to wrap your data and input it to the data loader.
-For example:</p>
-<blockquote>
-<div><div class="jupyter_cell jupyter_container docutils container">
+<section id="external-dataset-csv-files">
+<h2><span class="section-number">2.1.2. </span>External Dataset (csv files)<a class="headerlink" href="#external-dataset-csv-files" title="Permalink to this heading">¶</a></h2>
+<p>There are two ways of loading csv files in PiML.</p>
+<ul class="simple">
+<li><p>In low-code mode, you could just click the “upload new data” button to upload your data.</p></li>
+<li><p>In high-code mode, you can use pandas to wrap your data and input it to the data loader. For example:</p></li>
+</ul>
+<div class="jupyter_cell jupyter_container docutils container">
 <div class="cell_input code_cell docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">data</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;https://github.com/SelfExplainML/PiML-Toolbox/blob/main/datasets/BikeSharing.csv?raw=true&#39;</span><span class="p">)</span>
 <span class="n">exp</span><span class="o">.</span><span class="n">data_loader</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">data</span><span class="p">)</span>
@@ -366,7 +368,6 @@ For example:</p>
 <div class="cell_output docutils container">
 </div>
 </div>
-</div></blockquote>
 <div class="output_subarea output_html rendered_html output_result">
 <div>
 <style scoped>
@@ -518,19 +519,633 @@ For example:</p>
 </table>
 </div>
 </div></section>
+<section id="external-dataset-spark-file">
+<h2><span class="section-number">2.1.3. </span>External Dataset (Spark file)<a class="headerlink" href="#external-dataset-spark-file" title="Permalink to this heading">¶</a></h2>
+<p>Starting from PiML-0.6.0, we support to load data using spark backend. The data should be in the format of spark dataframe. For example, you could load the data from a parquet file using the following code:</p>
+<div class="jupyter_cell jupyter_container docutils container">
+<div class="cell_input code_cell docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">exp</span><span class="o">.</span><span class="n">data_loader</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="s2">&quot;./myfile.parquet&quot;</span><span class="p">,</span> <span class="n">spark</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">spark_sample_size</span><span class="o">=</span><span class="mi">10000</span><span class="p">,</span> <span class="n">spark_random_state</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+</div>
+</div>
+<div class="output_subarea output_html rendered_html output_result">
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+  <tr style="text-align: right;">
+    <th></th>
+    <th>Y</th>
+    <th>X0</th>
+    <th>X1</th>
+    <th>X2</th>
+    <th>X3</th>
+    <th>X4</th>
+    <th>X5</th>
+    <th>X6</th>
+    <th>X7</th>
+    <th>X8</th>
+    <th>X9</th>
+  </tr>
+</thead>
+<tbody>
+  <tr>
+    <th>0</th>
+    <td>0.0</td>
+    <td>-0.162726</td>
+    <td>-0.989380</td>
+    <td>-0.977290</td>
+    <td>0.022444</td>
+    <td>-0.833418</td>
+    <td>-0.897849</td>
+    <td>0.931033</td>
+    <td>0.718005</td>
+    <td>-0.695946</td>
+    <td>-0.998672</td>
+  </tr>
+  <tr>
+    <th>1</th>
+    <td>1.0</td>
+    <td>0.883336</td>
+    <td>-0.443349</td>
+    <td>-0.628205</td>
+    <td>0.383016</td>
+    <td>-0.782193</td>
+    <td>-0.470701</td>
+    <td>0.950189</td>
+    <td>0.278926</td>
+    <td>0.041356</td>
+    <td>-0.204163</td>
+  </tr>
+  <tr>
+    <th>2</th>
+    <td>1.0</td>
+    <td>0.549002</td>
+    <td>-0.718085</td>
+    <td>0.934676</td>
+    <td>0.722246</td>
+    <td>0.235314</td>
+    <td>-0.914188</td>
+    <td>0.401711</td>
+    <td>0.826569</td>
+    <td>0.049154</td>
+    <td>-0.291550</td>
+  </tr>
+  <tr>
+    <th>3</th>
+    <td>0.0</td>
+    <td>-0.759445</td>
+    <td>0.509802</td>
+    <td>0.770044</td>
+    <td>-0.799497</td>
+    <td>0.517969</td>
+    <td>-0.965879</td>
+    <td>0.934110</td>
+    <td>0.230116</td>
+    <td>0.104878</td>
+    <td>-0.408100</td>
+  </tr>
+  <tr>
+    <th>4</th>
+    <td>1.0</td>
+    <td>0.858583</td>
+    <td>-0.468189</td>
+    <td>0.656293</td>
+    <td>0.970217</td>
+    <td>0.566793</td>
+    <td>0.037980</td>
+    <td>-0.867851</td>
+    <td>-0.055172</td>
+    <td>-0.123488</td>
+    <td>-0.594408</td>
+  </tr>
+  <tr>
+    <th>...</th>
+    <td>...</td>
+    <td>...</td>
+    <td>...</td>
+    <td>...</td>
+    <td>...</td>
+    <td>...</td>
+    <td>...</td>
+    <td>...</td>
+    <td>...</td>
+    <td>...</td>
+    <td>...</td>
+  </tr>
+  <tr>
+    <th>2117</th>
+    <td>1.0</td>
+    <td>-0.325774</td>
+    <td>-0.298574</td>
+    <td>-0.984911</td>
+    <td>-0.660747</td>
+    <td>-0.894813</td>
+    <td>0.971714</td>
+    <td>-0.263716</td>
+    <td>0.386797</td>
+    <td>0.177803</td>
+    <td>0.546942</td>
+  </tr>
+  <tr>
+    <th>2118</th>
+    <td>1.0</td>
+    <td>0.631497</td>
+    <td>-0.209968</td>
+    <td>-0.060872</td>
+    <td>-0.981552</td>
+    <td>0.319807</td>
+    <td>-0.552832</td>
+    <td>-0.256842</td>
+    <td>0.059649</td>
+    <td>-0.120317</td>
+    <td>0.194922</td>
+  </tr>
+  <tr>
+    <th>2119</th>
+    <td>1.0</td>
+    <td>0.918874</td>
+    <td>0.502420</td>
+    <td>0.759211</td>
+    <td>0.143963</td>
+    <td>0.851615</td>
+    <td>0.530987</td>
+    <td>0.295923</td>
+    <td>-0.576709</td>
+    <td>-0.472256</td>
+    <td>-0.470885</td>
+  </tr>
+  <tr>
+    <th>2120</th>
+    <td>1.0</td>
+    <td>-0.505041</td>
+    <td>-0.592865</td>
+    <td>0.458442</td>
+    <td>0.022174</td>
+    <td>-0.396257</td>
+    <td>0.430562</td>
+    <td>0.394588</td>
+    <td>0.286274</td>
+    <td>0.493732</td>
+    <td>-0.581601</td>
+  </tr>
+  <tr>
+    <th>2121</th>
+    <td>0.0</td>
+    <td>0.304829</td>
+    <td>0.028269</td>
+    <td>0.903502</td>
+    <td>-0.400436</td>
+    <td>-0.932546</td>
+    <td>-0.409703</td>
+    <td>0.272170</td>
+    <td>0.739227</td>
+    <td>-0.744509</td>
+    <td>-0.398449</td>
+  </tr>
+  </tbody>
+</table>
+</div>
+</div><p>The argument <code class="docutils literal notranslate"><span class="pre">spark=True</span></code> tells the program that we would load data using spark backend, <code class="docutils literal notranslate"><span class="pre">data</span></code> denotes the file path, and <code class="docutils literal notranslate"><span class="pre">spark_sample_size</span></code> is expected sample size. By default, we do purly random subsampling, and the sample size will be transformed into the <code class="docutils literal notranslate"><span class="pre">frac</span></code> parameter in <a class="reference external" href="https://spark.apache.org/docs/3.1.2/api/python/reference/api/pyspark.sql.DataFrame.sample.html">spark</a>. For example, if the original data has 100000 samples and the <code class="docutils literal notranslate"><span class="pre">spark_sample_size</span></code> is 10000, then the <code class="docutils literal notranslate"><span class="pre">frac</span></code> parameter will be set to 0.1. However, due to the working mechanism of spark, the actual sample size may be slightly different from the expected sample size.</p>
+<p>If you want to do stratified sampling, you could specify the stratified feature using <code class="docutils literal notranslate"><span class="pre">spark_sample_by_feature</span></code> parameter. For example, if you want to do stratified sampling using the feature ‘Y’, you could use the following code:</p>
+<div class="jupyter_cell jupyter_container docutils container">
+<div class="cell_input code_cell docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">exp</span><span class="o">.</span><span class="n">data_loader</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="s2">&quot;./myfile.parquet&quot;</span><span class="p">,</span> <span class="n">spark</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">spark_sample_size</span><span class="o">=</span><span class="mi">10000</span><span class="p">,</span>
+                <span class="n">spark_sample_by_feature</span><span class="o">=</span><span class="s1">&#39;Y&#39;</span><span class="p">,</span> <span class="n">spark_random_state</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+</div>
+</div>
+<div class="output_subarea output_html rendered_html output_result">
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+  <tr style="text-align: right;">
+    <th></th>
+    <th>Y</th>
+    <th>X0</th>
+    <th>X1</th>
+    <th>X2</th>
+    <th>X3</th>
+    <th>X4</th>
+    <th>X5</th>
+    <th>X6</th>
+    <th>X7</th>
+    <th>X8</th>
+    <th>X9</th>
+  </tr>
+</thead>
+<tbody>
+  <tr>
+    <th>0</th>
+    <td>0.0</td>
+    <td>-0.162726</td>
+    <td>-0.989380</td>
+    <td>-0.977290</td>
+    <td>0.022444</td>
+    <td>-0.833418</td>
+    <td>-0.897849</td>
+    <td>0.931033</td>
+    <td>0.718005</td>
+    <td>-0.695946</td>
+    <td>-0.998672</td>
+  </tr>
+  <tr>
+    <th>1</th>
+    <td>1.0</td>
+    <td>0.883336</td>
+    <td>-0.443349</td>
+    <td>-0.628205</td>
+    <td>0.383016</td>
+    <td>-0.782193</td>
+    <td>-0.470701</td>
+    <td>0.950189</td>
+    <td>0.278926</td>
+    <td>0.041356</td>
+    <td>-0.204163</td>
+  </tr>
+  <tr>
+    <th>2</th>
+    <td>1.0</td>
+    <td>0.549002</td>
+    <td>-0.718085</td>
+    <td>0.934676</td>
+    <td>0.722246</td>
+    <td>0.235314</td>
+    <td>-0.914188</td>
+    <td>0.401711</td>
+    <td>0.826569</td>
+    <td>0.049154</td>
+    <td>-0.291550</td>
+  </tr>
+  <tr>
+    <th>3</th>
+    <td>0.0</td>
+    <td>-0.759445</td>
+    <td>0.509802</td>
+    <td>0.770044</td>
+    <td>-0.799497</td>
+    <td>0.517969</td>
+    <td>-0.965879</td>
+    <td>0.934110</td>
+    <td>0.230116</td>
+    <td>0.104878</td>
+    <td>-0.408100</td>
+  </tr>
+  <tr>
+    <th>4</th>
+    <td>1.0</td>
+    <td>0.858583</td>
+    <td>-0.468189</td>
+    <td>0.656293</td>
+    <td>0.970217</td>
+    <td>0.566793</td>
+    <td>0.037980</td>
+    <td>-0.867851</td>
+    <td>-0.055172</td>
+    <td>-0.123488</td>
+    <td>-0.594408</td>
+  </tr>
+  <tr>
+    <th>...</th>
+    <td>...</td>
+    <td>...</td>
+    <td>...</td>
+    <td>...</td>
+    <td>...</td>
+    <td>...</td>
+    <td>...</td>
+    <td>...</td>
+    <td>...</td>
+    <td>...</td>
+    <td>...</td>
+  </tr>
+  <tr>
+    <th>2117</th>
+    <td>1.0</td>
+    <td>-0.325774</td>
+    <td>-0.298574</td>
+    <td>-0.984911</td>
+    <td>-0.660747</td>
+    <td>-0.894813</td>
+    <td>0.971714</td>
+    <td>-0.263716</td>
+    <td>0.386797</td>
+    <td>0.177803</td>
+    <td>0.546942</td>
+  </tr>
+  <tr>
+    <th>2118</th>
+    <td>1.0</td>
+    <td>0.631497</td>
+    <td>-0.209968</td>
+    <td>-0.060872</td>
+    <td>-0.981552</td>
+    <td>0.319807</td>
+    <td>-0.552832</td>
+    <td>-0.256842</td>
+    <td>0.059649</td>
+    <td>-0.120317</td>
+    <td>0.194922</td>
+  </tr>
+  <tr>
+    <th>2119</th>
+    <td>1.0</td>
+    <td>0.918874</td>
+    <td>0.502420</td>
+    <td>0.759211</td>
+    <td>0.143963</td>
+    <td>0.851615</td>
+    <td>0.530987</td>
+    <td>0.295923</td>
+    <td>-0.576709</td>
+    <td>-0.472256</td>
+    <td>-0.470885</td>
+  </tr>
+  <tr>
+    <th>2120</th>
+    <td>1.0</td>
+    <td>-0.505041</td>
+    <td>-0.592865</td>
+    <td>0.458442</td>
+    <td>0.022174</td>
+    <td>-0.396257</td>
+    <td>0.430562</td>
+    <td>0.394588</td>
+    <td>0.286274</td>
+    <td>0.493732</td>
+    <td>-0.581601</td>
+  </tr>
+  <tr>
+    <th>2121</th>
+    <td>0.0</td>
+    <td>0.304829</td>
+    <td>0.028269</td>
+    <td>0.903502</td>
+    <td>-0.400436</td>
+    <td>-0.932546</td>
+    <td>-0.409703</td>
+    <td>0.272170</td>
+    <td>0.739227</td>
+    <td>-0.744509</td>
+    <td>-0.398449</td>
+  </tr>
+  </tbody>
+</table>
+</div>
+</div><p>Here, ‘Y’ should be a categorical feature and it must be one of the columns in the data. By default, the ratios between different categories are the same. If you want to specify the ratios, you could use the <code class="docutils literal notranslate"><span class="pre">spark_sample_fractions</span></code> parameter, as shown below:</p>
+<div class="jupyter_cell jupyter_container docutils container">
+<div class="cell_input code_cell docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">exp</span><span class="o">.</span><span class="n">data_loader</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="s2">&quot;./myfile.parquet&quot;</span><span class="p">,</span> <span class="n">spark</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">spark_sample_size</span><span class="o">=</span><span class="mi">10000</span><span class="p">,</span>
+                <span class="n">spark_sample_by_feature</span><span class="o">=</span><span class="s1">&#39;Y&#39;</span><span class="p">,</span> <span class="n">spark_sample_fractions</span><span class="o">=</span><span class="p">{</span><span class="mf">0.0</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">:</span> <span class="mi">5</span><span class="p">},</span>
+                <span class="n">spark_random_state</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+</div>
+</div>
+<div class="output_subarea output_html rendered_html output_result">
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+  <tr style="text-align: right;">
+    <th></th>
+    <th>Y</th>
+    <th>X0</th>
+    <th>X1</th>
+    <th>X2</th>
+    <th>X3</th>
+    <th>X4</th>
+    <th>X5</th>
+    <th>X6</th>
+    <th>X7</th>
+    <th>X8</th>
+    <th>X9</th>
+  </tr>
+</thead>
+<tbody>
+  <tr>
+    <th>0</th>
+    <td>0.0</td>
+    <td>-0.162726</td>
+    <td>-0.989380</td>
+    <td>-0.977290</td>
+    <td>0.022444</td>
+    <td>-0.833418</td>
+    <td>-0.897849</td>
+    <td>0.931033</td>
+    <td>0.718005</td>
+    <td>-0.695946</td>
+    <td>-0.998672</td>
+  </tr>
+  <tr>
+    <th>1</th>
+    <td>1.0</td>
+    <td>0.883336</td>
+    <td>-0.443349</td>
+    <td>-0.628205</td>
+    <td>0.383016</td>
+    <td>-0.782193</td>
+    <td>-0.470701</td>
+    <td>0.950189</td>
+    <td>0.278926</td>
+    <td>0.041356</td>
+    <td>-0.204163</td>
+  </tr>
+  <tr>
+    <th>2</th>
+    <td>1.0</td>
+    <td>0.549002</td>
+    <td>-0.718085</td>
+    <td>0.934676</td>
+    <td>0.722246</td>
+    <td>0.235314</td>
+    <td>-0.914188</td>
+    <td>0.401711</td>
+    <td>0.826569</td>
+    <td>0.049154</td>
+    <td>-0.291550</td>
+  </tr>
+  <tr>
+    <th>3</th>
+    <td>0.0</td>
+    <td>-0.759445</td>
+    <td>0.509802</td>
+    <td>0.770044</td>
+    <td>-0.799497</td>
+    <td>0.517969</td>
+    <td>-0.965879</td>
+    <td>0.934110</td>
+    <td>0.230116</td>
+    <td>0.104878</td>
+    <td>-0.408100</td>
+  </tr>
+  <tr>
+    <th>4</th>
+    <td>1.0</td>
+    <td>0.858583</td>
+    <td>-0.468189</td>
+    <td>0.656293</td>
+    <td>0.970217</td>
+    <td>0.566793</td>
+    <td>0.037980</td>
+    <td>-0.867851</td>
+    <td>-0.055172</td>
+    <td>-0.123488</td>
+    <td>-0.594408</td>
+  </tr>
+  <tr>
+    <th>...</th>
+    <td>...</td>
+    <td>...</td>
+    <td>...</td>
+    <td>...</td>
+    <td>...</td>
+    <td>...</td>
+    <td>...</td>
+    <td>...</td>
+    <td>...</td>
+    <td>...</td>
+    <td>...</td>
+  </tr>
+  <tr>
+    <th>2117</th>
+    <td>1.0</td>
+    <td>-0.325774</td>
+    <td>-0.298574</td>
+    <td>-0.984911</td>
+    <td>-0.660747</td>
+    <td>-0.894813</td>
+    <td>0.971714</td>
+    <td>-0.263716</td>
+    <td>0.386797</td>
+    <td>0.177803</td>
+    <td>0.546942</td>
+  </tr>
+  <tr>
+    <th>2118</th>
+    <td>1.0</td>
+    <td>0.631497</td>
+    <td>-0.209968</td>
+    <td>-0.060872</td>
+    <td>-0.981552</td>
+    <td>0.319807</td>
+    <td>-0.552832</td>
+    <td>-0.256842</td>
+    <td>0.059649</td>
+    <td>-0.120317</td>
+    <td>0.194922</td>
+  </tr>
+  <tr>
+    <th>2119</th>
+    <td>1.0</td>
+    <td>0.918874</td>
+    <td>0.502420</td>
+    <td>0.759211</td>
+    <td>0.143963</td>
+    <td>0.851615</td>
+    <td>0.530987</td>
+    <td>0.295923</td>
+    <td>-0.576709</td>
+    <td>-0.472256</td>
+    <td>-0.470885</td>
+  </tr>
+  <tr>
+    <th>2120</th>
+    <td>1.0</td>
+    <td>-0.505041</td>
+    <td>-0.592865</td>
+    <td>0.458442</td>
+    <td>0.022174</td>
+    <td>-0.396257</td>
+    <td>0.430562</td>
+    <td>0.394588</td>
+    <td>0.286274</td>
+    <td>0.493732</td>
+    <td>-0.581601</td>
+  </tr>
+  <tr>
+    <th>2121</th>
+    <td>0.0</td>
+    <td>0.304829</td>
+    <td>0.028269</td>
+    <td>0.903502</td>
+    <td>-0.400436</td>
+    <td>-0.932546</td>
+    <td>-0.409703</td>
+    <td>0.272170</td>
+    <td>0.739227</td>
+    <td>-0.744509</td>
+    <td>-0.398449</td>
+  </tr>
+  </tbody>
+</table>
+</div>
+</div><p>The <code class="docutils literal notranslate"><span class="pre">spark_sample_fractions</span></code> parameter is a dictionary, where the keys are the categories and the values are the ratios. In the above example, the ratio between category 0.0 and 1.0 is 1:5.</p>
+</section>
 <section id="examples">
-<h2><span class="section-number">2.1.3. </span>Examples<a class="headerlink" href="#examples" title="Permalink to this heading">¶</a></h2>
+<h2><span class="section-number">2.1.4. </span>Examples<a class="headerlink" href="#examples" title="Permalink to this heading">¶</a></h2>
 <p>The full example codes of this section can be found in the following link.</p>
 <div class="topic">
 <p class="topic-title">Example 1: Load built-in datasets</p>
 <ul class="simple">
-<li><p><a class="reference internal" href="../../auto_examples/data/plot_0_data_loader_builtin.html#sphx-glr-auto-examples-data-plot-0-data-loader-builtin-py"><span class="std std-ref">Data Load (Built-in Dataset)</span></a></p></li>
+<li><p><a class="reference internal" href="../../auto_examples/0_data/plot_0_data_loader_builtin.html#sphx-glr-auto-examples-0-data-plot-0-data-loader-builtin-py"><span class="std std-ref">Data Load (Built-in Dataset)</span></a></p></li>
 </ul>
 </div>
 <div class="topic">
 <p class="topic-title">Example 2: Load data from pandas DataFrame</p>
 <ul class="simple">
-<li><p><a class="reference internal" href="../../auto_examples/data/plot_0_data_loader_dataframe.html#sphx-glr-auto-examples-data-plot-0-data-loader-dataframe-py"><span class="std std-ref">Data Load (Pandas DataFrame)</span></a></p></li>
+<li><p><a class="reference internal" href="../../auto_examples/0_data/plot_0_data_loader_dataframe.html#sphx-glr-auto-examples-0-data-plot-0-data-loader-dataframe-py"><span class="std std-ref">Data Load (Pandas DataFrame)</span></a></p></li>
+</ul>
+</div>
+<div class="topic">
+<p class="topic-title">Example 3: Load data from spark DataFrame</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="../../auto_examples/0_data/plot_0_data_loader_spark.html#sphx-glr-auto-examples-0-data-plot-0-data-loader-spark-py"><span class="std std-ref">Data Load (Spark)</span></a></p></li>
 </ul>
 </div>
 </section>

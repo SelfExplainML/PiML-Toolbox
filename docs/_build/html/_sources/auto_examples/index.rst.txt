@@ -33,10 +33,10 @@ Data Pipeline
 
 .. only:: html
 
-  .. image:: /auto_examples/data/images/thumb/sphx_glr_plot_0_data_loader_builtin_thumb.png
+  .. image:: /auto_examples/0_data/images/thumb/sphx_glr_plot_0_data_loader_builtin_thumb.png
     :alt:
 
-  :ref:`sphx_glr_auto_examples_data_plot_0_data_loader_builtin.py`
+  :ref:`sphx_glr_auto_examples_0_data_plot_0_data_loader_builtin.py`
 
 .. raw:: html
 
@@ -50,10 +50,10 @@ Data Pipeline
 
 .. only:: html
 
-  .. image:: /auto_examples/data/images/thumb/sphx_glr_plot_0_data_loader_dataframe_thumb.png
+  .. image:: /auto_examples/0_data/images/thumb/sphx_glr_plot_0_data_loader_dataframe_thumb.png
     :alt:
 
-  :ref:`sphx_glr_auto_examples_data_plot_0_data_loader_dataframe.py`
+  :ref:`sphx_glr_auto_examples_0_data_plot_0_data_loader_dataframe.py`
 
 .. raw:: html
 
@@ -63,18 +63,18 @@ Data Pipeline
 
 .. raw:: html
 
-    <div class="sphx-glr-thumbcontainer" tooltip="Data Load (Pandas DataFrame)">
+    <div class="sphx-glr-thumbcontainer" tooltip="Data Load (Spark)">
 
 .. only:: html
 
-  .. image:: /auto_examples/data/images/thumb/sphx_glr_plot_0_data_loader_spark_thumb.png
+  .. image:: /auto_examples/0_data/images/thumb/sphx_glr_plot_0_data_loader_spark_thumb.png
     :alt:
 
-  :ref:`sphx_glr_auto_examples_data_plot_0_data_loader_spark.py`
+  :ref:`sphx_glr_auto_examples_0_data_plot_0_data_loader_spark.py`
 
 .. raw:: html
 
-      <div class="sphx-glr-thumbnail-title">Data Load (Pandas DataFrame)</div>
+      <div class="sphx-glr-thumbnail-title">Data Load (Spark)</div>
     </div>
 
 
@@ -84,10 +84,10 @@ Data Pipeline
 
 .. only:: html
 
-  .. image:: /auto_examples/data/images/thumb/sphx_glr_plot_1_data_summary_thumb.png
+  .. image:: /auto_examples/0_data/images/thumb/sphx_glr_plot_1_data_summary_thumb.png
     :alt:
 
-  :ref:`sphx_glr_auto_examples_data_plot_1_data_summary.py`
+  :ref:`sphx_glr_auto_examples_0_data_plot_1_data_summary.py`
 
 .. raw:: html
 
@@ -101,10 +101,10 @@ Data Pipeline
 
 .. only:: html
 
-  .. image:: /auto_examples/data/images/thumb/sphx_glr_plot_2_data_eda_thumb.png
+  .. image:: /auto_examples/0_data/images/thumb/sphx_glr_plot_2_data_eda_thumb.png
     :alt:
 
-  :ref:`sphx_glr_auto_examples_data_plot_2_data_eda.py`
+  :ref:`sphx_glr_auto_examples_0_data_plot_2_data_eda.py`
 
 .. raw:: html
 
@@ -118,10 +118,10 @@ Data Pipeline
 
 .. only:: html
 
-  .. image:: /auto_examples/data/images/thumb/sphx_glr_plot_3_data_prepare_thumb.png
+  .. image:: /auto_examples/0_data/images/thumb/sphx_glr_plot_3_data_prepare_thumb.png
     :alt:
 
-  :ref:`sphx_glr_auto_examples_data_plot_3_data_prepare.py`
+  :ref:`sphx_glr_auto_examples_0_data_plot_3_data_prepare.py`
 
 .. raw:: html
 
@@ -135,10 +135,10 @@ Data Pipeline
 
 .. only:: html
 
-  .. image:: /auto_examples/data/images/thumb/sphx_glr_plot_4_data_quality_thumb.png
+  .. image:: /auto_examples/0_data/images/thumb/sphx_glr_plot_4_data_quality_thumb.png
     :alt:
 
-  :ref:`sphx_glr_auto_examples_data_plot_4_data_quality.py`
+  :ref:`sphx_glr_auto_examples_0_data_plot_4_data_quality.py`
 
 .. raw:: html
 
@@ -152,10 +152,10 @@ Data Pipeline
 
 .. only:: html
 
-  .. image:: /auto_examples/data/images/thumb/sphx_glr_plot_5_feature_select_thumb.png
+  .. image:: /auto_examples/0_data/images/thumb/sphx_glr_plot_5_feature_select_thumb.png
     :alt:
 
-  :ref:`sphx_glr_auto_examples_data_plot_5_feature_select.py`
+  :ref:`sphx_glr_auto_examples_0_data_plot_5_feature_select.py`
 
 .. raw:: html
 
@@ -165,18 +165,118 @@ Data Pipeline
 
 .. raw:: html
 
-    <div class="sphx-glr-thumbcontainer" tooltip="Two Sample Test">
+    </div>
 
-.. only:: html
 
-  .. image:: /auto_examples/data/images/thumb/sphx_glr_plot_6_twosample_test_thumb.png
-    :alt:
+Model Train and Tune
+-----------------------------------------
 
-  :ref:`sphx_glr_auto_examples_data_plot_6_twosample_test.py`
+
 
 .. raw:: html
 
-      <div class="sphx-glr-thumbnail-title">Two Sample Test</div>
+    <div class="sphx-glr-thumbnails">
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="Train Models">
+
+.. only:: html
+
+  .. image:: /auto_examples/1_train/images/thumb/sphx_glr_plot_0_model_train_thumb.png
+    :alt:
+
+  :ref:`sphx_glr_auto_examples_1_train_plot_0_model_train.py`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Train Models</div>
+    </div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="HPO - Grid Search">
+
+.. only:: html
+
+  .. image:: /auto_examples/1_train/images/thumb/sphx_glr_plot_1_hpo_grid_thumb.png
+    :alt:
+
+  :ref:`sphx_glr_auto_examples_1_train_plot_1_hpo_grid.py`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">HPO - Grid Search</div>
+    </div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="HPO - Random Search">
+
+.. only:: html
+
+  .. image:: /auto_examples/1_train/images/thumb/sphx_glr_plot_1_hpo_random_thumb.png
+    :alt:
+
+  :ref:`sphx_glr_auto_examples_1_train_plot_1_hpo_random.py`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">HPO - Random Search</div>
+    </div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="Register sklearn Style Models">
+
+.. only:: html
+
+  .. image:: /auto_examples/1_train/images/thumb/sphx_glr_plot_2_register_0_sklearn_thumb.png
+    :alt:
+
+  :ref:`sphx_glr_auto_examples_1_train_plot_2_register_0_sklearn.py`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Register sklearn Style Models</div>
+    </div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="Register H2O Models">
+
+.. only:: html
+
+  .. image:: /auto_examples/1_train/images/thumb/sphx_glr_plot_2_register_1_h2o_thumb.png
+    :alt:
+
+  :ref:`sphx_glr_auto_examples_1_train_plot_2_register_1_h2o.py`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Register H2O Models</div>
+    </div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="Register Arbitrary Models">
+
+.. only:: html
+
+  .. image:: /auto_examples/1_train/images/thumb/sphx_glr_plot_2_register_2_arbitrary_thumb.png
+    :alt:
+
+  :ref:`sphx_glr_auto_examples_1_train_plot_2_register_2_arbitrary.py`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Register Arbitrary Models</div>
     </div>
 
 
@@ -201,10 +301,10 @@ Post hoc Explainability
 
 .. only:: html
 
-  .. image:: /auto_examples/explain/images/thumb/sphx_glr_plot_0_pfi_thumb.png
+  .. image:: /auto_examples/2_explain/images/thumb/sphx_glr_plot_0_pfi_thumb.png
     :alt:
 
-  :ref:`sphx_glr_auto_examples_explain_plot_0_pfi.py`
+  :ref:`sphx_glr_auto_examples_2_explain_plot_0_pfi.py`
 
 .. raw:: html
 
@@ -218,10 +318,10 @@ Post hoc Explainability
 
 .. only:: html
 
-  .. image:: /auto_examples/explain/images/thumb/sphx_glr_plot_1_pdp_thumb.png
+  .. image:: /auto_examples/2_explain/images/thumb/sphx_glr_plot_1_pdp_thumb.png
     :alt:
 
-  :ref:`sphx_glr_auto_examples_explain_plot_1_pdp.py`
+  :ref:`sphx_glr_auto_examples_2_explain_plot_1_pdp.py`
 
 .. raw:: html
 
@@ -235,10 +335,10 @@ Post hoc Explainability
 
 .. only:: html
 
-  .. image:: /auto_examples/explain/images/thumb/sphx_glr_plot_1_pdp_hstats_thumb.png
+  .. image:: /auto_examples/2_explain/images/thumb/sphx_glr_plot_1_pdp_hstats_thumb.png
     :alt:
 
-  :ref:`sphx_glr_auto_examples_explain_plot_1_pdp_hstats.py`
+  :ref:`sphx_glr_auto_examples_2_explain_plot_1_pdp_hstats.py`
 
 .. raw:: html
 
@@ -252,10 +352,10 @@ Post hoc Explainability
 
 .. only:: html
 
-  .. image:: /auto_examples/explain/images/thumb/sphx_glr_plot_2_ice_thumb.png
+  .. image:: /auto_examples/2_explain/images/thumb/sphx_glr_plot_2_ice_thumb.png
     :alt:
 
-  :ref:`sphx_glr_auto_examples_explain_plot_2_ice.py`
+  :ref:`sphx_glr_auto_examples_2_explain_plot_2_ice.py`
 
 .. raw:: html
 
@@ -269,10 +369,10 @@ Post hoc Explainability
 
 .. only:: html
 
-  .. image:: /auto_examples/explain/images/thumb/sphx_glr_plot_3_ale_thumb.png
+  .. image:: /auto_examples/2_explain/images/thumb/sphx_glr_plot_3_ale_thumb.png
     :alt:
 
-  :ref:`sphx_glr_auto_examples_explain_plot_3_ale.py`
+  :ref:`sphx_glr_auto_examples_2_explain_plot_3_ale.py`
 
 .. raw:: html
 
@@ -286,10 +386,10 @@ Post hoc Explainability
 
 .. only:: html
 
-  .. image:: /auto_examples/explain/images/thumb/sphx_glr_plot_4_lime_thumb.png
+  .. image:: /auto_examples/2_explain/images/thumb/sphx_glr_plot_4_lime_thumb.png
     :alt:
 
-  :ref:`sphx_glr_auto_examples_explain_plot_4_lime.py`
+  :ref:`sphx_glr_auto_examples_2_explain_plot_4_lime.py`
 
 .. raw:: html
 
@@ -303,10 +403,10 @@ Post hoc Explainability
 
 .. only:: html
 
-  .. image:: /auto_examples/explain/images/thumb/sphx_glr_plot_5_shap_thumb.png
+  .. image:: /auto_examples/2_explain/images/thumb/sphx_glr_plot_5_shap_thumb.png
     :alt:
 
-  :ref:`sphx_glr_auto_examples_explain_plot_5_shap.py`
+  :ref:`sphx_glr_auto_examples_2_explain_plot_5_shap.py`
 
 .. raw:: html
 
@@ -320,10 +420,10 @@ Post hoc Explainability
 
 .. only:: html
 
-  .. image:: /auto_examples/explain/images/thumb/sphx_glr_plot_6_data_dependent_explain_thumb.png
+  .. image:: /auto_examples/2_explain/images/thumb/sphx_glr_plot_6_data_dependent_explain_thumb.png
     :alt:
 
-  :ref:`sphx_glr_auto_examples_explain_plot_6_data_dependent_explain.py`
+  :ref:`sphx_glr_auto_examples_2_explain_plot_6_data_dependent_explain.py`
 
 .. raw:: html
 
@@ -352,10 +452,10 @@ Interpretable Models
 
 .. only:: html
 
-  .. image:: /auto_examples/models/images/thumb/sphx_glr_plot_0_glm_cls_thumb.png
+  .. image:: /auto_examples/3_models/images/thumb/sphx_glr_plot_0_glm_cls_thumb.png
     :alt:
 
-  :ref:`sphx_glr_auto_examples_models_plot_0_glm_cls.py`
+  :ref:`sphx_glr_auto_examples_3_models_plot_0_glm_cls.py`
 
 .. raw:: html
 
@@ -369,10 +469,10 @@ Interpretable Models
 
 .. only:: html
 
-  .. image:: /auto_examples/models/images/thumb/sphx_glr_plot_0_glm_reg_thumb.png
+  .. image:: /auto_examples/3_models/images/thumb/sphx_glr_plot_0_glm_reg_thumb.png
     :alt:
 
-  :ref:`sphx_glr_auto_examples_models_plot_0_glm_reg.py`
+  :ref:`sphx_glr_auto_examples_3_models_plot_0_glm_reg.py`
 
 .. raw:: html
 
@@ -386,10 +486,10 @@ Interpretable Models
 
 .. only:: html
 
-  .. image:: /auto_examples/models/images/thumb/sphx_glr_plot_1_gam_cls_thumb.png
+  .. image:: /auto_examples/3_models/images/thumb/sphx_glr_plot_1_gam_cls_thumb.png
     :alt:
 
-  :ref:`sphx_glr_auto_examples_models_plot_1_gam_cls.py`
+  :ref:`sphx_glr_auto_examples_3_models_plot_1_gam_cls.py`
 
 .. raw:: html
 
@@ -403,10 +503,10 @@ Interpretable Models
 
 .. only:: html
 
-  .. image:: /auto_examples/models/images/thumb/sphx_glr_plot_1_gam_reg_thumb.png
+  .. image:: /auto_examples/3_models/images/thumb/sphx_glr_plot_1_gam_reg_thumb.png
     :alt:
 
-  :ref:`sphx_glr_auto_examples_models_plot_1_gam_reg.py`
+  :ref:`sphx_glr_auto_examples_3_models_plot_1_gam_reg.py`
 
 .. raw:: html
 
@@ -420,10 +520,10 @@ Interpretable Models
 
 .. only:: html
 
-  .. image:: /auto_examples/models/images/thumb/sphx_glr_plot_2_tree_cls_thumb.png
+  .. image:: /auto_examples/3_models/images/thumb/sphx_glr_plot_2_tree_cls_thumb.png
     :alt:
 
-  :ref:`sphx_glr_auto_examples_models_plot_2_tree_cls.py`
+  :ref:`sphx_glr_auto_examples_3_models_plot_2_tree_cls.py`
 
 .. raw:: html
 
@@ -437,10 +537,10 @@ Interpretable Models
 
 .. only:: html
 
-  .. image:: /auto_examples/models/images/thumb/sphx_glr_plot_2_tree_reg_thumb.png
+  .. image:: /auto_examples/3_models/images/thumb/sphx_glr_plot_2_tree_reg_thumb.png
     :alt:
 
-  :ref:`sphx_glr_auto_examples_models_plot_2_tree_reg.py`
+  :ref:`sphx_glr_auto_examples_3_models_plot_2_tree_reg.py`
 
 .. raw:: html
 
@@ -454,10 +554,10 @@ Interpretable Models
 
 .. only:: html
 
-  .. image:: /auto_examples/models/images/thumb/sphx_glr_plot_3_figs_cls_thumb.png
+  .. image:: /auto_examples/3_models/images/thumb/sphx_glr_plot_3_figs_cls_thumb.png
     :alt:
 
-  :ref:`sphx_glr_auto_examples_models_plot_3_figs_cls.py`
+  :ref:`sphx_glr_auto_examples_3_models_plot_3_figs_cls.py`
 
 .. raw:: html
 
@@ -471,10 +571,10 @@ Interpretable Models
 
 .. only:: html
 
-  .. image:: /auto_examples/models/images/thumb/sphx_glr_plot_3_figs_reg_thumb.png
+  .. image:: /auto_examples/3_models/images/thumb/sphx_glr_plot_3_figs_reg_thumb.png
     :alt:
 
-  :ref:`sphx_glr_auto_examples_models_plot_3_figs_reg.py`
+  :ref:`sphx_glr_auto_examples_3_models_plot_3_figs_reg.py`
 
 .. raw:: html
 
@@ -488,10 +588,10 @@ Interpretable Models
 
 .. only:: html
 
-  .. image:: /auto_examples/models/images/thumb/sphx_glr_plot_4_xgb1_cls_thumb.png
+  .. image:: /auto_examples/3_models/images/thumb/sphx_glr_plot_4_xgb1_cls_thumb.png
     :alt:
 
-  :ref:`sphx_glr_auto_examples_models_plot_4_xgb1_cls.py`
+  :ref:`sphx_glr_auto_examples_3_models_plot_4_xgb1_cls.py`
 
 .. raw:: html
 
@@ -505,10 +605,10 @@ Interpretable Models
 
 .. only:: html
 
-  .. image:: /auto_examples/models/images/thumb/sphx_glr_plot_4_xgb1_reg_thumb.png
+  .. image:: /auto_examples/3_models/images/thumb/sphx_glr_plot_4_xgb1_reg_thumb.png
     :alt:
 
-  :ref:`sphx_glr_auto_examples_models_plot_4_xgb1_reg.py`
+  :ref:`sphx_glr_auto_examples_3_models_plot_4_xgb1_reg.py`
 
 .. raw:: html
 
@@ -522,10 +622,10 @@ Interpretable Models
 
 .. only:: html
 
-  .. image:: /auto_examples/models/images/thumb/sphx_glr_plot_5_xgb2_cls_thumb.png
+  .. image:: /auto_examples/3_models/images/thumb/sphx_glr_plot_5_xgb2_cls_thumb.png
     :alt:
 
-  :ref:`sphx_glr_auto_examples_models_plot_5_xgb2_cls.py`
+  :ref:`sphx_glr_auto_examples_3_models_plot_5_xgb2_cls.py`
 
 .. raw:: html
 
@@ -539,10 +639,10 @@ Interpretable Models
 
 .. only:: html
 
-  .. image:: /auto_examples/models/images/thumb/sphx_glr_plot_5_xgb2_reg_thumb.png
+  .. image:: /auto_examples/3_models/images/thumb/sphx_glr_plot_5_xgb2_reg_thumb.png
     :alt:
 
-  :ref:`sphx_glr_auto_examples_models_plot_5_xgb2_reg.py`
+  :ref:`sphx_glr_auto_examples_3_models_plot_5_xgb2_reg.py`
 
 .. raw:: html
 
@@ -556,10 +656,10 @@ Interpretable Models
 
 .. only:: html
 
-  .. image:: /auto_examples/models/images/thumb/sphx_glr_plot_6_ebm_cls_thumb.png
+  .. image:: /auto_examples/3_models/images/thumb/sphx_glr_plot_6_ebm_cls_thumb.png
     :alt:
 
-  :ref:`sphx_glr_auto_examples_models_plot_6_ebm_cls.py`
+  :ref:`sphx_glr_auto_examples_3_models_plot_6_ebm_cls.py`
 
 .. raw:: html
 
@@ -573,10 +673,10 @@ Interpretable Models
 
 .. only:: html
 
-  .. image:: /auto_examples/models/images/thumb/sphx_glr_plot_6_ebm_reg_thumb.png
+  .. image:: /auto_examples/3_models/images/thumb/sphx_glr_plot_6_ebm_reg_thumb.png
     :alt:
 
-  :ref:`sphx_glr_auto_examples_models_plot_6_ebm_reg.py`
+  :ref:`sphx_glr_auto_examples_3_models_plot_6_ebm_reg.py`
 
 .. raw:: html
 
@@ -590,10 +690,10 @@ Interpretable Models
 
 .. only:: html
 
-  .. image:: /auto_examples/models/images/thumb/sphx_glr_plot_7_gaminet_cls_thumb.png
+  .. image:: /auto_examples/3_models/images/thumb/sphx_glr_plot_7_gaminet_cls_thumb.png
     :alt:
 
-  :ref:`sphx_glr_auto_examples_models_plot_7_gaminet_cls.py`
+  :ref:`sphx_glr_auto_examples_3_models_plot_7_gaminet_cls.py`
 
 .. raw:: html
 
@@ -607,10 +707,10 @@ Interpretable Models
 
 .. only:: html
 
-  .. image:: /auto_examples/models/images/thumb/sphx_glr_plot_7_gaminet_reg_thumb.png
+  .. image:: /auto_examples/3_models/images/thumb/sphx_glr_plot_7_gaminet_reg_thumb.png
     :alt:
 
-  :ref:`sphx_glr_auto_examples_models_plot_7_gaminet_reg.py`
+  :ref:`sphx_glr_auto_examples_3_models_plot_7_gaminet_reg.py`
 
 .. raw:: html
 
@@ -624,10 +724,10 @@ Interpretable Models
 
 .. only:: html
 
-  .. image:: /auto_examples/models/images/thumb/sphx_glr_plot_8_reludnn_cls_thumb.png
+  .. image:: /auto_examples/3_models/images/thumb/sphx_glr_plot_8_reludnn_cls_thumb.png
     :alt:
 
-  :ref:`sphx_glr_auto_examples_models_plot_8_reludnn_cls.py`
+  :ref:`sphx_glr_auto_examples_3_models_plot_8_reludnn_cls.py`
 
 .. raw:: html
 
@@ -641,63 +741,14 @@ Interpretable Models
 
 .. only:: html
 
-  .. image:: /auto_examples/models/images/thumb/sphx_glr_plot_8_reludnn_reg_thumb.png
+  .. image:: /auto_examples/3_models/images/thumb/sphx_glr_plot_8_reludnn_reg_thumb.png
     :alt:
 
-  :ref:`sphx_glr_auto_examples_models_plot_8_reludnn_reg.py`
+  :ref:`sphx_glr_auto_examples_3_models_plot_8_reludnn_reg.py`
 
 .. raw:: html
 
       <div class="sphx-glr-thumbnail-title">ReLU DNN Regression (Friedman)</div>
-    </div>
-
-
-.. raw:: html
-
-    </div>
-
-
-Hyperparameter Optimization
---------------------------------
-
-
-
-.. raw:: html
-
-    <div class="sphx-glr-thumbnails">
-
-
-.. raw:: html
-
-    <div class="sphx-glr-thumbcontainer" tooltip="HPO - XGB - Grid Search (Bike Sharing)">
-
-.. only:: html
-
-  .. image:: /auto_examples/models_hpo/images/thumb/sphx_glr_plot_0_grid_thumb.png
-    :alt:
-
-  :ref:`sphx_glr_auto_examples_models_hpo_plot_0_grid.py`
-
-.. raw:: html
-
-      <div class="sphx-glr-thumbnail-title">HPO - XGB - Grid Search (Bike Sharing)</div>
-    </div>
-
-
-.. raw:: html
-
-    <div class="sphx-glr-thumbcontainer" tooltip="HPO - GLM - Random Search (SimuCredit)">
-
-.. only:: html
-
-  .. image:: /auto_examples/models_hpo/images/thumb/sphx_glr_plot_0_random_thumb.png
-    :alt:
-
-  :ref:`sphx_glr_auto_examples_models_hpo_plot_0_random.py`
-
-.. raw:: html
-
-      <div class="sphx-glr-thumbnail-title">HPO - GLM - Random Search (SimuCredit)</div>
     </div>
 
 
@@ -722,10 +773,10 @@ Outcome Testing
 
 .. only:: html
 
-  .. image:: /auto_examples/testing/images/thumb/sphx_glr_plot_0_accuracy_cls_thumb.png
+  .. image:: /auto_examples/4_testing/images/thumb/sphx_glr_plot_0_accuracy_cls_thumb.png
     :alt:
 
-  :ref:`sphx_glr_auto_examples_testing_plot_0_accuracy_cls.py`
+  :ref:`sphx_glr_auto_examples_4_testing_plot_0_accuracy_cls.py`
 
 .. raw:: html
 
@@ -739,10 +790,10 @@ Outcome Testing
 
 .. only:: html
 
-  .. image:: /auto_examples/testing/images/thumb/sphx_glr_plot_0_accuracy_reg_thumb.png
+  .. image:: /auto_examples/4_testing/images/thumb/sphx_glr_plot_0_accuracy_reg_thumb.png
     :alt:
 
-  :ref:`sphx_glr_auto_examples_testing_plot_0_accuracy_reg.py`
+  :ref:`sphx_glr_auto_examples_4_testing_plot_0_accuracy_reg.py`
 
 .. raw:: html
 
@@ -756,10 +807,10 @@ Outcome Testing
 
 .. only:: html
 
-  .. image:: /auto_examples/testing/images/thumb/sphx_glr_plot_1_weakspot_cls_thumb.png
+  .. image:: /auto_examples/4_testing/images/thumb/sphx_glr_plot_1_weakspot_cls_thumb.png
     :alt:
 
-  :ref:`sphx_glr_auto_examples_testing_plot_1_weakspot_cls.py`
+  :ref:`sphx_glr_auto_examples_4_testing_plot_1_weakspot_cls.py`
 
 .. raw:: html
 
@@ -773,10 +824,10 @@ Outcome Testing
 
 .. only:: html
 
-  .. image:: /auto_examples/testing/images/thumb/sphx_glr_plot_1_weakspot_reg_thumb.png
+  .. image:: /auto_examples/4_testing/images/thumb/sphx_glr_plot_1_weakspot_reg_thumb.png
     :alt:
 
-  :ref:`sphx_glr_auto_examples_testing_plot_1_weakspot_reg.py`
+  :ref:`sphx_glr_auto_examples_4_testing_plot_1_weakspot_reg.py`
 
 .. raw:: html
 
@@ -790,10 +841,10 @@ Outcome Testing
 
 .. only:: html
 
-  .. image:: /auto_examples/testing/images/thumb/sphx_glr_plot_2_overfit_cls_thumb.png
+  .. image:: /auto_examples/4_testing/images/thumb/sphx_glr_plot_2_overfit_cls_thumb.png
     :alt:
 
-  :ref:`sphx_glr_auto_examples_testing_plot_2_overfit_cls.py`
+  :ref:`sphx_glr_auto_examples_4_testing_plot_2_overfit_cls.py`
 
 .. raw:: html
 
@@ -807,10 +858,10 @@ Outcome Testing
 
 .. only:: html
 
-  .. image:: /auto_examples/testing/images/thumb/sphx_glr_plot_2_overfit_reg_thumb.png
+  .. image:: /auto_examples/4_testing/images/thumb/sphx_glr_plot_2_overfit_reg_thumb.png
     :alt:
 
-  :ref:`sphx_glr_auto_examples_testing_plot_2_overfit_reg.py`
+  :ref:`sphx_glr_auto_examples_4_testing_plot_2_overfit_reg.py`
 
 .. raw:: html
 
@@ -824,10 +875,10 @@ Outcome Testing
 
 .. only:: html
 
-  .. image:: /auto_examples/testing/images/thumb/sphx_glr_plot_3_reliability_cls_thumb.png
+  .. image:: /auto_examples/4_testing/images/thumb/sphx_glr_plot_3_reliability_cls_thumb.png
     :alt:
 
-  :ref:`sphx_glr_auto_examples_testing_plot_3_reliability_cls.py`
+  :ref:`sphx_glr_auto_examples_4_testing_plot_3_reliability_cls.py`
 
 .. raw:: html
 
@@ -841,10 +892,10 @@ Outcome Testing
 
 .. only:: html
 
-  .. image:: /auto_examples/testing/images/thumb/sphx_glr_plot_3_reliability_reg_thumb.png
+  .. image:: /auto_examples/4_testing/images/thumb/sphx_glr_plot_3_reliability_reg_thumb.png
     :alt:
 
-  :ref:`sphx_glr_auto_examples_testing_plot_3_reliability_reg.py`
+  :ref:`sphx_glr_auto_examples_4_testing_plot_3_reliability_reg.py`
 
 .. raw:: html
 
@@ -858,10 +909,10 @@ Outcome Testing
 
 .. only:: html
 
-  .. image:: /auto_examples/testing/images/thumb/sphx_glr_plot_4_robustness_cls_thumb.png
+  .. image:: /auto_examples/4_testing/images/thumb/sphx_glr_plot_4_robustness_cls_thumb.png
     :alt:
 
-  :ref:`sphx_glr_auto_examples_testing_plot_4_robustness_cls.py`
+  :ref:`sphx_glr_auto_examples_4_testing_plot_4_robustness_cls.py`
 
 .. raw:: html
 
@@ -875,10 +926,10 @@ Outcome Testing
 
 .. only:: html
 
-  .. image:: /auto_examples/testing/images/thumb/sphx_glr_plot_4_robustness_reg_thumb.png
+  .. image:: /auto_examples/4_testing/images/thumb/sphx_glr_plot_4_robustness_reg_thumb.png
     :alt:
 
-  :ref:`sphx_glr_auto_examples_testing_plot_4_robustness_reg.py`
+  :ref:`sphx_glr_auto_examples_4_testing_plot_4_robustness_reg.py`
 
 .. raw:: html
 
@@ -892,10 +943,10 @@ Outcome Testing
 
 .. only:: html
 
-  .. image:: /auto_examples/testing/images/thumb/sphx_glr_plot_5_resilience_cls_thumb.png
+  .. image:: /auto_examples/4_testing/images/thumb/sphx_glr_plot_5_resilience_cls_thumb.png
     :alt:
 
-  :ref:`sphx_glr_auto_examples_testing_plot_5_resilience_cls.py`
+  :ref:`sphx_glr_auto_examples_4_testing_plot_5_resilience_cls.py`
 
 .. raw:: html
 
@@ -909,10 +960,10 @@ Outcome Testing
 
 .. only:: html
 
-  .. image:: /auto_examples/testing/images/thumb/sphx_glr_plot_5_resilience_reg_thumb.png
+  .. image:: /auto_examples/4_testing/images/thumb/sphx_glr_plot_5_resilience_reg_thumb.png
     :alt:
 
-  :ref:`sphx_glr_auto_examples_testing_plot_5_resilience_reg.py`
+  :ref:`sphx_glr_auto_examples_4_testing_plot_5_resilience_reg.py`
 
 .. raw:: html
 
@@ -926,14 +977,82 @@ Outcome Testing
 
 .. only:: html
 
-  .. image:: /auto_examples/testing/images/thumb/sphx_glr_plot_6_fairness_thumb.png
+  .. image:: /auto_examples/4_testing/images/thumb/sphx_glr_plot_6_fairness_thumb.png
     :alt:
 
-  :ref:`sphx_glr_auto_examples_testing_plot_6_fairness.py`
+  :ref:`sphx_glr_auto_examples_4_testing_plot_6_fairness.py`
 
 .. raw:: html
 
       <div class="sphx-glr-thumbnail-title">Fairness Test: XGB2</div>
+    </div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="Segmented Diagnose (Classification)">
+
+.. only:: html
+
+  .. image:: /auto_examples/4_testing/images/thumb/sphx_glr_plot_7_segmented_cls_thumb.png
+    :alt:
+
+  :ref:`sphx_glr_auto_examples_4_testing_plot_7_segmented_cls.py`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Segmented Diagnose (Classification)</div>
+    </div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="Segmented Diagnose (Regression)">
+
+.. only:: html
+
+  .. image:: /auto_examples/4_testing/images/thumb/sphx_glr_plot_7_segmented_reg_thumb.png
+    :alt:
+
+  :ref:`sphx_glr_auto_examples_4_testing_plot_7_segmented_reg.py`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Segmented Diagnose (Regression)</div>
+    </div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="Scored Test: Classification">
+
+.. only:: html
+
+  .. image:: /auto_examples/4_testing/images/thumb/sphx_glr_plot_8_scored_test_cls_thumb.png
+    :alt:
+
+  :ref:`sphx_glr_auto_examples_4_testing_plot_8_scored_test_cls.py`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Scored Test: Classification</div>
+    </div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="Scored Test: Regression">
+
+.. only:: html
+
+  .. image:: /auto_examples/4_testing/images/thumb/sphx_glr_plot_8_scored_test_reg_thumb.png
+    :alt:
+
+  :ref:`sphx_glr_auto_examples_4_testing_plot_8_scored_test_reg.py`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Scored Test: Regression</div>
     </div>
 
 
@@ -958,10 +1077,10 @@ Model Comparison
 
 .. only:: html
 
-  .. image:: /auto_examples/testing_compare/images/thumb/sphx_glr_plot_0_compare_classification_thumb.png
+  .. image:: /auto_examples/5_compare/images/thumb/sphx_glr_plot_0_compare_classification_thumb.png
     :alt:
 
-  :ref:`sphx_glr_auto_examples_testing_compare_plot_0_compare_classification.py`
+  :ref:`sphx_glr_auto_examples_5_compare_plot_0_compare_classification.py`
 
 .. raw:: html
 
@@ -975,10 +1094,10 @@ Model Comparison
 
 .. only:: html
 
-  .. image:: /auto_examples/testing_compare/images/thumb/sphx_glr_plot_0_compare_regression_thumb.png
+  .. image:: /auto_examples/5_compare/images/thumb/sphx_glr_plot_0_compare_regression_thumb.png
     :alt:
 
-  :ref:`sphx_glr_auto_examples_testing_compare_plot_0_compare_regression.py`
+  :ref:`sphx_glr_auto_examples_5_compare_plot_0_compare_regression.py`
 
 .. raw:: html
 
@@ -992,180 +1111,14 @@ Model Comparison
 
 .. only:: html
 
-  .. image:: /auto_examples/testing_compare/images/thumb/sphx_glr_plot_1_compare_fairness_thumb.png
+  .. image:: /auto_examples/5_compare/images/thumb/sphx_glr_plot_1_compare_fairness_thumb.png
     :alt:
 
-  :ref:`sphx_glr_auto_examples_testing_compare_plot_1_compare_fairness.py`
+  :ref:`sphx_glr_auto_examples_5_compare_plot_1_compare_fairness.py`
 
 .. raw:: html
 
       <div class="sphx-glr-thumbnail-title">Fairness Comparison</div>
-    </div>
-
-
-.. raw:: html
-
-    </div>
-
-
-Training and Testing External Models
------------------------------------------
-
-
-
-.. raw:: html
-
-    <div class="sphx-glr-thumbnails">
-
-
-.. raw:: html
-
-    <div class="sphx-glr-thumbcontainer" tooltip="Train External Models">
-
-.. only:: html
-
-  .. image:: /auto_examples/testing_external/images/thumb/sphx_glr_plot_0_model_train_thumb.png
-    :alt:
-
-  :ref:`sphx_glr_auto_examples_testing_external_plot_0_model_train.py`
-
-.. raw:: html
-
-      <div class="sphx-glr-thumbnail-title">Train External Models</div>
-    </div>
-
-
-.. raw:: html
-
-    <div class="sphx-glr-thumbcontainer" tooltip="Registering Arbitrary Models">
-
-.. only:: html
-
-  .. image:: /auto_examples/testing_external/images/thumb/sphx_glr_plot_1_register_arbitrary_thumb.png
-    :alt:
-
-  :ref:`sphx_glr_auto_examples_testing_external_plot_1_register_arbitrary.py`
-
-.. raw:: html
-
-      <div class="sphx-glr-thumbnail-title">Registering Arbitrary Models</div>
-    </div>
-
-
-.. raw:: html
-
-    <div class="sphx-glr-thumbcontainer" tooltip="Registering H2O Models">
-
-.. only:: html
-
-  .. image:: /auto_examples/testing_external/images/thumb/sphx_glr_plot_1_register_h2o_thumb.png
-    :alt:
-
-  :ref:`sphx_glr_auto_examples_testing_external_plot_1_register_h2o.py`
-
-.. raw:: html
-
-      <div class="sphx-glr-thumbnail-title">Registering H2O Models</div>
-    </div>
-
-
-.. raw:: html
-
-    <div class="sphx-glr-thumbcontainer" tooltip="Registering sklearn Style Models">
-
-.. only:: html
-
-  .. image:: /auto_examples/testing_external/images/thumb/sphx_glr_plot_1_register_sklearn_thumb.png
-    :alt:
-
-  :ref:`sphx_glr_auto_examples_testing_external_plot_1_register_sklearn.py`
-
-.. raw:: html
-
-      <div class="sphx-glr-thumbnail-title">Registering sklearn Style Models</div>
-    </div>
-
-
-.. raw:: html
-
-    <div class="sphx-glr-thumbcontainer" tooltip="Scored Test (Classification)">
-
-.. only:: html
-
-  .. image:: /auto_examples/testing_external/images/thumb/sphx_glr_plot_2_test_wo_model_cls_thumb.png
-    :alt:
-
-  :ref:`sphx_glr_auto_examples_testing_external_plot_2_test_wo_model_cls.py`
-
-.. raw:: html
-
-      <div class="sphx-glr-thumbnail-title">Scored Test (Classification)</div>
-    </div>
-
-
-.. raw:: html
-
-    <div class="sphx-glr-thumbcontainer" tooltip="Scored Test (Regression)">
-
-.. only:: html
-
-  .. image:: /auto_examples/testing_external/images/thumb/sphx_glr_plot_2_test_wo_model_reg_thumb.png
-    :alt:
-
-  :ref:`sphx_glr_auto_examples_testing_external_plot_2_test_wo_model_reg.py`
-
-.. raw:: html
-
-      <div class="sphx-glr-thumbnail-title">Scored Test (Regression)</div>
-    </div>
-
-
-.. raw:: html
-
-    </div>
-
-
-Model Segmented Diagnosics
---------------------------------
-
-
-
-.. raw:: html
-
-    <div class="sphx-glr-thumbnails">
-
-
-.. raw:: html
-
-    <div class="sphx-glr-thumbcontainer" tooltip="Segmented Diagnose (Classification)">
-
-.. only:: html
-
-  .. image:: /auto_examples/testing_segmented/images/thumb/sphx_glr_plot_0_classification_thumb.png
-    :alt:
-
-  :ref:`sphx_glr_auto_examples_testing_segmented_plot_0_classification.py`
-
-.. raw:: html
-
-      <div class="sphx-glr-thumbnail-title">Segmented Diagnose (Classification)</div>
-    </div>
-
-
-.. raw:: html
-
-    <div class="sphx-glr-thumbcontainer" tooltip="Segmented Diagnose (Regression)">
-
-.. only:: html
-
-  .. image:: /auto_examples/testing_segmented/images/thumb/sphx_glr_plot_0_regression_thumb.png
-    :alt:
-
-  :ref:`sphx_glr_auto_examples_testing_segmented_plot_0_regression.py`
-
-.. raw:: html
-
-      <div class="sphx-glr-thumbnail-title">Segmented Diagnose (Regression)</div>
     </div>
 
 
@@ -1179,14 +1132,12 @@ Model Segmented Diagnosics
    :includehidden:
 
 
-   /auto_examples/data/index.rst
-   /auto_examples/explain/index.rst
-   /auto_examples/models/index.rst
-   /auto_examples/models_hpo/index.rst
-   /auto_examples/testing/index.rst
-   /auto_examples/testing_compare/index.rst
-   /auto_examples/testing_external/index.rst
-   /auto_examples/testing_segmented/index.rst
+   /auto_examples/0_data/index.rst
+   /auto_examples/1_train/index.rst
+   /auto_examples/2_explain/index.rst
+   /auto_examples/3_models/index.rst
+   /auto_examples/4_testing/index.rst
+   /auto_examples/5_compare/index.rst
 
 
 .. only:: html

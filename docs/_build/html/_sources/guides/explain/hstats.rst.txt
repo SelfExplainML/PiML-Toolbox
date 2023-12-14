@@ -1,0 +1,378 @@
+.. Places parent toc into the sidebar
+
+:parenttoc: True
+
+.. include:: ../../includes/big_toc_css.rst
+
+=================================
+Hstats (Friedman's H-statistic)
+=================================
+
+H-statistic measures the interaction strength of two features [Friedman2008]_. 
+
+
+Algorithm Details
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Consider a set of features, represented by :math:`X`, and a fitted model, represented by :math:`\hat{f}`. The H-statistic is defined based on partial dependence, as follows:
+
+.. math::
+   \begin{align}     
+     H_{j k}^2=\frac{\sum_{i=1}^n\left[P D_{j k}\left(x_j^{(i)}, x_k^{(i)}\right)-P D_j\left(x_j^{(i)}\right)-P D_k\left(x_k^{(i)}\right)\right]^2}{\sum_{i=1}^n P D_{j k}^2\left(x_j^{(i)}, x_k^{(i)}\right)},  \tag{1}  
+   \end{align}
+
+where feature :math:`j` and :math:`k` are two features in :math:`X`, :math:`x_j^{(i)}` and :math:`x_k^{(i)}` are the values of features :math:`j` and :math:`k` for the :math:`i`-th sample, respectively, and :math:`PD_{jk}(x_j^{(i)}, x_k^{(i)})` is the partial dependence of :math:`\hat{f}` on features :math:`j` and :math:`k` at :math:`(x_j^{(i)}, x_k^{(i)})`. The H-statistic is a measure of the interaction strength between features :math:`j` and :math:`k`. The larger the H-statistic, the stronger the interaction between features :math:`j` and :math:`k`. The H-statistic is symmetric, i.e., :math:`H_{jk}=H_{kj}`.
+
+
+Usage
+^^^^^^^^^^^^^^^^^
+H-statistic can be calculated using PiML's `model_explain` function. The keyword for PDP is "hstats", i.e., we should set `show` = "hstats". Additionally, the following arguments are relevant to this analysis:
+
+- `use_test`: If True, the test data will be used to generate the explanations. Otherwise, the training data will be used. The default value is False.
+- `sample_size`: To speed up the computation, we subsample a subset of the data to calculate PDP. The default value is 2000. To use the full data, you can set `sample_size` to be larger than the number of samples in the data.
+- `grid_size`: The number of grid points in PDP. The default value is 10.
+- `response_method`: For binary classification tasks, the PDP is computed by default using the predicted probability instead of log odds; If the model does not have "predict_proba" or we set `response_method` to "decision_function", then the log odds would be used as the response.
+
+The following code shows how to calculate the H-statistic of a fitted XGB2 model.
+
+.. jupyter-input::
+
+   exp.model_explain(model="XGB2", show="hstats", sample_size=2000, grid_size=5,
+                     figsize=(5, 4))
+
+.. figure:: ../../auto_examples/2_explain/images/sphx_glr_plot_1_pdp_hstats_001.png
+   :target: ../../auto_examples/2_explain/plot_1_pdp_hstats.html
+   :align: left
+
+The plot above lists the top-10 important interactions. To get the H-statistic of the full list of interactions, we can set `return_data=True`, and the H-statistic of all interactions will be returned as a dataframe, as shown below.
+
+.. jupyter-input::
+
+   result = exp.model_explain(model="XGB2", show="hstats", sample_size=2000, grid_size=5,
+                              return_data=True, figsize=(5, 4))
+   result.data
+
+.. raw:: html
+
+    <div class="output_subarea output_html rendered_html output_result">
+    <div>
+    <style scoped>
+        .dataframe tbody tr th:only-of-type {
+            vertical-align: middle;
+        }
+
+        .dataframe tbody tr th {
+            vertical-align: top;
+        }
+
+        .dataframe thead th {
+            text-align: right;
+        }
+    </style>
+
+      <table border="1" class="dataframe">
+      <thead>
+         <tr style="text-align: right;">
+            <th></th>
+            <th>Feature 1</th>
+            <th>Feature 2</th>
+            <th>Importance</th>
+         </tr>
+      </thead>
+      <tbody>
+         <tr>
+            <th>0</th>
+            <td>X0</td>
+            <td>X1</td>
+            <td>8.354665e-02</td>
+         </tr>
+         <tr>
+            <th>1</th>
+            <td>X0</td>
+            <td>X3</td>
+            <td>5.772886e-03</td>
+         </tr>
+         <tr>
+            <th>2</th>
+            <td>X3</td>
+            <td>X4</td>
+            <td>4.769194e-03</td>
+         </tr>
+         <tr>
+            <th>3</th>
+            <td>X1</td>
+            <td>X4</td>
+            <td>4.488876e-03</td>
+         </tr>
+         <tr>
+            <th>4</th>
+            <td>X1</td>
+            <td>X3</td>
+            <td>3.939141e-03</td>
+         </tr>
+         <tr>
+            <th>5</th>
+            <td>X2</td>
+            <td>X4</td>
+            <td>2.891201e-03</td>
+         </tr>
+         <tr>
+            <th>6</th>
+            <td>X0</td>
+            <td>X4</td>
+            <td>2.615382e-03</td>
+         </tr>
+         <tr>
+            <th>7</th>
+            <td>X2</td>
+            <td>X3</td>
+            <td>1.110027e-03</td>
+         </tr>
+         <tr>
+            <th>8</th>
+            <td>X1</td>
+            <td>X2</td>
+            <td>9.062784e-04</td>
+         </tr>
+         <tr>
+            <th>9</th>
+            <td>X0</td>
+            <td>X2</td>
+            <td>4.224594e-04</td>
+         </tr>
+         <tr>
+            <th>10</th>
+            <td>X4</td>
+            <td>X7</td>
+            <td>4.187721e-04</td>
+         </tr>
+         <tr>
+            <th>11</th>
+            <td>X6</td>
+            <td>X9</td>
+            <td>2.826716e-04</td>
+         </tr>
+         <tr>
+            <th>12</th>
+            <td>X1</td>
+            <td>X6</td>
+            <td>2.798646e-04</td>
+         </tr>
+         <tr>
+            <th>13</th>
+            <td>X1</td>
+            <td>X9</td>
+            <td>2.139691e-04</td>
+         </tr>
+         <tr>
+            <th>14</th>
+            <td>X0</td>
+            <td>X9</td>
+            <td>1.499676e-04</td>
+         </tr>
+         <tr>
+            <th>15</th>
+            <td>X2</td>
+            <td>X9</td>
+            <td>1.367038e-04</td>
+         </tr>
+         <tr>
+            <th>16</th>
+            <td>X3</td>
+            <td>X9</td>
+            <td>1.256837e-04</td>
+         </tr>
+         <tr>
+            <th>17</th>
+            <td>X0</td>
+            <td>X6</td>
+            <td>1.022405e-04</td>
+         </tr>
+         <tr>
+            <th>18</th>
+            <td>X3</td>
+            <td>X6</td>
+            <td>1.017541e-04</td>
+         </tr>
+         <tr>
+            <th>19</th>
+            <td>X2</td>
+            <td>X5</td>
+            <td>3.553405e-06</td>
+         </tr>
+         <tr>
+            <th>20</th>
+            <td>X4</td>
+            <td>X6</td>
+            <td>2.510080e-06</td>
+         </tr>
+         <tr>
+            <th>21</th>
+            <td>X1</td>
+            <td>X5</td>
+            <td>2.003126e-06</td>
+         </tr>
+         <tr>
+            <th>22</th>
+            <td>X2</td>
+            <td>X6</td>
+            <td>2.001398e-06</td>
+         </tr>
+         <tr>
+            <th>23</th>
+            <td>X0</td>
+            <td>X8</td>
+            <td>9.355216e-07</td>
+         </tr>
+         <tr>
+            <th>24</th>
+            <td>X1</td>
+            <td>X8</td>
+            <td>8.842721e-07</td>
+         </tr>
+         <tr>
+            <th>25</th>
+            <td>X7</td>
+            <td>X9</td>
+            <td>3.703580e-07</td>
+         </tr>
+         <tr>
+            <th>26</th>
+            <td>X2</td>
+            <td>X8</td>
+            <td>3.405027e-07</td>
+         </tr>
+         <tr>
+            <th>27</th>
+            <td>X4</td>
+            <td>X8</td>
+            <td>2.302398e-07</td>
+         </tr>
+         <tr>
+            <th>28</th>
+            <td>X0</td>
+            <td>X7</td>
+            <td>2.020537e-07</td>
+         </tr>
+         <tr>
+            <th>29</th>
+            <td>X5</td>
+            <td>X8</td>
+            <td>6.266068e-08</td>
+         </tr>
+         <tr>
+            <th>30</th>
+            <td>X5</td>
+            <td>X7</td>
+            <td>4.271688e-08</td>
+         </tr>
+         <tr>
+            <th>31</th>
+            <td>X0</td>
+            <td>X5</td>
+            <td>3.382035e-09</td>
+         </tr>
+         <tr>
+            <th>32</th>
+            <td>X7</td>
+            <td>X8</td>
+            <td>2.910548e-09</td>
+         </tr>
+         <tr>
+            <th>33</th>
+            <td>X5</td>
+            <td>X6</td>
+            <td>1.166214e-09</td>
+         </tr>
+         <tr>
+            <th>34</th>
+            <td>X6</td>
+            <td>X7</td>
+            <td>5.757503e-10</td>
+         </tr>
+         <tr>
+            <th>35</th>
+            <td>X6</td>
+            <td>X8</td>
+            <td>4.158681e-10</td>
+         </tr>
+         <tr>
+            <th>36</th>
+            <td>X5</td>
+            <td>X9</td>
+            <td>2.689033e-10</td>
+         </tr>
+         <tr>
+            <th>37</th>
+            <td>X8</td>
+            <td>X9</td>
+            <td>2.289872e-10</td>
+         </tr>
+         <tr>
+            <th>38</th>
+            <td>X4</td>
+            <td>X5</td>
+            <td>1.034555e-12</td>
+         </tr>
+         <tr>
+            <th>39</th>
+            <td>X4</td>
+            <td>X9</td>
+            <td>5.418748e-13</td>
+         </tr>
+         <tr>
+            <th>40</th>
+            <td>X2</td>
+            <td>X7</td>
+            <td>1.989873e-13</td>
+         </tr>
+         <tr>
+            <th>41</th>
+            <td>X3</td>
+            <td>X8</td>
+            <td>1.310739e-13</td>
+         </tr>
+         <tr>
+            <th>42</th>
+            <td>X3</td>
+            <td>X5</td>
+            <td>1.203739e-13</td>
+         </tr>
+         <tr>
+            <th>43</th>
+            <td>X1</td>
+            <td>X7</td>
+            <td>7.804507e-14</td>
+         </tr>
+         <tr>
+            <th>44</th>
+            <td>X3</td>
+            <td>X7</td>
+            <td>5.885018e-14</td>
+         </tr>
+      </tbody>
+      </table>
+    </div>
+    </div>
+
+
+
+Examples 
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. topic:: Example 1: Bike Sharing
+
+  The first example below demonstrates how to use PiML with its high-code APIs for developing machine learning models for the BikeSharing data from the UCI repository, which consists of 17,389 samples of hourly counts of rental bikes in Capital bikeshare system; see details. The response `cnt` (hourly bike rental counts) is continuous and it is a regression problem.
+ 
+ * :ref:`sphx_glr_auto_examples_2_explain_plot_1_pdp_hstats.py`
+
+.. topic:: Example 2: SimuCredit
+
+   The second example shows the option to use test set to generate the explanations.
+
+   * :ref:`sphx_glr_auto_examples_2_explain_plot_6_data_dependent_explain.py`
+
+
+.. topic:: References
+
+    .. [Friedman2008] Friedman, Jerome H., and Bogdan E. Popescu (2008). `Predictive learning via rule ensembles. <https://projecteuclid.org/journals/annals-of-applied-statistics/volume-2/issue-3/Predictive-learning-via-rule-ensembles/10.1214/07-AOAS148.full>`_, Annals of Applied Statistics, 916-954.

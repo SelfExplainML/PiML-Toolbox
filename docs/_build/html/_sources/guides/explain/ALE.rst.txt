@@ -34,16 +34,22 @@ Note that the computation of ALE is faster than that of PDP, as it requires less
    When features are strongly correlated, it is not suggested to do the interpretation of the effect across intervals. That is because the effects are computed per interval (locally), and require no extrapolation beyond the data envelope. If fix one feature and move another feature (highly correlated with the fixed one) from one interval to another one, the model being explained :math:`\hat{f}` may output unreliable predictions, which will lead to unreliable ALE values. In other words, the ALE values are not reliable when the model is extrapolating outside
    of the data envelope. Therefore, as features are strongly correlated, we should interpret ALE plots locally for each bin.
 
-.. note::
-
-   For binary classification tasks, the ALE is computed by default using the predicted probability instead of log odds. In `exp.model_explain`, there exist an argument called `response_method`. If we want to use the predicted probability as the output, we can set `response_method` to "decision_function".
-
 
 
 Usage
 ^^^^^^^^^^^^^^^^^
 
-This section illustrates how to use PiML to get the ALE plots. Similar to the visualization of PDPs, the visualization of ALE plots in PiML can be done using the `model_explain` function. The keyword for ALE plot is "ale", i.e., we should set `show` = "ale". For illustration purposes, we fitted the ReLUDNN model on the Bike Sharing dataset.
+This section illustrates how to use PiML to get the ALE plots. Similar to the visualization of PDPs, the visualization of ALE plots in PiML can be done using the `model_explain` function. The keyword for ALE plot is "ale", i.e., we should set `show` = "ale". Additionally, the following arguments are relevant to this analysis:
+
+- `uni_feature`: The name of the feature of interest for one-way ALE. 
+- `bi_features`: The names of the features of interest for two-way ALE. 
+- `use_test`: If True, the test data will be used to generate the explanations. Otherwise, the training data will be used. The default value is False.
+- `sample_size`: To speed up the computation, we subsample a subset of the data to calculate ALE. The default value is 2000. To use the full data, you can set `sample_size` to be larger than the number of samples in the data.
+- `grid_size`: The number of grid points in ALE. The default value is 100 for 1D PDP and 10 for 2D ALE.
+- `response_method`: For binary classification tasks, the ALE is computed by default using the predicted probability instead of log odds; If the model does not have "predict_proba" or we set `response_method` to "decision_function", then the log odds would be used as the response.
+- `sliced_line`: A parameter for two-way ALE. If True, the two-way ALE will be visualized using sliced 1D line plot. Otherwise, the two-way ALE will be visualized using 2D heatmap. The default value is False.
+
+For illustration purposes, we fitted the ReLUDNN model on the Bike Sharing dataset.
 
 One-way ALE
 """"""""""""""""""""""""""""""""
@@ -54,8 +60,8 @@ The one-way ALE tells us about the relationship between the target response and 
    exp.model_explain(model="ReLUDNN", show="ale", uni_feature="hr",
                      grid_size=50, original_scale=True, figsize=(5, 4))
 
-.. figure:: ../../auto_examples/explain/images/sphx_glr_plot_3_ale_001.png
-   :target: ../../auto_examples/explain/plot_3_ale.html
+.. figure:: ../../auto_examples/2_explain/images/sphx_glr_plot_3_ale_001.png
+   :target: ../../auto_examples/2_explain/plot_3_ale.html
    :align: left
 
 The hourly bike counts have two peaks in the rush hours of the day, which is consistent with that of PDP. From the plot, we can see that the range of ALE values is centered around zero, this is because the ALE plot is centered using the mean of the local effects. 
@@ -67,8 +73,8 @@ In addition to the feature `hr`, we also draw the ALE plot for the feature `atem
    exp.model_explain(model="ReLUDNN", show="ale", uni_feature="atemp",
                      grid_size=50, original_scale=True, figsize=(5, 4))
 
-.. figure:: ../../auto_examples/explain/images/sphx_glr_plot_3_ale_002.png
-   :target: ../../auto_examples/explain/plot_3_ale.html
+.. figure:: ../../auto_examples/2_explain/images/sphx_glr_plot_3_ale_002.png
+   :target: ../../auto_examples/2_explain/plot_3_ale.html
    :align: left
 
 The plot above shows that the bike sharing counts reach the highest as `atemp` is around 0.6. The ALE plot is also centered around zero, which is consistent with the previous plot. ALE plot also supports categorical features. As the categorical feature has no ordering, we need to create an ordering for each category. In specific, we order the categories by their similarity (or distance) based on the rest features. Once we have the distances between all categories, we can reduce the pairwise distance matrix to a distance-vector, in which each element represents the distance score of a category. After that, we can order the categories using the distance score, and then calculate the ALE just like the numerical features.
@@ -78,8 +84,8 @@ The plot above shows that the bike sharing counts reach the highest as `atemp` i
    exp.model_explain(model="ReLUDNN", show="ale", uni_feature="weathersit",
                      original_scale=True, figsize=(5, 4))
 
-.. figure:: ../../auto_examples/explain/images/sphx_glr_plot_3_ale_003.png
-   :target: ../../auto_examples/explain/plot_3_ale.html
+.. figure:: ../../auto_examples/2_explain/images/sphx_glr_plot_3_ale_003.png
+   :target: ../../auto_examples/2_explain/plot_3_ale.html
    :align: left
 
 This is the ALE plot for the categorical feature `weathersit`. From this plot, we can see that `weathersit` with values 3 (Light Rain, etc) and 4 (Heavy Rain, etc) have a significantly negative effect on the final prediction, as compared to 1.0 (Clear, etc). Although the simple average of these four bars is negative, the average ALE over the full sample is still zero. That is because the density of category 1.0 is much larger than that of 3.0 and 4.0.
@@ -93,11 +99,12 @@ The two-way ALE (two inputs features of interest) shows the interaction between 
    exp.model_explain(model="ReLUDNN", show="ale", bi_features=["hr", "atemp"]
                      grid_size=10, sliced_line=False, original_scale=True, figsize=(5, 4))
 
-.. figure:: ../../auto_examples/explain/images/sphx_glr_plot_3_ale_004.png
-   :target: ../../auto_examples/explain/plot_3_ale.html
+.. figure:: ../../auto_examples/2_explain/images/sphx_glr_plot_3_ale_004.png
+   :target: ../../auto_examples/2_explain/plot_3_ale.html
    :align: left
 
 In the plot above, lighter shade indicates an above average, while darker shade indicates a below average. In addition to adjusting for the overall mean effect, two-way ALE also adjusts for the main effects of both features. Therefore, the two-way ALE plot can be quite different from the two-way PDP, and one must keep the main effects in mind during the interpretation.
+
 
 
 Examples
@@ -107,11 +114,11 @@ Examples
 
   The first example below demonstrates how to use PiML with its high-code APIs for developing machine learning models for the BikeSharing data from the UCI repository, which consists of 17,389 samples of hourly counts of rental bikes in Capital bikeshare system; see details. The response `cnt` (hourly bike rental counts) is continuous and it is a regression problem.
                           
- * :ref:`sphx_glr_auto_examples_explain_plot_3_ale.py`
+ * :ref:`sphx_glr_auto_examples_2_explain_plot_3_ale.py`
 
 
 .. topic:: Example 2: SimuCredit
 
    The second example shows the option to use test set to generate the explanations.
 
-   * :ref:`sphx_glr_auto_examples_explain_plot_6_data_dependent_explain.py`
+   * :ref:`sphx_glr_auto_examples_2_explain_plot_6_data_dependent_explain.py`

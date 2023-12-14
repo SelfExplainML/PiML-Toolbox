@@ -62,8 +62,8 @@ To generate the heatmap plot displaying the importance of each feature, we will 
      
      exp.model_interpret(model="FIGS", show="figs_heatmap", tree_idx=0, figsize=(12, 4))
 
-.. figure:: ../../auto_examples/models/images/sphx_glr_plot_3_figs_reg_001.png
-   :target: ../../auto_examples/models/plot_3_figs_reg.html
+.. figure:: ../../auto_examples/3_models/images/sphx_glr_plot_3_figs_reg_001.png
+   :target: ../../auto_examples/3_models/plot_3_figs_reg.html
    :align: left
 
 This plot is a summary of the leaf node information for the first tree in FIGS (`tree_idx` = 0). The title tells the importance of this tree, which is calculated by the normalized variance of :math:`\hat{f_{k}}`, using the training data. The x-axis represents the feature names, while the y-axis represents the leaf node ID. In the left column, the color scheme used represents the value of the leaf node. Blue shades are used for smaller values, while red shades are used for larger values. The hierarchical clustering dendrogram demonstrates how these leaf nodes are related to each other. 
@@ -82,8 +82,8 @@ In addition to the feature importance heatmap, we can also globally interpret FI
      exp.model_interpret(model="FIGS", show="tree_global", tree_idx=0, root=0,
                          depth=3, original_scale=True, figsize=(16, 10))
 
-.. figure:: ../../auto_examples/models/images/sphx_glr_plot_3_figs_reg_002.png
-   :target: ../../auto_examples/models/plot_3_figs_reg.html
+.. figure:: ../../auto_examples/3_models/images/sphx_glr_plot_3_figs_reg_002.png
+   :target: ../../auto_examples/3_models/plot_3_figs_reg.html
    :align: left
 
 Here, the usage of `root` and `depth` is the same as that of `Decision_Trees`_, which are used to control which part of the tree to display. The `original_scale` argument is used to control whether the feature values are scaled to the original scale. If `original_scale` is set to True, then the feature values are scaled to the original scale, otherwise, the feature values are by default scaled in the data preprocessing step. From this plot, it can be observed that `MedInc` is used multiple times to split the data. Furthermore, it is worth noting that in the root node, the average value is approximately zero, which is expected since the intercept term represents the overall mean of the response variable.
@@ -97,8 +97,8 @@ Here, the usage of `root` and `depth` is the same as that of `Decision_Trees`_, 
      exp.model_interpret(model="FIGS", show="tree_global", tree_idx=1, root=0,
                          depth=3, original_scale=True, figsize=(16, 10))
 
-.. figure:: ../../auto_examples/models/images/sphx_glr_plot_3_figs_reg_003.png
-   :target: ../../auto_examples/models/plot_3_figs_reg.html
+.. figure:: ../../auto_examples/3_models/images/sphx_glr_plot_3_figs_reg_003.png
+   :target: ../../auto_examples/3_models/plot_3_figs_reg.html
    :align: left
 
 In this tree, `AveOccup` instead is the most important feature.
@@ -113,8 +113,8 @@ By using the "tree_local" keyword, the decision path of a chosen sample can be e
     exp.model_interpret(model="FIGS", show="tree_local", sample_id=0, tree_idx=0, 
                         original_scale=True, figsize=(16, 10))
 
-.. figure:: ../../auto_examples/models/images/sphx_glr_plot_3_figs_reg_004.png
-   :target: ../../auto_examples/models/plot_3_figs_reg.html
+.. figure:: ../../auto_examples/3_models/images/sphx_glr_plot_3_figs_reg_004.png
+   :target: ../../auto_examples/3_models/plot_3_figs_reg.html
    :align: left
 
 .. jupyter-input::
@@ -122,8 +122,8 @@ By using the "tree_local" keyword, the decision path of a chosen sample can be e
     exp.model_interpret(model="FIGS", show="tree_local", sample_id=0, tree_idx=1,
                         original_scale=True, figsize=(16, 10))
 
-.. figure:: ../../auto_examples/models/images/sphx_glr_plot_3_figs_reg_005.png
-   :target: ../../auto_examples/models/plot_3_figs_reg.html
+.. figure:: ../../auto_examples/3_models/images/sphx_glr_plot_3_figs_reg_005.png
+   :target: ../../auto_examples/3_models/plot_3_figs_reg.html
    :align: left
 
 The predicted values of this sample on the first two trees are 0.099 and -0.094, respectively. Similarly, we can use the same approach to get the local interpretation of the first sample on the rest trees.
@@ -136,10 +136,10 @@ Examples
 
   The example below demonstrates how to use PiML with its high-code APis for the California Housing dataset from the UCI repository, which consists of 20,640 samples and 9 features, fetched by sklearn.datasets. The response variable MedHouseVal (Median Home Value) is continuous and is a regression problem.
 
- * :ref:`sphx_glr_auto_examples_models_plot_3_figs_reg.py`
+ * :ref:`sphx_glr_auto_examples_3_models_plot_3_figs_reg.py`
 
 .. topic:: Examples 2: Taiwan Credit
 
    The second example below demonstrates how to use PiML's high-code APIs for the TaiwanCredit dataset from the UCI repository. This dataset comprises the credit card details of 30,000 clients in Taiwan from April 2005 to September 2005, and more information can be found on the TaiwanCreditData website. The `FlagDefault` variable serves as the response for this classification problem.
 
- * :ref:`sphx_glr_auto_examples_models_plot_3_figs_cls.py`
+ * :ref:`sphx_glr_auto_examples_3_models_plot_3_figs_cls.py`

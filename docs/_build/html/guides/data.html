@@ -157,15 +157,19 @@
                         </li>
                       
                         <li class="sk-toctree-l3">
-                          <a href="data/data_quality.html">2.5. Data Quality</a>
+                          <a href="data/data_quality_integrity.html">2.5. Data Quality (Integrity Check)</a>
                         </li>
                       
                         <li class="sk-toctree-l3">
-                          <a href="data/feature_select.html">2.6. Feature Selection</a>
+                          <a href="data/data_quality_outlier.html">2.6. Data Quality (Outlier Detection)</a>
                         </li>
                       
                         <li class="sk-toctree-l3">
-                          <a href="data/twosample_test.html">2.7. Two Sample Test</a>
+                          <a href="data/data_quality_drift.html">2.7. Data Quality (Drift Test)</a>
+                        </li>
+                      
+                        <li class="sk-toctree-l3">
+                          <a href="data/feature_select.html">2.8. Feature Selection</a>
                         </li>
                       
                     </ul>
@@ -173,12 +177,12 @@
                   </li>
                 
                   <li>
-                    <a href="extmodels.html" class="">3. Black-box Models</a>
+                    <a href="train.html" class="">3. Model Train and Tune</a>
                     
                   </li>
                 
                   <li>
-                    <a href="explainability.html" class="">4. Post-hoc Explainability</a>
+                    <a href="explain.html" class="">4. Post-hoc Explainability</a>
                     
                   </li>
                 
@@ -193,7 +197,7 @@
                   </li>
                 
                   <li>
-                    <a href="comparison.html" class="">7. Model Comparison</a>
+                    <a href="compare.html" class="">7. Model Comparison</a>
                     
                   </li>
                 
@@ -250,8 +254,9 @@
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="data/data_load.html">2.1. Data Load</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="data/data_load.html#built-in-dataset">2.1.1. Built-in Dataset</a></li>
-<li class="toctree-l2"><a class="reference internal" href="data/data_load.html#external-dataset">2.1.2. External Dataset</a></li>
-<li class="toctree-l2"><a class="reference internal" href="data/data_load.html#examples">2.1.3. Examples</a></li>
+<li class="toctree-l2"><a class="reference internal" href="data/data_load.html#external-dataset-csv-files">2.1.2. External Dataset (csv files)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="data/data_load.html#external-dataset-spark-file">2.1.3. External Dataset (Spark file)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="data/data_load.html#examples">2.1.4. Examples</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="data/data_summary.html">2.2. Data Summary</a><ul>
@@ -273,24 +278,31 @@
 <li class="toctree-l2"><a class="reference internal" href="data/data_eda.html#examples">2.4.4. Examples</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="data/data_quality.html">2.5. Data Quality</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="data/data_quality.html#methodology">2.5.1. Methodology</a></li>
-<li class="toctree-l2"><a class="reference internal" href="data/data_quality.html#analysis-and-comparison">2.5.2. Analysis and Comparison</a></li>
-<li class="toctree-l2"><a class="reference internal" href="data/data_quality.html#examples">2.5.3. Examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="data/data_quality_integrity.html">2.5. Data Quality (Integrity Check)</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="data/data_quality_integrity.html#single-column-checks">2.5.1. Single-column Checks</a></li>
+<li class="toctree-l2"><a class="reference internal" href="data/data_quality_integrity.html#duplicated-samples">2.5.2. Duplicated Samples</a></li>
+<li class="toctree-l2"><a class="reference internal" href="data/data_quality_integrity.html#highly-correlated-features">2.5.3. Highly correlated features</a></li>
+<li class="toctree-l2"><a class="reference internal" href="data/data_quality_integrity.html#examples">2.5.4. Examples</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="data/feature_select.html">2.6. Feature Selection</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="data/feature_select.html#correlations">2.6.1. Correlations</a></li>
-<li class="toctree-l2"><a class="reference internal" href="data/feature_select.html#distance-correlation">2.6.2. Distance Correlation</a></li>
-<li class="toctree-l2"><a class="reference internal" href="data/feature_select.html#use-of-feature-importance">2.6.3. Use of Feature Importance</a></li>
-<li class="toctree-l2"><a class="reference internal" href="data/feature_select.html#randomized-conditional-independence-test">2.6.4. Randomized Conditional Independence Test</a></li>
-<li class="toctree-l2"><a class="reference internal" href="data/feature_select.html#examples">2.6.5. Examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="data/data_quality_outlier.html">2.6. Data Quality (Outlier Detection)</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="data/data_quality_outlier.html#methodology">2.6.1. Methodology</a></li>
+<li class="toctree-l2"><a class="reference internal" href="data/data_quality_outlier.html#analysis-and-comparison">2.6.2. Analysis and Comparison</a></li>
+<li class="toctree-l2"><a class="reference internal" href="data/data_quality_outlier.html#examples">2.6.3. Examples</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="data/twosample_test.html">2.7. Two Sample Test</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="data/twosample_test.html#distance-metrics">2.7.1. Distance Metrics</a></li>
-<li class="toctree-l2"><a class="reference internal" href="data/twosample_test.html#usage">2.7.2. Usage</a></li>
-<li class="toctree-l2"><a class="reference internal" href="data/twosample_test.html#examples">2.7.3. Examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="data/data_quality_drift.html">2.7. Data Quality (Drift Test)</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="data/data_quality_drift.html#marginal-distribution-drift">2.7.1. Marginal Distribution Drift</a></li>
+<li class="toctree-l2"><a class="reference internal" href="data/data_quality_drift.html#energy-distance">2.7.2. Energy Distance</a></li>
+<li class="toctree-l2"><a class="reference internal" href="data/data_quality_drift.html#examples">2.7.3. Examples</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="data/feature_select.html">2.8. Feature Selection</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="data/feature_select.html#correlations">2.8.1. Correlations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="data/feature_select.html#distance-correlation">2.8.2. Distance Correlation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="data/feature_select.html#use-of-feature-importance">2.8.3. Use of Feature Importance</a></li>
+<li class="toctree-l2"><a class="reference internal" href="data/feature_select.html#randomized-conditional-independence-test">2.8.4. Randomized Conditional Independence Test</a></li>
+<li class="toctree-l2"><a class="reference internal" href="data/feature_select.html#examples">2.8.5. Examples</a></li>
 </ul>
 </li>
 </ul>

@@ -1,0 +1,331 @@
+
+
+.. _sphx_glr_auto_examples_4_testing:
+
+.. _testing_examples:
+
+Outcome Testing
+--------------------
+
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbnails">
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="Accuracy: Classification">
+
+.. only:: html
+
+  .. image:: /auto_examples/4_testing/images/thumb/sphx_glr_plot_0_accuracy_cls_thumb.png
+    :alt:
+
+  :ref:`sphx_glr_auto_examples_4_testing_plot_0_accuracy_cls.py`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Accuracy: Classification</div>
+    </div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="Accuracy: Regression">
+
+.. only:: html
+
+  .. image:: /auto_examples/4_testing/images/thumb/sphx_glr_plot_0_accuracy_reg_thumb.png
+    :alt:
+
+  :ref:`sphx_glr_auto_examples_4_testing_plot_0_accuracy_reg.py`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Accuracy: Regression</div>
+    </div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="WeakSpot: Classification">
+
+.. only:: html
+
+  .. image:: /auto_examples/4_testing/images/thumb/sphx_glr_plot_1_weakspot_cls_thumb.png
+    :alt:
+
+  :ref:`sphx_glr_auto_examples_4_testing_plot_1_weakspot_cls.py`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">WeakSpot: Classification</div>
+    </div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="WeakSpot: Regression">
+
+.. only:: html
+
+  .. image:: /auto_examples/4_testing/images/thumb/sphx_glr_plot_1_weakspot_reg_thumb.png
+    :alt:
+
+  :ref:`sphx_glr_auto_examples_4_testing_plot_1_weakspot_reg.py`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">WeakSpot: Regression</div>
+    </div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="Overfit: Classification">
+
+.. only:: html
+
+  .. image:: /auto_examples/4_testing/images/thumb/sphx_glr_plot_2_overfit_cls_thumb.png
+    :alt:
+
+  :ref:`sphx_glr_auto_examples_4_testing_plot_2_overfit_cls.py`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Overfit: Classification</div>
+    </div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="Overfit: Regression">
+
+.. only:: html
+
+  .. image:: /auto_examples/4_testing/images/thumb/sphx_glr_plot_2_overfit_reg_thumb.png
+    :alt:
+
+  :ref:`sphx_glr_auto_examples_4_testing_plot_2_overfit_reg.py`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Overfit: Regression</div>
+    </div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="Reliability: Classification">
+
+.. only:: html
+
+  .. image:: /auto_examples/4_testing/images/thumb/sphx_glr_plot_3_reliability_cls_thumb.png
+    :alt:
+
+  :ref:`sphx_glr_auto_examples_4_testing_plot_3_reliability_cls.py`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Reliability: Classification</div>
+    </div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="Reliability: Regression">
+
+.. only:: html
+
+  .. image:: /auto_examples/4_testing/images/thumb/sphx_glr_plot_3_reliability_reg_thumb.png
+    :alt:
+
+  :ref:`sphx_glr_auto_examples_4_testing_plot_3_reliability_reg.py`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Reliability: Regression</div>
+    </div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="Robustness: Classification">
+
+.. only:: html
+
+  .. image:: /auto_examples/4_testing/images/thumb/sphx_glr_plot_4_robustness_cls_thumb.png
+    :alt:
+
+  :ref:`sphx_glr_auto_examples_4_testing_plot_4_robustness_cls.py`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Robustness: Classification</div>
+    </div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="Robustness:  Regression">
+
+.. only:: html
+
+  .. image:: /auto_examples/4_testing/images/thumb/sphx_glr_plot_4_robustness_reg_thumb.png
+    :alt:
+
+  :ref:`sphx_glr_auto_examples_4_testing_plot_4_robustness_reg.py`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Robustness:  Regression</div>
+    </div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="Resilience:  Classification">
+
+.. only:: html
+
+  .. image:: /auto_examples/4_testing/images/thumb/sphx_glr_plot_5_resilience_cls_thumb.png
+    :alt:
+
+  :ref:`sphx_glr_auto_examples_4_testing_plot_5_resilience_cls.py`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Resilience:  Classification</div>
+    </div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="Resilience - Regression">
+
+.. only:: html
+
+  .. image:: /auto_examples/4_testing/images/thumb/sphx_glr_plot_5_resilience_reg_thumb.png
+    :alt:
+
+  :ref:`sphx_glr_auto_examples_4_testing_plot_5_resilience_reg.py`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Resilience - Regression</div>
+    </div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="Fairness Test: XGB2">
+
+.. only:: html
+
+  .. image:: /auto_examples/4_testing/images/thumb/sphx_glr_plot_6_fairness_thumb.png
+    :alt:
+
+  :ref:`sphx_glr_auto_examples_4_testing_plot_6_fairness.py`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Fairness Test: XGB2</div>
+    </div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="Segmented Diagnose (Classification)">
+
+.. only:: html
+
+  .. image:: /auto_examples/4_testing/images/thumb/sphx_glr_plot_7_segmented_cls_thumb.png
+    :alt:
+
+  :ref:`sphx_glr_auto_examples_4_testing_plot_7_segmented_cls.py`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Segmented Diagnose (Classification)</div>
+    </div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="Segmented Diagnose (Regression)">
+
+.. only:: html
+
+  .. image:: /auto_examples/4_testing/images/thumb/sphx_glr_plot_7_segmented_reg_thumb.png
+    :alt:
+
+  :ref:`sphx_glr_auto_examples_4_testing_plot_7_segmented_reg.py`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Segmented Diagnose (Regression)</div>
+    </div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="Scored Test: Classification">
+
+.. only:: html
+
+  .. image:: /auto_examples/4_testing/images/thumb/sphx_glr_plot_8_scored_test_cls_thumb.png
+    :alt:
+
+  :ref:`sphx_glr_auto_examples_4_testing_plot_8_scored_test_cls.py`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Scored Test: Classification</div>
+    </div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="Scored Test: Regression">
+
+.. only:: html
+
+  .. image:: /auto_examples/4_testing/images/thumb/sphx_glr_plot_8_scored_test_reg_thumb.png
+    :alt:
+
+  :ref:`sphx_glr_auto_examples_4_testing_plot_8_scored_test_reg.py`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Scored Test: Regression</div>
+    </div>
+
+
+.. raw:: html
+
+    </div>
+
+
+.. toctree::
+   :hidden:
+
+   /auto_examples/4_testing/plot_0_accuracy_cls
+   /auto_examples/4_testing/plot_0_accuracy_reg
+   /auto_examples/4_testing/plot_1_weakspot_cls
+   /auto_examples/4_testing/plot_1_weakspot_reg
+   /auto_examples/4_testing/plot_2_overfit_cls
+   /auto_examples/4_testing/plot_2_overfit_reg
+   /auto_examples/4_testing/plot_3_reliability_cls
+   /auto_examples/4_testing/plot_3_reliability_reg
+   /auto_examples/4_testing/plot_4_robustness_cls
+   /auto_examples/4_testing/plot_4_robustness_reg
+   /auto_examples/4_testing/plot_5_resilience_cls
+   /auto_examples/4_testing/plot_5_resilience_reg
+   /auto_examples/4_testing/plot_6_fairness
+   /auto_examples/4_testing/plot_7_segmented_cls
+   /auto_examples/4_testing/plot_7_segmented_reg
+   /auto_examples/4_testing/plot_8_scored_test_cls
+   /auto_examples/4_testing/plot_8_scored_test_reg
+

@@ -115,8 +115,8 @@ To assess the models' performance against noise, we set the parameter `show` to 
     exp.model_diagnose(model="FIGS", show='robustness_perf', perturb_features=None,
                       perturb_method="raw", metric="MSE", perturb_size=0.1, figsize=(6, 4))
 
-.. figure:: ../../auto_examples/testing/images/sphx_glr_plot_4_robustness_reg_001.png
-   :target: ../../auto_examples/testing/plot_4_robustness_reg.html
+.. figure:: ../../auto_examples/4_testing/images/sphx_glr_plot_4_robustness_reg_001.png
+   :target: ../../auto_examples/4_testing/plot_4_robustness_reg.html
    :align: left
 
 In the figure above, the x-axis represents the noise level, indicating the magnitude of perturbation applied to the data. The y-axis displays the test set performance of the model after perturbation. The box plot illustrates the results obtained from ten repetitions of the experiment. When the noise level is set to 0.0, there is no perturbation applied, resulting in no variation in the model's performance. As the noise level increases, we observe a degradation in the model's performance, which is expected. The full plot captures the model's performance at each noise level, providing an overview of how the model's performance changes with increasing perturbation.
@@ -128,8 +128,8 @@ In the second example, we will specifically perturb two features: `hr` and `atem
     exp.model_diagnose(model="FIGS", show="robustness_perf", perturb_features=["hr", "atemp"],
                       perturb_method='raw', metric="MSE", perturb_size=0.1,  figsize=(6, 4))
 
-.. figure:: ../../auto_examples/testing/images/sphx_glr_plot_4_robustness_reg_002.png
-   :target: ../../auto_examples/testing/plot_4_robustness_reg.html
+.. figure:: ../../auto_examples/4_testing/images/sphx_glr_plot_4_robustness_reg_002.png
+   :target: ../../auto_examples/4_testing/plot_4_robustness_reg.html
    :align: left
 
 In summary, these plots can be used to assess model robustness under different input perturbation settings, as illustrated in the examples above. The extent to which a model's performance drops under input perturbation serves as an indication of its robustness. A robust model will exhibit minimal performance degradation when subjected to perturbations.
@@ -143,8 +143,8 @@ In addition to the robustness test on all test samples, we can also test model r
     exp.model_diagnose(model="FIGS", show="robustness_perf_worst", perturb_features=None,
                       perturb_method="raw", metric="MSE", perturb_size=0.1, alpha=0.3, figsize=(6, 4))
 
-.. figure:: ../../auto_examples/testing/images/sphx_glr_plot_4_robustness_reg_006.png
-   :target: ../../auto_examples/testing/plot_4_robustness_reg.html
+.. figure:: ../../auto_examples/4_testing/images/sphx_glr_plot_4_robustness_reg_006.png
+   :target: ../../auto_examples/4_testing/plot_4_robustness_reg.html
    :align: left
 
 The x-axis shows the noise level (perturbation size), and the y-axis is the model performance (MSE). Under perturbation, we observe that the worst test sample performance is much worse than that of the full test sample. The drop in model performance also increases with the increase in noise level. This plot tells us how poorly the model may perform under the input perturbation and worst cases.
@@ -157,10 +157,10 @@ Examples
 
   The first example below demonstrates how to use PiML with its high-code APIs for developing machine learning models for the BikeSharing data from the UCI repository, which consists of 17,389 samples of hourly counts of rental bikes in Capital bikeshare system; see details. The response `cnt` (hourly bike rental counts) is continuous and it is a regression problem.
  
- * :ref:`sphx_glr_auto_examples_testing_plot_4_robustness_reg.py`
+ * :ref:`sphx_glr_auto_examples_4_testing_plot_4_robustness_reg.py`
 
 .. topic:: Examples 2: Taiwan Credit
 
   The second example below demonstrates how to use PiML’s high-code APIs for the TaiwanCredit dataset from the UCI repository. This dataset comprises the credit card details of 30,000 clients in Taiwan from April 2005 to September 2005, and more information can be found on the TaiwanCreditData website. The data can be loaded directly into PiML, although it requires some preprocessing. The FlagDefault variable serves as the response for this classification problem.
     
- * :ref:`sphx_glr_auto_examples_testing_plot_4_robustness_cls.py`
+ * :ref:`sphx_glr_auto_examples_4_testing_plot_4_robustness_cls.py`

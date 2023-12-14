@@ -114,8 +114,8 @@ The first example below displays the residual plot against a numerical feature `
    exp.model_diagnose(model="XGB2", show="accuracy_residual", show_feature="hr",
                       use_test=False, original_scale=True, figsize=(5, 4))
 
-.. figure:: ../../auto_examples/testing/images/sphx_glr_plot_0_accuracy_reg_001.png
-   :target: ../../auto_examples/testing/plot_0_accuracy_reg.html
+.. figure:: ../../auto_examples/4_testing/images/sphx_glr_plot_0_accuracy_reg_001.png
+   :target: ../../auto_examples/4_testing/plot_0_accuracy_reg.html
    :align: left 
 
 **Categorical Features**
@@ -127,8 +127,8 @@ The following example presents a bar chart residual plot for a categorical featu
    exp.model_diagnose(model="XGB2", show="accuracy_residual", show_feature="season",
                       use_test=False, original_scale=True, figsize=(5, 4))
 
-.. figure:: ../../auto_examples/testing/images/sphx_glr_plot_0_accuracy_reg_002.png
-   :target: ../../auto_examples/testing/plot_0_accuracy_reg.html
+.. figure:: ../../auto_examples/4_testing/images/sphx_glr_plot_0_accuracy_reg_002.png
+   :target: ../../auto_examples/4_testing/plot_0_accuracy_reg.html
    :align: left 
 
 **Target Feature**
@@ -140,8 +140,8 @@ In addition to generating residual plots for input features, we can also generat
    exp.model_diagnose(model="XGB2", show="accuracy_residual", show_feature="cnt",
                       use_test=False, figsize=(5, 4))
 
-.. figure:: ../../auto_examples/testing/images/sphx_glr_plot_0_accuracy_reg_003.png
-   :target: ../../auto_examples/testing/plot_0_accuracy_reg.html
+.. figure:: ../../auto_examples/4_testing/images/sphx_glr_plot_0_accuracy_reg_003.png
+   :target: ../../auto_examples/4_testing/plot_0_accuracy_reg.html
    :align: left 
 
 **Predicted Value**
@@ -153,8 +153,8 @@ Lastly, the residual plot against the predicted values is depicted below. To gen
    exp.model_diagnose(model="XGB2", show="accuracy_residual", show_feature="cnt_predict",
                       use_test=False, figsize=(5, 4))
 
-.. figure:: ../../auto_examples/testing/images/sphx_glr_plot_0_accuracy_reg_004.png
-   :target: ../../auto_examples/testing/plot_0_accuracy_reg.html
+.. figure:: ../../auto_examples/4_testing/images/sphx_glr_plot_0_accuracy_reg_004.png
+   :target: ../../auto_examples/4_testing/plot_0_accuracy_reg.html
    :align: left 
 
 Binary Classification
@@ -274,8 +274,8 @@ This plot displays the prediction residuals (between the target and the predicte
    exp.model_diagnose(model="XGB2", show="residual_plot", show_feature="PAY_1",
                       use_test=False, original_scale=True, figsize=(5, 4))
 
-.. figure:: ../../auto_examples/testing/images/sphx_glr_plot_0_accuracy_cls_002.png
-   :target: ../../auto_examples/testing/plot_0_accuracy_cls.html
+.. figure:: ../../auto_examples/4_testing/images/sphx_glr_plot_0_accuracy_cls_002.png
+   :target: ../../auto_examples/4_testing/plot_0_accuracy_cls.html
    :align: left
 
 This plot illustrates the absolute difference between the predicted probability and the actual response (0 or 1). Since the response variable is binary, we plot the absolute residuals separately for class 0 and class 1. Additionally, we include smoothing curves for each class, which are estimated using the locally weighted scatterplot smoothing (Lowess_) estimator.
@@ -292,8 +292,8 @@ To comprehensively evaluate the performance of a binary classification model, an
       
    exp.model_diagnose(model="XGB2", show="accuracy_plot")
 
-.. figure:: ../../auto_examples/testing/images/sphx_glr_plot_0_accuracy_cls_001.png
-   :target: ../../auto_examples/testing/plot_0_accuracy_cls.html
+.. figure:: ../../auto_examples/4_testing/images/sphx_glr_plot_0_accuracy_cls_001.png
+   :target: ../../auto_examples/4_testing/plot_0_accuracy_cls.html
    :align: left
 
 - **Confusion matrix**: The left plot shows the confusion matrix, a valuable tool for evaluating classification model performance. The diagonal elements represent the number of instances where the predicted label matches the true label, indicating correct predictions. These values correspond to the true positives (TP) and true negatives (TN) of the model. On the other hand, the off-diagonal elements represent the mislabeled instances, including false positives (FP) and false negatives (FN). A higher value on the diagonal indicates better performance and more accurate predictions.
@@ -309,10 +309,10 @@ Examples
 
   The first example below demonstrates how to use PiML with its high-code APIs for developing machine learning models for the BikeSharing data from the UCI repository, which consists of 17,389 samples of hourly counts of rental bikes in Capital bikeshare system; see details. The response `cnt` (hourly bike rental counts) is continuous and it is a regression problem.
  
- * :ref:`sphx_glr_auto_examples_testing_plot_0_accuracy_reg.py`
+ * :ref:`sphx_glr_auto_examples_4_testing_plot_0_accuracy_reg.py`
 
 .. topic:: Examples 2: Taiwan Credit
 
   The second example below demonstrates how to use PiML’s high-code APIs for the TaiwanCredit dataset from the UCI repository. This dataset comprises the credit card details of 30,000 clients in Taiwan from April 2005 to September 2005, and more information can be found on the TaiwanCreditData website. The data can be loaded directly into PiML, although it requires some preprocessing. The FlagDefault variable serves as the response for this classification problem.
     
- * :ref:`sphx_glr_auto_examples_testing_plot_0_accuracy_cls.py`
+ * :ref:`sphx_glr_auto_examples_4_testing_plot_0_accuracy_cls.py`

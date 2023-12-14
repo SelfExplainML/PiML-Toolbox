@@ -1,0 +1,17 @@
+.. Places parent toc into the sidebar
+
+:parenttoc: True
+
+.. include:: ../includes/big_toc_css.rst
+
+
+Model Train and Tune
+=================================
+
+.. toctree::
+   :maxdepth: 2
+
+   model_train/sklearn.rst
+   model_train/h2o.rst
+   model_train/arbitrary.rst
+   model_train/hpo.rst

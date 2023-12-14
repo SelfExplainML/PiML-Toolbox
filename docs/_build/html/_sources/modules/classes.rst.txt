@@ -29,7 +29,6 @@ Functions
    Experiment.get_feature_names
    Experiment.get_feature_types
    Experiment.get_target_name
-   Experiment.twosample_test
 
 Outlier Detection Algorithms
 ----------------------------
@@ -49,11 +48,10 @@ Outlier Detection Algorithms
    data.outlier_detection.HBOS
    data.outlier_detection.ECOD
 
-Interpretable Models
+
+Model Training
 =======================================================
 
-Functions
---------------
 .. currentmodule:: piml
 
 .. autosummary::
@@ -71,8 +69,20 @@ Functions
    Experiment.get_leaderboard
    Experiment.get_leaderboard_registered
 
-Model Classes
---------------
+
+Post-hoc Explainability
+=======================================================
+
+.. currentmodule:: piml
+
+.. autosummary::
+
+   Experiment.model_explain
+
+
+Interpretable Models
+=======================================================
+
 .. currentmodule:: piml
 
 .. autosummary::
@@ -100,20 +110,10 @@ Model Classes
    models.ReluDNNClassifier
 
 
-Post-hoc Explainability
-=======================================================
-
-.. currentmodule:: piml
-
-.. autosummary::
-
-   Experiment.model_explain
-
-
 Outcome Testing
 =======================================================
 
-Integrated High Code APIs
+Integrated Functions
 --------------------------------------------------------
 
 .. currentmodule:: piml

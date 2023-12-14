@@ -121,13 +121,11 @@
                 <ul>
 <li><a class="reference internal" href="#">Examples</a><ul>
 <li><a class="reference internal" href="#data-pipeline">Data Pipeline</a></li>
+<li><a class="reference internal" href="#model-train-and-tune">Model Train and Tune</a></li>
 <li><a class="reference internal" href="#post-hoc-explainability">Post hoc Explainability</a></li>
 <li><a class="reference internal" href="#interpretable-models">Interpretable Models</a></li>
-<li><a class="reference internal" href="#hyperparameter-optimization">Hyperparameter Optimization</a></li>
 <li><a class="reference internal" href="#outcome-testing">Outcome Testing</a></li>
 <li><a class="reference internal" href="#model-comparison">Model Comparison</a></li>
-<li><a class="reference internal" href="#training-and-testing-external-models">Training and Testing External Models</a></li>
-<li><a class="reference internal" href="#model-segmented-diagnosics">Model Segmented Diagnosics</a></li>
 </ul>
 </li>
 </ul>
@@ -143,209 +141,200 @@
 <div class="sphx-glr-thumbnails"></div><section id="data-pipeline">
 <h2>Data Pipeline<a class="headerlink" href="#data-pipeline" title="Permalink to this heading">¶</a></h2>
 <div class="sphx-glr-thumbnails"><div class="sphx-glr-thumbcontainer" tooltip="Data Load (Built-in Dataset)"><img alt="" src="../_images/sphx_glr_plot_0_data_loader_builtin_thumb.png" />
-<p><a class="reference internal" href="data/plot_0_data_loader_builtin.html#sphx-glr-auto-examples-data-plot-0-data-loader-builtin-py"><span class="std std-ref">Data Load (Built-in Dataset)</span></a></p>
+<p><a class="reference internal" href="0_data/plot_0_data_loader_builtin.html#sphx-glr-auto-examples-0-data-plot-0-data-loader-builtin-py"><span class="std std-ref">Data Load (Built-in Dataset)</span></a></p>
   <div class="sphx-glr-thumbnail-title">Data Load (Built-in Dataset)</div>
 </div><div class="sphx-glr-thumbcontainer" tooltip="Data Load (Pandas DataFrame)"><img alt="" src="../_images/sphx_glr_plot_0_data_loader_dataframe_thumb.png" />
-<p><a class="reference internal" href="data/plot_0_data_loader_dataframe.html#sphx-glr-auto-examples-data-plot-0-data-loader-dataframe-py"><span class="std std-ref">Data Load (Pandas DataFrame)</span></a></p>
+<p><a class="reference internal" href="0_data/plot_0_data_loader_dataframe.html#sphx-glr-auto-examples-0-data-plot-0-data-loader-dataframe-py"><span class="std std-ref">Data Load (Pandas DataFrame)</span></a></p>
   <div class="sphx-glr-thumbnail-title">Data Load (Pandas DataFrame)</div>
 </div><div class="sphx-glr-thumbcontainer" tooltip="Data Load (Spark)"><img alt="" src="../_images/sphx_glr_plot_0_data_loader_spark_thumb.png" />
-<p><a class="reference internal" href="data/plot_0_data_loader_spark.html#sphx-glr-auto-examples-data-plot-0-data-loader-spark-py"><span class="std std-ref">Data Load (Spark)</span></a></p>
+<p><a class="reference internal" href="0_data/plot_0_data_loader_spark.html#sphx-glr-auto-examples-0-data-plot-0-data-loader-spark-py"><span class="std std-ref">Data Load (Spark)</span></a></p>
   <div class="sphx-glr-thumbnail-title">Data Load (Spark)</div>
 </div><div class="sphx-glr-thumbcontainer" tooltip="Showing data summary result using the BikeSharing dataset as example."><img alt="" src="../_images/sphx_glr_plot_1_data_summary_thumb.png" />
-<p><a class="reference internal" href="data/plot_1_data_summary.html#sphx-glr-auto-examples-data-plot-1-data-summary-py"><span class="std std-ref">Data Summary</span></a></p>
+<p><a class="reference internal" href="0_data/plot_1_data_summary.html#sphx-glr-auto-examples-0-data-plot-1-data-summary-py"><span class="std std-ref">Data Summary</span></a></p>
   <div class="sphx-glr-thumbnail-title">Data Summary</div>
 </div><div class="sphx-glr-thumbcontainer" tooltip="EDA plots using the BikeSharing dataset as example."><img alt="" src="../_images/sphx_glr_plot_2_data_eda_thumb.png" />
-<p><a class="reference internal" href="data/plot_2_data_eda.html#sphx-glr-auto-examples-data-plot-2-data-eda-py"><span class="std std-ref">EDA</span></a></p>
+<p><a class="reference internal" href="0_data/plot_2_data_eda.html#sphx-glr-auto-examples-0-data-plot-2-data-eda-py"><span class="std std-ref">EDA</span></a></p>
   <div class="sphx-glr-thumbnail-title">EDA</div>
 </div><div class="sphx-glr-thumbcontainer" tooltip="Display data prepare result using the BikeSharing dataset as example."><img alt="" src="../_images/sphx_glr_plot_3_data_prepare_thumb.png" />
-<p><a class="reference internal" href="data/plot_3_data_prepare.html#sphx-glr-auto-examples-data-plot-3-data-prepare-py"><span class="std std-ref">Data Preparation</span></a></p>
+<p><a class="reference internal" href="0_data/plot_3_data_prepare.html#sphx-glr-auto-examples-0-data-plot-3-data-prepare-py"><span class="std std-ref">Data Preparation</span></a></p>
   <div class="sphx-glr-thumbnail-title">Data Preparation</div>
 </div><div class="sphx-glr-thumbcontainer" tooltip="Data Quality Check"><img alt="" src="../_images/sphx_glr_plot_4_data_quality_thumb.png" />
-<p><a class="reference internal" href="data/plot_4_data_quality.html#sphx-glr-auto-examples-data-plot-4-data-quality-py"><span class="std std-ref">Data Quality Check</span></a></p>
+<p><a class="reference internal" href="0_data/plot_4_data_quality.html#sphx-glr-auto-examples-0-data-plot-4-data-quality-py"><span class="std std-ref">Data Quality Check</span></a></p>
   <div class="sphx-glr-thumbnail-title">Data Quality Check</div>
 </div><div class="sphx-glr-thumbcontainer" tooltip="Four built-in feature selection strategies using the BikeSharing dataset as example."><img alt="" src="../_images/sphx_glr_plot_5_feature_select_thumb.png" />
-<p><a class="reference internal" href="data/plot_5_feature_select.html#sphx-glr-auto-examples-data-plot-5-feature-select-py"><span class="std std-ref">Feature Selection</span></a></p>
+<p><a class="reference internal" href="0_data/plot_5_feature_select.html#sphx-glr-auto-examples-0-data-plot-5-feature-select-py"><span class="std std-ref">Feature Selection</span></a></p>
   <div class="sphx-glr-thumbnail-title">Feature Selection</div>
-</div><div class="sphx-glr-thumbcontainer" tooltip="Two Sample Test"><img alt="" src="../_images/sphx_glr_plot_6_twosample_test_thumb.png" />
-<p><a class="reference internal" href="data/plot_6_twosample_test.html#sphx-glr-auto-examples-data-plot-6-twosample-test-py"><span class="std std-ref">Two Sample Test</span></a></p>
-  <div class="sphx-glr-thumbnail-title">Two Sample Test</div>
+</div></div></section>
+<section id="model-train-and-tune">
+<h2>Model Train and Tune<a class="headerlink" href="#model-train-and-tune" title="Permalink to this heading">¶</a></h2>
+<div class="sphx-glr-thumbnails"><div class="sphx-glr-thumbcontainer" tooltip="Train Models"><img alt="" src="../_images/sphx_glr_plot_0_model_train_thumb1.png" />
+<p><a class="reference internal" href="1_train/plot_0_model_train.html#sphx-glr-auto-examples-1-train-plot-0-model-train-py"><span class="std std-ref">Train Models</span></a></p>
+  <div class="sphx-glr-thumbnail-title">Train Models</div>
+</div><div class="sphx-glr-thumbcontainer" tooltip="HPO - Grid Search"><img alt="" src="../_images/sphx_glr_plot_1_hpo_grid_thumb1.png" />
+<p><a class="reference internal" href="1_train/plot_1_hpo_grid.html#sphx-glr-auto-examples-1-train-plot-1-hpo-grid-py"><span class="std std-ref">HPO - Grid Search</span></a></p>
+  <div class="sphx-glr-thumbnail-title">HPO - Grid Search</div>
+</div><div class="sphx-glr-thumbcontainer" tooltip="HPO - Random Search"><img alt="" src="../_images/sphx_glr_plot_1_hpo_random_thumb1.png" />
+<p><a class="reference internal" href="1_train/plot_1_hpo_random.html#sphx-glr-auto-examples-1-train-plot-1-hpo-random-py"><span class="std std-ref">HPO - Random Search</span></a></p>
+  <div class="sphx-glr-thumbnail-title">HPO - Random Search</div>
+</div><div class="sphx-glr-thumbcontainer" tooltip="Register sklearn Style Models"><img alt="" src="../_images/sphx_glr_plot_2_register_0_sklearn_thumb.png" />
+<p><a class="reference internal" href="1_train/plot_2_register_0_sklearn.html#sphx-glr-auto-examples-1-train-plot-2-register-0-sklearn-py"><span class="std std-ref">Register sklearn Style Models</span></a></p>
+  <div class="sphx-glr-thumbnail-title">Register sklearn Style Models</div>
+</div><div class="sphx-glr-thumbcontainer" tooltip="Register H2O Models"><img alt="" src="../_images/sphx_glr_plot_2_register_1_h2o_thumb.png" />
+<p><a class="reference internal" href="1_train/plot_2_register_1_h2o.html#sphx-glr-auto-examples-1-train-plot-2-register-1-h2o-py"><span class="std std-ref">Register H2O Models</span></a></p>
+  <div class="sphx-glr-thumbnail-title">Register H2O Models</div>
+</div><div class="sphx-glr-thumbcontainer" tooltip="Register Arbitrary Models"><img alt="" src="../_images/sphx_glr_plot_2_register_2_arbitrary_thumb.png" />
+<p><a class="reference internal" href="1_train/plot_2_register_2_arbitrary.html#sphx-glr-auto-examples-1-train-plot-2-register-2-arbitrary-py"><span class="std std-ref">Register Arbitrary Models</span></a></p>
+  <div class="sphx-glr-thumbnail-title">Register Arbitrary Models</div>
 </div></div></section>
 <section id="post-hoc-explainability">
 <h2>Post hoc Explainability<a class="headerlink" href="#post-hoc-explainability" title="Permalink to this heading">¶</a></h2>
 <div class="sphx-glr-thumbnails"><div class="sphx-glr-thumbcontainer" tooltip="Permutation Feature Importance"><img alt="" src="../_images/sphx_glr_plot_0_pfi_thumb.png" />
-<p><a class="reference internal" href="explain/plot_0_pfi.html#sphx-glr-auto-examples-explain-plot-0-pfi-py"><span class="std std-ref">Permutation Feature Importance</span></a></p>
+<p><a class="reference internal" href="2_explain/plot_0_pfi.html#sphx-glr-auto-examples-2-explain-plot-0-pfi-py"><span class="std std-ref">Permutation Feature Importance</span></a></p>
   <div class="sphx-glr-thumbnail-title">Permutation Feature Importance</div>
 </div><div class="sphx-glr-thumbcontainer" tooltip="Partial Dependence Plot"><img alt="" src="../_images/sphx_glr_plot_1_pdp_thumb.png" />
-<p><a class="reference internal" href="explain/plot_1_pdp.html#sphx-glr-auto-examples-explain-plot-1-pdp-py"><span class="std std-ref">Partial Dependence Plot</span></a></p>
+<p><a class="reference internal" href="2_explain/plot_1_pdp.html#sphx-glr-auto-examples-2-explain-plot-1-pdp-py"><span class="std std-ref">Partial Dependence Plot</span></a></p>
   <div class="sphx-glr-thumbnail-title">Partial Dependence Plot</div>
 </div><div class="sphx-glr-thumbcontainer" tooltip="H-statistics"><img alt="" src="../_images/sphx_glr_plot_1_pdp_hstats_thumb.png" />
-<p><a class="reference internal" href="explain/plot_1_pdp_hstats.html#sphx-glr-auto-examples-explain-plot-1-pdp-hstats-py"><span class="std std-ref">H-statistics</span></a></p>
+<p><a class="reference internal" href="2_explain/plot_1_pdp_hstats.html#sphx-glr-auto-examples-2-explain-plot-1-pdp-hstats-py"><span class="std std-ref">H-statistics</span></a></p>
   <div class="sphx-glr-thumbnail-title">H-statistics</div>
 </div><div class="sphx-glr-thumbcontainer" tooltip="Individual Conditional Expectation"><img alt="" src="../_images/sphx_glr_plot_2_ice_thumb.png" />
-<p><a class="reference internal" href="explain/plot_2_ice.html#sphx-glr-auto-examples-explain-plot-2-ice-py"><span class="std std-ref">Individual Conditional Expectation</span></a></p>
+<p><a class="reference internal" href="2_explain/plot_2_ice.html#sphx-glr-auto-examples-2-explain-plot-2-ice-py"><span class="std std-ref">Individual Conditional Expectation</span></a></p>
   <div class="sphx-glr-thumbnail-title">Individual Conditional Expectation</div>
 </div><div class="sphx-glr-thumbcontainer" tooltip="Accumulated Local Effects"><img alt="" src="../_images/sphx_glr_plot_3_ale_thumb.png" />
-<p><a class="reference internal" href="explain/plot_3_ale.html#sphx-glr-auto-examples-explain-plot-3-ale-py"><span class="std std-ref">Accumulated Local Effects</span></a></p>
+<p><a class="reference internal" href="2_explain/plot_3_ale.html#sphx-glr-auto-examples-2-explain-plot-3-ale-py"><span class="std std-ref">Accumulated Local Effects</span></a></p>
   <div class="sphx-glr-thumbnail-title">Accumulated Local Effects</div>
 </div><div class="sphx-glr-thumbcontainer" tooltip="Local Interpretable Model-Agnostic Explanation"><img alt="" src="../_images/sphx_glr_plot_4_lime_thumb.png" />
-<p><a class="reference internal" href="explain/plot_4_lime.html#sphx-glr-auto-examples-explain-plot-4-lime-py"><span class="std std-ref">Local Interpretable Model-Agnostic Explanation</span></a></p>
+<p><a class="reference internal" href="2_explain/plot_4_lime.html#sphx-glr-auto-examples-2-explain-plot-4-lime-py"><span class="std std-ref">Local Interpretable Model-Agnostic Explanation</span></a></p>
   <div class="sphx-glr-thumbnail-title">Local Interpretable Model-Agnostic Explanation</div>
 </div><div class="sphx-glr-thumbcontainer" tooltip="SHapley Additive exPlanations"><img alt="" src="../_images/sphx_glr_plot_5_shap_thumb.png" />
-<p><a class="reference internal" href="explain/plot_5_shap.html#sphx-glr-auto-examples-explain-plot-5-shap-py"><span class="std std-ref">SHapley Additive exPlanations</span></a></p>
+<p><a class="reference internal" href="2_explain/plot_5_shap.html#sphx-glr-auto-examples-2-explain-plot-5-shap-py"><span class="std std-ref">SHapley Additive exPlanations</span></a></p>
   <div class="sphx-glr-thumbnail-title">SHapley Additive exPlanations</div>
 </div><div class="sphx-glr-thumbcontainer" tooltip="Data Dependent Explanation"><img alt="" src="../_images/sphx_glr_plot_6_data_dependent_explain_thumb.png" />
-<p><a class="reference internal" href="explain/plot_6_data_dependent_explain.html#sphx-glr-auto-examples-explain-plot-6-data-dependent-explain-py"><span class="std std-ref">Data Dependent Explanation</span></a></p>
+<p><a class="reference internal" href="2_explain/plot_6_data_dependent_explain.html#sphx-glr-auto-examples-2-explain-plot-6-data-dependent-explain-py"><span class="std std-ref">Data Dependent Explanation</span></a></p>
   <div class="sphx-glr-thumbnail-title">Data Dependent Explanation</div>
 </div></div></section>
 <section id="interpretable-models">
 <h2>Interpretable Models<a class="headerlink" href="#interpretable-models" title="Permalink to this heading">¶</a></h2>
 <div class="sphx-glr-thumbnails"><div class="sphx-glr-thumbcontainer" tooltip="GLM Logistic Regression (Taiwan Credit)"><img alt="" src="../_images/sphx_glr_plot_0_glm_cls_thumb.png" />
-<p><a class="reference internal" href="models/plot_0_glm_cls.html#sphx-glr-auto-examples-models-plot-0-glm-cls-py"><span class="std std-ref">GLM Logistic Regression (Taiwan Credit)</span></a></p>
+<p><a class="reference internal" href="3_models/plot_0_glm_cls.html#sphx-glr-auto-examples-3-models-plot-0-glm-cls-py"><span class="std std-ref">GLM Logistic Regression (Taiwan Credit)</span></a></p>
   <div class="sphx-glr-thumbnail-title">GLM Logistic Regression (Taiwan Credit)</div>
 </div><div class="sphx-glr-thumbcontainer" tooltip="GLM Linear Regression (Bike Sharing)"><img alt="" src="../_images/sphx_glr_plot_0_glm_reg_thumb.png" />
-<p><a class="reference internal" href="models/plot_0_glm_reg.html#sphx-glr-auto-examples-models-plot-0-glm-reg-py"><span class="std std-ref">GLM Linear Regression (Bike Sharing)</span></a></p>
+<p><a class="reference internal" href="3_models/plot_0_glm_reg.html#sphx-glr-auto-examples-3-models-plot-0-glm-reg-py"><span class="std std-ref">GLM Linear Regression (Bike Sharing)</span></a></p>
   <div class="sphx-glr-thumbnail-title">GLM Linear Regression (Bike Sharing)</div>
 </div><div class="sphx-glr-thumbcontainer" tooltip="GAM Classification (CoCircles)"><img alt="" src="../_images/sphx_glr_plot_1_gam_cls_thumb.png" />
-<p><a class="reference internal" href="models/plot_1_gam_cls.html#sphx-glr-auto-examples-models-plot-1-gam-cls-py"><span class="std std-ref">GAM Classification (CoCircles)</span></a></p>
+<p><a class="reference internal" href="3_models/plot_1_gam_cls.html#sphx-glr-auto-examples-3-models-plot-1-gam-cls-py"><span class="std std-ref">GAM Classification (CoCircles)</span></a></p>
   <div class="sphx-glr-thumbnail-title">GAM Classification (CoCircles)</div>
 </div><div class="sphx-glr-thumbcontainer" tooltip="GAM Regression (California Housing)"><img alt="" src="../_images/sphx_glr_plot_1_gam_reg_thumb.png" />
-<p><a class="reference internal" href="models/plot_1_gam_reg.html#sphx-glr-auto-examples-models-plot-1-gam-reg-py"><span class="std std-ref">GAM Regression (California Housing)</span></a></p>
+<p><a class="reference internal" href="3_models/plot_1_gam_reg.html#sphx-glr-auto-examples-3-models-plot-1-gam-reg-py"><span class="std std-ref">GAM Regression (California Housing)</span></a></p>
   <div class="sphx-glr-thumbnail-title">GAM Regression (California Housing)</div>
 </div><div class="sphx-glr-thumbcontainer" tooltip="Tree Classification (TaiwanCredit)"><img alt="" src="../_images/sphx_glr_plot_2_tree_cls_thumb.png" />
-<p><a class="reference internal" href="models/plot_2_tree_cls.html#sphx-glr-auto-examples-models-plot-2-tree-cls-py"><span class="std std-ref">Tree Classification (TaiwanCredit)</span></a></p>
+<p><a class="reference internal" href="3_models/plot_2_tree_cls.html#sphx-glr-auto-examples-3-models-plot-2-tree-cls-py"><span class="std std-ref">Tree Classification (TaiwanCredit)</span></a></p>
   <div class="sphx-glr-thumbnail-title">Tree Classification (TaiwanCredit)</div>
 </div><div class="sphx-glr-thumbcontainer" tooltip="Tree Regression (California Housing)"><img alt="" src="../_images/sphx_glr_plot_2_tree_reg_thumb.png" />
-<p><a class="reference internal" href="models/plot_2_tree_reg.html#sphx-glr-auto-examples-models-plot-2-tree-reg-py"><span class="std std-ref">Tree Regression (California Housing)</span></a></p>
+<p><a class="reference internal" href="3_models/plot_2_tree_reg.html#sphx-glr-auto-examples-3-models-plot-2-tree-reg-py"><span class="std std-ref">Tree Regression (California Housing)</span></a></p>
   <div class="sphx-glr-thumbnail-title">Tree Regression (California Housing)</div>
 </div><div class="sphx-glr-thumbcontainer" tooltip="FIGS Classification (Taiwan Credit)"><img alt="" src="../_images/sphx_glr_plot_3_figs_cls_thumb.png" />
-<p><a class="reference internal" href="models/plot_3_figs_cls.html#sphx-glr-auto-examples-models-plot-3-figs-cls-py"><span class="std std-ref">FIGS Classification (Taiwan Credit)</span></a></p>
+<p><a class="reference internal" href="3_models/plot_3_figs_cls.html#sphx-glr-auto-examples-3-models-plot-3-figs-cls-py"><span class="std std-ref">FIGS Classification (Taiwan Credit)</span></a></p>
   <div class="sphx-glr-thumbnail-title">FIGS Classification (Taiwan Credit)</div>
 </div><div class="sphx-glr-thumbcontainer" tooltip="FIGS Regression (California Housing)"><img alt="" src="../_images/sphx_glr_plot_3_figs_reg_thumb.png" />
-<p><a class="reference internal" href="models/plot_3_figs_reg.html#sphx-glr-auto-examples-models-plot-3-figs-reg-py"><span class="std std-ref">FIGS Regression (California Housing)</span></a></p>
+<p><a class="reference internal" href="3_models/plot_3_figs_reg.html#sphx-glr-auto-examples-3-models-plot-3-figs-reg-py"><span class="std std-ref">FIGS Regression (California Housing)</span></a></p>
   <div class="sphx-glr-thumbnail-title">FIGS Regression (California Housing)</div>
 </div><div class="sphx-glr-thumbcontainer" tooltip="XGB-1 Classification (CoCircles)"><img alt="" src="../_images/sphx_glr_plot_4_xgb1_cls_thumb.png" />
-<p><a class="reference internal" href="models/plot_4_xgb1_cls.html#sphx-glr-auto-examples-models-plot-4-xgb1-cls-py"><span class="std std-ref">XGB-1 Classification (CoCircles)</span></a></p>
+<p><a class="reference internal" href="3_models/plot_4_xgb1_cls.html#sphx-glr-auto-examples-3-models-plot-4-xgb1-cls-py"><span class="std std-ref">XGB-1 Classification (CoCircles)</span></a></p>
   <div class="sphx-glr-thumbnail-title">XGB-1 Classification (CoCircles)</div>
 </div><div class="sphx-glr-thumbcontainer" tooltip="XGB-1 Regression (California Housing)"><img alt="" src="../_images/sphx_glr_plot_4_xgb1_reg_thumb.png" />
-<p><a class="reference internal" href="models/plot_4_xgb1_reg.html#sphx-glr-auto-examples-models-plot-4-xgb1-reg-py"><span class="std std-ref">XGB-1 Regression (California Housing)</span></a></p>
+<p><a class="reference internal" href="3_models/plot_4_xgb1_reg.html#sphx-glr-auto-examples-3-models-plot-4-xgb1-reg-py"><span class="std std-ref">XGB-1 Regression (California Housing)</span></a></p>
   <div class="sphx-glr-thumbnail-title">XGB-1 Regression (California Housing)</div>
 </div><div class="sphx-glr-thumbcontainer" tooltip="XGB-2 Classification (Taiwan Credit)"><img alt="" src="../_images/sphx_glr_plot_5_xgb2_cls_thumb.png" />
-<p><a class="reference internal" href="models/plot_5_xgb2_cls.html#sphx-glr-auto-examples-models-plot-5-xgb2-cls-py"><span class="std std-ref">XGB-2 Classification (Taiwan Credit)</span></a></p>
+<p><a class="reference internal" href="3_models/plot_5_xgb2_cls.html#sphx-glr-auto-examples-3-models-plot-5-xgb2-cls-py"><span class="std std-ref">XGB-2 Classification (Taiwan Credit)</span></a></p>
   <div class="sphx-glr-thumbnail-title">XGB-2 Classification (Taiwan Credit)</div>
 </div><div class="sphx-glr-thumbcontainer" tooltip="XGB-2 Regression (Bike Sharing)"><img alt="" src="../_images/sphx_glr_plot_5_xgb2_reg_thumb.png" />
-<p><a class="reference internal" href="models/plot_5_xgb2_reg.html#sphx-glr-auto-examples-models-plot-5-xgb2-reg-py"><span class="std std-ref">XGB-2 Regression (Bike Sharing)</span></a></p>
+<p><a class="reference internal" href="3_models/plot_5_xgb2_reg.html#sphx-glr-auto-examples-3-models-plot-5-xgb2-reg-py"><span class="std std-ref">XGB-2 Regression (Bike Sharing)</span></a></p>
   <div class="sphx-glr-thumbnail-title">XGB-2 Regression (Bike Sharing)</div>
 </div><div class="sphx-glr-thumbcontainer" tooltip="EBM Classification (Taiwan Credit)"><img alt="" src="../_images/sphx_glr_plot_6_ebm_cls_thumb.png" />
-<p><a class="reference internal" href="models/plot_6_ebm_cls.html#sphx-glr-auto-examples-models-plot-6-ebm-cls-py"><span class="std std-ref">EBM Classification (Taiwan Credit)</span></a></p>
+<p><a class="reference internal" href="3_models/plot_6_ebm_cls.html#sphx-glr-auto-examples-3-models-plot-6-ebm-cls-py"><span class="std std-ref">EBM Classification (Taiwan Credit)</span></a></p>
   <div class="sphx-glr-thumbnail-title">EBM Classification (Taiwan Credit)</div>
 </div><div class="sphx-glr-thumbcontainer" tooltip="EBM Regression (Bike Sharing)"><img alt="" src="../_images/sphx_glr_plot_6_ebm_reg_thumb.png" />
-<p><a class="reference internal" href="models/plot_6_ebm_reg.html#sphx-glr-auto-examples-models-plot-6-ebm-reg-py"><span class="std std-ref">EBM Regression (Bike Sharing)</span></a></p>
+<p><a class="reference internal" href="3_models/plot_6_ebm_reg.html#sphx-glr-auto-examples-3-models-plot-6-ebm-reg-py"><span class="std std-ref">EBM Regression (Bike Sharing)</span></a></p>
   <div class="sphx-glr-thumbnail-title">EBM Regression (Bike Sharing)</div>
 </div><div class="sphx-glr-thumbcontainer" tooltip="GAMI-Net Classification (Taiwan Credit)"><img alt="" src="../_images/sphx_glr_plot_7_gaminet_cls_thumb.png" />
-<p><a class="reference internal" href="models/plot_7_gaminet_cls.html#sphx-glr-auto-examples-models-plot-7-gaminet-cls-py"><span class="std std-ref">GAMI-Net Classification (Taiwan Credit)</span></a></p>
+<p><a class="reference internal" href="3_models/plot_7_gaminet_cls.html#sphx-glr-auto-examples-3-models-plot-7-gaminet-cls-py"><span class="std std-ref">GAMI-Net Classification (Taiwan Credit)</span></a></p>
   <div class="sphx-glr-thumbnail-title">GAMI-Net Classification (Taiwan Credit)</div>
 </div><div class="sphx-glr-thumbcontainer" tooltip="GAMI-Net Regression (Bike Sharing)"><img alt="" src="../_images/sphx_glr_plot_7_gaminet_reg_thumb.png" />
-<p><a class="reference internal" href="models/plot_7_gaminet_reg.html#sphx-glr-auto-examples-models-plot-7-gaminet-reg-py"><span class="std std-ref">GAMI-Net Regression (Bike Sharing)</span></a></p>
+<p><a class="reference internal" href="3_models/plot_7_gaminet_reg.html#sphx-glr-auto-examples-3-models-plot-7-gaminet-reg-py"><span class="std std-ref">GAMI-Net Regression (Bike Sharing)</span></a></p>
   <div class="sphx-glr-thumbnail-title">GAMI-Net Regression (Bike Sharing)</div>
 </div><div class="sphx-glr-thumbcontainer" tooltip="ReLU DNN Classification (Taiwan Credit)"><img alt="" src="../_images/sphx_glr_plot_8_reludnn_cls_thumb.png" />
-<p><a class="reference internal" href="models/plot_8_reludnn_cls.html#sphx-glr-auto-examples-models-plot-8-reludnn-cls-py"><span class="std std-ref">ReLU DNN Classification (Taiwan Credit)</span></a></p>
+<p><a class="reference internal" href="3_models/plot_8_reludnn_cls.html#sphx-glr-auto-examples-3-models-plot-8-reludnn-cls-py"><span class="std std-ref">ReLU DNN Classification (Taiwan Credit)</span></a></p>
   <div class="sphx-glr-thumbnail-title">ReLU DNN Classification (Taiwan Credit)</div>
 </div><div class="sphx-glr-thumbcontainer" tooltip="ReLU DNN Regression (Friedman)"><img alt="" src="../_images/sphx_glr_plot_8_reludnn_reg_thumb.png" />
-<p><a class="reference internal" href="models/plot_8_reludnn_reg.html#sphx-glr-auto-examples-models-plot-8-reludnn-reg-py"><span class="std std-ref">ReLU DNN Regression (Friedman)</span></a></p>
+<p><a class="reference internal" href="3_models/plot_8_reludnn_reg.html#sphx-glr-auto-examples-3-models-plot-8-reludnn-reg-py"><span class="std std-ref">ReLU DNN Regression (Friedman)</span></a></p>
   <div class="sphx-glr-thumbnail-title">ReLU DNN Regression (Friedman)</div>
-</div></div></section>
-<section id="hyperparameter-optimization">
-<h2>Hyperparameter Optimization<a class="headerlink" href="#hyperparameter-optimization" title="Permalink to this heading">¶</a></h2>
-<div class="sphx-glr-thumbnails"><div class="sphx-glr-thumbcontainer" tooltip="HPO - XGB - Grid Search (Bike Sharing)"><img alt="" src="../_images/sphx_glr_plot_0_grid_thumb.png" />
-<p><a class="reference internal" href="models_hpo/plot_0_grid.html#sphx-glr-auto-examples-models-hpo-plot-0-grid-py"><span class="std std-ref">HPO - XGB - Grid Search (Bike Sharing)</span></a></p>
-  <div class="sphx-glr-thumbnail-title">HPO - XGB - Grid Search (Bike Sharing)</div>
-</div><div class="sphx-glr-thumbcontainer" tooltip="HPO - GLM - Random Search (SimuCredit)"><img alt="" src="../_images/sphx_glr_plot_0_random_thumb.png" />
-<p><a class="reference internal" href="models_hpo/plot_0_random.html#sphx-glr-auto-examples-models-hpo-plot-0-random-py"><span class="std std-ref">HPO - GLM - Random Search (SimuCredit)</span></a></p>
-  <div class="sphx-glr-thumbnail-title">HPO - GLM - Random Search (SimuCredit)</div>
 </div></div></section>
 <section id="outcome-testing">
 <h2>Outcome Testing<a class="headerlink" href="#outcome-testing" title="Permalink to this heading">¶</a></h2>
 <div class="sphx-glr-thumbnails"><div class="sphx-glr-thumbcontainer" tooltip="Accuracy: Classification"><img alt="" src="../_images/sphx_glr_plot_0_accuracy_cls_thumb.png" />
-<p><a class="reference internal" href="testing/plot_0_accuracy_cls.html#sphx-glr-auto-examples-testing-plot-0-accuracy-cls-py"><span class="std std-ref">Accuracy: Classification</span></a></p>
+<p><a class="reference internal" href="4_testing/plot_0_accuracy_cls.html#sphx-glr-auto-examples-4-testing-plot-0-accuracy-cls-py"><span class="std std-ref">Accuracy: Classification</span></a></p>
   <div class="sphx-glr-thumbnail-title">Accuracy: Classification</div>
 </div><div class="sphx-glr-thumbcontainer" tooltip="Accuracy: Regression"><img alt="" src="../_images/sphx_glr_plot_0_accuracy_reg_thumb.png" />
-<p><a class="reference internal" href="testing/plot_0_accuracy_reg.html#sphx-glr-auto-examples-testing-plot-0-accuracy-reg-py"><span class="std std-ref">Accuracy: Regression</span></a></p>
+<p><a class="reference internal" href="4_testing/plot_0_accuracy_reg.html#sphx-glr-auto-examples-4-testing-plot-0-accuracy-reg-py"><span class="std std-ref">Accuracy: Regression</span></a></p>
   <div class="sphx-glr-thumbnail-title">Accuracy: Regression</div>
 </div><div class="sphx-glr-thumbcontainer" tooltip="WeakSpot: Classification"><img alt="" src="../_images/sphx_glr_plot_1_weakspot_cls_thumb.png" />
-<p><a class="reference internal" href="testing/plot_1_weakspot_cls.html#sphx-glr-auto-examples-testing-plot-1-weakspot-cls-py"><span class="std std-ref">WeakSpot: Classification</span></a></p>
+<p><a class="reference internal" href="4_testing/plot_1_weakspot_cls.html#sphx-glr-auto-examples-4-testing-plot-1-weakspot-cls-py"><span class="std std-ref">WeakSpot: Classification</span></a></p>
   <div class="sphx-glr-thumbnail-title">WeakSpot: Classification</div>
 </div><div class="sphx-glr-thumbcontainer" tooltip="WeakSpot: Regression"><img alt="" src="../_images/sphx_glr_plot_1_weakspot_reg_thumb.png" />
-<p><a class="reference internal" href="testing/plot_1_weakspot_reg.html#sphx-glr-auto-examples-testing-plot-1-weakspot-reg-py"><span class="std std-ref">WeakSpot: Regression</span></a></p>
+<p><a class="reference internal" href="4_testing/plot_1_weakspot_reg.html#sphx-glr-auto-examples-4-testing-plot-1-weakspot-reg-py"><span class="std std-ref">WeakSpot: Regression</span></a></p>
   <div class="sphx-glr-thumbnail-title">WeakSpot: Regression</div>
 </div><div class="sphx-glr-thumbcontainer" tooltip="Overfit: Classification"><img alt="" src="../_images/sphx_glr_plot_2_overfit_cls_thumb.png" />
-<p><a class="reference internal" href="testing/plot_2_overfit_cls.html#sphx-glr-auto-examples-testing-plot-2-overfit-cls-py"><span class="std std-ref">Overfit: Classification</span></a></p>
+<p><a class="reference internal" href="4_testing/plot_2_overfit_cls.html#sphx-glr-auto-examples-4-testing-plot-2-overfit-cls-py"><span class="std std-ref">Overfit: Classification</span></a></p>
   <div class="sphx-glr-thumbnail-title">Overfit: Classification</div>
 </div><div class="sphx-glr-thumbcontainer" tooltip="Overfit: Regression"><img alt="" src="../_images/sphx_glr_plot_2_overfit_reg_thumb.png" />
-<p><a class="reference internal" href="testing/plot_2_overfit_reg.html#sphx-glr-auto-examples-testing-plot-2-overfit-reg-py"><span class="std std-ref">Overfit: Regression</span></a></p>
+<p><a class="reference internal" href="4_testing/plot_2_overfit_reg.html#sphx-glr-auto-examples-4-testing-plot-2-overfit-reg-py"><span class="std std-ref">Overfit: Regression</span></a></p>
   <div class="sphx-glr-thumbnail-title">Overfit: Regression</div>
 </div><div class="sphx-glr-thumbcontainer" tooltip="Reliability: Classification"><img alt="" src="../_images/sphx_glr_plot_3_reliability_cls_thumb.png" />
-<p><a class="reference internal" href="testing/plot_3_reliability_cls.html#sphx-glr-auto-examples-testing-plot-3-reliability-cls-py"><span class="std std-ref">Reliability: Classification</span></a></p>
+<p><a class="reference internal" href="4_testing/plot_3_reliability_cls.html#sphx-glr-auto-examples-4-testing-plot-3-reliability-cls-py"><span class="std std-ref">Reliability: Classification</span></a></p>
   <div class="sphx-glr-thumbnail-title">Reliability: Classification</div>
 </div><div class="sphx-glr-thumbcontainer" tooltip="Reliability: Regression"><img alt="" src="../_images/sphx_glr_plot_3_reliability_reg_thumb.png" />
-<p><a class="reference internal" href="testing/plot_3_reliability_reg.html#sphx-glr-auto-examples-testing-plot-3-reliability-reg-py"><span class="std std-ref">Reliability: Regression</span></a></p>
+<p><a class="reference internal" href="4_testing/plot_3_reliability_reg.html#sphx-glr-auto-examples-4-testing-plot-3-reliability-reg-py"><span class="std std-ref">Reliability: Regression</span></a></p>
   <div class="sphx-glr-thumbnail-title">Reliability: Regression</div>
 </div><div class="sphx-glr-thumbcontainer" tooltip="Robustness: Classification"><img alt="" src="../_images/sphx_glr_plot_4_robustness_cls_thumb.png" />
-<p><a class="reference internal" href="testing/plot_4_robustness_cls.html#sphx-glr-auto-examples-testing-plot-4-robustness-cls-py"><span class="std std-ref">Robustness: Classification</span></a></p>
+<p><a class="reference internal" href="4_testing/plot_4_robustness_cls.html#sphx-glr-auto-examples-4-testing-plot-4-robustness-cls-py"><span class="std std-ref">Robustness: Classification</span></a></p>
   <div class="sphx-glr-thumbnail-title">Robustness: Classification</div>
 </div><div class="sphx-glr-thumbcontainer" tooltip="Robustness:  Regression"><img alt="" src="../_images/sphx_glr_plot_4_robustness_reg_thumb.png" />
-<p><a class="reference internal" href="testing/plot_4_robustness_reg.html#sphx-glr-auto-examples-testing-plot-4-robustness-reg-py"><span class="std std-ref">Robustness:  Regression</span></a></p>
+<p><a class="reference internal" href="4_testing/plot_4_robustness_reg.html#sphx-glr-auto-examples-4-testing-plot-4-robustness-reg-py"><span class="std std-ref">Robustness:  Regression</span></a></p>
   <div class="sphx-glr-thumbnail-title">Robustness:  Regression</div>
 </div><div class="sphx-glr-thumbcontainer" tooltip="Resilience:  Classification"><img alt="" src="../_images/sphx_glr_plot_5_resilience_cls_thumb.png" />
-<p><a class="reference internal" href="testing/plot_5_resilience_cls.html#sphx-glr-auto-examples-testing-plot-5-resilience-cls-py"><span class="std std-ref">Resilience:  Classification</span></a></p>
+<p><a class="reference internal" href="4_testing/plot_5_resilience_cls.html#sphx-glr-auto-examples-4-testing-plot-5-resilience-cls-py"><span class="std std-ref">Resilience:  Classification</span></a></p>
   <div class="sphx-glr-thumbnail-title">Resilience:  Classification</div>
 </div><div class="sphx-glr-thumbcontainer" tooltip="Resilience - Regression"><img alt="" src="../_images/sphx_glr_plot_5_resilience_reg_thumb.png" />
-<p><a class="reference internal" href="testing/plot_5_resilience_reg.html#sphx-glr-auto-examples-testing-plot-5-resilience-reg-py"><span class="std std-ref">Resilience - Regression</span></a></p>
+<p><a class="reference internal" href="4_testing/plot_5_resilience_reg.html#sphx-glr-auto-examples-4-testing-plot-5-resilience-reg-py"><span class="std std-ref">Resilience - Regression</span></a></p>
   <div class="sphx-glr-thumbnail-title">Resilience - Regression</div>
 </div><div class="sphx-glr-thumbcontainer" tooltip="Fairness Test: XGB2"><img alt="" src="../_images/sphx_glr_plot_6_fairness_thumb.png" />
-<p><a class="reference internal" href="testing/plot_6_fairness.html#sphx-glr-auto-examples-testing-plot-6-fairness-py"><span class="std std-ref">Fairness Test: XGB2</span></a></p>
+<p><a class="reference internal" href="4_testing/plot_6_fairness.html#sphx-glr-auto-examples-4-testing-plot-6-fairness-py"><span class="std std-ref">Fairness Test: XGB2</span></a></p>
   <div class="sphx-glr-thumbnail-title">Fairness Test: XGB2</div>
+</div><div class="sphx-glr-thumbcontainer" tooltip="Segmented Diagnose (Classification)"><img alt="" src="../_images/sphx_glr_plot_7_segmented_cls_thumb.png" />
+<p><a class="reference internal" href="4_testing/plot_7_segmented_cls.html#sphx-glr-auto-examples-4-testing-plot-7-segmented-cls-py"><span class="std std-ref">Segmented Diagnose (Classification)</span></a></p>
+  <div class="sphx-glr-thumbnail-title">Segmented Diagnose (Classification)</div>
+</div><div class="sphx-glr-thumbcontainer" tooltip="Segmented Diagnose (Regression)"><img alt="" src="../_images/sphx_glr_plot_7_segmented_reg_thumb.png" />
+<p><a class="reference internal" href="4_testing/plot_7_segmented_reg.html#sphx-glr-auto-examples-4-testing-plot-7-segmented-reg-py"><span class="std std-ref">Segmented Diagnose (Regression)</span></a></p>
+  <div class="sphx-glr-thumbnail-title">Segmented Diagnose (Regression)</div>
+</div><div class="sphx-glr-thumbcontainer" tooltip="Scored Test: Classification"><img alt="" src="../_images/sphx_glr_plot_8_scored_test_cls_thumb.png" />
+<p><a class="reference internal" href="4_testing/plot_8_scored_test_cls.html#sphx-glr-auto-examples-4-testing-plot-8-scored-test-cls-py"><span class="std std-ref">Scored Test: Classification</span></a></p>
+  <div class="sphx-glr-thumbnail-title">Scored Test: Classification</div>
+</div><div class="sphx-glr-thumbcontainer" tooltip="Scored Test: Regression"><img alt="" src="../_images/sphx_glr_plot_8_scored_test_reg_thumb.png" />
+<p><a class="reference internal" href="4_testing/plot_8_scored_test_reg.html#sphx-glr-auto-examples-4-testing-plot-8-scored-test-reg-py"><span class="std std-ref">Scored Test: Regression</span></a></p>
+  <div class="sphx-glr-thumbnail-title">Scored Test: Regression</div>
 </div></div></section>
 <section id="model-comparison">
 <h2>Model Comparison<a class="headerlink" href="#model-comparison" title="Permalink to this heading">¶</a></h2>
 <div class="sphx-glr-thumbnails"><div class="sphx-glr-thumbcontainer" tooltip="Model Comparison: Classification"><img alt="" src="../_images/sphx_glr_plot_0_compare_classification_thumb.png" />
-<p><a class="reference internal" href="testing_compare/plot_0_compare_classification.html#sphx-glr-auto-examples-testing-compare-plot-0-compare-classification-py"><span class="std std-ref">Model Comparison: Classification</span></a></p>
+<p><a class="reference internal" href="5_compare/plot_0_compare_classification.html#sphx-glr-auto-examples-5-compare-plot-0-compare-classification-py"><span class="std std-ref">Model Comparison: Classification</span></a></p>
   <div class="sphx-glr-thumbnail-title">Model Comparison: Classification</div>
 </div><div class="sphx-glr-thumbcontainer" tooltip="Model Comparison: Regression"><img alt="" src="../_images/sphx_glr_plot_0_compare_regression_thumb.png" />
-<p><a class="reference internal" href="testing_compare/plot_0_compare_regression.html#sphx-glr-auto-examples-testing-compare-plot-0-compare-regression-py"><span class="std std-ref">Model Comparison: Regression</span></a></p>
+<p><a class="reference internal" href="5_compare/plot_0_compare_regression.html#sphx-glr-auto-examples-5-compare-plot-0-compare-regression-py"><span class="std std-ref">Model Comparison: Regression</span></a></p>
   <div class="sphx-glr-thumbnail-title">Model Comparison: Regression</div>
 </div><div class="sphx-glr-thumbcontainer" tooltip="Fairness Comparison"><img alt="" src="../_images/sphx_glr_plot_1_compare_fairness_thumb.png" />
-<p><a class="reference internal" href="testing_compare/plot_1_compare_fairness.html#sphx-glr-auto-examples-testing-compare-plot-1-compare-fairness-py"><span class="std std-ref">Fairness Comparison</span></a></p>
+<p><a class="reference internal" href="5_compare/plot_1_compare_fairness.html#sphx-glr-auto-examples-5-compare-plot-1-compare-fairness-py"><span class="std std-ref">Fairness Comparison</span></a></p>
   <div class="sphx-glr-thumbnail-title">Fairness Comparison</div>
-</div></div></section>
-<section id="training-and-testing-external-models">
-<h2>Training and Testing External Models<a class="headerlink" href="#training-and-testing-external-models" title="Permalink to this heading">¶</a></h2>
-<div class="sphx-glr-thumbnails"><div class="sphx-glr-thumbcontainer" tooltip="Train External Models"><img alt="" src="../_images/sphx_glr_plot_0_model_train_thumb.png" />
-<p><a class="reference internal" href="testing_external/plot_0_model_train.html#sphx-glr-auto-examples-testing-external-plot-0-model-train-py"><span class="std std-ref">Train External Models</span></a></p>
-  <div class="sphx-glr-thumbnail-title">Train External Models</div>
-</div><div class="sphx-glr-thumbcontainer" tooltip="Registering Arbitrary Models"><img alt="" src="../_images/sphx_glr_plot_1_register_arbitrary_thumb.png" />
-<p><a class="reference internal" href="testing_external/plot_1_register_arbitrary.html#sphx-glr-auto-examples-testing-external-plot-1-register-arbitrary-py"><span class="std std-ref">Registering Arbitrary Models</span></a></p>
-  <div class="sphx-glr-thumbnail-title">Registering Arbitrary Models</div>
-</div><div class="sphx-glr-thumbcontainer" tooltip="Registering H2O Models"><img alt="" src="../_images/sphx_glr_plot_1_register_h2o_thumb.png" />
-<p><a class="reference internal" href="testing_external/plot_1_register_h2o.html#sphx-glr-auto-examples-testing-external-plot-1-register-h2o-py"><span class="std std-ref">Registering H2O Models</span></a></p>
-  <div class="sphx-glr-thumbnail-title">Registering H2O Models</div>
-</div><div class="sphx-glr-thumbcontainer" tooltip="Registering sklearn Style Models"><img alt="" src="../_images/sphx_glr_plot_1_register_sklearn_thumb.png" />
-<p><a class="reference internal" href="testing_external/plot_1_register_sklearn.html#sphx-glr-auto-examples-testing-external-plot-1-register-sklearn-py"><span class="std std-ref">Registering sklearn Style Models</span></a></p>
-  <div class="sphx-glr-thumbnail-title">Registering sklearn Style Models</div>
-</div><div class="sphx-glr-thumbcontainer" tooltip="Scored Test (Classification)"><img alt="" src="../_images/sphx_glr_plot_2_test_wo_model_cls_thumb.png" />
-<p><a class="reference internal" href="testing_external/plot_2_test_wo_model_cls.html#sphx-glr-auto-examples-testing-external-plot-2-test-wo-model-cls-py"><span class="std std-ref">Scored Test (Classification)</span></a></p>
-  <div class="sphx-glr-thumbnail-title">Scored Test (Classification)</div>
-</div><div class="sphx-glr-thumbcontainer" tooltip="Scored Test (Regression)"><img alt="" src="../_images/sphx_glr_plot_2_test_wo_model_reg_thumb.png" />
-<p><a class="reference internal" href="testing_external/plot_2_test_wo_model_reg.html#sphx-glr-auto-examples-testing-external-plot-2-test-wo-model-reg-py"><span class="std std-ref">Scored Test (Regression)</span></a></p>
-  <div class="sphx-glr-thumbnail-title">Scored Test (Regression)</div>
-</div></div></section>
-<section id="model-segmented-diagnosics">
-<h2>Model Segmented Diagnosics<a class="headerlink" href="#model-segmented-diagnosics" title="Permalink to this heading">¶</a></h2>
-<div class="sphx-glr-thumbnails"><div class="sphx-glr-thumbcontainer" tooltip="Segmented Diagnose (Classification)"><img alt="" src="../_images/sphx_glr_plot_0_classification_thumb.png" />
-<p><a class="reference internal" href="testing_segmented/plot_0_classification.html#sphx-glr-auto-examples-testing-segmented-plot-0-classification-py"><span class="std std-ref">Segmented Diagnose (Classification)</span></a></p>
-  <div class="sphx-glr-thumbnail-title">Segmented Diagnose (Classification)</div>
-</div><div class="sphx-glr-thumbcontainer" tooltip="Segmented Diagnose (Regression)"><img alt="" src="../_images/sphx_glr_plot_0_regression_thumb.png" />
-<p><a class="reference internal" href="testing_segmented/plot_0_regression.html#sphx-glr-auto-examples-testing-segmented-plot-0-regression-py"><span class="std std-ref">Segmented Diagnose (Regression)</span></a></p>
-  <div class="sphx-glr-thumbnail-title">Segmented Diagnose (Regression)</div>
 </div></div><div class="toctree-wrapper compound">
 </div>
 <div class="sphx-glr-footer sphx-glr-footer-gallery docutils container">

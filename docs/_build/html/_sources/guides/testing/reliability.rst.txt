@@ -66,8 +66,8 @@ By setting the `show` parameter to "reliability_distance", we can obtain the dis
    exp.model_diagnose(model="XGB2", show="reliability_distance", alpha=0.1,
                       threshold=1.1, distance_metric="PSI", figsize=(5, 4))
 
-.. figure:: ../../auto_examples/testing/images/sphx_glr_plot_3_reliability_reg_001.png
-   :target: ../../auto_examples/testing/plot_3_reliability_reg.html
+.. figure:: ../../auto_examples/4_testing/images/sphx_glr_plot_3_reliability_reg_001.png
+   :target: ../../auto_examples/4_testing/plot_3_reliability_reg.html
    :align: left
 
 Based on the above figure, it is evident that the distributional distance of the feature `hr` is the largest when comparing reliable and unreliable data. However, it is important to note that this result merely suggests a relationship between the feature `hr` and model uncertainty. It does not allow us to draw conclusions regarding causality. The observed association may be indicative of a correlation, but further analysis is necessary to establish any causal relationship.
@@ -82,8 +82,8 @@ To analyze the bandwidth against each feature, we can utilize the "reliability_m
                          show_feature="hr", bins=10, threshold=1.1,
                          original_scale=True, figsize=(5, 4))
 
-.. figure:: ../../auto_examples/testing/images/sphx_glr_plot_3_reliability_reg_002.png
-   :target: ../../auto_examples/testing/plot_3_reliability_reg.html
+.. figure:: ../../auto_examples/4_testing/images/sphx_glr_plot_3_reliability_reg_002.png
+   :target: ../../auto_examples/4_testing/plot_3_reliability_reg.html
    :align: left
 
 In the plot above, we can see that the marginal bandwidth of `hr` exceeds the threshold (red dotted line) specifically during rush hours. This observation aligns with the findings from the weakspot tests, further supporting the notion that the feature `hr` is associated with increased model uncertainty during these specific time periods.
@@ -102,8 +102,8 @@ To obtain the distributional distance between reliable and unreliable data, set 
    exp.model_diagnose(model="XGB2", show="reliability_distance",
                       threshold=1.1, distance_metric="PSI", figsize=(5, 4))
 
-.. figure:: ../../auto_examples/testing/images/sphx_glr_plot_3_reliability_cls_001.png
-   :target: ../../auto_examples/testing/plot_3_reliability_cls.html
+.. figure:: ../../auto_examples/4_testing/images/sphx_glr_plot_3_reliability_cls_001.png
+   :target: ../../auto_examples/4_testing/plot_3_reliability_cls.html
    :align: left
 
 Marginal Bandwidth 
@@ -115,8 +115,8 @@ Similarly, the marginal bandwidth plot of each feature can be shown using the ke
       exp.model_diagnose(model="GAM", show="reliability_marginal",
                          show_feature="PAY_1", bins=10, threshold=1.1, figsize=(5, 4))
 
-.. figure:: ../../auto_examples/testing/images/sphx_glr_plot_3_reliability_cls_002.png
-   :target: ../../auto_examples/testing/plot_3_reliability_cls.html
+.. figure:: ../../auto_examples/4_testing/images/sphx_glr_plot_3_reliability_cls_002.png
+   :target: ../../auto_examples/4_testing/plot_3_reliability_cls.html
    :align: left
 
 Classifier Calibration
@@ -127,8 +127,8 @@ In this plot, we do calibration of the estimator using isotonic regression. We c
 
       exp.model_diagnose(model="GAM", show="reliability_calibration", figsize=(5, 4))
 
-.. figure:: ../../auto_examples/testing/images/sphx_glr_plot_3_reliability_cls_003.png
-   :target: ../../auto_examples/testing/plot_3_reliability_cls.html
+.. figure:: ../../auto_examples/4_testing/images/sphx_glr_plot_3_reliability_cls_003.png
+   :target: ../../auto_examples/4_testing/plot_3_reliability_cls.html
    :align: left
 
 Reliability Diagram
@@ -139,8 +139,8 @@ A reliability diagram, also referred to as a calibration curve, discretizes the 
 
       exp.model_diagnose(model="GAM", show="reliability_perf", figsize=(5, 4))
 
-.. figure:: ../../auto_examples/testing/images/sphx_glr_plot_3_reliability_cls_004.png
-   :target: ../../auto_examples/testing/plot_3_reliability_cls.html
+.. figure:: ../../auto_examples/4_testing/images/sphx_glr_plot_3_reliability_cls_004.png
+   :target: ../../auto_examples/4_testing/plot_3_reliability_cls.html
    :align: left
 
 The Brier score is a metric that is analogous to the Mean Squared Error (MSE), and it is employed to assess the reliability of probability predictions. A lower Brier score indicates a better-performing model. 
@@ -162,10 +162,10 @@ Examples
 
   The first example below demonstrates how to use PiML with its high-code APIs for developing machine learning models for the BikeSharing data from the UCI repository, which consists of 17,389 samples of hourly counts of rental bikes in Capital bikeshare system; see details. The response `cnt` (hourly bike rental counts) is continuous and it is a regression problem.
  
- * :ref:`sphx_glr_auto_examples_testing_plot_3_reliability_reg.py`
+ * :ref:`sphx_glr_auto_examples_4_testing_plot_3_reliability_reg.py`
 
 .. topic:: Examples 2: Taiwan Credit
 
   The second example below demonstrates how to use PiML’s high-code APIs for the TaiwanCredit dataset from the UCI repository. This dataset comprises the credit card details of 30,000 clients in Taiwan from April 2005 to September 2005, and more information can be found on the TaiwanCreditData website. The data can be loaded directly into PiML, although it requires some preprocessing. The FlagDefault variable serves as the response for this classification problem.
     
- * :ref:`sphx_glr_auto_examples_testing_plot_3_reliability_cls.py`
+ * :ref:`sphx_glr_auto_examples_4_testing_plot_3_reliability_cls.py`

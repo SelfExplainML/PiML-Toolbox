@@ -143,12 +143,12 @@
                   </li>
                 
                   <li>
-                    <a href="../extmodels.html" class="">3. Black-box Models</a>
+                    <a href="../model_train.html" class="">3. Model Train and Tune</a>
                     
                   </li>
                 
                   <li>
-                    <a href="../explainability.html" class="">4. Post-hoc Explainability</a>
+                    <a href="../explain.html" class="">4. Post-hoc Explainability</a>
                     
                   </li>
                 
@@ -203,7 +203,7 @@
                   </li>
                 
                   <li>
-                    <a href="../comparison.html" class="">7. Model Comparison</a>
+                    <a href="../compare.html" class="">7. Model Comparison</a>
                     
                   </li>
                 
@@ -310,7 +310,7 @@
 </div>
 </div>
 <figure class="align-left">
-<a class="reference external image-reference" href="../../auto_examples/models/plot_5_xgb2_reg.html"><img alt="../../_images/sphx_glr_plot_5_xgb2_reg_002.png" src="../../_images/sphx_glr_plot_5_xgb2_reg_002.png" /></a>
+<a class="reference external image-reference" href="../../auto_examples/3_models/plot_5_xgb2_reg.html"><img alt="../../_images/sphx_glr_plot_5_xgb2_reg_002.png" src="../../_images/sphx_glr_plot_5_xgb2_reg_002.png" /></a>
 </figure>
 <p>The plot illustrates the impact of the <code class="docutils literal notranslate"><span class="pre">atemp</span></code> feature (normalized feeling temperature in Celsius. The values are divided into 50) on bike sharing and includes its corresponding histogram. The data indicate that the peak of bike sharing activity occurs when <code class="docutils literal notranslate"><span class="pre">atemp</span></code> is around 0.7, which is considered a comfortable temperature for outdoor activities. Any temperature that is either cooler or hotter than this range tends to reduce people’s willingness to ride bicycles.</p>
 </section>
@@ -328,7 +328,7 @@
 </div>
 </div>
 <figure class="align-left">
-<a class="reference external image-reference" href="../../auto_examples/models/plot_5_xgb2_reg.html"><img alt="../../_images/sphx_glr_plot_5_xgb2_reg_003.png" src="../../_images/sphx_glr_plot_5_xgb2_reg_003.png" /></a>
+<a class="reference external image-reference" href="../../auto_examples/3_models/plot_5_xgb2_reg.html"><img alt="../../_images/sphx_glr_plot_5_xgb2_reg_003.png" src="../../_images/sphx_glr_plot_5_xgb2_reg_003.png" /></a>
 </figure>
 <p>The estimated pairwise interaction between <code class="docutils literal notranslate"><span class="pre">hr</span></code> and <code class="docutils literal notranslate"><span class="pre">workingday</span></code> is shown in the figure above. The plot reveals that the best hours of bike sharing can be quite different for workingday and non-working days. Similar to two-way PDP and ALE, the interaction heatmap can be viewed via sliced 1D line plot, by setting <code class="docutils literal notranslate"><span class="pre">sliced_line=True</span></code>. (This is the same for all the GAMI models, including EBM, GAMI-Net)</p>
 </section>
@@ -345,7 +345,7 @@
 </div>
 </div>
 <figure class="align-left">
-<a class="reference external image-reference" href="../../auto_examples/models/plot_5_xgb2_reg.html"><img alt="../../_images/sphx_glr_plot_5_xgb2_reg_004.png" src="../../_images/sphx_glr_plot_5_xgb2_reg_004.png" /></a>
+<a class="reference external image-reference" href="../../auto_examples/3_models/plot_5_xgb2_reg.html"><img alt="../../_images/sphx_glr_plot_5_xgb2_reg_004.png" src="../../_images/sphx_glr_plot_5_xgb2_reg_004.png" /></a>
 </figure>
 <p>Here we only plot the top-10 effect importance. It can be observed that the main effect of <code class="docutils literal notranslate"><span class="pre">hr</span></code> is the most important, followed by <code class="docutils literal notranslate"><span class="pre">atemp</span></code> and the pairwise interaction between <code class="docutils literal notranslate"><span class="pre">hr</span></code> and <code class="docutils literal notranslate"><span class="pre">workingday</span></code>. Note that this plot only shows the top 10 effects with the largest importance. To get the full results, you can set the parameter <code class="docutils literal notranslate"><span class="pre">return_data</span></code> to True.</p>
 </section>
@@ -367,7 +367,7 @@
 </div>
 </div>
 <figure class="align-left">
-<a class="reference external image-reference" href="../../auto_examples/models/plot_5_xgb2_reg.html"><img alt="../../_images/sphx_glr_plot_5_xgb2_reg_005.png" src="../../_images/sphx_glr_plot_5_xgb2_reg_005.png" /></a>
+<a class="reference external image-reference" href="../../auto_examples/3_models/plot_5_xgb2_reg.html"><img alt="../../_images/sphx_glr_plot_5_xgb2_reg_005.png" src="../../_images/sphx_glr_plot_5_xgb2_reg_005.png" /></a>
 </figure>
 <p>From this plot, we can observe that the two features <code class="docutils literal notranslate"><span class="pre">hr</span></code> and <code class="docutils literal notranslate"><span class="pre">atemp</span></code> take the dominant role in the model, followed by <code class="docutils literal notranslate"><span class="pre">season</span></code> and <code class="docutils literal notranslate"><span class="pre">hum</span></code>. Note that this plot only shows the top 10 features with the largest importance. To get the full results, you can set the parameter <code class="docutils literal notranslate"><span class="pre">return_data</span></code> to True.</p>
 </section>
@@ -388,7 +388,7 @@
 </div>
 </div>
 <figure class="align-left">
-<a class="reference external image-reference" href="../../auto_examples/models/plot_5_xgb2_reg.html"><img alt="../../_images/sphx_glr_plot_5_xgb2_reg_006.png" src="../../_images/sphx_glr_plot_5_xgb2_reg_006.png" /></a>
+<a class="reference external image-reference" href="../../auto_examples/3_models/plot_5_xgb2_reg.html"><img alt="../../_images/sphx_glr_plot_5_xgb2_reg_006.png" src="../../_images/sphx_glr_plot_5_xgb2_reg_006.png" /></a>
 </figure>
 <p>The predictor values of each effect are shown on the right axis, and the corresponding effect names are shown on the left axis. From the title, we can see that the predicted value of this sample is 0.0606, which is slightly different from the actual response of 0.16. The predicted value 0.0606 is then additively decomposed as the summation of all effect contributions plus the intercept term (not shown in this plot). The main effect of <code class="docutils literal notranslate"><span class="pre">atemp</span></code> contributes the most to the final prediction, with a negative contribution (around -0.06). Followed by <code class="docutils literal notranslate"><span class="pre">atemp</span></code>, the main effect of <code class="docutils literal notranslate"><span class="pre">season</span></code> and the pairwise interaction (<code class="docutils literal notranslate"><span class="pre">hr</span></code>, <code class="docutils literal notranslate"><span class="pre">workingday</span></code>) also show negative contributions to the final prediction. Note that this plot only shows the top 10 effects with the largest contribution. To get the full results, you can set the parameter <code class="docutils literal notranslate"><span class="pre">return_data</span></code> to True.</p>
 </section>
@@ -405,7 +405,7 @@
 </div>
 </div>
 <figure class="align-left">
-<a class="reference external image-reference" href="../../auto_examples/models/plot_5_xgb2_reg.html"><img alt="../../_images/sphx_glr_plot_5_xgb2_reg_007.png" src="../../_images/sphx_glr_plot_5_xgb2_reg_007.png" /></a>
+<a class="reference external image-reference" href="../../auto_examples/3_models/plot_5_xgb2_reg.html"><img alt="../../_images/sphx_glr_plot_5_xgb2_reg_007.png" src="../../_images/sphx_glr_plot_5_xgb2_reg_007.png" /></a>
 </figure>
 <p>The interpretation of the feature contribution plot is similar to that of the local effect contribution plot, except that the contribution is shown by feature instead of effect. For this specific sample, the main effect of <code class="docutils literal notranslate"><span class="pre">atemp</span></code> and <code class="docutils literal notranslate"><span class="pre">season</span></code> still negatively contribute to the final prediction. In contrast to the positive contribution of its main effect, the feature <code class="docutils literal notranslate"><span class="pre">hr</span></code> shows a negative contribution from the feature level. Note that this plot only shows the top 10 features with the largest contribution. To get the full results, you can set the parameter <code class="docutils literal notranslate"><span class="pre">return_data</span></code> to True.</p>
 </section>
@@ -418,7 +418,7 @@
 <div><p>The first example below demonstrates how to use PiML with its high-code APIs for developing machine learning models for the BikeSharing data from the UCI repository, which consists of 17,389 samples of hourly counts of rental bikes in Capital bikeshare system; see details. The response <code class="docutils literal notranslate"><span class="pre">cnt</span></code> (hourly bike rental counts) is continuous and it is a regression problem.</p>
 </div></blockquote>
 <ul class="simple">
-<li><p><a class="reference internal" href="../../auto_examples/models/plot_5_xgb2_reg.html#sphx-glr-auto-examples-models-plot-5-xgb2-reg-py"><span class="std std-ref">XGB-2 Regression (Bike Sharing)</span></a></p></li>
+<li><p><a class="reference internal" href="../../auto_examples/3_models/plot_5_xgb2_reg.html#sphx-glr-auto-examples-3-models-plot-5-xgb2-reg-py"><span class="std std-ref">XGB-2 Regression (Bike Sharing)</span></a></p></li>
 </ul>
 </div>
 <div class="topic">
@@ -427,7 +427,7 @@
 <div><p>The second example below demonstrates how to use PiML’s high-code APIs for the TaiwanCredit dataset from the UCI repository. This dataset comprises the credit card details of 30,000 clients in Taiwan from April 2005 to September 2005, and more information can be found on the TaiwanCreditData website. The data can be loaded directly into PiML, although it requires some preprocessing. The FlagDefault variable serves as the response for this classification problem.</p>
 </div></blockquote>
 <ul class="simple">
-<li><p><a class="reference internal" href="../../auto_examples/models/plot_5_xgb2_cls.html#sphx-glr-auto-examples-models-plot-5-xgb2-cls-py"><span class="std std-ref">XGB-2 Classification (Taiwan Credit)</span></a></p></li>
+<li><p><a class="reference internal" href="../../auto_examples/3_models/plot_5_xgb2_cls.html#sphx-glr-auto-examples-3-models-plot-5-xgb2-cls-py"><span class="std std-ref">XGB-2 Classification (Taiwan Credit)</span></a></p></li>
 </ul>
 </div>
 </section>

@@ -143,12 +143,12 @@
                   </li>
                 
                   <li>
-                    <a href="../extmodels.html" class="">3. Black-box Models</a>
+                    <a href="../model_train.html" class="">3. Model Train and Tune</a>
                     
                   </li>
                 
                   <li>
-                    <a href="../explainability.html" class="">4. Post-hoc Explainability</a>
+                    <a href="../explain.html" class="">4. Post-hoc Explainability</a>
                     
                   </li>
                 
@@ -190,12 +190,20 @@
                           <a href="fairness.html">6.7. Fairness</a>
                         </li>
                       
+                        <li class="sk-toctree-l3">
+                          <a href="segmented_diagnose.html">6.8. Segmented</a>
+                        </li>
+                      
+                        <li class="sk-toctree-l3">
+                          <a href="scored_test.html">6.9. Scored Test</a>
+                        </li>
+                      
                     </ul>
                     
                   </li>
                 
                   <li>
-                    <a href="../comparison.html" class="">7. Model Comparison</a>
+                    <a href="../compare.html" class="">7. Model Comparison</a>
                     
                   </li>
                 
@@ -353,7 +361,7 @@
 </div>
 </div>
 <figure class="align-left">
-<a class="reference external image-reference" href="../../auto_examples/testing/plot_0_accuracy_reg.html"><img alt="../../_images/sphx_glr_plot_0_accuracy_reg_001.png" src="../../_images/sphx_glr_plot_0_accuracy_reg_001.png" /></a>
+<a class="reference external image-reference" href="../../auto_examples/4_testing/plot_0_accuracy_reg.html"><img alt="../../_images/sphx_glr_plot_0_accuracy_reg_001.png" src="../../_images/sphx_glr_plot_0_accuracy_reg_001.png" /></a>
 </figure>
 <p><strong>Categorical Features</strong></p>
 <p>The following example presents a bar chart residual plot for a categorical feature <code class="docutils literal notranslate"><span class="pre">season</span></code>. The plot illustrates that the residuals are evenly distributed across various seasons, which is a positive indication.</p>
@@ -368,7 +376,7 @@
 </div>
 </div>
 <figure class="align-left">
-<a class="reference external image-reference" href="../../auto_examples/testing/plot_0_accuracy_reg.html"><img alt="../../_images/sphx_glr_plot_0_accuracy_reg_002.png" src="../../_images/sphx_glr_plot_0_accuracy_reg_002.png" /></a>
+<a class="reference external image-reference" href="../../auto_examples/4_testing/plot_0_accuracy_reg.html"><img alt="../../_images/sphx_glr_plot_0_accuracy_reg_002.png" src="../../_images/sphx_glr_plot_0_accuracy_reg_002.png" /></a>
 </figure>
 <p><strong>Target Feature</strong></p>
 <p>In addition to generating residual plots for input features, we can also generate residual plots against the target feature (<code class="docutils literal notranslate"><span class="pre">cnt</span></code> in the BikeSharing data). This allows us to assess the disparity in residuals across different values of the target. The resulting plot reveals a noticeable correlation between the residuals and the response, indicating that there may be a need for additional features to improve the model’s performance.</p>
@@ -383,7 +391,7 @@
 </div>
 </div>
 <figure class="align-left">
-<a class="reference external image-reference" href="../../auto_examples/testing/plot_0_accuracy_reg.html"><img alt="../../_images/sphx_glr_plot_0_accuracy_reg_003.png" src="../../_images/sphx_glr_plot_0_accuracy_reg_003.png" /></a>
+<a class="reference external image-reference" href="../../auto_examples/4_testing/plot_0_accuracy_reg.html"><img alt="../../_images/sphx_glr_plot_0_accuracy_reg_003.png" src="../../_images/sphx_glr_plot_0_accuracy_reg_003.png" /></a>
 </figure>
 <p><strong>Predicted Value</strong></p>
 <p>Lastly, the residual plot against the predicted values is depicted below. To generate this plot, the <code class="docutils literal notranslate"><span class="pre">show_feature</span></code> argument should be set to the name of the response feature followed by “_predict”. From this plot, we can observe a positive relationship between the predicted values and the variability of residuals. This observation aligns with the earlier residual plot, indicating that predicting bike sharing during rush hours is more challenging than during non-peak hours. Furthermore, we notice that the scatter plot appears to be constrained at the lower end by the line <span class="math notranslate nohighlight">\(x+y=0\)</span>. This boundary exists because the predicted values (<span class="math notranslate nohighlight">\(x\)</span>) plus the residuals (<span class="math notranslate nohighlight">\(y\)</span>) equal the response variable, and the minimum value for bike sharing is zero.</p>
@@ -398,7 +406,7 @@
 </div>
 </div>
 <figure class="align-left">
-<a class="reference external image-reference" href="../../auto_examples/testing/plot_0_accuracy_reg.html"><img alt="../../_images/sphx_glr_plot_0_accuracy_reg_004.png" src="../../_images/sphx_glr_plot_0_accuracy_reg_004.png" /></a>
+<a class="reference external image-reference" href="../../auto_examples/4_testing/plot_0_accuracy_reg.html"><img alt="../../_images/sphx_glr_plot_0_accuracy_reg_004.png" src="../../_images/sphx_glr_plot_0_accuracy_reg_004.png" /></a>
 </figure>
 </section>
 </section>
@@ -519,7 +527,7 @@
 </div>
 </div>
 <figure class="align-left">
-<a class="reference external image-reference" href="../../auto_examples/testing/plot_0_accuracy_cls.html"><img alt="../../_images/sphx_glr_plot_0_accuracy_cls_002.png" src="../../_images/sphx_glr_plot_0_accuracy_cls_002.png" /></a>
+<a class="reference external image-reference" href="../../auto_examples/4_testing/plot_0_accuracy_cls.html"><img alt="../../_images/sphx_glr_plot_0_accuracy_cls_002.png" src="../../_images/sphx_glr_plot_0_accuracy_cls_002.png" /></a>
 </figure>
 <p>This plot illustrates the absolute difference between the predicted probability and the actual response (0 or 1). Since the response variable is binary, we plot the absolute residuals separately for class 0 and class 1. Additionally, we include smoothing curves for each class, which are estimated using the locally weighted scatterplot smoothing (<a class="reference external" href="https://en.wikipedia.org/wiki/Local_regression">Lowess</a>) estimator.</p>
 <p>It is important to note that the feature of interest in this plot can be either the input feature, the response variable, or the predicted probability. By examining this plot, we can gain insights into the magnitude and patterns of the absolute residuals for each class, allowing us to evaluate the model’s performance and identify any potential discrepancies between the predicted probabilities and the actual responses.</p>
@@ -537,7 +545,7 @@
 </div>
 </div>
 <figure class="align-left">
-<a class="reference external image-reference" href="../../auto_examples/testing/plot_0_accuracy_cls.html"><img alt="../../_images/sphx_glr_plot_0_accuracy_cls_001.png" src="../../_images/sphx_glr_plot_0_accuracy_cls_001.png" /></a>
+<a class="reference external image-reference" href="../../auto_examples/4_testing/plot_0_accuracy_cls.html"><img alt="../../_images/sphx_glr_plot_0_accuracy_cls_001.png" src="../../_images/sphx_glr_plot_0_accuracy_cls_001.png" /></a>
 </figure>
 <ul class="simple">
 <li><p><strong>Confusion matrix</strong>: The left plot shows the confusion matrix, a valuable tool for evaluating classification model performance. The diagonal elements represent the number of instances where the predicted label matches the true label, indicating correct predictions. These values correspond to the true positives (TP) and true negatives (TN) of the model. On the other hand, the off-diagonal elements represent the mislabeled instances, including false positives (FP) and false negatives (FN). A higher value on the diagonal indicates better performance and more accurate predictions.</p></li>
@@ -554,7 +562,7 @@
 <div><p>The first example below demonstrates how to use PiML with its high-code APIs for developing machine learning models for the BikeSharing data from the UCI repository, which consists of 17,389 samples of hourly counts of rental bikes in Capital bikeshare system; see details. The response <code class="docutils literal notranslate"><span class="pre">cnt</span></code> (hourly bike rental counts) is continuous and it is a regression problem.</p>
 </div></blockquote>
 <ul class="simple">
-<li><p><a class="reference internal" href="../../auto_examples/testing/plot_0_accuracy_reg.html#sphx-glr-auto-examples-testing-plot-0-accuracy-reg-py"><span class="std std-ref">Accuracy: Regression</span></a></p></li>
+<li><p><a class="reference internal" href="../../auto_examples/4_testing/plot_0_accuracy_reg.html#sphx-glr-auto-examples-4-testing-plot-0-accuracy-reg-py"><span class="std std-ref">Accuracy: Regression</span></a></p></li>
 </ul>
 </div>
 <div class="topic">
@@ -563,7 +571,7 @@
 <div><p>The second example below demonstrates how to use PiML’s high-code APIs for the TaiwanCredit dataset from the UCI repository. This dataset comprises the credit card details of 30,000 clients in Taiwan from April 2005 to September 2005, and more information can be found on the TaiwanCreditData website. The data can be loaded directly into PiML, although it requires some preprocessing. The FlagDefault variable serves as the response for this classification problem.</p>
 </div></blockquote>
 <ul class="simple">
-<li><p><a class="reference internal" href="../../auto_examples/testing/plot_0_accuracy_cls.html#sphx-glr-auto-examples-testing-plot-0-accuracy-cls-py"><span class="std std-ref">Accuracy: Classification</span></a></p></li>
+<li><p><a class="reference internal" href="../../auto_examples/4_testing/plot_0_accuracy_cls.html#sphx-glr-auto-examples-4-testing-plot-0-accuracy-cls-py"><span class="std std-ref">Accuracy: Classification</span></a></p></li>
 </ul>
 </div>
 </section>

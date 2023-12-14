@@ -18,3 +18,5 @@ Diagnostic Suite
    testing/robustness.rst   
    testing/resilience.rst   
    testing/fairness.rst
+   testing/segmented_diagnose.rst
+   testing/scored_test.rst

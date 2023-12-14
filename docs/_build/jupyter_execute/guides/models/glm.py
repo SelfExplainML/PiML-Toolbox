@@ -55,3 +55,16 @@ exp.model_interpret(model="GLM", show="local_fi", sample_id=0, centered=False, o
 
 exp.model_interpret(model="GLM", show="local_fi", sample_id=0, centered=True, original_scale=True, figsize=(5, 4))
 
+
+# In[ ]:
+
+
+exp.model_interpret(model="GLM", show="global_fi", use_test=True, figsize=(5, 4))
+
+
+# In[ ]:
+
+
+exp.model_interpret(model="GLM", show="local_fi", sample_id=0, use_test=True,
+                    original_scale=True, figsize=(5, 4))
+

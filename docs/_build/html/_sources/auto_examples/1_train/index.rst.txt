@@ -1,0 +1,133 @@
+
+
+.. _sphx_glr_auto_examples_1_train:
+
+.. _model_train_tune_examples:
+
+Model Train and Tune
+-----------------------------------------
+
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbnails">
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="Train Models">
+
+.. only:: html
+
+  .. image:: /auto_examples/1_train/images/thumb/sphx_glr_plot_0_model_train_thumb.png
+    :alt:
+
+  :ref:`sphx_glr_auto_examples_1_train_plot_0_model_train.py`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Train Models</div>
+    </div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="HPO - Grid Search">
+
+.. only:: html
+
+  .. image:: /auto_examples/1_train/images/thumb/sphx_glr_plot_1_hpo_grid_thumb.png
+    :alt:
+
+  :ref:`sphx_glr_auto_examples_1_train_plot_1_hpo_grid.py`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">HPO - Grid Search</div>
+    </div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="HPO - Random Search">
+
+.. only:: html
+
+  .. image:: /auto_examples/1_train/images/thumb/sphx_glr_plot_1_hpo_random_thumb.png
+    :alt:
+
+  :ref:`sphx_glr_auto_examples_1_train_plot_1_hpo_random.py`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">HPO - Random Search</div>
+    </div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="Register sklearn Style Models">
+
+.. only:: html
+
+  .. image:: /auto_examples/1_train/images/thumb/sphx_glr_plot_2_register_0_sklearn_thumb.png
+    :alt:
+
+  :ref:`sphx_glr_auto_examples_1_train_plot_2_register_0_sklearn.py`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Register sklearn Style Models</div>
+    </div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="Register H2O Models">
+
+.. only:: html
+
+  .. image:: /auto_examples/1_train/images/thumb/sphx_glr_plot_2_register_1_h2o_thumb.png
+    :alt:
+
+  :ref:`sphx_glr_auto_examples_1_train_plot_2_register_1_h2o.py`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Register H2O Models</div>
+    </div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="Register Arbitrary Models">
+
+.. only:: html
+
+  .. image:: /auto_examples/1_train/images/thumb/sphx_glr_plot_2_register_2_arbitrary_thumb.png
+    :alt:
+
+  :ref:`sphx_glr_auto_examples_1_train_plot_2_register_2_arbitrary.py`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Register Arbitrary Models</div>
+    </div>
+
+
+.. raw:: html
+
+    </div>
+
+
+.. toctree::
+   :hidden:
+
+   /auto_examples/1_train/plot_0_model_train
+   /auto_examples/1_train/plot_1_hpo_grid
+   /auto_examples/1_train/plot_1_hpo_random
+   /auto_examples/1_train/plot_2_register_0_sklearn
+   /auto_examples/1_train/plot_2_register_1_h2o
+   /auto_examples/1_train/plot_2_register_2_arbitrary
+

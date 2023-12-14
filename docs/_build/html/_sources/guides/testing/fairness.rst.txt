@@ -49,8 +49,8 @@ In PIML, you can use the `model_fairness` API to get the metric result, as follo
                    protected_group=[0., 0.], favorable_threshold=0.5,
                    figsize=(6, 4), return_data=True)
 
-.. figure:: ../../auto_examples/testing/images/sphx_glr_plot_6_fairness_001.png
-   :target: ../../auto_examples/testing/plot_6_fairness.html
+.. figure:: ../../auto_examples/4_testing/images/sphx_glr_plot_6_fairness_001.png
+   :target: ../../auto_examples/4_testing/plot_6_fairness.html
    :align: center
 
 where "metrics" is the keyword for the parameter `show`. The `metric` parameter defines the fairness metric for evaluation. You also need to set the protected group and the reference group by the parameters `group_category`, `reference_group`, and `protected_group`. In the example above, we create two reference - protected group pairs: 
@@ -81,8 +81,8 @@ Once the segmentation is completed, PIML generates the fairness results for each
                                           segment_bins=5, favorable_threshold=0.5,
                                           return_data=True, figsize=(8, 4))
 
-.. figure:: ../../auto_examples/testing/images/sphx_glr_plot_6_fairness_002.png
-   :target: ../../auto_examples/testing/plot_6_fairness.html
+.. figure:: ../../auto_examples/4_testing/images/sphx_glr_plot_6_fairness_002.png
+   :target: ../../auto_examples/4_testing/plot_6_fairness.html
    :align: center
 
 In this example, the segmentation feature is `Balance` and the number of bins is 5. If `return_data` is true, the following results would be returned:
@@ -112,8 +112,8 @@ The keyword for this strategy is "binning" for the `show` parameter. For quantil
                                         favorable_threshold=0.5, performance_metric="F1", 
                                         binning_dict=binning_dict, return_data=True, figsize=(8,4))
 
-.. figure:: ../../auto_examples/testing/images/sphx_glr_plot_6_fairness_003.png
-   :target: ../../auto_examples/testing/plot_6_fairness.html
+.. figure:: ../../auto_examples/4_testing/images/sphx_glr_plot_6_fairness_003.png
+   :target: ../../auto_examples/4_testing/plot_6_fairness.html
    :align: center
 
 If `return_data` is true, the output results include:
@@ -134,8 +134,8 @@ The second unfairness mitigation method is called thresholding, where we enumera
                                              favorable_threshold=0.32, performance_metric="ACC",
                                              return_data=True)
 
-.. figure:: ../../auto_examples/testing/images/sphx_glr_plot_6_fairness_004.png
-   :target: ../../auto_examples/testing/plot_6_fairness.html
+.. figure:: ../../auto_examples/4_testing/images/sphx_glr_plot_6_fairness_004.png
+   :target: ../../auto_examples/4_testing/plot_6_fairness.html
    :align: center
 
 The `favorable_threshold` is the classification threshold value, which controls the dashed line position in the plots. The two y axes are controlled by `metric` and `performance_metric`, respectively. If `return_data` is true, the output results include:
@@ -151,4 +151,4 @@ The full example codes of this section can be found in the following link.
 
 .. topic:: Example
 
-   * :ref:`sphx_glr_auto_examples_testing_plot_6_fairness.py`
+   * :ref:`sphx_glr_auto_examples_4_testing_plot_6_fairness.py`

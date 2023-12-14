@@ -61,8 +61,8 @@ The main effect plot in GAMI-Net shows the estimated effect :math:`\hat{h}_{j}(x
      exp.model_interpret(model="GAMI-Net", show="global_effect_plot", uni_feature="hr", 
                         original_scale=True, figsize=(5, 4))
 
-.. figure:: ../../auto_examples/models/images/sphx_glr_plot_7_gaminet_reg_002.png
-   :target: ../../auto_examples/models/plot_7_gaminet_reg.html
+.. figure:: ../../auto_examples/3_models/images/sphx_glr_plot_7_gaminet_reg_002.png
+   :target: ../../auto_examples/3_models/plot_7_gaminet_reg.html
    :align: left
 
 The figure above shows the estimated shape functions for the feature `hr`, together with the histogram plot on the bottom. Consistent with other interpretable models, it is found that there exist 2 peaks of bike sharing around 8 AM and 5 PM, which correspond to the rush hour in a day. The key difference between GAMI-Net and other interpretable models (XGB2 and EBM) is that the estimated shape function is continuous and smooth, which is a favorable feature for model interpretation.
@@ -77,8 +77,8 @@ To visualize the estimated pairwise interaction :math:`\hat{f}_{jk}(x_{j},x_{k})
      exp.model_interpret(model="GAMI-Net", show="global_effect_plot", bi_features=["hr", "weekday"],
                          original_scale=True, figsize=(5, 4))
 
-.. figure:: ../../auto_examples/models/images/sphx_glr_plot_7_gaminet_reg_001.png
-   :target: ../../auto_examples/models/plot_7_gaminet_reg.html
+.. figure:: ../../auto_examples/3_models/images/sphx_glr_plot_7_gaminet_reg_001.png
+   :target: ../../auto_examples/3_models/plot_7_gaminet_reg.html
    :align: left
 
 The figure above shows the estimated pairwise interaction between `hr` and `weekday`. From the plot, we find that there is a positive effect (+0.07) for bike sharing at 2 pm on Saturday and Sunday, and also some negative effect (-0.06) at 2 pm from Monday to Friday.
@@ -92,8 +92,8 @@ The effect importance is calculated as the variance of the estimated shape funct
      
      exp.model_interpret(model="GAMI-Net", show="global_ei", figsize=(5, 4))
 
-.. figure:: ../../auto_examples/models/images/sphx_glr_plot_7_gaminet_reg_004.png
-   :target: ../../auto_examples/models/plot_7_gaminet_reg.html
+.. figure:: ../../auto_examples/3_models/images/sphx_glr_plot_7_gaminet_reg_004.png
+   :target: ../../auto_examples/3_models/plot_7_gaminet_reg.html
    :align: left
 
 Here we only plot the top-10 effect importance. It can be observed that the main effect of `hr` is the most important, followed by the pairwise interaction between `hr` and `workingday`. This result is slightly different from that of XGB2 and EBM. Note that this plot only shows the top 10 effects with the largest importance. To get the full results, you can set the parameter `return_data` to True.
@@ -109,8 +109,8 @@ As a GAMI model, the calculation of feature importance in GAMI-Net is the same a
      
      exp.model_interpret(model="GAMI-Net", show="global_fi", figsize=(5, 4))
 
-.. figure:: ../../auto_examples/models/images/sphx_glr_plot_7_gaminet_reg_005.png
-   :target: ../../auto_examples/models/plot_7_gaminet_reg.html
+.. figure:: ../../auto_examples/3_models/images/sphx_glr_plot_7_gaminet_reg_005.png
+   :target: ../../auto_examples/3_models/plot_7_gaminet_reg.html
    :align: left
 
 From this plot, we can observe that the top-3 important features are `hr`, `atemp`, and `workingday`. Note that this plot only shows the top 10 features with the largest importance. To get the full results, you can set the parameter `return_data` to True.
@@ -128,8 +128,8 @@ We use "local_ei" to draw the effect contribution of a given sample.
 
     exp.model_interpret(model="GAMI-Net", show="local_ei", sample_id=0, original_scale=True, figsize=(5, 4))
 
-.. figure:: ../../auto_examples/models/images/sphx_glr_plot_7_gaminet_reg_006.png
-   :target: ../../auto_examples/models/plot_7_gaminet_reg.html
+.. figure:: ../../auto_examples/3_models/images/sphx_glr_plot_7_gaminet_reg_006.png
+   :target: ../../auto_examples/3_models/plot_7_gaminet_reg.html
    :align: left
 
 The right axis of the plot displays the predictor values for each effect, while the left axis shows the corresponding effect names. The title indicates that the predicted value for this sample is 0.0324, which differs from the actual response of 0.16. The main effect of atemp makes the largest contribution to the final prediction, with a negative effect (approximately -0.06). The pairwise interactions (`hr`, `workingday`), (`hr`, `windspeed`), and (`hr`, `weekday`) also have negative effects on the final prediction, following atemp. Note that only the top 10 effects with the largest contribution are shown in this plot. To see the complete results, set the return_data parameter to True.
@@ -142,8 +142,8 @@ The local feature contribution is also based on the aggregated contribution of e
 
     exp.model_interpret(model="GAMI-Net", show="local_fi", sample_id=0, original_scale=True, figsize=(5, 4))
 
-.. figure:: ../../auto_examples/models/images/sphx_glr_plot_7_gaminet_reg_007.png
-   :target: ../../auto_examples/models/plot_7_gaminet_reg.html
+.. figure:: ../../auto_examples/3_models/images/sphx_glr_plot_7_gaminet_reg_007.png
+   :target: ../../auto_examples/3_models/plot_7_gaminet_reg.html
    :align: left
 
 This plot displays the contribution at the feature level. For this chosen sample (`sample_id` = 0), the top-5 features (`atemp`, `hr`, `workingday`, `season`, `windspeed`) all have negative contributions to the final prediction. Although the main effect of `hr` is small, the aggregated effects of its related pairwise interactions make it the second important feature for this specific sample. Note that only the top 10 features with the largest contribution are shown in this plot. To view the complete results, set the `return_data` parameter to True.
@@ -156,10 +156,10 @@ Examples
 
   The first example below demonstrates how to use PiML with its high-code APIs for developing machine learning models for the BikeSharing data from the UCI repository, which consists of 17,389 samples of hourly counts of rental bikes in Capital bikeshare system; see details. The response `cnt` (hourly bike rental counts) is continuous and it is a regression problem.
 
- * :ref:`sphx_glr_auto_examples_models_plot_7_gaminet_reg.py`
+ * :ref:`sphx_glr_auto_examples_3_models_plot_7_gaminet_reg.py`
 
 .. topic:: Examples 2: Taiwan Credit
 
    The second example below demonstrates how to use PiML's high-code APIs for the TaiwanCredit dataset from the UCI repository. This dataset comprises the credit card details of 30,000 clients in Taiwan from April 2005 to September 2005, and more information can be found on the TaiwanCreditData website. The `FlagDefault` variable serves as the response for this classification problem.
 
- * :ref:`sphx_glr_auto_examples_models_plot_7_gaminet_cls.py`
+ * :ref:`sphx_glr_auto_examples_3_models_plot_7_gaminet_cls.py`

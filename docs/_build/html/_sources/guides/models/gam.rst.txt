@@ -68,8 +68,8 @@ Below we show how to generate the global effect plot for GAMs, using the keyword
      exp.model_interpret(model="GAM", show="global_effect_plot", uni_feature="MedInc",
                          original_scale=True, figsize=(5, 4))
 
-.. figure:: ../../auto_examples/models/images/sphx_glr_plot_1_gam_reg_001.png
-   :target: ../../auto_examples/models/plot_1_gam_reg.html
+.. figure:: ../../auto_examples/3_models/images/sphx_glr_plot_1_gam_reg_001.png
+   :target: ../../auto_examples/3_models/plot_1_gam_reg.html
    :align: left
 
 The figure above shows the estimated shape functions for the feature `MedInc`, together with the histogram plot on the bottom. It can be observed that the estimated shape function is piecewise linear as the order of spline is set to 1. The estimated shape function is relatively flat for the large values of `MedInc`, while we observe a steep increase in the beginning. This suggests that the median house price is relatively stable for most values of `MedInc`, but there is a sharp increase in median house price for low values of MedInc (less than 9.2). This indicates that `MedInc` is an important predictor for predicting the median house price, especially for low-income areas.
@@ -84,8 +84,8 @@ The keyword "global_fi" corresponds to the feature importance plot. The importan
 
      exp.model_interpret(model="GAM",show="global_fi", figsize=(5, 4))
 
-.. figure:: ../../auto_examples/models/images/sphx_glr_plot_1_gam_reg_002.png
-   :target: ../../auto_examples/models/plot_1_gam_reg.html
+.. figure:: ../../auto_examples/3_models/images/sphx_glr_plot_1_gam_reg_002.png
+   :target: ../../auto_examples/3_models/plot_1_gam_reg.html
    :align: left
 
 Due to space limitations, we display only the top 10 important features. To get the results of all features, you can manually set `return_data=True`, and then a data frame containing all features' importance will be returned. From the plot above, we can see that the most important features are `Latitude` and `Longitude`, followed by `MedInc` and `AveOccup`.
@@ -99,8 +99,8 @@ This plot is useful for understanding how the model makes predictions for a part
 
      exp.model_interpret(model="GAM",show="local_fi", sample_id=0, original_scale=True, figsize=(5, 4))
 
-.. figure:: ../../auto_examples/models/images/sphx_glr_plot_1_gam_reg_003.png
-   :target: ../../auto_examples/models/plot_1_gam_reg.html
+.. figure:: ../../auto_examples/3_models/images/sphx_glr_plot_1_gam_reg_003.png
+   :target: ../../auto_examples/3_models/plot_1_gam_reg.html
    :align: left
 
 In this plot, the predicted value is 0.3804, while the actual response is 1.0. The bars represent the estimated effect values :math:`\hat{f}_j(x)` of the chosen sample. The feature `Latitude` shows the largest positive contribution to the final prediction, while `MedInc`, `Longitude`, and  `AveOccup` all have negative contributions.
@@ -114,10 +114,10 @@ Example
 
   The example below demonstrates how to use PiML with its high-code APis for the California Housing dataset from the UCI repository, which consists of 20,640 samples and 9 features, fetched by `sklearn.datasets`. The response variable `MedHouseVal` (Median Home Value) is continuous and is a regression problem.
 
- * :ref:`sphx_glr_auto_examples_models_plot_1_gam_reg.py`
+ * :ref:`sphx_glr_auto_examples_3_models_plot_1_gam_reg.py`
 
 .. topic:: Example 2: CoCircles
 
   The example below demonstrates how to use PiML with the CoCircles data, which is a simulated binary classification data with two features exactly follow the GAM assumptions. 
 
- * :ref:`sphx_glr_auto_examples_models_plot_1_gam_cls.py`
+ * :ref:`sphx_glr_auto_examples_3_models_plot_1_gam_cls.py`

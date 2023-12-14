@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+
+  <meta charset="utf-8">
+  <meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  
+  <title>PiML Toolbox</title>
+  
+
+  
+  <link rel="shortcut icon" href="../../_static/favicon.ico"/>
+  
+
+  <link rel="stylesheet" href="../../_static/css/vendor/bootstrap.min.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/plot_directive.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/jupyter-sphinx.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/thebelab.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/sg_gallery.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/sg_gallery-binder.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/sg_gallery-dataframe.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/sg_gallery-rendered-html.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
+<script id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+<script src="../../_static/jquery.js"></script>
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="../../_static/doctools.js"></script>
+        <script src="../../_static/sphinx_highlight.js"></script>
+        <script src="../../_static/thebelab-helper.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/@jupyter-widgets/html-manager@^1.0.1/dist/embed-amd.js"></script>
+        <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="../../_static/js/theme.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav">
+
+  
+
+
+<nav id="navbar" class="sk-docs-navbar navbar navbar-expand-md navbar-light bg-light py-0">
+  <div class="container-fluid sk-docs-container px-0">
+      <a class="navbar-brand py-0" href="../../index.html">
+        <img
+          class="sk-brand-img"
+          src="../../_static/piml-logo.png"
+          alt="logo"/>
+      </a>
+    <button
+      id="sk-navbar-toggler"
+      class="navbar-toggler"
+      type="button"
+      data-toggle="collapse"
+      data-target="#navbarSupportedContent"
+      aria-controls="navbarSupportedContent"
+      aria-expanded="false"
+      aria-label="Toggle navigation"
+    >
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="sk-navbar-collapse collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item">
+          <a class="sk-nav-link nav-link" href="../../install.html">Install</a>
+        </li>
+        <li class="nav-item">
+          <a class="sk-nav-link nav-link" href="../../user_guide.html">User Guide</a>
+        </li>
+        <li class="nav-item">
+          <a class="sk-nav-link nav-link" href="../../modules/classes.html">API</a>
+        </li>
+        <li class="nav-item">
+          <a class="sk-nav-link nav-link" href="../index.html">Examples</a>
+        </li>
+     </ul>
+      <div id="searchbox" role="search">
+          <div class="searchformwrapper">
+          <form class="search" action="../../search.html" method="get">
+            <input class="sk-search-text-input" type="text" name="q" aria-labelledby="searchlabel" />
+            <input class="sk-search-text-btn" type="submit" value="Go" />
+          </form>
+          </div>
+      </div>
+    </div>
+  </div>
+</nav>
+  <div class="d-flex" id="sk-doc-wrapper">
+      <input type="checkbox" name="sk-toggle-checkbox" id="sk-toggle-checkbox">
+      <label id="sk-sidemenu-toggle" class="sk-btn-toggle-toc btn sk-btn-primary" for="sk-toggle-checkbox">Toggle Menu</label>
+      <div id="sk-sidebar-wrapper" class="border-right">
+        <div class="sk-sidebar-toc-wrapper">
+          <div class="sk-sidebar-toc-logo">
+            <a href="../../index.html">
+              <img
+                class="sk-brand-img"
+                src="../../_static/piml-logo.png"
+                alt="logo"/>
+            </a>
+          </div>
+          <!--div class="btn-group w-100 mb-2" role="group" aria-label="rellinks">
+              <a href="#" role="button" class="btn sk-btn-rellink py-1 disabled"">Prev</a>
+              <a href="#" role="button" class="btn sk-btn-rellink disabled py-1">Up</a>
+              <a href="#" role="button" class="btn sk-btn-rellink py-1 disabled"">Next</a>
+          </div-->
+              <div class="sk-sidebar-toc">
+                <ul>
+<li><a class="reference internal" href="#">Interpretable Models</a></li>
+</ul>
+
+              </div>
+        </div>
+      </div>
+      <div id="sk-page-content-wrapper">
+        <div class="sk-page-content container-fluid body px-md-3" role="main">
+          
+  <section id="interpretable-models">
+<span id="models-examples"></span><span id="sphx-glr-auto-examples-3-models"></span><h1>Interpretable Models<a class="headerlink" href="#interpretable-models" title="Permalink to this heading">¶</a></h1>
+<div class="sphx-glr-thumbnails"><div class="sphx-glr-thumbcontainer" tooltip="GLM Logistic Regression (Taiwan Credit)"><img alt="" src="../../_images/sphx_glr_plot_0_glm_cls_thumb.png" />
+<p><a class="reference internal" href="plot_0_glm_cls.html#sphx-glr-auto-examples-3-models-plot-0-glm-cls-py"><span class="std std-ref">GLM Logistic Regression (Taiwan Credit)</span></a></p>
+  <div class="sphx-glr-thumbnail-title">GLM Logistic Regression (Taiwan Credit)</div>
+</div><div class="sphx-glr-thumbcontainer" tooltip="GLM Linear Regression (Bike Sharing)"><img alt="" src="../../_images/sphx_glr_plot_0_glm_reg_thumb.png" />
+<p><a class="reference internal" href="plot_0_glm_reg.html#sphx-glr-auto-examples-3-models-plot-0-glm-reg-py"><span class="std std-ref">GLM Linear Regression (Bike Sharing)</span></a></p>
+  <div class="sphx-glr-thumbnail-title">GLM Linear Regression (Bike Sharing)</div>
+</div><div class="sphx-glr-thumbcontainer" tooltip="GAM Classification (CoCircles)"><img alt="" src="../../_images/sphx_glr_plot_1_gam_cls_thumb.png" />
+<p><a class="reference internal" href="plot_1_gam_cls.html#sphx-glr-auto-examples-3-models-plot-1-gam-cls-py"><span class="std std-ref">GAM Classification (CoCircles)</span></a></p>
+  <div class="sphx-glr-thumbnail-title">GAM Classification (CoCircles)</div>
+</div><div class="sphx-glr-thumbcontainer" tooltip="GAM Regression (California Housing)"><img alt="" src="../../_images/sphx_glr_plot_1_gam_reg_thumb.png" />
+<p><a class="reference internal" href="plot_1_gam_reg.html#sphx-glr-auto-examples-3-models-plot-1-gam-reg-py"><span class="std std-ref">GAM Regression (California Housing)</span></a></p>
+  <div class="sphx-glr-thumbnail-title">GAM Regression (California Housing)</div>
+</div><div class="sphx-glr-thumbcontainer" tooltip="Tree Classification (TaiwanCredit)"><img alt="" src="../../_images/sphx_glr_plot_2_tree_cls_thumb.png" />
+<p><a class="reference internal" href="plot_2_tree_cls.html#sphx-glr-auto-examples-3-models-plot-2-tree-cls-py"><span class="std std-ref">Tree Classification (TaiwanCredit)</span></a></p>
+  <div class="sphx-glr-thumbnail-title">Tree Classification (TaiwanCredit)</div>
+</div><div class="sphx-glr-thumbcontainer" tooltip="Tree Regression (California Housing)"><img alt="" src="../../_images/sphx_glr_plot_2_tree_reg_thumb.png" />
+<p><a class="reference internal" href="plot_2_tree_reg.html#sphx-glr-auto-examples-3-models-plot-2-tree-reg-py"><span class="std std-ref">Tree Regression (California Housing)</span></a></p>
+  <div class="sphx-glr-thumbnail-title">Tree Regression (California Housing)</div>
+</div><div class="sphx-glr-thumbcontainer" tooltip="FIGS Classification (Taiwan Credit)"><img alt="" src="../../_images/sphx_glr_plot_3_figs_cls_thumb.png" />
+<p><a class="reference internal" href="plot_3_figs_cls.html#sphx-glr-auto-examples-3-models-plot-3-figs-cls-py"><span class="std std-ref">FIGS Classification (Taiwan Credit)</span></a></p>
+  <div class="sphx-glr-thumbnail-title">FIGS Classification (Taiwan Credit)</div>
+</div><div class="sphx-glr-thumbcontainer" tooltip="FIGS Regression (California Housing)"><img alt="" src="../../_images/sphx_glr_plot_3_figs_reg_thumb.png" />
+<p><a class="reference internal" href="plot_3_figs_reg.html#sphx-glr-auto-examples-3-models-plot-3-figs-reg-py"><span class="std std-ref">FIGS Regression (California Housing)</span></a></p>
+  <div class="sphx-glr-thumbnail-title">FIGS Regression (California Housing)</div>
+</div><div class="sphx-glr-thumbcontainer" tooltip="XGB-1 Classification (CoCircles)"><img alt="" src="../../_images/sphx_glr_plot_4_xgb1_cls_thumb.png" />
+<p><a class="reference internal" href="plot_4_xgb1_cls.html#sphx-glr-auto-examples-3-models-plot-4-xgb1-cls-py"><span class="std std-ref">XGB-1 Classification (CoCircles)</span></a></p>
+  <div class="sphx-glr-thumbnail-title">XGB-1 Classification (CoCircles)</div>
+</div><div class="sphx-glr-thumbcontainer" tooltip="XGB-1 Regression (California Housing)"><img alt="" src="../../_images/sphx_glr_plot_4_xgb1_reg_thumb.png" />
+<p><a class="reference internal" href="plot_4_xgb1_reg.html#sphx-glr-auto-examples-3-models-plot-4-xgb1-reg-py"><span class="std std-ref">XGB-1 Regression (California Housing)</span></a></p>
+  <div class="sphx-glr-thumbnail-title">XGB-1 Regression (California Housing)</div>
+</div><div class="sphx-glr-thumbcontainer" tooltip="XGB-2 Classification (Taiwan Credit)"><img alt="" src="../../_images/sphx_glr_plot_5_xgb2_cls_thumb.png" />
+<p><a class="reference internal" href="plot_5_xgb2_cls.html#sphx-glr-auto-examples-3-models-plot-5-xgb2-cls-py"><span class="std std-ref">XGB-2 Classification (Taiwan Credit)</span></a></p>
+  <div class="sphx-glr-thumbnail-title">XGB-2 Classification (Taiwan Credit)</div>
+</div><div class="sphx-glr-thumbcontainer" tooltip="XGB-2 Regression (Bike Sharing)"><img alt="" src="../../_images/sphx_glr_plot_5_xgb2_reg_thumb.png" />
+<p><a class="reference internal" href="plot_5_xgb2_reg.html#sphx-glr-auto-examples-3-models-plot-5-xgb2-reg-py"><span class="std std-ref">XGB-2 Regression (Bike Sharing)</span></a></p>
+  <div class="sphx-glr-thumbnail-title">XGB-2 Regression (Bike Sharing)</div>
+</div><div class="sphx-glr-thumbcontainer" tooltip="EBM Classification (Taiwan Credit)"><img alt="" src="../../_images/sphx_glr_plot_6_ebm_cls_thumb.png" />
+<p><a class="reference internal" href="plot_6_ebm_cls.html#sphx-glr-auto-examples-3-models-plot-6-ebm-cls-py"><span class="std std-ref">EBM Classification (Taiwan Credit)</span></a></p>
+  <div class="sphx-glr-thumbnail-title">EBM Classification (Taiwan Credit)</div>
+</div><div class="sphx-glr-thumbcontainer" tooltip="EBM Regression (Bike Sharing)"><img alt="" src="../../_images/sphx_glr_plot_6_ebm_reg_thumb.png" />
+<p><a class="reference internal" href="plot_6_ebm_reg.html#sphx-glr-auto-examples-3-models-plot-6-ebm-reg-py"><span class="std std-ref">EBM Regression (Bike Sharing)</span></a></p>
+  <div class="sphx-glr-thumbnail-title">EBM Regression (Bike Sharing)</div>
+</div><div class="sphx-glr-thumbcontainer" tooltip="GAMI-Net Classification (Taiwan Credit)"><img alt="" src="../../_images/sphx_glr_plot_7_gaminet_cls_thumb.png" />
+<p><a class="reference internal" href="plot_7_gaminet_cls.html#sphx-glr-auto-examples-3-models-plot-7-gaminet-cls-py"><span class="std std-ref">GAMI-Net Classification (Taiwan Credit)</span></a></p>
+  <div class="sphx-glr-thumbnail-title">GAMI-Net Classification (Taiwan Credit)</div>
+</div><div class="sphx-glr-thumbcontainer" tooltip="GAMI-Net Regression (Bike Sharing)"><img alt="" src="../../_images/sphx_glr_plot_7_gaminet_reg_thumb.png" />
+<p><a class="reference internal" href="plot_7_gaminet_reg.html#sphx-glr-auto-examples-3-models-plot-7-gaminet-reg-py"><span class="std std-ref">GAMI-Net Regression (Bike Sharing)</span></a></p>
+  <div class="sphx-glr-thumbnail-title">GAMI-Net Regression (Bike Sharing)</div>
+</div><div class="sphx-glr-thumbcontainer" tooltip="ReLU DNN Classification (Taiwan Credit)"><img alt="" src="../../_images/sphx_glr_plot_8_reludnn_cls_thumb.png" />
+<p><a class="reference internal" href="plot_8_reludnn_cls.html#sphx-glr-auto-examples-3-models-plot-8-reludnn-cls-py"><span class="std std-ref">ReLU DNN Classification (Taiwan Credit)</span></a></p>
+  <div class="sphx-glr-thumbnail-title">ReLU DNN Classification (Taiwan Credit)</div>
+</div><div class="sphx-glr-thumbcontainer" tooltip="ReLU DNN Regression (Friedman)"><img alt="" src="../../_images/sphx_glr_plot_8_reludnn_reg_thumb.png" />
+<p><a class="reference internal" href="plot_8_reludnn_reg.html#sphx-glr-auto-examples-3-models-plot-8-reludnn-reg-py"><span class="std std-ref">ReLU DNN Regression (Friedman)</span></a></p>
+  <div class="sphx-glr-thumbnail-title">ReLU DNN Regression (Friedman)</div>
+</div></div><div class="toctree-wrapper compound">
+</div>
+</section>
+
+
+        </div>
+      <div class="container">
+        <footer class="sk-content-footer">
+              &copy; Copyright 2022-, PiML-Toolbox authors.
+            <a href="../../_sources/auto_examples/3_models/index.rst.txt" rel="nofollow">Show this page source</a>
+        </footer>
+      </div>
+    </div>
+  </div>
+
+
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(false);
+      });
+      
+      const tooltipTriggerList = document.querySelectorAll('[data-bs-toggle="tooltip"]')
+      const tooltipList = [...tooltipTriggerList].map(tooltipTriggerEl => new bootstrap.Tooltip(tooltipTriggerEl))
+  </script>
+
+<script>
+$(document).ready(function() {
+    /* Add a [>>>] button on the top-right corner of code samples to hide
+     * the >>> and ... prompts and the output and thus make the code
+     * copyable. */
+    var div = $('.highlight-python .highlight,' +
+                '.highlight-python3 .highlight,' +
+                '.highlight-pycon .highlight,' +
+		'.highlight-default .highlight')
+    var pre = div.find('pre');
+
+    // get the styles from the current theme
+    pre.parent().parent().css('position', 'relative');
+    var hide_text = 'Hide prompts and outputs';
+    var show_text = 'Show prompts and outputs';
+
+    // create and add the button to all the code blocks that contain >>>
+    div.each(function(index) {
+        var jthis = $(this);
+        if (jthis.find('.gp').length > 0) {
+            var button = $('<span class="copybutton">&gt;&gt;&gt;</span>');
+            button.attr('title', hide_text);
+            button.data('hidden', 'false');
+            jthis.prepend(button);
+        }
+        // tracebacks (.gt) contain bare text elements that need to be
+        // wrapped in a span to work with .nextUntil() (see later)
+        jthis.find('pre:has(.gt)').contents().filter(function() {
+            return ((this.nodeType == 3) && (this.data.trim().length > 0));
+        }).wrap('<span>');
+    });
+
+    // define the behavior of the button when it's clicked
+    $('.copybutton').click(function(e){
+        e.preventDefault();
+        var button = $(this);
+        if (button.data('hidden') === 'false') {
+            // hide the code output
+            button.parent().find('.go, .gp, .gt').hide();
+            button.next('pre').find('.gt').nextUntil('.gp, .go').css('visibility', 'hidden');
+            button.css('text-decoration', 'line-through');
+            button.attr('title', show_text);
+            button.data('hidden', 'true');
+        } else {
+            // show the code output
+            button.parent().find('.go, .gp, .gt').show();
+            button.next('pre').find('.gt').nextUntil('.gp, .go').css('visibility', 'visible');
+            button.css('text-decoration', 'none');
+            button.attr('title', hide_text);
+            button.data('hidden', 'false');
+        }
+    });
+
+	/*** Add permalink buttons next to glossary terms ***/
+	$('dl.glossary > dt[id]').append(function() {
+		return ('<a class="headerlink" href="#' +
+			    this.getAttribute('id') +
+			    '" title="Permalink to this term">¶</a>');
+	});
+  /*** Hide navbar when scrolling down ***/
+  // Returns true when headerlink target matches hash in url
+  (function() {
+    hashTargetOnTop = function() {
+        var hash = window.location.hash;
+        if ( hash.length < 2 ) { return false; }
+
+        var target = document.getElementById( hash.slice(1) );
+        if ( target === null ) { return false; }
+
+        var top = target.getBoundingClientRect().top;
+        return (top < 2) && (top > -2);
+    };
+
+    // Hide navbar on load if hash target is on top
+    var navBar = document.getElementById("navbar");
+    var navBarToggler = document.getElementById("sk-navbar-toggler");
+    var navBarHeightHidden = "-" + navBar.getBoundingClientRect().height + "px";
+    var $window = $(window);
+
+    hideNavBar = function() {
+        navBar.style.top = navBarHeightHidden;
+    };
+
+    showNavBar = function() {
+        navBar.style.top = "0";
+    }
+
+    if (hashTargetOnTop()) {
+        hideNavBar()
+    }
+
+    var prevScrollpos = window.pageYOffset;
+    hideOnScroll = function(lastScrollTop) {
+        if (($window.width() < 768) && (navBarToggler.getAttribute("aria-expanded") === 'true')) {
+            return;
+        }
+        if (lastScrollTop > 2 && (prevScrollpos <= lastScrollTop) || hashTargetOnTop()){
+            hideNavBar()
+        } else {
+            showNavBar()
+        }
+        prevScrollpos = lastScrollTop;
+    };
+
+    /*** high performance scroll event listener***/
+    var raf = window.requestAnimationFrame ||
+        window.webkitRequestAnimationFrame ||
+        window.mozRequestAnimationFrame ||
+        window.msRequestAnimationFrame ||
+        window.oRequestAnimationFrame;
+    var lastScrollTop = $window.scrollTop();
+
+    if (raf) {
+        loop();
+    }
+
+    function loop() {
+        var scrollTop = $window.scrollTop();
+        if (lastScrollTop === scrollTop) {
+            raf(loop);
+            return;
+        } else {
+            lastScrollTop = scrollTop;
+            hideOnScroll(lastScrollTop);
+            raf(loop);
+        }
+    }
+  })();
+});
+
+</script>
+    
+
+<script src="_static/js/vendor/bootstrap.min.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,92 @@
+Register H2O Models
+=================================
+
+PiML is not only a tool for building inherently interpretable models, but also provides a list of validation tests that can be used for testing arbitrary fitted machine learning models. In the last subsection, we have showed that sklearn style models can be easily registered into PiML. In this article, we will further illustrate how to register a fitted H2O model.
+
+
+
+Train and Register Models
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+For demonstration purpose, we first fit a H2O gradient boosting machine using the California Housing dataset.
+
+.. jupyter-input::
+
+    import h2o
+    h2o.no_progress()
+    h2o.init(verbose=False)
+
+    import numpy as np
+    import pandas as pd
+    from sklearn.datasets import fetch_california_housing
+    from h2o.estimators import H2OGradientBoostingEstimator
+
+    data = fetch_california_housing()
+    feature_names = data.feature_names
+    target_name = data.target_names[0]
+
+    h2o_data = h2o.H2OFrame(pd.DataFrame(np.hstack([data.data, data.target.reshape(-1, 1)]),
+                                        columns=feature_names + [target_name]))
+    h2o_data_train, h2o_data_test = h2o_data.split_frame(ratios=[0.8], seed=2023)
+
+    gbm_model = H2OGradientBoostingEstimator()
+    gbm_model.train(feature_names, target_name, training_frame=h2o_data_train)
+    
+
+
+Save Fitted Models
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+After that, you are able to extract the fitted model and save it for future use.
+
+.. jupyter-input::
+
+    mojo_file_path = gbm_model.save_mojo(path="./")
+
+
+
+Load and Register Fitted Models
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Now, we already have the fitted H2O model, and then we are able to load and register it into PiML workflow,using following scripts.
+
+.. jupyter-input::
+
+    from piml import Experiment
+    exp = Experiment(highcode_only=True)
+
+    imported_model = h2o.import_mojo(mojo_file_path)
+    pipeline = exp.make_pipeline(model=imported_model,
+                                 task_type="regression",
+                                 train_x=h2o_data_train[feature_names].as_data_frame().values,
+                                 train_y=h2o_data_train[target_name].as_data_frame().values.ravel(),
+                                 test_x=h2o_data_test[feature_names].as_data_frame().values,
+                                 test_y=h2o_data_test[target_name].as_data_frame().values.ravel(),
+                                 feature_names=feature_names,
+                                 target_name=target_name)
+    exp.register(pipeline, "H2O-GBM")
+
+Here, we need to transform the H2O dataframe into numpy format, and also provide the task_type, feature names and feature types.
+
+
+
+Run Diagnostic Tests
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+As a model is registered, then all the tests and explanation tools in PiML can be used. For example,
+
+.. jupyter-input::
+
+    exp.model_explain(model="H2O-GBM", show="pfi", figsize=(5, 4))
+
+.. figure:: ../../auto_examples/1_train/images/sphx_glr_plot_2_register_1_h2o_001.png
+   :target: ../../auto_examples/1_train/plot_2_register_1_h2o.html
+   :align: left
+
+
+
+Examples
+^^^^^^^^^^^^^^^^^^
+
+.. topic:: Example 1:
+
+ * :ref:`sphx_glr_auto_examples_1_train_plot_2_register_1_h2o.py`

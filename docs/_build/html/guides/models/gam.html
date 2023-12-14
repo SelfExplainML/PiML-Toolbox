@@ -143,12 +143,12 @@
                   </li>
                 
                   <li>
-                    <a href="../extmodels.html" class="">3. Black-box Models</a>
+                    <a href="../model_train.html" class="">3. Model Train and Tune</a>
                     
                   </li>
                 
                   <li>
-                    <a href="../explainability.html" class="">4. Post-hoc Explainability</a>
+                    <a href="../explain.html" class="">4. Post-hoc Explainability</a>
                     
                   </li>
                 
@@ -203,7 +203,7 @@
                   </li>
                 
                   <li>
-                    <a href="../comparison.html" class="">7. Model Comparison</a>
+                    <a href="../compare.html" class="">7. Model Comparison</a>
                     
                   </li>
                 
@@ -313,7 +313,7 @@
 </div>
 </div>
 <figure class="align-left">
-<a class="reference external image-reference" href="../../auto_examples/models/plot_1_gam_reg.html"><img alt="../../_images/sphx_glr_plot_1_gam_reg_001.png" src="../../_images/sphx_glr_plot_1_gam_reg_001.png" /></a>
+<a class="reference external image-reference" href="../../auto_examples/3_models/plot_1_gam_reg.html"><img alt="../../_images/sphx_glr_plot_1_gam_reg_001.png" src="../../_images/sphx_glr_plot_1_gam_reg_001.png" /></a>
 </figure>
 <p>The figure above shows the estimated shape functions for the feature <code class="docutils literal notranslate"><span class="pre">MedInc</span></code>, together with the histogram plot on the bottom. It can be observed that the estimated shape function is piecewise linear as the order of spline is set to 1. The estimated shape function is relatively flat for the large values of <code class="docutils literal notranslate"><span class="pre">MedInc</span></code>, while we observe a steep increase in the beginning. This suggests that the median house price is relatively stable for most values of <code class="docutils literal notranslate"><span class="pre">MedInc</span></code>, but there is a sharp increase in median house price for low values of MedInc (less than 9.2). This indicates that <code class="docutils literal notranslate"><span class="pre">MedInc</span></code> is an important predictor for predicting the median house price, especially for low-income areas.</p>
 </section>
@@ -330,7 +330,7 @@
 </div>
 </div>
 <figure class="align-left">
-<a class="reference external image-reference" href="../../auto_examples/models/plot_1_gam_reg.html"><img alt="../../_images/sphx_glr_plot_1_gam_reg_002.png" src="../../_images/sphx_glr_plot_1_gam_reg_002.png" /></a>
+<a class="reference external image-reference" href="../../auto_examples/3_models/plot_1_gam_reg.html"><img alt="../../_images/sphx_glr_plot_1_gam_reg_002.png" src="../../_images/sphx_glr_plot_1_gam_reg_002.png" /></a>
 </figure>
 <p>Due to space limitations, we display only the top 10 important features. To get the results of all features, you can manually set <code class="docutils literal notranslate"><span class="pre">return_data=True</span></code>, and then a data frame containing all features’ importance will be returned. From the plot above, we can see that the most important features are <code class="docutils literal notranslate"><span class="pre">Latitude</span></code> and <code class="docutils literal notranslate"><span class="pre">Longitude</span></code>, followed by <code class="docutils literal notranslate"><span class="pre">MedInc</span></code> and <code class="docutils literal notranslate"><span class="pre">AveOccup</span></code>.</p>
 </section>
@@ -348,7 +348,7 @@
 </div>
 </div>
 <figure class="align-left">
-<a class="reference external image-reference" href="../../auto_examples/models/plot_1_gam_reg.html"><img alt="../../_images/sphx_glr_plot_1_gam_reg_003.png" src="../../_images/sphx_glr_plot_1_gam_reg_003.png" /></a>
+<a class="reference external image-reference" href="../../auto_examples/3_models/plot_1_gam_reg.html"><img alt="../../_images/sphx_glr_plot_1_gam_reg_003.png" src="../../_images/sphx_glr_plot_1_gam_reg_003.png" /></a>
 </figure>
 <p>In this plot, the predicted value is 0.3804, while the actual response is 1.0. The bars represent the estimated effect values <span class="math notranslate nohighlight">\(\hat{f}_j(x)\)</span> of the chosen sample. The feature <code class="docutils literal notranslate"><span class="pre">Latitude</span></code> shows the largest positive contribution to the final prediction, while <code class="docutils literal notranslate"><span class="pre">MedInc</span></code>, <code class="docutils literal notranslate"><span class="pre">Longitude</span></code>, and  <code class="docutils literal notranslate"><span class="pre">AveOccup</span></code> all have negative contributions.
 Note that this plot only shows the top 10 features with the largest contribution. To get the full results, you can set the parameter <code class="docutils literal notranslate"><span class="pre">return_data</span></code> to True.</p>
@@ -361,7 +361,7 @@ Note that this plot only shows the top 10 features with the largest contribution
 <div><p>The example below demonstrates how to use PiML with its high-code APis for the California Housing dataset from the UCI repository, which consists of 20,640 samples and 9 features, fetched by <code class="docutils literal notranslate"><span class="pre">sklearn.datasets</span></code>. The response variable <code class="docutils literal notranslate"><span class="pre">MedHouseVal</span></code> (Median Home Value) is continuous and is a regression problem.</p>
 </div></blockquote>
 <ul class="simple">
-<li><p><a class="reference internal" href="../../auto_examples/models/plot_1_gam_reg.html#sphx-glr-auto-examples-models-plot-1-gam-reg-py"><span class="std std-ref">GAM Regression (California Housing)</span></a></p></li>
+<li><p><a class="reference internal" href="../../auto_examples/3_models/plot_1_gam_reg.html#sphx-glr-auto-examples-3-models-plot-1-gam-reg-py"><span class="std std-ref">GAM Regression (California Housing)</span></a></p></li>
 </ul>
 </div>
 <div class="topic">
@@ -370,7 +370,7 @@ Note that this plot only shows the top 10 features with the largest contribution
 <div><p>The example below demonstrates how to use PiML with the CoCircles data, which is a simulated binary classification data with two features exactly follow the GAM assumptions.</p>
 </div></blockquote>
 <ul class="simple">
-<li><p><a class="reference internal" href="../../auto_examples/models/plot_1_gam_cls.html#sphx-glr-auto-examples-models-plot-1-gam-cls-py"><span class="std std-ref">GAM Classification (CoCircles)</span></a></p></li>
+<li><p><a class="reference internal" href="../../auto_examples/3_models/plot_1_gam_cls.html#sphx-glr-auto-examples-3-models-plot-1-gam-cls-py"><span class="std std-ref">GAM Classification (CoCircles)</span></a></p></li>
 </ul>
 </div>
 </section>

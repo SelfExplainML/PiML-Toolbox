@@ -143,12 +143,12 @@
                   </li>
                 
                   <li>
-                    <a href="../extmodels.html" class="">3. Black-box Models</a>
+                    <a href="../model_train.html" class="">3. Model Train and Tune</a>
                     
                   </li>
                 
                   <li>
-                    <a href="../explainability.html" class="">4. Post-hoc Explainability</a>
+                    <a href="../explain.html" class="">4. Post-hoc Explainability</a>
                     
                   </li>
                 
@@ -190,12 +190,20 @@
                           <a href="fairness.html">6.7. Fairness</a>
                         </li>
                       
+                        <li class="sk-toctree-l3">
+                          <a href="segmented_diagnose.html">6.8. Segmented</a>
+                        </li>
+                      
+                        <li class="sk-toctree-l3">
+                          <a href="scored_test.html">6.9. Scored Test</a>
+                        </li>
+                      
                     </ul>
                     
                   </li>
                 
                   <li>
-                    <a href="../comparison.html" class="">7. Model Comparison</a>
+                    <a href="../compare.html" class="">7. Model Comparison</a>
                     
                   </li>
                 
@@ -304,7 +312,7 @@ To customize the resilience test, the following parameters can be specified:</p>
 </div>
 </div>
 <figure class="align-left">
-<a class="reference external image-reference" href="../../auto_examples/testing/plot_5_resilience_cls.html"><img alt="../../_images/sphx_glr_plot_5_resilience_cls_001.png" src="../../_images/sphx_glr_plot_5_resilience_cls_001.png" /></a>
+<a class="reference external image-reference" href="../../auto_examples/4_testing/plot_5_resilience_cls.html"><img alt="../../_images/sphx_glr_plot_5_resilience_cls_001.png" src="../../_images/sphx_glr_plot_5_resilience_cls_001.png" /></a>
 </figure>
 <ul class="simple">
 <li><p><strong>hard-sample</strong>: As the worst sample ratio decreases to less than 0.4, the AUC values hover around 0.5. This observation indicates that the model’s performance is comparable to that of a random classifier. However, as the worst sample ratio increases, there is a noticeable improvement in the model’s performance.</p></li>
@@ -320,7 +328,7 @@ To customize the resilience test, the following parameters can be specified:</p>
 </div>
 </div>
 <figure class="align-left">
-<a class="reference external image-reference" href="../../auto_examples/testing/plot_5_resilience_cls.html"><img alt="../../_images/sphx_glr_plot_5_resilience_cls_002.png" src="../../_images/sphx_glr_plot_5_resilience_cls_002.png" /></a>
+<a class="reference external image-reference" href="../../auto_examples/4_testing/plot_5_resilience_cls.html"><img alt="../../_images/sphx_glr_plot_5_resilience_cls_002.png" src="../../_images/sphx_glr_plot_5_resilience_cls_002.png" /></a>
 </figure>
 <ul class="simple">
 <li><p><strong>outer-sample</strong>: Based on the observed plot, it is evident that even in the worst-10% test sample scenario, the model demonstrates relatively good performance, achieving an AUC above 0.7. Interestingly, the model’s performance reaches its peak around the worst sample ratio of approximately 0.7, after which it gradually declines. This trend could be attributed to the nature of the scenario being unsupervised. In such cases, the samples identified as “worst” may not consistently exhibit the worst performance across all instances. It is plausible that in some cases, these “worst samples” may actually outperform the remaining test sample set.</p></li>
@@ -337,7 +345,7 @@ To customize the resilience test, the following parameters can be specified:</p>
 </div>
 </div>
 <figure class="align-left">
-<a class="reference external image-reference" href="../../auto_examples/testing/plot_5_resilience_cls.html"><img alt="../../_images/sphx_glr_plot_5_resilience_cls_003.png" src="../../_images/sphx_glr_plot_5_resilience_cls_003.png" /></a>
+<a class="reference external image-reference" href="../../auto_examples/4_testing/plot_5_resilience_cls.html"><img alt="../../_images/sphx_glr_plot_5_resilience_cls_003.png" src="../../_images/sphx_glr_plot_5_resilience_cls_003.png" /></a>
 </figure>
 <ul class="simple">
 <li><p><strong>worst-cluster</strong>: The last scenario, known as the “worst-cluster” method, introduces a slight variation compared to the previous methods. In this method, the x-axis of the plot represents the number of clusters, ranging from 1 to 10. The approach involves adjusting the value of <span class="math notranslate nohighlight">\(K\)</span> in the K-means algorithm and identifying the worst cluster as the worst sample. The worst cluster is determined based on the lowest performance metric observed within the clusters. It is important to note that when <span class="math notranslate nohighlight">\(K=1\)</span>, it represents the entire test sample as a single cluster.</p></li>
@@ -353,7 +361,7 @@ To customize the resilience test, the following parameters can be specified:</p>
 </div>
 </div>
 <figure class="align-left">
-<a class="reference external image-reference" href="../../auto_examples/testing/plot_5_resilience_cls.html"><img alt="../../_images/sphx_glr_plot_5_resilience_cls_004.png" src="../../_images/sphx_glr_plot_5_resilience_cls_004.png" /></a>
+<a class="reference external image-reference" href="../../auto_examples/4_testing/plot_5_resilience_cls.html"><img alt="../../_images/sphx_glr_plot_5_resilience_cls_004.png" src="../../_images/sphx_glr_plot_5_resilience_cls_004.png" /></a>
 </figure>
 </section>
 <section id="resilience-distance">
@@ -371,7 +379,7 @@ To customize the resilience test, the following parameters can be specified:</p>
 </div>
 </div>
 <figure class="align-left">
-<a class="reference external image-reference" href="../../auto_examples/testing/plot_5_resilience_cls.html"><img alt="../../_images/sphx_glr_plot_5_resilience_cls_005.png" src="../../_images/sphx_glr_plot_5_resilience_cls_005.png" /></a>
+<a class="reference external image-reference" href="../../auto_examples/4_testing/plot_5_resilience_cls.html"><img alt="../../_images/sphx_glr_plot_5_resilience_cls_005.png" src="../../_images/sphx_glr_plot_5_resilience_cls_005.png" /></a>
 </figure>
 <p>In the second example, we still use the same setting, but with <code class="docutils literal notranslate"><span class="pre">immu_feature</span></code> not None. By conditioning on  <code class="docutils literal notranslate"><span class="pre">PAY_1</span></code>, we recalculate the resilience distance. It can be found that the PSI distance of that immutable feature becomes much smaller.</p>
 <div class="jupyter_cell jupyter_container docutils container">
@@ -385,7 +393,7 @@ To customize the resilience test, the following parameters can be specified:</p>
 </div>
 </div>
 <figure class="align-left">
-<a class="reference external image-reference" href="../../auto_examples/testing/plot_5_resilience_cls.html"><img alt="../../_images/sphx_glr_plot_5_resilience_cls_006.png" src="../../_images/sphx_glr_plot_5_resilience_cls_006.png" /></a>
+<a class="reference external image-reference" href="../../auto_examples/4_testing/plot_5_resilience_cls.html"><img alt="../../_images/sphx_glr_plot_5_resilience_cls_006.png" src="../../_images/sphx_glr_plot_5_resilience_cls_006.png" /></a>
 </figure>
 <p>The third example shows the resilience distance plot for the “worst-cluster” scenario. The <code class="docutils literal notranslate"><span class="pre">n_clusters</span></code> is set to 10, and the <code class="docutils literal notranslate"><span class="pre">distance_metrics</span></code> is set to “WD1”. The plot suggests the variable <code class="docutils literal notranslate"><span class="pre">Pay_1</span></code> has the largest WD1 (0.12), which is usually thought of as a moderate distribution change.</p>
 <div class="jupyter_cell jupyter_container docutils container">
@@ -399,7 +407,7 @@ To customize the resilience test, the following parameters can be specified:</p>
 </div>
 </div>
 <figure class="align-left">
-<a class="reference external image-reference" href="../../auto_examples/testing/plot_5_resilience_cls.html"><img alt="../../_images/sphx_glr_plot_5_resilience_cls_007.png" src="../../_images/sphx_glr_plot_5_resilience_cls_007.png" /></a>
+<a class="reference external image-reference" href="../../auto_examples/4_testing/plot_5_resilience_cls.html"><img alt="../../_images/sphx_glr_plot_5_resilience_cls_007.png" src="../../_images/sphx_glr_plot_5_resilience_cls_007.png" /></a>
 </figure>
 </section>
 <section id="marginal-density-comparison">
@@ -416,7 +424,7 @@ To customize the resilience test, the following parameters can be specified:</p>
 </div>
 </div>
 <figure class="align-left">
-<a class="reference external image-reference" href="../../auto_examples/testing/plot_5_resilience_cls.html"><img alt="../../_images/sphx_glr_plot_5_resilience_cls_008.png" src="../../_images/sphx_glr_plot_5_resilience_cls_008.png" /></a>
+<a class="reference external image-reference" href="../../auto_examples/4_testing/plot_5_resilience_cls.html"><img alt="../../_images/sphx_glr_plot_5_resilience_cls_008.png" src="../../_images/sphx_glr_plot_5_resilience_cls_008.png" /></a>
 </figure>
 </section>
 <section id="marginal-histogram-comparison">
@@ -433,7 +441,7 @@ To customize the resilience test, the following parameters can be specified:</p>
 </div>
 </div>
 <figure class="align-left">
-<a class="reference external image-reference" href="../../auto_examples/testing/plot_5_resilience_cls.html"><img alt="../../_images/sphx_glr_plot_5_resilience_cls_009.png" src="../../_images/sphx_glr_plot_5_resilience_cls_009.png" /></a>
+<a class="reference external image-reference" href="../../auto_examples/4_testing/plot_5_resilience_cls.html"><img alt="../../_images/sphx_glr_plot_5_resilience_cls_009.png" src="../../_images/sphx_glr_plot_5_resilience_cls_009.png" /></a>
 </figure>
 </section>
 </section>
@@ -444,7 +452,7 @@ To customize the resilience test, the following parameters can be specified:</p>
 <p>The example below demonstrates how to use PiML with its high-code APis for the California Housing dataset from the UCI repository, which consists of 20,640 samples and 9 features, fetched by sklearn.datasets. The response variable MedHouseVal (Median Home Value) is continuous and is a regression problem.</p>
 <blockquote>
 <div><ul class="simple">
-<li><p><a class="reference internal" href="../../auto_examples/testing/plot_5_resilience_reg.html#sphx-glr-auto-examples-testing-plot-5-resilience-reg-py"><span class="std std-ref">Resilience - Regression</span></a></p></li>
+<li><p><a class="reference internal" href="../../auto_examples/4_testing/plot_5_resilience_reg.html#sphx-glr-auto-examples-4-testing-plot-5-resilience-reg-py"><span class="std std-ref">Resilience - Regression</span></a></p></li>
 </ul>
 </div></blockquote>
 </div>
@@ -452,7 +460,7 @@ To customize the resilience test, the following parameters can be specified:</p>
 <p class="topic-title">Examples 2: Taiwan Credit</p>
 <p>The second example below demonstrates how to use PiML’s high-code APIs for the TaiwanCredit dataset from the UCI repository. This dataset comprises the credit card details of 30,000 clients in Taiwan from April 2005 to September 2005, and more information can be found on the TaiwanCreditData website. The <code class="docutils literal notranslate"><span class="pre">FlagDefault</span></code> variable serves as the response for this classification problem.</p>
 <ul class="simple">
-<li><p><a class="reference internal" href="../../auto_examples/testing/plot_5_resilience_cls.html#sphx-glr-auto-examples-testing-plot-5-resilience-cls-py"><span class="std std-ref">Resilience:  Classification</span></a></p></li>
+<li><p><a class="reference internal" href="../../auto_examples/4_testing/plot_5_resilience_cls.html#sphx-glr-auto-examples-4-testing-plot-5-resilience-cls-py"><span class="std std-ref">Resilience:  Classification</span></a></p></li>
 </ul>
 </div>
 </section>

@@ -115,8 +115,8 @@
             </a>
           </div>
           <!--div class="btn-group w-100 mb-2" role="group" aria-label="rellinks">
-              <a href="pdp.html" role="button" class="btn sk-btn-rellink py-1" sk-rellink-tooltip="4.1.2. PDP (Partial Dependence Plot)">Prev</a><a href="../explainability.html" role="button" class="btn sk-btn-rellink py-1" sk-rellink-tooltip="4. Post-hoc Explainability">Up</a>
-              <a href="ale.html" role="button" class="btn sk-btn-rellink py-1" sk-rellink-tooltip="4.1.4. ALE (Accumulated Local Effects)">Next</a>
+              <a href="hstats.html" role="button" class="btn sk-btn-rellink py-1" sk-rellink-tooltip="4.3. Hstats (Friedman’s H-statistic)">Prev</a><a href="../explain.html" role="button" class="btn sk-btn-rellink py-1" sk-rellink-tooltip="4. Post-hoc Explainability">Up</a>
+              <a href="ale.html" role="button" class="btn sk-btn-rellink py-1" sk-rellink-tooltip="4.5. ALE (Accumulated Local Effects)">Next</a>
           </div-->
               <div class="sk-sidebar-toc">
               
@@ -143,12 +143,44 @@
                   </li>
                 
                   <li>
-                    <a href="../extmodels.html" class="">3. Black-box Models</a>
+                    <a href="../model_train.html" class="">3. Model Train and Tune</a>
                     
                   </li>
                 
                   <li>
-                    <a href="../explainability.html" class="sk-toc-active">4. Post-hoc Explainability</a>
+                    <a href="../explain.html" class="sk-toc-active">4. Post-hoc Explainability</a>
+                    
+                    <ul>
+                      
+                        <li class="sk-toctree-l3">
+                          <a href="pfi.html">4.1. PFI (Permutation Feature Importance)</a>
+                        </li>
+                      
+                        <li class="sk-toctree-l3">
+                          <a href="pdp.html">4.2. PDP (Partial Dependence Plot)</a>
+                        </li>
+                      
+                        <li class="sk-toctree-l3">
+                          <a href="hstats.html">4.3. Hstats (Friedman’s H-statistic)</a>
+                        </li>
+                      
+                        <li class="sk-toctree-l3">
+                          <a href="">4.4. ICE (Individual Conditional Expectation)</a>
+                        </li>
+                      
+                        <li class="sk-toctree-l3">
+                          <a href="ale.html">4.5. ALE (Accumulated Local Effects)</a>
+                        </li>
+                      
+                        <li class="sk-toctree-l3">
+                          <a href="lime.html">4.6. LIME (Local Interpretable Model-Agnostic Explanation)</a>
+                        </li>
+                      
+                        <li class="sk-toctree-l3">
+                          <a href="shap.html">4.7. SHAP (SHapley Additive exPlanations)</a>
+                        </li>
+                      
+                    </ul>
                     
                   </li>
                 
@@ -163,7 +195,7 @@
                   </li>
                 
                   <li>
-                    <a href="../comparison.html" class="">7. Model Comparison</a>
+                    <a href="../compare.html" class="">7. Model Comparison</a>
                     
                   </li>
                 
@@ -215,10 +247,10 @@
   }
 
 </style><section id="ice-individual-conditional-expectation">
-<h1><span class="section-number">4.1.3. </span>ICE (Individual Conditional Expectation)<a class="headerlink" href="#ice-individual-conditional-expectation" title="Permalink to this heading">¶</a></h1>
+<h1><span class="section-number">4.4. </span>ICE (Individual Conditional Expectation)<a class="headerlink" href="#ice-individual-conditional-expectation" title="Permalink to this heading">¶</a></h1>
 <p>Individual Conditional Expectation (ICE) plots <a class="reference internal" href="#alex2015" id="id1"><span>[Alex2015]</span></a> and PDPs both visualize the relationship between a feature of interest and the predicted response. However, ICE plots focus on the dependence of the predicted response on the feature for each instance, while PDPs show the average effect of the feature on the response across all instances in the dataset.</p>
 <section id="algorithm-details">
-<h2><span class="section-number">4.1.3.1. </span>Algorithm Details<a class="headerlink" href="#algorithm-details" title="Permalink to this heading">¶</a></h2>
+<h2><span class="section-number">4.4.1. </span>Algorithm Details<a class="headerlink" href="#algorithm-details" title="Permalink to this heading">¶</a></h2>
 <p>Let <span class="math notranslate nohighlight">\(X\)</span> represent the set of input features of a predictor function, and <span class="math notranslate nohighlight">\(\hat{f}\)</span> be a fitted model to be explained. We partition <span class="math notranslate nohighlight">\(X\)</span> into two sets, i.e., <span class="math notranslate nohighlight">\(X_{S}\)</span> (features of interest) and its complement <span class="math notranslate nohighlight">\(X_{C}\)</span>. To be specific, an ICE plot for a feature <span class="math notranslate nohighlight">\(x_{S}\)</span> and an instance <span class="math notranslate nohighlight">\(i\)</span> can be defined as:</p>
 <p>Let <span class="math notranslate nohighlight">\(X\)</span> denote the set of input features for a predictor function, and <span class="math notranslate nohighlight">\(\hat{f}\)</span> be a fitted model that needs to be explained. We partition <span class="math notranslate nohighlight">\(X\)</span> into two subsets, namely <span class="math notranslate nohighlight">\(X_{S}\)</span> (the features of interest) and its complement <span class="math notranslate nohighlight">\(X_{C}\)</span>. Specifically, an ICE plot for a feature <span class="math notranslate nohighlight">\(x_{S}\)</span> and an instance <span class="math notranslate nohighlight">\(i\)</span> is defined as follows:</p>
 <div class="math notranslate nohighlight">
@@ -232,8 +264,16 @@
 </div>
 </section>
 <section id="usage">
-<h2><span class="section-number">4.1.3.2. </span>Usage<a class="headerlink" href="#usage" title="Permalink to this heading">¶</a></h2>
-<p>Below we still use a fitted XGB2 model on the BikeSharing dataset for illustration. The code snippet below provides an example of how to generate an ICE plot using PiML. The <code class="docutils literal notranslate"><span class="pre">show</span></code> parameter is set to “global_ice”, while the <code class="docutils literal notranslate"><span class="pre">uni_feature</span></code> parameter is set to “hr”. This configuration will produce a line plot, with each line representing an instance in the dataset. The plot shows how the predicted response varies when the value of “hr” changes, while all other features remain constant. By examining the individual lines in the ICE plot, we can better understand how the model makes predictions for each instance in the dataset. We can also identify any patterns or interactions that may be relevant to our analysis.</p>
+<h2><span class="section-number">4.4.2. </span>Usage<a class="headerlink" href="#usage" title="Permalink to this heading">¶</a></h2>
+<p>Below we still use a fitted XGB2 model on the BikeSharing dataset for illustration. The <code class="docutils literal notranslate"><span class="pre">show</span></code> parameter needs to be “global_ice”, and the following parameters are also related to ICE plots:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">uni_feature</span></code>: The name of the feature of interest for one-way ICE.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">use_test</span></code>: If True, the test data will be used to generate the explanations. Otherwise, the training data will be used. The default value is False.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">sample_size</span></code>: To speed up the computation, we subsample a subset of the data to calculate ICE. The default value is 2000. To use the full data, you can set <code class="docutils literal notranslate"><span class="pre">sample_size</span></code> to be larger than the number of samples in the data.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">grid_size</span></code>: The number of grid points in ICE. The default value is 100 for 1D ICE.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">response_method</span></code>: For binary classification tasks, the ICE is computed by default using the predicted probability instead of log odds; If the model does not have “predict_proba” or we set <code class="docutils literal notranslate"><span class="pre">response_method</span></code> to “decision_function”, then the log odds would be used as the response.</p></li>
+</ul>
+<p>The code snippet below provides an example of how to generate an ICE plot using PiML. The <code class="docutils literal notranslate"><span class="pre">uni_feature</span></code> parameter is set to “hr”. This configuration will produce a line plot, with each line representing an instance in the dataset. The plot shows how the predicted response varies when the value of “hr” changes, while all other features remain constant. By examining the individual lines in the ICE plot, we can better understand how the model makes predictions for each instance in the dataset. We can also identify any patterns or interactions that may be relevant to our analysis.</p>
 <div class="jupyter_cell jupyter_container docutils container">
 <div class="cell_input code_cell docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">exp</span><span class="o">.</span><span class="n">model_explain</span><span class="p">(</span><span class="n">model</span><span class="o">=</span><span class="s2">&quot;XGB2&quot;</span><span class="p">,</span> <span class="n">show</span><span class="o">=</span><span class="s2">&quot;ice&quot;</span><span class="p">,</span> <span class="n">uni_feature</span><span class="o">=</span><span class="s2">&quot;hr&quot;</span><span class="p">,</span> <span class="n">original_scale</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">6</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
@@ -244,26 +284,26 @@
 </div>
 </div>
 <figure class="align-left">
-<a class="reference external image-reference" href="../../auto_examples/explain/plot_2_ice.html"><img alt="../../_images/sphx_glr_plot_2_ice_001.png" src="../../_images/sphx_glr_plot_2_ice_001.png" /></a>
+<a class="reference external image-reference" href="../../auto_examples/2_explain/plot_2_ice.html"><img alt="../../_images/sphx_glr_plot_2_ice_001.png" src="../../_images/sphx_glr_plot_2_ice_001.png" /></a>
 </figure>
 <p>From the plot, we observe a similar pattern as the value of <code class="docutils literal notranslate"><span class="pre">hr</span></code> increases for all instances, which is also consistent with the PDP plot generated in the previous section. The predicted values are generally lower when <code class="docutils literal notranslate"><span class="pre">hr</span></code> is less than 4.6. For values of <code class="docutils literal notranslate"><span class="pre">hr</span></code> between 4.6 and 8.3, and between 10 and 18, most of the instances record an increase in prediction as the value of <code class="docutils literal notranslate"><span class="pre">hr</span></code> increases. Apart from that, we also observe that the bandwidth of the predicted response is much larger as <code class="docutils literal notranslate"><span class="pre">hr</span></code> is greater than around 9. This indicates that the rest variables have more contributions to the final prediction during that period of the day.</p>
 </section>
 <section id="examples">
-<h2><span class="section-number">4.1.3.3. </span>Examples<a class="headerlink" href="#examples" title="Permalink to this heading">¶</a></h2>
+<h2><span class="section-number">4.4.3. </span>Examples<a class="headerlink" href="#examples" title="Permalink to this heading">¶</a></h2>
 <div class="topic">
 <p class="topic-title">Example 1: Bike Sharing</p>
 <blockquote>
 <div><p>The first example below demonstrates how to use PiML with its high-code APIs for developing machine learning models for the BikeSharing data from the UCI repository, which consists of 17,389 samples of hourly counts of rental bikes in Capital bikeshare system; see details. The response <code class="docutils literal notranslate"><span class="pre">cnt</span></code> (hourly bike rental counts) is continuous and it is a regression problem.</p>
 </div></blockquote>
 <ul class="simple">
-<li><p><a class="reference internal" href="../../auto_examples/explain/plot_2_ice.html#sphx-glr-auto-examples-explain-plot-2-ice-py"><span class="std std-ref">Individual Conditional Expectation</span></a></p></li>
+<li><p><a class="reference internal" href="../../auto_examples/2_explain/plot_2_ice.html#sphx-glr-auto-examples-2-explain-plot-2-ice-py"><span class="std std-ref">Individual Conditional Expectation</span></a></p></li>
 </ul>
 </div>
 <div class="topic">
 <p class="topic-title">Example 2: SimuCredit</p>
 <p>The second example shows the option to use test set to generate the explanations.</p>
 <ul class="simple">
-<li><p><a class="reference internal" href="../../auto_examples/explain/plot_6_data_dependent_explain.html#sphx-glr-auto-examples-explain-plot-6-data-dependent-explain-py"><span class="std std-ref">Data Dependent Explanation</span></a></p></li>
+<li><p><a class="reference internal" href="../../auto_examples/2_explain/plot_6_data_dependent_explain.html#sphx-glr-auto-examples-2-explain-plot-6-data-dependent-explain-py"><span class="std std-ref">Data Dependent Explanation</span></a></p></li>
 </ul>
 </div>
 <div class="topic">

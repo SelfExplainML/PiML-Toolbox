@@ -116,7 +116,7 @@
           </div>
           <!--div class="btn-group w-100 mb-2" role="group" aria-label="rellinks">
               <a href="resilience.html" role="button" class="btn sk-btn-rellink py-1" sk-rellink-tooltip="6.6. Resilience">Prev</a><a href="../testing.html" role="button" class="btn sk-btn-rellink py-1" sk-rellink-tooltip="6. Diagnostic Suite">Up</a>
-              <a href="../comparison.html" role="button" class="btn sk-btn-rellink py-1" sk-rellink-tooltip="7. Model Comparison">Next</a>
+              <a href="segmented_diagnose.html" role="button" class="btn sk-btn-rellink py-1" sk-rellink-tooltip="6.8. Segmented">Next</a>
           </div-->
               <div class="sk-sidebar-toc">
               
@@ -143,12 +143,12 @@
                   </li>
                 
                   <li>
-                    <a href="../extmodels.html" class="">3. Black-box Models</a>
+                    <a href="../model_train.html" class="">3. Model Train and Tune</a>
                     
                   </li>
                 
                   <li>
-                    <a href="../explainability.html" class="">4. Post-hoc Explainability</a>
+                    <a href="../explain.html" class="">4. Post-hoc Explainability</a>
                     
                   </li>
                 
@@ -190,12 +190,20 @@
                           <a href="">6.7. Fairness</a>
                         </li>
                       
+                        <li class="sk-toctree-l3">
+                          <a href="segmented_diagnose.html">6.8. Segmented</a>
+                        </li>
+                      
+                        <li class="sk-toctree-l3">
+                          <a href="scored_test.html">6.9. Scored Test</a>
+                        </li>
+                      
                     </ul>
                     
                   </li>
                 
                   <li>
-                    <a href="../comparison.html" class="">7. Model Comparison</a>
+                    <a href="../compare.html" class="">7. Model Comparison</a>
                     
                   </li>
                 
@@ -290,7 +298,7 @@ Recall Ratio = \frac{(TP_{p}) / (TP_{p}+FN_{p})}{(TP_{r}) / (TP_{r}+FN_{r})}.
 </div>
 </div>
 <figure class="align-center">
-<a class="reference external image-reference" href="../../auto_examples/testing/plot_6_fairness.html"><img alt="../../_images/sphx_glr_plot_6_fairness_001.png" src="../../_images/sphx_glr_plot_6_fairness_001.png" /></a>
+<a class="reference external image-reference" href="../../auto_examples/4_testing/plot_6_fairness.html"><img alt="../../_images/sphx_glr_plot_6_fairness_001.png" src="../../_images/sphx_glr_plot_6_fairness_001.png" /></a>
 </figure>
 <p>where “metrics” is the keyword for the parameter <code class="docutils literal notranslate"><span class="pre">show</span></code>. The <code class="docutils literal notranslate"><span class="pre">metric</span></code> parameter defines the fairness metric for evaluation. You also need to set the protected group and the reference group by the parameters <code class="docutils literal notranslate"><span class="pre">group_category</span></code>, <code class="docutils literal notranslate"><span class="pre">reference_group</span></code>, and <code class="docutils literal notranslate"><span class="pre">protected_group</span></code>. In the example above, we create two reference - protected group pairs:</p>
 <ul class="simple">
@@ -327,7 +335,7 @@ Recall Ratio = \frac{(TP_{p}) / (TP_{p}+FN_{p})}{(TP_{r}) / (TP_{r}+FN_{r})}.
 </div>
 </div>
 <figure class="align-center">
-<a class="reference external image-reference" href="../../auto_examples/testing/plot_6_fairness.html"><img alt="../../_images/sphx_glr_plot_6_fairness_002.png" src="../../_images/sphx_glr_plot_6_fairness_002.png" /></a>
+<a class="reference external image-reference" href="../../auto_examples/4_testing/plot_6_fairness.html"><img alt="../../_images/sphx_glr_plot_6_fairness_002.png" src="../../_images/sphx_glr_plot_6_fairness_002.png" /></a>
 </figure>
 <p>In this example, the segmentation feature is <code class="docutils literal notranslate"><span class="pre">Balance</span></code> and the number of bins is 5. If <code class="docutils literal notranslate"><span class="pre">return_data</span></code> is true, the following results would be returned:</p>
 <blockquote>
@@ -365,7 +373,7 @@ Recall Ratio = \frac{(TP_{p}) / (TP_{p}+FN_{p})}{(TP_{r}) / (TP_{r}+FN_{r})}.
 </div>
 </div>
 <figure class="align-center">
-<a class="reference external image-reference" href="../../auto_examples/testing/plot_6_fairness.html"><img alt="../../_images/sphx_glr_plot_6_fairness_003.png" src="../../_images/sphx_glr_plot_6_fairness_003.png" /></a>
+<a class="reference external image-reference" href="../../auto_examples/4_testing/plot_6_fairness.html"><img alt="../../_images/sphx_glr_plot_6_fairness_003.png" src="../../_images/sphx_glr_plot_6_fairness_003.png" /></a>
 </figure>
 <p>If <code class="docutils literal notranslate"><span class="pre">return_data</span></code> is true, the output results include:</p>
 <blockquote>
@@ -392,7 +400,7 @@ Recall Ratio = \frac{(TP_{p}) / (TP_{p}+FN_{p})}{(TP_{r}) / (TP_{r}+FN_{r})}.
 </div>
 </div>
 <figure class="align-center">
-<a class="reference external image-reference" href="../../auto_examples/testing/plot_6_fairness.html"><img alt="../../_images/sphx_glr_plot_6_fairness_004.png" src="../../_images/sphx_glr_plot_6_fairness_004.png" /></a>
+<a class="reference external image-reference" href="../../auto_examples/4_testing/plot_6_fairness.html"><img alt="../../_images/sphx_glr_plot_6_fairness_004.png" src="../../_images/sphx_glr_plot_6_fairness_004.png" /></a>
 </figure>
 <p>The <code class="docutils literal notranslate"><span class="pre">favorable_threshold</span></code> is the classification threshold value, which controls the dashed line position in the plots. The two y axes are controlled by <code class="docutils literal notranslate"><span class="pre">metric</span></code> and <code class="docutils literal notranslate"><span class="pre">performance_metric</span></code>, respectively. If <code class="docutils literal notranslate"><span class="pre">return_data</span></code> is true, the output results include:</p>
 <ul class="simple">
@@ -406,7 +414,7 @@ Recall Ratio = \frac{(TP_{p}) / (TP_{p}+FN_{p})}{(TP_{r}) / (TP_{r}+FN_{r})}.
 <div class="topic">
 <p class="topic-title">Example</p>
 <ul class="simple">
-<li><p><a class="reference internal" href="../../auto_examples/testing/plot_6_fairness.html#sphx-glr-auto-examples-testing-plot-6-fairness-py"><span class="std std-ref">Fairness Test: XGB2</span></a></p></li>
+<li><p><a class="reference internal" href="../../auto_examples/4_testing/plot_6_fairness.html#sphx-glr-auto-examples-4-testing-plot-6-fairness-py"><span class="std std-ref">Fairness Test: XGB2</span></a></p></li>
 </ul>
 </div>
 </section>

@@ -151,7 +151,6 @@
 <li><a class="reference internal" href="#piml.Experiment.model_tune"><code class="docutils literal notranslate"><span class="pre">Experiment.model_tune</span></code></a></li>
 <li><a class="reference internal" href="#piml.Experiment.register"><code class="docutils literal notranslate"><span class="pre">Experiment.register</span></code></a></li>
 <li><a class="reference internal" href="#piml.Experiment.segmented_diagnose"><code class="docutils literal notranslate"><span class="pre">Experiment.segmented_diagnose</span></code></a></li>
-<li><a class="reference internal" href="#piml.Experiment.twosample_test"><code class="docutils literal notranslate"><span class="pre">Experiment.twosample_test</span></code></a></li>
 </ul>
 </li>
 <li><a class="reference internal" href="#examples-using-piml-experiment">Examples using <code class="docutils literal notranslate"><span class="pre">piml.Experiment</span></code></a></li>
@@ -279,9 +278,6 @@ If True, then the css ingestion is disabled, and low-code interface may look bad
 <tr class="row-even"><td><p><a class="reference internal" href="#piml.Experiment.segmented_diagnose" title="piml.Experiment.segmented_diagnose"><code class="xref py py-obj docutils literal notranslate"><span class="pre">segmented_diagnose</span></code></a>([show, model, ...])</p></td>
 <td><p>Test model performance using various diagnostic tools after bucketing.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#piml.Experiment.twosample_test" title="piml.Experiment.twosample_test"><code class="xref py py-obj docutils literal notranslate"><span class="pre">twosample_test</span></code></a>([distance_metric, ...])</p></td>
-<td><p>Test the distributional difference of train_x and test_x.</p></td>
-</tr>
 </tbody>
 </table>
 <dl class="py method">
@@ -382,7 +378,7 @@ If None, it will be False.</p>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="piml.Experiment.data_quality">
-<span class="sig-name descname"><span class="pre">data_quality</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">method</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dataset</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">show</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">unicode</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">threshold</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Union</span><span class="p"><span class="pre">[</span></span><span class="pre">float</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">list</span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">remove_outliers</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">distance_metric</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">unicode</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">return_data</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">figsize</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">tuple</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#piml.Experiment.data_quality" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">data_quality</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">method</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dataset</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">show</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">unicode</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">threshold</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Union</span><span class="p"><span class="pre">[</span></span><span class="pre">float</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">list</span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">remove_outliers</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">distance_metric</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">unicode</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">psi_buckets</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">unicode</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">show_feature</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">unicode</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">return_data</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">figsize</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">tuple</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#piml.Experiment.data_quality" title="Permalink to this definition">¶</a></dt>
 <dd><p>Check the data quality and remove outliers.</p>
 <p>Note that this method requires to execute data_prepare first.</p>
 <ul class="simple">
@@ -451,6 +447,12 @@ If None, it will be ‘PSI’.</p>
 <li><p>‘KS’: Kolmogorov-Smirnov test.</p></li>
 </ul>
 </dd>
+<dt><strong>psi_buckets</strong><span class="classifier">{‘uniform’, ‘quantile’}, default=None</span></dt><dd><p>Bucketing strategy for PSI metric in data drift test.
+If None, it will be ‘uniform’.</p>
+</dd>
+<dt><strong>show_feature</strong><span class="classifier">str, default=None</span></dt><dd><p>Feature for distribution plot.
+If None, will show distance metric scores of each feature.</p>
+</dd>
 <dt><strong>return_data</strong><span class="classifier">bool, default=None</span></dt><dd><p>Whether to return data.</p>
 </dd>
 <dt><strong>figsize</strong><span class="classifier">tuple, default=None</span></dt><dd><p>Figure size.</p>
@@ -486,7 +488,7 @@ If None, it will be False.</p>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="piml.Experiment.eda">
-<span class="sig-name descname"><span class="pre">eda</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">show</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">unicode</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">uni_feature</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">unicode</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">bi_features</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">List</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">multi_type</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">unicode</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">return_data</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">figsize</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Tuple</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#piml.Experiment.eda" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">eda</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">show</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">unicode</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">uni_feature</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">unicode</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">bi_features</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">List</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">multi_features</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">List</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">multi_type</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">unicode</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">return_data</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">figsize</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Tuple</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#piml.Experiment.eda" title="Permalink to this definition">¶</a></dt>
 <dd><p>Run exploratory data analysis.</p>
 <p>If no parameter is passed into the method, the program will run in low code mode, otherwise high code mode.</p>
 <p>It uses all the raw data (after excluding the columns in data_summary) as input, and the results would not be impacted by data_prepare, data_quality, and feature_select.</p>
@@ -498,6 +500,9 @@ If None, it will be False.</p>
 <dt><strong>uni_feature</strong><span class="classifier">str, default=None</span></dt><dd><p>Feature name for ‘univariate’ plot, used when <code class="docutils literal notranslate"><span class="pre">show</span></code> = ‘univariate’.</p>
 </dd>
 <dt><strong>bi_features</strong><span class="classifier">list, default=None</span></dt><dd><p>Feature names for ‘bivariate’ plot, used when <code class="docutils literal notranslate"><span class="pre">show</span></code> = ‘bivariate’.</p>
+</dd>
+<dt><strong>multi_features</strong><span class="classifier">list, default=None</span></dt><dd><p>Feature names for ‘multivariate’ plot, used when <code class="docutils literal notranslate"><span class="pre">show</span></code> = ‘multivariate’.
+If None, then all the features will be used in the correlation plot.</p>
 </dd>
 <dt><strong>multi_type</strong><span class="classifier">{‘correlation_heatmap’, ‘correlation_graph’}, default=None</span></dt><dd><p>Plot type of ‘multivariate’ correlation plot, used when <code class="docutils literal notranslate"><span class="pre">show</span></code> = ‘multivariate’.
 If None, it will be ‘correlation_heatmap’.</p>
@@ -1855,135 +1860,13 @@ If None, it will be (8, 6).</p>
 </dl>
 </dd></dl>
 
-<dl class="py method">
-<dt class="sig sig-object py" id="piml.Experiment.twosample_test">
-<span class="sig-name descname"><span class="pre">twosample_test</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">distance_metric</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">unicode</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">psi_buckets</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">unicode</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">show_feature</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Union</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">int</span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">return_data</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">figsize</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Tuple</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#piml.Experiment.twosample_test" title="Permalink to this definition">¶</a></dt>
-<dd><p>Test the distributional difference of train_x and test_x.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><dl class="simple">
-<dt><strong>distance_metric</strong><span class="classifier">{‘PSI’, ‘WD1’, ‘KS’}, default=None</span></dt><dd><p>The distance metric between two distributions.
-If None, it will be ‘PSI’.</p>
-<ul class="simple">
-<li><p>‘PSI’: Population stability index.</p></li>
-<li><p>‘WD1’: Wasserstein distance (1D).</p></li>
-<li><p>‘KS’: Kolmogorov-Smirnov test.</p></li>
-</ul>
-</dd>
-<dt><strong>psi_buckets</strong><span class="classifier">{‘uniform’, ‘quantile’}, default=None</span></dt><dd><p>Bucketing strategy for PSI metric.
-If None, it will be ‘uniform’.</p>
-</dd>
-<dt><strong>show_feature</strong><span class="classifier">Union[str, int], default=None</span></dt><dd><p>Feature for distribution plot, can be string (feature’s name) or int (feature’s index).
-If None, will show distance metric scores of each feature.</p>
-</dd>
-<dt><strong>return_data</strong><span class="classifier">bool, default=None</span></dt><dd><p>Indicator for return result data.
-If None, it will be False.</p>
-</dd>
-<dt><strong>figsize</strong><span class="classifier">tuple, default=None</span></dt><dd><p>Figure size of the plot.
-If None, it will be (8, 6).</p>
-</dd>
-</dl>
-</dd>
-</dl>
-</dd></dl>
-
 </dd></dl>
 
 <section id="examples-using-piml-experiment">
 <h2>Examples using <code class="docutils literal notranslate"><span class="pre">piml.Experiment</span></code><a class="headerlink" href="#examples-using-piml-experiment" title="Permalink to this heading">¶</a></h2>
-<div class="sphx-glr-thumbnails"><div class="sphx-glr-thumbcontainer" tooltip="Data Load (Built-in Dataset)"><img alt="" src="../../_images/sphx_glr_plot_0_data_loader_builtin_thumb.png" />
-<p><a class="reference internal" href="../../auto_examples/data/plot_0_data_loader_builtin.html#sphx-glr-auto-examples-data-plot-0-data-loader-builtin-py"><span class="std std-ref">Data Load (Built-in Dataset)</span></a></p>
-  <div class="sphx-glr-thumbnail-title">Data Load (Built-in Dataset)</div>
-</div><div class="sphx-glr-thumbcontainer" tooltip="Data Load (Pandas DataFrame)"><img alt="" src="../../_images/sphx_glr_plot_0_data_loader_dataframe_thumb.png" />
-<p><a class="reference internal" href="../../auto_examples/data/plot_0_data_loader_dataframe.html#sphx-glr-auto-examples-data-plot-0-data-loader-dataframe-py"><span class="std std-ref">Data Load (Pandas DataFrame)</span></a></p>
-  <div class="sphx-glr-thumbnail-title">Data Load (Pandas DataFrame)</div>
-</div><div class="sphx-glr-thumbcontainer" tooltip="Data Load (Pandas DataFrame)"><img alt="" src="../../_images/sphx_glr_plot_0_data_loader_spark_thumb.png" />
-<p><a class="reference internal" href="../../auto_examples/data/plot_0_data_loader_spark.html#sphx-glr-auto-examples-data-plot-0-data-loader-spark-py"><span class="std std-ref">Data Load (Pandas DataFrame)</span></a></p>
-  <div class="sphx-glr-thumbnail-title">Data Load (Pandas DataFrame)</div>
-</div><div class="sphx-glr-thumbcontainer" tooltip="Showing data summary result using the BikeSharing dataset as example."><img alt="" src="../../_images/sphx_glr_plot_1_data_summary_thumb.png" />
-<p><a class="reference internal" href="../../auto_examples/data/plot_1_data_summary.html#sphx-glr-auto-examples-data-plot-1-data-summary-py"><span class="std std-ref">Data Summary</span></a></p>
-  <div class="sphx-glr-thumbnail-title">Data Summary</div>
-</div><div class="sphx-glr-thumbcontainer" tooltip="EDA plots using the BikeSharing dataset as example."><img alt="" src="../../_images/sphx_glr_plot_2_data_eda_thumb.png" />
-<p><a class="reference internal" href="../../auto_examples/data/plot_2_data_eda.html#sphx-glr-auto-examples-data-plot-2-data-eda-py"><span class="std std-ref">EDA</span></a></p>
-  <div class="sphx-glr-thumbnail-title">EDA</div>
-</div><div class="sphx-glr-thumbcontainer" tooltip="Display data prepare result using the BikeSharing dataset as example."><img alt="" src="../../_images/sphx_glr_plot_3_data_prepare_thumb.png" />
-<p><a class="reference internal" href="../../auto_examples/data/plot_3_data_prepare.html#sphx-glr-auto-examples-data-plot-3-data-prepare-py"><span class="std std-ref">Data Preparation</span></a></p>
-  <div class="sphx-glr-thumbnail-title">Data Preparation</div>
-</div><div class="sphx-glr-thumbcontainer" tooltip="Data Quality Check"><img alt="" src="../../_images/sphx_glr_plot_4_data_quality_thumb.png" />
-<p><a class="reference internal" href="../../auto_examples/data/plot_4_data_quality.html#sphx-glr-auto-examples-data-plot-4-data-quality-py"><span class="std std-ref">Data Quality Check</span></a></p>
-  <div class="sphx-glr-thumbnail-title">Data Quality Check</div>
-</div><div class="sphx-glr-thumbcontainer" tooltip="Four built-in feature selection strategies using the BikeSharing dataset as example."><img alt="" src="../../_images/sphx_glr_plot_5_feature_select_thumb.png" />
-<p><a class="reference internal" href="../../auto_examples/data/plot_5_feature_select.html#sphx-glr-auto-examples-data-plot-5-feature-select-py"><span class="std std-ref">Feature Selection</span></a></p>
-  <div class="sphx-glr-thumbnail-title">Feature Selection</div>
-</div><div class="sphx-glr-thumbcontainer" tooltip="Two Sample Test"><img alt="" src="../../_images/sphx_glr_plot_6_twosample_test_thumb.png" />
-<p><a class="reference internal" href="../../auto_examples/data/plot_6_twosample_test.html#sphx-glr-auto-examples-data-plot-6-twosample-test-py"><span class="std std-ref">Two Sample Test</span></a></p>
-  <div class="sphx-glr-thumbnail-title">Two Sample Test</div>
-</div><div class="sphx-glr-thumbcontainer" tooltip="Accuracy: Classification"><img alt="" src="../../_images/sphx_glr_plot_0_accuracy_cls_thumb.png" />
-<p><a class="reference internal" href="../../auto_examples/testing/plot_0_accuracy_cls.html#sphx-glr-auto-examples-testing-plot-0-accuracy-cls-py"><span class="std std-ref">Accuracy: Classification</span></a></p>
-  <div class="sphx-glr-thumbnail-title">Accuracy: Classification</div>
-</div><div class="sphx-glr-thumbcontainer" tooltip="Accuracy: Regression"><img alt="" src="../../_images/sphx_glr_plot_0_accuracy_reg_thumb.png" />
-<p><a class="reference internal" href="../../auto_examples/testing/plot_0_accuracy_reg.html#sphx-glr-auto-examples-testing-plot-0-accuracy-reg-py"><span class="std std-ref">Accuracy: Regression</span></a></p>
-  <div class="sphx-glr-thumbnail-title">Accuracy: Regression</div>
-</div><div class="sphx-glr-thumbcontainer" tooltip="WeakSpot: Classification"><img alt="" src="../../_images/sphx_glr_plot_1_weakspot_cls_thumb.png" />
-<p><a class="reference internal" href="../../auto_examples/testing/plot_1_weakspot_cls.html#sphx-glr-auto-examples-testing-plot-1-weakspot-cls-py"><span class="std std-ref">WeakSpot: Classification</span></a></p>
-  <div class="sphx-glr-thumbnail-title">WeakSpot: Classification</div>
-</div><div class="sphx-glr-thumbcontainer" tooltip="WeakSpot: Regression"><img alt="" src="../../_images/sphx_glr_plot_1_weakspot_reg_thumb.png" />
-<p><a class="reference internal" href="../../auto_examples/testing/plot_1_weakspot_reg.html#sphx-glr-auto-examples-testing-plot-1-weakspot-reg-py"><span class="std std-ref">WeakSpot: Regression</span></a></p>
-  <div class="sphx-glr-thumbnail-title">WeakSpot: Regression</div>
-</div><div class="sphx-glr-thumbcontainer" tooltip="Overfit: Classification"><img alt="" src="../../_images/sphx_glr_plot_2_overfit_cls_thumb.png" />
-<p><a class="reference internal" href="../../auto_examples/testing/plot_2_overfit_cls.html#sphx-glr-auto-examples-testing-plot-2-overfit-cls-py"><span class="std std-ref">Overfit: Classification</span></a></p>
-  <div class="sphx-glr-thumbnail-title">Overfit: Classification</div>
-</div><div class="sphx-glr-thumbcontainer" tooltip="Overfit: Regression"><img alt="" src="../../_images/sphx_glr_plot_2_overfit_reg_thumb.png" />
-<p><a class="reference internal" href="../../auto_examples/testing/plot_2_overfit_reg.html#sphx-glr-auto-examples-testing-plot-2-overfit-reg-py"><span class="std std-ref">Overfit: Regression</span></a></p>
-  <div class="sphx-glr-thumbnail-title">Overfit: Regression</div>
-</div><div class="sphx-glr-thumbcontainer" tooltip="Reliability: Classification"><img alt="" src="../../_images/sphx_glr_plot_3_reliability_cls_thumb.png" />
-<p><a class="reference internal" href="../../auto_examples/testing/plot_3_reliability_cls.html#sphx-glr-auto-examples-testing-plot-3-reliability-cls-py"><span class="std std-ref">Reliability: Classification</span></a></p>
-  <div class="sphx-glr-thumbnail-title">Reliability: Classification</div>
-</div><div class="sphx-glr-thumbcontainer" tooltip="Reliability: Regression"><img alt="" src="../../_images/sphx_glr_plot_3_reliability_reg_thumb.png" />
-<p><a class="reference internal" href="../../auto_examples/testing/plot_3_reliability_reg.html#sphx-glr-auto-examples-testing-plot-3-reliability-reg-py"><span class="std std-ref">Reliability: Regression</span></a></p>
-  <div class="sphx-glr-thumbnail-title">Reliability: Regression</div>
-</div><div class="sphx-glr-thumbcontainer" tooltip="Robustness: Classification"><img alt="" src="../../_images/sphx_glr_plot_4_robustness_cls_thumb.png" />
-<p><a class="reference internal" href="../../auto_examples/testing/plot_4_robustness_cls.html#sphx-glr-auto-examples-testing-plot-4-robustness-cls-py"><span class="std std-ref">Robustness: Classification</span></a></p>
-  <div class="sphx-glr-thumbnail-title">Robustness: Classification</div>
-</div><div class="sphx-glr-thumbcontainer" tooltip="Robustness:  Regression"><img alt="" src="../../_images/sphx_glr_plot_4_robustness_reg_thumb.png" />
-<p><a class="reference internal" href="../../auto_examples/testing/plot_4_robustness_reg.html#sphx-glr-auto-examples-testing-plot-4-robustness-reg-py"><span class="std std-ref">Robustness:  Regression</span></a></p>
-  <div class="sphx-glr-thumbnail-title">Robustness:  Regression</div>
-</div><div class="sphx-glr-thumbcontainer" tooltip="Resilience:  Classification"><img alt="" src="../../_images/sphx_glr_plot_5_resilience_cls_thumb.png" />
-<p><a class="reference internal" href="../../auto_examples/testing/plot_5_resilience_cls.html#sphx-glr-auto-examples-testing-plot-5-resilience-cls-py"><span class="std std-ref">Resilience:  Classification</span></a></p>
-  <div class="sphx-glr-thumbnail-title">Resilience:  Classification</div>
-</div><div class="sphx-glr-thumbcontainer" tooltip="Resilience - Regression"><img alt="" src="../../_images/sphx_glr_plot_5_resilience_reg_thumb.png" />
-<p><a class="reference internal" href="../../auto_examples/testing/plot_5_resilience_reg.html#sphx-glr-auto-examples-testing-plot-5-resilience-reg-py"><span class="std std-ref">Resilience - Regression</span></a></p>
-  <div class="sphx-glr-thumbnail-title">Resilience - Regression</div>
-</div><div class="sphx-glr-thumbcontainer" tooltip="Fairness Test: XGB2"><img alt="" src="../../_images/sphx_glr_plot_6_fairness_thumb.png" />
-<p><a class="reference internal" href="../../auto_examples/testing/plot_6_fairness.html#sphx-glr-auto-examples-testing-plot-6-fairness-py"><span class="std std-ref">Fairness Test: XGB2</span></a></p>
-  <div class="sphx-glr-thumbnail-title">Fairness Test: XGB2</div>
-</div><div class="sphx-glr-thumbcontainer" tooltip="Model Comparison: Classification"><img alt="" src="../../_images/sphx_glr_plot_0_compare_classification_thumb.png" />
-<p><a class="reference internal" href="../../auto_examples/testing_compare/plot_0_compare_classification.html#sphx-glr-auto-examples-testing-compare-plot-0-compare-classification-py"><span class="std std-ref">Model Comparison: Classification</span></a></p>
-  <div class="sphx-glr-thumbnail-title">Model Comparison: Classification</div>
-</div><div class="sphx-glr-thumbcontainer" tooltip="Model Comparison: Regression"><img alt="" src="../../_images/sphx_glr_plot_0_compare_regression_thumb.png" />
-<p><a class="reference internal" href="../../auto_examples/testing_compare/plot_0_compare_regression.html#sphx-glr-auto-examples-testing-compare-plot-0-compare-regression-py"><span class="std std-ref">Model Comparison: Regression</span></a></p>
-  <div class="sphx-glr-thumbnail-title">Model Comparison: Regression</div>
-</div><div class="sphx-glr-thumbcontainer" tooltip="Fairness Comparison"><img alt="" src="../../_images/sphx_glr_plot_1_compare_fairness_thumb.png" />
-<p><a class="reference internal" href="../../auto_examples/testing_compare/plot_1_compare_fairness.html#sphx-glr-auto-examples-testing-compare-plot-1-compare-fairness-py"><span class="std std-ref">Fairness Comparison</span></a></p>
-  <div class="sphx-glr-thumbnail-title">Fairness Comparison</div>
-</div><div class="sphx-glr-thumbcontainer" tooltip="Train External Models"><img alt="" src="../../_images/sphx_glr_plot_0_model_train_thumb.png" />
-<p><a class="reference internal" href="../../auto_examples/testing_external/plot_0_model_train.html#sphx-glr-auto-examples-testing-external-plot-0-model-train-py"><span class="std std-ref">Train External Models</span></a></p>
-  <div class="sphx-glr-thumbnail-title">Train External Models</div>
-</div><div class="sphx-glr-thumbcontainer" tooltip="Registering Arbitrary Models"><img alt="" src="../../_images/sphx_glr_plot_1_register_arbitrary_thumb.png" />
-<p><a class="reference internal" href="../../auto_examples/testing_external/plot_1_register_arbitrary.html#sphx-glr-auto-examples-testing-external-plot-1-register-arbitrary-py"><span class="std std-ref">Registering Arbitrary Models</span></a></p>
-  <div class="sphx-glr-thumbnail-title">Registering Arbitrary Models</div>
-</div><div class="sphx-glr-thumbcontainer" tooltip="Registering H2O Models"><img alt="" src="../../_images/sphx_glr_plot_1_register_h2o_thumb.png" />
-<p><a class="reference internal" href="../../auto_examples/testing_external/plot_1_register_h2o.html#sphx-glr-auto-examples-testing-external-plot-1-register-h2o-py"><span class="std std-ref">Registering H2O Models</span></a></p>
-  <div class="sphx-glr-thumbnail-title">Registering H2O Models</div>
-</div><div class="sphx-glr-thumbcontainer" tooltip="Registering sklearn Style Models"><img alt="" src="../../_images/sphx_glr_plot_1_register_sklearn_thumb.png" />
-<p><a class="reference internal" href="../../auto_examples/testing_external/plot_1_register_sklearn.html#sphx-glr-auto-examples-testing-external-plot-1-register-sklearn-py"><span class="std std-ref">Registering sklearn Style Models</span></a></p>
-  <div class="sphx-glr-thumbnail-title">Registering sklearn Style Models</div>
-</div><div class="sphx-glr-thumbcontainer" tooltip="Segmented Diagnose (Classification)"><img alt="" src="../../_images/sphx_glr_plot_0_classification_thumb.png" />
-<p><a class="reference internal" href="../../auto_examples/testing_segmented/plot_0_classification.html#sphx-glr-auto-examples-testing-segmented-plot-0-classification-py"><span class="std std-ref">Segmented Diagnose (Classification)</span></a></p>
-  <div class="sphx-glr-thumbnail-title">Segmented Diagnose (Classification)</div>
-</div><div class="sphx-glr-thumbcontainer" tooltip="Segmented Diagnose (Regression)"><img alt="" src="../../_images/sphx_glr_plot_0_regression_thumb.png" />
-<p><a class="reference internal" href="../../auto_examples/testing_segmented/plot_0_regression.html#sphx-glr-auto-examples-testing-segmented-plot-0-regression-py"><span class="std std-ref">Segmented Diagnose (Regression)</span></a></p>
-  <div class="sphx-glr-thumbnail-title">Segmented Diagnose (Regression)</div>
+<div class="sphx-glr-thumbnails"><div class="sphx-glr-thumbcontainer" tooltip="GLM Linear Regression (Bike Sharing)"><img alt="" src="../../_images/sphx_glr_plot_0_glm_reg_thumb.png" />
+<p><a class="reference internal" href="../../auto_examples/3_models/plot_0_glm_reg.html#sphx-glr-auto-examples-3-models-plot-0-glm-reg-py"><span class="std std-ref">GLM Linear Regression (Bike Sharing)</span></a></p>
+  <div class="sphx-glr-thumbnail-title">GLM Linear Regression (Bike Sharing)</div>
 </div></div><div class="clearer"></div></section>
 </section>
 

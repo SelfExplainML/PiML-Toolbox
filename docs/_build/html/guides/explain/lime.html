@@ -115,8 +115,8 @@
             </a>
           </div>
           <!--div class="btn-group w-100 mb-2" role="group" aria-label="rellinks">
-              <a href="ale.html" role="button" class="btn sk-btn-rellink py-1" sk-rellink-tooltip="4.1.4. ALE (Accumulated Local Effects)">Prev</a><a href="../explainability.html" role="button" class="btn sk-btn-rellink py-1" sk-rellink-tooltip="4. Post-hoc Explainability">Up</a>
-              <a href="shap.html" role="button" class="btn sk-btn-rellink py-1" sk-rellink-tooltip="4.2.2. SHAP (SHapley Additive exPlanations)">Next</a>
+              <a href="ale.html" role="button" class="btn sk-btn-rellink py-1" sk-rellink-tooltip="4.5. ALE (Accumulated Local Effects)">Prev</a><a href="../explain.html" role="button" class="btn sk-btn-rellink py-1" sk-rellink-tooltip="4. Post-hoc Explainability">Up</a>
+              <a href="shap.html" role="button" class="btn sk-btn-rellink py-1" sk-rellink-tooltip="4.7. SHAP (SHapley Additive exPlanations)">Next</a>
           </div-->
               <div class="sk-sidebar-toc">
               
@@ -143,12 +143,44 @@
                   </li>
                 
                   <li>
-                    <a href="../extmodels.html" class="">3. Black-box Models</a>
+                    <a href="../model_train.html" class="">3. Model Train and Tune</a>
                     
                   </li>
                 
                   <li>
-                    <a href="../explainability.html" class="sk-toc-active">4. Post-hoc Explainability</a>
+                    <a href="../explain.html" class="sk-toc-active">4. Post-hoc Explainability</a>
+                    
+                    <ul>
+                      
+                        <li class="sk-toctree-l3">
+                          <a href="pfi.html">4.1. PFI (Permutation Feature Importance)</a>
+                        </li>
+                      
+                        <li class="sk-toctree-l3">
+                          <a href="pdp.html">4.2. PDP (Partial Dependence Plot)</a>
+                        </li>
+                      
+                        <li class="sk-toctree-l3">
+                          <a href="hstats.html">4.3. Hstats (Friedman’s H-statistic)</a>
+                        </li>
+                      
+                        <li class="sk-toctree-l3">
+                          <a href="ice.html">4.4. ICE (Individual Conditional Expectation)</a>
+                        </li>
+                      
+                        <li class="sk-toctree-l3">
+                          <a href="ale.html">4.5. ALE (Accumulated Local Effects)</a>
+                        </li>
+                      
+                        <li class="sk-toctree-l3">
+                          <a href="">4.6. LIME (Local Interpretable Model-Agnostic Explanation)</a>
+                        </li>
+                      
+                        <li class="sk-toctree-l3">
+                          <a href="shap.html">4.7. SHAP (SHapley Additive exPlanations)</a>
+                        </li>
+                      
+                    </ul>
                     
                   </li>
                 
@@ -163,7 +195,7 @@
                   </li>
                 
                   <li>
-                    <a href="../comparison.html" class="">7. Model Comparison</a>
+                    <a href="../compare.html" class="">7. Model Comparison</a>
                     
                   </li>
                 
@@ -215,10 +247,10 @@
   }
 
 </style><section id="lime-local-interpretable-model-agnostic-explanation">
-<h1><span class="section-number">4.2.1. </span>LIME (Local Interpretable Model-Agnostic Explanation)<a class="headerlink" href="#lime-local-interpretable-model-agnostic-explanation" title="Permalink to this heading">¶</a></h1>
+<h1><span class="section-number">4.6. </span>LIME (Local Interpretable Model-Agnostic Explanation)<a class="headerlink" href="#lime-local-interpretable-model-agnostic-explanation" title="Permalink to this heading">¶</a></h1>
 <p>LIME (Local Interpretable Model-Agnostic Explanation; <a class="reference internal" href="../introduction.html#ribeiro2016" id="id1"><span>[Ribeiro2016]</span></a>) is a model agnostic explanation tool. It does so by creating a surrogate interpretable model, such as a Lasso or decision tree, to explain how the original model makes predictions for a given input sample.</p>
 <section id="algorithm-details">
-<h2><span class="section-number">4.2.1.1. </span>Algorithm Details<a class="headerlink" href="#algorithm-details" title="Permalink to this heading">¶</a></h2>
+<h2><span class="section-number">4.6.1. </span>Algorithm Details<a class="headerlink" href="#algorithm-details" title="Permalink to this heading">¶</a></h2>
 <p>The process is straightforward:</p>
 <ul class="simple">
 <li><p>Create a simulated dataset by randomly perturbing the input sample with noises (as <span class="math notranslate nohighlight">\(x\)</span>), and then evaluate the output of the original model on these perturbed samples (as <span class="math notranslate nohighlight">\(y\)</span>).</p></li>
@@ -231,8 +263,14 @@
 </div>
 </section>
 <section id="usage">
-<h2><span class="section-number">4.2.1.2. </span>Usage<a class="headerlink" href="#usage" title="Permalink to this heading">¶</a></h2>
-<p>The LIME explanation is also integrated into the <code class="docutils literal notranslate"><span class="pre">model_explain</span></code> function of PiML, with the keyword “lime” for the argument <code class="docutils literal notranslate"><span class="pre">show</span></code>. Below, we will demonstrate how to use LIME to explain the first training sample (<code class="docutils literal notranslate"><span class="pre">sample_id=0</span></code>) of a fitted XGB2 model on the BikeSharing dataset. In particular, we compare the centered and uncentered results by setting <code class="docutils literal notranslate"><span class="pre">centered</span></code> to True and False, respectively.</p>
+<h2><span class="section-number">4.6.2. </span>Usage<a class="headerlink" href="#usage" title="Permalink to this heading">¶</a></h2>
+<p>The LIME explanation is also integrated into the <code class="docutils literal notranslate"><span class="pre">model_explain</span></code> function of PiML, with the keyword “lime” for the argument <code class="docutils literal notranslate"><span class="pre">show</span></code>.</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">use_test</span></code>: If True, the test data will be used to generate the explanations. Otherwise, the training data will be used. The default value is False.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">sample_id</span></code>: The sample index in the train / test set, and the default value is 0. If use_test = True, the valid values is from 0 to test_sample_size - 1; otherwise, it ranges from 0 to train_sample_size - 1.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">centered</span></code>: If True, the data will be centered, which means we contrast its effect against with the population mean. The default value is True.</p></li>
+</ul>
+<p>Below, we will demonstrate how to use LIME to explain the first training sample (<code class="docutils literal notranslate"><span class="pre">sample_id=0</span></code>) of a fitted XGB2 model on the BikeSharing dataset. In particular, we compare the centered and uncentered results by setting <code class="docutils literal notranslate"><span class="pre">centered</span></code> to True and False, respectively.</p>
 <p><strong>Uncentered predictors</strong></p>
 <div class="jupyter_cell jupyter_container docutils container">
 <div class="cell_input code_cell docutils container">
@@ -245,7 +283,7 @@
 </div>
 </div>
 <figure class="align-left">
-<a class="reference external image-reference" href="../../auto_examples/explain/plot_4_lime.html"><img alt="../../_images/sphx_glr_plot_4_lime_001.png" src="../../_images/sphx_glr_plot_4_lime_001.png" /></a>
+<a class="reference external image-reference" href="../../auto_examples/2_explain/plot_4_lime.html"><img alt="../../_images/sphx_glr_plot_4_lime_001.png" src="../../_images/sphx_glr_plot_4_lime_001.png" /></a>
 </figure>
 <p>This plot is similar to the local interpretation of <a class="reference external" href="glm.html#local-interpretation">GLM</a>, as we use Lasso as the surrogate model. The stems represent the coefficients and the bars show the effect. It shows the linear regression coefficients and marginal effects of the top-10 features (with feature values on the right axis) that contribute to the prediction of bike counts. The <code class="docutils literal notranslate"><span class="pre">Weight</span></code> represents the regression coefficients, and <code class="docutils literal notranslate"><span class="pre">Effect</span></code> represents the marginal effects. From top to bottom, <code class="docutils literal notranslate"><span class="pre">hr</span></code> contributes the most to the prediction of bike counts, followed by <code class="docutils literal notranslate"><span class="pre">atemp</span></code>, then <code class="docutils literal notranslate"><span class="pre">hum</span></code>, and so on. Note that this plot only shows the top 10 features with the largest contributions. To get the full results, you can set the parameter <code class="docutils literal notranslate"><span class="pre">return_data</span></code> to True.</p>
 <p><strong>Centered predictors</strong></p>
@@ -261,12 +299,12 @@
 </div>
 </div>
 <figure class="align-left">
-<a class="reference external image-reference" href="../../auto_examples/explain/plot_4_lime.html"><img alt="../../_images/sphx_glr_plot_4_lime_002.png" src="../../_images/sphx_glr_plot_4_lime_002.png" /></a>
+<a class="reference external image-reference" href="../../auto_examples/2_explain/plot_4_lime.html"><img alt="../../_images/sphx_glr_plot_4_lime_002.png" src="../../_images/sphx_glr_plot_4_lime_002.png" /></a>
 </figure>
 <p>By centering the data and calculating the marginal effects, the model itself remains unchanged, but the interpretation of the marginal effects may change significantly, as we are essentially comparing the contribution of each feature to the average population, rather than the individual sample values. For instance, <code class="docutils literal notranslate"><span class="pre">hr</span></code> has a large contribution to the prediction in the uncentered data. However, when the data is centered, its contribution becomes negligible. This is because the feature value of this sample (11 am) is close to the population mean, and its contribution is now mainly captured by the intercept term.</p>
 </section>
 <section id="examples">
-<h2><span class="section-number">4.2.1.3. </span>Examples<a class="headerlink" href="#examples" title="Permalink to this heading">¶</a></h2>
+<h2><span class="section-number">4.6.3. </span>Examples<a class="headerlink" href="#examples" title="Permalink to this heading">¶</a></h2>
 <div class="topic">
 <p class="topic-title">Example 1: Bike Sharing</p>
 <p>The first example below demonstrates how to use PiML with its high-code APIs for developing machine learning models for the BikeSharing data from the UCI repository, which consists of 17,389 samples of hourly counts of rental bikes in Capital bikeshare system; see details. The response <code class="docutils literal notranslate"><span class="pre">cnt</span></code> (hourly bike rental counts) is continuous and it is a regression problem.</p>
@@ -276,11 +314,11 @@
 <blockquote>
 <div><p>The second example shows the option to use test set to generate the explanations.</p>
 <ul class="simple">
-<li><p><a class="reference internal" href="../../auto_examples/explain/plot_6_data_dependent_explain.html#sphx-glr-auto-examples-explain-plot-6-data-dependent-explain-py"><span class="std std-ref">Data Dependent Explanation</span></a></p></li>
+<li><p><a class="reference internal" href="../../auto_examples/2_explain/plot_6_data_dependent_explain.html#sphx-glr-auto-examples-2-explain-plot-6-data-dependent-explain-py"><span class="std std-ref">Data Dependent Explanation</span></a></p></li>
 </ul>
 </div></blockquote>
 <ul class="simple">
-<li><p><a class="reference internal" href="../../auto_examples/explain/plot_4_lime.html#sphx-glr-auto-examples-explain-plot-4-lime-py"><span class="std std-ref">Local Interpretable Model-Agnostic Explanation</span></a></p></li>
+<li><p><a class="reference internal" href="../../auto_examples/2_explain/plot_4_lime.html#sphx-glr-auto-examples-2-explain-plot-4-lime-py"><span class="std std-ref">Local Interpretable Model-Agnostic Explanation</span></a></p></li>
 </ul>
 </div>
 </section>

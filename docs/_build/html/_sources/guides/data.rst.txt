@@ -15,6 +15,7 @@ Data Pipeline
    data/data_summary.rst
    data/data_prepare.rst
    data/data_eda.rst
-   data/data_quality.rst
+   data/data_quality_integrity.rst
+   data/data_quality_outlier.rst
+   data/data_quality_drift.rst
    data/feature_select.rst
-   data/twosample_test.rst

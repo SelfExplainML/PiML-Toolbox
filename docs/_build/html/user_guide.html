@@ -142,12 +142,12 @@
                   </li>
                 
                   <li>
-                    <a href="guides/extmodels.html" class="">3. Black-box Models</a>
+                    <a href="guides/train.html" class="">3. Model Train and Tune</a>
                     
                   </li>
                 
                   <li>
-                    <a href="guides/explainability.html" class="">4. Post-hoc Explainability</a>
+                    <a href="guides/explain.html" class="">4. Post-hoc Explainability</a>
                     
                   </li>
                 
@@ -162,7 +162,7 @@
                   </li>
                 
                   <li>
-                    <a href="guides/comparison.html" class="">7. Model Comparison</a>
+                    <a href="guides/compare.html" class="">7. Model Comparison</a>
                     
                   </li>
                 
@@ -356,23 +356,27 @@
 <li class="toctree-l2"><a class="reference internal" href="guides/data/data_summary.html">2.2. Data Summary</a></li>
 <li class="toctree-l2"><a class="reference internal" href="guides/data/data_prepare.html">2.3. Data Preparation</a></li>
 <li class="toctree-l2"><a class="reference internal" href="guides/data/data_eda.html">2.4. Exploratory Analysis</a></li>
-<li class="toctree-l2"><a class="reference internal" href="guides/data/data_quality.html">2.5. Data Quality</a></li>
-<li class="toctree-l2"><a class="reference internal" href="guides/data/feature_select.html">2.6. Feature Selection</a></li>
-<li class="toctree-l2"><a class="reference internal" href="guides/data/twosample_test.html">2.7. Two Sample Test</a></li>
+<li class="toctree-l2"><a class="reference internal" href="guides/data/data_quality_integrity.html">2.5. Data Quality (Integrity Check)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="guides/data/data_quality_outlier.html">2.6. Data Quality (Outlier Detection)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="guides/data/data_quality_drift.html">2.7. Data Quality (Drift Test)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="guides/data/feature_select.html">2.8. Feature Selection</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="guides/extmodels.html">3. Black-box Models</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="guides/extmodels.html#train-and-register-models">3.1. Train and Register Models</a></li>
-<li class="toctree-l2"><a class="reference internal" href="guides/extmodels.html#save-fitted-models">3.2. Save Fitted Models</a></li>
-<li class="toctree-l2"><a class="reference internal" href="guides/extmodels.html#load-and-register-fitted-models">3.3. Load and Register Fitted Models</a></li>
-<li class="toctree-l2"><a class="reference internal" href="guides/extmodels.html#register-arbitrary-models-and-data">3.4. Register Arbitrary Models and Data</a></li>
-<li class="toctree-l2"><a class="reference internal" href="guides/extmodels.html#run-diagnostic-tests">3.5. Run Diagnostic Tests</a></li>
-<li class="toctree-l2"><a class="reference internal" href="guides/extmodels.html#examples">3.6. Examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="guides/train.html">3. Model Train and Tune</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="guides/train/sklearn.html">3.1. Train and Register Sklearn Style Model</a></li>
+<li class="toctree-l2"><a class="reference internal" href="guides/train/h2o.html">3.2. Register H2O Models</a></li>
+<li class="toctree-l2"><a class="reference internal" href="guides/train/arbitrary.html">3.3. Register Arbitrary Models</a></li>
+<li class="toctree-l2"><a class="reference internal" href="guides/train/hpo.html">3.4. Hyperparameter Optimization (Model Tune)</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="guides/explainability.html">4. Post-hoc Explainability</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="guides/explainability.html#global-explainability">4.1. Global Explainability</a></li>
-<li class="toctree-l2"><a class="reference internal" href="guides/explainability.html#local-explainability">4.2. Local Explainability</a></li>
+<li class="toctree-l1"><a class="reference internal" href="guides/explain.html">4. Post-hoc Explainability</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="guides/explain/pfi.html">4.1. PFI (Permutation Feature Importance)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="guides/explain/pdp.html">4.2. PDP (Partial Dependence Plot)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="guides/explain/hstats.html">4.3. Hstats (Friedman’s H-statistic)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="guides/explain/ice.html">4.4. ICE (Individual Conditional Expectation)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="guides/explain/ale.html">4.5. ALE (Accumulated Local Effects)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="guides/explain/lime.html">4.6. LIME (Local Interpretable Model-Agnostic Explanation)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="guides/explain/shap.html">4.7. SHAP (SHapley Additive exPlanations)</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="guides/models.html">5. Interpretable Models</a><ul>
@@ -395,12 +399,14 @@
 <li class="toctree-l2"><a class="reference internal" href="guides/testing/robustness.html">6.5. Robustness</a></li>
 <li class="toctree-l2"><a class="reference internal" href="guides/testing/resilience.html">6.6. Resilience</a></li>
 <li class="toctree-l2"><a class="reference internal" href="guides/testing/fairness.html">6.7. Fairness</a></li>
+<li class="toctree-l2"><a class="reference internal" href="guides/testing/segmented_diagnose.html">6.8. Segmented</a></li>
+<li class="toctree-l2"><a class="reference internal" href="guides/testing/scored_test.html">6.9. Scored Test</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="guides/comparison.html">7. Model Comparison</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="guides/comparison/compare_regression.html">7.1. Comparison for Regression</a></li>
-<li class="toctree-l2"><a class="reference internal" href="guides/comparison/compare_classification.html">7.2. Comparison for Classification</a></li>
-<li class="toctree-l2"><a class="reference internal" href="guides/comparison/compare_fairness.html">7.3. Fairness Comparison</a></li>
+<li class="toctree-l1"><a class="reference internal" href="guides/compare.html">7. Model Comparison</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="guides/compare/compare_regression.html">7.1. Comparison for Regression</a></li>
+<li class="toctree-l2"><a class="reference internal" href="guides/compare/compare_classification.html">7.2. Comparison for Classification</a></li>
+<li class="toctree-l2"><a class="reference internal" href="guides/compare/compare_fairness.html">7.3. Fairness Comparison</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="guides/cases.html">8. Case Studies</a><ul>

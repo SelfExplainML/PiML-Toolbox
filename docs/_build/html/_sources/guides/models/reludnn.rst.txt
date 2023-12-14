@@ -118,8 +118,8 @@ The parallel coordinate plot can be used by setting `show` to "llm_pc".
 
      exp.model_interpret(model="ReLUDNN", show="llm_pc", figsize=(5, 4))
 
-.. figure:: ../../auto_examples/models/images/sphx_glr_plot_8_reludnn_cls_001.png
-   :target: ../../auto_examples/models/plot_plot_8_reludnn_cls.html
+.. figure:: ../../auto_examples/3_models/images/sphx_glr_plot_8_reludnn_cls_001.png
+   :target: ../../auto_examples/3_models/plot_8_reludnn_cls.html
    :align: left
 
 This plot is used for visualizing coefficients of different LLMs, where each line represents a single LLM. The x-axis shows feature names and the y-axis shows the coefficient values. As this is a static plot, we only plot the top 10 important features, see the `Feature Importance Plot` section for details. From the figure above, we can see that `Pay_1` is the most important feature, with a wide range of coefficient values. The second and the third important variables are `PAY_AMT1` and `PAY_3`, respectively. 
@@ -139,8 +139,8 @@ The violin plot corresponds to the keyword "llm_violin".
 
    exp.model_interpret(model="ReLUDNN", show="llm_violin", figsize=(5, 4))                            
 
-.. figure:: ../../auto_examples/models/images/sphx_glr_plot_8_reludnn_cls_002.png
-   :target: ../../auto_examples/models/plot_plot_8_reludnn_cls.html
+.. figure:: ../../auto_examples/3_models/images/sphx_glr_plot_8_reludnn_cls_002.png
+   :target: ../../auto_examples/3_models/plot_8_reludnn_cls.html
    :align: left
 
 Similar to the parallel coordinate plot, this plot shows the LLM coefficient distribution per feature weighted by the sample size of each LLM.
@@ -154,8 +154,8 @@ This global feature importance plot (with the keyword "global_fi") visualizes th
    
    exp.model_interpret(model="ReLUDNN", show="global_fi", figsize=(5, 4))
 
-.. figure:: ../../auto_examples/models/images/sphx_glr_plot_8_reludnn_cls_003.png
-   :target: ../../auto_examples/models/plot_plot_8_reludnn_cls.html
+.. figure:: ../../auto_examples/3_models/images/sphx_glr_plot_8_reludnn_cls_003.png
+   :target: ../../auto_examples/3_models/plot_8_reludnn_cls.html
    :align: left
 
 To calculate the feature importance, we first calculate the squared sum of LLM coefficients per feature; then the importance values are normalized such that their sum equals one.
@@ -169,8 +169,8 @@ The local linear profile plot (with the keyword "global_effect_plot") shows the 
 
    exp.model_interpret(model="ReLUDNN", show="global_effect_plot", uni_feature="PAY_1", original_scale=True, figsize=(5, 4))
 
-.. figure:: ../../auto_examples/models/images/sphx_glr_plot_8_reludnn_cls_004.png
-   :target: ../../auto_examples/models/plot_plot_8_reludnn_cls.html
+.. figure:: ../../auto_examples/3_models/images/sphx_glr_plot_8_reludnn_cls_004.png
+   :target: ../../auto_examples/3_models/plot_8_reludnn_cls.html
    :align: left
 
 In this plot, each line represents an LLM. The x-axis shows unique values of the specified feature (`PAY_1` in this example), and the y-axis is the marginal effect (coefficient times feature values) of that feature. To make this plot more elegant, we only visualize the top 30 LLMs and the marginal effects are all de-meaned. 
@@ -184,8 +184,8 @@ This plot also uses the keyword "global_effect_plot", and it will be triggered a
 
    exp.model_interpret(model="ReLUDNN", show="global_effect_plot", bi_features=["PAY_1", "PAY_3"], original_scale=True, figsize=(5, 4))
 
-.. figure:: ../../auto_examples/models/images/sphx_glr_plot_8_reludnn_cls_005.png
-   :target: ../../auto_examples/models/plot_plot_8_reludnn_cls.html
+.. figure:: ../../auto_examples/3_models/images/sphx_glr_plot_8_reludnn_cls_005.png
+   :target: ../../auto_examples/3_models/plot_8_reludnn_cls.html
    :align: left
 
 The plot above consists of 2 * 2 subplots, which are used to show how the coefficient would change as the feature value changes.
@@ -205,8 +205,8 @@ The local feature importance plot (with the keyword "local_fi") shows the predic
    
    exp.model_interpret(model="ReLUDNN", show="local_fi", sample_id=0, centered=False, original_scale=True, figsize=(5, 4))
 
-.. figure:: ../../auto_examples/models/images/sphx_glr_plot_8_reludnn_cls_006.png
-   :target: ../../auto_examples/models/plot_plot_8_reludnn_cls.html
+.. figure:: ../../auto_examples/3_models/images/sphx_glr_plot_8_reludnn_cls_006.png
+   :target: ../../auto_examples/3_models/plot_8_reludnn_cls.html
    :align: left
 
 The definition of `Weight` and `Effect` can be found in the introduction for GLM. The stems represent the coefficients and the bars show the effect. Similarly, we provide the `centered` option, as shown below.
@@ -215,11 +215,12 @@ The definition of `Weight` and `Effect` can be found in the introduction for GLM
 
    exp.model_interpret(model="ReLUDNN", show="local_fi", sample_id=0, centered=True, original_scale=True, figsize=(5, 4))
 
-.. figure:: ../../auto_examples/models/images/sphx_glr_plot_8_reludnn_cls_007.png
-   :target: ../../auto_examples/models/plot_plot_8_reludnn_cls.html
+.. figure:: ../../auto_examples/3_models/images/sphx_glr_plot_8_reludnn_cls_007.png
+   :target: ../../auto_examples/3_models/plot_8_reludnn_cls.html
    :align: left
 
 After centering, we find that `PAY_3` contributes the most to the final prediction, while `PAY_1` is still the most sensitive feature.
+
 
 Examples
 ^^^^^^^^^^^
@@ -236,10 +237,10 @@ Examples
 
    Out of the n_features features, only 5 are used to compute y. The remaining features are independent of y.
 
- * :ref:`sphx_glr_auto_examples_models_plot_8_reludnn_reg.py`
+ * :ref:`sphx_glr_auto_examples_3_models_plot_8_reludnn_reg.py`
 
 .. topic:: Examples 2: Taiwan Credit
 
    The second example below demonstrates how to use PiML's high-code APIs for the TaiwanCredit dataset from the UCI repository. This dataset comprises the credit card details of 30,000 clients in Taiwan from April 2005 to September 2005, and more information can be found on the TaiwanCreditData website. The `FlagDefault` variable serves as the response for this classification problem.
 
- * :ref:`sphx_glr_auto_examples_models_plot_8_reludnn_cls.py`
+ * :ref:`sphx_glr_auto_examples_3_models_plot_8_reludnn_cls.py`

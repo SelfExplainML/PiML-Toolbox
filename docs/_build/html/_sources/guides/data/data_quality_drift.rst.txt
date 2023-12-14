@@ -1,0 +1,135 @@
+.. Places parent toc into the sidebar
+
+:parenttoc: True
+
+.. include:: ../../includes/big_toc_css.rst
+
+======================================
+Data Quality (Drift Test)
+======================================
+The last part of data quality is to compare the distribution between train and test sets, i.e., data drift test. 
+Data drift refers to the phenomenon where the statistical properties of the data used for training a machine learning model change over time, leading to a mismatch between the training and test sets. In other words, the assumptions made during the model development, based on the training data, may no longer hold when the model is applied to new, unseen data.
+
+Data drift can manifest in various ways, including changes in the distribution of feature values, shifts in the relationships between variables, or alterations in the frequency of certain patterns within the data. This discrepancy between the training and test sets can significantly impact the model's performance and generalization ability. In PiML, we provide two data drift tests: marginal distribution drift and whole dataset energy distance.
+
+Marginal Distribution Drift
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+This test evaluates the marginal distribution distance between the training and testing sets. For each feature, we provide three distance metrics:
+
+- **Population Stability Index (PSI)**: PSI is a statistical measure used to determine the extent to which the distribution of a variable has changed. It is a discrete (binned) version of the Kullback-Leibler (K-L) distance between two sets of sample data. More specifically, define a binning scheme that bins the two datasets :math:`P` and :math:`Q` into :math:`B` bins. The discrete K-L distance between :math:`P` and :math:`Q` with respect to :math:`P` is defined as :math:`D_{KL} (p│q)= \sum_{i=1}^B p_i ln ((p_i/q_i))`. Note that this distance is asymmetric. Define the distance with resect to :math:`q` as  :math:`D_{KL} (q│p)= \sum_{i=1}^B q_i ln (q_i/p_i)`. Then, PSI is the sum of the two asymmetric versions:
+
+.. math::
+   \begin{align}     
+      D(P, Q)_{PSI} = D_{KL}(p│q) + D_{KL} (q│p) = \sum^{B}_{i=1} (p_i - q_i)ln \frac{p_i}{q_i}.
+   \end{align}
+
+Here, :math:`B` is the number of bins, and :math:`p_i`'s and :math:`q_i`'s are the proportions of the two samples in each bin. Note that the PSI calculation is related to the binning method, and PIML provides two options for binning, i.e., "equal width" or "equal quantile". The number of bins is fixed at 10.
+
+- **Wasserstein distance 1D (WD1) distance**: WD1 calculates the absolute difference between the cumulative distribution functions of the two samples.
+
+.. math::
+   \begin{align}
+       D(F, G)_{WD1} = \int |F(x) - G(x)| dx.
+   \end{align}
+
+Here :math:`F(x)` and :math:`G(x)` are the cumulative distribution functions of the target and base population.
+
+- **Kolmogorov-Smirnov (KS) distance**: KS calculates the maximum absolute distance between the cumulative distribution functions of the two samples. In PiML, the WD1 and KS statistics are calculated by the `wasserstein_distance` and `ks_2samp` functions from `scipy.stats`.
+
+.. math::
+   \begin{align}     
+       D(F, G)_{KS}  = \sup_x |F(x) - G(x)|.
+   \end{align}
+
+The usage of this test is shown in the following example.
+
+.. jupyter-input::
+   
+   exp.data_quality(show="drift_test_distance", distance_metric="PSI", 
+                    psi_buckets="uniform", figsize=(5, 4))
+
+.. figure:: ../../auto_examples/0_data/images/sphx_glr_plot_4_data_quality_012.png
+   :target: ../../auto_examples/0_data/plot_4_data_quality.html
+   :align: left
+
+The additional argument `distance_metric` can be used to change the distance metric displayed on the plot, and  `psi_buckets` is responsible for changing the binning method when calculating PSI. The default distance metric is PSI, and the default binning method is "uniform". The distance metric can be set to "WD1" or "KS", and the binning method can be set to "uniform" or "quantile". 
+
+We can also compare the marginal densities of the train and test sets for a particular feature, by setting the `show_feature` argument to the name of the desired feature.
+
+ .. jupyter-input::
+
+   exp.data_quality(show="drift_test_distance", distance_metric="PSI", psi_buckets='quantile',
+                    show_feature="atemp", figsize=(5, 4))
+
+.. figure:: ../../auto_examples/0_data/images/sphx_glr_plot_4_data_quality_013.png
+   :target: ../../auto_examples/0_data/plot_4_data_quality.html
+   :align: left
+
+
+Energy Distance
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Energy distance is a statistical measure used to quantify the dissimilarity or discrepancy between two probability distributions. It is commonly employed to assess the difference between the distributions of two sets of data points. This distance metric provides a way to evaluate how well one set of observations represents another, and it is particularly useful in comparing empirical distributions.
+
+The energy distance of two samples :math:`x` and :math:`y` in high dimensional settings can be empirically estimated using the following formula:
+
+.. math::
+
+    \begin{aligned}
+        D(x, y)_{\mathrm{E}} = \frac {2}{nm} \sum _{i=1}^{n} \sum _{j=1}^{m} \|x_{i}-y_{j}\| - \frac {1}{n^{2}} \sum _{i=1}^{n}\sum _{j=1}^{n}\|x_{i}-x_{j}\| - \frac {1}{m^{2}} \sum _{i=1}^{m}\sum _{j=1}^{m}\|y_{i}-y_{j}\|,
+    \end{aligned}
+    
+where :math:`n` is the size :math:`x`, and :math:`m` is the size of :math:`y`. To speed up the computation, we randomly sample 10000 data points from the training and testing sets, respectively. The usage of this test is shown in the following example.
+
+.. jupyter-input::
+   
+   exp.data_quality(show="drift_test_info", figsize=(5, 4))
+
+.. raw:: html
+
+    <div class="output_subarea output_html rendered_html output_result">
+    <div>
+    <style scoped>
+        .dataframe tbody tr th:only-of-type {
+            vertical-align: middle;
+        }
+
+        .dataframe tbody tr th {
+            vertical-align: top;
+        }
+
+        .dataframe thead th {
+            text-align: right;
+        }
+    </style>
+    <table border="1" class="dataframe">
+    <thead>
+        <tr style="text-align: right;">
+        <th></th>
+        <th>Train Size</th>
+        <th>Test Size</th>
+        <th>Energy Distance</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+        <th></th>
+        <td>13889</td>
+        <td>3476</td>
+        <td>0.000488</td>
+        </tr>
+    </tbody>
+    </table>
+    </div>
+    </div>
+
+In the table, we displays the energy distance, as well as the size of training and testing samples. A zero energy distance indicates perfect similarity (i.e., the train and test distributions are identical) and higher values suggesting increasing dissimilarity.
+
+
+Examples
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+The full example codes of this section can be found in the following link.
+
+.. topic:: Example
+
+    * :ref:`sphx_glr_auto_examples_0_data_plot_4_data_quality.py`

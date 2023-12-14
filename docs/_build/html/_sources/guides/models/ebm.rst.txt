@@ -64,8 +64,8 @@ The main effect plot in EBM, like GAM, displays the estimated effect of :math:`\
      exp.model_interpret(model="EBM", show="global_effect_plot", uni_feature="hr",
                          original_scale=True, figsize=(5, 4))
 
-.. figure:: ../../auto_examples/models/images/sphx_glr_plot_6_ebm_reg_001.png
-   :target: ../../auto_examples/models/plot_6_ebm_reg.html
+.. figure:: ../../auto_examples/3_models/images/sphx_glr_plot_6_ebm_reg_001.png
+   :target: ../../auto_examples/3_models/plot_6_ebm_reg.html
    :align: left
 
 The figure above shows the estimated shape functions for the feature `hr`, together with the histogram plot on the bottom. The shape function is piecewise constant, and the number of bins is upper bounded by the hyperparameter `max_bins`. It can be observed that there exist 2 peaks of bike sharing around 8 AM and 5 PM, which correspond to the rush hour in a day.
@@ -80,8 +80,8 @@ To visualize the estimated pairwise interaction, we can still use the keyword "g
      exp.model_interpret(model="EBM", show="global_effect_plot", bi_features=["hr", "season"],
                          original_scale=True, figsize=(5, 4))
 
-.. figure:: ../../auto_examples/models/images/sphx_glr_plot_6_ebm_reg_003.png
-   :target: ../../auto_examples/models/plot_6_ebm_reg.html
+.. figure:: ../../auto_examples/3_models/images/sphx_glr_plot_6_ebm_reg_003.png
+   :target: ../../auto_examples/3_models/plot_6_ebm_reg.html
    :align: left
 
 The figure above shows the estimated pairwise interaction between `hr` and `season`. The interaction captures the main effects' residual pattern, and somehow, can be interpreted as the correction to the prediction of the main effects. For instance, it can be observed that there exists a minor positive effect at the night hours (around 7 pm to 7 am) of spring.
@@ -95,8 +95,8 @@ The effect importance is calculated as the variance of the estimated shape funct
      
      exp.model_interpret(model="EBM", show="global_ei", figsize=(5, 4))
 
-.. figure:: ../../auto_examples/models/images/sphx_glr_plot_6_ebm_reg_004.png
-   :target: ../../auto_examples/models/plot_6_ebm_reg.html
+.. figure:: ../../auto_examples/3_models/images/sphx_glr_plot_6_ebm_reg_004.png
+   :target: ../../auto_examples/3_models/plot_6_ebm_reg.html
    :align: left
 
 It can be observed that the main effect of `hr` is the most important, followed by `atemp` and the pairwise interaction between `hr` and `workingday`. Here we only plot the top-10 effect importance. Note that this plot only shows the top 10 effects with the largest importance. To get the full results, you can set the parameter `return_data` to True.
@@ -112,8 +112,8 @@ As a GAMI model, the calculation of feature importance in EBM is the same as tha
      
      exp.model_interpret(model="EBM", show="global_fi", figsize=(5, 4))
 
-.. figure:: ../../auto_examples/models/images/sphx_glr_plot_6_ebm_reg_005.png
-   :target: ../../auto_examples/models/plot_6_ebm_reg.html
+.. figure:: ../../auto_examples/3_models/images/sphx_glr_plot_6_ebm_reg_005.png
+   :target: ../../auto_examples/3_models/plot_6_ebm_reg.html
    :align: left
 
 From this plot, we can observe that the two features `hr` and `atemp` take the dominant role in the model, followed by `season` and `hum`. The findings are quite close to that of the XGB2 model, as they share a similar model structure. Note that this plot only shows the top 10 features with the largest importance. To get the full results, you can set the parameter `return_data` to True.
@@ -132,8 +132,8 @@ We use "local_ei" to draw the effect contribution of a given sample.
 
     exp.model_interpret(model="EBM", show="local_ei", sample_id=0, original_scale=True, figsize=(5, 4))
 
-.. figure:: ../../auto_examples/models/images/sphx_glr_plot_6_ebm_reg_006.png
-   :target: ../../auto_examples/models/plot_6_ebm_reg.html
+.. figure:: ../../auto_examples/3_models/images/sphx_glr_plot_6_ebm_reg_006.png
+   :target: ../../auto_examples/3_models/plot_6_ebm_reg.html
    :align: left
 
 The right axis of the plot displays the predictor values for each effect, while the left axis shows the corresponding effect names. The title indicates that the predicted value for this sample is 0.0818, which differs slightly from the actual response of 0.16. The main effect of `atemp` makes the largest contribution to the final prediction, with a negative effect (approximately -0.06). The main effect of `season` and the pairwise interaction (`hr` and `workingday`) also have negative effects on the final prediction, following atemp. Note that only the top 10 effects with the largest contribution are shown in this plot. To see the complete results, set the return_data parameter to True.
@@ -146,8 +146,8 @@ The definition of feature contribution is the same as that of the XGB2_ model. S
 
     exp.model_interpret(model="EBM", show="local_fi", sample_id=0, original_scale=True, figsize=(5, 4))
 
-.. figure:: ../../auto_examples/models/images/sphx_glr_plot_6_ebm_reg_007.png
-   :target: ../../auto_examples/models/plot_6_ebm_reg.html
+.. figure:: ../../auto_examples/3_models/images/sphx_glr_plot_6_ebm_reg_007.png
+   :target: ../../auto_examples/3_models/plot_6_ebm_reg.html
    :align: left
 
 The feature contribution plot has a similar interpretation to that of the local effect contribution plot, but it displays the contribution by feature instead of by effect. For this sample, the main effects of `atemp` and `season` still have negative contributions to the final prediction. However, the contribution of feature `hr` almost equals zero at the feature level, in contrast to the significant positive contribution of its main effect. Note that only the top 10 features with the largest contribution are shown in this plot. To view the complete results, set the `return_data` parameter to True.
@@ -160,10 +160,10 @@ Examples
 
   The first example below demonstrates how to use PiML with its high-code APIs for developing machine learning models for the BikeSharing data from the UCI repository, which consists of 17,389 samples of hourly counts of rental bikes in Capital bikeshare system; see details. The response `cnt` (hourly bike rental counts) is continuous and it is a regression problem.
  
- * :ref:`sphx_glr_auto_examples_models_plot_6_ebm_reg.py`
+ * :ref:`sphx_glr_auto_examples_3_models_plot_6_ebm_reg.py`
 
 .. topic:: Examples 2: Taiwan Credit
 
   The second example below demonstrates how to use PiML’s high-code APIs for the TaiwanCredit dataset from the UCI repository. This dataset comprises the credit card details of 30,000 clients in Taiwan from April 2005 to September 2005, and more information can be found on the TaiwanCreditData website. The data can be loaded directly into PiML, although it requires some preprocessing. The FlagDefault variable serves as the response for this classification problem.
 
- * :ref:`sphx_glr_auto_examples_models_plot_6_ebm_cls.py`
+ * :ref:`sphx_glr_auto_examples_3_models_plot_6_ebm_cls.py`

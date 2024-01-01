@@ -143,7 +143,7 @@
                   </li>
                 
                   <li>
-                    <a href="../model_train.html" class="">3. Model Train and Tune</a>
+                    <a href="../train.html" class="">3. Model Train and Tune</a>
                     
                   </li>
                 
@@ -304,7 +304,7 @@ To customize the resilience test, the following parameters can be specified:</p>
 <div class="jupyter_cell jupyter_container docutils container">
 <div class="cell_input code_cell docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">exp</span><span class="o">.</span><span class="n">model_diagnose</span><span class="p">(</span><span class="n">model</span><span class="o">=</span><span class="s2">&quot;XGB2&quot;</span><span class="p">,</span> <span class="n">show</span><span class="o">=</span><span class="s2">&quot;resilience_perf&quot;</span><span class="p">,</span> <span class="n">resilience_method</span><span class="o">=</span><span class="s2">&quot;worst-sample&quot;</span><span class="p">,</span>
-                   <span class="n">metric</span><span class="o">=</span><span class="s2">&quot;AUC&quot;</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">4</span><span class="p">))</span>
+                   <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">4</span><span class="p">))</span>
 </pre></div>
 </div>
 </div>
@@ -315,12 +315,12 @@ To customize the resilience test, the following parameters can be specified:</p>
 <a class="reference external image-reference" href="../../auto_examples/4_testing/plot_5_resilience_cls.html"><img alt="../../_images/sphx_glr_plot_5_resilience_cls_001.png" src="../../_images/sphx_glr_plot_5_resilience_cls_001.png" /></a>
 </figure>
 <ul class="simple">
-<li><p><strong>hard-sample</strong>: As the worst sample ratio decreases to less than 0.4, the AUC values hover around 0.5. This observation indicates that the model’s performance is comparable to that of a random classifier. However, as the worst sample ratio increases, there is a noticeable improvement in the model’s performance.</p></li>
+<li><p><strong>hard-sample</strong>: As the worst sample ratio decreases to less than 0.4, the ACC values hover around 0.5. This observation indicates that the model’s performance is comparable to that of a random classifier. However, as the worst sample ratio increases, there is a noticeable improvement in the model’s performance.</p></li>
 </ul>
 <div class="jupyter_cell jupyter_container docutils container">
 <div class="cell_input code_cell docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">exp</span><span class="o">.</span><span class="n">model_diagnose</span><span class="p">(</span><span class="n">model</span><span class="o">=</span><span class="s2">&quot;XGB2&quot;</span><span class="p">,</span> <span class="n">show</span><span class="o">=</span><span class="s2">&quot;resilience_perf&quot;</span><span class="p">,</span> <span class="n">resilience_method</span><span class="o">=</span><span class="s2">&quot;hard-sample&quot;</span><span class="p">,</span>
-                   <span class="n">metric</span><span class="o">=</span><span class="s2">&quot;AUC&quot;</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">4</span><span class="p">))</span>
+                   <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">4</span><span class="p">))</span>
 </pre></div>
 </div>
 </div>
@@ -331,13 +331,12 @@ To customize the resilience test, the following parameters can be specified:</p>
 <a class="reference external image-reference" href="../../auto_examples/4_testing/plot_5_resilience_cls.html"><img alt="../../_images/sphx_glr_plot_5_resilience_cls_002.png" src="../../_images/sphx_glr_plot_5_resilience_cls_002.png" /></a>
 </figure>
 <ul class="simple">
-<li><p><strong>outer-sample</strong>: Based on the observed plot, it is evident that even in the worst-10% test sample scenario, the model demonstrates relatively good performance, achieving an AUC above 0.7. Interestingly, the model’s performance reaches its peak around the worst sample ratio of approximately 0.7, after which it gradually declines. This trend could be attributed to the nature of the scenario being unsupervised. In such cases, the samples identified as “worst” may not consistently exhibit the worst performance across all instances. It is plausible that in some cases, these “worst samples” may actually outperform the remaining test sample set.</p></li>
+<li><p><strong>outer-sample</strong>: The fluctuations in performance observed at different worst sample ratios highlight the complexity of assessing the worst samples in unsupervised scenarios. The model’s performance may be influenced by various factors, including the characteristics of the data and the specific criteria used to define the “worst” samples.</p></li>
 </ul>
-<p>The fluctuations in performance observed at different worst sample ratios highlight the complexity of assessing the worst samples in unsupervised scenarios. The model’s performance may be influenced by various factors, including the characteristics of the data and the specific criteria used to define the “worst” samples.</p>
 <div class="jupyter_cell jupyter_container docutils container">
 <div class="cell_input code_cell docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">exp</span><span class="o">.</span><span class="n">model_diagnose</span><span class="p">(</span><span class="n">model</span><span class="o">=</span><span class="s2">&quot;XGB2&quot;</span><span class="p">,</span> <span class="n">show</span><span class="o">=</span><span class="s2">&quot;resilience_perf&quot;</span><span class="p">,</span> <span class="n">resilience_method</span><span class="o">=</span><span class="s2">&quot;outer-sample&quot;</span><span class="p">,</span>
-                   <span class="n">metric</span><span class="o">=</span><span class="s2">&quot;AUC&quot;</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">4</span><span class="p">))</span>
+                   <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">4</span><span class="p">))</span>
 </pre></div>
 </div>
 </div>
@@ -353,7 +352,7 @@ To customize the resilience test, the following parameters can be specified:</p>
 <div class="jupyter_cell jupyter_container docutils container">
 <div class="cell_input code_cell docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">exp</span><span class="o">.</span><span class="n">model_diagnose</span><span class="p">(</span><span class="n">model</span><span class="o">=</span><span class="s2">&quot;XGB2&quot;</span><span class="p">,</span> <span class="n">show</span><span class="o">=</span><span class="s2">&quot;resilience_perf&quot;</span><span class="p">,</span> <span class="n">resilience_method</span><span class="o">=</span><span class="s2">&quot;worst-cluster&quot;</span><span class="p">,</span>
-                   <span class="n">metric</span><span class="o">=</span><span class="s2">&quot;AUC&quot;</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">4</span><span class="p">))</span>
+                   <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">4</span><span class="p">))</span>
 </pre></div>
 </div>
 </div>

@@ -59,31 +59,29 @@ With the resilience test, you can assess the performance of the worst samples in
 .. jupyter-input::
    
    exp.model_diagnose(model="XGB2", show="resilience_perf", resilience_method="worst-sample", 
-                      metric="AUC", figsize=(5, 4))
+                      figsize=(5, 4))
 
 .. figure:: ../../auto_examples/4_testing/images/sphx_glr_plot_5_resilience_cls_001.png
    :target: ../../auto_examples/4_testing/plot_5_resilience_cls.html
    :align: left
 
-- **hard-sample**: As the worst sample ratio decreases to less than 0.4, the AUC values hover around 0.5. This observation indicates that the model's performance is comparable to that of a random classifier. However, as the worst sample ratio increases, there is a noticeable improvement in the model's performance. 
+- **hard-sample**: As the worst sample ratio decreases to less than 0.4, the ACC values hover around 0.5. This observation indicates that the model's performance is comparable to that of a random classifier. However, as the worst sample ratio increases, there is a noticeable improvement in the model's performance. 
 
 .. jupyter-input::
 
    exp.model_diagnose(model="XGB2", show="resilience_perf", resilience_method="hard-sample",
-                      metric="AUC", figsize=(5, 4))
+                      figsize=(5, 4))
    
 .. figure:: ../../auto_examples/4_testing/images/sphx_glr_plot_5_resilience_cls_002.png
    :target: ../../auto_examples/4_testing/plot_5_resilience_cls.html
    :align: left
 
-- **outer-sample**: Based on the observed plot, it is evident that even in the worst-10% test sample scenario, the model demonstrates relatively good performance, achieving an AUC above 0.7. Interestingly, the model's performance reaches its peak around the worst sample ratio of approximately 0.7, after which it gradually declines. This trend could be attributed to the nature of the scenario being unsupervised. In such cases, the samples identified as "worst" may not consistently exhibit the worst performance across all instances. It is plausible that in some cases, these "worst samples" may actually outperform the remaining test sample set.
-
-The fluctuations in performance observed at different worst sample ratios highlight the complexity of assessing the worst samples in unsupervised scenarios. The model's performance may be influenced by various factors, including the characteristics of the data and the specific criteria used to define the "worst" samples.
+- **outer-sample**: The fluctuations in performance observed at different worst sample ratios highlight the complexity of assessing the worst samples in unsupervised scenarios. The model's performance may be influenced by various factors, including the characteristics of the data and the specific criteria used to define the "worst" samples.
 
 .. jupyter-input::
    
    exp.model_diagnose(model="XGB2", show="resilience_perf", resilience_method="outer-sample",
-                      metric="AUC", figsize=(5, 4))
+                      figsize=(5, 4))
 
 .. figure:: ../../auto_examples/4_testing/images/sphx_glr_plot_5_resilience_cls_003.png
    :target: ../../auto_examples/4_testing/plot_5_resilience_cls.html
@@ -94,7 +92,7 @@ The fluctuations in performance observed at different worst sample ratios highli
 .. jupyter-input::
 
    exp.model_diagnose(model="XGB2", show="resilience_perf", resilience_method="worst-cluster",
-                      metric="AUC", figsize=(5, 4))
+                      figsize=(5, 4))
 
 .. figure:: ../../auto_examples/4_testing/images/sphx_glr_plot_5_resilience_cls_004.png
    :target: ../../auto_examples/4_testing/plot_5_resilience_cls.html

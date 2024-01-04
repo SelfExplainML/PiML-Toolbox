@@ -31,7 +31,7 @@ The `exp.segmented_diagnose` function has the following arguments.
     - 'accuracy_residual': the residual plot of the specified segment and feature of interest. 
     - 'accuracy_table': the accuracy results of the specified segment.
     - 'weakspot': the weakspot test of the specified segment. 
-    - distribution_shift: the density plot comparison between the specified segment and its complement.
+    - 'distribution_shift': the density plot comparison between the specified segment and its complement.
 
 - `segment_method`: The segmentation method, including "uniform", "quantile", and "auto".
 

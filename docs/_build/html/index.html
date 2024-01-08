@@ -128,12 +128,19 @@
           <a href="guides/data.html"><h4 class="sk-card-title card-title">Data Pipeline</h4></a>
           <p class="card-text">Load, check, and prepare data</p>
           <ul style="margin-left:-20px;">
-            <li><a href="guides/data/data_load.html">Load built-in or external dataset</a></li>
-            <li><a href="guides/data/data_eda.html">Exploratory data analysis</a></li>
-            <li><a href="guides/data/data_quality_outlier.html">Data quality check</a></li>
+            <li> Basic Pipeline</pre>:
+              <a href="guides/data/data_load.html">Load</a>,
+              <a href="guides/data/data_summary.html">Summary</a>,
+              <a href="guides/data/data_prepare.html">Prepare</a>,
+            </li>
+            <li> Quality Check:
+              <a href="guides/data/data_quality_integrity.html">Integrity</a>,
+              <a href="guides/data/data_quality_outlier.html">Outlier</a>,
+              <a href="guides/data/data_quality_drift.html">Data drift</a>
+            </li>
             <li><a href="guides/data/feature_select.html">Feature selection</a></li>
-            <li><a href="guides/data/data_quality_drift.html">Train-test distribution distance</a></li>
-		  </ul>
+            <li><a href="guides/data/data_eda.html">Exploratory data analysis</a></li>
+          </ul>
         </div>
       </div>
     </div>
@@ -143,19 +150,19 @@
           <a href="guides/models.html"><h4 class="sk-card-title card-title">Interpretable Models</h4></a>
           <p class="card-text">Inherent interpretability</p>
           <ul style="margin-left:-20px;">
-			  <li>Classic statistics models:
+			  <li>Main effect models:
           <a href="guides/models/glm.html">GLM</a>,
           <a href="guides/models/gam.html">GAM</a>,
-          <a href="guides/models/tree.html">Tree</a>
+          <a href="guides/models/xgb1.html">XGB1</a>
         </li>
-			  <li> Ensemble trees:
-          <a href="guides/models/figs.html">FIGS</a>,
-          <a href="guides/models/xgb1.html">XGB1</a>,
+			  <li> Interaction models:
+          <a href="guides/models/ebm.html">EBM</a>,
           <a href="guides/models/xgb2.html">XGB2</a>,
-          <a href="guides/models/ebm.html">EBM</a>
+          <a href="guides/models/gaminet.html">GAMI-Net</a>
         </li>
-			  <li> Neural networks:
-          <a href="guides/models/gaminet.html">GAMI-Net</a>,
+			  <li> Local interpretable models:
+          <a href="guides/models/tree.html">Tree</a>,
+          <a href="guides/models/figs.html">FIGS</a>,
           <a href="guides/models/reludnn.html">ReLU-DNN</a>
         </li>
 		  </ul>
@@ -168,13 +175,16 @@
           <a href="guides/explain.html"><h4 class="sk-card-title card-title">Post-hoc Explainability</h4></a>
           <p class="card-text">Global and local explainability</p>
           <ul style="margin-left:-20px;">
-            <li><a href="guides/explain/pfi.html">Permutation feature importance</a></li>
-            <li><a href="guides/explain/pdp.html">Partial dependence plot</a></li>
-            <li> Other global methods:
-              <a href="guides/explain/ice.html">ICE</a>,
+            <li> Global importance:
+              <a href="guides/explain/pfi.html">PFI</a>,
+              <a href="guides/explain/hstats.html">H-statistic</a>
+            </li>
+            <li> Global dependence:
+              <a href="guides/explain/pdp.html">PDP</a>,
               <a href="guides/explain/ale.html">ALE</a>
             </li>
             <li> Local methods:
+              <a href="guides/explain/ice.html">ICE</a>,
               <a href="guides/explain/lime.html">LIME</a>,
               <a href="guides/explain/shap.html">SHAP</a>
             </li>
@@ -188,11 +198,20 @@
           <a href="guides/testing.html"><h4 class="sk-card-title card-title">Diagnostic Suite</h4></a>
           <p class="card-text">Model validation and outcome testing</p>
           <ul style="margin-left:-20px;">
-            <li><a href="guides/testing/accuracy.html">Accuracy and residual plot</a></li>
-            <li><a href="guides/testing/weakspot.html">Model weakness identification</a></li>
-            <li><a href="guides/testing/reliability.html">Prediction uncertainty quantification</a></li>
-            <li><a href="guides/testing/robustness.html">Robustness test under covariate perturbation</a></li>
-            <li><a href="guides/testing/fairness.html">Model fairness, disparity test and debias</a></li>      
+            <li> Basic Tests:
+              <a href="guides/testing/accuracy.html">Accuracy</a>,
+              <a href="guides/testing/weakspot.html">Weakspot</a>,
+              <a href="guides/testing/overfit.html">Overfit</a>
+            </li>
+            <li> 3R Tests:
+              <a href="guides/testing/reliability.html">Reliability</a>,
+              <a href="guides/testing/robustness.html">Robustness</a>,
+              <a href="guides/testing/resilience.html">Resilience</a>
+            </li>
+            <li> <a href="guides/testing/fairness.html">Fairness test</a></li>
+            <li> <a href="guides/testing/segmented_diagnose.html">Segmented test</a></li>
+            <li> <a href="guides/testing/scored_test.html">Scored test</a></li>
+            </li>
           </ul>
         </div>
       </div>

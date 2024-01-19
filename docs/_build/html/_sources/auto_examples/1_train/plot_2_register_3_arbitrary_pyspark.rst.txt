@@ -111,7 +111,7 @@ Register the fitted model into PiML (please make sure the datasets of different 
                                  test_y=test_data.select(target_name).toPandas().values,
                                  feature_names=feature_names,
                                  target_name=target_name)
-    exp.register(pipeline, "Spark-GBT")
+    exp.register(pipeline, "Spark-DT")
 
 
 
@@ -128,7 +128,7 @@ Check model performance
 
 .. code-block:: Python
 
-    exp.model_diagnose(model="Spark-GBT", show="accuracy_table")
+    exp.model_diagnose(model="Spark-DT", show="accuracy_table")
 
 
 
@@ -155,7 +155,7 @@ Run validataion tests
 
 .. code-block:: Python
 
-    exp.model_explain(model="Spark-GBT", show="pdp", uni_feature="Balance", sample_size=1000, figsize=(5, 4))
+    exp.model_explain(model="Spark-DT", show="pdp", uni_feature="Balance", sample_size=1000, figsize=(5, 4))
 
 
 

@@ -191,11 +191,11 @@ to download the full example code or to run this example in your browser via Bin
                              <span class="n">test_y</span><span class="o">=</span><span class="n">test_data</span><span class="o">.</span><span class="n">select</span><span class="p">(</span><span class="n">target_name</span><span class="p">)</span><span class="o">.</span><span class="n">toPandas</span><span class="p">()</span><span class="o">.</span><span class="n">values</span><span class="p">,</span>
                              <span class="n">feature_names</span><span class="o">=</span><span class="n">feature_names</span><span class="p">,</span>
                              <span class="n">target_name</span><span class="o">=</span><span class="n">target_name</span><span class="p">)</span>
-<span class="n">exp</span><span class="o">.</span><span class="n">register</span><span class="p">(</span><span class="n">pipeline</span><span class="p">,</span> <span class="s2">&quot;Spark-GBT&quot;</span><span class="p">)</span>
+<span class="n">exp</span><span class="o">.</span><span class="n">register</span><span class="p">(</span><span class="n">pipeline</span><span class="p">,</span> <span class="s2">&quot;Spark-DT&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>Check model performance</p>
-<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="n">exp</span><span class="o">.</span><span class="n">model_diagnose</span><span class="p">(</span><span class="n">model</span><span class="o">=</span><span class="s2">&quot;Spark-GBT&quot;</span><span class="p">,</span> <span class="n">show</span><span class="o">=</span><span class="s2">&quot;accuracy_table&quot;</span><span class="p">)</span>
+<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="n">exp</span><span class="o">.</span><span class="n">model_diagnose</span><span class="p">(</span><span class="n">model</span><span class="o">=</span><span class="s2">&quot;Spark-DT&quot;</span><span class="p">,</span> <span class="n">show</span><span class="o">=</span><span class="s2">&quot;accuracy_table&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 <div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>           ACC      AUC       F1  LogLoss    Brier
@@ -206,7 +206,7 @@ Gap    -0.0020  -0.0011  -0.0057  -0.0009  -0.0003
 </pre></div>
 </div>
 <p>Run validataion tests</p>
-<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="n">exp</span><span class="o">.</span><span class="n">model_explain</span><span class="p">(</span><span class="n">model</span><span class="o">=</span><span class="s2">&quot;Spark-GBT&quot;</span><span class="p">,</span> <span class="n">show</span><span class="o">=</span><span class="s2">&quot;pdp&quot;</span><span class="p">,</span> <span class="n">uni_feature</span><span class="o">=</span><span class="s2">&quot;Balance&quot;</span><span class="p">,</span> <span class="n">sample_size</span><span class="o">=</span><span class="mi">1000</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">4</span><span class="p">))</span>
+<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="n">exp</span><span class="o">.</span><span class="n">model_explain</span><span class="p">(</span><span class="n">model</span><span class="o">=</span><span class="s2">&quot;Spark-DT&quot;</span><span class="p">,</span> <span class="n">show</span><span class="o">=</span><span class="s2">&quot;pdp&quot;</span><span class="p">,</span> <span class="n">uni_feature</span><span class="o">=</span><span class="s2">&quot;Balance&quot;</span><span class="p">,</span> <span class="n">sample_size</span><span class="o">=</span><span class="mi">1000</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">4</span><span class="p">))</span>
 </pre></div>
 </div>
 <img src="../../_images/sphx_glr_plot_2_register_3_arbitrary_pyspark_001.png" srcset="../../_images/sphx_glr_plot_2_register_3_arbitrary_pyspark_001.png" alt="Partial Dependence Plot" class = "sphx-glr-single-img"/><p class="sphx-glr-timing"><strong>Total running time of the script:</strong> (12 minutes 24.583 seconds)</p>

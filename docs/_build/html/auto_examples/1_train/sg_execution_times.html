@@ -3,7 +3,7 @@
 <head>
 
   <meta charset="utf-8">
-  <meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+  <meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
@@ -41,7 +41,7 @@
         <script src="../../_static/sphinx_highlight.js"></script>
         <script src="../../_static/thebelab-helper.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
-        <script src="https://cdn.jsdelivr.net/npm/@jupyter-widgets/html-manager@^1.0.1/dist/embed-amd.js"></script>
+        <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.20.1/dist/embed-amd.js"></script>
         <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
     <script src="../../_static/js/theme.js"></script>
 
@@ -130,40 +130,58 @@
           
   <section id="computation-times">
 <span id="sphx-glr-auto-examples-1-train-sg-execution-times"></span><h1>Computation times<a class="headerlink" href="#computation-times" title="Permalink to this heading">¶</a></h1>
-<p><strong>12:44.310</strong> total execution time for <strong>auto_examples_1_train</strong> files:</p>
-<table class="docutils align-default">
-<colgroup>
-<col style="width: 84%" />
-<col style="width: 9%" />
-<col style="width: 7%" />
-</colgroup>
+<p><strong>12:24.583</strong> total execution time for 7 files <strong>from auto_examples1_train</strong>:</p>
+<div class="docutils container">
+<style scoped>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet" />
+<link href="https://cdn.datatables.net/1.13.6/css/dataTables.bootstrap5.min.css" rel="stylesheet" />
+</style>
+<script src="https://code.jquery.com/jquery-3.7.0.js"></script>
+<script src="https://cdn.datatables.net/1.13.6/js/jquery.dataTables.min.js"></script>
+<script src="https://cdn.datatables.net/1.13.6/js/dataTables.bootstrap5.min.js"></script>
+<script type="text/javascript" class="init">
+$(document).ready( function () {
+    $('table.sg-datatable').DataTable({order: [[1, 'desc']]});
+} );
+</script><table class="table table-striped sg-datatable docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>Example</p></th>
+<th class="head"><p>Time</p></th>
+<th class="head"><p>Mem (MB)</p></th>
+</tr>
+</thead>
 <tbody>
-<tr class="row-odd"><td><p><a class="reference internal" href="plot_2_register_1_h2o.html#sphx-glr-auto-examples-1-train-plot-2-register-1-h2o-py"><span class="std std-ref">Register H2O Models</span></a> (<code class="docutils literal notranslate"><span class="pre">plot_2_register_1_h2o.py</span></code>)</p></td>
-<td><p>05:55.568</p></td>
-<td><p>33.6 MB</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="plot_2_register_3_arbitrary_pyspark.html#sphx-glr-auto-examples-1-train-plot-2-register-3-arbitrary-pyspark-py"><span class="std std-ref">Register PySpark Models</span></a> (<code class="docutils literal notranslate"><span class="pre">plot_2_register_3_arbitrary_pyspark.py</span></code>)</p></td>
+<td><p>12:24.583</p></td>
+<td><p>0.0</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="plot_0_model_train.html#sphx-glr-auto-examples-1-train-plot-0-model-train-py"><span class="std std-ref">Train Models</span></a> (<code class="docutils literal notranslate"><span class="pre">plot_0_model_train.py</span></code>)</p></td>
+<td><p>00:00.000</p></td>
+<td><p>0.0</p></td>
 </tr>
 <tr class="row-even"><td><p><a class="reference internal" href="plot_1_hpo_grid.html#sphx-glr-auto-examples-1-train-plot-1-hpo-grid-py"><span class="std std-ref">HPO - Grid Search</span></a> (<code class="docutils literal notranslate"><span class="pre">plot_1_hpo_grid.py</span></code>)</p></td>
-<td><p>03:52.724</p></td>
-<td><p>30.9 MB</p></td>
+<td><p>00:00.000</p></td>
+<td><p>0.0</p></td>
 </tr>
 <tr class="row-odd"><td><p><a class="reference internal" href="plot_1_hpo_random.html#sphx-glr-auto-examples-1-train-plot-1-hpo-random-py"><span class="std std-ref">HPO - Random Search</span></a> (<code class="docutils literal notranslate"><span class="pre">plot_1_hpo_random.py</span></code>)</p></td>
-<td><p>01:24.760</p></td>
-<td><p>14.6 MB</p></td>
+<td><p>00:00.000</p></td>
+<td><p>0.0</p></td>
 </tr>
 <tr class="row-even"><td><p><a class="reference internal" href="plot_2_register_0_sklearn.html#sphx-glr-auto-examples-1-train-plot-2-register-0-sklearn-py"><span class="std std-ref">Register sklearn Style Models</span></a> (<code class="docutils literal notranslate"><span class="pre">plot_2_register_0_sklearn.py</span></code>)</p></td>
-<td><p>00:51.249</p></td>
-<td><p>40.4 MB</p></td>
-</tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="plot_2_register_2_arbitrary.html#sphx-glr-auto-examples-1-train-plot-2-register-2-arbitrary-py"><span class="std std-ref">Register Arbitrary Models</span></a> (<code class="docutils literal notranslate"><span class="pre">plot_2_register_2_arbitrary.py</span></code>)</p></td>
-<td><p>00:40.009</p></td>
-<td><p>17.4 MB</p></td>
-</tr>
-<tr class="row-even"><td><p><a class="reference internal" href="plot_0_model_train.html#sphx-glr-auto-examples-1-train-plot-0-model-train-py"><span class="std std-ref">Train Models</span></a> (<code class="docutils literal notranslate"><span class="pre">plot_0_model_train.py</span></code>)</p></td>
 <td><p>00:00.000</p></td>
-<td><p>0.0 MB</p></td>
+<td><p>0.0</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="plot_2_register_1_h2o.html#sphx-glr-auto-examples-1-train-plot-2-register-1-h2o-py"><span class="std std-ref">Register H2O Models</span></a> (<code class="docutils literal notranslate"><span class="pre">plot_2_register_1_h2o.py</span></code>)</p></td>
+<td><p>00:00.000</p></td>
+<td><p>0.0</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="plot_2_register_2_arbitrary.html#sphx-glr-auto-examples-1-train-plot-2-register-2-arbitrary-py"><span class="std std-ref">Register Arbitrary Models</span></a> (<code class="docutils literal notranslate"><span class="pre">plot_2_register_2_arbitrary.py</span></code>)</p></td>
+<td><p>00:00.000</p></td>
+<td><p>0.0</p></td>
 </tr>
 </tbody>
 </table>
+</div>
 </section>
 
 

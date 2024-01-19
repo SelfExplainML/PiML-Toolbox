@@ -27,7 +27,7 @@ Experiment initialization and data preparation
 
 .. GENERATED FROM PYTHON SOURCE LINES 9-17
 
-.. code-block:: default
+.. code-block:: Python
 
     from piml import Experiment
     from piml.models import XGB2Classifier
@@ -48,12 +48,14 @@ Experiment initialization and data preparation
 
 Train Model
 
-.. GENERATED FROM PYTHON SOURCE LINES 19-21
+.. GENERATED FROM PYTHON SOURCE LINES 19-24
 
-.. code-block:: default
+.. code-block:: Python
 
     exp.model_train(model=XGB2Classifier(), name='XGB2')
 
+    # Train Model with monotonicity constraints on PAY_1
+    exp.model_train(model=XGB2Classifier(mono_increasing_list=("PAY_1", )), name="Mono-XGB2")
 
 
 
@@ -61,13 +63,14 @@ Train Model
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 22-23
 
-Evaluate predictive performance
+.. GENERATED FROM PYTHON SOURCE LINES 25-26
 
-.. GENERATED FROM PYTHON SOURCE LINES 23-25
+Evaluate predictive performance of XGB2
 
-.. code-block:: default
+.. GENERATED FROM PYTHON SOURCE LINES 26-28
+
+.. code-block:: Python
 
     exp.model_diagnose(model='XGB2', show='accuracy_table')
 
@@ -88,13 +91,40 @@ Evaluate predictive performance
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 26-27
+.. GENERATED FROM PYTHON SOURCE LINES 29-30
 
-Global effect plot for PAY_1
+Evaluate predictive performance of Mono-XGB2
 
-.. GENERATED FROM PYTHON SOURCE LINES 27-29
+.. GENERATED FROM PYTHON SOURCE LINES 30-32
 
-.. code-block:: default
+.. code-block:: Python
+
+    exp.model_diagnose(model='Mono-XGB2', show='accuracy_table')
+
+
+
+
+
+.. rst-class:: sphx-glr-script-out
+
+ .. code-block:: none
+
+              ACC      AUC      F1 LogLoss   Brier
+                                              
+    Train  0.8216   0.7968  0.4780  0.4202  0.1318
+    Test   0.8288   0.7739  0.4816  0.4249  0.1320
+    Gap    0.0072  -0.0229  0.0036  0.0047  0.0001
+
+
+
+
+.. GENERATED FROM PYTHON SOURCE LINES 33-34
+
+Global effect plot for PAY_1 of XGB2
+
+.. GENERATED FROM PYTHON SOURCE LINES 34-36
+
+.. code-block:: Python
 
     exp.model_interpret(model='XGB2', show="global_effect_plot", uni_feature="PAY_1", original_scale=True, figsize=(5, 4))
 
@@ -110,65 +140,22 @@ Global effect plot for PAY_1
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 30-31
+.. GENERATED FROM PYTHON SOURCE LINES 37-38
 
-Effect importance
+Global effect plot for PAY_1 of Mono-XGB2
 
-.. GENERATED FROM PYTHON SOURCE LINES 31-33
+.. GENERATED FROM PYTHON SOURCE LINES 38-40
 
-.. code-block:: default
+.. code-block:: Python
 
-    exp.model_interpret(model='XGB2', show="global_ei", figsize=(5, 4))
+    exp.model_interpret(model='Mono-XGB2', show="global_effect_plot", uni_feature="PAY_1", original_scale=True, figsize=(5, 4))
 
 
 
 
 .. image-sg:: /auto_examples/3_models/images/sphx_glr_plot_5_xgb2_cls_002.png
-   :alt: Effect Importance
+   :alt: PAY_1 (26.8%)
    :srcset: /auto_examples/3_models/images/sphx_glr_plot_5_xgb2_cls_002.png
-   :class: sphx-glr-single-img
-
-
-
-
-
-.. GENERATED FROM PYTHON SOURCE LINES 34-35
-
-Feature importance
-
-.. GENERATED FROM PYTHON SOURCE LINES 35-37
-
-.. code-block:: default
-
-    exp.model_interpret(model='XGB2', show="global_fi", figsize=(5, 4))
-
-
-
-
-.. image-sg:: /auto_examples/3_models/images/sphx_glr_plot_5_xgb2_cls_003.png
-   :alt: Feature Importance
-   :srcset: /auto_examples/3_models/images/sphx_glr_plot_5_xgb2_cls_003.png
-   :class: sphx-glr-single-img
-
-
-
-
-
-.. GENERATED FROM PYTHON SOURCE LINES 38-39
-
-Local interpretation by effect
-
-.. GENERATED FROM PYTHON SOURCE LINES 39-40
-
-.. code-block:: default
-
-    exp.model_interpret(model='XGB2', show="local_ei", sample_id=0, original_scale=True, figsize=(5, 4))
-
-
-
-.. image-sg:: /auto_examples/3_models/images/sphx_glr_plot_5_xgb2_cls_004.png
-   :alt: Predicted: 0.1902 | Actual: 0.0000
-   :srcset: /auto_examples/3_models/images/sphx_glr_plot_5_xgb2_cls_004.png
    :class: sphx-glr-single-img
 
 
@@ -177,19 +164,84 @@ Local interpretation by effect
 
 .. GENERATED FROM PYTHON SOURCE LINES 41-42
 
-Local interpretation by feature
+Effect importance
 
-.. GENERATED FROM PYTHON SOURCE LINES 42-43
+.. GENERATED FROM PYTHON SOURCE LINES 42-44
 
-.. code-block:: default
+.. code-block:: Python
 
-    exp.model_interpret(model='XGB2', show="local_fi", sample_id=0, original_scale=True, figsize=(5, 4))
+    exp.model_interpret(model='Mono-XGB2', show="global_ei", figsize=(5, 4))
+
+
+
+
+.. image-sg:: /auto_examples/3_models/images/sphx_glr_plot_5_xgb2_cls_003.png
+   :alt: Effect Importance
+   :srcset: /auto_examples/3_models/images/sphx_glr_plot_5_xgb2_cls_003.png
+   :class: sphx-glr-single-img
+
+
+
+
+
+.. GENERATED FROM PYTHON SOURCE LINES 45-46
+
+Feature importance
+
+.. GENERATED FROM PYTHON SOURCE LINES 46-48
+
+.. code-block:: Python
+
+    exp.model_interpret(model='Mono-XGB2', show="global_fi", figsize=(5, 4))
+
+
+
+
+.. image-sg:: /auto_examples/3_models/images/sphx_glr_plot_5_xgb2_cls_004.png
+   :alt: Feature Importance
+   :srcset: /auto_examples/3_models/images/sphx_glr_plot_5_xgb2_cls_004.png
+   :class: sphx-glr-single-img
+
+
+
+
+
+.. GENERATED FROM PYTHON SOURCE LINES 49-50
+
+Local interpretation by effect
+
+.. GENERATED FROM PYTHON SOURCE LINES 50-51
+
+.. code-block:: Python
+
+    exp.model_interpret(model='Mono-XGB2', show="local_ei", sample_id=0, original_scale=True, figsize=(5, 4))
 
 
 
 .. image-sg:: /auto_examples/3_models/images/sphx_glr_plot_5_xgb2_cls_005.png
-   :alt: Predicted: 0.1902 | Actual: 0.0000
+   :alt: Predicted: 0.1969 | Actual: 0.0000
    :srcset: /auto_examples/3_models/images/sphx_glr_plot_5_xgb2_cls_005.png
+   :class: sphx-glr-single-img
+
+
+
+
+
+.. GENERATED FROM PYTHON SOURCE LINES 52-53
+
+Local interpretation by feature
+
+.. GENERATED FROM PYTHON SOURCE LINES 53-54
+
+.. code-block:: Python
+
+    exp.model_interpret(model='Mono-XGB2', show="local_fi", sample_id=0, original_scale=True, figsize=(5, 4))
+
+
+
+.. image-sg:: /auto_examples/3_models/images/sphx_glr_plot_5_xgb2_cls_006.png
+   :alt: Predicted: 0.1969 | Actual: 0.0000
+   :srcset: /auto_examples/3_models/images/sphx_glr_plot_5_xgb2_cls_006.png
    :class: sphx-glr-single-img
 
 
@@ -199,9 +251,7 @@ Local interpretation by feature
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** ( 1 minutes  2.592 seconds)
-
-**Estimated memory usage:**  43 MB
+   **Total running time of the script:** (0 minutes 5.422 seconds)
 
 
 .. _sphx_glr_download_auto_examples_3_models_plot_5_xgb2_cls.py:
@@ -210,7 +260,6 @@ Local interpretation by feature
 
   .. container:: sphx-glr-footer sphx-glr-footer-example
 
-
     .. container:: binder-badge
 
       .. image:: images/binder_badge_logo.svg
@@ -218,15 +267,13 @@ Local interpretation by feature
         :alt: Launch binder
         :width: 150 px
 
+    .. container:: sphx-glr-download sphx-glr-download-jupyter
 
+      :download:`Download Jupyter notebook: plot_5_xgb2_cls.ipynb <plot_5_xgb2_cls.ipynb>`
 
     .. container:: sphx-glr-download sphx-glr-download-python
 
       :download:`Download Python source code: plot_5_xgb2_cls.py <plot_5_xgb2_cls.py>`
-
-    .. container:: sphx-glr-download sphx-glr-download-jupyter
-
-      :download:`Download Jupyter notebook: plot_5_xgb2_cls.ipynb <plot_5_xgb2_cls.ipynb>`
 
 
 .. only:: html

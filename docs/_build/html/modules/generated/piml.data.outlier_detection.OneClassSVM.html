@@ -3,7 +3,7 @@
 <head>
 
   <meta charset="utf-8">
-  <meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+  <meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
@@ -41,7 +41,7 @@
         <script src="../../_static/sphinx_highlight.js"></script>
         <script src="../../_static/thebelab-helper.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
-        <script src="https://cdn.jsdelivr.net/npm/@jupyter-widgets/html-manager@^1.0.1/dist/embed-amd.js"></script>
+        <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.20.1/dist/embed-amd.js"></script>
         <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
     <script src="../../_static/js/theme.js"></script>
 
@@ -145,7 +145,7 @@
 <p>Estimate the support of a high-dimensional distribution.</p>
 <p>The implementation is based on libsvm.</p>
 <dl class="field-list">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><dl class="simple">
 <dt><strong>kernel</strong><span class="classifier">{‘linear’, ‘poly’, ‘rbf’, ‘sigmoid’, ‘precomputed’} or callable,          default=’rbf’</span></dt><dd><p>Specifies the kernel type to be used in the algorithm.
 If none is given, ‘rbf’ will be used. If a callable is given it is
@@ -187,7 +187,7 @@ properly in a multithreaded context.</p>
 </dd>
 </dl>
 </dd>
-<dt class="field-even">Attributes</dt>
+<dt class="field-even">Attributes<span class="colon">:</span></dt>
 <dd class="field-even"><dl>
 <dt><strong>class_weight_</strong><span class="classifier">ndarray of shape (n_classes,)</span></dt><dd><p>Multipliers of parameter C for each class.
 Computed based on the <code class="docutils literal notranslate"><span class="pre">class_weight</span></code> parameter.</p>
@@ -228,10 +228,6 @@ consistency with other outlier detection algorithms.</p>
 </dl>
 <p class="rubric">Methods</p>
 <table class="autosummary longtable docutils align-default">
-<colgroup>
-<col style="width: 10%" />
-<col style="width: 90%" />
-</colgroup>
 <tbody>
 <tr class="row-odd"><td><p><a class="reference internal" href="#piml.data.outlier_detection.OneClassSVM.decision_function" title="piml.data.outlier_detection.OneClassSVM.decision_function"><code class="xref py py-obj docutils literal notranslate"><span class="pre">decision_function</span></code></a>(X[, scale])</p></td>
 <td><p>Predict raw outliers score of X using the fitted detector.</p></td>
@@ -252,7 +248,7 @@ consistency with other outlier detection algorithms.</p>
 </dd>
 </dl>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><dl class="simple">
 <dt><strong>X</strong><span class="classifier">numpy array of shape (n_samples, n_features)</span></dt><dd><p>The training input samples. Sparse matrices are accepted only
 if they are supported by the base estimator.</p>
@@ -261,7 +257,7 @@ if they are supported by the base estimator.</p>
 </dd>
 </dl>
 </dd>
-<dt class="field-even">Returns</dt>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
 <dd class="field-even"><dl class="simple">
 <dt><strong>outlier_scores</strong><span class="classifier">numpy array of shape (n_samples,)</span></dt><dd><p>The anomaly score of the input samples.</p>
 </dd>
@@ -275,7 +271,7 @@ if they are supported by the base estimator.</p>
 <span class="sig-name descname"><span class="pre">fit</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">X</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sample_weight</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#piml.data.outlier_detection.OneClassSVM.fit" title="Permalink to this definition">¶</a></dt>
 <dd><p>Fit the model.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><dl class="simple">
 <dt><strong>X</strong><span class="classifier">np.ndarray of shape (n_samples, n_features)</span></dt><dd><p>Data features.</p>
 </dd>
@@ -294,7 +290,7 @@ if they are supported by the base estimator.</p>
 <dd><p>Predict raw outlier indicator.</p>
 <p>Normal samples are classified as 1 and outliers are classified as -1.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><dl class="simple">
 <dt><strong>X</strong><span class="classifier">numpy array of shape (n_samples, n_features)</span></dt><dd><p>The training input samples. Sparse matrices are accepted only
 if they are supported by the base estimator.</p>
@@ -306,7 +302,7 @@ For example, the samples with outlier scores greater than 90% quantile of the wh
 </dd>
 </dl>
 </dd>
-<dt class="field-even">Returns</dt>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
 <dd class="field-even"><dl class="simple">
 <dt><strong>outlier_indicator</strong><span class="classifier">numpy array of shape (n_samples,)</span></dt><dd><p>The binary array indicating whether each sample is outlier.</p>
 </dd>

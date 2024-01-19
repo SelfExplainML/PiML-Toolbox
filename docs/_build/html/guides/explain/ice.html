@@ -3,7 +3,7 @@
 <head>
 
   <meta charset="utf-8">
-  <meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+  <meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
@@ -41,7 +41,7 @@
         <script src="../../_static/sphinx_highlight.js"></script>
         <script src="../../_static/thebelab-helper.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
-        <script src="https://cdn.jsdelivr.net/npm/@jupyter-widgets/html-manager@^1.0.1/dist/embed-amd.js"></script>
+        <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.20.1/dist/embed-amd.js"></script>
         <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
         <script>window.MathJax = {"tex": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true}, "options": {"ignoreHtmlClass": "tex2jax_ignore|mathjax_ignore|document", "processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
         <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
@@ -143,7 +143,7 @@
                   </li>
                 
                   <li>
-                    <a href="../model_train.html" class="">3. Model Train and Tune</a>
+                    <a href="../train.html" class="">3. Model Train and Tune</a>
                     
                   </li>
                 
@@ -290,7 +290,7 @@
 </section>
 <section id="examples">
 <h2><span class="section-number">4.4.3. </span>Examples<a class="headerlink" href="#examples" title="Permalink to this heading">¶</a></h2>
-<div class="topic">
+<aside class="topic">
 <p class="topic-title">Example 1: Bike Sharing</p>
 <blockquote>
 <div><p>The first example below demonstrates how to use PiML with its high-code APIs for developing machine learning models for the BikeSharing data from the UCI repository, which consists of 17,389 samples of hourly counts of rental bikes in Capital bikeshare system; see details. The response <code class="docutils literal notranslate"><span class="pre">cnt</span></code> (hourly bike rental counts) is continuous and it is a regression problem.</p>
@@ -298,24 +298,25 @@
 <ul class="simple">
 <li><p><a class="reference internal" href="../../auto_examples/2_explain/plot_2_ice.html#sphx-glr-auto-examples-2-explain-plot-2-ice-py"><span class="std std-ref">Individual Conditional Expectation</span></a></p></li>
 </ul>
-</div>
-<div class="topic">
+</aside>
+<aside class="topic">
 <p class="topic-title">Example 2: SimuCredit</p>
 <p>The second example shows the option to use test set to generate the explanations.</p>
 <ul class="simple">
 <li><p><a class="reference internal" href="../../auto_examples/2_explain/plot_6_data_dependent_explain.html#sphx-glr-auto-examples-2-explain-plot-6-data-dependent-explain-py"><span class="std std-ref">Data Dependent Explanation</span></a></p></li>
 </ul>
-</div>
-<div class="topic">
+</aside>
+<aside class="topic">
 <p class="topic-title">References</p>
-<dl class="citation">
-<dt class="label" id="alex2015"><span class="brackets"><a class="fn-backref" href="#id1">Alex2015</a></span></dt>
-<dd><p>Goldstein, Alex, Adam Kapelner, Justin Bleich, and Emil Pitkin.
+<div role="list" class="citation-list">
+<div class="citation" id="alex2015" role="doc-biblioentry">
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id1">Alex2015</a><span class="fn-bracket">]</span></span>
+<p>Goldstein, Alex, Adam Kapelner, Justin Bleich, and Emil Pitkin.
 <a class="reference external" href="https://www.tandfonline.com/doi/abs/10.1080/10618600.2014.907095">Visualizing statistical learning with plots of individual conditional expectation</a>,
 Journal of Computational and Graphical Statistics 24, no. 1 (2015): 44-65</p>
-</dd>
-</dl>
 </div>
+</div>
+</aside>
 </section>
 </section>
 

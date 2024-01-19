@@ -3,7 +3,7 @@
 <head>
 
   <meta charset="utf-8">
-  <meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+  <meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
@@ -41,7 +41,7 @@
         <script src="../_static/sphinx_highlight.js"></script>
         <script src="../_static/thebelab-helper.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
-        <script src="https://cdn.jsdelivr.net/npm/@jupyter-widgets/html-manager@^1.0.1/dist/embed-amd.js"></script>
+        <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.20.1/dist/embed-amd.js"></script>
         <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
         <script>window.MathJax = {"tex": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true}, "options": {"ignoreHtmlClass": "tex2jax_ignore|mathjax_ignore|document", "processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
         <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
@@ -143,7 +143,7 @@
                   </li>
                 
                   <li>
-                    <a href="model_train.html" class="">3. Model Train and Tune</a>
+                    <a href="train.html" class="">3. Model Train and Tune</a>
                     
                   </li>
                 
@@ -277,131 +277,162 @@
 <section id="future-plan">
 <h2><span class="section-number">1.5. </span>Future Plan<a class="headerlink" href="#future-plan" title="Permalink to this heading">¶</a></h2>
 <p>PiML toolbox is our new initiative of integrating state-of-the-art methods in interpretable machine learning and model diagnostics. It provides convenient user interfaces and flexible APIs for easy use  of model interpretation, explanation, testing and comparison. Our future plan is to continuously improve the user experience, add new interpretable models, and expand the diagnostic suite. It is also our plan to enhance PiML experimentation with tracking and reporting.</p>
-<div class="topic">
+<aside class="topic">
 <p class="topic-title">References</p>
-<dl class="citation">
-<dt class="label" id="pedregosa2011"><span class="brackets">Pedregosa2011</span><span class="fn-backref">(<a href="#id2">1</a>,<a href="#id21">2</a>)</span></dt>
-<dd><p>Fabian Pedregosa, Gaël Varoquaux, Alexandre Gramfort, Vincent Michel, Bertrand Thirion, Olivier Grisel, Mathieu Blondel, Peter Prettenhofer, Ron Weiss, Vincent Dubourg, Jake Vanderplas, Alexandre Passos, David Cournapeau, Matthieu Brucher, Matthieu Perrot, Édouard Duchesnay (2011).
+<div role="list" class="citation-list">
+<div class="citation" id="pedregosa2011" role="doc-biblioentry">
+<span class="label"><span class="fn-bracket">[</span>Pedregosa2011<span class="fn-bracket">]</span></span>
+<span class="backrefs">(<a role="doc-backlink" href="#id2">1</a>,<a role="doc-backlink" href="#id21">2</a>)</span>
+<p>Fabian Pedregosa, Gaël Varoquaux, Alexandre Gramfort, Vincent Michel, Bertrand Thirion, Olivier Grisel, Mathieu Blondel, Peter Prettenhofer, Ron Weiss, Vincent Dubourg, Jake Vanderplas, Alexandre Passos, David Cournapeau, Matthieu Brucher, Matthieu Perrot, Édouard Duchesnay (2011).
 <a class="reference external" href="https://www.jmlr.org/papers/volume12/pedregosa11a/pedregosa11a.pdf">Scikit-learn: Machine learning in Python</a>,
 Journal of machine Learning research, 12, 2825-2830.</p>
-</dd>
-<dt class="label" id="kokhlikyan2020"><span class="brackets"><a class="fn-backref" href="#id3">Kokhlikyan2020</a></span></dt>
-<dd><p>Narine Kokhlikyan, Vivek Miglani, Miguel Martin, Edward Wang, Bilal Alsallakh, Jonathan Reynolds,Alexander Melnikov, Natalia Kliushkina, Carlos Araya, Siqi Yan, Orion Reblitz-Richardson (2020).
+</div>
+<div class="citation" id="kokhlikyan2020" role="doc-biblioentry">
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id3">Kokhlikyan2020</a><span class="fn-bracket">]</span></span>
+<p>Narine Kokhlikyan, Vivek Miglani, Miguel Martin, Edward Wang, Bilal Alsallakh, Jonathan Reynolds,Alexander Melnikov, Natalia Kliushkina, Carlos Araya, Siqi Yan, Orion Reblitz-Richardson (2020).
 <a class="reference external" href="https://arxiv.org/pdf/2009.07896.pdf">Captum: A unified and generic model interpretability library for pytorch</a>,
 arXiv preprint arXiv:2009.07896.</p>
-</dd>
-<dt class="label" id="klaise2021"><span class="brackets"><a class="fn-backref" href="#id4">Klaise2021</a></span></dt>
-<dd><p>Janis Klaise, Arnaud Van Looveren, Giovanni Vacanti, Alexandru Coca (2021).
+</div>
+<div class="citation" id="klaise2021" role="doc-biblioentry">
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id4">Klaise2021</a><span class="fn-bracket">]</span></span>
+<p>Janis Klaise, Arnaud Van Looveren, Giovanni Vacanti, Alexandru Coca (2021).
 <a class="reference external" href="https://www.jmlr.org/papers/volume22/21-0017/21-0017.pdf">Alibi explain: Algorithms for explaining machine learning models</a>,
 Journal of Machine Learning Research, 22(1), 8194-8200.</p>
-</dd>
-<dt class="label" id="baniecki2021"><span class="brackets"><a class="fn-backref" href="#id5">Baniecki2021</a></span></dt>
-<dd><p>Hubert Baniecki, Wojciech Kretowicz, Piotr Piatyszek, Jakub Wisniewski, Przemyslaw Biecek (2021).
+</div>
+<div class="citation" id="baniecki2021" role="doc-biblioentry">
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id5">Baniecki2021</a><span class="fn-bracket">]</span></span>
+<p>Hubert Baniecki, Wojciech Kretowicz, Piotr Piatyszek, Jakub Wisniewski, Przemyslaw Biecek (2021).
 <a class="reference external" href="https://www.jmlr.org/papers/volume22/20-1473/20-1473.pdf">Dalex: responsible machine learning with interactive explainability and fairness in python</a>,
 Journal of Machine Learning Research, 22(1), 9759-9765.</p>
-</dd>
-<dt class="label" id="li2022"><span class="brackets"><a class="fn-backref" href="#id6">Li2022</a></span></dt>
-<dd><p>Xuhong Li, Haoyi Xiong, Xingjian Li, Xuanyu Wu, Zeyu Chen, Dejing Dou (2022).
+</div>
+<div class="citation" id="li2022" role="doc-biblioentry">
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id6">Li2022</a><span class="fn-bracket">]</span></span>
+<p>Xuhong Li, Haoyi Xiong, Xingjian Li, Xuanyu Wu, Zeyu Chen, Dejing Dou (2022).
 <a class="reference external" href="https://www.jmlr.org/papers/volume23/21-0738/21-0738.pdf">InterpretDL: Explaining Deep Models in PaddlePaddle</a>,
 Journal of Machine Learning Research, 23(197), 1-6.</p>
-</dd>
-<dt class="label" id="rudin2019"><span class="brackets"><a class="fn-backref" href="#id7">Rudin2019</a></span></dt>
-<dd><p>Cynthia Rudin (2019).
+</div>
+<div class="citation" id="rudin2019" role="doc-biblioentry">
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id7">Rudin2019</a><span class="fn-bracket">]</span></span>
+<p>Cynthia Rudin (2019).
 <a class="reference external" href="https://arxiv.org/pdf/1811.10154.pdf">Stop explaining black box machine learning models for high stakes decisions and use interpretable models instead</a>,
 Nature Machine ntelligence, 1(5), 206-215.</p>
-</dd>
-<dt class="label" id="molnar2020"><span class="brackets"><a class="fn-backref" href="#id8">Molnar2020</a></span></dt>
-<dd><p>Christoph Molnar, Gunnar König, Julia Herbinger, Timo Freiesleben, Susanne Dandl, Christian A. Scholbeck, Giuseppe Casalicchio, Moritz Grosse-Wentrup, Bernd Bischl (2022, April).
+</div>
+<div class="citation" id="molnar2020" role="doc-biblioentry">
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id8">Molnar2020</a><span class="fn-bracket">]</span></span>
+<p>Christoph Molnar, Gunnar König, Julia Herbinger, Timo Freiesleben, Susanne Dandl, Christian A. Scholbeck, Giuseppe Casalicchio, Moritz Grosse-Wentrup, Bernd Bischl (2022, April).
 <a class="reference external" href="https://link.springer.com/chapter/10.1007/978-3-031-04083-2_4">General pitfalls of model-agnostic interpretation methods for machine learning models</a>,
 In xxAI-Beyond Explainable AI: International Workshop, Held in Conjunction with ICML 2020, July 18, 2020, Vienna, Austria, Revised and Extended Papers (pp. 39-68). Cham: Springer International Publishing.</p>
-</dd>
-<dt class="label" id="nori2013"><span class="brackets">Nori2013</span><span class="fn-backref">(<a href="#id12">1</a>,<a href="#id28">2</a>)</span></dt>
-<dd><p>Harsha Nori, Samuel Jenkins, Paul Koch, Rich Caruana (2019). <a class="reference external" href="https://arxiv.org/pdf/1909.09223.pdf">InterpretML A Unified Framework for Machine Learning Interpretability</a>, arXiv preprint arXiv:1909.09223.</p>
-</dd>
-<dt class="label" id="lou2013"><span class="brackets">Lou2013</span><span class="fn-backref">(<a href="#id13">1</a>,<a href="#id27">2</a>)</span></dt>
-<dd><p>Yin Lou, Rich Caruana, Johannes Gehrke, Giles Hooker (2013).
+</div>
+<div class="citation" id="nori2013" role="doc-biblioentry">
+<span class="label"><span class="fn-bracket">[</span>Nori2013<span class="fn-bracket">]</span></span>
+<span class="backrefs">(<a role="doc-backlink" href="#id12">1</a>,<a role="doc-backlink" href="#id28">2</a>)</span>
+<p>Harsha Nori, Samuel Jenkins, Paul Koch, Rich Caruana (2019). <a class="reference external" href="https://arxiv.org/pdf/1909.09223.pdf">InterpretML A Unified Framework for Machine Learning Interpretability</a>, arXiv preprint arXiv:1909.09223.</p>
+</div>
+<div class="citation" id="lou2013" role="doc-biblioentry">
+<span class="label"><span class="fn-bracket">[</span>Lou2013<span class="fn-bracket">]</span></span>
+<span class="backrefs">(<a role="doc-backlink" href="#id13">1</a>,<a role="doc-backlink" href="#id27">2</a>)</span>
+<p>Yin Lou, Rich Caruana, Johannes Gehrke, Giles Hooker (2013).
 <a class="reference external" href="https://dl.acm.org/doi/abs/10.1145/2487575.2487579">Accurate intelligible models with pairwise interactions</a>,
 In Proceedings of the 19th ACM SIGKDD international conference on Knowledge discovery and data mining (pp. 623-631).</p>
-</dd>
-<dt class="label" id="sudjianto2021"><span class="brackets"><a class="fn-backref" href="#id14">Sudjianto2021</a></span></dt>
-<dd><p>Agus Sudjianto, Aijun Zhang (2021).
+</div>
+<div class="citation" id="sudjianto2021" role="doc-biblioentry">
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id14">Sudjianto2021</a><span class="fn-bracket">]</span></span>
+<p>Agus Sudjianto, Aijun Zhang (2021).
 <a class="reference external" href="https://arxiv.org/pdf/2111.01743.pdf">Designing Inherently Interpretable Machine Learning Models</a>,
 arXiv preprint arXiv:2111.01743.</p>
-</dd>
-<dt class="label" id="chung2019"><span class="brackets"><a class="fn-backref" href="#id15">Chung2019</a></span></dt>
-<dd><p>Yeounoh Chung, Tim Kraska, Neoklis Polyzotis, Ki Hyun Tae, Steven Euijong Whang (2019, April).
+</div>
+<div class="citation" id="chung2019" role="doc-biblioentry">
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id15">Chung2019</a><span class="fn-bracket">]</span></span>
+<p>Yeounoh Chung, Tim Kraska, Neoklis Polyzotis, Ki Hyun Tae, Steven Euijong Whang (2019, April).
 <a class="reference external" href="https://ieeexplore.ieee.org/abstract/document/8731353">Slice finder: Automated data slicing for model validation</a>,
 In 2019 IEEE 35th International Conference on Data Engineering (ICDE) (pp. 1550-1553). IEEE.</p>
-</dd>
-<dt class="label" id="apley2016"><span class="brackets"><a class="fn-backref" href="#id16">Apley2016</a></span></dt>
-<dd><p>Daniel W. Apley, Jingyu Zhu (2016).
+</div>
+<div class="citation" id="apley2016" role="doc-biblioentry">
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id16">Apley2016</a><span class="fn-bracket">]</span></span>
+<p>Daniel W. Apley, Jingyu Zhu (2016).
 <a class="reference external" href="https://academic.oup.com/jrsssb/article/82/4/1059/7056085">Visualizing the effects of predictor variables in black box supervised learning models</a>,
 Journal of the Royal Statistical Society Series B: Statistical Methodology 82.4 (2020): 1059-1086.</p>
-</dd>
-<dt class="label" id="ribeiro2016"><span class="brackets"><a class="fn-backref" href="#id17">Ribeiro2016</a></span></dt>
-<dd><p>Marco Tulio Ribeiro, Sameer Singh, Carlos Guestrin (2016).
+</div>
+<div class="citation" id="ribeiro2016" role="doc-biblioentry">
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id17">Ribeiro2016</a><span class="fn-bracket">]</span></span>
+<p>Marco Tulio Ribeiro, Sameer Singh, Carlos Guestrin (2016).
 <a class="reference external" href="https://dl.acm.org/doi/abs/10.1145/2939672.2939778">Why should i trust you?” Explaining the predictions of any classifier</a>,
 Proceedings of the 22nd ACM SIGKDD international conference on knowledge discovery and data mining.</p>
-</dd>
-<dt class="label" id="lundberg2017"><span class="brackets"><a class="fn-backref" href="#id18">Lundberg2017</a></span></dt>
-<dd><p>Scott Lundberg, Su-In Lee (2017).
+</div>
+<div class="citation" id="lundberg2017" role="doc-biblioentry">
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id18">Lundberg2017</a><span class="fn-bracket">]</span></span>
+<p>Scott Lundberg, Su-In Lee (2017).
 <a class="reference external" href="https://proceedings.neurips.cc/paper/2017/hash/8a20a8621978632d76c43dfd28b67767-Abstract.html">A unified approach to interpreting model predictions</a>,
 Advances in neural information processing systems 30.</p>
-</dd>
-<dt class="label" id="hastie2015"><span class="brackets"><a class="fn-backref" href="#id19">Hastie2015</a></span></dt>
-<dd><p>Trevor Hastie, Robert Tibshirani, Martin Wainwright (2015).
+</div>
+<div class="citation" id="hastie2015" role="doc-biblioentry">
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id19">Hastie2015</a><span class="fn-bracket">]</span></span>
+<p>Trevor Hastie, Robert Tibshirani, Martin Wainwright (2015).
 <a class="reference external" href="https://hastie.su.domains/StatLearnSparsity_files/SLS_corrected_1.4.16.pdf">Statistical learning with sparsity: the lasso and generalizations</a>,
 CRC press.</p>
-</dd>
-<dt class="label" id="friedman2001"><span class="brackets">Friedman2001</span></dt>
-<dd><p>Jerome H. Friedman (2001).
+</div>
+<div class="citation" id="friedman2001" role="doc-biblioentry">
+<span class="label"><span class="fn-bracket">[</span>Friedman2001<span class="fn-bracket">]</span></span>
+<p>Jerome H. Friedman (2001).
 <a class="reference external" href="https://www.jstor.org/stable/2699986">Greedy function approximation: a gradient boosting machine</a>,
 The Annals of Statistics. 29(5): 1189-1232.</p>
-</dd>
-<dt class="label" id="serven2018"><span class="brackets"><a class="fn-backref" href="#id20">Serven2018</a></span></dt>
-<dd><p>Daniel Servén, Charlie Brummitt (2018).
+</div>
+<div class="citation" id="serven2018" role="doc-biblioentry">
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id20">Serven2018</a><span class="fn-bracket">]</span></span>
+<p>Daniel Servén, Charlie Brummitt (2018).
 <a class="reference external" href="https://zenodo.org/record/1476122#.ZFEIeXZBzEY">pyGAM: Generalized Additive Models in Python</a>,
 Zenodo. DOI: 10.5281/zenodo.1208723</p>
-</dd>
-<dt class="label" id="tan2022"><span class="brackets"><a class="fn-backref" href="#id22">Tan2022</a></span></dt>
-<dd><p>Yan Shuo Tan, Chandan Singh, Keyan Nasseri, Abhineet Agarwal, Bin Yu (2022).
+</div>
+<div class="citation" id="tan2022" role="doc-biblioentry">
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id22">Tan2022</a><span class="fn-bracket">]</span></span>
+<p>Yan Shuo Tan, Chandan Singh, Keyan Nasseri, Abhineet Agarwal, Bin Yu (2022).
 <a class="reference external" href="https://arxiv.org/pdf/2201.11931.pdf">Fast interpretable greedy-tree sums (FIGS)</a>,
 arXiv preprint arXiv:2201.11931.</p>
-</dd>
-<dt class="label" id="lengerich2020"><span class="brackets"><a class="fn-backref" href="#id26">Lengerich2020</a></span></dt>
-<dd><p>Benjamin Lengerich, Sarah Tan, Chun-Hao Chang, Giles Hooker, Rich Caruana (2020, June).
+</div>
+<div class="citation" id="lengerich2020" role="doc-biblioentry">
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id26">Lengerich2020</a><span class="fn-bracket">]</span></span>
+<p>Benjamin Lengerich, Sarah Tan, Chun-Hao Chang, Giles Hooker, Rich Caruana (2020, June).
 <a class="reference external" href="http://proceedings.mlr.press/v108/lengerich20a.html">Purifying interaction effects with the functional anova: An efficient algorithm for recovering identifiable additive models</a>,
 In International Conference on Artificial Intelligence and Statistics (pp. 2402-2412). PMLR.</p>
-</dd>
-<dt class="label" id="chen2015"><span class="brackets">Chen2015</span><span class="fn-backref">(<a href="#id23">1</a>,<a href="#id25">2</a>)</span></dt>
-<dd><p>Tianqi Chen, Tong He (2015).
+</div>
+<div class="citation" id="chen2015" role="doc-biblioentry">
+<span class="label"><span class="fn-bracket">[</span>Chen2015<span class="fn-bracket">]</span></span>
+<span class="backrefs">(<a role="doc-backlink" href="#id23">1</a>,<a role="doc-backlink" href="#id25">2</a>)</span>
+<p>Tianqi Chen, Tong He (2015).
 <a class="reference external" href="https://cran.microsoft.com/snapshot/2017-12-11/web/packages/xgboost/vignettes/xgboost.pdf">Xgboost: extreme gradient boosting</a>, R package version 0.4-2, 1(4), 1-4.</p>
-</dd>
-<dt class="label" id="sudjianto2020"><span class="brackets">Sudjianto2020</span><span class="fn-backref">(<a href="#id11">1</a>,<a href="#id30">2</a>)</span></dt>
-<dd><p>Agus Sudjianto, William Knauth, Rahul Singh, Zebin Yang, Aijun Zhang. (2020)
+</div>
+<div class="citation" id="sudjianto2020" role="doc-biblioentry">
+<span class="label"><span class="fn-bracket">[</span>Sudjianto2020<span class="fn-bracket">]</span></span>
+<span class="backrefs">(<a role="doc-backlink" href="#id11">1</a>,<a role="doc-backlink" href="#id30">2</a>)</span>
+<p>Agus Sudjianto, William Knauth, Rahul Singh, Zebin Yang, Aijun Zhang. (2020)
 <a class="reference external" href="https://arxiv.org/pdf/2011.04041.pdf">Unwrapping the black box of deep ReLU networks: interpretability, diagnostics, and simplification</a>,
 arXiv preprint arXiv:2011.04041.</p>
-</dd>
-<dt class="label" id="cui2023"><span class="brackets"><a class="fn-backref" href="#id31">Cui2023</a></span></dt>
-<dd><p>Shijie Cui, Agus Sudjianto, Aijun Zhang, Runze Li (2023).
+</div>
+<div class="citation" id="cui2023" role="doc-biblioentry">
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id31">Cui2023</a><span class="fn-bracket">]</span></span>
+<p>Shijie Cui, Agus Sudjianto, Aijun Zhang, Runze Li (2023).
 <a class="reference external" href="https://arxiv.org/pdf/2304.13761.pdf">Enhancing Robustness of Gradient-Boosted Decision Trees through One-Hot Encoding and Regularization</a>,
 arXiv preprint arXiv:2304.13761.</p>
-</dd>
-<dt class="label" id="yang2021a"><span class="brackets"><a class="fn-backref" href="#id9">Yang2021a</a></span></dt>
-<dd><p>Zebin Yang, Aijun Zhang, Agus Sudjianto (2021).
+</div>
+<div class="citation" id="yang2021a" role="doc-biblioentry">
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id9">Yang2021a</a><span class="fn-bracket">]</span></span>
+<p>Zebin Yang, Aijun Zhang, Agus Sudjianto (2021).
 <a class="reference external" href="https://ieeexplore.ieee.org/abstract/document/9149804">Enhancing explainability of neural networks through architecture constraints</a>,
 IEEE Transactions on Neural Networks and Learning Systems, 32(6), 2610-2621.</p>
-</dd>
-<dt class="label" id="yang2021b"><span class="brackets">Yang2021b</span><span class="fn-backref">(<a href="#id10">1</a>,<a href="#id29">2</a>)</span></dt>
-<dd><p>Zebin Yang, Aijun Zhang, Agus Sudjianto (2021).
+</div>
+<div class="citation" id="yang2021b" role="doc-biblioentry">
+<span class="label"><span class="fn-bracket">[</span>Yang2021b<span class="fn-bracket">]</span></span>
+<span class="backrefs">(<a role="doc-backlink" href="#id10">1</a>,<a role="doc-backlink" href="#id29">2</a>)</span>
+<p>Zebin Yang, Aijun Zhang, Agus Sudjianto (2021).
 <a class="reference external" href="https://www.sciencedirect.com/science/article/abs/pii/S0031320321003484">GAMI-Net: An explainable neural network based on generalized additive models with structured interactions</a>,
 Pattern Recognition, 120, 108192.</p>
-</dd>
-<dt class="label" id="guillermo2020"><span class="brackets"><a class="fn-backref" href="#id24">Guillermo2020</a></span></dt>
-<dd><p>Navas-Palencia, Guillermo (2020). <a class="reference external" href="https://arxiv.org/pdf/2001.08025.pdf">Optimal binning: mathematical programming formulation.</a>, arXiv preprint arXiv:2001.08025.</p>
-</dd>
-</dl>
 </div>
+<div class="citation" id="guillermo2020" role="doc-biblioentry">
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id24">Guillermo2020</a><span class="fn-bracket">]</span></span>
+<p>Navas-Palencia, Guillermo (2020). <a class="reference external" href="https://arxiv.org/pdf/2001.08025.pdf">Optimal binning: mathematical programming formulation.</a>, arXiv preprint arXiv:2001.08025.</p>
+</div>
+</div>
+</aside>
 </section>
 </section>
 

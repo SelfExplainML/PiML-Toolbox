@@ -3,7 +3,7 @@
 <head>
 
   <meta charset="utf-8">
-  <meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+  <meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
@@ -41,7 +41,7 @@
         <script src="../../_static/sphinx_highlight.js"></script>
         <script src="../../_static/thebelab-helper.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
-        <script src="https://cdn.jsdelivr.net/npm/@jupyter-widgets/html-manager@^1.0.1/dist/embed-amd.js"></script>
+        <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.20.1/dist/embed-amd.js"></script>
         <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
     <script src="../../_static/js/theme.js"></script>
 
@@ -130,28 +130,46 @@
           
   <section id="computation-times">
 <span id="sphx-glr-auto-examples-5-compare-sg-execution-times"></span><h1>Computation times<a class="headerlink" href="#computation-times" title="Permalink to this heading">¶</a></h1>
-<p><strong>03:40.316</strong> total execution time for <strong>auto_examples_5_compare</strong> files:</p>
-<table class="docutils align-default">
-<colgroup>
-<col style="width: 84%" />
-<col style="width: 8%" />
-<col style="width: 7%" />
-</colgroup>
+<p><strong>03:00.356</strong> total execution time for 4 files <strong>from auto_examples5_compare</strong>:</p>
+<div class="docutils container">
+<style scoped>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet" />
+<link href="https://cdn.datatables.net/1.13.6/css/dataTables.bootstrap5.min.css" rel="stylesheet" />
+</style>
+<script src="https://code.jquery.com/jquery-3.7.0.js"></script>
+<script src="https://cdn.datatables.net/1.13.6/js/jquery.dataTables.min.js"></script>
+<script src="https://cdn.datatables.net/1.13.6/js/dataTables.bootstrap5.min.js"></script>
+<script type="text/javascript" class="init">
+$(document).ready( function () {
+    $('table.sg-datatable').DataTable({order: [[1, 'desc']]});
+} );
+</script><table class="table table-striped sg-datatable docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>Example</p></th>
+<th class="head"><p>Time</p></th>
+<th class="head"><p>Mem (MB)</p></th>
+</tr>
+</thead>
 <tbody>
+<tr class="row-even"><td><p><a class="reference internal" href="plot_2_compare_robustness.html#sphx-glr-auto-examples-5-compare-plot-2-compare-robustness-py"><span class="std std-ref">Build Robust Models with Monotonicity Constraints</span></a> (<code class="docutils literal notranslate"><span class="pre">plot_2_compare_robustness.py</span></code>)</p></td>
+<td><p>03:00.356</p></td>
+<td><p>0.0</p></td>
+</tr>
 <tr class="row-odd"><td><p><a class="reference internal" href="plot_0_compare_classification.html#sphx-glr-auto-examples-5-compare-plot-0-compare-classification-py"><span class="std std-ref">Model Comparison: Classification</span></a> (<code class="docutils literal notranslate"><span class="pre">plot_0_compare_classification.py</span></code>)</p></td>
-<td><p>01:21.717</p></td>
-<td><p>120.0 MB</p></td>
+<td><p>00:00.000</p></td>
+<td><p>0.0</p></td>
 </tr>
 <tr class="row-even"><td><p><a class="reference internal" href="plot_0_compare_regression.html#sphx-glr-auto-examples-5-compare-plot-0-compare-regression-py"><span class="std std-ref">Model Comparison: Regression</span></a> (<code class="docutils literal notranslate"><span class="pre">plot_0_compare_regression.py</span></code>)</p></td>
-<td><p>01:21.459</p></td>
-<td><p>81.3 MB</p></td>
+<td><p>00:00.000</p></td>
+<td><p>0.0</p></td>
 </tr>
 <tr class="row-odd"><td><p><a class="reference internal" href="plot_1_compare_fairness.html#sphx-glr-auto-examples-5-compare-plot-1-compare-fairness-py"><span class="std std-ref">Fairness Comparison</span></a> (<code class="docutils literal notranslate"><span class="pre">plot_1_compare_fairness.py</span></code>)</p></td>
-<td><p>00:57.140</p></td>
-<td><p>20.7 MB</p></td>
+<td><p>00:00.000</p></td>
+<td><p>0.0</p></td>
 </tr>
 </tbody>
 </table>
+</div>
 </section>
 
 

@@ -118,6 +118,23 @@ Model Train and Tune
 
 .. raw:: html
 
+    <div class="sphx-glr-thumbcontainer" tooltip="Register PySpark Models">
+
+.. only:: html
+
+  .. image:: /auto_examples/1_train/images/thumb/sphx_glr_plot_2_register_3_arbitrary_pyspark_thumb.png
+    :alt:
+
+  :ref:`sphx_glr_auto_examples_1_train_plot_2_register_3_arbitrary_pyspark.py`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Register PySpark Models</div>
+    </div>
+
+
+.. raw:: html
+
     </div>
 
 
@@ -130,4 +147,5 @@ Model Train and Tune
    /auto_examples/1_train/plot_2_register_0_sklearn
    /auto_examples/1_train/plot_2_register_1_h2o
    /auto_examples/1_train/plot_2_register_2_arbitrary
+   /auto_examples/1_train/plot_2_register_3_arbitrary_pyspark
 

@@ -54,6 +54,7 @@ optbinning              0.17.3
 ortools                 9.4 (<9.5.0)
 packaging               20.5
 momentchi2              0.1.8
+jupyter_client          (<=7.4.9)
 ======================= ===================
 
 The following packages are optional
@@ -63,6 +64,8 @@ Dependency              Minimum Version
 ======================= ===================
 dcor                    0.5.3
 solas-ai                0.2.4
+h2o                     3.32.0.0
+pyspark                 2.3.0
 ======================= ===================
 
 

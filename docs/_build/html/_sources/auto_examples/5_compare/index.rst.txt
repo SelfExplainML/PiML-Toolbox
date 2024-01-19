@@ -67,6 +67,23 @@ Model Comparison
 
 .. raw:: html
 
+    <div class="sphx-glr-thumbcontainer" tooltip="Build Robust Models with Monotonicity Constraints">
+
+.. only:: html
+
+  .. image:: /auto_examples/5_compare/images/thumb/sphx_glr_plot_2_compare_robustness_thumb.png
+    :alt:
+
+  :ref:`sphx_glr_auto_examples_5_compare_plot_2_compare_robustness.py`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Build Robust Models with Monotonicity Constraints</div>
+    </div>
+
+
+.. raw:: html
+
     </div>
 
 
@@ -76,4 +93,5 @@ Model Comparison
    /auto_examples/5_compare/plot_0_compare_classification
    /auto_examples/5_compare/plot_0_compare_regression
    /auto_examples/5_compare/plot_1_compare_fairness
+   /auto_examples/5_compare/plot_2_compare_robustness
 

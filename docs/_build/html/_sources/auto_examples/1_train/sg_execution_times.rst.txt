@@ -6,18 +6,50 @@
 
 Computation times
 =================
-**12:44.310** total execution time for **auto_examples_1_train** files:
+**12:24.583** total execution time for 7 files **from auto_examples\1_train**:
 
-+-----------------------------------------------------------------------------------------------------------+-----------+---------+
-| :ref:`sphx_glr_auto_examples_1_train_plot_2_register_1_h2o.py` (``plot_2_register_1_h2o.py``)             | 05:55.568 | 33.6 MB |
-+-----------------------------------------------------------------------------------------------------------+-----------+---------+
-| :ref:`sphx_glr_auto_examples_1_train_plot_1_hpo_grid.py` (``plot_1_hpo_grid.py``)                         | 03:52.724 | 30.9 MB |
-+-----------------------------------------------------------------------------------------------------------+-----------+---------+
-| :ref:`sphx_glr_auto_examples_1_train_plot_1_hpo_random.py` (``plot_1_hpo_random.py``)                     | 01:24.760 | 14.6 MB |
-+-----------------------------------------------------------------------------------------------------------+-----------+---------+
-| :ref:`sphx_glr_auto_examples_1_train_plot_2_register_0_sklearn.py` (``plot_2_register_0_sklearn.py``)     | 00:51.249 | 40.4 MB |
-+-----------------------------------------------------------------------------------------------------------+-----------+---------+
-| :ref:`sphx_glr_auto_examples_1_train_plot_2_register_2_arbitrary.py` (``plot_2_register_2_arbitrary.py``) | 00:40.009 | 17.4 MB |
-+-----------------------------------------------------------------------------------------------------------+-----------+---------+
-| :ref:`sphx_glr_auto_examples_1_train_plot_0_model_train.py` (``plot_0_model_train.py``)                   | 00:00.000 | 0.0 MB  |
-+-----------------------------------------------------------------------------------------------------------+-----------+---------+
+.. container::
+
+  .. raw:: html
+
+    <style scoped>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="https://cdn.datatables.net/1.13.6/css/dataTables.bootstrap5.min.css" rel="stylesheet" />
+    </style>
+    <script src="https://code.jquery.com/jquery-3.7.0.js"></script>
+    <script src="https://cdn.datatables.net/1.13.6/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/1.13.6/js/dataTables.bootstrap5.min.js"></script>
+    <script type="text/javascript" class="init">
+    $(document).ready( function () {
+        $('table.sg-datatable').DataTable({order: [[1, 'desc']]});
+    } );
+    </script>
+
+  .. list-table::
+   :header-rows: 1
+   :class: table table-striped sg-datatable
+
+   * - Example
+     - Time
+     - Mem (MB)
+   * - :ref:`sphx_glr_auto_examples_1_train_plot_2_register_3_arbitrary_pyspark.py` (``plot_2_register_3_arbitrary_pyspark.py``)
+     - 12:24.583
+     - 0.0
+   * - :ref:`sphx_glr_auto_examples_1_train_plot_0_model_train.py` (``plot_0_model_train.py``)
+     - 00:00.000
+     - 0.0
+   * - :ref:`sphx_glr_auto_examples_1_train_plot_1_hpo_grid.py` (``plot_1_hpo_grid.py``)
+     - 00:00.000
+     - 0.0
+   * - :ref:`sphx_glr_auto_examples_1_train_plot_1_hpo_random.py` (``plot_1_hpo_random.py``)
+     - 00:00.000
+     - 0.0
+   * - :ref:`sphx_glr_auto_examples_1_train_plot_2_register_0_sklearn.py` (``plot_2_register_0_sklearn.py``)
+     - 00:00.000
+     - 0.0
+   * - :ref:`sphx_glr_auto_examples_1_train_plot_2_register_1_h2o.py` (``plot_2_register_1_h2o.py``)
+     - 00:00.000
+     - 0.0
+   * - :ref:`sphx_glr_auto_examples_1_train_plot_2_register_2_arbitrary.py` (``plot_2_register_2_arbitrary.py``)
+     - 00:00.000
+     - 0.0

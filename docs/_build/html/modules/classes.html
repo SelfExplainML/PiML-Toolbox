@@ -3,7 +3,7 @@
 <head>
 
   <meta charset="utf-8">
-  <meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+  <meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
@@ -41,7 +41,7 @@
         <script src="../_static/sphinx_highlight.js"></script>
         <script src="../_static/thebelab-helper.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
-        <script src="https://cdn.jsdelivr.net/npm/@jupyter-widgets/html-manager@^1.0.1/dist/embed-amd.js"></script>
+        <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.20.1/dist/embed-amd.js"></script>
         <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
     <script src="../_static/js/theme.js"></script>
 
@@ -152,10 +152,6 @@ Please refer to the user guide for further details, as the class and function ra
 <section id="functions">
 <h3>Functions<a class="headerlink" href="#functions" title="Permalink to this heading">¶</a></h3>
 <table class="autosummary longtable docutils align-default">
-<colgroup>
-<col style="width: 10%" />
-<col style="width: 90%" />
-</colgroup>
 <tbody>
 <tr class="row-odd"><td><p><a class="reference internal" href="generated/piml.Experiment.html#piml.Experiment.data_loader" title="piml.Experiment.data_loader"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Experiment.data_loader</span></code></a>([data, silent, ...])</p></td>
 <td><p>Load data for experimentation.</p></td>
@@ -196,10 +192,6 @@ Please refer to the user guide for further details, as the class and function ra
 <section id="outlier-detection-algorithms">
 <h3>Outlier Detection Algorithms<a class="headerlink" href="#outlier-detection-algorithms" title="Permalink to this heading">¶</a></h3>
 <table class="autosummary longtable docutils align-default">
-<colgroup>
-<col style="width: 10%" />
-<col style="width: 90%" />
-</colgroup>
 <tbody>
 <tr class="row-odd"><td><p><a class="reference internal" href="generated/piml.data.outlier_detection.PCA.html#piml.data.outlier_detection.PCA" title="piml.data.outlier_detection.PCA"><code class="xref py py-obj docutils literal notranslate"><span class="pre">data.outlier_detection.PCA</span></code></a></p></td>
 <td><p>A wrapper of sklearn's PCA for outlier detection.</p></td>
@@ -232,10 +224,6 @@ Please refer to the user guide for further details, as the class and function ra
 <section id="model-training">
 <h2>Model Training<a class="headerlink" href="#model-training" title="Permalink to this heading">¶</a></h2>
 <table class="autosummary longtable docutils align-default">
-<colgroup>
-<col style="width: 10%" />
-<col style="width: 90%" />
-</colgroup>
 <tbody>
 <tr class="row-odd"><td><p><a class="reference internal" href="generated/piml.Experiment.html#piml.Experiment.model_train" title="piml.Experiment.model_train"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Experiment.model_train</span></code></a>([model, name])</p></td>
 <td><p>Fit interpretable models.</p></td>
@@ -279,10 +267,6 @@ Please refer to the user guide for further details, as the class and function ra
 <section id="post-hoc-explainability">
 <h2>Post-hoc Explainability<a class="headerlink" href="#post-hoc-explainability" title="Permalink to this heading">¶</a></h2>
 <table class="autosummary longtable docutils align-default">
-<colgroup>
-<col style="width: 10%" />
-<col style="width: 90%" />
-</colgroup>
 <tbody>
 <tr class="row-odd"><td><p><a class="reference internal" href="generated/piml.Experiment.html#piml.Experiment.model_explain" title="piml.Experiment.model_explain"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Experiment.model_explain</span></code></a>([model, show, ...])</p></td>
 <td><p>Explain an arbitrary fitted model using post-hoc explanation tools.</p></td>
@@ -293,10 +277,6 @@ Please refer to the user guide for further details, as the class and function ra
 <section id="interpretable-models">
 <h2>Interpretable Models<a class="headerlink" href="#interpretable-models" title="Permalink to this heading">¶</a></h2>
 <table class="autosummary longtable docutils align-default">
-<colgroup>
-<col style="width: 10%" />
-<col style="width: 90%" />
-</colgroup>
 <tbody>
 <tr class="row-odd"><td><p><a class="reference internal" href="generated/piml.models.GLMRegressor.html#piml.models.GLMRegressor" title="piml.models.GLMRegressor"><code class="xref py py-obj docutils literal notranslate"><span class="pre">models.GLMRegressor</span></code></a></p></td>
 <td><p>A wrapper of generalized linear model regressor in scikit-learn.</p></td>
@@ -360,10 +340,6 @@ Please refer to the user guide for further details, as the class and function ra
 <section id="integrated-functions">
 <h3>Integrated Functions<a class="headerlink" href="#integrated-functions" title="Permalink to this heading">¶</a></h3>
 <table class="autosummary longtable docutils align-default">
-<colgroup>
-<col style="width: 10%" />
-<col style="width: 90%" />
-</colgroup>
 <tbody>
 <tr class="row-odd"><td><p><a class="reference internal" href="generated/piml.Experiment.html#piml.Experiment.model_diagnose" title="piml.Experiment.model_diagnose"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Experiment.model_diagnose</span></code></a>([model, show, ...])</p></td>
 <td><p>Test model performance using various diagnostic tools.</p></td>
@@ -389,10 +365,6 @@ Please refer to the user guide for further details, as the class and function ra
 <section id="scored-test-function">
 <h3>Scored Test Function<a class="headerlink" href="#scored-test-function" title="Permalink to this heading">¶</a></h3>
 <table class="autosummary longtable docutils align-default">
-<colgroup>
-<col style="width: 10%" />
-<col style="width: 90%" />
-</colgroup>
 <tbody>
 <tr class="row-odd"><td><p><a class="reference internal" href="generated/piml.scored_test.test_accuracy_table.html#piml.scored_test.test_accuracy_table" title="piml.scored_test.test_accuracy_table"><code class="xref py py-obj docutils literal notranslate"><span class="pre">test_accuracy_table</span></code></a></p></td>
 <td><p>Get accuracy result.</p></td>
@@ -422,7 +394,7 @@ Please refer to the user guide for further details, as the class and function ra
 <td><p>Get reliability diagram, only for classifiers.</p></td>
 </tr>
 <tr class="row-even"><td><p><a class="reference internal" href="generated/piml.scored_test.test_reliability_calibration.html#piml.scored_test.test_reliability_calibration" title="piml.scored_test.test_reliability_calibration"><code class="xref py py-obj docutils literal notranslate"><span class="pre">test_reliability_calibration</span></code></a></p></td>
-<td><p>Get the calibrated predicted probability vs original predicted probability, only for classifiers.</p></td>
+<td><p>Get the calibrated predicted probability vs.</p></td>
 </tr>
 <tr class="row-odd"><td><p><a class="reference internal" href="generated/piml.scored_test.test_resilience_perf.html#piml.scored_test.test_resilience_perf" title="piml.scored_test.test_resilience_perf"><code class="xref py py-obj docutils literal notranslate"><span class="pre">test_resilience_perf</span></code></a></p></td>
 <td><p>Get resilience test result in each step.</p></td>

@@ -1,0 +1,564 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+
+  <meta charset="utf-8">
+  <meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  
+  <title>PiML Toolbox</title>
+  
+
+  
+  <link rel="shortcut icon" href="_static/favicon.ico"/>
+  
+
+  <link rel="stylesheet" href="_static/css/vendor/bootstrap.min.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/plot_directive.css" type="text/css" />
+  <link rel="stylesheet" href="_static/jupyter-sphinx.css" type="text/css" />
+  <link rel="stylesheet" href="_static/thebelab.css" type="text/css" />
+  <link rel="stylesheet" href="_static/sg_gallery.css" type="text/css" />
+  <link rel="stylesheet" href="_static/sg_gallery-binder.css" type="text/css" />
+  <link rel="stylesheet" href="_static/sg_gallery-dataframe.css" type="text/css" />
+  <link rel="stylesheet" href="_static/sg_gallery-rendered-html.css" type="text/css" />
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
+<script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+<script src="_static/jquery.js"></script>
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script src="_static/sphinx_highlight.js"></script>
+        <script src="_static/thebelab-helper.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+        <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.20.1/dist/embed-amd.js"></script>
+        <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="_static/js/theme.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav">
+
+  
+
+
+<nav id="navbar" class="sk-docs-navbar navbar navbar-expand-md navbar-light bg-light py-0">
+  <div class="container-fluid sk-docs-container px-0">
+      <a class="navbar-brand py-0" href="index.html">
+        <img
+          class="sk-brand-img"
+          src="_static/piml-logo.png"
+          alt="logo"/>
+      </a>
+    <button
+      id="sk-navbar-toggler"
+      class="navbar-toggler"
+      type="button"
+      data-toggle="collapse"
+      data-target="#navbarSupportedContent"
+      aria-controls="navbarSupportedContent"
+      aria-expanded="false"
+      aria-label="Toggle navigation"
+    >
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="sk-navbar-collapse collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item">
+          <a class="sk-nav-link nav-link" href="install.html">Install</a>
+        </li>
+        <li class="nav-item">
+          <a class="sk-nav-link nav-link" href="user_guide.html">User Guide</a>
+        </li>
+        <li class="nav-item">
+          <a class="sk-nav-link nav-link" href="modules/classes.html">API</a>
+        </li>
+        <li class="nav-item">
+          <a class="sk-nav-link nav-link" href="auto_examples/index.html">Examples</a>
+        </li>
+     </ul>
+      <div id="searchbox" role="search">
+          <div class="searchformwrapper">
+          <form class="search" action="search.html" method="get">
+            <input class="sk-search-text-input" type="text" name="q" aria-labelledby="searchlabel" />
+            <input class="sk-search-text-btn" type="submit" value="Go" />
+          </form>
+          </div>
+      </div>
+    </div>
+  </div>
+</nav>
+  <div class="d-flex" id="sk-doc-wrapper">
+      <input type="checkbox" name="sk-toggle-checkbox" id="sk-toggle-checkbox">
+      <label id="sk-sidemenu-toggle" class="sk-btn-toggle-toc btn sk-btn-primary" for="sk-toggle-checkbox">Toggle Menu</label>
+      <div id="sk-sidebar-wrapper" class="border-right">
+        <div class="sk-sidebar-toc-wrapper">
+          <div class="sk-sidebar-toc-logo">
+            <a href="index.html">
+              <img
+                class="sk-brand-img"
+                src="_static/piml-logo.png"
+                alt="logo"/>
+            </a>
+          </div>
+          <!--div class="btn-group w-100 mb-2" role="group" aria-label="rellinks">
+              <a href="#" role="button" class="btn sk-btn-rellink py-1 disabled"">Prev</a>
+              <a href="#" role="button" class="btn sk-btn-rellink disabled py-1">Up</a>
+              <a href="#" role="button" class="btn sk-btn-rellink py-1 disabled"">Next</a>
+          </div-->
+              <div class="sk-sidebar-toc">
+                <ul>
+<li><a class="reference internal" href="#">Computation times</a></li>
+</ul>
+
+              </div>
+        </div>
+      </div>
+      <div id="sk-page-content-wrapper">
+        <div class="sk-page-content container-fluid body px-md-3" role="main">
+          
+  <section id="computation-times">
+<span id="sphx-glr-sg-execution-times"></span><h1>Computation times<a class="headerlink" href="#computation-times" title="Permalink to this heading">¶</a></h1>
+<p><strong>03:00.356</strong> total execution time for 62 files <strong>from all galleries</strong>:</p>
+<div class="docutils container">
+<style scoped>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet" />
+<link href="https://cdn.datatables.net/1.13.6/css/dataTables.bootstrap5.min.css" rel="stylesheet" />
+</style>
+<script src="https://code.jquery.com/jquery-3.7.0.js"></script>
+<script src="https://cdn.datatables.net/1.13.6/js/jquery.dataTables.min.js"></script>
+<script src="https://cdn.datatables.net/1.13.6/js/dataTables.bootstrap5.min.js"></script>
+<script type="text/javascript" class="init">
+$(document).ready( function () {
+    $('table.sg-datatable').DataTable({order: [[1, 'desc']]});
+} );
+</script><table class="table table-striped sg-datatable docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>Example</p></th>
+<th class="head"><p>Time</p></th>
+<th class="head"><p>Mem (MB)</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><a class="reference internal" href="auto_examples/5_compare/plot_2_compare_robustness.html#sphx-glr-auto-examples-5-compare-plot-2-compare-robustness-py"><span class="std std-ref">Build Robust Models with Monotonicity Constraints</span></a> (<code class="docutils literal notranslate"><span class="pre">..\examples\5_compare\plot_2_compare_robustness.py</span></code>)</p></td>
+<td><p>03:00.356</p></td>
+<td><p>0.0</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="auto_examples/0_data/plot_0_data_loader_builtin.html#sphx-glr-auto-examples-0-data-plot-0-data-loader-builtin-py"><span class="std std-ref">Data Load (Built-in Dataset)</span></a> (<code class="docutils literal notranslate"><span class="pre">..\examples\0_data\plot_0_data_loader_builtin.py</span></code>)</p></td>
+<td><p>00:00.000</p></td>
+<td><p>0.0</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="auto_examples/0_data/plot_0_data_loader_dataframe.html#sphx-glr-auto-examples-0-data-plot-0-data-loader-dataframe-py"><span class="std std-ref">Data Load (Pandas DataFrame)</span></a> (<code class="docutils literal notranslate"><span class="pre">..\examples\0_data\plot_0_data_loader_dataframe.py</span></code>)</p></td>
+<td><p>00:00.000</p></td>
+<td><p>0.0</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="auto_examples/0_data/plot_0_data_loader_spark.html#sphx-glr-auto-examples-0-data-plot-0-data-loader-spark-py"><span class="std std-ref">Data Load (Spark)</span></a> (<code class="docutils literal notranslate"><span class="pre">..\examples\0_data\plot_0_data_loader_spark.py</span></code>)</p></td>
+<td><p>00:00.000</p></td>
+<td><p>0.0</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="auto_examples/0_data/plot_1_data_summary.html#sphx-glr-auto-examples-0-data-plot-1-data-summary-py"><span class="std std-ref">Data Summary</span></a> (<code class="docutils literal notranslate"><span class="pre">..\examples\0_data\plot_1_data_summary.py</span></code>)</p></td>
+<td><p>00:00.000</p></td>
+<td><p>0.0</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="auto_examples/0_data/plot_2_data_eda.html#sphx-glr-auto-examples-0-data-plot-2-data-eda-py"><span class="std std-ref">EDA</span></a> (<code class="docutils literal notranslate"><span class="pre">..\examples\0_data\plot_2_data_eda.py</span></code>)</p></td>
+<td><p>00:00.000</p></td>
+<td><p>0.0</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="auto_examples/0_data/plot_3_data_prepare.html#sphx-glr-auto-examples-0-data-plot-3-data-prepare-py"><span class="std std-ref">Data Preparation</span></a> (<code class="docutils literal notranslate"><span class="pre">..\examples\0_data\plot_3_data_prepare.py</span></code>)</p></td>
+<td><p>00:00.000</p></td>
+<td><p>0.0</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="auto_examples/0_data/plot_4_data_quality.html#sphx-glr-auto-examples-0-data-plot-4-data-quality-py"><span class="std std-ref">Data Quality Check</span></a> (<code class="docutils literal notranslate"><span class="pre">..\examples\0_data\plot_4_data_quality.py</span></code>)</p></td>
+<td><p>00:00.000</p></td>
+<td><p>0.0</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="auto_examples/0_data/plot_5_feature_select.html#sphx-glr-auto-examples-0-data-plot-5-feature-select-py"><span class="std std-ref">Feature Selection</span></a> (<code class="docutils literal notranslate"><span class="pre">..\examples\0_data\plot_5_feature_select.py</span></code>)</p></td>
+<td><p>00:00.000</p></td>
+<td><p>0.0</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="auto_examples/1_train/plot_0_model_train.html#sphx-glr-auto-examples-1-train-plot-0-model-train-py"><span class="std std-ref">Train Models</span></a> (<code class="docutils literal notranslate"><span class="pre">..\examples\1_train\plot_0_model_train.py</span></code>)</p></td>
+<td><p>00:00.000</p></td>
+<td><p>0.0</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="auto_examples/1_train/plot_1_hpo_grid.html#sphx-glr-auto-examples-1-train-plot-1-hpo-grid-py"><span class="std std-ref">HPO - Grid Search</span></a> (<code class="docutils literal notranslate"><span class="pre">..\examples\1_train\plot_1_hpo_grid.py</span></code>)</p></td>
+<td><p>00:00.000</p></td>
+<td><p>0.0</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="auto_examples/1_train/plot_1_hpo_random.html#sphx-glr-auto-examples-1-train-plot-1-hpo-random-py"><span class="std std-ref">HPO - Random Search</span></a> (<code class="docutils literal notranslate"><span class="pre">..\examples\1_train\plot_1_hpo_random.py</span></code>)</p></td>
+<td><p>00:00.000</p></td>
+<td><p>0.0</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="auto_examples/1_train/plot_2_register_0_sklearn.html#sphx-glr-auto-examples-1-train-plot-2-register-0-sklearn-py"><span class="std std-ref">Register sklearn Style Models</span></a> (<code class="docutils literal notranslate"><span class="pre">..\examples\1_train\plot_2_register_0_sklearn.py</span></code>)</p></td>
+<td><p>00:00.000</p></td>
+<td><p>0.0</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="auto_examples/1_train/plot_2_register_1_h2o.html#sphx-glr-auto-examples-1-train-plot-2-register-1-h2o-py"><span class="std std-ref">Register H2O Models</span></a> (<code class="docutils literal notranslate"><span class="pre">..\examples\1_train\plot_2_register_1_h2o.py</span></code>)</p></td>
+<td><p>00:00.000</p></td>
+<td><p>0.0</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="auto_examples/1_train/plot_2_register_2_arbitrary.html#sphx-glr-auto-examples-1-train-plot-2-register-2-arbitrary-py"><span class="std std-ref">Register Arbitrary Models</span></a> (<code class="docutils literal notranslate"><span class="pre">..\examples\1_train\plot_2_register_2_arbitrary.py</span></code>)</p></td>
+<td><p>00:00.000</p></td>
+<td><p>0.0</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="auto_examples/1_train/plot_2_register_3_arbitrary_pyspark.html#sphx-glr-auto-examples-1-train-plot-2-register-3-arbitrary-pyspark-py"><span class="std std-ref">Register PySpark Models</span></a> (<code class="docutils literal notranslate"><span class="pre">..\examples\1_train\plot_2_register_3_arbitrary_pyspark.py</span></code>)</p></td>
+<td><p>00:00.000</p></td>
+<td><p>0.0</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="auto_examples/2_explain/plot_0_pfi.html#sphx-glr-auto-examples-2-explain-plot-0-pfi-py"><span class="std std-ref">Permutation Feature Importance</span></a> (<code class="docutils literal notranslate"><span class="pre">..\examples\2_explain\plot_0_pfi.py</span></code>)</p></td>
+<td><p>00:00.000</p></td>
+<td><p>0.0</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="auto_examples/2_explain/plot_1_pdp.html#sphx-glr-auto-examples-2-explain-plot-1-pdp-py"><span class="std std-ref">Partial Dependence Plot</span></a> (<code class="docutils literal notranslate"><span class="pre">..\examples\2_explain\plot_1_pdp.py</span></code>)</p></td>
+<td><p>00:00.000</p></td>
+<td><p>0.0</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="auto_examples/2_explain/plot_1_pdp_hstats.html#sphx-glr-auto-examples-2-explain-plot-1-pdp-hstats-py"><span class="std std-ref">H-statistics</span></a> (<code class="docutils literal notranslate"><span class="pre">..\examples\2_explain\plot_1_pdp_hstats.py</span></code>)</p></td>
+<td><p>00:00.000</p></td>
+<td><p>0.0</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="auto_examples/2_explain/plot_2_ice.html#sphx-glr-auto-examples-2-explain-plot-2-ice-py"><span class="std std-ref">Individual Conditional Expectation</span></a> (<code class="docutils literal notranslate"><span class="pre">..\examples\2_explain\plot_2_ice.py</span></code>)</p></td>
+<td><p>00:00.000</p></td>
+<td><p>0.0</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="auto_examples/2_explain/plot_3_ale.html#sphx-glr-auto-examples-2-explain-plot-3-ale-py"><span class="std std-ref">Accumulated Local Effects</span></a> (<code class="docutils literal notranslate"><span class="pre">..\examples\2_explain\plot_3_ale.py</span></code>)</p></td>
+<td><p>00:00.000</p></td>
+<td><p>0.0</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="auto_examples/2_explain/plot_4_lime.html#sphx-glr-auto-examples-2-explain-plot-4-lime-py"><span class="std std-ref">Local Interpretable Model-Agnostic Explanation</span></a> (<code class="docutils literal notranslate"><span class="pre">..\examples\2_explain\plot_4_lime.py</span></code>)</p></td>
+<td><p>00:00.000</p></td>
+<td><p>0.0</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="auto_examples/2_explain/plot_5_shap.html#sphx-glr-auto-examples-2-explain-plot-5-shap-py"><span class="std std-ref">SHapley Additive exPlanations</span></a> (<code class="docutils literal notranslate"><span class="pre">..\examples\2_explain\plot_5_shap.py</span></code>)</p></td>
+<td><p>00:00.000</p></td>
+<td><p>0.0</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="auto_examples/2_explain/plot_6_data_dependent_explain.html#sphx-glr-auto-examples-2-explain-plot-6-data-dependent-explain-py"><span class="std std-ref">Data Dependent Explanation</span></a> (<code class="docutils literal notranslate"><span class="pre">..\examples\2_explain\plot_6_data_dependent_explain.py</span></code>)</p></td>
+<td><p>00:00.000</p></td>
+<td><p>0.0</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="auto_examples/3_models/plot_0_glm_cls.html#sphx-glr-auto-examples-3-models-plot-0-glm-cls-py"><span class="std std-ref">GLM Logistic Regression (Taiwan Credit)</span></a> (<code class="docutils literal notranslate"><span class="pre">..\examples\3_models\plot_0_glm_cls.py</span></code>)</p></td>
+<td><p>00:00.000</p></td>
+<td><p>0.0</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="auto_examples/3_models/plot_0_glm_reg.html#sphx-glr-auto-examples-3-models-plot-0-glm-reg-py"><span class="std std-ref">GLM Linear Regression (Bike Sharing)</span></a> (<code class="docutils literal notranslate"><span class="pre">..\examples\3_models\plot_0_glm_reg.py</span></code>)</p></td>
+<td><p>00:00.000</p></td>
+<td><p>0.0</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="auto_examples/3_models/plot_1_gam_cls.html#sphx-glr-auto-examples-3-models-plot-1-gam-cls-py"><span class="std std-ref">GAM Classification (CoCircles)</span></a> (<code class="docutils literal notranslate"><span class="pre">..\examples\3_models\plot_1_gam_cls.py</span></code>)</p></td>
+<td><p>00:00.000</p></td>
+<td><p>0.0</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="auto_examples/3_models/plot_1_gam_reg.html#sphx-glr-auto-examples-3-models-plot-1-gam-reg-py"><span class="std std-ref">GAM Regression (California Housing)</span></a> (<code class="docutils literal notranslate"><span class="pre">..\examples\3_models\plot_1_gam_reg.py</span></code>)</p></td>
+<td><p>00:00.000</p></td>
+<td><p>0.0</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="auto_examples/3_models/plot_2_tree_cls.html#sphx-glr-auto-examples-3-models-plot-2-tree-cls-py"><span class="std std-ref">Tree Classification (TaiwanCredit)</span></a> (<code class="docutils literal notranslate"><span class="pre">..\examples\3_models\plot_2_tree_cls.py</span></code>)</p></td>
+<td><p>00:00.000</p></td>
+<td><p>0.0</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="auto_examples/3_models/plot_2_tree_reg.html#sphx-glr-auto-examples-3-models-plot-2-tree-reg-py"><span class="std std-ref">Tree Regression (California Housing)</span></a> (<code class="docutils literal notranslate"><span class="pre">..\examples\3_models\plot_2_tree_reg.py</span></code>)</p></td>
+<td><p>00:00.000</p></td>
+<td><p>0.0</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="auto_examples/3_models/plot_3_figs_cls.html#sphx-glr-auto-examples-3-models-plot-3-figs-cls-py"><span class="std std-ref">FIGS Classification (Taiwan Credit)</span></a> (<code class="docutils literal notranslate"><span class="pre">..\examples\3_models\plot_3_figs_cls.py</span></code>)</p></td>
+<td><p>00:00.000</p></td>
+<td><p>0.0</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="auto_examples/3_models/plot_3_figs_reg.html#sphx-glr-auto-examples-3-models-plot-3-figs-reg-py"><span class="std std-ref">FIGS Regression (California Housing)</span></a> (<code class="docutils literal notranslate"><span class="pre">..\examples\3_models\plot_3_figs_reg.py</span></code>)</p></td>
+<td><p>00:00.000</p></td>
+<td><p>0.0</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="auto_examples/3_models/plot_4_xgb1_cls.html#sphx-glr-auto-examples-3-models-plot-4-xgb1-cls-py"><span class="std std-ref">XGB-1 Classification (CoCircles)</span></a> (<code class="docutils literal notranslate"><span class="pre">..\examples\3_models\plot_4_xgb1_cls.py</span></code>)</p></td>
+<td><p>00:00.000</p></td>
+<td><p>0.0</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="auto_examples/3_models/plot_4_xgb1_reg.html#sphx-glr-auto-examples-3-models-plot-4-xgb1-reg-py"><span class="std std-ref">XGB-1 Regression (California Housing)</span></a> (<code class="docutils literal notranslate"><span class="pre">..\examples\3_models\plot_4_xgb1_reg.py</span></code>)</p></td>
+<td><p>00:00.000</p></td>
+<td><p>0.0</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="auto_examples/3_models/plot_5_xgb2_cls.html#sphx-glr-auto-examples-3-models-plot-5-xgb2-cls-py"><span class="std std-ref">XGB-2 Classification (Taiwan Credit)</span></a> (<code class="docutils literal notranslate"><span class="pre">..\examples\3_models\plot_5_xgb2_cls.py</span></code>)</p></td>
+<td><p>00:00.000</p></td>
+<td><p>0.0</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="auto_examples/3_models/plot_5_xgb2_reg.html#sphx-glr-auto-examples-3-models-plot-5-xgb2-reg-py"><span class="std std-ref">XGB-2 Regression (Bike Sharing)</span></a> (<code class="docutils literal notranslate"><span class="pre">..\examples\3_models\plot_5_xgb2_reg.py</span></code>)</p></td>
+<td><p>00:00.000</p></td>
+<td><p>0.0</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="auto_examples/3_models/plot_6_ebm_cls.html#sphx-glr-auto-examples-3-models-plot-6-ebm-cls-py"><span class="std std-ref">EBM Classification (Taiwan Credit)</span></a> (<code class="docutils literal notranslate"><span class="pre">..\examples\3_models\plot_6_ebm_cls.py</span></code>)</p></td>
+<td><p>00:00.000</p></td>
+<td><p>0.0</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="auto_examples/3_models/plot_6_ebm_reg.html#sphx-glr-auto-examples-3-models-plot-6-ebm-reg-py"><span class="std std-ref">EBM Regression (Bike Sharing)</span></a> (<code class="docutils literal notranslate"><span class="pre">..\examples\3_models\plot_6_ebm_reg.py</span></code>)</p></td>
+<td><p>00:00.000</p></td>
+<td><p>0.0</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="auto_examples/3_models/plot_7_gaminet_cls.html#sphx-glr-auto-examples-3-models-plot-7-gaminet-cls-py"><span class="std std-ref">GAMI-Net Classification (Taiwan Credit)</span></a> (<code class="docutils literal notranslate"><span class="pre">..\examples\3_models\plot_7_gaminet_cls.py</span></code>)</p></td>
+<td><p>00:00.000</p></td>
+<td><p>0.0</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="auto_examples/3_models/plot_7_gaminet_reg.html#sphx-glr-auto-examples-3-models-plot-7-gaminet-reg-py"><span class="std std-ref">GAMI-Net Regression (Bike Sharing)</span></a> (<code class="docutils literal notranslate"><span class="pre">..\examples\3_models\plot_7_gaminet_reg.py</span></code>)</p></td>
+<td><p>00:00.000</p></td>
+<td><p>0.0</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="auto_examples/3_models/plot_8_reludnn_cls.html#sphx-glr-auto-examples-3-models-plot-8-reludnn-cls-py"><span class="std std-ref">ReLU DNN Classification (Taiwan Credit)</span></a> (<code class="docutils literal notranslate"><span class="pre">..\examples\3_models\plot_8_reludnn_cls.py</span></code>)</p></td>
+<td><p>00:00.000</p></td>
+<td><p>0.0</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="auto_examples/3_models/plot_8_reludnn_reg.html#sphx-glr-auto-examples-3-models-plot-8-reludnn-reg-py"><span class="std std-ref">ReLU DNN Regression (Friedman)</span></a> (<code class="docutils literal notranslate"><span class="pre">..\examples\3_models\plot_8_reludnn_reg.py</span></code>)</p></td>
+<td><p>00:00.000</p></td>
+<td><p>0.0</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="auto_examples/4_testing/plot_0_accuracy_cls.html#sphx-glr-auto-examples-4-testing-plot-0-accuracy-cls-py"><span class="std std-ref">Accuracy: Classification</span></a> (<code class="docutils literal notranslate"><span class="pre">..\examples\4_testing\plot_0_accuracy_cls.py</span></code>)</p></td>
+<td><p>00:00.000</p></td>
+<td><p>0.0</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="auto_examples/4_testing/plot_0_accuracy_reg.html#sphx-glr-auto-examples-4-testing-plot-0-accuracy-reg-py"><span class="std std-ref">Accuracy: Regression</span></a> (<code class="docutils literal notranslate"><span class="pre">..\examples\4_testing\plot_0_accuracy_reg.py</span></code>)</p></td>
+<td><p>00:00.000</p></td>
+<td><p>0.0</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="auto_examples/4_testing/plot_1_weakspot_cls.html#sphx-glr-auto-examples-4-testing-plot-1-weakspot-cls-py"><span class="std std-ref">WeakSpot: Classification</span></a> (<code class="docutils literal notranslate"><span class="pre">..\examples\4_testing\plot_1_weakspot_cls.py</span></code>)</p></td>
+<td><p>00:00.000</p></td>
+<td><p>0.0</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="auto_examples/4_testing/plot_1_weakspot_reg.html#sphx-glr-auto-examples-4-testing-plot-1-weakspot-reg-py"><span class="std std-ref">WeakSpot: Regression</span></a> (<code class="docutils literal notranslate"><span class="pre">..\examples\4_testing\plot_1_weakspot_reg.py</span></code>)</p></td>
+<td><p>00:00.000</p></td>
+<td><p>0.0</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="auto_examples/4_testing/plot_2_overfit_cls.html#sphx-glr-auto-examples-4-testing-plot-2-overfit-cls-py"><span class="std std-ref">Overfit: Classification</span></a> (<code class="docutils literal notranslate"><span class="pre">..\examples\4_testing\plot_2_overfit_cls.py</span></code>)</p></td>
+<td><p>00:00.000</p></td>
+<td><p>0.0</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="auto_examples/4_testing/plot_2_overfit_reg.html#sphx-glr-auto-examples-4-testing-plot-2-overfit-reg-py"><span class="std std-ref">Overfit: Regression</span></a> (<code class="docutils literal notranslate"><span class="pre">..\examples\4_testing\plot_2_overfit_reg.py</span></code>)</p></td>
+<td><p>00:00.000</p></td>
+<td><p>0.0</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="auto_examples/4_testing/plot_3_reliability_cls.html#sphx-glr-auto-examples-4-testing-plot-3-reliability-cls-py"><span class="std std-ref">Reliability: Classification</span></a> (<code class="docutils literal notranslate"><span class="pre">..\examples\4_testing\plot_3_reliability_cls.py</span></code>)</p></td>
+<td><p>00:00.000</p></td>
+<td><p>0.0</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="auto_examples/4_testing/plot_3_reliability_reg.html#sphx-glr-auto-examples-4-testing-plot-3-reliability-reg-py"><span class="std std-ref">Reliability: Regression</span></a> (<code class="docutils literal notranslate"><span class="pre">..\examples\4_testing\plot_3_reliability_reg.py</span></code>)</p></td>
+<td><p>00:00.000</p></td>
+<td><p>0.0</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="auto_examples/4_testing/plot_4_robustness_cls.html#sphx-glr-auto-examples-4-testing-plot-4-robustness-cls-py"><span class="std std-ref">Robustness: Classification</span></a> (<code class="docutils literal notranslate"><span class="pre">..\examples\4_testing\plot_4_robustness_cls.py</span></code>)</p></td>
+<td><p>00:00.000</p></td>
+<td><p>0.0</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="auto_examples/4_testing/plot_4_robustness_reg.html#sphx-glr-auto-examples-4-testing-plot-4-robustness-reg-py"><span class="std std-ref">Robustness:  Regression</span></a> (<code class="docutils literal notranslate"><span class="pre">..\examples\4_testing\plot_4_robustness_reg.py</span></code>)</p></td>
+<td><p>00:00.000</p></td>
+<td><p>0.0</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="auto_examples/4_testing/plot_5_resilience_cls.html#sphx-glr-auto-examples-4-testing-plot-5-resilience-cls-py"><span class="std std-ref">Resilience:  Classification</span></a> (<code class="docutils literal notranslate"><span class="pre">..\examples\4_testing\plot_5_resilience_cls.py</span></code>)</p></td>
+<td><p>00:00.000</p></td>
+<td><p>0.0</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="auto_examples/4_testing/plot_5_resilience_reg.html#sphx-glr-auto-examples-4-testing-plot-5-resilience-reg-py"><span class="std std-ref">Resilience - Regression</span></a> (<code class="docutils literal notranslate"><span class="pre">..\examples\4_testing\plot_5_resilience_reg.py</span></code>)</p></td>
+<td><p>00:00.000</p></td>
+<td><p>0.0</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="auto_examples/4_testing/plot_6_fairness.html#sphx-glr-auto-examples-4-testing-plot-6-fairness-py"><span class="std std-ref">Fairness Test: XGB2</span></a> (<code class="docutils literal notranslate"><span class="pre">..\examples\4_testing\plot_6_fairness.py</span></code>)</p></td>
+<td><p>00:00.000</p></td>
+<td><p>0.0</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="auto_examples/4_testing/plot_7_segmented_cls.html#sphx-glr-auto-examples-4-testing-plot-7-segmented-cls-py"><span class="std std-ref">Segmented Diagnose (Classification)</span></a> (<code class="docutils literal notranslate"><span class="pre">..\examples\4_testing\plot_7_segmented_cls.py</span></code>)</p></td>
+<td><p>00:00.000</p></td>
+<td><p>0.0</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="auto_examples/4_testing/plot_7_segmented_reg.html#sphx-glr-auto-examples-4-testing-plot-7-segmented-reg-py"><span class="std std-ref">Segmented Diagnose (Regression)</span></a> (<code class="docutils literal notranslate"><span class="pre">..\examples\4_testing\plot_7_segmented_reg.py</span></code>)</p></td>
+<td><p>00:00.000</p></td>
+<td><p>0.0</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="auto_examples/4_testing/plot_8_scored_test_cls.html#sphx-glr-auto-examples-4-testing-plot-8-scored-test-cls-py"><span class="std std-ref">Scored Test: Classification</span></a> (<code class="docutils literal notranslate"><span class="pre">..\examples\4_testing\plot_8_scored_test_cls.py</span></code>)</p></td>
+<td><p>00:00.000</p></td>
+<td><p>0.0</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="auto_examples/4_testing/plot_8_scored_test_reg.html#sphx-glr-auto-examples-4-testing-plot-8-scored-test-reg-py"><span class="std std-ref">Scored Test: Regression</span></a> (<code class="docutils literal notranslate"><span class="pre">..\examples\4_testing\plot_8_scored_test_reg.py</span></code>)</p></td>
+<td><p>00:00.000</p></td>
+<td><p>0.0</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="auto_examples/5_compare/plot_0_compare_classification.html#sphx-glr-auto-examples-5-compare-plot-0-compare-classification-py"><span class="std std-ref">Model Comparison: Classification</span></a> (<code class="docutils literal notranslate"><span class="pre">..\examples\5_compare\plot_0_compare_classification.py</span></code>)</p></td>
+<td><p>00:00.000</p></td>
+<td><p>0.0</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="auto_examples/5_compare/plot_0_compare_regression.html#sphx-glr-auto-examples-5-compare-plot-0-compare-regression-py"><span class="std std-ref">Model Comparison: Regression</span></a> (<code class="docutils literal notranslate"><span class="pre">..\examples\5_compare\plot_0_compare_regression.py</span></code>)</p></td>
+<td><p>00:00.000</p></td>
+<td><p>0.0</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="auto_examples/5_compare/plot_1_compare_fairness.html#sphx-glr-auto-examples-5-compare-plot-1-compare-fairness-py"><span class="std std-ref">Fairness Comparison</span></a> (<code class="docutils literal notranslate"><span class="pre">..\examples\5_compare\plot_1_compare_fairness.py</span></code>)</p></td>
+<td><p>00:00.000</p></td>
+<td><p>0.0</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+
+
+        </div>
+      <div class="container">
+        <footer class="sk-content-footer">
+              &copy; Copyright 2022-, PiML-Toolbox authors.
+            <a href="_sources/sg_execution_times.rst.txt" rel="nofollow">Show this page source</a>
+        </footer>
+      </div>
+    </div>
+  </div>
+
+
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(false);
+      });
+      
+      const tooltipTriggerList = document.querySelectorAll('[data-bs-toggle="tooltip"]')
+      const tooltipList = [...tooltipTriggerList].map(tooltipTriggerEl => new bootstrap.Tooltip(tooltipTriggerEl))
+  </script>
+
+<script>
+$(document).ready(function() {
+    /* Add a [>>>] button on the top-right corner of code samples to hide
+     * the >>> and ... prompts and the output and thus make the code
+     * copyable. */
+    var div = $('.highlight-python .highlight,' +
+                '.highlight-python3 .highlight,' +
+                '.highlight-pycon .highlight,' +
+		'.highlight-default .highlight')
+    var pre = div.find('pre');
+
+    // get the styles from the current theme
+    pre.parent().parent().css('position', 'relative');
+    var hide_text = 'Hide prompts and outputs';
+    var show_text = 'Show prompts and outputs';
+
+    // create and add the button to all the code blocks that contain >>>
+    div.each(function(index) {
+        var jthis = $(this);
+        if (jthis.find('.gp').length > 0) {
+            var button = $('<span class="copybutton">&gt;&gt;&gt;</span>');
+            button.attr('title', hide_text);
+            button.data('hidden', 'false');
+            jthis.prepend(button);
+        }
+        // tracebacks (.gt) contain bare text elements that need to be
+        // wrapped in a span to work with .nextUntil() (see later)
+        jthis.find('pre:has(.gt)').contents().filter(function() {
+            return ((this.nodeType == 3) && (this.data.trim().length > 0));
+        }).wrap('<span>');
+    });
+
+    // define the behavior of the button when it's clicked
+    $('.copybutton').click(function(e){
+        e.preventDefault();
+        var button = $(this);
+        if (button.data('hidden') === 'false') {
+            // hide the code output
+            button.parent().find('.go, .gp, .gt').hide();
+            button.next('pre').find('.gt').nextUntil('.gp, .go').css('visibility', 'hidden');
+            button.css('text-decoration', 'line-through');
+            button.attr('title', show_text);
+            button.data('hidden', 'true');
+        } else {
+            // show the code output
+            button.parent().find('.go, .gp, .gt').show();
+            button.next('pre').find('.gt').nextUntil('.gp, .go').css('visibility', 'visible');
+            button.css('text-decoration', 'none');
+            button.attr('title', hide_text);
+            button.data('hidden', 'false');
+        }
+    });
+
+	/*** Add permalink buttons next to glossary terms ***/
+	$('dl.glossary > dt[id]').append(function() {
+		return ('<a class="headerlink" href="#' +
+			    this.getAttribute('id') +
+			    '" title="Permalink to this term">¶</a>');
+	});
+  /*** Hide navbar when scrolling down ***/
+  // Returns true when headerlink target matches hash in url
+  (function() {
+    hashTargetOnTop = function() {
+        var hash = window.location.hash;
+        if ( hash.length < 2 ) { return false; }
+
+        var target = document.getElementById( hash.slice(1) );
+        if ( target === null ) { return false; }
+
+        var top = target.getBoundingClientRect().top;
+        return (top < 2) && (top > -2);
+    };
+
+    // Hide navbar on load if hash target is on top
+    var navBar = document.getElementById("navbar");
+    var navBarToggler = document.getElementById("sk-navbar-toggler");
+    var navBarHeightHidden = "-" + navBar.getBoundingClientRect().height + "px";
+    var $window = $(window);
+
+    hideNavBar = function() {
+        navBar.style.top = navBarHeightHidden;
+    };
+
+    showNavBar = function() {
+        navBar.style.top = "0";
+    }
+
+    if (hashTargetOnTop()) {
+        hideNavBar()
+    }
+
+    var prevScrollpos = window.pageYOffset;
+    hideOnScroll = function(lastScrollTop) {
+        if (($window.width() < 768) && (navBarToggler.getAttribute("aria-expanded") === 'true')) {
+            return;
+        }
+        if (lastScrollTop > 2 && (prevScrollpos <= lastScrollTop) || hashTargetOnTop()){
+            hideNavBar()
+        } else {
+            showNavBar()
+        }
+        prevScrollpos = lastScrollTop;
+    };
+
+    /*** high performance scroll event listener***/
+    var raf = window.requestAnimationFrame ||
+        window.webkitRequestAnimationFrame ||
+        window.mozRequestAnimationFrame ||
+        window.msRequestAnimationFrame ||
+        window.oRequestAnimationFrame;
+    var lastScrollTop = $window.scrollTop();
+
+    if (raf) {
+        loop();
+    }
+
+    function loop() {
+        var scrollTop = $window.scrollTop();
+        if (lastScrollTop === scrollTop) {
+            raf(loop);
+            return;
+        } else {
+            lastScrollTop = scrollTop;
+            hideOnScroll(lastScrollTop);
+            raf(loop);
+        }
+    }
+  })();
+});
+
+</script>
+    
+
+<script src="_static/js/vendor/bootstrap.min.js"></script>
+
+</body>
+</html>

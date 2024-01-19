@@ -3,7 +3,7 @@
 <head>
 
   <meta charset="utf-8">
-  <meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+  <meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
@@ -41,7 +41,7 @@
         <script src="../../_static/sphinx_highlight.js"></script>
         <script src="../../_static/thebelab-helper.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
-        <script src="https://cdn.jsdelivr.net/npm/@jupyter-widgets/html-manager@^1.0.1/dist/embed-amd.js"></script>
+        <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.20.1/dist/embed-amd.js"></script>
         <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
     <script src="../../_static/js/theme.js"></script>
 
@@ -130,88 +130,102 @@
           
   <section id="computation-times">
 <span id="sphx-glr-auto-examples-3-models-sg-execution-times"></span><h1>Computation times<a class="headerlink" href="#computation-times" title="Permalink to this heading">¶</a></h1>
-<p><strong>01:43.829</strong> total execution time for <strong>auto_examples_3_models</strong> files:</p>
-<table class="docutils align-default">
-<colgroup>
-<col style="width: 82%" />
-<col style="width: 10%" />
-<col style="width: 8%" />
-</colgroup>
-<tbody>
-<tr class="row-odd"><td><p><a class="reference internal" href="plot_0_glm_reg.html#sphx-glr-auto-examples-3-models-plot-0-glm-reg-py"><span class="std std-ref">GLM Linear Regression (Bike Sharing)</span></a> (<code class="docutils literal notranslate"><span class="pre">plot_0_glm_reg.py</span></code>)</p></td>
-<td><p>01:43.829</p></td>
-<td><p>31.2 MB</p></td>
+<p><strong>96:12.141</strong> total execution time for 18 files <strong>from auto_examples3_models</strong>:</p>
+<div class="docutils container">
+<style scoped>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet" />
+<link href="https://cdn.datatables.net/1.13.6/css/dataTables.bootstrap5.min.css" rel="stylesheet" />
+</style>
+<script src="https://code.jquery.com/jquery-3.7.0.js"></script>
+<script src="https://cdn.datatables.net/1.13.6/js/jquery.dataTables.min.js"></script>
+<script src="https://cdn.datatables.net/1.13.6/js/dataTables.bootstrap5.min.js"></script>
+<script type="text/javascript" class="init">
+$(document).ready( function () {
+    $('table.sg-datatable').DataTable({order: [[1, 'desc']]});
+} );
+</script><table class="table table-striped sg-datatable docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>Example</p></th>
+<th class="head"><p>Time</p></th>
+<th class="head"><p>Mem (MB)</p></th>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="plot_0_glm_cls.html#sphx-glr-auto-examples-3-models-plot-0-glm-cls-py"><span class="std std-ref">GLM Logistic Regression (Taiwan Credit)</span></a> (<code class="docutils literal notranslate"><span class="pre">plot_0_glm_cls.py</span></code>)</p></td>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><a class="reference internal" href="plot_7_gaminet_cls.html#sphx-glr-auto-examples-3-models-plot-7-gaminet-cls-py"><span class="std std-ref">GAMI-Net Classification (Taiwan Credit)</span></a> (<code class="docutils literal notranslate"><span class="pre">plot_7_gaminet_cls.py</span></code>)</p></td>
+<td><p>95:58.559</p></td>
+<td><p>0.0</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="plot_4_xgb1_reg.html#sphx-glr-auto-examples-3-models-plot-4-xgb1-reg-py"><span class="std std-ref">XGB-1 Regression (California Housing)</span></a> (<code class="docutils literal notranslate"><span class="pre">plot_4_xgb1_reg.py</span></code>)</p></td>
+<td><p>00:08.159</p></td>
+<td><p>0.0</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="plot_5_xgb2_cls.html#sphx-glr-auto-examples-3-models-plot-5-xgb2-cls-py"><span class="std std-ref">XGB-2 Classification (Taiwan Credit)</span></a> (<code class="docutils literal notranslate"><span class="pre">plot_5_xgb2_cls.py</span></code>)</p></td>
+<td><p>00:05.422</p></td>
+<td><p>0.0</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="plot_0_glm_cls.html#sphx-glr-auto-examples-3-models-plot-0-glm-cls-py"><span class="std std-ref">GLM Logistic Regression (Taiwan Credit)</span></a> (<code class="docutils literal notranslate"><span class="pre">plot_0_glm_cls.py</span></code>)</p></td>
 <td><p>00:00.000</p></td>
-<td><p>0.0 MB</p></td>
+<td><p>0.0</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="plot_0_glm_reg.html#sphx-glr-auto-examples-3-models-plot-0-glm-reg-py"><span class="std std-ref">GLM Linear Regression (Bike Sharing)</span></a> (<code class="docutils literal notranslate"><span class="pre">plot_0_glm_reg.py</span></code>)</p></td>
+<td><p>00:00.000</p></td>
+<td><p>0.0</p></td>
 </tr>
 <tr class="row-odd"><td><p><a class="reference internal" href="plot_1_gam_cls.html#sphx-glr-auto-examples-3-models-plot-1-gam-cls-py"><span class="std std-ref">GAM Classification (CoCircles)</span></a> (<code class="docutils literal notranslate"><span class="pre">plot_1_gam_cls.py</span></code>)</p></td>
 <td><p>00:00.000</p></td>
-<td><p>0.0 MB</p></td>
+<td><p>0.0</p></td>
 </tr>
 <tr class="row-even"><td><p><a class="reference internal" href="plot_1_gam_reg.html#sphx-glr-auto-examples-3-models-plot-1-gam-reg-py"><span class="std std-ref">GAM Regression (California Housing)</span></a> (<code class="docutils literal notranslate"><span class="pre">plot_1_gam_reg.py</span></code>)</p></td>
 <td><p>00:00.000</p></td>
-<td><p>0.0 MB</p></td>
+<td><p>0.0</p></td>
 </tr>
 <tr class="row-odd"><td><p><a class="reference internal" href="plot_2_tree_cls.html#sphx-glr-auto-examples-3-models-plot-2-tree-cls-py"><span class="std std-ref">Tree Classification (TaiwanCredit)</span></a> (<code class="docutils literal notranslate"><span class="pre">plot_2_tree_cls.py</span></code>)</p></td>
 <td><p>00:00.000</p></td>
-<td><p>0.0 MB</p></td>
+<td><p>0.0</p></td>
 </tr>
 <tr class="row-even"><td><p><a class="reference internal" href="plot_2_tree_reg.html#sphx-glr-auto-examples-3-models-plot-2-tree-reg-py"><span class="std std-ref">Tree Regression (California Housing)</span></a> (<code class="docutils literal notranslate"><span class="pre">plot_2_tree_reg.py</span></code>)</p></td>
 <td><p>00:00.000</p></td>
-<td><p>0.0 MB</p></td>
+<td><p>0.0</p></td>
 </tr>
 <tr class="row-odd"><td><p><a class="reference internal" href="plot_3_figs_cls.html#sphx-glr-auto-examples-3-models-plot-3-figs-cls-py"><span class="std std-ref">FIGS Classification (Taiwan Credit)</span></a> (<code class="docutils literal notranslate"><span class="pre">plot_3_figs_cls.py</span></code>)</p></td>
 <td><p>00:00.000</p></td>
-<td><p>0.0 MB</p></td>
+<td><p>0.0</p></td>
 </tr>
 <tr class="row-even"><td><p><a class="reference internal" href="plot_3_figs_reg.html#sphx-glr-auto-examples-3-models-plot-3-figs-reg-py"><span class="std std-ref">FIGS Regression (California Housing)</span></a> (<code class="docutils literal notranslate"><span class="pre">plot_3_figs_reg.py</span></code>)</p></td>
 <td><p>00:00.000</p></td>
-<td><p>0.0 MB</p></td>
+<td><p>0.0</p></td>
 </tr>
 <tr class="row-odd"><td><p><a class="reference internal" href="plot_4_xgb1_cls.html#sphx-glr-auto-examples-3-models-plot-4-xgb1-cls-py"><span class="std std-ref">XGB-1 Classification (CoCircles)</span></a> (<code class="docutils literal notranslate"><span class="pre">plot_4_xgb1_cls.py</span></code>)</p></td>
 <td><p>00:00.000</p></td>
-<td><p>0.0 MB</p></td>
-</tr>
-<tr class="row-even"><td><p><a class="reference internal" href="plot_4_xgb1_reg.html#sphx-glr-auto-examples-3-models-plot-4-xgb1-reg-py"><span class="std std-ref">XGB-1 Regression (California Housing)</span></a> (<code class="docutils literal notranslate"><span class="pre">plot_4_xgb1_reg.py</span></code>)</p></td>
-<td><p>00:00.000</p></td>
-<td><p>0.0 MB</p></td>
-</tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="plot_5_xgb2_cls.html#sphx-glr-auto-examples-3-models-plot-5-xgb2-cls-py"><span class="std std-ref">XGB-2 Classification (Taiwan Credit)</span></a> (<code class="docutils literal notranslate"><span class="pre">plot_5_xgb2_cls.py</span></code>)</p></td>
-<td><p>00:00.000</p></td>
-<td><p>0.0 MB</p></td>
+<td><p>0.0</p></td>
 </tr>
 <tr class="row-even"><td><p><a class="reference internal" href="plot_5_xgb2_reg.html#sphx-glr-auto-examples-3-models-plot-5-xgb2-reg-py"><span class="std std-ref">XGB-2 Regression (Bike Sharing)</span></a> (<code class="docutils literal notranslate"><span class="pre">plot_5_xgb2_reg.py</span></code>)</p></td>
 <td><p>00:00.000</p></td>
-<td><p>0.0 MB</p></td>
+<td><p>0.0</p></td>
 </tr>
 <tr class="row-odd"><td><p><a class="reference internal" href="plot_6_ebm_cls.html#sphx-glr-auto-examples-3-models-plot-6-ebm-cls-py"><span class="std std-ref">EBM Classification (Taiwan Credit)</span></a> (<code class="docutils literal notranslate"><span class="pre">plot_6_ebm_cls.py</span></code>)</p></td>
 <td><p>00:00.000</p></td>
-<td><p>0.0 MB</p></td>
+<td><p>0.0</p></td>
 </tr>
 <tr class="row-even"><td><p><a class="reference internal" href="plot_6_ebm_reg.html#sphx-glr-auto-examples-3-models-plot-6-ebm-reg-py"><span class="std std-ref">EBM Regression (Bike Sharing)</span></a> (<code class="docutils literal notranslate"><span class="pre">plot_6_ebm_reg.py</span></code>)</p></td>
 <td><p>00:00.000</p></td>
-<td><p>0.0 MB</p></td>
+<td><p>0.0</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="plot_7_gaminet_cls.html#sphx-glr-auto-examples-3-models-plot-7-gaminet-cls-py"><span class="std std-ref">GAMI-Net Classification (Taiwan Credit)</span></a> (<code class="docutils literal notranslate"><span class="pre">plot_7_gaminet_cls.py</span></code>)</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="plot_7_gaminet_reg.html#sphx-glr-auto-examples-3-models-plot-7-gaminet-reg-py"><span class="std std-ref">GAMI-Net Regression (Bike Sharing)</span></a> (<code class="docutils literal notranslate"><span class="pre">plot_7_gaminet_reg.py</span></code>)</p></td>
 <td><p>00:00.000</p></td>
-<td><p>0.0 MB</p></td>
+<td><p>0.0</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="plot_7_gaminet_reg.html#sphx-glr-auto-examples-3-models-plot-7-gaminet-reg-py"><span class="std std-ref">GAMI-Net Regression (Bike Sharing)</span></a> (<code class="docutils literal notranslate"><span class="pre">plot_7_gaminet_reg.py</span></code>)</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="plot_8_reludnn_cls.html#sphx-glr-auto-examples-3-models-plot-8-reludnn-cls-py"><span class="std std-ref">ReLU DNN Classification (Taiwan Credit)</span></a> (<code class="docutils literal notranslate"><span class="pre">plot_8_reludnn_cls.py</span></code>)</p></td>
 <td><p>00:00.000</p></td>
-<td><p>0.0 MB</p></td>
+<td><p>0.0</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="plot_8_reludnn_cls.html#sphx-glr-auto-examples-3-models-plot-8-reludnn-cls-py"><span class="std std-ref">ReLU DNN Classification (Taiwan Credit)</span></a> (<code class="docutils literal notranslate"><span class="pre">plot_8_reludnn_cls.py</span></code>)</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="plot_8_reludnn_reg.html#sphx-glr-auto-examples-3-models-plot-8-reludnn-reg-py"><span class="std std-ref">ReLU DNN Regression (Friedman)</span></a> (<code class="docutils literal notranslate"><span class="pre">plot_8_reludnn_reg.py</span></code>)</p></td>
 <td><p>00:00.000</p></td>
-<td><p>0.0 MB</p></td>
-</tr>
-<tr class="row-even"><td><p><a class="reference internal" href="plot_8_reludnn_reg.html#sphx-glr-auto-examples-3-models-plot-8-reludnn-reg-py"><span class="std std-ref">ReLU DNN Regression (Friedman)</span></a> (<code class="docutils literal notranslate"><span class="pre">plot_8_reludnn_reg.py</span></code>)</p></td>
-<td><p>00:00.000</p></td>
-<td><p>0.0 MB</p></td>
+<td><p>0.0</p></td>
 </tr>
 </tbody>
 </table>
+</div>
 </section>
 
 

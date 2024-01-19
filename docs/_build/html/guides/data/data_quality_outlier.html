@@ -3,7 +3,7 @@
 <head>
 
   <meta charset="utf-8">
-  <meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+  <meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
@@ -41,7 +41,7 @@
         <script src="../../_static/sphinx_highlight.js"></script>
         <script src="../../_static/thebelab-helper.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
-        <script src="https://cdn.jsdelivr.net/npm/@jupyter-widgets/html-manager@^1.0.1/dist/embed-amd.js"></script>
+        <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.20.1/dist/embed-amd.js"></script>
         <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
         <script>window.MathJax = {"tex": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true}, "options": {"ignoreHtmlClass": "tex2jax_ignore|mathjax_ignore|document", "processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
         <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
@@ -412,41 +412,49 @@
 <section id="examples">
 <h2><span class="section-number">2.6.3. </span>Examples<a class="headerlink" href="#examples" title="Permalink to this heading">¶</a></h2>
 <p>The full example codes of this section can be found in the following link.</p>
-<div class="topic">
+<aside class="topic">
 <p class="topic-title">Example</p>
 <ul class="simple">
 <li><p><a class="reference internal" href="../../auto_examples/0_data/plot_4_data_quality.html#sphx-glr-auto-examples-0-data-plot-4-data-quality-py"><span class="std std-ref">Data Quality Check</span></a></p></li>
 </ul>
-</div>
-<div class="topic">
+</aside>
+<aside class="topic">
 <p class="topic-title">References</p>
-<dl class="citation">
-<dt class="label" id="liu2008"><span class="brackets"><a class="fn-backref" href="#id1">Liu2008</a></span></dt>
-<dd><p>Fei Tony Liu, Kai Ming Ting, Zhi-Hua Zhou (2008). <a class="reference external" href="https://ieeexplore.ieee.org/abstract/document/4781136">Isolation Forest</a>, 2008 Eighth IEEE International Conference on Data Mining, Pisa, Italy, 2008, pp. 413-422, doi: 10.1109/ICDM.2008.17.</p>
-</dd>
-<dt class="label" id="he2003"><span class="brackets"><a class="fn-backref" href="#id2">He2003</a></span></dt>
-<dd><p>Zengyou He, Xiaofei Xu, Shengchun Deng (2003). <a class="reference external" href="https://www.sciencedirect.com/science/article/abs/pii/S0167865503000035">Discovering cluster-based local outliers</a>, Pattern recognition letters, 24(9-10), 1641-1650.</p>
-</dd>
-<dt class="label" id="shyu2003"><span class="brackets"><a class="fn-backref" href="#id3">Shyu2003</a></span></dt>
-<dd><p>Mei-Ling Shyu, Shu-Ching Chen, Kanoksri Sarinnapakorn, LiWu Chang (2003). <a class="reference external" href="https://homepages.laas.fr/owe/METROSEC/DOC/FDM03.pdf">A novel anomaly detection scheme based on principal component classifier</a>, Miami Univ Coral Gables Fl Dept of Electrical and Computer Engineering.</p>
-</dd>
-<dt class="label" id="ramaswamy2000"><span class="brackets"><a class="fn-backref" href="#id5">Ramaswamy2000</a></span></dt>
-<dd><p>Sridhar Ramaswamy, Rajeev Rastogi, Kyuseok Shim (2000). <a class="reference external" href="https://www.researchgate.net/publication/221212827_Efficient_Algorithms_for_Mining_Outliers_from_Large_Data_Sets">Efficient Algorithms for Mining Outliers from Large Data Sets</a>, ACM SIGMOD Record 29(2):427-438.</p>
-</dd>
-<dt class="label" id="angiulli2002"><span class="brackets"><a class="fn-backref" href="#id6">Angiulli2002</a></span></dt>
-<dd><p>Fabrizio Angiulli, Clara Pizzuti (2002). <a class="reference external" href="https://www.researchgate.net/publication/220699183_Fast_Outlier_Detection_in_High_Dimensional_Spaces">Fast Outlier Detection in High Dimensional Spaces</a>, Conference: Principles of Data Mining and Knowledge Discovery, 6th European Conference, PKDD 2002, Helsinki, Finland, August 19-23, 2002, Proceedings.</p>
-</dd>
-<dt class="label" id="goldstein2012"><span class="brackets"><a class="fn-backref" href="#id7">goldstein2012</a></span></dt>
-<dd><p>Markus Goldstein and Andreas Dengel (2012). <a class="reference external" href="https://www.researchgate.net/publication/231614824_Histogram-based_Outlier_Score_HBOS_A_fast_Unsupervised_Anomaly_Detection_Algorithm">Histogram-based outlier score (HBOS): a fast unsupervised anomaly detection algorithm</a>, KI-2012: Poster and Demo Track, pages 59–63, 2012.</p>
-</dd>
-<dt class="label" id="scholkopf2001"><span class="brackets"><a class="fn-backref" href="#id8">Schölkopf2001</a></span></dt>
-<dd><p>Bernhard Schölkopf, John C. Platt, John Shawe-Taylor, Alexander J. Smola (2001). <a class="reference external" href="https://www.researchgate.net/publication/220499623_Estimating_Support_of_a_High-Dimensional_Distribution">Estimating Support of a High-Dimensional Distribution</a>, Neural Computation 13(7):1443-1471.</p>
-</dd>
-<dt class="label" id="li2021"><span class="brackets"><a class="fn-backref" href="#id9">Li2021</a></span></dt>
-<dd><p>Zheng Li, Yue Zhao, Xiyang Hu, Nicola Botta, Cezar Ionescu, George H. Chen (2021). <a class="reference external" href="https://arxiv.org/pdf/2201.00382.pdf">ECOD: Unsupervised Outlier Detection Using Empirical Cumulative Distribution Functions</a>, arXiv:2201.00382.</p>
-</dd>
-</dl>
+<div role="list" class="citation-list">
+<div class="citation" id="liu2008" role="doc-biblioentry">
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id1">Liu2008</a><span class="fn-bracket">]</span></span>
+<p>Fei Tony Liu, Kai Ming Ting, Zhi-Hua Zhou (2008). <a class="reference external" href="https://ieeexplore.ieee.org/abstract/document/4781136">Isolation Forest</a>, 2008 Eighth IEEE International Conference on Data Mining, Pisa, Italy, 2008, pp. 413-422, doi: 10.1109/ICDM.2008.17.</p>
 </div>
+<div class="citation" id="he2003" role="doc-biblioentry">
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id2">He2003</a><span class="fn-bracket">]</span></span>
+<p>Zengyou He, Xiaofei Xu, Shengchun Deng (2003). <a class="reference external" href="https://www.sciencedirect.com/science/article/abs/pii/S0167865503000035">Discovering cluster-based local outliers</a>, Pattern recognition letters, 24(9-10), 1641-1650.</p>
+</div>
+<div class="citation" id="shyu2003" role="doc-biblioentry">
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id3">Shyu2003</a><span class="fn-bracket">]</span></span>
+<p>Mei-Ling Shyu, Shu-Ching Chen, Kanoksri Sarinnapakorn, LiWu Chang (2003). <a class="reference external" href="https://homepages.laas.fr/owe/METROSEC/DOC/FDM03.pdf">A novel anomaly detection scheme based on principal component classifier</a>, Miami Univ Coral Gables Fl Dept of Electrical and Computer Engineering.</p>
+</div>
+<div class="citation" id="ramaswamy2000" role="doc-biblioentry">
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id5">Ramaswamy2000</a><span class="fn-bracket">]</span></span>
+<p>Sridhar Ramaswamy, Rajeev Rastogi, Kyuseok Shim (2000). <a class="reference external" href="https://www.researchgate.net/publication/221212827_Efficient_Algorithms_for_Mining_Outliers_from_Large_Data_Sets">Efficient Algorithms for Mining Outliers from Large Data Sets</a>, ACM SIGMOD Record 29(2):427-438.</p>
+</div>
+<div class="citation" id="angiulli2002" role="doc-biblioentry">
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id6">Angiulli2002</a><span class="fn-bracket">]</span></span>
+<p>Fabrizio Angiulli, Clara Pizzuti (2002). <a class="reference external" href="https://www.researchgate.net/publication/220699183_Fast_Outlier_Detection_in_High_Dimensional_Spaces">Fast Outlier Detection in High Dimensional Spaces</a>, Conference: Principles of Data Mining and Knowledge Discovery, 6th European Conference, PKDD 2002, Helsinki, Finland, August 19-23, 2002, Proceedings.</p>
+</div>
+<div class="citation" id="goldstein2012" role="doc-biblioentry">
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id7">goldstein2012</a><span class="fn-bracket">]</span></span>
+<p>Markus Goldstein and Andreas Dengel (2012). <a class="reference external" href="https://www.researchgate.net/publication/231614824_Histogram-based_Outlier_Score_HBOS_A_fast_Unsupervised_Anomaly_Detection_Algorithm">Histogram-based outlier score (HBOS): a fast unsupervised anomaly detection algorithm</a>, KI-2012: Poster and Demo Track, pages 59–63, 2012.</p>
+</div>
+<div class="citation" id="scholkopf2001" role="doc-biblioentry">
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id8">Schölkopf2001</a><span class="fn-bracket">]</span></span>
+<p>Bernhard Schölkopf, John C. Platt, John Shawe-Taylor, Alexander J. Smola (2001). <a class="reference external" href="https://www.researchgate.net/publication/220499623_Estimating_Support_of_a_High-Dimensional_Distribution">Estimating Support of a High-Dimensional Distribution</a>, Neural Computation 13(7):1443-1471.</p>
+</div>
+<div class="citation" id="li2021" role="doc-biblioentry">
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id9">Li2021</a><span class="fn-bracket">]</span></span>
+<p>Zheng Li, Yue Zhao, Xiyang Hu, Nicola Botta, Cezar Ionescu, George H. Chen (2021). <a class="reference external" href="https://arxiv.org/pdf/2201.00382.pdf">ECOD: Unsupervised Outlier Detection Using Empirical Cumulative Distribution Functions</a>, arXiv:2201.00382.</p>
+</div>
+</div>
+</aside>
 </section>
 </section>
 

@@ -17,9 +17,7 @@ XGBoost depth 1 (XGB1) is a tree-based model that is suitable for both regressio
 
 where :math:`\mu` is the global intercept, :math:`h_{j}(x_{j})` is the main effect of the :math:`j`-th feature, and :math:`x_{j}` is the :math:`j`-th feature. The model is derived in the following steps.
 
-**Stage 1: Initial Model Fitting**
-
-In the first step, we fit an XGB model with a maximum depth of 1. The resulting model can be interpreted as a GAM with piecewise constant main effects, with the following procedures.
+**Stage 1: Initial Model Fitting.** In the first step, we fit an XGB model with a maximum depth of 1. The resulting model can be interpreted as a GAM with piecewise constant main effects, with the following procedures.
 
 - Collecting the unique splits for each feature.
 
@@ -27,32 +25,33 @@ In the first step, we fit an XGB model with a maximum depth of 1. The resulting 
 
 The key feature of XGB1 is that it selects split points adaptively. This allows the model to achieve better predictive performance compared to spline-based GAMs, while still being interpretable. In addition to the above steps, we also perform the following two steps to further improve interpretability and model performance.
 
-**Stage 2: Binning Optimization**
-
-To improve interpretability and simplify the shape functions of XGB1, we optimize the binning of each feature. Specifically, we start by using the split points obtained from the raw XGB fitting results as the initial binning points. We then apply the optbinning_ package, a Python package for optimal binning, to optimize the binning points. The optimization process is based on the weight of evidence (WOE) of the binning and several constraints, such as the minimum bin size and the maximum number of bins. This step enables us to obtain a more interpretable model with simpler and easier-to-understand shape functions.
+**Stage 2: Binning Optimization.** To improve interpretability and simplify the shape functions of XGB1, we optimize the binning of each feature. Specifically, we start by using the split points obtained from the raw XGB fitting results as the initial binning points. We then apply the optbinning_ package, a Python package for optimal binning, to optimize the binning points. The optimization process is based on the weight of evidence (WOE) of the binning and several constraints, such as the minimum bin size and the maximum number of bins. This step enables us to obtain a more interpretable model with simpler and easier-to-understand shape functions.
 
 .. _optbinning: http://gnpalencia.org/optbinning/
 
-**Stage 3: Refit the GAM with Optimized Bins**
-
-The final step involves refitting the GAM with the optimized bins. We provide two options for this step:
+**Stage 3: Refit the GAM with Optimized Bins.** The final step involves refitting the GAM with the optimized bins. We provide two options for this step:
 
 - GLM with one-hot encoding: Firstly, we transform each feature using one-hot encoding based on the binning results. Next, we fit a GLM using the one-hot-encoded features and the response. Finally, we re-arrange the fitted GLM coefficients into GAM format. If monotonic constraints are specified, we use the constrained GLM instead.
 
 - XGB with ordinal encoding: Firstly, we transform each feature using ordinal encoding based on the binning results. Next, we fit another XGB model on the ordinal-encoded features and the response. Finally, we re-arrange the fitted XGB leaf values into GAM format. If monotonic constraints are specified, we turn on the corresponding monotonic constraints in XGB.
 
 
+In summary, the XGB1 model is a special variant of XGB that restricts the maximum depth of the tree to 1. It is interpretable since it can be interpreted as a GAM with piecewise constant main effects. The model can be made more interpretable by the **monotonicity** and **sparsity** constraints.
+
+
 Model Training
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-We use the California Housing dataset to demonstrate the training of the XGB1 model using the PiML workflow. The following steps are taken to train the model:
+We use the California Housing dataset to demonstrate the training of the XGB1 model using the PiML workflow. The following steps are taken to train a raw XGB1 and a monotonicity constrained XGB1:
 
 .. jupyter-input::
 
     from piml.models import XGB1Regressor
     exp.model_train(model=XGB1Regressor(n_estimators=100, max_bin=20, min_bin_size=0.01), name="XGB1")
+    exp.model_train(model=XGB1Regressor(n_estimators=500, max_bin=20, min_bin_size=0.01,
+                    mono_increasing_list=("MedInc", )), name="Mono-XGB1")
 
-The `XGB1Regressor`_ (as well as `XGB1Classifier`_) is developed based on the `xgboost`_ Python package and hence it inherits some commonly used hyperparameters in XGB, e.g., `n_estimators`, `eta`, `tree_method`, `max_bin`, `gamma`, `reg_lambda`, and `reg_alpha`. 
+The `XGB1Regressor`_ (as well as `XGB1Classifier`_) is developed based on the `xgboost`_ Python package and hence it inherits some commonly used hyperparameters in XGB, e.g., `n_estimators` and `eta`. To switch between the two options for the refit step, we provide a hyperparameter called `fit_method`. Setting `fit_method` to "glm" will use the GLM + one hot encoding option, while setting it to "xgb" will use the XGB + ordinal encoding option. This allows you to choose the method that works best for your particular use case.
 
 .. _XGB1Regressor: ../../modules/generated/piml.models.XGB1Regressor.html
 
@@ -60,13 +59,19 @@ The `XGB1Regressor`_ (as well as `XGB1Classifier`_) is developed based on the `x
 
 .. _xgboost: https://xgboost.readthedocs.io/en/stable/python/python_api.html
 
-XGB1 model also supports monotonic constraints. However, instead of manually typing in 0, 1, or -1 to indicate the direction of monotonicity for each feature in XGB, you can directly specify the feature names with their desired monotonic constraints using the following arguments in the XGB1 model. 
+
+Monotonicity Constraints
+""""""""""""""""""""""""""
+XGB1 model also supports monotonicity constraints. However, instead of manually typing in 0, 1, or -1 to indicate the direction of monotonicity for each feature in XGB, you can directly specify the feature names with their desired monotonic constraints using the following arguments in the XGB1 model. 
 
 - `mono_increasing_list`: the monotonic increasing constraints.
 - `mono_decreasing_list`: the monotonic decreasing constraints.
 
 With `exp.model_train`, the feature names are automatically inferred from the data. However, if you are using the XGB1 model separately, you may need to specify the `feature_names` parameter to ensure that the feature names are correctly identified; otherwise, the feature names will be set to "X0", "X1", etc.
 
+
+Sparsity via Binning Optimziation
+""""""""""""""""""""""""""""""""""""""""""""""""""""
 In addition to the hyperparameters for XGB, we also provide hyperparameters for the binning optimization step. For example, you can control the binning results using the following two hyperparameters:
 
 - `max_n_bins`: This hyperparameter specifies the maximum number of bins allowed for each feature during the binning optimization process. Increasing this value can result in more flexible binning, but may also increase the risk of overfitting.
@@ -74,8 +79,6 @@ In addition to the hyperparameters for XGB, we also provide hyperparameters for 
 - `min_bin_size`: This hyperparameter specifies the minimum number of samples allowed in each bin during the binning optimization process. Increasing this value can result in more stable binning, but may also lead to information loss if there are too few samples in a bin.
 
 By tuning these hyperparameters, you can optimize the binning results to strike a balance between model complexity and interpretability. Increasing the `max_bin` hyperparameter or decreasing the `min_bin_size` hyperparameter may improve the model performance, but it may also increase the difficulty of model interpretation. Finding the right balance between these hyperparameters can help ensure that the model is both accurate and interpretable.
-
-Finally, to switch between the two options for the refit step, we provide a hyperparameter called `fit_method`. Setting `fit_method` to "glm" will use the GLM + one hot encoding option, while setting it to "xgb" will use the XGB + ordinal encoding option. This allows you to choose the method that works best for your particular use case.
 
 
 Global Interpretation
@@ -96,7 +99,19 @@ This plot shows the estimated effect of each feature on the predicted response w
    :target: ../../auto_examples/3_models/plot_4_xgb1_reg.html
    :align: left
 
-The above figure displays the estimated shape functions for the feature `MedInc`, accompanied by a histogram plot at the bottom. The estimated shape function appears to be piecewise constant, with an increasing trend for values of `MedInc` less than approximately 9.2, followed by a plateau.
+The above figure displays the estimated shape functions for the feature `MedInc`, accompanied by a histogram plot at the bottom. The estimated shape function appears to be piecewise constant, with an increasing trend for values of `MedInc` less than approximately 9.2, followed by a plateau. However, the estimated shape function is not strictly increasing, which is somehow inconsistent with commonsense.
+
+In comparison, the monotonicity constrained XGB1 model slightly sacrifices the predictive performance. But the correspondingly main effect of MedInc is strictly increasing, which makes it easy to interpret, as shown below.
+
+.. jupyter-input::
+     
+     exp.model_interpret(model="Mono-XGB1", show="global_effect_plot", uni_feature="MedInc",
+                         original_scale=True, figsize=(5, 4))
+
+.. figure:: ../../auto_examples/3_models/images/sphx_glr_plot_4_xgb1_reg_002.png
+   :target: ../../auto_examples/3_models/plot_4_xgb1_reg.html
+   :align: left
+
 
 Feature Importance
 """""""""""""""""""""""""""""""""
@@ -105,9 +120,9 @@ The keyword "global_fi" corresponds to the feature importance plot. Consistent w
 
 .. jupyter-input::
 
-     exp.model_interpret(model="XGB1", show="global_fi", figsize=(5, 4))
+     exp.model_interpret(model="Mono-XGB1", show="global_fi", figsize=(5, 4))
 
-.. figure:: ../../auto_examples/3_models/images/sphx_glr_plot_4_xgb1_reg_002.png
+.. figure:: ../../auto_examples/3_models/images/sphx_glr_plot_4_xgb1_reg_003.png
    :target: ../../auto_examples/3_models/plot_4_xgb1_reg.html
    :align: left
 
@@ -134,10 +149,10 @@ In PiML, you can draw the WoE plot of a given feature using the keyword "xgb1_wo
 
 .. jupyter-input::
      
-     exp.model_interpret(model="XGB1", show="xgb1_woe", uni_feature="MedInc",
+     exp.model_interpret(model="Mono-XGB1", show="xgb1_woe", uni_feature="MedInc",
                         original_scale=True, figsize=(5, 4))
 
-.. figure:: ../../auto_examples/3_models/images/sphx_glr_plot_4_xgb1_reg_003.png
+.. figure:: ../../auto_examples/3_models/images/sphx_glr_plot_4_xgb1_reg_004.png
    :target: ../../auto_examples/3_models/plot_4_xgb1_reg.html
    :align: left
 
@@ -157,9 +172,9 @@ The code below shows the usage of drawing top-10 features IV with the keyword "x
 
 .. jupyter-input::
      
-     exp.model_interpret(model="XGB1", show="xgb1_iv", figsize=(5, 4))
+     exp.model_interpret(model="Mono-XGB1", show="xgb1_iv", figsize=(5, 4))
 
-.. figure:: ../../auto_examples/3_models/images/sphx_glr_plot_4_xgb1_reg_004.png
+.. figure:: ../../auto_examples/3_models/images/sphx_glr_plot_4_xgb1_reg_005.png
    :target: ../../auto_examples/3_models/plot_4_xgb1_reg.html
    :align: left
 
@@ -172,9 +187,9 @@ The local interpretation can be triggered by the keyword "local_fi".
 
 .. jupyter-input::
 
-    exp.model_interpret(model="XGB1", show="local_fi", sample_id=0, original_scale=True, figsize=(5, 4))
+    exp.model_interpret(model="Mono-XGB1", show="local_fi", sample_id=0, original_scale=True, figsize=(5, 4))
 
-.. figure:: ../../auto_examples/3_models/images/sphx_glr_plot_4_xgb1_reg_005.png
+.. figure:: ../../auto_examples/3_models/images/sphx_glr_plot_4_xgb1_reg_006.png
    :target: ../../auto_examples/3_models/plot_4_xgb1_reg.html
    :align: left
 

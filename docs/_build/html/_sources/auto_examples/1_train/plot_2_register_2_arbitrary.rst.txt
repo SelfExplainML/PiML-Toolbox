@@ -48,7 +48,7 @@ For demonstration, we simulate a simple binary classification dataset and fit a 
 
 .. GENERATED FROM PYTHON SOURCE LINES 20-21
 
-Next, we generate a simple model that.
+Next, we define the wrapper functions of predict and predict_proba.
 
 .. GENERATED FROM PYTHON SOURCE LINES 21-29
 
@@ -116,11 +116,11 @@ Check model performance
 
  .. code-block:: none
 
-              ACC     AUC      F1  LogLoss    Brier
-                                               
-    Train  0.9537  0.9940  0.9537   0.0983   0.0313
-    Test   0.9600  0.9966  0.9545   0.0764   0.0244
-    Gap    0.0062  0.0026  0.0009  -0.0219  -0.0069
+              ACC      AUC      F1 LogLoss   Brier
+                                              
+    Train  0.9700   0.9971  0.9704  0.0690  0.0216
+    Test   0.9750   0.9961  0.9730  0.0791  0.0220
+    Gap    0.0050  -0.0010  0.0026  0.0102  0.0003
 
 
 
@@ -193,9 +193,9 @@ Run validataion tests
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** ( 0 minutes  40.009 seconds)
+   **Total running time of the script:** ( 0 minutes  32.525 seconds)
 
-**Estimated memory usage:**  17 MB
+**Estimated memory usage:**  24 MB
 
 
 .. _sphx_glr_download_auto_examples_1_train_plot_2_register_2_arbitrary.py:

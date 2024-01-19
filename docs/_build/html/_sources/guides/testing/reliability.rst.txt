@@ -91,7 +91,7 @@ In the plot above, we can see that the marginal bandwidth of `hr` exceeds the th
 
 Reliability for Binary Classification
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-In PiML, the reliability assessment for binary classification tasks is currently under development and not yet fully mature. As a temporary approach, we utilize the formula :math:`\sqrt{\hat{p}(1-\hat{p})}` to quantify the uncertainty associated with each prediction. Additionally, isotonic regression is employed to calibrate the predicted probabilities. The reliability diagram is used to visually illustrate the calibration of the predicted probabilities, showing how well they align with the observed frequencies. The Brier score, on the other hand, is utilized to quantify the accuracy of the predicted probabilities by calculating the mean squared difference between the predicted probabilities and the actual outcomes.
+In PiML, the reliability assessment for binary classification tasks is based on Venn-Abers Predictors [Vladimir2015]_. Different from the regression case, test set is split into 2 subsets, including 60% for calibration and 40% for testing the performance of calibration results. Additionally, isotonic regression is employed to calibrate the predicted probabilities. The reliability diagram is used to visually illustrate the calibration of the predicted probabilities, showing how well they align with the observed frequencies. The Brier score, on the other hand, is utilized to quantify the accuracy of the predicted probabilities by calculating the mean squared difference between the predicted probabilities and the actual outcomes.
 
 Distance of Reliable and Un-reliable Data 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -169,3 +169,11 @@ Examples
   The second example below demonstrates how to use PiML’s high-code APIs for the TaiwanCredit dataset from the UCI repository. This dataset comprises the credit card details of 30,000 clients in Taiwan from April 2005 to September 2005, and more information can be found on the TaiwanCreditData website. The data can be loaded directly into PiML, although it requires some preprocessing. The FlagDefault variable serves as the response for this classification problem.
     
  * :ref:`sphx_glr_auto_examples_4_testing_plot_3_reliability_cls.py`
+
+
+.. topic:: References
+
+    .. [Vladimir2015] Vovk, Vladimir, Ivan Petej, Valentina Fedorova. 
+               `Large-scale probabilistic predictors with and without guarantees of validity 
+               <https://arxiv.org/pdf/1511.00213.pdf>`_,
+               Advances in Neural Information Processing Systems 28 (2015).

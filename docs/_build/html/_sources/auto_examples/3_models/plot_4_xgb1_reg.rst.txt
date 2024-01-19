@@ -27,7 +27,7 @@ Experiment initialization and data preparation
 
 .. GENERATED FROM PYTHON SOURCE LINES 9-16
 
-.. code-block:: default
+.. code-block:: Python
 
     from piml import Experiment
     from piml.models import XGB1Regressor
@@ -45,11 +45,11 @@ Experiment initialization and data preparation
 
 .. GENERATED FROM PYTHON SOURCE LINES 17-18
 
-Train Model
+Train model
 
 .. GENERATED FROM PYTHON SOURCE LINES 18-20
 
-.. code-block:: default
+.. code-block:: Python
 
     exp.model_train(model=XGB1Regressor(n_estimators=500, max_bin=20, min_bin_size=0.01), name="XGB1")
 
@@ -62,11 +62,30 @@ Train Model
 
 .. GENERATED FROM PYTHON SOURCE LINES 21-22
 
-Evaluate predictive performance
+Train model with monotonicity constrained on MedInc
 
-.. GENERATED FROM PYTHON SOURCE LINES 22-24
+.. GENERATED FROM PYTHON SOURCE LINES 22-26
 
-.. code-block:: default
+.. code-block:: Python
+
+    exp.model_train(model=XGB1Regressor(n_estimators=500, max_bin=20, min_bin_size=0.01,
+                                        mono_increasing_list=("MedInc", )),
+                    name="Mono-XGB1")
+
+
+
+
+
+
+
+
+.. GENERATED FROM PYTHON SOURCE LINES 27-28
+
+Evaluate predictive performance of XGB1
+
+.. GENERATED FROM PYTHON SOURCE LINES 28-30
+
+.. code-block:: Python
 
     exp.model_diagnose(model="XGB1", show='accuracy_table')
 
@@ -87,13 +106,40 @@ Evaluate predictive performance
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 25-26
+.. GENERATED FROM PYTHON SOURCE LINES 31-32
 
-Global effect plot
+Evaluate predictive performance of Mono-XGB1
 
-.. GENERATED FROM PYTHON SOURCE LINES 26-29
+.. GENERATED FROM PYTHON SOURCE LINES 32-34
 
-.. code-block:: default
+.. code-block:: Python
+
+    exp.model_diagnose(model="Mono-XGB1", show='accuracy_table')
+
+
+
+
+
+.. rst-class:: sphx-glr-script-out
+
+ .. code-block:: none
+
+              MSE     MAE       R2
+                              
+    Train  0.0134  0.0831   0.7649
+    Test   0.0139  0.0837   0.7490
+    Gap    0.0005  0.0006  -0.0159
+
+
+
+
+.. GENERATED FROM PYTHON SOURCE LINES 35-36
+
+Global effect plot of XGB1 on MedInc
+
+.. GENERATED FROM PYTHON SOURCE LINES 36-39
+
+.. code-block:: Python
 
     exp.model_interpret(model="XGB1", show="global_effect_plot", uni_feature="MedInc",
                         original_scale=True, figsize=(5, 4))
@@ -110,21 +156,22 @@ Global effect plot
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 30-31
+.. GENERATED FROM PYTHON SOURCE LINES 40-41
 
-Feature importance
+Global effect plot of Mono-XGB1 on MedInc   
 
-.. GENERATED FROM PYTHON SOURCE LINES 31-33
+.. GENERATED FROM PYTHON SOURCE LINES 41-44
 
-.. code-block:: default
+.. code-block:: Python
 
-    exp.model_interpret(model="XGB1", show="global_fi", figsize=(5, 4))
+    exp.model_interpret(model="Mono-XGB1", show="global_effect_plot", uni_feature="MedInc",
+                        original_scale=True, figsize=(5, 4))
 
 
 
 
 .. image-sg:: /auto_examples/3_models/images/sphx_glr_plot_4_xgb1_reg_002.png
-   :alt: Feature Importance
+   :alt: MedInc (17.6%)
    :srcset: /auto_examples/3_models/images/sphx_glr_plot_4_xgb1_reg_002.png
    :class: sphx-glr-single-img
 
@@ -132,21 +179,21 @@ Feature importance
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 34-35
+.. GENERATED FROM PYTHON SOURCE LINES 45-46
 
-Weight of evidence plot for MedInc
+Feature importance of Mono-XGB1    
 
-.. GENERATED FROM PYTHON SOURCE LINES 35-37
+.. GENERATED FROM PYTHON SOURCE LINES 46-48
 
-.. code-block:: default
+.. code-block:: Python
 
-    exp.model_interpret(model="XGB1", show="xgb1_woe", uni_feature="MedInc", original_scale=True, figsize=(5, 4))
+    exp.model_interpret(model="Mono-XGB1", show="global_fi", figsize=(5, 4))
 
 
 
 
 .. image-sg:: /auto_examples/3_models/images/sphx_glr_plot_4_xgb1_reg_003.png
-   :alt: WoE of MedInc (IV: 0.1253)
+   :alt: Feature Importance
    :srcset: /auto_examples/3_models/images/sphx_glr_plot_4_xgb1_reg_003.png
    :class: sphx-glr-single-img
 
@@ -154,21 +201,21 @@ Weight of evidence plot for MedInc
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 38-39
+.. GENERATED FROM PYTHON SOURCE LINES 49-50
 
-Information value plot
+Weight of evidence plot of Mono-XGB1 on MedInc
 
-.. GENERATED FROM PYTHON SOURCE LINES 39-41
+.. GENERATED FROM PYTHON SOURCE LINES 50-52
 
-.. code-block:: default
+.. code-block:: Python
 
-    exp.model_interpret(model="XGB1", show="xgb1_iv", figsize=(5, 4))
+    exp.model_interpret(model="Mono-XGB1", show="xgb1_woe", uni_feature="MedInc", original_scale=True, figsize=(5, 4))
 
 
 
 
 .. image-sg:: /auto_examples/3_models/images/sphx_glr_plot_4_xgb1_reg_004.png
-   :alt: Information Value
+   :alt: WoE of MedInc (IV: 0.1253)
    :srcset: /auto_examples/3_models/images/sphx_glr_plot_4_xgb1_reg_004.png
    :class: sphx-glr-single-img
 
@@ -176,21 +223,43 @@ Information value plot
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 42-43
+.. GENERATED FROM PYTHON SOURCE LINES 53-54
 
-Local interpretation
+Information value plot of Mono-XGB1  
 
-.. GENERATED FROM PYTHON SOURCE LINES 43-44
+.. GENERATED FROM PYTHON SOURCE LINES 54-56
 
-.. code-block:: default
+.. code-block:: Python
 
-    exp.model_interpret(model="XGB1", show="local_fi", sample_id=0, original_scale=True, figsize=(5, 4))
+    exp.model_interpret(model="Mono-XGB1", show="xgb1_iv", figsize=(5, 4))
+
 
 
 
 .. image-sg:: /auto_examples/3_models/images/sphx_glr_plot_4_xgb1_reg_005.png
-   :alt: Predicted: 0.3627 | Actual: 1.0000
+   :alt: Information Value
    :srcset: /auto_examples/3_models/images/sphx_glr_plot_4_xgb1_reg_005.png
+   :class: sphx-glr-single-img
+
+
+
+
+
+.. GENERATED FROM PYTHON SOURCE LINES 57-58
+
+Local interpretation of Mono-XGB1  
+
+.. GENERATED FROM PYTHON SOURCE LINES 58-59
+
+.. code-block:: Python
+
+    exp.model_interpret(model="Mono-XGB1", show="local_fi", sample_id=0, original_scale=True, figsize=(5, 4))
+
+
+
+.. image-sg:: /auto_examples/3_models/images/sphx_glr_plot_4_xgb1_reg_006.png
+   :alt: Predicted: 0.3703 | Actual: 1.0000
+   :srcset: /auto_examples/3_models/images/sphx_glr_plot_4_xgb1_reg_006.png
    :class: sphx-glr-single-img
 
 
@@ -200,9 +269,7 @@ Local interpretation
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** ( 1 minutes  11.012 seconds)
-
-**Estimated memory usage:**  88 MB
+   **Total running time of the script:** (0 minutes 8.159 seconds)
 
 
 .. _sphx_glr_download_auto_examples_3_models_plot_4_xgb1_reg.py:
@@ -211,7 +278,6 @@ Local interpretation
 
   .. container:: sphx-glr-footer sphx-glr-footer-example
 
-
     .. container:: binder-badge
 
       .. image:: images/binder_badge_logo.svg
@@ -219,15 +285,13 @@ Local interpretation
         :alt: Launch binder
         :width: 150 px
 
+    .. container:: sphx-glr-download sphx-glr-download-jupyter
 
+      :download:`Download Jupyter notebook: plot_4_xgb1_reg.ipynb <plot_4_xgb1_reg.ipynb>`
 
     .. container:: sphx-glr-download sphx-glr-download-python
 
       :download:`Download Python source code: plot_4_xgb1_reg.py <plot_4_xgb1_reg.py>`
-
-    .. container:: sphx-glr-download sphx-glr-download-jupyter
-
-      :download:`Download Jupyter notebook: plot_4_xgb1_reg.ipynb <plot_4_xgb1_reg.ipynb>`
 
 
 .. only:: html

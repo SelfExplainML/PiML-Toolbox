@@ -17,7 +17,7 @@ glm_binom = sm.GLM(y, x, family=sm.families.Binomial())
 glm_results  = glm_binom.fit()
 
 #%%
-# Next, we generate a simple model that.
+# Next, we define the wrapper functions of predict and predict_proba.
 def predict_proba_func(X):
     proba = glm_binom.predict(glm_results.params, exog=X)
     return np.vstack([1 - proba, proba]).T

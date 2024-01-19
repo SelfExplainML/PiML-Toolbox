@@ -1,0 +1,220 @@
+
+:orphan:
+
+.. _sphx_glr_sg_execution_times:
+
+
+Computation times
+=================
+**03:00.356** total execution time for 62 files **from all galleries**:
+
+.. container::
+
+  .. raw:: html
+
+    <style scoped>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="https://cdn.datatables.net/1.13.6/css/dataTables.bootstrap5.min.css" rel="stylesheet" />
+    </style>
+    <script src="https://code.jquery.com/jquery-3.7.0.js"></script>
+    <script src="https://cdn.datatables.net/1.13.6/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/1.13.6/js/dataTables.bootstrap5.min.js"></script>
+    <script type="text/javascript" class="init">
+    $(document).ready( function () {
+        $('table.sg-datatable').DataTable({order: [[1, 'desc']]});
+    } );
+    </script>
+
+  .. list-table::
+   :header-rows: 1
+   :class: table table-striped sg-datatable
+
+   * - Example
+     - Time
+     - Mem (MB)
+   * - :ref:`sphx_glr_auto_examples_5_compare_plot_2_compare_robustness.py` (``..\examples\5_compare\plot_2_compare_robustness.py``)
+     - 03:00.356
+     - 0.0
+   * - :ref:`sphx_glr_auto_examples_0_data_plot_0_data_loader_builtin.py` (``..\examples\0_data\plot_0_data_loader_builtin.py``)
+     - 00:00.000
+     - 0.0
+   * - :ref:`sphx_glr_auto_examples_0_data_plot_0_data_loader_dataframe.py` (``..\examples\0_data\plot_0_data_loader_dataframe.py``)
+     - 00:00.000
+     - 0.0
+   * - :ref:`sphx_glr_auto_examples_0_data_plot_0_data_loader_spark.py` (``..\examples\0_data\plot_0_data_loader_spark.py``)
+     - 00:00.000
+     - 0.0
+   * - :ref:`sphx_glr_auto_examples_0_data_plot_1_data_summary.py` (``..\examples\0_data\plot_1_data_summary.py``)
+     - 00:00.000
+     - 0.0
+   * - :ref:`sphx_glr_auto_examples_0_data_plot_2_data_eda.py` (``..\examples\0_data\plot_2_data_eda.py``)
+     - 00:00.000
+     - 0.0
+   * - :ref:`sphx_glr_auto_examples_0_data_plot_3_data_prepare.py` (``..\examples\0_data\plot_3_data_prepare.py``)
+     - 00:00.000
+     - 0.0
+   * - :ref:`sphx_glr_auto_examples_0_data_plot_4_data_quality.py` (``..\examples\0_data\plot_4_data_quality.py``)
+     - 00:00.000
+     - 0.0
+   * - :ref:`sphx_glr_auto_examples_0_data_plot_5_feature_select.py` (``..\examples\0_data\plot_5_feature_select.py``)
+     - 00:00.000
+     - 0.0
+   * - :ref:`sphx_glr_auto_examples_1_train_plot_0_model_train.py` (``..\examples\1_train\plot_0_model_train.py``)
+     - 00:00.000
+     - 0.0
+   * - :ref:`sphx_glr_auto_examples_1_train_plot_1_hpo_grid.py` (``..\examples\1_train\plot_1_hpo_grid.py``)
+     - 00:00.000
+     - 0.0
+   * - :ref:`sphx_glr_auto_examples_1_train_plot_1_hpo_random.py` (``..\examples\1_train\plot_1_hpo_random.py``)
+     - 00:00.000
+     - 0.0
+   * - :ref:`sphx_glr_auto_examples_1_train_plot_2_register_0_sklearn.py` (``..\examples\1_train\plot_2_register_0_sklearn.py``)
+     - 00:00.000
+     - 0.0
+   * - :ref:`sphx_glr_auto_examples_1_train_plot_2_register_1_h2o.py` (``..\examples\1_train\plot_2_register_1_h2o.py``)
+     - 00:00.000
+     - 0.0
+   * - :ref:`sphx_glr_auto_examples_1_train_plot_2_register_2_arbitrary.py` (``..\examples\1_train\plot_2_register_2_arbitrary.py``)
+     - 00:00.000
+     - 0.0
+   * - :ref:`sphx_glr_auto_examples_1_train_plot_2_register_3_arbitrary_pyspark.py` (``..\examples\1_train\plot_2_register_3_arbitrary_pyspark.py``)
+     - 00:00.000
+     - 0.0
+   * - :ref:`sphx_glr_auto_examples_2_explain_plot_0_pfi.py` (``..\examples\2_explain\plot_0_pfi.py``)
+     - 00:00.000
+     - 0.0
+   * - :ref:`sphx_glr_auto_examples_2_explain_plot_1_pdp.py` (``..\examples\2_explain\plot_1_pdp.py``)
+     - 00:00.000
+     - 0.0
+   * - :ref:`sphx_glr_auto_examples_2_explain_plot_1_pdp_hstats.py` (``..\examples\2_explain\plot_1_pdp_hstats.py``)
+     - 00:00.000
+     - 0.0
+   * - :ref:`sphx_glr_auto_examples_2_explain_plot_2_ice.py` (``..\examples\2_explain\plot_2_ice.py``)
+     - 00:00.000
+     - 0.0
+   * - :ref:`sphx_glr_auto_examples_2_explain_plot_3_ale.py` (``..\examples\2_explain\plot_3_ale.py``)
+     - 00:00.000
+     - 0.0
+   * - :ref:`sphx_glr_auto_examples_2_explain_plot_4_lime.py` (``..\examples\2_explain\plot_4_lime.py``)
+     - 00:00.000
+     - 0.0
+   * - :ref:`sphx_glr_auto_examples_2_explain_plot_5_shap.py` (``..\examples\2_explain\plot_5_shap.py``)
+     - 00:00.000
+     - 0.0
+   * - :ref:`sphx_glr_auto_examples_2_explain_plot_6_data_dependent_explain.py` (``..\examples\2_explain\plot_6_data_dependent_explain.py``)
+     - 00:00.000
+     - 0.0
+   * - :ref:`sphx_glr_auto_examples_3_models_plot_0_glm_cls.py` (``..\examples\3_models\plot_0_glm_cls.py``)
+     - 00:00.000
+     - 0.0
+   * - :ref:`sphx_glr_auto_examples_3_models_plot_0_glm_reg.py` (``..\examples\3_models\plot_0_glm_reg.py``)
+     - 00:00.000
+     - 0.0
+   * - :ref:`sphx_glr_auto_examples_3_models_plot_1_gam_cls.py` (``..\examples\3_models\plot_1_gam_cls.py``)
+     - 00:00.000
+     - 0.0
+   * - :ref:`sphx_glr_auto_examples_3_models_plot_1_gam_reg.py` (``..\examples\3_models\plot_1_gam_reg.py``)
+     - 00:00.000
+     - 0.0
+   * - :ref:`sphx_glr_auto_examples_3_models_plot_2_tree_cls.py` (``..\examples\3_models\plot_2_tree_cls.py``)
+     - 00:00.000
+     - 0.0
+   * - :ref:`sphx_glr_auto_examples_3_models_plot_2_tree_reg.py` (``..\examples\3_models\plot_2_tree_reg.py``)
+     - 00:00.000
+     - 0.0
+   * - :ref:`sphx_glr_auto_examples_3_models_plot_3_figs_cls.py` (``..\examples\3_models\plot_3_figs_cls.py``)
+     - 00:00.000
+     - 0.0
+   * - :ref:`sphx_glr_auto_examples_3_models_plot_3_figs_reg.py` (``..\examples\3_models\plot_3_figs_reg.py``)
+     - 00:00.000
+     - 0.0
+   * - :ref:`sphx_glr_auto_examples_3_models_plot_4_xgb1_cls.py` (``..\examples\3_models\plot_4_xgb1_cls.py``)
+     - 00:00.000
+     - 0.0
+   * - :ref:`sphx_glr_auto_examples_3_models_plot_4_xgb1_reg.py` (``..\examples\3_models\plot_4_xgb1_reg.py``)
+     - 00:00.000
+     - 0.0
+   * - :ref:`sphx_glr_auto_examples_3_models_plot_5_xgb2_cls.py` (``..\examples\3_models\plot_5_xgb2_cls.py``)
+     - 00:00.000
+     - 0.0
+   * - :ref:`sphx_glr_auto_examples_3_models_plot_5_xgb2_reg.py` (``..\examples\3_models\plot_5_xgb2_reg.py``)
+     - 00:00.000
+     - 0.0
+   * - :ref:`sphx_glr_auto_examples_3_models_plot_6_ebm_cls.py` (``..\examples\3_models\plot_6_ebm_cls.py``)
+     - 00:00.000
+     - 0.0
+   * - :ref:`sphx_glr_auto_examples_3_models_plot_6_ebm_reg.py` (``..\examples\3_models\plot_6_ebm_reg.py``)
+     - 00:00.000
+     - 0.0
+   * - :ref:`sphx_glr_auto_examples_3_models_plot_7_gaminet_cls.py` (``..\examples\3_models\plot_7_gaminet_cls.py``)
+     - 00:00.000
+     - 0.0
+   * - :ref:`sphx_glr_auto_examples_3_models_plot_7_gaminet_reg.py` (``..\examples\3_models\plot_7_gaminet_reg.py``)
+     - 00:00.000
+     - 0.0
+   * - :ref:`sphx_glr_auto_examples_3_models_plot_8_reludnn_cls.py` (``..\examples\3_models\plot_8_reludnn_cls.py``)
+     - 00:00.000
+     - 0.0
+   * - :ref:`sphx_glr_auto_examples_3_models_plot_8_reludnn_reg.py` (``..\examples\3_models\plot_8_reludnn_reg.py``)
+     - 00:00.000
+     - 0.0
+   * - :ref:`sphx_glr_auto_examples_4_testing_plot_0_accuracy_cls.py` (``..\examples\4_testing\plot_0_accuracy_cls.py``)
+     - 00:00.000
+     - 0.0
+   * - :ref:`sphx_glr_auto_examples_4_testing_plot_0_accuracy_reg.py` (``..\examples\4_testing\plot_0_accuracy_reg.py``)
+     - 00:00.000
+     - 0.0
+   * - :ref:`sphx_glr_auto_examples_4_testing_plot_1_weakspot_cls.py` (``..\examples\4_testing\plot_1_weakspot_cls.py``)
+     - 00:00.000
+     - 0.0
+   * - :ref:`sphx_glr_auto_examples_4_testing_plot_1_weakspot_reg.py` (``..\examples\4_testing\plot_1_weakspot_reg.py``)
+     - 00:00.000
+     - 0.0
+   * - :ref:`sphx_glr_auto_examples_4_testing_plot_2_overfit_cls.py` (``..\examples\4_testing\plot_2_overfit_cls.py``)
+     - 00:00.000
+     - 0.0
+   * - :ref:`sphx_glr_auto_examples_4_testing_plot_2_overfit_reg.py` (``..\examples\4_testing\plot_2_overfit_reg.py``)
+     - 00:00.000
+     - 0.0
+   * - :ref:`sphx_glr_auto_examples_4_testing_plot_3_reliability_cls.py` (``..\examples\4_testing\plot_3_reliability_cls.py``)
+     - 00:00.000
+     - 0.0
+   * - :ref:`sphx_glr_auto_examples_4_testing_plot_3_reliability_reg.py` (``..\examples\4_testing\plot_3_reliability_reg.py``)
+     - 00:00.000
+     - 0.0
+   * - :ref:`sphx_glr_auto_examples_4_testing_plot_4_robustness_cls.py` (``..\examples\4_testing\plot_4_robustness_cls.py``)
+     - 00:00.000
+     - 0.0
+   * - :ref:`sphx_glr_auto_examples_4_testing_plot_4_robustness_reg.py` (``..\examples\4_testing\plot_4_robustness_reg.py``)
+     - 00:00.000
+     - 0.0
+   * - :ref:`sphx_glr_auto_examples_4_testing_plot_5_resilience_cls.py` (``..\examples\4_testing\plot_5_resilience_cls.py``)
+     - 00:00.000
+     - 0.0
+   * - :ref:`sphx_glr_auto_examples_4_testing_plot_5_resilience_reg.py` (``..\examples\4_testing\plot_5_resilience_reg.py``)
+     - 00:00.000
+     - 0.0
+   * - :ref:`sphx_glr_auto_examples_4_testing_plot_6_fairness.py` (``..\examples\4_testing\plot_6_fairness.py``)
+     - 00:00.000
+     - 0.0
+   * - :ref:`sphx_glr_auto_examples_4_testing_plot_7_segmented_cls.py` (``..\examples\4_testing\plot_7_segmented_cls.py``)
+     - 00:00.000
+     - 0.0
+   * - :ref:`sphx_glr_auto_examples_4_testing_plot_7_segmented_reg.py` (``..\examples\4_testing\plot_7_segmented_reg.py``)
+     - 00:00.000
+     - 0.0
+   * - :ref:`sphx_glr_auto_examples_4_testing_plot_8_scored_test_cls.py` (``..\examples\4_testing\plot_8_scored_test_cls.py``)
+     - 00:00.000
+     - 0.0
+   * - :ref:`sphx_glr_auto_examples_4_testing_plot_8_scored_test_reg.py` (``..\examples\4_testing\plot_8_scored_test_reg.py``)
+     - 00:00.000
+     - 0.0
+   * - :ref:`sphx_glr_auto_examples_5_compare_plot_0_compare_classification.py` (``..\examples\5_compare\plot_0_compare_classification.py``)
+     - 00:00.000
+     - 0.0
+   * - :ref:`sphx_glr_auto_examples_5_compare_plot_0_compare_regression.py` (``..\examples\5_compare\plot_0_compare_regression.py``)
+     - 00:00.000
+     - 0.0
+   * - :ref:`sphx_glr_auto_examples_5_compare_plot_1_compare_fairness.py` (``..\examples\5_compare\plot_1_compare_fairness.py``)
+     - 00:00.000
+     - 0.0

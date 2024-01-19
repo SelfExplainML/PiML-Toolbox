@@ -6,42 +6,83 @@
 
 Computation times
 =================
-**01:43.829** total execution time for **auto_examples_3_models** files:
+**96:12.141** total execution time for 18 files **from auto_examples\3_models**:
 
-+------------------------------------------------------------------------------------------+-----------+---------+
-| :ref:`sphx_glr_auto_examples_3_models_plot_0_glm_reg.py` (``plot_0_glm_reg.py``)         | 01:43.829 | 31.2 MB |
-+------------------------------------------------------------------------------------------+-----------+---------+
-| :ref:`sphx_glr_auto_examples_3_models_plot_0_glm_cls.py` (``plot_0_glm_cls.py``)         | 00:00.000 | 0.0 MB  |
-+------------------------------------------------------------------------------------------+-----------+---------+
-| :ref:`sphx_glr_auto_examples_3_models_plot_1_gam_cls.py` (``plot_1_gam_cls.py``)         | 00:00.000 | 0.0 MB  |
-+------------------------------------------------------------------------------------------+-----------+---------+
-| :ref:`sphx_glr_auto_examples_3_models_plot_1_gam_reg.py` (``plot_1_gam_reg.py``)         | 00:00.000 | 0.0 MB  |
-+------------------------------------------------------------------------------------------+-----------+---------+
-| :ref:`sphx_glr_auto_examples_3_models_plot_2_tree_cls.py` (``plot_2_tree_cls.py``)       | 00:00.000 | 0.0 MB  |
-+------------------------------------------------------------------------------------------+-----------+---------+
-| :ref:`sphx_glr_auto_examples_3_models_plot_2_tree_reg.py` (``plot_2_tree_reg.py``)       | 00:00.000 | 0.0 MB  |
-+------------------------------------------------------------------------------------------+-----------+---------+
-| :ref:`sphx_glr_auto_examples_3_models_plot_3_figs_cls.py` (``plot_3_figs_cls.py``)       | 00:00.000 | 0.0 MB  |
-+------------------------------------------------------------------------------------------+-----------+---------+
-| :ref:`sphx_glr_auto_examples_3_models_plot_3_figs_reg.py` (``plot_3_figs_reg.py``)       | 00:00.000 | 0.0 MB  |
-+------------------------------------------------------------------------------------------+-----------+---------+
-| :ref:`sphx_glr_auto_examples_3_models_plot_4_xgb1_cls.py` (``plot_4_xgb1_cls.py``)       | 00:00.000 | 0.0 MB  |
-+------------------------------------------------------------------------------------------+-----------+---------+
-| :ref:`sphx_glr_auto_examples_3_models_plot_4_xgb1_reg.py` (``plot_4_xgb1_reg.py``)       | 00:00.000 | 0.0 MB  |
-+------------------------------------------------------------------------------------------+-----------+---------+
-| :ref:`sphx_glr_auto_examples_3_models_plot_5_xgb2_cls.py` (``plot_5_xgb2_cls.py``)       | 00:00.000 | 0.0 MB  |
-+------------------------------------------------------------------------------------------+-----------+---------+
-| :ref:`sphx_glr_auto_examples_3_models_plot_5_xgb2_reg.py` (``plot_5_xgb2_reg.py``)       | 00:00.000 | 0.0 MB  |
-+------------------------------------------------------------------------------------------+-----------+---------+
-| :ref:`sphx_glr_auto_examples_3_models_plot_6_ebm_cls.py` (``plot_6_ebm_cls.py``)         | 00:00.000 | 0.0 MB  |
-+------------------------------------------------------------------------------------------+-----------+---------+
-| :ref:`sphx_glr_auto_examples_3_models_plot_6_ebm_reg.py` (``plot_6_ebm_reg.py``)         | 00:00.000 | 0.0 MB  |
-+------------------------------------------------------------------------------------------+-----------+---------+
-| :ref:`sphx_glr_auto_examples_3_models_plot_7_gaminet_cls.py` (``plot_7_gaminet_cls.py``) | 00:00.000 | 0.0 MB  |
-+------------------------------------------------------------------------------------------+-----------+---------+
-| :ref:`sphx_glr_auto_examples_3_models_plot_7_gaminet_reg.py` (``plot_7_gaminet_reg.py``) | 00:00.000 | 0.0 MB  |
-+------------------------------------------------------------------------------------------+-----------+---------+
-| :ref:`sphx_glr_auto_examples_3_models_plot_8_reludnn_cls.py` (``plot_8_reludnn_cls.py``) | 00:00.000 | 0.0 MB  |
-+------------------------------------------------------------------------------------------+-----------+---------+
-| :ref:`sphx_glr_auto_examples_3_models_plot_8_reludnn_reg.py` (``plot_8_reludnn_reg.py``) | 00:00.000 | 0.0 MB  |
-+------------------------------------------------------------------------------------------+-----------+---------+
+.. container::
+
+  .. raw:: html
+
+    <style scoped>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="https://cdn.datatables.net/1.13.6/css/dataTables.bootstrap5.min.css" rel="stylesheet" />
+    </style>
+    <script src="https://code.jquery.com/jquery-3.7.0.js"></script>
+    <script src="https://cdn.datatables.net/1.13.6/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/1.13.6/js/dataTables.bootstrap5.min.js"></script>
+    <script type="text/javascript" class="init">
+    $(document).ready( function () {
+        $('table.sg-datatable').DataTable({order: [[1, 'desc']]});
+    } );
+    </script>
+
+  .. list-table::
+   :header-rows: 1
+   :class: table table-striped sg-datatable
+
+   * - Example
+     - Time
+     - Mem (MB)
+   * - :ref:`sphx_glr_auto_examples_3_models_plot_7_gaminet_cls.py` (``plot_7_gaminet_cls.py``)
+     - 95:58.559
+     - 0.0
+   * - :ref:`sphx_glr_auto_examples_3_models_plot_4_xgb1_reg.py` (``plot_4_xgb1_reg.py``)
+     - 00:08.159
+     - 0.0
+   * - :ref:`sphx_glr_auto_examples_3_models_plot_5_xgb2_cls.py` (``plot_5_xgb2_cls.py``)
+     - 00:05.422
+     - 0.0
+   * - :ref:`sphx_glr_auto_examples_3_models_plot_0_glm_cls.py` (``plot_0_glm_cls.py``)
+     - 00:00.000
+     - 0.0
+   * - :ref:`sphx_glr_auto_examples_3_models_plot_0_glm_reg.py` (``plot_0_glm_reg.py``)
+     - 00:00.000
+     - 0.0
+   * - :ref:`sphx_glr_auto_examples_3_models_plot_1_gam_cls.py` (``plot_1_gam_cls.py``)
+     - 00:00.000
+     - 0.0
+   * - :ref:`sphx_glr_auto_examples_3_models_plot_1_gam_reg.py` (``plot_1_gam_reg.py``)
+     - 00:00.000
+     - 0.0
+   * - :ref:`sphx_glr_auto_examples_3_models_plot_2_tree_cls.py` (``plot_2_tree_cls.py``)
+     - 00:00.000
+     - 0.0
+   * - :ref:`sphx_glr_auto_examples_3_models_plot_2_tree_reg.py` (``plot_2_tree_reg.py``)
+     - 00:00.000
+     - 0.0
+   * - :ref:`sphx_glr_auto_examples_3_models_plot_3_figs_cls.py` (``plot_3_figs_cls.py``)
+     - 00:00.000
+     - 0.0
+   * - :ref:`sphx_glr_auto_examples_3_models_plot_3_figs_reg.py` (``plot_3_figs_reg.py``)
+     - 00:00.000
+     - 0.0
+   * - :ref:`sphx_glr_auto_examples_3_models_plot_4_xgb1_cls.py` (``plot_4_xgb1_cls.py``)
+     - 00:00.000
+     - 0.0
+   * - :ref:`sphx_glr_auto_examples_3_models_plot_5_xgb2_reg.py` (``plot_5_xgb2_reg.py``)
+     - 00:00.000
+     - 0.0
+   * - :ref:`sphx_glr_auto_examples_3_models_plot_6_ebm_cls.py` (``plot_6_ebm_cls.py``)
+     - 00:00.000
+     - 0.0
+   * - :ref:`sphx_glr_auto_examples_3_models_plot_6_ebm_reg.py` (``plot_6_ebm_reg.py``)
+     - 00:00.000
+     - 0.0
+   * - :ref:`sphx_glr_auto_examples_3_models_plot_7_gaminet_reg.py` (``plot_7_gaminet_reg.py``)
+     - 00:00.000
+     - 0.0
+   * - :ref:`sphx_glr_auto_examples_3_models_plot_8_reludnn_cls.py` (``plot_8_reludnn_cls.py``)
+     - 00:00.000
+     - 0.0
+   * - :ref:`sphx_glr_auto_examples_3_models_plot_8_reludnn_reg.py` (``plot_8_reludnn_reg.py``)
+     - 00:00.000
+     - 0.0

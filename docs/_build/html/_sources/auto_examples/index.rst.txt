@@ -282,6 +282,23 @@ Model Train and Tune
 
 .. raw:: html
 
+    <div class="sphx-glr-thumbcontainer" tooltip="Register PySpark Models">
+
+.. only:: html
+
+  .. image:: /auto_examples/1_train/images/thumb/sphx_glr_plot_2_register_3_arbitrary_pyspark_thumb.png
+    :alt:
+
+  :ref:`sphx_glr_auto_examples_1_train_plot_2_register_3_arbitrary_pyspark.py`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Register PySpark Models</div>
+    </div>
+
+
+.. raw:: html
+
     </div>
 
 
@@ -1119,6 +1136,23 @@ Model Comparison
 .. raw:: html
 
       <div class="sphx-glr-thumbnail-title">Fairness Comparison</div>
+    </div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="Build Robust Models with Monotonicity Constraints">
+
+.. only:: html
+
+  .. image:: /auto_examples/5_compare/images/thumb/sphx_glr_plot_2_compare_robustness_thumb.png
+    :alt:
+
+  :ref:`sphx_glr_auto_examples_5_compare_plot_2_compare_robustness.py`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Build Robust Models with Monotonicity Constraints</div>
     </div>
 
 

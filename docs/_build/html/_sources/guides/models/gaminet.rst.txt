@@ -7,7 +7,6 @@
 =================================
 GAMI-Net
 =================================
-
 The generalized additive model with structured pairwise interactions network (GAMI-Net; [Yang2021b]_) is a neural network reformulation of the GAMI model, like XGB-2 and EBM.
 
 .. math::
@@ -33,7 +32,6 @@ Compared to XGB2 and EBMs, GAMI-Net has a continuous and smooth shape function, 
 
 Model Training
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
 Here, we use the Bike Sharing dataset as an example to demonstrate how to use GAMI-Net in PiML. Similar to the rest interpretable models, GAMI-Net can be fitted and registered using the model train API. 
 
 .. jupyter-input::
@@ -53,7 +51,6 @@ The inherent interpretation of GAMI-Net includes the main effect plot, pairwise 
 
 Main Effect Plot
 """""""""""""""""""""""""""""""""
-
 The main effect plot in GAMI-Net shows the estimated effect :math:`\hat{h}_{j}(x_{j})` against :math:`x_{j}`. The main effect is piecewise linear, as we use ReLU activation functions. In PiML, we can use the keyword "global_effect_plot" to draw main effect plots, together with the argument `uni_feature` which takes the feature name as input.
 
 .. jupyter-input::
@@ -69,7 +66,6 @@ The figure above shows the estimated shape functions for the feature `hr`, toget
 
 Interaction Plot
 """""""""""""""""""""""""""""""""
-
 To visualize the estimated pairwise interaction :math:`\hat{f}_{jk}(x_{j},x_{k})` against :math:`x_{j}` and :math:`x_{k}`, we can still use the keyword "global_effect_plot" together with the feature names specified in `bi_features`.
 
 .. jupyter-input::
@@ -85,7 +81,6 @@ The figure above shows the estimated pairwise interaction between `hr` and `week
 
 Effect Importance
 """""""""""""""""""""""""""""""""
-
 The effect importance is calculated as the variance of the estimated shape functions, both for main effects and pairwise interactions.
 
 .. jupyter-input::
@@ -100,7 +95,6 @@ Here we only plot the top-10 effect importance. It can be observed that the main
 
 Feature Importance
 """""""""""""""""""""""""""""""""
-
 As a GAMI model, the calculation of feature importance in GAMI-Net is the same as that of the XGB2_ model. We use the keyword "global_fi" to draw the feature importance plot.
 
 .. _XGB2: ./xgb2.html#feature-importance

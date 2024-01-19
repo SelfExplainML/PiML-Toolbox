@@ -3,7 +3,7 @@
 <head>
 
   <meta charset="utf-8">
-  <meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+  <meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
@@ -41,7 +41,7 @@
         <script src="_static/sphinx_highlight.js"></script>
         <script src="_static/thebelab-helper.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
-        <script src="https://cdn.jsdelivr.net/npm/@jupyter-widgets/html-manager@^1.0.1/dist/embed-amd.js"></script>
+        <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.20.1/dist/embed-amd.js"></script>
         <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
     <script src="_static/js/theme.js"></script>
 
@@ -157,10 +157,6 @@ span.prompt1:before {
 <h2>Dependencies<a class="headerlink" href="#dependencies" title="Permalink to this heading">¶</a></h2>
 <p>PiML requires the following packages:</p>
 <table class="docutils align-default">
-<colgroup>
-<col style="width: 55%" />
-<col style="width: 45%" />
-</colgroup>
 <thead>
 <tr class="row-odd"><th class="head"><p>Dependency</p></th>
 <th class="head"><p>Minimum Version</p></th>
@@ -239,14 +235,13 @@ span.prompt1:before {
 <tr class="row-odd"><td><p>momentchi2</p></td>
 <td><p>0.1.8</p></td>
 </tr>
+<tr class="row-even"><td><p>jupyter_client</p></td>
+<td><p>(&lt;=7.4.9)</p></td>
+</tr>
 </tbody>
 </table>
 <p>The following packages are optional</p>
 <table class="docutils align-default">
-<colgroup>
-<col style="width: 55%" />
-<col style="width: 45%" />
-</colgroup>
 <thead>
 <tr class="row-odd"><th class="head"><p>Dependency</p></th>
 <th class="head"><p>Minimum Version</p></th>
@@ -258,6 +253,12 @@ span.prompt1:before {
 </tr>
 <tr class="row-odd"><td><p>solas-ai</p></td>
 <td><p>0.2.4</p></td>
+</tr>
+<tr class="row-even"><td><p>h2o</p></td>
+<td><p>3.32.0.0</p></td>
+</tr>
+<tr class="row-odd"><td><p>pyspark</p></td>
+<td><p>2.3.0</p></td>
 </tr>
 </tbody>
 </table>

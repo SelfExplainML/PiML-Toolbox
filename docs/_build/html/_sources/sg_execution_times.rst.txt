@@ -6,7 +6,7 @@
 
 Computation times
 =================
-**03:00.356** total execution time for 62 files **from all galleries**:
+**13:21.530** total execution time for 62 files **from all galleries**:
 
 .. container::
 
@@ -32,8 +32,8 @@ Computation times
    * - Example
      - Time
      - Mem (MB)
-   * - :ref:`sphx_glr_auto_examples_5_compare_plot_2_compare_robustness.py` (``..\examples\5_compare\plot_2_compare_robustness.py``)
-     - 03:00.356
+   * - :ref:`sphx_glr_auto_examples_1_train_plot_2_register_3_arbitrary_pyspark.py` (``..\examples\1_train\plot_2_register_3_arbitrary_pyspark.py``)
+     - 13:21.530
      - 0.0
    * - :ref:`sphx_glr_auto_examples_0_data_plot_0_data_loader_builtin.py` (``..\examples\0_data\plot_0_data_loader_builtin.py``)
      - 00:00.000
@@ -75,9 +75,6 @@ Computation times
      - 00:00.000
      - 0.0
    * - :ref:`sphx_glr_auto_examples_1_train_plot_2_register_2_arbitrary.py` (``..\examples\1_train\plot_2_register_2_arbitrary.py``)
-     - 00:00.000
-     - 0.0
-   * - :ref:`sphx_glr_auto_examples_1_train_plot_2_register_3_arbitrary_pyspark.py` (``..\examples\1_train\plot_2_register_3_arbitrary_pyspark.py``)
      - 00:00.000
      - 0.0
    * - :ref:`sphx_glr_auto_examples_2_explain_plot_0_pfi.py` (``..\examples\2_explain\plot_0_pfi.py``)
@@ -216,5 +213,8 @@ Computation times
      - 00:00.000
      - 0.0
    * - :ref:`sphx_glr_auto_examples_5_compare_plot_1_compare_fairness.py` (``..\examples\5_compare\plot_1_compare_fairness.py``)
+     - 00:00.000
+     - 0.0
+   * - :ref:`sphx_glr_auto_examples_5_compare_plot_2_compare_robustness.py` (``..\examples\5_compare\plot_2_compare_robustness.py``)
      - 00:00.000
      - 0.0

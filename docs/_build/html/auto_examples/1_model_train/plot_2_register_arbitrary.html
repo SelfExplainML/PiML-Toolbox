@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+
+  <meta charset="utf-8">
+  <meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  
+  <title>PiML Toolbox</title>
+  
+
+  
+  <link rel="shortcut icon" href="../../_static/favicon.ico"/>
+  
+
+  <link rel="stylesheet" href="../../_static/css/vendor/bootstrap.min.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/plot_directive.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/jupyter-sphinx.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/thebelab.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/sg_gallery.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/sg_gallery-binder.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/sg_gallery-dataframe.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/sg_gallery-rendered-html.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
+<script id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+<script src="../../_static/jquery.js"></script>
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="../../_static/doctools.js"></script>
+        <script src="../../_static/sphinx_highlight.js"></script>
+        <script src="../../_static/thebelab-helper.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+        <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.20.1/dist/embed-amd.js"></script>
+        <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="../../_static/js/theme.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav">
+
+  
+
+
+<nav id="navbar" class="sk-docs-navbar navbar navbar-expand-md navbar-light bg-light py-0">
+  <div class="container-fluid sk-docs-container px-0">
+      <a class="navbar-brand py-0" href="../../index.html">
+        <img
+          class="sk-brand-img"
+          src="../../_static/piml-logo.png"
+          alt="logo"/>
+      </a>
+    <button
+      id="sk-navbar-toggler"
+      class="navbar-toggler"
+      type="button"
+      data-toggle="collapse"
+      data-target="#navbarSupportedContent"
+      aria-controls="navbarSupportedContent"
+      aria-expanded="false"
+      aria-label="Toggle navigation"
+    >
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="sk-navbar-collapse collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item">
+          <a class="sk-nav-link nav-link" href="../../install.html">Install</a>
+        </li>
+        <li class="nav-item">
+          <a class="sk-nav-link nav-link" href="../../user_guide.html">User Guide</a>
+        </li>
+        <li class="nav-item">
+          <a class="sk-nav-link nav-link" href="../../modules/classes.html">API</a>
+        </li>
+        <li class="nav-item">
+          <a class="sk-nav-link nav-link" href="../index.html">Examples</a>
+        </li>
+     </ul>
+      <div id="searchbox" role="search">
+          <div class="searchformwrapper">
+          <form class="search" action="../../search.html" method="get">
+            <input class="sk-search-text-input" type="text" name="q" aria-labelledby="searchlabel" />
+            <input class="sk-search-text-btn" type="submit" value="Go" />
+          </form>
+          </div>
+      </div>
+    </div>
+  </div>
+</nav>
+  <div class="d-flex" id="sk-doc-wrapper">
+      <input type="checkbox" name="sk-toggle-checkbox" id="sk-toggle-checkbox">
+      <label id="sk-sidemenu-toggle" class="sk-btn-toggle-toc btn sk-btn-primary" for="sk-toggle-checkbox">Toggle Menu</label>
+      <div id="sk-sidebar-wrapper" class="border-right">
+        <div class="sk-sidebar-toc-wrapper">
+          <div class="sk-sidebar-toc-logo">
+            <a href="../../index.html">
+              <img
+                class="sk-brand-img"
+                src="../../_static/piml-logo.png"
+                alt="logo"/>
+            </a>
+          </div>
+          <!--div class="btn-group w-100 mb-2" role="group" aria-label="rellinks">
+              <a href="#" role="button" class="btn sk-btn-rellink py-1 disabled"">Prev</a>
+              <a href="#" role="button" class="btn sk-btn-rellink disabled py-1">Up</a>
+              <a href="#" role="button" class="btn sk-btn-rellink py-1 disabled"">Next</a>
+          </div-->
+              <div class="sk-sidebar-toc">
+                <ul>
+<li><a class="reference internal" href="#">Registering Arbitrary Models</a></li>
+</ul>
+
+              </div>
+        </div>
+      </div>
+      <div id="sk-page-content-wrapper">
+        <div class="sk-page-content container-fluid body px-md-3" role="main">
+          
+  <div class="sphx-glr-download-link-note admonition note">
+<p class="admonition-title">Note</p>
+<p><a class="reference internal" href="#sphx-glr-download-auto-examples-1-model-train-plot-2-register-arbitrary-py"><span class="std std-ref">Go to the end</span></a>
+to download the full example code or to run this example in your browser via Binder</p>
+</div>
+<section class="sphx-glr-example-title" id="registering-arbitrary-models">
+<span id="sphx-glr-auto-examples-1-model-train-plot-2-register-arbitrary-py"></span><h1>Registering Arbitrary Models<a class="headerlink" href="#registering-arbitrary-models" title="Permalink to this heading">¶</a></h1>
+<p>If the model is neither sklearn style nor H2O style, we can still register it into PiML.</p>
+<p>For demonstration, we simulate a simple binary classification dataset and fit a GLM using statsmodels.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">statsmodels.api</span> <span class="k">as</span> <span class="nn">sm</span>
+
+<span class="n">x</span> <span class="o">=</span> <a href="https://numpy.org/doc/stable/reference/random/generated/numpy.random.uniform.html#numpy.random.uniform" title="numpy.random.uniform" class="sphx-glr-backref-module-numpy-random sphx-glr-backref-type-py-function"><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">uniform</span></a><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="p">(</span><span class="mi">1000</span><span class="p">,</span> <span class="mi">2</span><span class="p">))</span>
+<span class="n">y</span> <span class="o">=</span> <span class="p">(</span><a href="https://numpy.org/doc/stable/reference/generated/numpy.sum.html#numpy.sum" title="numpy.sum" class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-function"><span class="n">np</span><span class="o">.</span><span class="n">sum</span></a><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span> <span class="o">+</span> <a href="https://numpy.org/doc/stable/reference/random/generated/numpy.random.normal.html#numpy.random.normal" title="numpy.random.normal" class="sphx-glr-backref-module-numpy-random sphx-glr-backref-type-py-function"><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">normal</span></a><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mf">0.1</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="p">(</span><span class="mi">1000</span><span class="p">,)))</span> <span class="o">&gt;</span> <span class="mf">0.0</span>
+
+<span class="n">glm_binom</span> <span class="o">=</span> <span class="n">sm</span><span class="o">.</span><span class="n">GLM</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">family</span><span class="o">=</span><span class="n">sm</span><span class="o">.</span><span class="n">families</span><span class="o">.</span><span class="n">Binomial</span><span class="p">())</span>
+<span class="n">glm_results</span>  <span class="o">=</span> <span class="n">glm_binom</span><span class="o">.</span><span class="n">fit</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>Next, we generate a simple model that.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">predict_proba_func</span><span class="p">(</span><span class="n">X</span><span class="p">):</span>
+    <span class="n">proba</span> <span class="o">=</span> <span class="n">glm_binom</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">glm_results</span><span class="o">.</span><span class="n">params</span><span class="p">,</span> <span class="n">exog</span><span class="o">=</span><span class="n">X</span><span class="p">)</span>
+    <span class="k">return</span> <a href="https://numpy.org/doc/stable/reference/generated/numpy.vstack.html#numpy.vstack" title="numpy.vstack" class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-function"><span class="n">np</span><span class="o">.</span><span class="n">vstack</span></a><span class="p">([</span><span class="mi">1</span> <span class="o">-</span> <span class="n">proba</span><span class="p">,</span> <span class="n">proba</span><span class="p">])</span><span class="o">.</span><span class="n">T</span>
+
+<span class="k">def</span> <span class="nf">predict_func</span><span class="p">(</span><span class="n">X</span><span class="p">):</span>
+    <span class="n">proba</span> <span class="o">=</span> <span class="n">glm_binom</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">glm_results</span><span class="o">.</span><span class="n">params</span><span class="p">,</span> <span class="n">exog</span><span class="o">=</span><span class="n">X</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">proba</span> <span class="o">&gt;</span> <span class="mf">0.5</span>
+</pre></div>
+</div>
+<p>Register the fitted model into PiML (please make sure the datasets of different pipelines are the same)</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">piml</span> <span class="kn">import</span> <a href="../../modules/generated/piml.Experiment.html#piml.Experiment" title="piml.Experiment" class="sphx-glr-backref-module-piml sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">Experiment</span></a>
+
+<span class="n">exp</span> <span class="o">=</span> <a href="../../modules/generated/piml.Experiment.html#piml.Experiment" title="piml.Experiment" class="sphx-glr-backref-module-piml sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">Experiment</span></a><span class="p">(</span><span class="n">highcode_only</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">pipeline</span> <span class="o">=</span> <span class="n">exp</span><span class="o">.</span><span class="n">make_pipeline</span><span class="p">(</span><span class="n">predict_func</span><span class="o">=</span><span class="n">predict_func</span><span class="p">,</span>
+                             <span class="n">predict_proba_func</span><span class="o">=</span><span class="n">predict_proba_func</span><span class="p">,</span>
+                             <span class="n">task_type</span><span class="o">=</span><span class="s2">&quot;classification&quot;</span><span class="p">,</span>
+                             <span class="n">train_x</span><span class="o">=</span><span class="n">x</span><span class="p">[:</span><span class="mi">800</span><span class="p">],</span>
+                             <span class="n">train_y</span><span class="o">=</span><span class="n">y</span><span class="p">[:</span><span class="mi">800</span><span class="p">],</span>
+                             <span class="n">test_x</span><span class="o">=</span><span class="n">x</span><span class="p">[</span><span class="mi">800</span><span class="p">:],</span>
+                             <span class="n">test_y</span><span class="o">=</span><span class="n">y</span><span class="p">[</span><span class="mi">800</span><span class="p">:],</span>
+                             <span class="n">feature_names</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;X0&quot;</span><span class="p">,</span> <span class="s2">&quot;X1&quot;</span><span class="p">],</span>
+                             <span class="n">target_name</span><span class="o">=</span><span class="s2">&quot;Y&quot;</span><span class="p">)</span>
+<span class="n">exp</span><span class="o">.</span><span class="n">register</span><span class="p">(</span><span class="n">pipeline</span><span class="p">,</span> <span class="s2">&quot;Statsmodels-GLM&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Check model performance</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">exp</span><span class="o">.</span><span class="n">model_diagnose</span><span class="p">(</span><span class="n">model</span><span class="o">=</span><span class="s2">&quot;Statsmodels-GLM&quot;</span><span class="p">,</span> <span class="n">show</span><span class="o">=</span><span class="s2">&quot;accuracy_table&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>           ACC      AUC       F1 LogLoss   Brier
+
+Train   0.9600   0.9950   0.9573  0.0895  0.0283
+Test    0.9550   0.9909   0.9569  0.1246  0.0397
+Gap    -0.0050  -0.0041  -0.0004  0.0352  0.0114
+</pre></div>
+</div>
+<p>Explain using post-hoc explanation tools</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">exp</span><span class="o">.</span><span class="n">model_explain</span><span class="p">(</span><span class="n">model</span><span class="o">=</span><span class="s2">&quot;Statsmodels-GLM&quot;</span><span class="p">,</span> <span class="n">show</span><span class="o">=</span><span class="s2">&quot;pfi&quot;</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">4</span><span class="p">))</span>
+</pre></div>
+</div>
+<img src="../../_images/sphx_glr_plot_2_register_arbitrary_001.png" srcset="../../_images/sphx_glr_plot_2_register_arbitrary_001.png" alt="Permutation Feature Importance" class = "sphx-glr-single-img"/><p>Explain using post-hoc explanation tools</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">exp</span><span class="o">.</span><span class="n">model_explain</span><span class="p">(</span><span class="n">model</span><span class="o">=</span><span class="s2">&quot;Statsmodels-GLM&quot;</span><span class="p">,</span> <span class="n">show</span><span class="o">=</span><span class="s2">&quot;ale&quot;</span><span class="p">,</span> <span class="n">uni_feature</span><span class="o">=</span><span class="s2">&quot;X0&quot;</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">4</span><span class="p">))</span>
+</pre></div>
+</div>
+<img src="../../_images/sphx_glr_plot_2_register_arbitrary_002.png" srcset="../../_images/sphx_glr_plot_2_register_arbitrary_002.png" alt="Accumulated Local Effects" class = "sphx-glr-single-img"/><p>Run validataion tests</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">exp</span><span class="o">.</span><span class="n">model_explain</span><span class="p">(</span><span class="n">model</span><span class="o">=</span><span class="s2">&quot;Statsmodels-GLM&quot;</span><span class="p">,</span> <span class="n">show</span><span class="o">=</span><span class="s2">&quot;pdp&quot;</span><span class="p">,</span> <span class="n">uni_feature</span><span class="o">=</span><span class="s2">&quot;X0&quot;</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">4</span><span class="p">))</span>
+</pre></div>
+</div>
+<img src="../../_images/sphx_glr_plot_2_register_arbitrary_003.png" srcset="../../_images/sphx_glr_plot_2_register_arbitrary_003.png" alt="Partial Dependence Plot" class = "sphx-glr-single-img"/><p class="sphx-glr-timing"><strong>Total running time of the script:</strong> ( 0 minutes  46.539 seconds)</p>
+<p><strong>Estimated memory usage:</strong>  17 MB</p>
+<div class="sphx-glr-footer sphx-glr-footer-example docutils container" id="sphx-glr-download-auto-examples-1-model-train-plot-2-register-arbitrary-py">
+<div class="binder-badge docutils container">
+<a class="reference external image-reference" href="https://mybinder.org/v2/gh/selfexplainml/piml-toolbox/main?urlpath=lab/tree/./docs/_build/html/notebooks/auto_examples/1_model_train/plot_2_register_arbitrary.ipynb"><img alt="Launch binder" src="../../_images/binder_badge_logo1.svg" width="150px" /></a>
+</div>
+<div class="sphx-glr-download sphx-glr-download-python docutils container">
+<p><a class="reference download internal" download="" href="../../_downloads/2aaf9805c374d561f5f6be9bf72494c3/plot_2_register_arbitrary.py"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Python</span> <span class="pre">source</span> <span class="pre">code:</span> <span class="pre">plot_2_register_arbitrary.py</span></code></a></p>
+</div>
+<div class="sphx-glr-download sphx-glr-download-jupyter docutils container">
+<p><a class="reference download internal" download="" href="../../_downloads/65b38bd55e01e3595a5e8e0f5ca08120/plot_2_register_arbitrary.ipynb"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Jupyter</span> <span class="pre">notebook:</span> <span class="pre">plot_2_register_arbitrary.ipynb</span></code></a></p>
+</div>
+</div>
+<p class="sphx-glr-signature"><a class="reference external" href="https://sphinx-gallery.github.io">Gallery generated by Sphinx-Gallery</a></p>
+</section>
+
+
+        </div>
+      <div class="container">
+        <footer class="sk-content-footer">
+              &copy; Copyright 2022-, PiML-Toolbox authors.
+            <a href="../../_sources/auto_examples/1_model_train/plot_2_register_arbitrary.rst.txt" rel="nofollow">Show this page source</a>
+        </footer>
+      </div>
+    </div>
+  </div>
+
+
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(false);
+      });
+      
+      const tooltipTriggerList = document.querySelectorAll('[data-bs-toggle="tooltip"]')
+      const tooltipList = [...tooltipTriggerList].map(tooltipTriggerEl => new bootstrap.Tooltip(tooltipTriggerEl))
+  </script>
+
+<script>
+$(document).ready(function() {
+    /* Add a [>>>] button on the top-right corner of code samples to hide
+     * the >>> and ... prompts and the output and thus make the code
+     * copyable. */
+    var div = $('.highlight-python .highlight,' +
+                '.highlight-python3 .highlight,' +
+                '.highlight-pycon .highlight,' +
+		'.highlight-default .highlight')
+    var pre = div.find('pre');
+
+    // get the styles from the current theme
+    pre.parent().parent().css('position', 'relative');
+    var hide_text = 'Hide prompts and outputs';
+    var show_text = 'Show prompts and outputs';
+
+    // create and add the button to all the code blocks that contain >>>
+    div.each(function(index) {
+        var jthis = $(this);
+        if (jthis.find('.gp').length > 0) {
+            var button = $('<span class="copybutton">&gt;&gt;&gt;</span>');
+            button.attr('title', hide_text);
+            button.data('hidden', 'false');
+            jthis.prepend(button);
+        }
+        // tracebacks (.gt) contain bare text elements that need to be
+        // wrapped in a span to work with .nextUntil() (see later)
+        jthis.find('pre:has(.gt)').contents().filter(function() {
+            return ((this.nodeType == 3) && (this.data.trim().length > 0));
+        }).wrap('<span>');
+    });
+
+    // define the behavior of the button when it's clicked
+    $('.copybutton').click(function(e){
+        e.preventDefault();
+        var button = $(this);
+        if (button.data('hidden') === 'false') {
+            // hide the code output
+            button.parent().find('.go, .gp, .gt').hide();
+            button.next('pre').find('.gt').nextUntil('.gp, .go').css('visibility', 'hidden');
+            button.css('text-decoration', 'line-through');
+            button.attr('title', show_text);
+            button.data('hidden', 'true');
+        } else {
+            // show the code output
+            button.parent().find('.go, .gp, .gt').show();
+            button.next('pre').find('.gt').nextUntil('.gp, .go').css('visibility', 'visible');
+            button.css('text-decoration', 'none');
+            button.attr('title', hide_text);
+            button.data('hidden', 'false');
+        }
+    });
+
+	/*** Add permalink buttons next to glossary terms ***/
+	$('dl.glossary > dt[id]').append(function() {
+		return ('<a class="headerlink" href="#' +
+			    this.getAttribute('id') +
+			    '" title="Permalink to this term">¶</a>');
+	});
+  /*** Hide navbar when scrolling down ***/
+  // Returns true when headerlink target matches hash in url
+  (function() {
+    hashTargetOnTop = function() {
+        var hash = window.location.hash;
+        if ( hash.length < 2 ) { return false; }
+
+        var target = document.getElementById( hash.slice(1) );
+        if ( target === null ) { return false; }
+
+        var top = target.getBoundingClientRect().top;
+        return (top < 2) && (top > -2);
+    };
+
+    // Hide navbar on load if hash target is on top
+    var navBar = document.getElementById("navbar");
+    var navBarToggler = document.getElementById("sk-navbar-toggler");
+    var navBarHeightHidden = "-" + navBar.getBoundingClientRect().height + "px";
+    var $window = $(window);
+
+    hideNavBar = function() {
+        navBar.style.top = navBarHeightHidden;
+    };
+
+    showNavBar = function() {
+        navBar.style.top = "0";
+    }
+
+    if (hashTargetOnTop()) {
+        hideNavBar()
+    }
+
+    var prevScrollpos = window.pageYOffset;
+    hideOnScroll = function(lastScrollTop) {
+        if (($window.width() < 768) && (navBarToggler.getAttribute("aria-expanded") === 'true')) {
+            return;
+        }
+        if (lastScrollTop > 2 && (prevScrollpos <= lastScrollTop) || hashTargetOnTop()){
+            hideNavBar()
+        } else {
+            showNavBar()
+        }
+        prevScrollpos = lastScrollTop;
+    };
+
+    /*** high performance scroll event listener***/
+    var raf = window.requestAnimationFrame ||
+        window.webkitRequestAnimationFrame ||
+        window.mozRequestAnimationFrame ||
+        window.msRequestAnimationFrame ||
+        window.oRequestAnimationFrame;
+    var lastScrollTop = $window.scrollTop();
+
+    if (raf) {
+        loop();
+    }
+
+    function loop() {
+        var scrollTop = $window.scrollTop();
+        if (lastScrollTop === scrollTop) {
+            raf(loop);
+            return;
+        } else {
+            lastScrollTop = scrollTop;
+            hideOnScroll(lastScrollTop);
+            raf(loop);
+        }
+    }
+  })();
+});
+
+</script>
+    
+
+<script src="_static/js/vendor/bootstrap.min.js"></script>
+
+</body>
+</html>

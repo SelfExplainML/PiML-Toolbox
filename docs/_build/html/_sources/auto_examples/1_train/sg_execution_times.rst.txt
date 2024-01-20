@@ -6,7 +6,7 @@
 
 Computation times
 =================
-**12:24.583** total execution time for 7 files **from auto_examples\1_train**:
+**13:21.530** total execution time for 7 files **from auto_examples\1_train**:
 
 .. container::
 
@@ -33,7 +33,7 @@ Computation times
      - Time
      - Mem (MB)
    * - :ref:`sphx_glr_auto_examples_1_train_plot_2_register_3_arbitrary_pyspark.py` (``plot_2_register_3_arbitrary_pyspark.py``)
-     - 12:24.583
+     - 13:21.530
      - 0.0
    * - :ref:`sphx_glr_auto_examples_1_train_plot_0_model_train.py` (``plot_0_model_train.py``)
      - 00:00.000

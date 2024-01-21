@@ -159,7 +159,7 @@ exp.model_compare()
 <details open>
   <summary><strong>PiML, ReLU-DNN Aletheia and GAMI-Net</strong></summary><hr/>
 
-  "PiML Toolbox for Interpretable Machine Learning Model Development and Diagnostics" (A. Sudjianto, A. Zhang, Z. Yang, Y. Su and N. Zeng, 2023)  
+  "PiML Toolbox for Interpretable Machine Learning Model Development and Diagnostics" (A. Sudjianto, A. Zhang, Z. Yang, Y. Su and N. Zeng, 2023) <a href="https://arxiv.org/abs/2305.04214">arXiv link</a>  
 
   ```latex
   @article{sudjianto2023piml,

@@ -39,7 +39,7 @@ The exact solution is obtained using the Shapley value formula, which requires e
 
 where :math:`val` is the value function that returns the prediction of each coalition. The marginal contribution of feature :math:`i` to the coalition :math:`S` is calculated as the difference between the value of the coalition with the addition of feature :math:`i` and the value of the original coalition, i.e., :math:`val(S \cup \{i\}) - val(S)`. The term :math:`\frac{|S|!(p-|S|-1)!}{p!}` is a normalization factor. When the number of features is small, this exact estimation approach is acceptable. However, as the number of features increases, the exact solution may become problematic.
 
-It's worth noting that the value function :math:`val`` takes the feature coalition :math:`S` as input. However, in machine learning models, the prediction is not solely based on the feature coalition but on the entire feature vector. Therefore, we need to specify how removing a feature from the feature vector affects the prediction. Two common approaches are available, both of which depend on a pre-defined background distribution instead of merely replacing the "missing" features with a fixed value.
+It's worth noting that the value function :math:`val` takes the feature coalition :math:`S` as input. However, in machine learning models, the prediction is not solely based on the feature coalition but on the entire feature vector. Therefore, we need to specify how removing a feature from the feature vector affects the prediction. Two common approaches are available, both of which depend on a pre-defined background distribution instead of merely replacing the "missing" features with a fixed value.
 
 The former conditions the set of features in the coalition and uses the remaining features to estimate the missing features, but it can be challenging to obtain the conditional expectation in practice. The latter approach breaks the dependency among features and intervenes directly on the missing features of the sample being explained, using corresponding features from the background sample. This approach is used in the KernelSHAP algorithm.
 
@@ -132,7 +132,7 @@ The summary plot, identified by the keyword "shap_summary," displays the Shapley
    :target: ../../auto_examples/2_explain/plot_5_shap.html
    :align: left
   
-The summary plot, with feature names displayed on the y-axis and Shapley values on the x-axis, uses blue and red to indicate low and high feature values, respectively. The plot suggests that `hr`` had the greatest impact on the model output, followed by `atemp`, `season`, and `hum`.
+The summary plot, with feature names displayed on the y-axis and Shapley values on the x-axis, uses blue and red to indicate low and high feature values, respectively. The plot suggests that `hr` had the greatest impact on the model output, followed by `atemp`, `season`, and `hum`.
 
 SHAP Dependence Plot
 """"""""""""""""""""""""""""""""

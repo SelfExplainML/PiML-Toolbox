@@ -19,7 +19,7 @@ where each main effect :math:`h_{j}(x_{j})` or pairwise interaction :math:`f_{jk
 
 - Detect interactions by a FAST algorithm (details in [Lou2013]_).
 
-- For each interaction :math:`(x_{j}, x_{k})`, model it by a depth-2 tree, either 1 cut in :math:`x_{j}`` and 2 cuts in :math:`x_{k}`, or 2 cuts in :math:`x_j`` and 1 cut in :math:`x_{k}` (pick the better one).
+- For each interaction :math:`(x_{j}, x_{k})`, model it by a depth-2 tree, either 1 cut in :math:`x_{j}` and 2 cuts in :math:`x_{k}`, or 2 cuts in :math:`x_j` and 1 cut in :math:`x_{k}` (pick the better one).
 
 - Iteratively fit all the detected interactions until convergence. 
 

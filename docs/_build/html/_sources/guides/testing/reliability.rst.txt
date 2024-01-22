@@ -14,7 +14,7 @@ Reliability for Regression Tasks
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 Conformalized residual quantile regression (CRQR) is a model-agnostic approach for assessing the reliability of regression models. It operates within the framework of conformal prediction, assuming that validation samples are interchangeable with testing samples. The CRQR method can be applied to any model denoted as :math:`\hat{f}(x)`. Its definition is as follows:
 
-- Fit a quantile regression model :math:`\hat{g}_{\alpha}(x)`` to predict the residuals :math:`y_{i}-\hat{f}(x_{i})` of training data.
+- Fit a quantile regression model :math:`\hat{g}_{\alpha}(x)` to predict the residuals :math:`y_{i}-\hat{f}(x_{i})` of training data.
 
 - Define the conformal score for the residual :math:`\epsilon_{i}=y_{i}-\hat{f}(x_{i})`:
 

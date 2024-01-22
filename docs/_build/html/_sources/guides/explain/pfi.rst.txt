@@ -17,7 +17,7 @@ Assuming we have a fully trained model, denoted by :math:`f(x)`, and a dataset e
 
 First of all, we evaluate the performance of the model and the data and record the resulting performance score. Next, for each feature :math:`k`, do the following:
 
-- Randomly shuffle the values of feature :math:`k`` in the original dataset, while the rest feature values keep unchanged. By doing so, we generate a shuffled dataset.
+- Randomly shuffle the values of feature :math:`k` in the original dataset, while the rest feature values keep unchanged. By doing so, we generate a shuffled dataset.
 
 - Evaluate the model performance on the shuffled dataset, and record the resulting performance score.
 

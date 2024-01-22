@@ -254,7 +254,7 @@
 <p>Assuming we have a fully trained model, denoted by <span class="math notranslate nohighlight">\(f(x)\)</span>, and a dataset either training or testing data. For the time being, PiML only uses training data for the PFI calculation, and more flexible options will be provided in the future release.</p>
 <p>First of all, we evaluate the performance of the model and the data and record the resulting performance score. Next, for each feature <span class="math notranslate nohighlight">\(k\)</span>, do the following:</p>
 <ul class="simple">
-<li><p>Randomly shuffle the values of feature <span class="math notranslate nohighlight">\(k`\)</span> in the original dataset, while the rest feature values keep unchanged. By doing so, we generate a shuffled dataset.</p></li>
+<li><p>Randomly shuffle the values of feature <span class="math notranslate nohighlight">\(k\)</span> in the original dataset, while the rest feature values keep unchanged. By doing so, we generate a shuffled dataset.</p></li>
 <li><p>Evaluate the model performance on the shuffled dataset, and record the resulting performance score.</p></li>
 <li><p>Compute the performance degradation, and this is viewed as the importance of feature <span class="math notranslate nohighlight">\(k\)</span>.</p></li>
 </ul>

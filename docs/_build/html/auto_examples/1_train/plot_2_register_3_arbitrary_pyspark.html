@@ -136,14 +136,14 @@ to download the full example code or to run this example in your browser via Bin
 <section class="sphx-glr-example-title" id="register-pyspark-models">
 <span id="sphx-glr-auto-examples-1-train-plot-2-register-3-arbitrary-pyspark-py"></span><h1>Register PySpark Models<a class="headerlink" href="#register-pyspark-models" title="Permalink to this heading">¶</a></h1>
 <p>Here we show how to write a wrapper for PySpark models.</p>
-<p>For demonstration, we first fit a Decision tree model using SimuCredit data.</p>
+<p>For demonstration, we first fit a GBT model using SimuCredit data.</p>
 <div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">os</span>
 <a href="https://docs.python.org/3/library/os.html#os.environ" title="os.environ" class="sphx-glr-backref-module-os sphx-glr-backref-type-py-data"><span class="n">os</span><span class="o">.</span><span class="n">environ</span></a><span class="p">[</span><span class="s2">&quot;PYSPARK_PYTHON&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;python&quot;</span>
 
 <span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
 <span class="kn">from</span> <span class="nn">pyspark.ml</span> <span class="kn">import</span> <span class="n">Pipeline</span>
 <span class="kn">from</span> <span class="nn">pyspark.sql</span> <span class="kn">import</span> <span class="n">SparkSession</span>
-<span class="kn">from</span> <span class="nn">pyspark.ml.classification</span> <span class="kn">import</span> <span class="n">DecisionTreeClassifier</span>
+<span class="kn">from</span> <span class="nn">pyspark.ml.classification</span> <span class="kn">import</span> <span class="n">GBTClassifier</span>
 <span class="kn">from</span> <span class="nn">pyspark.ml.feature</span> <span class="kn">import</span> <span class="n">VectorAssembler</span>
 
 <span class="n">data</span> <span class="o">=</span> <a href="https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.read_csv.html#pandas.read_csv" title="pandas.read_csv" class="sphx-glr-backref-module-pandas sphx-glr-backref-type-py-function"><span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span></a><span class="p">(</span><span class="s1">&#39;https://github.com/SelfExplainML/PiML-Toolbox/blob/main/datasets/SimuCredit.csv?raw=true&#39;</span><span class="p">)</span>
@@ -155,8 +155,8 @@ to download the full example code or to run this example in your browser via Bin
 <span class="n">train_data</span><span class="p">,</span> <span class="n">test_data</span> <span class="o">=</span> <span class="n">spark_df</span><span class="o">.</span><span class="n">randomSplit</span><span class="p">([</span><span class="mf">0.8</span><span class="p">,</span> <span class="mf">0.2</span><span class="p">],</span> <span class="n">seed</span><span class="o">=</span><span class="mi">2024</span><span class="p">)</span>
 
 <span class="n">feature_assembler</span> <span class="o">=</span> <span class="n">VectorAssembler</span><span class="p">(</span><span class="n">inputCols</span><span class="o">=</span><span class="n">feature_names</span><span class="p">,</span> <span class="n">outputCol</span><span class="o">=</span><span class="s2">&quot;features&quot;</span><span class="p">)</span>
-<span class="n">dt</span> <span class="o">=</span> <span class="n">DecisionTreeClassifier</span><span class="p">(</span><span class="n">labelCol</span><span class="o">=</span><span class="n">target_name</span><span class="p">,</span> <span class="n">seed</span><span class="o">=</span><span class="mi">2024</span><span class="p">)</span>
-<span class="n">pipeline</span> <span class="o">=</span> <span class="n">Pipeline</span><span class="p">(</span><span class="n">stages</span><span class="o">=</span><span class="p">[</span><span class="n">feature_assembler</span><span class="p">,</span> <span class="n">dt</span><span class="p">])</span>
+<span class="n">gbt</span> <span class="o">=</span> <span class="n">GBTClassifier</span><span class="p">(</span><span class="n">labelCol</span><span class="o">=</span><span class="n">target_name</span><span class="p">,</span> <span class="n">seed</span><span class="o">=</span><span class="mi">2024</span><span class="p">)</span>
+<span class="n">pipeline</span> <span class="o">=</span> <span class="n">Pipeline</span><span class="p">(</span><span class="n">stages</span><span class="o">=</span><span class="p">[</span><span class="n">feature_assembler</span><span class="p">,</span> <span class="n">gbt</span><span class="p">])</span>
 <span class="n">model</span> <span class="o">=</span> <span class="n">pipeline</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">train_data</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -187,25 +187,25 @@ to download the full example code or to run this example in your browser via Bin
                              <span class="n">test_y</span><span class="o">=</span><span class="n">test_data</span><span class="o">.</span><span class="n">select</span><span class="p">(</span><span class="n">target_name</span><span class="p">)</span><span class="o">.</span><span class="n">toPandas</span><span class="p">()</span><span class="o">.</span><span class="n">values</span><span class="p">,</span>
                              <span class="n">feature_names</span><span class="o">=</span><span class="n">feature_names</span><span class="p">,</span>
                              <span class="n">target_name</span><span class="o">=</span><span class="n">target_name</span><span class="p">)</span>
-<span class="n">exp</span><span class="o">.</span><span class="n">register</span><span class="p">(</span><span class="n">pipeline</span><span class="p">,</span> <span class="s2">&quot;Spark-DT&quot;</span><span class="p">)</span>
+<span class="n">exp</span><span class="o">.</span><span class="n">register</span><span class="p">(</span><span class="n">pipeline</span><span class="p">,</span> <span class="s2">&quot;Spark-GBT&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>Check model performance</p>
-<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="n">exp</span><span class="o">.</span><span class="n">model_diagnose</span><span class="p">(</span><span class="n">model</span><span class="o">=</span><span class="s2">&quot;Spark-DT&quot;</span><span class="p">,</span> <span class="n">show</span><span class="o">=</span><span class="s2">&quot;accuracy_table&quot;</span><span class="p">)</span>
+<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="n">exp</span><span class="o">.</span><span class="n">model_diagnose</span><span class="p">(</span><span class="n">model</span><span class="o">=</span><span class="s2">&quot;Spark-GBT&quot;</span><span class="p">,</span> <span class="n">show</span><span class="o">=</span><span class="s2">&quot;accuracy_table&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
-<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>          ACC     AUC      F1  LogLoss    Brier
+<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>           ACC      AUC       F1 LogLoss   Brier
 
-Train  0.6894  0.7282  0.7114   0.6023   0.2066
-Test   0.6915  0.7294  0.7160   0.6018   0.2065
-Gap    0.0020  0.0011  0.0046  -0.0005  -0.0002
+Train   0.7046   0.7737   0.7253  0.5658  0.1923
+Test    0.6991   0.7552   0.7243  0.5846  0.1996
+Gap    -0.0055  -0.0185  -0.0010  0.0188  0.0073
 </pre></div>
 </div>
 <p>Run validataion tests</p>
-<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="n">exp</span><span class="o">.</span><span class="n">model_explain</span><span class="p">(</span><span class="n">model</span><span class="o">=</span><span class="s2">&quot;Spark-DT&quot;</span><span class="p">,</span> <span class="n">show</span><span class="o">=</span><span class="s2">&quot;pdp&quot;</span><span class="p">,</span> <span class="n">uni_feature</span><span class="o">=</span><span class="s2">&quot;Balance&quot;</span><span class="p">,</span> <span class="n">sample_size</span><span class="o">=</span><span class="mi">1000</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">4</span><span class="p">))</span>
+<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="n">exp</span><span class="o">.</span><span class="n">model_explain</span><span class="p">(</span><span class="n">model</span><span class="o">=</span><span class="s2">&quot;Spark-GBT&quot;</span><span class="p">,</span> <span class="n">show</span><span class="o">=</span><span class="s2">&quot;pdp&quot;</span><span class="p">,</span> <span class="n">uni_feature</span><span class="o">=</span><span class="s2">&quot;Balance&quot;</span><span class="p">,</span> <span class="n">sample_size</span><span class="o">=</span><span class="mi">1000</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">4</span><span class="p">))</span>
 </pre></div>
 </div>
-<img src="../../_images/sphx_glr_plot_2_register_3_arbitrary_pyspark_001.png" srcset="../../_images/sphx_glr_plot_2_register_3_arbitrary_pyspark_001.png" alt="Partial Dependence Plot" class = "sphx-glr-single-img"/><p class="sphx-glr-timing"><strong>Total running time of the script:</strong> (13 minutes 21.530 seconds)</p>
+<img src="../../_images/sphx_glr_plot_2_register_3_arbitrary_pyspark_001.png" srcset="../../_images/sphx_glr_plot_2_register_3_arbitrary_pyspark_001.png" alt="Partial Dependence Plot" class = "sphx-glr-single-img"/><p class="sphx-glr-timing"><strong>Total running time of the script:</strong> (13 minutes 10.683 seconds)</p>
 <div class="sphx-glr-footer sphx-glr-footer-example docutils container" id="sphx-glr-download-auto-examples-1-train-plot-2-register-3-arbitrary-pyspark-py">
 <div class="binder-badge docutils container">
 <a class="reference external image-reference" href="https://mybinder.org/v2/gh/selfexplainml/piml-toolbox/main?urlpath=lab/tree/./docs/_build/html/notebooks/auto_examples/1_train/plot_2_register_3_arbitrary_pyspark.ipynb"><img alt="Launch binder" src="../../_images/binder_badge_logo1.svg" width="150px" /></a>

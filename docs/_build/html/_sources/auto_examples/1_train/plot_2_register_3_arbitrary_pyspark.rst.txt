@@ -36,7 +36,7 @@ For demonstration, we first fit a Decision tree model using SimuCredit data.
     import pandas as pd
     from pyspark.ml import Pipeline
     from pyspark.sql import SparkSession
-    from pyspark.ml.classification import DecisionTreeClassifier
+    from pyspark.ml.classification import GBTClassifier
     from pyspark.ml.feature import VectorAssembler
 
     data = pd.read_csv('https://github.com/SelfExplainML/PiML-Toolbox/blob/main/datasets/SimuCredit.csv?raw=true')
@@ -48,8 +48,8 @@ For demonstration, we first fit a Decision tree model using SimuCredit data.
     train_data, test_data = spark_df.randomSplit([0.8, 0.2], seed=2024)
 
     feature_assembler = VectorAssembler(inputCols=feature_names, outputCol="features")
-    dt = DecisionTreeClassifier(labelCol=target_name, seed=2024)
-    pipeline = Pipeline(stages=[feature_assembler, dt])
+    gbt = GBTClassifier(labelCol=target_name, seed=2024)
+    pipeline = Pipeline(stages=[feature_assembler, gbt])
     model = pipeline.fit(train_data)
 
 
@@ -107,7 +107,7 @@ Register the fitted model into PiML (please make sure the datasets of different 
                                  test_y=test_data.select(target_name).toPandas().values,
                                  feature_names=feature_names,
                                  target_name=target_name)
-    exp.register(pipeline, "Spark-DT")
+    exp.register(pipeline, "Spark-GBT")
 
 
 
@@ -124,7 +124,7 @@ Check model performance
 
 .. code-block:: Python
 
-    exp.model_diagnose(model="Spark-DT", show="accuracy_table")
+    exp.model_diagnose(model="Spark-GBT", show="accuracy_table")
 
 
 
@@ -134,11 +134,11 @@ Check model performance
 
  .. code-block:: none
 
-              ACC     AUC      F1  LogLoss    Brier
-                                               
-    Train  0.6894  0.7282  0.7114   0.6023   0.2066
-    Test   0.6915  0.7294  0.7160   0.6018   0.2065
-    Gap    0.0020  0.0011  0.0046  -0.0005  -0.0002
+               ACC      AUC       F1 LogLoss   Brier
+                                                
+    Train   0.7046   0.7737   0.7253  0.5658  0.1923
+    Test    0.6991   0.7552   0.7243  0.5846  0.1996
+    Gap    -0.0055  -0.0185  -0.0010  0.0188  0.0073
 
 
 
@@ -151,7 +151,7 @@ Run validataion tests
 
 .. code-block:: Python
 
-    exp.model_explain(model="Spark-DT", show="pdp", uni_feature="Balance", sample_size=1000, figsize=(5, 4))
+    exp.model_explain(model="Spark-GBT", show="pdp", uni_feature="Balance", sample_size=1000, figsize=(5, 4))
 
 
 
@@ -167,7 +167,7 @@ Run validataion tests
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** (13 minutes 21.530 seconds)
+   **Total running time of the script:** (13 minutes 10.641 seconds)
 
 
 .. _sphx_glr_download_auto_examples_1_train_plot_2_register_3_arbitrary_pyspark.py:

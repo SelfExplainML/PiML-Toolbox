@@ -63,11 +63,11 @@ Algorithms for specific models
 """"""""""""""""""""""""""""""""
 In addition to exact solution and KernelSHAP, the shap_ package also provides specific estimation algorithms for certain models, e.g., LinearSHAP and TreeSHAP. The following paragraphs will introduce these algorithms in detail. However, most of the built-in models in PiML (except for `TreeRegressor` and `TreeClassifier`) do not benefit from these algorithms for the moment, and we instead use the exact solution or KernelSHAP.
 
-**LinearShap** computes the SHAP values for a linear model and can account for the correlations among the input features.
+**LinearSHAP** computes the SHAP values for a linear model and can account for the correlations among the input features.
 
 - Conditional expectation: Accounts for the correlation of features, and a subsample of data is used to estimate a transformation that can then be applied to explain any prediction of the model.
 
-- Interventional conditional expectation (default): Assumes features are independent, and the SHAP values for a linear model are:math:`coef * (x - \bar{x})`.
+- Interventional conditional expectation (default): Assumes features are independent, and the SHAP values for a linear model are :math:`coef * (x - \bar{x})`.
 
 **TreeSHAP** is a model-specific algorithm designed for tree-based models. In decision trees, each leaf node explicitly defines a feature interaction, allowing interactions not present in the tree structure to be ignored and reducing the number of coalitions. This reduction in coalitions greatly reduces computation time for tree-based models. TreeSHAP offers two ways to compute Shapley values:
 

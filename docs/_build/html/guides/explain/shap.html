@@ -207,8 +207,6 @@
                 </ul>
                 
                 
-                
-                
                 </ul>
               </div>
         </div>
@@ -286,10 +284,10 @@
 <section id="algorithms-for-specific-models">
 <h3><span class="section-number">4.7.1.3. </span>Algorithms for specific models<a class="headerlink" href="#algorithms-for-specific-models" title="Permalink to this heading">¶</a></h3>
 <p>In addition to exact solution and KernelSHAP, the <a class="reference external" href="https://pypi.org/project/shap/">shap</a> package also provides specific estimation algorithms for certain models, e.g., LinearSHAP and TreeSHAP. The following paragraphs will introduce these algorithms in detail. However, most of the built-in models in PiML (except for <code class="docutils literal notranslate"><span class="pre">TreeRegressor</span></code> and <code class="docutils literal notranslate"><span class="pre">TreeClassifier</span></code>) do not benefit from these algorithms for the moment, and we instead use the exact solution or KernelSHAP.</p>
-<p><strong>LinearShap</strong> computes the SHAP values for a linear model and can account for the correlations among the input features.</p>
+<p><strong>LinearSHAP</strong> computes the SHAP values for a linear model and can account for the correlations among the input features.</p>
 <ul class="simple">
 <li><p>Conditional expectation: Accounts for the correlation of features, and a subsample of data is used to estimate a transformation that can then be applied to explain any prediction of the model.</p></li>
-<li><p>Interventional conditional expectation (default): Assumes features are independent, and the SHAP values for a linear model are:math:<code class="docutils literal notranslate"><span class="pre">coef</span> <span class="pre">*</span> <span class="pre">(x</span> <span class="pre">-</span> <span class="pre">bar{x})</span></code>.</p></li>
+<li><p>Interventional conditional expectation (default): Assumes features are independent, and the SHAP values for a linear model are <span class="math notranslate nohighlight">\(coef * (x - \bar{x})\)</span>.</p></li>
 </ul>
 <p><strong>TreeSHAP</strong> is a model-specific algorithm designed for tree-based models. In decision trees, each leaf node explicitly defines a feature interaction, allowing interactions not present in the tree structure to be ignored and reducing the number of coalitions. This reduction in coalitions greatly reduces computation time for tree-based models. TreeSHAP offers two ways to compute Shapley values:</p>
 <ul class="simple">

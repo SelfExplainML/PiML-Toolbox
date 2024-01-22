@@ -50,7 +50,7 @@ As the data and model are already prepared in PiML, we can directly use the `mod
    :target: ../../auto_examples/2_explain/plot_0_pfi.html
    :align: left
 
-This analysis gives us valuable insights into how our model makes predictions. We see that the variable `hr` is the most important feature. `atemp`, and `workingday` also appear to be important predictors. The variable `holiday` seems to have zero contribution to the model. This is not surprising, as the dataset does not contain any holiday data. 
+This analysis gives us valuable insights into how our model makes predictions. We see that the variable `hr` is the most important feature. `atemp` and `workingday` also appear to be important predictors. The variable `holiday` seems to have zero contribution to the model. This is not surprising, as the dataset does not contain any holiday data. 
 
 
 Example

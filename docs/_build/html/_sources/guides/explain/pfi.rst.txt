@@ -8,7 +8,7 @@
 PFI (Permutation Feature Importance)
 ======================================
 
-The permutation feature importance (PFI) measures the influence of individual features on the model by calculating the increase in loss :math:`L`` when the feature set, typically one feature, is permuted [L2001]_. When a feature value is randomly shuffled, the relationship between the feature and the target is broken, and the resulting drop in model performance indicates the feature's significance. PFI can be used to assess the model's reliance on each feature in the input set. However, it should be noted that different models can have very different feature importance rankings, the PFI results can only reveal the importance of each feature to that specific model.
+The permutation feature importance (PFI) measures the influence of individual features on the model by calculating the increase in loss :math:`L` when the feature set, typically one feature, is permuted [L2001]_. When a feature value is randomly shuffled, the relationship between the feature and the target is broken, and the resulting drop in model performance indicates the feature's significance. PFI can be used to assess the model's reliance on each feature in the input set. However, it should be noted that different models can have very different feature importance rankings, the PFI results can only reveal the importance of each feature to that specific model.
 
 
 Algorithm Details

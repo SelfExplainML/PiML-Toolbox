@@ -157,7 +157,7 @@ from lightgbm import LGBMClassifier
 exp.model_train(LGBMClassifier(max_depth=7), name='LGBM-7')
 ```
 
-Then, compare it to inherently interpretable models (e.g. EBM and GAMI-Net): 
+Then, compare it to inherently interpretable models (e.g. XGB2 and GAMI-Net): 
 ```python
 exp.model_compare()
 ```

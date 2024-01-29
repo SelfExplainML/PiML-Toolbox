@@ -22,25 +22,25 @@
 PiML (or π-ML, /ˈpaɪ·ˈem·ˈel/) is a new Python toolbox for interpretable machine learning model development and validation. Through low-code interface and high-code APIs, PiML supports a growing list of inherently interpretable ML models:
 
 1. **GLM**: Linear/Logistic Regression with L1 ∨ L2 Regularization
-1. **GAM**: Generalized Additive Models using B-splines
-1. **Tree**: Decision Tree for Classification and Regression
-2. **FIGS**: Fast Interpretable Greedy-Tree Sums (Tan, et al. 2022)
-3. **XGB1**: Extreme Gradient Boosted Trees of Depth 1, with optimal binning (Chen and Guestrin, 2016; Navas-Palencia, 2020)
-3. **XGB2**: Extreme Gradient Boosted Trees of Depth 2, with effect purification (Chen and Guestrin, 2016; Lengerich, et al. 2020)
-4. **EBM**: Explainable Boosting Machine (Nori, et al. 2019; Lou, et al. 2013)
-5. **GAMI-Net**: Generalized Additive Model with Structured Interactions (Yang, Zhang and Sudjianto, 2021)
-6. **ReLU-DNN**: Deep ReLU Networks using Aletheia Unwrapper and Sparsification (Sudjianto, et al. 2020)
+2. **GAM**: Generalized Additive Models using B-splines
+3. **Tree**: Decision Tree for Classification and Regression
+4. **FIGS**: Fast Interpretable Greedy-Tree Sums (Tan, et al. 2022)
+5. **XGB1**: Extreme Gradient Boosted Trees of Depth 1, with optimal binning (Chen and Guestrin, 2016; Navas-Palencia, 2020)
+6. **XGB2**: Extreme Gradient Boosted Trees of Depth 2, with effect purification (Chen and Guestrin, 2016; Lengerich, et al. 2020)
+7. **EBM**: Explainable Boosting Machine (Nori, et al. 2019; Lou, et al. 2013)
+8. **GAMI-Net**: Generalized Additive Model with Structured Interactions (Yang, Zhang and Sudjianto, 2021)
+9. **ReLU-DNN**: Deep ReLU Networks using Aletheia Unwrapper and Sparsification (Sudjianto, et al. 2020)
 
 PiML also works for arbitrary supervised ML models under regression and binary classification settings. It supports a whole spectrum of outcome testing, including but not limited to the following:
 
 1. **Accuracy**: popular metrics like MSE, MAE for regression tasks and ACC, AUC, Recall, Precision, F1-score for binary classification tasks. 
-1. **Explainability**: post-hoc global explainers (PFI, PDP, ALE) and local explainers (LIME, SHAP).
-1. **Fairness**: disparity test and segmented analysis by integrating the solas-ai package.
-1. **WeakSpot**: identification of weak regions with high residuals by slicing techniques.
-2. **Overfit**: identification of overfitting regions according to train-test performance gap.
-3. **Reliability**: assessment of prediction uncertainty by split conformal prediction techniques.
-4. **Robustness**: evaluation of performance degradation under covariate noise perturbation.
-5. **Resilience**: evaluation of performance degradation under different out-of-distribution scenarios.
+2. **Explainability**: post-hoc global explainers (PFI, PDP, ALE) and local explainers (LIME, SHAP).
+3. **Fairness**: disparity test and segmented analysis by integrating the solas-ai package.
+4. **WeakSpot**: identification of weak regions with high residuals by slicing techniques.
+5. **Overfit**: identification of overfitting regions according to train-test performance gap.
+6. **Reliability**: assessment of prediction uncertainty by split conformal prediction techniques.
+7. **Robustness**: evaluation of performance degradation under covariate noise perturbation.
+8. **Resilience**: evaluation of performance degradation under different out-of-distribution scenarios.
 
 [Installation](#Install) | [Examples](#Example) | [Usage](#Usage) | [Citations](#Cite)
 
@@ -96,6 +96,11 @@ exp.data_prepare()
 <img src="https://github.com/SelfExplainML/PiML-Toolbox/blob/main/examples/results/data_prepare.png">
 
 ```python
+exp.data_quality()
+```
+<img src="https://github.com/SelfExplainML/PiML-Toolbox/blob/main/examples/results/data_quality.png">
+
+```python
 exp.feature_select()
 ```
 <img src="https://github.com/SelfExplainML/PiML-Toolbox/blob/main/examples/results/feature_select.png">
@@ -110,7 +115,6 @@ exp.eda()
 exp.model_train()
 ```
 <img src="https://github.com/SelfExplainML/PiML-Toolbox/blob/main/examples/results/model_train.png">
-
 
 ### Stage 3. Explain and Interpret
 ```python
@@ -134,23 +138,30 @@ exp.model_compare()
 ```
 <img src="https://github.com/SelfExplainML/PiML-Toolbox/blob/main/examples/results/model_compare.png">
 
+```python
+exp.model_fairness()
+```
+<img src="https://github.com/SelfExplainML/PiML-Toolbox/blob/main/examples/results/model_fairness.png">
+
+```python
+exp.model_fairness_compare()
+```
+<img src="https://github.com/SelfExplainML/PiML-Toolbox/blob/main/examples/results/model_fairness_compare.png">
 
 
 ## Arbitrary Black-Box Modeling
 For example, train a complex LightGBM with depth 7 and register it to the experiment: 
 
 ```python
-from lightgbm import LGBMRegressor
-pipeline = exp.make_pipeline(LGBMRegressor(max_depth=7))
-pipeline.fit() 
-exp.register(pipeline=pipeline, name='LGBM')
+from lightgbm import LGBMClassifier
+exp.model_train(LGBMClassifier(max_depth=7), name='LGBM-7')
 ```
 
 Then, compare it to inherently interpretable models (e.g. EBM and GAMI-Net): 
 ```python
 exp.model_compare()
 ```
-<img src="https://github.com/SelfExplainML/PiML-Toolbox/blob/main/examples/results/model_compare2.png">
+<img src="https://github.com/SelfExplainML/PiML-Toolbox/blob/main/examples/results/model_compare_2.png">
 
 
 

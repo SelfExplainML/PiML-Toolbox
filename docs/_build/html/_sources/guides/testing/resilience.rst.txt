@@ -40,7 +40,7 @@ To customize the resilience test, the following parameters can be specified:
 
 - `resilience_method`: This parameter determines the method for selecting the worst samples. The options include "worst-sample" (default), "hard-sample", "outer-sample", and "worst-cluster".
 - `immu_feature`: When selecting the worst samples, this parameter allows you to specify an immutable feature. The default value is None.
-- `metric`: You can choose the performance metric for evaluation. Supported metrics include "ACC", "AUC", and "F1" for binary classification, and "MSE", "MAE", and "R2" for regression tasks.
+- `metric`: You can choose the performance metric for evaluation. Supported metrics include "ACC", "AUC", "F1", "LogLoss", and "Brier" for binary classification, and "MSE", "MAE", and "R2" for regression tasks.
 - `distance_metrics`: This parameter determines the distance metric used to compare the worst test sample with the entire test sample. Available options include "PSI", "WD1", and "KS", and more details can be found in the documentation here_.
 - `alpha`: When the `resilience_method` is set to "worst-sample", "hard-sample", or "outer-sample", this parameter specifies the worst-sample ratio. The values range from 0.1 to 1.0, incrementing by 0.1. It is used in conjunction with the "resilience_distance", "resilience_shift_density", or "resilience_shift_histogram" plots.
 - `n_clusters`: When the `resilience_method` is set to "worst-cluster", this parameter determines the number of clusters to be considered. You may choose a value from 1 to 10. It is used in conjunction with the "resilience_distance", "resilience_shift_density", or "resilience_shift_histogram" plots.

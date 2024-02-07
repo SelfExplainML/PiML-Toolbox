@@ -42,7 +42,7 @@ For demonstration purposes, we consider an XGB2 model on the TaiwanCredit data. 
 
 - `bins`: This parameter determines the number of bins used for histogram slicing. By default, it is set to 10.
 
-- `metric`: You can choose the performance metric for evaluation, which includes "MSE", "MAE", and "R2" for regression tasks, and "ACC", "AUC", and "F1" for classification tasks. The default metric is "MSE" for regression and "ACC" for classification.
+- `metric`: You can choose the performance metric for evaluation, which includes "MSE", "MAE", and "R2" for regression tasks, and "ACC", "AUC", "F1", "LogLoss", and "Brier" for classification tasks. The default metric is "MSE" for regression and "ACC" for classification.
 
 - `threshold`: This parameter represents the performance metric threshold ratio used to distinguish between weak and good regions. The default value is set to 1.1, which corresponds to a 10% performance drop compared to the average metric. For example, if the AUC of the entire sample (train or test set) is 0.8, then the threshold would be calculated as 0.8 / 1.1 = 0.723. Regions with an AUC value lower than 0.723 will be classified as candidate weak regions. However, for metrics like MSE in regression tasks, the threshold is computed as 0.8 * 1.1 = 0.88 (also assuming the MSE for the entire sample is 0.8), as a smaller MSE value is considered better. Consequently, regions with an MSE greater than 0.88 will be identified as weak regions.
 

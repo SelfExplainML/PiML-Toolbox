@@ -213,8 +213,6 @@
                 </ul>
                 
                 
-                
-                
                 </ul>
               </div>
         </div>
@@ -284,7 +282,7 @@
 <li><p><code class="docutils literal notranslate"><span class="pre">slice_method</span></code>: This parameter allows you to select the desired slicing method from the available options: “histogram” and “tree”, which correspond to the three aforementioned slicing methods. The default value is “histogram”.</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">slice_features</span></code>: This argument is used to specify the list of slicing features. For weakspot analysis, you need to specify 1 or 2 slicing features; otherwise, a warning message will be displayed.</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">bins</span></code>: This parameter determines the number of bins used for histogram slicing. By default, it is set to 10.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">metric</span></code>: You can choose the performance metric for evaluation, which includes “MSE”, “MAE”, and “R2” for regression tasks, and “ACC”, “AUC”, and “F1” for classification tasks. The default metric is “MSE” for regression and “ACC” for classification.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">metric</span></code>: You can choose the performance metric for evaluation, which includes “MSE”, “MAE”, and “R2” for regression tasks, and “ACC”, “AUC”, “F1”, “LogLoss”, and “Brier” for classification tasks. The default metric is “MSE” for regression and “ACC” for classification.</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">threshold</span></code>: This parameter represents the performance metric threshold ratio used to distinguish between weak and good regions. The default value is set to 1.1, which corresponds to a 10% performance drop compared to the average metric. For example, if the AUC of the entire sample (train or test set) is 0.8, then the threshold would be calculated as 0.8 / 1.1 = 0.723. Regions with an AUC value lower than 0.723 will be classified as candidate weak regions. However, for metrics like MSE in regression tasks, the threshold is computed as 0.8 * 1.1 = 0.88 (also assuming the MSE for the entire sample is 0.8), as a smaller MSE value is considered better. Consequently, regions with an MSE greater than 0.88 will be identified as weak regions.</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">min_samples</span></code>: This parameter sets the minimum sample size required for a region to be considered weak. The default value is 20. Regions with a sample size below 20 will be ignored during the assessment.</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">use_test</span></code>: This boolean parameter allows you to switch between using the training or testing data. By default, it is set to False, indicating the use of the training data. To utilize the testing data, you can set <code class="docutils literal notranslate"><span class="pre">use_test</span></code> to True.</p></li>

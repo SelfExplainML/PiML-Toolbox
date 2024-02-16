@@ -18,7 +18,7 @@
 
 
 <details open>
-  <summary><h3><strong>Machine Learning Model Validation, Dec 4, 2023 & Jan XX,  2024 | Information Sharing with GM Financial</strong></h3></summary><br /> 
+  <summary><h3><strong>Machine Learning Model Validation, Dec 4, 2023 & Jan XX,  2024 | GM Financial</strong></h3></summary><br /> 
 
 **Speaker:** Aijun Zhang
 
@@ -62,7 +62,7 @@ Click the ipynb links to run notebooks through Google Colab:
 </details>  
 
 <details open>
-  <summary><h3><strong>Responsible Machine Learning, July 2023 | QAP Training</strong></h3></summary><br /> 
+  <summary><h3><strong>Responsible Machine Learning, July 2023 | Quant Training</strong></h3></summary><br /> 
 
   **Speaker:** Aijun Zhang
 

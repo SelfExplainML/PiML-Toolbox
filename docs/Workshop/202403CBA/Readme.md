@@ -1,5 +1,5 @@
 <details open>
-  <summary><h3><strong>PiML Training, March 21-22, 2024 | CBA</strong></h3></summary><br /> 
+  <summary><h3><strong>PiML Training, March 21-22, 2024 | Commonwealth Bank</strong></h3></summary><br /> 
 
 **Speaker:** Vijay Nair and Aijun Zhang
 

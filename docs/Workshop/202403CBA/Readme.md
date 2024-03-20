@@ -5,7 +5,7 @@
 
 **Slides:** 
 
-- Session 1: Machine Learning: Conceputal Soundness
+- Session 1: Machine Learning: Conceptual Soundness
 - Session 2: Machine Learning: Outcome Analysis
 
 **Codes:** 

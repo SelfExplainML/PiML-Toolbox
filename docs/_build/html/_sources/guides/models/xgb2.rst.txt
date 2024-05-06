@@ -83,14 +83,14 @@ To visualize the estimated pairwise interaction, we can still use the keyword "g
 
 .. jupyter-input::
 
-     exp.model_interpret(model="XGB2", show="global_effect_plot", bi_features=["hr", "workingday"],
+     exp.model_interpret(model="XGB2", show="global_effect_plot", bi_features=["hr", "season"],
                          sliced_line=False, original_scale=True, figsize=(5, 4))
 
 .. figure:: ../../auto_examples/3_models/images/sphx_glr_plot_5_xgb2_reg_003.png
    :target: ../../auto_examples/3_models/plot_5_xgb2_reg.html
    :align: left
 
-The estimated pairwise interaction between `hr` and `workingday` is shown in the figure above. The plot reveals that the best hours of bike sharing can be quite different for workingday and non-working days. Similar to two-way PDP and ALE, the interaction heatmap can be viewed via sliced 1D line plot, by setting `sliced_line=True`. (This is the same for all the GAMI models, including EBM, GAMI-Net)
+The estimated pairwise interaction between `hr` and `season` is shown in the figure above. Similar to two-way PDP and ALE, the interaction heatmap can be viewed via sliced 1D line plot, by setting `sliced_line=True`. (This is the same for all the GAMI models, including EBM, GAMI-Net)
 
 
 Effect Importance

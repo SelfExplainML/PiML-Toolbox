@@ -56,9 +56,7 @@ Regarding PiML high-code APIs, it is worthwhile to mention that these APIs are f
 
 Interpretable Models
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-PiML supports a growing list of inherently interpretable models. For simplicity, we only list the models and the references. The following list of interpretable models are included PiML toolbox V0.5 (latest update: May 4, 2023). 
-
-PiML supports a growing list of inherently interpretable models. For simplicity, we only list the models and the references. The following list of interpretable models are included PiML toolbox V0.5 (latest update: May 4, 2023). 
+PiML supports a growing list of inherently interpretable models. For simplicity, we only list the models and the references. The following list of interpretable models are included PiML toolbox V0.6 (latest update: Feb. 2024).
 
 - **GLM**: Linear/logistic regression with :math:`\ell_1` and/or :math:`\ell_2` regularization [Hastie2015]_
 

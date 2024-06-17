@@ -70,7 +70,7 @@ XGB1 model also supports monotonicity constraints. However, instead of manually 
 With `exp.model_train`, the feature names are automatically inferred from the data. However, if you are using the XGB1 model separately, you may need to specify the `feature_names` parameter to ensure that the feature names are correctly identified; otherwise, the feature names will be set to "X0", "X1", etc.
 
 
-Sparsity via Binning Optimziation
+Sparsity via Binning Optimization
 """"""""""""""""""""""""""""""""""""""""""""""""""""
 In addition to the hyperparameters for XGB, we also provide hyperparameters for the binning optimization step. For example, you can control the binning results using the following two hyperparameters:
 

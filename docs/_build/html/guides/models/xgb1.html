@@ -300,8 +300,8 @@
 </ul>
 <p>With <code class="docutils literal notranslate"><span class="pre">exp.model_train</span></code>, the feature names are automatically inferred from the data. However, if you are using the XGB1 model separately, you may need to specify the <code class="docutils literal notranslate"><span class="pre">feature_names</span></code> parameter to ensure that the feature names are correctly identified; otherwise, the feature names will be set to “X0”, “X1”, etc.</p>
 </section>
-<section id="sparsity-via-binning-optimziation">
-<h3><span class="section-number">5.5.1.2. </span>Sparsity via Binning Optimziation<a class="headerlink" href="#sparsity-via-binning-optimziation" title="Permalink to this heading">¶</a></h3>
+<section id="sparsity-via-binning-optimization">
+<h3><span class="section-number">5.5.1.2. </span>Sparsity via Binning Optimization<a class="headerlink" href="#sparsity-via-binning-optimization" title="Permalink to this heading">¶</a></h3>
 <p>In addition to the hyperparameters for XGB, we also provide hyperparameters for the binning optimization step. For example, you can control the binning results using the following two hyperparameters:</p>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">max_n_bins</span></code>: This hyperparameter specifies the maximum number of bins allowed for each feature during the binning optimization process. Increasing this value can result in more flexible binning, but may also increase the risk of overfitting.</p></li>

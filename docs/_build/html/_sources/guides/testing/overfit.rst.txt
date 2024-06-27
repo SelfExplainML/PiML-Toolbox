@@ -34,7 +34,7 @@ To conduct an overfit assessment, you can use the `model_diagnose` function with
 
 - `metric`: Choose the performance metric for the assessment. The available options are "MSE" (default) and "MAE" for regression tasks, and "ACC" for classification tasks.
 
-- `threshold`: Set the performance gap threshold ratio. The default value is 1.1, indicating a 10% increase above the average performance gap.
+- `threshold`: Set the performance gap threshold ratio. The default value is 1.1, indicating test set performance is 10% worse than the training performance.
 
 - `min_samples`: Specify the minimum sample size for considering a weak region. The default value is 20. Regions with a sample size below 20 will be ignored in the assessment.
 

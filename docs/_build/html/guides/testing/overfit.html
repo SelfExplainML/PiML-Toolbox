@@ -272,7 +272,7 @@
 <li><p><code class="docutils literal notranslate"><span class="pre">slice_features</span></code>: Specify the list of slicing features to be used. You should specify 1 or 2 slicing features; otherwise, a warning message will be displayed.</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">bins</span></code>: This parameter determines the number of bins for histogram slicing. The default value is set to 10.</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">metric</span></code>: Choose the performance metric for the assessment. The available options are “MSE” (default) and “MAE” for regression tasks, and “ACC” for classification tasks.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">threshold</span></code>: Set the performance gap threshold ratio. The default value is 1.1, indicating a 10% increase above the average performance gap.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">threshold</span></code>: Set the performance gap threshold ratio. The default value is 1.1, indicating test set performance is 10% worse than the training performance.</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">min_samples</span></code>: Specify the minimum sample size for considering a weak region. The default value is 20. Regions with a sample size below 20 will be ignored in the assessment.</p></li>
 </ul>
 <p>By utilizing these parameters, you can perform an overfit assessment to identify regions where the model exhibits signs of overfitting based on the given slicing features and performance metrics.</p>

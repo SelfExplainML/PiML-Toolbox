@@ -26,6 +26,8 @@ Why MoDeVa?
 
  •	Seamless Validation: Effortlessly validate external black-box models using flexible wrappers.
 
+Check it out here: https://modeva.ai/
+
 --- 
 
 <div align="center">

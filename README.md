@@ -7,7 +7,6 @@
 </div>
 
 <div>
-  
 ---
 **March 30, 2025 by Dr. Agus Sudjianto**: **Farewell PiML, Hello MoDeVa!**
 
@@ -28,7 +27,8 @@ Why MoDeVa?
 --- 
 
 <div align="center">
-`pip install PiML`
+
+  `pip install PiML`
   
 🎄 **Dec 1, 2023:**  V0.6.0 is released with enhanced data handling and model analytics.
 

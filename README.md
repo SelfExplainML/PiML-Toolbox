@@ -4,23 +4,28 @@
 
 **An integrated Python toolbox for interpretable machine learning** 
 
+</div>
 
-:loudspeaker: **March 30, 2025 by Dr. Agus Sudjianto:**
-
-Farewell PiML, Hello MoDeVa!
+<div>
+:loudspeaker: **March 30, 2025 by Dr. Agus Sudjianto: Farewell PiML, Hello MoDeVa!**
 
 After three impactful years of empowering model developers and validators, we’re thrilled to introduce the next evolution: MoDeVa – MOdel DEvelopment & VAlidation.
 
 MoDeVa builds on the success of PiML, taking transparency, interpretability, and robustness in machine learning to a whole new level. Whether you’re in a high-stakes regulatory setting or exploring cutting-edge model architectures, MoDeVa is built to support your journey.
 
 Why MoDeVa?
-	•	Next-Gen Models: Interpretable ML models like Boosted Trees, Mixture of Experts, and Neural Trees—built for confident decision-making.
-	•	Model Hacking Redefined: Tools to uncover failure modes, analyze robustness, reliability and resilience. 
-	•	Interactive Statistical Visualizations: Bring models to life with dynamic graphs that go beyond static charts.
-	•	Seamless Validation: Effortlessly validate external black-box models using flexible wrappers.
+
+ •	Next-Gen Models: Interpretable ML models like Boosted Trees, Mixture of Experts, and Neural Trees—built for confident decision-making.
+
+ •	Model Hacking Redefined: Tools to uncover failure modes, analyze robustness, reliability and resilience. 
+
+ •	Interactive Statistical Visualizations: Bring models to life with dynamic graphs that go beyond static charts.
+
+ •	Seamless Validation: Effortlessly validate external black-box models using flexible wrappers.
 
 --- 
 
+<div align="center">
 `pip install PiML`
   
 🎄 **Dec 1, 2023:**  V0.6.0 is released with enhanced data handling and model analytics.
